@@ -1,0 +1,15 @@
+{% extends "registration/registration_base.html" %}
+{% block title %}Logged out{% endblock %}
+{% block body %}
+<div class="page-header">
+    <h1>Successfully logged out</h1>
+</div>
+
+<a href="{% url 'homepage' %}" class="btn btn-large">Visit homepage</a>
+
+<script type="text/javascript">
+    window.onbeforeunload = function(){}
+    // Prevents browser from showing cached version of login-require page
+</script>
+
+{% endblock %}

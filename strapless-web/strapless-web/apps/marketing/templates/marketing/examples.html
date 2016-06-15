@@ -1,0 +1,492 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="page-header">
+    <h1>Kitchen Sink</h1>
+</div>
+<div class="row p-b-2">
+    <div class="col-md-4">
+        <h3>Buttons</h3>
+
+        <hr />
+
+        <span><p>asdfkljasfjalds fadsf asd</p></span>
+        <hr />
+        <div class="p-b-1">
+            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn btn-secondary">Secondary</button>
+            <button type="button" class="btn btn-success">Success</button>
+        </div>
+        <div class="p-b-1">
+            <button type="button" class="btn btn-info">Info</button>
+            <button type="button" class="btn btn-warning">Warning</button>
+            <button type="button" class="btn btn-danger">Danger</button>
+            <button type="button" class="btn btn-link">Link</button>
+        </div>
+        <h3>Alerts</h3>
+        <hr />
+        <div class="alert alert-success" role="alert">
+            <strong>Well done!</strong> You successfully read this important alert message.
+        </div>
+        <div class="alert alert-info" role="alert">
+            <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+        </div>
+        <div class="alert alert-warning" role="alert">
+            <strong>Warning!</strong> Better check yourself, you're not looking too good.
+        </div>
+        <div class="alert alert-danger" role="alert">
+            <strong>Oh snap!</strong> Change a few things up and try submitting again.
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h3>Text</h3>
+        <hr />
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+        <p><del>This line of text is meant to be treated as deleted text.</del></p>
+        <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+        <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+        <p><u>This line of text will render as underlined</u></p>
+        <p><small>This line of text is meant to be treated as fine print.</small></p>
+        <p><strong>This line rendered as bold text.</strong></p>
+        <p><em>This line rendered as italicized text.</em></p>
+        <h3>Progress Bars</h3>
+        <hr />
+        <progress class="progress" value="10" max="100">10%</progress>
+        <progress class="progress progress-success" value="25" max="100">25%</progress>
+        <progress class="progress progress-info" value="50" max="100">50%</progress>
+        <progress class="progress progress-striped progress-warning" value="75" max="100">75%</progress>
+        <progress class="progress progress-striped progress-danger" value="100" max="100">100%</progress>
+    </div>
+</div>
+<h3>Cards</h3>
+<hr />
+<div class="row p-b-2">
+    <div class="col-sm-3">
+        <div class="card">
+            <img class="card-img-top img-fluid" src="http://placehold.it/900x450" alt="Card image">
+            <div class="card-block">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+        <div class="card text-xs-center">
+            <div class="card-block">
+                <h4 class="card-title">Special title treatment</h4>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+            </div>
+            <div class="card-footer text-muted small">
+                2 days ago
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card card-block">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Card title</h4>
+                <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+            </div>
+            <img class="img-fluid" src="http://placehold.it/400x150" alt="Card image">
+            <div class="card-block">
+                <p class="card-text">Some quick example text</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card card-block text-xs-right">
+            <h4 class="card-title">Special title treatment</h4>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                Featured
+            </div>
+            <div class="card-block">
+                <h4 class="card-title">Special title treatment</h4>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card card-inverse card-primary text-xs-center">
+            <div class="card-block">
+                <blockquote class="card-blockquote">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+            </div>
+        </div>
+        <div class="card card-inverse" style="background-color: #333; border-color: #333;">
+            <div class="card-block">
+                <h3 class="card-title">Special title treatment</h3>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Button</a>
+            </div>
+        </div>
+            <div class="card card-inverse card-success">
+            <div class="card-block">
+                <p class="card-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <h3>Labels <span class="label label-default">e.g.</span></h3>
+        <hr />
+        <p>
+            <span class="label label-default">Default</span>
+            <span class="label label-primary">Primary</span>
+            <span class="label label-success">Success</span>
+            <span class="label label-info">Info</span>
+            <span class="label label-warning">Warning</span>
+            <span class="label label-danger">Danger</span>
+        </p>
+        <p>
+            <span class="label label-pill label-default">Default</span>
+            <span class="label label-pill label-primary">Primary</span>
+            <span class="label label-pill label-success">Success</span>
+            <span class="label label-pill label-info">Info</span>
+            <span class="label label-pill label-warning">Warning</span>
+            <span class="label label-pill label-danger">Danger</span>
+        </p>
+        <h3 class="p-t-1">List Groups</h3>
+        <hr />
+        <div class="list-group">
+            <a href="#" class="list-group-item">
+                <h5 class="list-group-item-heading">List group item heading</h5>
+                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a href="#" class="list-group-item active">
+                <h5 class="list-group-item-heading">Active list group item heading</h5>
+                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+            <a href="#" class="list-group-item">Morbi leo risus</a>
+            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+            <a href="#" class="list-group-item">Vestibulum at eros</a>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h3>Table</h3>
+        <hr />
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-success">
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr class="table-warning">
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Michael</td>
+                        <td>Scott</td>
+                        <td>@mscott</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>Jiminy</td>
+                        <td>Cricket</td>
+                        <td>@jcrizle</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td>Felix</td>
+                        <td>Cat</td>
+                        <td>@fcat</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h3 class="p-t-1">Interactions</h3>
+        <hr />
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>Modal</h5>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Launch demo modal
+                </button>
+            </div>
+            <div class="col-sm-4">
+                <h5>Tooltips <small>(hover)</small></h5>
+                <button type="button" class="btn btn-secondary m-b-1" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                    On top
+                </button>
+                <button type="button" class="btn btn-secondary m-b-1" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+                    On right
+                </button>
+                <button type="button" class="btn btn-secondary m-b-1" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+                    On bottom
+                </button>
+                <button type="button" class="btn btn-secondary m-b-1" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+                    On left
+                </button>
+            </div>
+            <div class="col-sm-4">
+                <h5>Popovers <small>(click)</small></h5>
+                <button type="button" class="btn btn-secondary m-b-1" data-container="body" data-toggle="popover" data-placement="top" title="Popover Title" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                    On top
+                </button>
+                <button type="button" class="btn btn-secondary m-b-1" data-container="body" data-toggle="popover" data-placement="right" title="Popover Title" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                    On right
+                </button>
+                <button type="button" class="btn btn-secondary m-b-1" data-container="body" data-toggle="popover" data-placement="bottom" title="Popover Title" data-content="Vivamus
+                sagittis lacus vel augue laoreet rutrum faucibus.">
+                    On bottom
+                </button>
+                <button type="button" class="btn btn-secondary m-b-1" data-container="body" data-toggle="popover" data-placement="left" title="Popover Title" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                    On left
+                </button>
+            </div>
+        </div>
+        <div id="exampleModal" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>One fine body&hellip;</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+<h3>Forms</h3>
+<hr />
+<div class="row">
+    <div class="col-sm-4">
+        <h4>Standard</h4>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                <small class="text-muted">Help text</small>
+            </div>
+            <div class="form-group has-error">
+                <label for="exampleErrorInput">Password<span class="req">*</span></label>
+                <input type="password" class="form-control" id="exampleErrorInput" placeholder="I haz error">
+                <small class="text-error">This field is required</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleSelect1">Example select</label>
+                <select class="form-control" id="exampleSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleSelect2">Example multiple select</label>
+                <select multiple class="form-control" id="exampleSelect2">
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleTextarea">Example textarea</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" class="form-control-file" id="exampleInputFile">
+                <small class="text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+            </div>
+            <h6>Radio</h6>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                    Option one
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    Option two
+                </label>
+            </div>
+            <div class="radio disabled">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+                    Option three is disabled
+                </label>
+            </div>
+            <h6>Checkbox</h6>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Check me out
+                </label>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-8">
+        <h4>Horizontal</h4>
+        <form>
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 form-control-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2">Radios</label>
+                <div class="col-sm-10">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                            Option one is this and that&mdash;be sure to include why it's great
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                            Option two can be something else and selecting it will deselect option one
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-secondary">Sign in</button>
+                </div>
+            </div>
+        </form>
+        <h4 class="p-t-1">Inline</h4>
+        <hr />
+        <form class="form-inline p-b-1">
+            <h6>Visible Labels</h6>
+            <div class="form-group">
+                <label for="exampleInputName2">Name</label>
+                <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail2">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+        <form class="form-inline p-b-1">
+            <h6>No Labels</h6>
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputPassword3">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+        <div class="p-b-1">
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+            </label>
+        </div>
+        <div class="p-b-1">
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+            </label>
+        </div>
+        <h4 class="p-t-1">Custom controls</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                <div class="c-inputs-stacked">
+                    <label class="c-input c-checkbox">
+                        <input type="checkbox">
+                        <span class="c-indicator"></span>
+                        Check this custom checkbox
+                    </label>
+                    <label class="c-input c-radio">
+                        <input id="radioStacked1" name="radio-stacked" type="radio">
+                        <span class="c-indicator"></span>
+                        Toggle this custom radio
+                    </label>
+                    <label class="c-input c-radio">
+                        <input id="radioStacked2" name="radio-stacked" type="radio">
+                        <span class="c-indicator"></span>
+                        Or toggle this other custom radio
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <select class="c-select">
+                    <option selected>Open this custom select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+{% block footer_scripts %}
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="popover"]').popover();
+    });
+</script>
+{% endblock %}

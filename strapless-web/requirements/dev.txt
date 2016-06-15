@@ -1,0 +1,4 @@
+-r base.txt
+pip-tools==1.1.4
+ipdb==0.8.1
+django-debug-toolbar==1.2.1

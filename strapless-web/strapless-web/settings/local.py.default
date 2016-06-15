@@ -1,0 +1,20 @@
+from __future__ import absolute_import
+
+# local domains/hosts etc.
+#DOMAIN_NAME = 'localhost:80'
+#WWW_ROOT = 'http://%s/' % DOMAIN_NAME
+
+#local database
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': '%s' % PROJECT_NAME,
+#        'HOST': 'localhost',
+#        'USER': 'root',
+#        'PASSWORD': '',
+#        'OPTIONS': {
+#           'init_command': 'SET storage_engine=INNODB',
+#        },
+#        'ATOMIC_REQUEST': True,
+#    }
+#}

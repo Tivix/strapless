@@ -1,0 +1,31 @@
+---
+
+-   name: Provision AWS resources
+    hosts: localhost
+    connection: local
+    gather_facts: False
+    roles:
+        - aws
+    vars_files:
+        - other_vars/aws.yml
+        - env_vars/branch.yml
+
+-   name: Create entire site
+    hosts: aws_webservers
+    sudo: yes
+    sudo_user: root
+    remote_user: ubuntu
+    roles:
+        - users
+        - base
+        - git
+        - python
+        - postgresql
+        - etc   # so that pygraphviz requirements are met before virtualenv install reqs
+        - virtualenv
+        - nginx
+        - lessc
+        - django
+        - uwsgi
+    vars_files:
+        - env_vars/branch.yml

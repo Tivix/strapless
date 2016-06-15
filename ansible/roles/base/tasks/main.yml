@@ -1,0 +1,32 @@
+---
+
+-   name: Update/Upgrade the current OS packages
+    apt: update_cache=yes upgrade=safe
+    notify:
+        - reboot server
+
+-   name: Install base packages
+    apt: name={{ item }} update_cache={{ update_apt_cache }} state=latest
+    with_items:
+        - build-essential
+        - libcurl4-openssl-dev
+        - libjpeg-dev
+        - language-pack-en
+        - vim
+        - ntp
+        - libpq-dev
+        - libffi-dev
+    notify:
+        - reboot server
+
+-   name: Source control systems
+    apt: name={{ item }} update_cache={{ update_apt_cache }} state=latest
+    with_items:
+        - git-core
+        - subversion
+        - mercurial
+
+-   name: Other misc.
+    apt: name={{ item }} update_cache={{ update_apt_cache }} state=latest
+    with_items:
+        - memcached

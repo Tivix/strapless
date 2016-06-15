@@ -1,0 +1,1 @@
+Account registration for {{ current_site.name }}

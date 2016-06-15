@@ -1,0 +1,6 @@
+---
+
+nginx_log_dir: "{{ virtualenv_path }}/logs"
+
+nginx_access_log_file: "{{ nginx_log_dir }}/nginx_access.log"
+nginx_error_log_file: "{{ nginx_log_dir }}/nginx_error.log"

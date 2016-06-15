@@ -1,0 +1,17 @@
+---
+
+
+# Create a server
+- local_action:
+    module: linode
+    api_key: '{{ linode_api_key }}'
+    name: '{{ application_name }}_{{ env }}'
+    plan: 1
+    datacenter: 'fremont'
+    distribution: 'Ubuntu 14.04 LTS'
+    password: '{{ linode_root_password }}'
+    ssh_pub_key: 'ssh-rsa {{ application_name }}_linode'
+    swap: 768
+    wait: yes
+    wait_timeout: 600
+    state: present

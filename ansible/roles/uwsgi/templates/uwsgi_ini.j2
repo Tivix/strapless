@@ -1,0 +1,45 @@
+# mysite_uwsgi.ini file
+[uwsgi]
+plugin = python
+
+# Django-related settings
+# the base directory (full path)
+chdir           = {{ django_manage_py_path }}
+# Django's wsgi file
+wsgi-file = {{ virtualenv_path }}/{{ application_name }}_wsgi.py
+
+# the virtualenv (full path)
+home            = {{ virtualenv_path }}
+
+# process-related settings
+# master
+master          = true
+# maximum number of worker processes
+processes       = {{ ansible_processor_cores * 5}}
+
+# TODO: Was: listen = {{ ansible_processor_cores * 100 }}
+#	but it causes problems on AWS:
+#   "Listen queue size is greater than the system max net.core.somaxconn (128)."
+listen          = 100  # request queue
+
+{% if env == 'dev' %}
+py-autoreload   = {{ wsgi_py_autoreload_seconds }}
+{% endif %}
+
+# the socket (use the full path to be safe
+socket           = :3031
+
+# ... with appropriate permissions - may be needed
+# chmod-socket    = 664
+
+# User ID & Group ID
+# TODO: app_code_user was put here instead of www-data to fix some file permissions.
+#      Think of a better idea how to solve file permissions.
+uid = {{ app_code_user }}
+gid = {{ app_code_group }}
+
+# clear environment on exit
+vacuum          = true
+
+logto = {{ uwsgi_logto_log_file }}
+daemonize = {{ uwsgi_daemonize_log_file }}

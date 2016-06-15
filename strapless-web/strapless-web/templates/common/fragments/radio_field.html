@@ -1,0 +1,12 @@
+<div id="id_{{ form_field.html_name }}_container" class="radio{% if css_classes %} {{ css_classes }}{% endif %}{% if form_field.errors %} has-error{% endif %}">
+    <label for="id_{{ form_field.html_name }}">
+        {{ form_field }}
+        {{ form_field.label }}{% if form_field.field.required %} <span class="req">*</span>{% endif %}
+    </label>
+    {% if help_text %}
+        <div class="small text-muted">{{ help_text }}</div>
+    {% endif %}
+    {% if form_field.errors %}
+        <div class="small text-danger">{{ form_field.errors }}</div>
+    {% endif %}
+</div>

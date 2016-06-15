@@ -1,0 +1,20 @@
+Django==1.8.4
+Fabric==1.10.2
+BeautifulSoup==3.2.1
+psycopg2==2.6.1
+Pillow==2.9.0
+python-memcached==1.57
+ipython==2.2.0
+
+django_compressor==2.0
+django-extensions==1.5.7
+django-libsass==0.6
+# django-userswitch==0.2.2  # NOTE Ver <=0.2.2 is broken! See below for git version.
+django-common-helpers==0.7.0
+django-allauth==0.23.0
+
+# NOTE Original django-userswitch has bugs and is incompatible with Django's
+#	custom User model functionality introduced in Django 1.5
+# 	Until fixes are merged upstream (https://github.com/ikraft/django-userswitch/pull/7 see later comments)
+#	django_userswitch_fork git snapshot is needed.
+-e git+http://github.com/Tivix/django-userswitch.git@cf3a396269d9f998e1#egg=django_userswitch_fork

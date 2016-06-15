@@ -1,0 +1,6 @@
+---
+
+uwsgi_log_dir: "{{ virtualenv_path }}/logs"
+
+uwsgi_logto_log_file: "{{ uwsgi_log_dir }}/uwsgi_global.log"
+uwsgi_daemonize_log_file: "{{ uwsgi_log_dir }}/uwsgi_{{ application_name }}.log"

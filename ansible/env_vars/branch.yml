@@ -1,0 +1,20 @@
+---
+
+env: "branch"
+bootstrap: no
+update_apt_cache: no
+app_code_user: "ubuntu"
+app_code_group: "ubuntu"
+home_path: "/home/ubuntu"
+code_path: "/home/ubuntu/repos/strapless_web"
+virtual_envs_home: "{{ home_path }}/webapps"
+virtualenv_path: "{{ virtual_envs_home }}/{{ application_name }}"
+subdomain_record_name: "{{ branch }}"
+server_names: "{{ subdomain_record_name }}.{{ project_root_domain }}"
+private_key_file: "{{ home_path }}/.ssh/id_rsa"
+code_branch: "{{ branch }}"
+aws_env: "{{ env }}-{{ branch }}"
+aws_ec2_instance_type: "t2.micro"
+aws_rds_instance_type: "db.t2.micro"
+aws_rds_size_gbs: 5
+aws_use_rds: yes

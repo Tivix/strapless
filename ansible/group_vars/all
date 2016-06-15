@@ -1,0 +1,24 @@
+# global
+project_name: strapless_web
+project_name_ascii:  djangobaseproject
+project_root_domain: tivixlabs.com
+application_name: "{{ project_name }}"
+git_repo_ssh: "ssh://git@github.com/Tivix/django-base-project.git"
+
+# code structure
+django_manage_py_path: "{{ code_path }}/{{ application_name }}"
+django_code_path: "{{ django_manage_py_path }}/{{ application_name }}"
+django_requirements_path: "{{ django_manage_py_path }}/requirements"
+
+# db stuff
+db_user: "{{ application_name }}"
+db_password: "{{ application_name }}!rules"
+db_name: "{{ application_name }}"
+
+# aws
+# ec2 - http://cloud-images.ubuntu.com/releases/14.04.3/14.04.3/
+aws_ami_id: "ami-478b262c"
+aws_num_ec2_instances: 1
+aws_region: "us-east-1"
+aws_zone_1: "a"
+aws_zone_2: "c"

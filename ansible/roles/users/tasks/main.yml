@@ -1,0 +1,12 @@
+---
+
+-   name: Make sure user is on server and generate ssh key for it
+    user: name={{ app_code_user }}
+        generate_ssh_key=yes
+
+-   name: Add public keys for developers
+    authorized_key: user={{ app_code_user }}
+                    key="{{ item }}"
+    with_file:
+        - ../public_keys/chachra-sumit.pub
+        - ../public_keys/connors-kyle.pub

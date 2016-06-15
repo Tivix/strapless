@@ -1,0 +1,29 @@
+<header>
+    <a class="company-logo" href="{% url 'homepage' %}">strapless_web</a>
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#nav_collapse">
+              &#9776;
+    </button>
+    <div id="nav_collapse">
+        <ul>
+            {% if request.user.is_authenticated %}
+                <li>
+                    <a href="#" data-toggle="dropdown">{{ request.user.username }}</a>
+                    <div>
+                        <a href="{% url 'profile_page' %}">Profile</a>
+                        <a href="{% url 'auth_logout' %}">Log out</a>
+                    </div>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url 'auth_login' %}">Log in</a>
+                </li>
+                <li>
+                    <a href="{% url 'account_signup' %}">Sign up</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</header>
