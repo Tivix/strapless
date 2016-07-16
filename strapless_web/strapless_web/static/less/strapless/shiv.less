@@ -1,0 +1,707 @@
+// TODO: some of this terminology feels crowded with our scheming features
+// TODO: should we deprecate and ship an actual shiv.less?
+
+@brand-primary: @action;
+@brand-secondary: @reaction;
+@brand-success: @success;
+@brand-info: @info;
+@brand-warning: @warning;
+@danger-color:@failure;
+@brand-danger: @failure;
+
+// this MIGHT be a temporary file
+// all of these variables are on the chopping block:
+
+
+@border-radius-base: @border-radius;
+@border-radius-large: @border-radius * 1.5;
+@border-radius-small: @border-radius * 1.5;
+
+@padding-base-vertical: @padding;
+@padding-base-horizontal: @padding;
+@padding-small-horizontal: @padding*.8;
+@padding-large-horizontal: @padding*1.5;
+@padding-large-vertical: @padding*1.5;
+@padding-small-vertical: @padding*.8;
+@padding-xs-vertical:@padding*.4;
+@padding-xs-horizontal:@padding*.4;
+
+@line-height-large: @line-height * 1.5;
+@line-height-small: @line-height *.8;
+
+@line-height-base: @line-height;
+
+@link-hover-color: white;
+
+@link-hover-decoration: underline;
+
+@thumbnail-padding: @padding;
+
+@thumbnail-bg: #ddd;
+
+@thumbnail-border: 1px solid blue;
+
+@thumbnail-border-radius: @border-radius;
+
+@screen-xs-min: @large-phone-break - 100;
+@screen-xs-max: @large-phone-break - 1;
+@screen-sm-min: @large-phone-break;
+@screen-md-min: @tablet-break;
+@screen-lg-min: @desktop-break;
+
+@screen-xs-max: @screen-sm-min - 1;
+
+@state-success-text: green;
+@state-success-bg: lighten(green,20%);
+
+@state-warning-text: red;
+@state-warning-bg: lighten(red,20%);
+
+@state-danger-text: red;
+@state-danger-bg: lighten(red,20%);
+
+@btn-default-color: white;
+@btn-default-bg: #ddd;
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+@btn-font-weight:                normal;
+
+@btn-default-color:              #333;
+@btn-default-bg:                 #fff;
+@btn-default-border:             #ccc;
+
+@btn-primary-color:              #fff;
+@btn-primary-bg:                 @brand-primary;
+@btn-primary-border:             darken(@btn-primary-bg, 5%);
+
+@btn-success-color:              #fff;
+@btn-success-bg:                 @brand-success;
+@btn-success-border:             darken(@btn-success-bg, 5%);
+
+@btn-info-color:                 #fff;
+@btn-info-bg:                    @brand-info;
+@btn-info-border:                darken(@btn-info-bg, 5%);
+
+@btn-warning-color:              #fff;
+@btn-warning-bg:                 @brand-warning;
+@btn-warning-border:             darken(@btn-warning-bg, 5%);
+
+@btn-danger-color:               #fff;
+@btn-danger-bg:                  @brand-danger;
+@btn-danger-border:              darken(@btn-danger-bg, 5%);
+
+@btn-link-disabled-color:        @gray-light;
+
+// Allows for customizing button radius independently from global border radius
+@btn-border-radius-base:         @border-radius-base;
+@btn-border-radius-large:        @border-radius-large;
+@btn-border-radius-small:        @border-radius-small;
+
+@code-color:#333;
+@code-bg:#ddd;
+@kbd-color:#333;
+@kbd-bg:@code-bg;
+
+@pre-color:@code-color;
+@pre-bg:@code-bg;
+@pre-border-color:red;
+@pre-scrollable-max-height:400px;
+
+
+@zindex-navbar:            1000;
+@zindex-dropdown:          1000;
+@zindex-popover:           1060;
+@zindex-tooltip:           1070;
+@zindex-navbar-fixed:      1030;
+@zindex-modal-background:  1040;
+@zindex-modal:             1050;
+
+//** Global color for active items (e.g., navs or dropdowns).
+@component-active-color:    #fff;
+//** Global background color for active items (e.g., navs or dropdowns).
+@component-active-bg:       @brand-primary;
+
+//** Width of the `border` for generating carets that indicate dropdowns.
+@caret-width-base:          4px;
+//** Carets increase slightly in size for larger components.
+@caret-width-large:         5px;
+
+@dropdown-link-hover-bg:red;
+
+//== Dropdowns
+//
+//## Dropdown menu container and contents.
+
+//** Background for the dropdown menu.
+@dropdown-bg:                    #fff;
+//** Dropdown menu `border-color`.
+@dropdown-border:                rgba(0,0,0,.15);
+//** Dropdown menu `border-color` **for IE8**.
+@dropdown-fallback-border:       #ccc;
+//** Divider color for between dropdown items.
+@dropdown-divider-bg:            #e5e5e5;
+
+//** Dropdown link text color.
+@dropdown-link-color:            @gray-dark;
+//** Hover color for dropdown links.
+@dropdown-link-hover-color:      darken(@gray-dark, 5%);
+//** Hover background for dropdown links.
+@dropdown-link-hover-bg:         #f5f5f5;
+
+//** Active dropdown menu item text color.
+@dropdown-link-active-color:     @component-active-color;
+//** Active dropdown menu item background color.
+@dropdown-link-active-bg:        @component-active-bg;
+
+//** Disabled dropdown menu item background color.
+@dropdown-link-disabled-color:   @gray-light;
+
+//** Text color for headers within dropdown menus.
+@dropdown-header-color:          @gray-light;
+
+//** Deprecated `@dropdown-caret-color` as of v3.1.0
+@dropdown-caret-color:           #000;
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+@state-success-text:             #3c763d;
+@state-success-bg:               #dff0d8;
+@state-success-border:           darken(spin(@state-success-bg, -10), 5%);
+
+@state-info-text:                #31708f;
+@state-info-bg:                  #d9edf7;
+@state-info-border:              darken(spin(@state-info-bg, -10), 7%);
+
+@state-warning-text:             #8a6d3b;
+@state-warning-bg:               #fcf8e3;
+@state-warning-border:           darken(spin(@state-warning-bg, -10), 5%);
+
+@state-danger-text:              #a94442;
+@state-danger-bg:                #f2dede;
+@state-danger-border:            darken(spin(@state-danger-bg, -10), 5%);
+
+//== List group
+//
+//##
+
+//** Background color on `.list-group-item`
+@list-group-bg:                 #fff;
+//** `.list-group-item` border color
+@list-group-border:             #ddd;
+//** List group border radius
+@list-group-border-radius:      @border-radius-base;
+
+//** Background color of single list items on hover
+@list-group-hover-bg:           #f5f5f5;
+//** Text color of active list items
+@list-group-active-color:       @component-active-color;
+//** Background color of active list items
+@list-group-active-bg:          @component-active-bg;
+//** Border color of active list elements
+@list-group-active-border:      @list-group-active-bg;
+//** Text color for content within active list items
+@list-group-active-text-color:  lighten(@list-group-active-bg, 40%);
+
+//** Text color of disabled list items
+@list-group-disabled-color:      @gray-light;
+//** Background color of disabled list items
+@list-group-disabled-bg:         @gray-lighter;
+//** Text color for content within disabled list items
+@list-group-disabled-text-color: @list-group-disabled-color;
+
+@list-group-link-color:         #555;
+@list-group-link-hover-color:   @list-group-link-color;
+@list-group-link-heading-color: #333;
+
+//== Panels
+//
+//##
+
+@panel-bg:                    #fff;
+@panel-body-padding:          15px;
+@panel-heading-padding:       10px 15px;
+@panel-footer-padding:        @panel-heading-padding;
+@panel-border-radius:         @border-radius-base;
+
+//** Border color for elements within panels
+@panel-inner-border:          #ddd;
+@panel-footer-bg:             #f5f5f5;
+
+@panel-default-text:          @gray-dark;
+@panel-default-border:        #ddd;
+@panel-default-heading-bg:    #f5f5f5;
+
+@panel-primary-text:          #fff;
+@panel-primary-border:        @brand-primary;
+@panel-primary-heading-bg:    @brand-primary;
+
+@panel-success-text:          @state-success-text;
+@panel-success-border:        @state-success-border;
+@panel-success-heading-bg:    @state-success-bg;
+
+@panel-info-text:             @state-info-text;
+@panel-info-border:           @state-info-border;
+@panel-info-heading-bg:       @state-info-bg;
+
+@panel-warning-text:          @state-warning-text;
+@panel-warning-border:        @state-warning-border;
+@panel-warning-heading-bg:    @state-warning-bg;
+
+@panel-danger-text:           @state-danger-text;
+@panel-danger-border:         @state-danger-border;
+@panel-danger-heading-bg:     @state-danger-bg;
+
+@well-bg:                     #f5f5f5;
+@well-border:                 darken(@well-bg, 7%);
+
+
+//== Badges
+//
+//##
+
+@badge-color:                 #fff;
+//** Linked badge text color on hover
+@badge-link-hover-color:      #fff;
+@badge-bg:                    @gray-light;
+
+//** Badge text color in active nav link
+@badge-active-color:          @link-color;
+//** Badge background color in active nav link
+@badge-active-bg:             #fff;
+
+@badge-font-weight:           bold;
+@badge-line-height:           1;
+@badge-border-radius:         10px;
+
+
+//== Breadcrumbs
+//
+//##
+
+@breadcrumb-padding-vertical:   8px;
+@breadcrumb-padding-horizontal: 15px;
+//** Breadcrumb background color
+@breadcrumb-bg:                 #f5f5f5;
+//** Breadcrumb text color
+@breadcrumb-color:              #ccc;
+//** Text color of current page in the breadcrumb
+@breadcrumb-active-color:       @gray-light;
+//** Textual separator for between breadcrumb elements
+@breadcrumb-separator:          "/";
+
+
+//== Carousel
+//
+//##
+
+@carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6);
+
+@carousel-control-color:                      #fff;
+@carousel-control-width:                      15%;
+@carousel-control-opacity:                    .5;
+@carousel-control-font-size:                  20px;
+
+@carousel-indicator-active-bg:                #fff;
+@carousel-indicator-border-color:             #fff;
+
+@carousel-caption-color:                      #fff;
+
+
+
+
+
+//== Code
+//
+//##
+
+@code-color:                  #c7254e;
+@code-bg:                     #f9f2f4;
+
+@kbd-color:                   #fff;
+@kbd-bg:                      #333;
+
+@pre-bg:                      #f5f5f5;
+@pre-color:                   @gray-dark;
+@pre-border-color:            #ccc;
+@pre-scrollable-max-height:   340px;
+
+
+#palette_preview_container {
+  margin-bottom:200px;
+}
+
+body {
+  //padding-top: 800px !important;
+}
+
+#palette_preview {
+
+    float:right;
+    //clear:both;
+
+    @width: 90px;
+    @padding: 8px;
+
+    clear: both;
+
+    margin-bottom: 20px;
+
+
+    z-index:-100;
+
+    .swatch {
+        position: relative;
+        font-size: 12px;
+        line-height: 42px;
+        font-weight: bold;
+        margin-bottom: @padding;
+        width: @width;
+        height: @width;
+        line-height: @width*1.8;
+        margin-right: @padding;
+        float: right;
+        text-align: right;
+        vertical-align: bottom;
+        // border: 1px solid @gray-darker;
+        // text-indent: -9999px;
+
+        &:nth-child(2n) {
+          min-width: 250px;
+        }
+
+        &:nth-child(3n) {
+          min-width: 380px;
+        }
+
+        &:nth-child(4n+2) {
+          width: 320px;
+        }
+
+        &:nth-child(5n-1) {
+          width:190px;
+        }
+
+        &:nth-child(7n) {
+          width: 140px;
+        }
+
+        &:nth-child(20n) {
+          min-width:0;
+          width: 540px;
+        }
+
+
+        p {
+            text-align: center;
+            line-height: 100px;
+        }
+
+        input {
+            .form-control;
+            width: 90px;
+            //margin-top:14px;
+            margin-left: 14px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:after {
+          display: inline;
+          width:@padding;
+          content: "";
+          margin-right:@padding;
+          // content: " luma: @{thisluma}, lit: @{thislit}";
+
+        }
+    }
+
+    .color(@color) {
+        @thisluma: floor(luma(@color));
+        @thislit: floor(lightness(@color));
+        background-color:@color;
+        .contrast-text-against(@color);
+        // border:1px solid darken(@color, 5%);
+
+        &:before, &:after {
+          background-color:@color;
+        }
+    }
+
+    .color1 { .color(@color1);}
+    .color1a { .color(@color1a);}
+    .color1b { .color(@color1b);}
+    .color1c { .color(@color1c);}
+
+    .color2 { .color(@color2);}
+    .color2a { .color(@color2a);}
+    .color2b { .color(@color2b);}
+    .color2c { .color(@color2c);}
+
+    .color3 { .color(@color3);}
+    .color3a { .color(@color3a);}
+    .color3b { .color(@color3b);}
+    .color3c { .color(@color3c);}
+
+    .color4 { .color(@color4);}
+    .color4a { .color(@color4a);}
+    .color4b { .color(@color4b);}
+    .color4c { .color(@color4c);}
+
+    .gray { .color(@gray);}
+    .gray-dark { .color(@gray-dark);}
+    .gray-darker { .color(@gray-darker);}
+    .gray-light { .color(@gray-light);}
+    .gray-lighter { .color(@gray-lighter);}
+
+    .info { .color(@info);}
+    .warning { .color(@warning);}
+    .success { .color(@success);}
+    .failure { .color(@failure);}
+
+
+    .scheme-type {
+      &:after {
+        content:"@{scheme-type}";
+      }
+    }
+
+    .luma {
+      @luma: ceil(luma(@base-color));
+      &:after {
+        content:"@{luma}";
+      }
+    }
+
+    .lit {
+      &:after {
+        content:"@{lit}";
+      }
+    }
+
+    .scheme-type, .luma, .lit {
+      display:none;
+    }
+
+}
+
+#pattern_preview {
+
+  &:extend(#palette_preview all);
+
+  .bright-squares { .pattern('bright-squares');}
+  .sixty-lines { .pattern('60-lines');}
+  .argyle { .pattern('argyle');}
+  .bright-squares { .pattern('bright-squares');}
+  .arches { .pattern('arches');}
+
+
+  clear: both;
+
+  @width: 120px;
+
+  .pattern {
+    @color:@gray-dark;
+    background-color: @color;
+    .contrast-text-against(@color);
+    font-size: 12px;
+    line-height: 42px;
+    font-weight: bold;
+    margin-bottom: @padding;
+    width: @width;
+    height: @width;
+    line-height: @width*1.8;
+    margin-right: @padding;
+    float: right;
+    text-align: right;
+    vertical-align: bottom;
+
+    &:after {
+      content: "";
+      margin-right:@padding;
+      // content: " luma: @{thisluma}, lit: @{thislit}";
+
+    }
+  }
+}
+
+
+#less_variable_test {
+  @test: @scheme-type;
+  @test-name: 'scheme type';
+
+  &:before {  
+    content: "@{test-name}: ";
+  }
+  &:after {
+    display:block;
+    content:"@{test}";
+  }
+}
+
+
+.color-wheel-test {
+  h1 {
+    font-size: 10px;
+    text-align: center;
+    line-height: 42px;
+  }
+
+  > .color {
+    display:block;
+    width: 100px;
+    position: absolute;
+    top:37px;
+    left:-7px;
+
+    &:after {
+      content:"";
+      @width: 12px;
+      display: block;
+      width: @width;
+      height: @width;
+      border-radius: 50%;
+    }
+  }
+}
+
+.color-wheel-test(@color-wheel-type:@color-wheel-type; @color:@base-color;) {
+  position: relative;
+  float: left;
+  border: 1px solid @gray-lighter;
+  border-radius: 50%;
+  width: 88px;
+  height: 88px;
+  //clear: both;
+  margin-right: 33px;
+  margin-bottom: 21px;
+
+  > * {
+    &:after {
+      font-size:9px;
+      text-align: center;
+      margin-top:2px;
+    }
+  }
+
+  .color1 {
+    &:after {
+      background: @color;
+      .contrast-text-against(@color);
+      content:"1";
+    }
+  }
+
+  .color2 {
+    @spin: extract(@color-wheel-type, 1);
+    @c: spin(@color, @spin);
+    .rotate(@spin);
+    &:after {
+      background: @c;
+      .contrast-text-against(@c);
+      content:"2";
+      .rotate(-@spin);
+    }
+  }
+
+  .color3 {
+    @spin: extract(@color-wheel-type, 2);
+    @c: spin(@color, @spin);
+    .rotate(@spin);
+    &:after {
+      background: @c;
+      .contrast-text-against(@c);
+      content:"3";
+      .rotate(-@spin);
+    }
+  }
+
+  .color4 {
+    @spin: extract(@color-wheel-type, 3);
+    @c: spin(@color, @spin);
+    .rotate(@spin);
+    &:after {
+      background: @c;
+      .contrast-text-against(@c);
+      content:"4";
+      .rotate(-@spin);
+    }
+  }
+}
+
+#color_wheel_test {
+  .color-wheel-test(@color-wheel-type);
+}
+
+#color_wheel_accented {
+  .color-wheel-test(@accented);
+  .color { &:after{ background-color: @gray-light; color: white;}}
+}
+
+#color_wheel_complementary {
+  .color-wheel-test(@complementary);
+  .color { &:after{ background-color: @gray-light; color: white;}}
+}
+
+#color_wheel_triadic {
+  .color-wheel-test(@triadic);
+  .color { &:after{ background-color: @gray-light; color: white;}}
+}
+
+#color_wheel_tetradic {
+  .color-wheel-test(@tetradic);
+  .color { &:after{ background-color: @gray-light; color: white;}}
+}
+
+#color_wheel_monochromatic {
+  .color-wheel-test(@monochromatic);
+  .color { &:after{ background-color: @gray-light; color: white;}}
+}
+
+#color_wheel_square {
+  .color-wheel-test(@square);
+  .color { &:after{ background-color: @gray-light; color: white;}}
+}
+
+#color_wheel_ebb {
+  .color-wheel-test(@ebb);
+  .color { &:after{ background-color: @gray-light; color: white;}}
+}
+
+#color_wheel_flow {
+  .color-wheel-test(@flow);
+  .color { &:after{ background-color: @gray-light; color: white;}}
+}
+
+// pull base values from @base-color. used in constructing new colors.
+
+@sat: saturation(@base-color);
+@lit: floor(lightness(@base-color));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

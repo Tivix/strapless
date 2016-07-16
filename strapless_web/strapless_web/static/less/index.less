@@ -1,0 +1,106 @@
+//this is the index.less for strapless-web, NOT strapless!
+
+@import "strapless/strapless";
+
+//layout tests
+
+.test {
+  display:block;
+
+  background:@color3c;
+  .contrast-text-against(@color3c);
+}
+
+// .tray {
+//   > * {
+//     display: block;
+//     float: left;
+//     width: auto;
+//     margin-right: @padding;
+//     margin-bottom: @padding;
+//   }
+// }
+
+// .list {
+//   > * {
+//     display: block;
+//     margin-right: @padding;
+//     margin-bottom: @padding;
+//     }
+// }
+
+// .gallery {
+//   > * {
+//     float: left;
+//     width: 23%;
+//     margin-right: 2%;
+//     margin-bottom: @padding;
+//   }
+// }
+
+.tray, .list, .gallery { display:none;}
+
+.badge {
+  background: @color1b;
+  .contrast-text-against(@color1b);
+  border-radius: @border-radius;
+  padding: @padding @padding*2;
+  min-width: @line-height-computed;
+}
+
+
+.brand-thing {
+  @color: @color4b;
+  background: @color;
+  border-radius: 0;
+  padding: @padding*4;
+  margin-bottom: 48px;
+
+  .contrast-text-against(@color);
+  .pattern('az-subtle');
+
+  h1 {
+    // text-shadow: 0 1px 0 darken(@color;24%);
+    font-size:56px;
+  }
+}
+
+button {
+  &:extend(.btn);
+  &:extend(.btn-sm); // TODO: figure what's up w/ btn size classes
+}
+
+html {
+  //background:@color1;
+  .contrast-text-against(@body-bg);
+}
+
+body {
+  padding-top: 42px;
+}
+
+body > section {
+  &:extend(.container);
+  //background:@color1;
+}
+
+nav {
+  .sl-navbar(@color1c);
+}
+
+// #nav_collapse {
+//   //&:extend(.navbar-toggle all); // TODO: I think the JS looks for this class...
+//
+//   ul {
+//     &:extend(.nav all);
+//     //&:extend(.navbar-nav all);
+//   }
+// }
+
+
+#examples {
+  section {
+    //max-width: 520px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,55 @@
+// BUTTONS
+
+@button-prefix: btn;
+
+#strapless_colors {
+  padding: @padding;
+  background: @body-bg;
+  
+}
+
+.make-sl-swatches-for(@colors) {
+  @length: length(@colors);
+
+  .make-sl-swatch();
+
+  .make-sl-swatch(@index:1) when (@index <= @length) {
+    @color-name: extract(@colors, @index);
+    @color: @@color-name;
+
+    .swatch:nth-child(@{index}) {
+      &:extend(.sl-swatch-base all);
+      .sl-swatch(@color);
+
+      &:after {
+        content: "@{color-name}";
+        .contrast-text-against(@color);
+      }
+    }
+
+    .make-sl-swatch(@index + 1);
+  }  
+}
+
+.sl-swatch(@color: @gray) {
+  background: @color;
+  border-color: mix(@gray-darkest-base; @color; 60%);
+}
+
+.sl-swatch-base {
+  @width: 96px;
+  @height: 48px;
+
+  float: left;
+
+  width: @width;
+  height: @height;
+
+  margin-right: @padding;
+  margin-bottom: @padding;
+
+  &:after {
+
+  }
+}
+

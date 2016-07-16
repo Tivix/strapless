@@ -1,0 +1,105 @@
+// NAVBAR
+
+.sl-navbar(@color) {
+
+  @height: 50px;
+  @padding: @height * .38;
+
+  background-color:@color;
+  .contrast-text-against(@color);
+
+  height: @height;
+  line-height: @height;
+  max-height: @height;
+  padding-left: @padding;
+  padding-right: @padding;
+  position: fixed; top:0; left: 0;
+  width: 100%;
+  z-index: 1000;
+  overflow: hidden;
+
+  .pattern('bright-squares');
+
+  > section {
+    display: block;
+    margin: 0 auto;
+    max-height: @height;
+    overflow: hidden;
+    &:extend(.container);
+  }
+
+  > * { // pseudo reset
+    display: none;
+    float:left;
+    position: relative;
+    border: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: @height;
+    line-height: @height;
+    vertical-align: middle;
+    overflow: hidden;
+
+    .on-tablet({
+      display: block;
+    });
+
+    &:first-child {
+      display: block;
+      margin-right: @padding * 2;
+
+      .on-large-phone({
+        margin-right: @height;
+      });
+    }
+
+    &:last-child {
+      display: block;
+      float: right;
+    }
+  }
+
+  ul {
+    .list-unstyled();
+    height: @height;
+  }
+
+  li {
+    float:left;
+    height: @height;
+    line-height: @height;
+  }
+
+  h1, h2, h3 {
+    display: block;
+    float: left;
+    font-size: @font-size-base*1.5;
+    line-height: @height;
+    margin-right: @height;
+  }
+
+  a {
+    display: block;
+    float: left;
+    .contrast-text-against(@color);
+    padding-left: @padding;
+    padding-right: @padding;
+    text-decoration: none;
+
+    &:hover {
+      background-color: lighten(@color, 10%);
+      text-decoration: none;
+      .pattern('bright-squares');
+    }
+  }
+
+  .dropdown {
+    width: auto;
+
+    ul {
+      display: none;
+    }
+  }
+}
