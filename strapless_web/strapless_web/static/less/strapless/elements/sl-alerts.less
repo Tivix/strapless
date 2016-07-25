@@ -45,7 +45,7 @@
   &:before { content: "??";}
 }
 
-.sl-alert(@color;) when (@scheme-type = 1) {
+.sl-alert(@color;) when (@scheme-type = 'dark') {
   @background: @color;
   background-color: @background;
   border: 1px solid black;
@@ -62,6 +62,7 @@
   .pattern('az-subtle');
 
   &:before {
+    font-family: @headings-font-family;
     float: left;
     margin-left:-@padding/2;
     margin-top:-@padding * 1.5;

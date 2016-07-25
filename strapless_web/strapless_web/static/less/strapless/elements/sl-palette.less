@@ -1,55 +1,74 @@
-// BUTTONS
+.make-swatches-for(@color; @color-list; @color-wheel-type) {
+  @iterations: length(@color-list);
 
-@button-prefix: btn;
+  .make-colors(@color; @color-wheel-type);
+  .make-nth-swatch(1);
 
-#strapless_colors {
-  padding: @padding;
-  background: @body-bg;
-  
-}
+  position: relative;
+  padding-top: @padding*2;
+  width: 56*4px + 40px;
 
-.make-sl-swatches-for(@colors) {
-  @length: length(@colors);
+  &:before {
+    content: "@{color-wheel-type}";
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 12px;
+  }
 
-  .make-sl-swatch();
+  .make-nth-swatch(@n) when (@n <= @iterations) {
+    
+    @swatch-name: extract(@color-list, @n);
+    @swatch: @@swatch-name;
 
-  .make-sl-swatch(@index:1) when (@index <= @length) {
-    @color-name: extract(@colors, @index);
-    @color: @@color-name;
+    .swatch:nth-child(@{n}) {
+      .sl-swatch(@swatch);
+      display: block;
 
-    .swatch:nth-child(@{index}) {
-      &:extend(.sl-swatch-base all);
-      .sl-swatch(@color);
-
-      &:after {
-        content: "@{color-name}";
-        .contrast-text-against(@color);
+      &:before {
+        content: "@{swatch-name}";
+        .contrast-text-against(@swatch);
       }
     }
 
-    .make-sl-swatch(@index + 1);
-  }  
+    .make-nth-swatch(@n + 1);
+  }
 }
 
 .sl-swatch(@color: @gray) {
   background: @color;
-  border-color: mix(@gray-darkest-base; @color; 60%);
 }
 
 .sl-swatch-base {
-  @width: 96px;
-  @height: 48px;
+  @width: 56px;
+  @height: @width;
+
+  display: none;
 
   float: left;
+
+  border-radius: 50%;
+
+  font-size: 10px;
 
   width: @width;
   height: @height;
 
-  margin-right: @padding;
-  margin-bottom: @padding;
+  margin-right: @padding/2 - 2;
+  margin-bottom: @padding/2;
+
+  text-align: center;
+  line-height: @height - 3px;
+
+  .sl-swatch();
 
   &:after {
-
+    position:absolute;
+    display:block;
+    top: 0;
+    left: 0;
+    width: 50%;
+    float: left;
   }
 }
 

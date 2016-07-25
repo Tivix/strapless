@@ -423,8 +423,6 @@ body {
     }
 
     .color(@color) {
-        @thisluma: floor(luma(@color));
-        @thislit: floor(lightness(@color));
         background-color:@color;
         .contrast-text-against(@color);
         // border:1px solid darken(@color, 5%);
@@ -491,6 +489,7 @@ body {
 
 }
 
+
 #pattern_preview {
 
   &:extend(#palette_preview all);
@@ -547,6 +546,7 @@ body {
 
 
 .color-wheel-test {
+  margin: 0 auto;
   h1 {
     font-size: 10px;
     text-align: center;
@@ -571,7 +571,11 @@ body {
   }
 }
 
-.color-wheel-test(@color-wheel-type:@color-wheel-type; @color:@base-color;) {
+.color-wheel-test(@color-wheel; @color: @base-color;) {
+  @color-wheel-type: @@color-wheel;
+
+  .load-color-wheel-types();
+
   position: relative;
   float: left;
   border: 1px solid @gray-lighter;
@@ -635,48 +639,54 @@ body {
   }
 }
 
+#less_variable_test {
+  @test: @scheme-type;
+  @test-name: 'subcolor name';
+
+  &:before {  
+    content: "@{test-name}: ";
+  }
+  &:after {
+    display:block;
+    content:"@{test}";
+  }
+}
+
 #color_wheel_test {
   .color-wheel-test(@color-wheel-type);
 }
 
 #color_wheel_accented {
-  .color-wheel-test(@accented);
-  .color { &:after{ background-color: @gray-light; color: white;}}
+  .color-wheel-test(accented);
 }
 
 #color_wheel_complementary {
-  .color-wheel-test(@complementary);
-  .color { &:after{ background-color: @gray-light; color: white;}}
+  border: 1px solid black;
+  .color-wheel-test(complementary);
 }
 
 #color_wheel_triadic {
-  .color-wheel-test(@triadic);
-  .color { &:after{ background-color: @gray-light; color: white;}}
+  .color-wheel-test(triadic);
 }
 
 #color_wheel_tetradic {
-  .color-wheel-test(@tetradic);
-  .color { &:after{ background-color: @gray-light; color: white;}}
+  .color-wheel-test(tetradic);
 }
 
 #color_wheel_monochromatic {
-  .color-wheel-test(@monochromatic);
-  .color { &:after{ background-color: @gray-light; color: white;}}
+  .color-wheel-test(monochromatic);
 }
 
 #color_wheel_square {
-  .color-wheel-test(@square);
-  .color { &:after{ background-color: @gray-light; color: white;}}
+  .color-wheel-test(square);
 }
 
 #color_wheel_ebb {
-  .color-wheel-test(@ebb);
-  .color { &:after{ background-color: @gray-light; color: white;}}
+  .color-wheel-test(ebb);
 }
 
 #color_wheel_flow {
-  .color-wheel-test(@flow);
-  .color { &:after{ background-color: @gray-light; color: white;}}
+  .color-wheel-test(flow);
 }
 
 // pull base values from @base-color. used in constructing new colors.
@@ -685,23 +695,39 @@ body {
 @lit: floor(lightness(@base-color));
 
 
+.palette-preview {
+  float: left;
+  width: 320px;
+  margin-bottom: 0;
+}
 
+@all-schemes: accented, complementary, complementary-b, triadic, triadic-b, tetradic, tetradic-b, ebb, flow, square, monochromatic, monochromatic-b;
 
+.make-palettes-for(@base-color; @all-schemes);
 
+.make-palettes-for(@color; @schemes) {
+  @iterations: length(@schemes);
 
+  .make-palette();
 
+  .make-palette(@index: 1) when (@index <= @iterations) {
+    @scheme: extract(@schemes, @index);
+    #strapless_colors_@{scheme} {
+      .make-swatches-for(@color; @huge-palette; @scheme);
+    }
 
+    .make-palette(@index + 1);
+  }
+}
 
+.swatch {
+  &:extend(.sl-swatch-base);
+}
 
+@huge-palette:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
+                      color3, color3a, color3b, color3c, color4, color4a, color4b, color4c,
+                      success, failure, action, reaction, info, warning, 
+                      gray-lighter, gray-light, gray, gray-dark, gray-darker;
 
-
-
-
-
-
-
-
-
-
-
-//
+@huge-palette:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
+                     color3, color3a, color3b, color3c, color4, color4a, color4b, color4c;

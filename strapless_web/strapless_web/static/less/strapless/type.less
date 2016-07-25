@@ -24,7 +24,7 @@
 
 // font stuff.
 
-@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  "Lato", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
@@ -45,7 +45,7 @@
 // for use with `margin`, `padding`, etc.
 @line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
 
-@headings-font-family:    inherit;
+@headings-font-family:    Helvetica, Arial, sans-serif;;
 @headings-font-weight:    500;
 @headings-line-height:    1.1;
 @headings-color:          inherit;
@@ -57,15 +57,15 @@
   color: hsl(@hue; @sat + 10; 98%);
 }
 
-.text-color(@bg-color: @body-bg) when (luminance(@bg-color) >= @luma-upper-break) {
+.text-color(@bg-color: @body-bg) when (luma(@bg-color) >= @luma-upper-break) {
   color: mix(darken(@bg-color;30%); #333; 40%);
 }
 
-.headline-color(@bg-color:@body-bg) when (luminance(@bg-color) >= @luma-upper-break) {
+.headline-color(@bg-color:@body-bg) when (luma(@bg-color) >= @luma-upper-break) {
     color: mix(darken(@bg-color;30%); #333; 40%);
 }
 
-.headline-color(@bg-color:@body-bg) when (luminance(@bg-color) < @luma-upper-break) {
+.headline-color(@bg-color:@body-bg) when (luma(@bg-color) < @luma-upper-break) {
     color:white;
 }
 

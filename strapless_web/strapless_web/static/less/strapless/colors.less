@@ -1,248 +1,203 @@
 // base configurables
 
-@base-color: #914C7C;
-@body-bg: white;
-
-
-// each scheme has a color wheel type. set it here.
-
-@color-wheel-type: @square;
-
-@complement: 180deg;
-@triadic-pair: 120deg;
-@accent: 45deg;
-@analog: 15deg;
-
-@accented:        @complement,
-                  @accent,
-                  -@accent;
-
-@complementary:   @complement,
-                  @analog,
-                  @complement + @analog;
-                  
-
-@complementary-b: @complement,
-                  -@analog,
-                  @complement - @analog;
-
-@triadic:         -@analog,
-                  @triadic-pair,
-                  -@triadic-pair;
-
-@triadic-b:       @analog,
-                  @triadic-pair,
-                  -@triadic-pair;
-
-@tetradic:        @complement,
-                  @accent,
-                  @complement + @accent;
-                  
-@tetradic-b:      @complement,
-                  -@accent,
-                  @complement - @accent;
-
-@square:          @complement,
-                  @complement/2,
-                  -@complement/2;
-
-@ebb:             @complement + @analog,
-                  @analog,
-                  @accent;
-
-@flow:            @complement - @analog,
-                  -@analog,
-                  -@accent;
-
-@monochromatic:   @accent,
-                  @analog/2,
-                  -@analog/2;
-
-@monochromatic-b: -@accent,
-                  @analog/2,
-                  -@analog/2;
-
-
-// there are four groups of four colors.
-
-@all-colors:        color1-colors,
-                    color2-colors,
-                    color3-colors,
-                    color4-colors;
-
-// the four main colors each have three subcolors.
-
-@main-colors:       color1, color2, color3, color4;
-
-@color1-colors:     color1,
-                    color1-subcolors;
-
-@color2-colors:     color2,
-                    color2-subcolors;
-
-@color3-colors:     color3,
-                    color3-subcolors;
-
-@color4-colors:     color4,
-                    color4-subcolors;
-
-// the subcolors are named with a, b and c.
-
-@color1-subcolors:  color1a,
-                    color1b,
-                    color1c;
-
-@color2-subcolors:  color2a,
-                    color2b,
-                    color2c;
-
-@color3-subcolors:  color3a,
-                    color3b,
-                    color3c;
-
-@color4-subcolors:  color4a,
-                    color4b,
-                    color4c;
-
-// semantic colors can define states, actions or information.
-
-@semantic-colors:   action,
-                    reaction,
-                    info,
-                    warning,
-                    success,
-                    failure,
-                    default;
-
-
-// create color candidates, then pick among them with contrast comparison
-
-@scheme-type-base: unit(ceil(luma(@base-color)*3/100));
-@scheme-dark: 1; @scheme-medium: 2; @scheme-light: 3;
-@scheme-types: @scheme-dark, @scheme-medium, @scheme-light;
-@scheme-type: extract(@scheme-types, @scheme-type-base);
-
-@threshold: 85% - (@scheme-type*22%); // biases the contrast function against out-of-scheme colors
-
-// use color wheel type to spin for base main colors
-
-@c1-base: @base-color;
-@c2-base: spin(@base-color, extract(@color-wheel-type, 1));
-@c3-base: spin(@base-color, extract(@color-wheel-type, 2));
-@c4-base: spin(@base-color, extract(@color-wheel-type, 3));
-
-// candidates for main colors
-
-@c1-candidates:   contrast(@gray-lighter; spin(darken(@c1-base, 5%), 10); spin(darken(@c1-base, 5%), -10); 50%),
-                  contrast(@gray; spin(@c1-base, 10); spin(@c1-base, -10); 50%),
-                  contrast(@gray-darker; spin(lighten(@c1-base, 5%), 10); spin(lighten(@c1-base, 5%), -10); 50%);
-
-@c2-candidates:   contrast(@gray-lighter; spin(darken(@c2-base, 5%), 10); spin(darken(@c2-base, 5%), -10); 50%),
-                  contrast(@gray; spin(@c2-base, 10); spin(@c2-base, -10); 50%),
-                  contrast(@gray-darker; lighten(spin(@c2-base, 10), 5%); lighten(spin(@c2-base, -10), 5%); 50%);
-
-@c3-candidates:   contrast(@gray-lighter; spin(darken(@c3-base, 5%), 10); spin(darken(@c3-base, 5%), -10); 50%),
-                  contrast(@gray; spin(@c3-base, 10); spin(@c3-base, -10); 50%),
-                  contrast(@gray-darker; spin(lighten(@c3-base, 5%), 10); spin(lighten(@c3-base, 5%), -10); 50%);
-
-@c4-candidates:   contrast(@gray-lighter; spin(darken(@c4-base, 5%), 10); spin(darken(@c4-base, 5%), -10); 50%),
-                  contrast(@gray; spin(@c4-base, 10); spin(@c4-base, -10); 50%),
-                  contrast(@gray-darker; spin(lighten(@c4-base, 5%), 10); spin(lighten(@c4-base, 5%), -10); 50%);
-
-// main colors
-
-// TODO: do a check here to make sure color2, color3, and color4 aren't too dark
-
-@color1: @base-color;
-@color1theme: extract(@c1-candidates; @scheme-type);
-@color2: extract(@c2-candidates; @scheme-type);
-@color3: extract(@c3-candidates; @scheme-type);
-@color4: extract(@c4-candidates; @scheme-type);
-
-
-// subcolors
-
-// a will be a lighter alternate. using contrast to pick neighbors.
-
-@c1-l-base: contrast(@base-color; spin(@color1theme, 0); spin(@color1theme, -0); 50%);
-@c2-l-base: contrast(@base-color; spin(@color2, 8); spin(@color2, -8); 50%);
-@c3-l-base: contrast(@base-color; spin(@color3, 8); spin(@color3, -8); 50%);
-@c4-l-base: contrast(@base-color; spin(@color4, 8); spin(@color4, -8); 50%);
-
-// check to make sure there aren't particularly light 'a' colors (if there are, darken them instead)
-
-@c1-l-check: contrast(@c1-l-base; lighten(@c1-l-base, 4%); darken(@c1-l-base, 4%); 10%);
-@c2-l-check: contrast(@c2-l-base; darken(@c2-l-base, 4%); lighten(@c2-l-base, 4%); 10%);
-@c3-l-check: contrast(@c3-l-base; darken(@c3-l-base, 4%); lighten(@c3-l-base, 4%); 10%);
-@c4-l-check: contrast(@c4-l-base; darken(@c4-l-base, 4%); lighten(@c4-l-base, 4%); 10%);
-
-// again use contrast to pick the appropriate level of darkening.
-
-@color1a: contrast(@gray-light; lighten(@c1-l-base, 16%); @c1-l-check);
-@color2a: contrast(@gray-light; lighten(@c2-l-base, 16%); @c2-l-check);
-@color3a: contrast(@gray-light; lighten(@c3-l-base, 16%); @c3-l-check);
-@color4a: contrast(@gray-light; lighten(@c4-l-base, 16%); @c4-l-check);
-
-// b will be a close analog color. we spin in both directions and let contrast pick.
-
-@color1b: contrast(@base-color; spin(@color1theme, -@analog); spin(@color1theme, @analog); 50%);
-@color2b: contrast(@base-color; spin(@color2, -@analog); spin(@color2, @analog); 50%);
-@color3b: contrast(@base-color; spin(@color3, -@analog); spin(@color3, @analog); 50%);
-@color4b: contrast(@base-color; spin(@color4, -@analog); spin(@color4, @analog); 50%);
-
-// c is darker, so it needs a darkness base like 'a' needed a lightness base.
-
-@c1-d-base: contrast(@base-color; spin(@color1theme, 8); spin(@color1theme, -8); 50%);
-@c2-d-base: contrast(@base-color; spin(@color2, 8); spin(@color2, -8); 50%);
-@c3-d-base: contrast(@base-color; spin(@color3, 8); spin(@color3, -8); 50%);
-@c4-d-base: contrast(@base-color; spin(@color4, 8); spin(@color4, -8); 50%);
-
-// check to make sure there aren't particularly dark c colors (if there are, lighten them instead)
-
-@c1-d-check: contrast(@c1-d-base; darken(@c1-d-base, 2%); darken(@c1-d-base, 8%); 50%);
-@c2-d-check: contrast(@c2-d-base; darken(@c2-d-base, 2%); darken(@c2-d-base, 8%); 50%);
-@c3-d-check: contrast(@c3-d-base; darken(@c3-d-base, 2%); darken(@c3-d-base, 8%); 50%);
-@c4-d-check: contrast(@c4-d-base; darken(@c4-d-base, 2%); darken(@c4-d-base, 8%); 50%);
-
-// again use contrast to pick the appropriate level of darkening.
-
-@color1c: contrast(@gray-dark; @c1-d-check; darken(@c1-d-base, 16%));
-@color2c: contrast(@gray-dark; @c2-d-check; darken(@c2-d-base, 16%));
-@color3c: contrast(@gray-dark; @c3-d-check; darken(@c3-d-base, 16%));
-@color4c: contrast(@gray-dark; @c4-d-check; darken(@c4-d-base, 16%));
-
-
-// grays but with some @color1.
-
-@gray-bases:   @gray-lightest-base,
-          @gray-lighter-base,
-          @gray-light-base,
-          @gray-base,
-          @gray-dark-base,
-          @gray-darker-base,
-          @gray-darkest-base,
-          darken(@gray-darkest-base, 3%); // placeholder for overflow
-
-@gray-step: 7.5%;
-
-@gray-base:                   desaturate(@base-color; 82.5%);
-
-@gray-light-base:             lighten(@gray-base; @gray-step);
-@gray-lighter-base:           lighten(@gray-base; @gray-step * 2);
-@gray-lightest-base:          lighten(@gray-base; @gray-step * 3);
-
-@gray-dark-base:              darken(@gray-base; @gray-step);
-@gray-darker-base:            darken(@gray-base; @gray-step * 2);
-@gray-darkest-base:           darken(@gray-base; @gray-step * 3);
-
-@gray-lighter:      extract(@gray-bases; 0 + @scheme-type);
-@gray-light:        extract(@gray-bases; 1 + @scheme-type);
-@gray:              extract(@gray-bases; 2 + @scheme-type);
-@gray-dark:         extract(@gray-bases; 3 + @scheme-type);
-@gray-darker:       extract(@gray-bases; 4 + @scheme-type);
-
-@grays: gray-lighter, gray-light, gray, gray-dark, gray-darker;
-
+// make- makes variables intended for use externally
+// load- makes variables too, but ones that we'd like not to be available outside that scope
+
+// (unfortunately they work identically now and all end up in the global scope)
+
+
+     
+.make-colors(@base-color; accented);
+
+@base-color: #88BA56;
+@color-wheel-type:  monochromatic;
+
+.make-colors(@color; @wheel) {
+
+  .configure-scheme-type(@color);
+  .load-color-wheel-types();
+  .make-main-colors(@color; @wheel);
+  .load-subcolor-bases();
+  
+  .make-subcolors(@scheme-type);
+  .make-grays(@color);
+
+  .load-subcolor-bases() {
+    @color1a-base: contrast(black; spin(@color1, 5); spin(@color1, -5));
+    @color1b-base: contrast(@color1; spin(@color1, @accent); spin(@color1, -@accent));
+    @color1c-base: contrast(white; spin(@color1, 5); spin(@color1, -5));
+
+    @color2a-base: contrast(black; spin(@color2, 10); spin(@color2, -10));
+    @color2b-base: contrast(@color2; spin(@color2, @accent); spin(@color2, -@accent));
+    @color2c-base: contrast(white; spin(@color2, 10); spin(@color2, -10));
+
+    @color3a-base: contrast(black; spin(@color3, 10); spin(@color3, -10));
+    @color3b-base: contrast(@color3; spin(@color3, @accent); spin(@color3, -@accent));
+    @color3c-base: contrast(white; spin(@color3, 10); spin(@color3, -10));
+
+    @color4a-base: contrast(black; spin(@color4, 10); spin(@color4, -10));
+    @color4b-base: contrast(@color4; spin(@color4, @accent); spin(@color4, -@accent));
+    @color4c-base: contrast(white; spin(@color4, 10); spin(@color4, -10));
+  }
+
+  .load-color-wheel-types() {
+    @complement: 180deg;
+    @triadic-pair: 120deg;
+    @accent: 45deg;
+    @analog: 15deg;
+
+    @accented:        @complement,
+                      @accent,
+                      -@accent;
+
+    @complementary:   @complement,
+                      @analog,
+                      @complement + @analog;
+                      
+
+    @complementary-b: @complement,
+                      -@analog,
+                      @complement - @analog;
+
+    @triadic:         @triadic-pair,
+                      -@triadic-pair,
+                      -@analog;
+
+    @triadic-b:       -@triadic-pair,
+                      @triadic-pair,
+                      @analog;
+
+    @tetradic:        @complement,
+                      @accent,
+                      @complement + @accent;
+                      
+    @tetradic-b:      @complement,
+                      -@accent,
+                      @complement - @accent;
+
+    @square:          @complement,
+                      @complement/2,
+                      -@complement/2;
+
+    @ebb:             @complement + @analog,
+                      @analog,
+                      @accent;
+
+    @flow:            @complement - @analog,
+                      -@analog,
+                      -@accent;
+
+    @monochromatic:   @accent,
+                      @analog/2,
+                      -@analog/2;
+
+    @monochromatic-b: -@accent,
+                      @analog/2,
+                      -@analog/2;
+  }
+
+  .make-main-colors(@color; @wheel) {
+    @wheel-var: @@wheel;
+    @color1: @color;
+    @color2: spin(@color, extract(@wheel-var, 1));
+    @color3: spin(@color, extract(@wheel-var, 2));
+    @color4: spin(@color, extract(@wheel-var, 3));  
+  }
+
+  .make-subcolors(@type: medium) {
+    @color1a: lighten(@color1a-base, 10%);
+    @color1b: @color1b-base;
+    @color1c: darken(@color1c-base, 10%);
+
+    @color2a: lighten(@color2a-base, 10%);
+    @color2b: @color2b-base;
+    @color2c: darken(@color2c-base, 10%);
+
+    @color3a: lighten(@color3a-base, 10%);
+    @color3b: @color3b-base;
+    @color3c: darken(@color3c-base, 10%);
+
+    @color4a: lighten(@color4a-base, 10%);
+    @color4b: @color4b-base;
+    @color4c: darken(@color4c-base, 10%);
+  }
+
+  .make-subcolors(@type) when (@type = light) {
+    @color1a: lighten(@color1a-base, 3%);
+    @color1b: darken(@color1b-base, 4%);
+    @color1c: darken(@color1c-base, 12.5%);
+
+    @color2a: lighten(@color2a-base, 3%);
+    @color2b: darken(@color2b-base, 4%);
+    @color2c: darken(@color2c-base, 12.5%);
+
+    @color3a: lighten(@color3a-base, 3%);
+    @color3b: darken(@color3b-base, 4%);
+    @color3c: darken(@color3c-base, 12.5%);
+
+    @color4a: lighten(@color4a-base, 3%);
+    @color4b: darken(@color4b-base, 4%);
+    @color4c: darken(@color4c-base, 12.5%);
+  }
+
+  .make-subcolors(@type) when (@type = dark) {
+    @color1a: lighten(@color1a-base, 15%);
+    @color1b: lighten(@color1b-base, 5%);
+    @color1c: darken(@color1c-base, 5%);
+
+    @color2a: lighten(@color2a-base, 15%);
+    @color2b: lighten(@color2b-base, 5%);
+    @color2c: darken(@color2c-base, 5%);
+
+    @color3a: lighten(@color3a-base, 15%);
+    @color3b: lighten(@color3b-base, 5%);
+    @color3c: darken(@color3c-base, 5%);
+
+    @color4a: lighten(@color4a-base, 15%);
+    @color4b: lighten(@color4b-base, 5%);
+    @color4c: darken(@color4c-base, 5%);
+  }
+
+  .make-grays(@color) {
+    
+    .configure-scheme-type(@color);
+    .load-gray-bases();
+
+    .load-gray-bases() {
+      @gray-base:                   desaturate(@color; 80%);
+      @gray-step: 9%;
+
+      @gray-bases:  @gray-lightest-base,
+                    @gray-lighter-base,
+                    @gray-light-base,
+                    @gray-base,
+                    @gray-dark-base,
+                    @gray-darker-base,
+                    @gray-darkest-base,
+                    darken(@gray-darkest-base, 3%); // placeholder for overflow
+
+      @gray-light-base:             lighten(@gray-base; @gray-step);
+      @gray-lighter-base:           lighten(@gray-base; @gray-step * 2);
+      @gray-lightest-base:          lighten(@gray-base; @gray-step * 3);
+
+      @gray-dark-base:              darken(@gray-base; @gray-step);
+      @gray-darker-base:            darken(@gray-base; @gray-step * 2);
+      @gray-darkest-base:           darken(@gray-base; @gray-step * 3);
+    }
+
+    @gray-lighter:      extract(@gray-bases; 0 + @scheme-type-base);
+    @gray-light:        extract(@gray-bases; 1 + @scheme-type-base);
+    @gray:              extract(@gray-bases; 2 + @scheme-type-base);
+    @gray-dark:         extract(@gray-bases; 3 + @scheme-type-base);
+    @gray-darker:       extract(@gray-bases; 4 + @scheme-type-base);
+  }
+}
+
+.configure-scheme-type(@color) {
+  @scheme-type-base: unit(ceil(luma(@color)*3/100));
+  @scheme-types: dark, medium, light;
+  @scheme-type: extract(@scheme-types, @scheme-type-base);
+}
 
 // semantic colors, themed.
 // TODO: use contrast to pick candidates here instead of this awkward sat/lit dance
@@ -261,3 +216,12 @@
 @s-success: #5cb85c;
 @s-failure: #d0534f;
 @s-warning: #f0ad4e;
+
+@semantic-colors:   action,
+                    reaction,
+                    info,
+                    warning,
+                    success,
+                    failure,
+                    default;
+
