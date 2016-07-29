@@ -2,7 +2,7 @@
 
 // base-color: #CADFE6
 
-@base-color: #CADFE6;
+@base-color: tan;
 @base-color-wheel:  accented;
 @body-bg: white;
 
@@ -116,7 +116,7 @@
   .load-subcolor-bases-a() {
     // contrast two nearby analogs against black to get the lighter version
     @spin: @analog;
-    @contrast: black;
+    @contrast: green;
     @color1a-base: contrast(@contrast; spin(@color1, @spin/2); spin(@color1, -@spin/2));
     @color2a-base: contrast(@contrast; spin(@color2, @spin); spin(@color2, -@spin));
     @color3a-base: contrast(@contrast; spin(@color3, @spin); spin(@color3, -@spin));
@@ -135,7 +135,7 @@
   .load-subcolor-bases-c() {
     // contrast two nearby analogs against white to get the darker version
     @spin: @analog;
-    @contrast: white;
+    @contrast: orange;
     @color1c-base: contrast(@contrast; spin(@color1, @spin/2); spin(@color1, -@spin/2));
     @color2c-base: contrast(@contrast; spin(@color2, @spin); spin(@color2, -@spin));
     @color3c-base: contrast(@contrast; spin(@color3, @spin); spin(@color3, -@spin));
