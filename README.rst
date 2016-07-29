@@ -24,7 +24,7 @@ Dev setup
 - ``vagrant reload``
 - ``vagrant ssh``
 - ``cd /vagrant/strapless_web/ && python manage.py runserver 0.0.0.0:8000``
-- Now open your browser and point to http://127.0.0.1:8004 to see the app running
+- Now open your browser and point to http://127.0.0.1:8009 to see the app running
 - http://127.0.0.1:8084 should also run, thats through nginx and uwsgi that gets configured.
     - TODO: Might have to do ``sudo /etc/init.d/uwsgi restart`` since it doesn't auto start sometimes.
 
