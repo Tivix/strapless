@@ -1,15 +1,36 @@
-.make-swatches-for(@color; @color-list; @color-wheel-type) {
+
+@all-schemes: accented, complementary, complementary-b, triadic, triadic-b, tetradic, tetradic-b, ebb, flow, square, monochromatic, monochromatic-b;
+
+.make-palettes-for(@base-color; @all-schemes);
+
+.make-palettes-for(@color; @schemes) {
+  @iterations: length(@schemes);
+
+  .make-palette();
+
+  .make-palette(@index: 1) when (@index <= @iterations) {
+    @scheme: extract(@schemes, @index);
+    #strapless_colors_@{scheme} {
+      .make-swatches-for(@color; @huge-palette; @scheme);
+    }
+
+    .make-palette(@index + 1);
+  }
+}
+
+.make-swatches-for(@color; @color-list; @base-color-wheel) {
   @iterations: length(@color-list);
 
-  .make-colors(@color; @color-wheel-type);
+  .make-colors(@color; @base-color-wheel);
   .make-nth-swatch(1);
 
   position: relative;
   padding-top: @padding*2;
-  width: 56*4px + 40px;
+  //width: 56*4px + 40px;
+  margin-right: @padding;
 
   &:before {
-    content: "@{color-wheel-type}";
+    content: "@{base-color-wheel}";
     display: block;
     text-align: center;
     width: 100%;
@@ -24,10 +45,12 @@
     .swatch:nth-child(@{n}) {
       .sl-swatch(@swatch);
       display: block;
+      box-shadow: 1px 1px 0 darken(@swatch, 6%);
 
       &:before {
         content: "@{swatch-name}";
-        .contrast-text-against(@swatch);
+        color: lighten(@swatch, 10%);
+        text-shadow: -1px -1px 0 darken(@swatch, 6%);
       }
     }
 
@@ -37,38 +60,60 @@
 
 .sl-swatch(@color: @gray) {
   background: @color;
+  //.pegboard(@color);
 }
 
-.sl-swatch-base {
-  @width: 56px;
-  @height: @width;
 
-  display: none;
+.sl-swatch-base {
+  @size: 40px;
+  @width: @size;
+  @height: @size;
+  @margin: 4px;
+
+  display: none; // palettes are divs with a bunch of divs inside, this hides unused ones
 
   float: left;
 
-  border-radius: 50%;
-
   font-size: 10px;
+  border-radius: 6px;
 
-  width: @width;
+  min-width: @size;
+  width: 23%;
   height: @height;
 
-  margin-right: @padding/2 - 2;
-  margin-bottom: @padding/2;
+  margin-right: @margin;
+  margin-bottom: @margin*2;
 
-  text-align: center;
+  text-align: right;
   line-height: @height - 3px;
 
-  .sl-swatch();
+  .rotate(-3deg);
 
-  &:after {
-    position:absolute;
-    display:block;
-    top: 0;
-    left: 0;
-    width: 50%;
-    float: left;
+
+  position: relative;
+  &:nth-child(n) { position: relative;}
+
+  &:nth-child(4n + 2) { .rotate(-1deg); top:-2px;}
+  &:nth-child(4n + 3) { .rotate(1deg); top:-3px;}
+  &:nth-child(4n + 4) { .rotate(3deg); top:-2px;}
+
+  &:before {
+    font-size: 9px;
+    font-weight: bold;
+    pointer-events: none;
+    position: relative;
+    bottom: -@height/4;
+    right: 3px;
   }
 }
 
+.palette-preview {
+  float: left;
+  max-width: 228px;
+  margin-bottom: 0;
+
+  .swatch {
+    &:extend(.sl-swatch-base all);
+  }
+
+}

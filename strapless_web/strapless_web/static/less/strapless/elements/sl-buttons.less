@@ -58,10 +58,6 @@
   .button-state(@darken:0;) {
     background-color: darken(@color, @darken);
   }
-
-  .button-state(@darken:0;) when (luma(@body-bg) > @luma-upper-break) {
-    background-color: @color;
-  }
 }
 
 // button sizes

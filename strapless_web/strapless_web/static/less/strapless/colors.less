@@ -1,46 +1,57 @@
-// base configurables
+// configurables
 
-// make- makes variables intended for use externally
-// load- makes variables too, but ones that we'd like not to be available outside that scope
+// base-color: #CADFE6
 
-// (unfortunately they work identically now and all end up in the global scope)
+@base-color: #CADFE6;
+@base-color-wheel:  accented;
+@body-bg: white;
 
+// semantic colors, themed.
+// TODO: use contrast to pick candidates here instead of this awkward sat/lit dance
 
-     
-.make-colors(@base-color; accented);
+@action:    @s-action;
+@reaction:  @s-reaction;
+@info:      hsl(hue(@s-info); @sat; @lit);
+@success:   hsl(hue(@s-success); (saturation(@s-success) + @sat)/2.0; lightness(average(@s-success; @base-color;)));
+@failure:   hsl(hue(@s-failure); (saturation(@s-failure) + @sat)/1.8; lightness(average(@s-failure; @base-color;)));
+@warning:   hsl(hue(@s-warning); (saturation(@s-warning) + @sat)/1.7; lightness(average(@s-warning; @base-color;)));
+@default: @color1;
 
-@base-color: #88BA56;
-@color-wheel-type:  monochromatic;
+@s-action: @color1b;
+@s-reaction: @color2b;
+@s-info: #5bc0de;
+@s-success: #5cb85c;
+@s-failure: #d0534f;
+@s-warning: #f0ad4e;
 
-.make-colors(@color; @wheel) {
+@semantic-colors:   action,
+                    reaction,
+                    info,
+                    warning,
+                    success,
+                    failure,
+                    default;
+
+.make-colors(@base-color; @base-color-wheel);
+
+.make-colors(@color: @base-color; @wheel: @base-color-wheel) {
 
   .configure-scheme-type(@color);
-  .load-color-wheel-types();
+  .load-color-wheels();
   .make-main-colors(@color; @wheel);
   .load-subcolor-bases();
-  
   .make-subcolors(@scheme-type);
+  .load-gray-bases(@color);
   .make-grays(@color);
 
-  .load-subcolor-bases() {
-    @color1a-base: contrast(black; spin(@color1, 5); spin(@color1, -5));
-    @color1b-base: contrast(@color1; spin(@color1, @accent); spin(@color1, -@accent));
-    @color1c-base: contrast(white; spin(@color1, 5); spin(@color1, -5));
-
-    @color2a-base: contrast(black; spin(@color2, 10); spin(@color2, -10));
-    @color2b-base: contrast(@color2; spin(@color2, @accent); spin(@color2, -@accent));
-    @color2c-base: contrast(white; spin(@color2, 10); spin(@color2, -10));
-
-    @color3a-base: contrast(black; spin(@color3, 10); spin(@color3, -10));
-    @color3b-base: contrast(@color3; spin(@color3, @accent); spin(@color3, -@accent));
-    @color3c-base: contrast(white; spin(@color3, 10); spin(@color3, -10));
-
-    @color4a-base: contrast(black; spin(@color4, 10); spin(@color4, -10));
-    @color4b-base: contrast(@color4; spin(@color4, @accent); spin(@color4, -@accent));
-    @color4c-base: contrast(white; spin(@color4, 10); spin(@color4, -10));
+  .configure-scheme-type(@color) {
+    // sets @scheme-type to dark, medium or light depending on color given
+    @scheme-type-base: unit(ceil(luma(@color)*3/100));
+    @scheme-types: dark, medium, light;
+    @scheme-type: extract(@scheme-types, @scheme-type-base);
   }
 
-  .load-color-wheel-types() {
+  .load-color-wheels() {
     @complement: 180deg;
     @triadic-pair: 120deg;
     @accent: 45deg;
@@ -96,7 +107,43 @@
                       -@analog/2;
   }
 
+  .load-subcolor-bases() {
+    .load-subcolor-bases-a();
+    .load-subcolor-bases-b();
+    .load-subcolor-bases-c();
+  }
+
+  .load-subcolor-bases-a() {
+    // contrast two nearby analogs against black to get the lighter version
+    @spin: @analog;
+    @contrast: black;
+    @color1a-base: contrast(@contrast; spin(@color1, @spin/2); spin(@color1, -@spin/2));
+    @color2a-base: contrast(@contrast; spin(@color2, @spin); spin(@color2, -@spin));
+    @color3a-base: contrast(@contrast; spin(@color3, @spin); spin(@color3, -@spin));
+    @color4a-base: contrast(@contrast; spin(@color4, @spin); spin(@color4, -@spin));
+  }
+
+  .load-subcolor-bases-b() {
+    // contrast two nearby accents against the color itself
+    @spin: @accent;
+    @color1b-base: contrast(@color1; spin(@color1, @spin); spin(@color1, -@spin));
+    @color2b-base: contrast(@color2; spin(@color2, @spin); spin(@color2, -@spin));
+    @color3b-base: contrast(@color3; spin(@color3, @spin); spin(@color3, -@spin));
+    @color4b-base: contrast(@color4; spin(@color4, @spin); spin(@color4, -@spin));
+  }
+
+  .load-subcolor-bases-c() {
+    // contrast two nearby analogs against white to get the darker version
+    @spin: @analog;
+    @contrast: white;
+    @color1c-base: contrast(@contrast; spin(@color1, @spin/2); spin(@color1, -@spin/2));
+    @color2c-base: contrast(@contrast; spin(@color2, @spin); spin(@color2, -@spin));
+    @color3c-base: contrast(@contrast; spin(@color3, @spin); spin(@color3, -@spin));
+    @color4c-base: contrast(@contrast; spin(@color4, @spin); spin(@color4, -@spin));
+  }
+
   .make-main-colors(@color; @wheel) {
+    // turn the wheel into its variable form and use it to spin other main colors
     @wheel-var: @@wheel;
     @color1: @color;
     @color2: spin(@color, extract(@wheel-var, 1));
@@ -104,86 +151,111 @@
     @color4: spin(@color, extract(@wheel-var, 3));  
   }
 
-  .make-subcolors(@type: medium) {
-    @color1a: lighten(@color1a-base, 10%);
+  .make-subcolors(@scheme-type: medium) {
+    .make-subcolors-a(@scheme-type);
+    .make-subcolors-b(@scheme-type);
+    .make-subcolors-c(@scheme-type);
+  }
+
+  .make-subcolors-a(@scheme) {
+    // a is lighter
+    @lighten-by: 10%;
+    @color1a: lighten(@color1a-base, @lighten-by);
+    @color2a: lighten(@color2a-base, @lighten-by);
+    @color3a: lighten(@color3a-base, @lighten-by);
+    @color4a: lighten(@color4a-base, @lighten-by);
+  }
+
+  .make-subcolors-b(@scheme) {
+    // b is just the base (which is an accent), no lightness changes
     @color1b: @color1b-base;
-    @color1c: darken(@color1c-base, 10%);
-
-    @color2a: lighten(@color2a-base, 10%);
     @color2b: @color2b-base;
-    @color2c: darken(@color2c-base, 10%);
-
-    @color3a: lighten(@color3a-base, 10%);
     @color3b: @color3b-base;
-    @color3c: darken(@color3c-base, 10%);
-
-    @color4a: lighten(@color4a-base, 10%);
     @color4b: @color4b-base;
-    @color4c: darken(@color4c-base, 10%);
   }
 
-  .make-subcolors(@type) when (@type = light) {
-    @color1a: lighten(@color1a-base, 3%);
-    @color1b: darken(@color1b-base, 4%);
-    @color1c: darken(@color1c-base, 12.5%);
-
-    @color2a: lighten(@color2a-base, 3%);
-    @color2b: darken(@color2b-base, 4%);
-    @color2c: darken(@color2c-base, 12.5%);
-
-    @color3a: lighten(@color3a-base, 3%);
-    @color3b: darken(@color3b-base, 4%);
-    @color3c: darken(@color3c-base, 12.5%);
-
-    @color4a: lighten(@color4a-base, 3%);
-    @color4b: darken(@color4b-base, 4%);
-    @color4c: darken(@color4c-base, 12.5%);
+  .make-subcolors-c(@scheme) {
+    // c is darker
+    @darken-by: 10%;
+    @color1c: darken(@color1c-base, @darken-by);
+    @color2c: darken(@color2c-base, @darken-by);
+    @color3c: darken(@color3c-base, @darken-by);
+    @color4c: darken(@color4c-base, @darken-by);
   }
 
-  .make-subcolors(@type) when (@type = dark) {
-    @color1a: lighten(@color1a-base, 15%);
-    @color1b: lighten(@color1b-base, 5%);
-    @color1c: darken(@color1c-base, 5%);
+  .make-subcolors-a(@scheme) when (@scheme = light) {
+    @lighten-by: 3%;
+    @color1a: lighten(@color1a-base, @lighten-by);
+    @color2a: lighten(@color2a-base, @lighten-by);
+    @color3a: lighten(@color3a-base, @lighten-by);
+    @color4a: lighten(@color4a-base, @lighten-by);
+  }
 
-    @color2a: lighten(@color2a-base, 15%);
-    @color2b: lighten(@color2b-base, 5%);
-    @color2c: darken(@color2c-base, 5%);
+  .make-subcolors-b(@scheme) when (@scheme = light) {
+    @darken-by: 4%;
+    @color1b: darken(@color1b-base, @darken-by);
+    @color2b: darken(@color2b-base, @darken-by);
+    @color3b: darken(@color3b-base, @darken-by);
+    @color4b: darken(@color4b-base, @darken-by);
+  }
 
-    @color3a: lighten(@color3a-base, 15%);
-    @color3b: lighten(@color3b-base, 5%);
-    @color3c: darken(@color3c-base, 5%);
+  .make-subcolors-c(@scheme) when (@scheme = light) {
+    @darken-by: 15%;
+    @color1c: darken(@color1c-base, @darken-by);
+    @color2c: darken(@color2c-base, @darken-by);
+    @color3c: darken(@color3c-base, @darken-by);
+    @color4c: darken(@color4c-base, @darken-by);
+  }
 
-    @color4a: lighten(@color4a-base, 15%);
-    @color4b: lighten(@color4b-base, 5%);
-    @color4c: darken(@color4c-base, 5%);
+  .make-subcolors-a(@scheme) when (@scheme = dark) {
+    @lighten-by: 15%;
+    @color1a: lighten(@color1a-base, @lighten-by);
+    @color2a: lighten(@color2a-base, @lighten-by);
+    @color3a: lighten(@color3a-base, @lighten-by);
+    @color4a: lighten(@color4a-base, @lighten-by);
+  }
+
+  .make-subcolors-b(@scheme) when (@scheme = dark) {
+    @lighten-by: 4%;
+    @color1b: lighten(@color1b-base, @lighten-by);
+    @color2b: lighten(@color2b-base, @lighten-by);
+    @color3b: lighten(@color3b-base, @lighten-by);
+    @color4b: lighten(@color4b-base, @lighten-by);
+  }
+
+  .make-subcolors-c(@scheme) when (@scheme = dark) {
+    @darken-by: 3%;
+    @color1c: darken(@color1c-base, @darken-by);
+    @color2c: darken(@color2c-base, @darken-by);
+    @color3c: darken(@color3c-base, @darken-by);
+    @color4c: darken(@color4c-base, @darken-by);
+  }
+
+  .load-gray-bases(@color) {
+    @gray-base: desaturate(@color; 85%);
+    @gray-step: 7%;
+
+    @gray-bases:  @gray-lightest-base,
+                  @gray-lighter-base,
+                  @gray-light-base,
+                  @gray-base,
+                  @gray-dark-base,
+                  @gray-darker-base,
+                  @gray-darkest-base,
+                  darken(@gray-darkest-base, 3%); // placeholder for overflow
+
+    @gray-light-base:             lighten(@gray-base; @gray-step);
+    @gray-lighter-base:           lighten(@gray-base; @gray-step * 2);
+    @gray-lightest-base:          lighten(@gray-base; @gray-step * 3);
+
+    @gray-dark-base:              darken(@gray-base; @gray-step);
+    @gray-darker-base:            darken(@gray-base; @gray-step * 2);
+    @gray-darkest-base:           darken(@gray-base; @gray-step * 3);
   }
 
   .make-grays(@color) {
     
-    .configure-scheme-type(@color);
-    .load-gray-bases();
-
-    .load-gray-bases() {
-      @gray-base:                   desaturate(@color; 80%);
-      @gray-step: 9%;
-
-      @gray-bases:  @gray-lightest-base,
-                    @gray-lighter-base,
-                    @gray-light-base,
-                    @gray-base,
-                    @gray-dark-base,
-                    @gray-darker-base,
-                    @gray-darkest-base,
-                    darken(@gray-darkest-base, 3%); // placeholder for overflow
-
-      @gray-light-base:             lighten(@gray-base; @gray-step);
-      @gray-lighter-base:           lighten(@gray-base; @gray-step * 2);
-      @gray-lightest-base:          lighten(@gray-base; @gray-step * 3);
-
-      @gray-dark-base:              darken(@gray-base; @gray-step);
-      @gray-darker-base:            darken(@gray-base; @gray-step * 2);
-      @gray-darkest-base:           darken(@gray-base; @gray-step * 3);
-    }
+    .load-gray-bases(@color);
 
     @gray-lighter:      extract(@gray-bases; 0 + @scheme-type-base);
     @gray-light:        extract(@gray-bases; 1 + @scheme-type-base);
@@ -193,35 +265,5 @@
   }
 }
 
-.configure-scheme-type(@color) {
-  @scheme-type-base: unit(ceil(luma(@color)*3/100));
-  @scheme-types: dark, medium, light;
-  @scheme-type: extract(@scheme-types, @scheme-type-base);
-}
 
-// semantic colors, themed.
-// TODO: use contrast to pick candidates here instead of this awkward sat/lit dance
-
-@action:		@s-action;
-@reaction:  @s-reaction;
-@info:   		hsl(hue(@s-info); @sat; @lit);
-@success:		hsl(hue(@s-success); (saturation(@s-success) + @sat)/2.0; lightness(average(@s-success; @base-color;)));
-@failure: 	hsl(hue(@s-failure); (saturation(@s-failure) + @sat)/1.8; lightness(average(@s-failure; @base-color;)));
-@warning:		hsl(hue(@s-warning); (saturation(@s-warning) + @sat)/1.7; lightness(average(@s-warning; @base-color;)));
-@default: @color4;
-
-@s-action: @color1;
-@s-reaction: @color2;
-@s-info: #5bc0de;
-@s-success: #5cb85c;
-@s-failure: #d0534f;
-@s-warning: #f0ad4e;
-
-@semantic-colors:   action,
-                    reaction,
-                    info,
-                    warning,
-                    success,
-                    failure,
-                    default;
 

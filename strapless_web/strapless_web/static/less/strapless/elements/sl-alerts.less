@@ -19,12 +19,13 @@
     }
 
     .make-sl-alert(@index + 1);
-  }  
+  }
 }
 
 .sl-alert(@color, @alert-text:'hey!') {
   @background: lighten(@color, 7.5%);
   background-color: @background;
+  .blueprint(@color);
   .contrast-text-against(@background);
 
   &:before {
@@ -59,7 +60,6 @@
   //overflow: hidden;
   //border: 1px solid transparent;
   border-radius: @border-radius;
-  .pattern('az-subtle');
 
   &:before {
     font-family: @headings-font-family;

@@ -18,13 +18,12 @@
           <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}global/js/dev/less.min.js"></script>
         {% else %}
           {% compress css %}
-              <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}global/less/index.less">
+              <link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}global/less/index.less">
           {% endcompress %}
         {% endif %}
 
-        <link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet">
-
-
+        <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
 
         {% compress js %}
             <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}global/js/jquery.js"></script>

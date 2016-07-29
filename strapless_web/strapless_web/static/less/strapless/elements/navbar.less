@@ -17,8 +17,9 @@
   width: 100%;
   z-index: 1000;
   overflow: hidden;
+  border-bottom: 1px solid darken(@color,10%);
+  border-top: 1px solid darken(@color,10%);
 
-  .pattern('bright-squares');
 
   > section {
     display: block;
@@ -38,7 +39,6 @@
     padding-top: 0;
     padding-bottom: 0;
     height: @height;
-    line-height: @height;
     vertical-align: middle;
     overflow: hidden;
 
@@ -58,6 +58,7 @@
     &:last-child {
       display: block;
       float: right;
+      line-height: @height - 6;
     }
   }
 
@@ -91,12 +92,11 @@
     &:hover {
       background-color: lighten(@color, 10%);
       text-decoration: none;
-      .pattern('bright-squares');
     }
   }
 
   .dropdown {
-    width: auto;
+    //width: auto;
 
     ul {
       display: none;

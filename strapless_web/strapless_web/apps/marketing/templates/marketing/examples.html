@@ -3,17 +3,309 @@
 {% block body_id %}examples{% endblock %}
 
 {% block feature %}
-<div class="brand-thing">
-    <h1>strapless</h1>
+<!-- <div class="brand-thing">
+<h2>Strapless</h2>
+    <h1>Strapless</h1>
     <p class="lead">&middot; LESS and JS library for developing responsive, mobile-first projects on the web</p>
     <p class="lead">&middot; Fork of, and backwards-compatible with, Bootstrap 3</p>
-    <div id="less_variable_test">
-    </div>
+    
+</div> -->
+<div class="focus-thing">
+  <div class="thing">
+    <h1>You can lead a horse to water...</h1>
+    <p class="lead">But you can't make it drink. <span id="less_variable_test">
+    </span></p>
+  </div>
 </div>
 {% endblock %}
 
 {% block body %}
-<div id="color_wheel_test" class="color-wheel-test">
+    <div id="palette_preview_container">
+      <div id="palette_preview">
+          <div class="swatch color1">color1</div>
+          <div class="swatch color1a">color1a</div>
+          <div class="swatch color1b">color1b</div>
+          <div class="swatch color1c">color1c</div>
+          <div class="swatch color2">color2</div>
+          <div class="swatch color2a">color2a</div>
+          <div class="swatch color2b">color2b</div>
+          <div class="swatch color2c">color2c</div>
+          <div class="swatch color3">color3</div>
+          <div class="swatch color3a">color3a</div>
+          <div class="swatch color3b">color3b</div>
+          <div class="swatch color3c">color3c</div>
+          <div class="swatch color4">color4</div>
+          <div class="swatch color4a">color4a</div>
+          <div class="swatch color4b">color4b</div>
+          <div class="swatch color4c">color4c</div>
+          <div class="swatch gray-lighter">gray-lighter</div>
+          <div class="swatch gray-light">gray-light</div>
+          <div class="swatch gray">gray</div>
+          <div class="swatch gray-dark">gray-dark</div>
+          <div class="swatch gray-darker">gray-darker</div>
+          <div class="swatch info">info</div>
+          <div class="swatch warning">warning</div>
+          <div class="swatch success">success</div>
+          <div class="swatch failure">failure</div>
+          <div class="swatch scheme-type">scheme-type: </div>
+          <div class="swatch luma">luma:</div>
+          <div class="swatch lit">lightness:</div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <h1>Style Guide and other stuff</h1>
+
+    <h2>Elements</h2>
+    <p>Elements are like components, but have multiple possible visual states. (Like... elements do...)</p>
+    <p>They're self-contained in that they don't refer to variables in other files aside from the standard Strapless variables.</p>
+    <p>They should have the following, in order:</p>
+    <ul>
+      <li>HTML classes that the core mixin is written to.</li>
+      <li>Variables (if they have them).</li>
+      <li>A base class to extend (if it has one).</li>
+      <li>A core mixin (with guards if necessary) that accepts a color argument (or two).</li>
+    </ul>
+    <p>Elements shouldn't be too magical, but they can take liberties in contrast/color adjustments.</p>
+
+    <h2>Color and contrast</h2>
+    <p>Strapless elements don't generally need to be written to work with any color. But ours do because they're the base elements.</p>
+    <p>We also have to make sure everything stays readable. Use contrast mixins to color text.</p>
+
+    <h2>The <em>sl</em> collection</h2>
+    <p>In Strapless, elements are grouped into namespaced collections. The namesake namespace is <em>sl</em>, which prefixes all the standard elements shipping with Strapless.</p>
+    <p>These components should be written to find a good mix between showing off Strapless features and giving the user a simple starting base.</p>
+    <p>Generally, they take the approach of one container element with only standard HTML inside. Sticking to HTML elements gives us extra semantic flexibility, although it can at times feel restrictive.</p>
+
+    <h2>The <em>bs3</em> collection</h2>
+    <p>These elements are ported from Bootstrap 3 components. In Strapless style, they're more self-contained and less reliant on variables.less.</p>
+    <p>Occassionally, they'll have received a minor rewrite or shiv to compensate for dropped BS3 concepts.</p>
+    <p>Some of these have javascript associated with them. Not sure yet how we'll handle that, or just point users to BS3.</p>
+
+    <h2>The <em>1px</em> collection</h2>
+    <p>Not shipped with Strapless, but offered as a collection on the website. Based on the 1pxdeep BS3 theme.</p>
+
+    <h2>Style guidelines</h2>
+    <ul>
+      <li>Use semicolons between mixin arguments (exceptions allowed for readability)</li>
+      <li>Comments are in lower case. Just like CSS!</li>
+      <li>Rough order of things in an element: variables, generator mixins (and anything else that writes CSS, including written CSS), other mixins, base classes</li>
+      <li>Pollute the global namespace as much as you want, variable-wise. Strapless is a bootstrap-inspired first-files-of-the-project kinda thing. Go crazy. Also, LESS has lazy loading of variables so collisions are usually easy to deal with. The only thing that really needs to be namespaced are elements, so we don't have 8 million .buttons to deal with. Leave "base" out if you can. It's not @padding-base, just @padding.</li>
+      <li>We do use "base" at the end of the base classes for elements. Variables are the wild west. Elements are little more locked down.</li>
+      <li>Want a @margin global variable? Define it. Can't think of a good default value? Set it to @padding. We'll end up with some useful defaults only after experimenting a bit.</li>
+      <li>Strapless occasionally relies on prepositions in mixin names to make mixins easier to read. Take a look at .contrast-text-against() and .make-sl-buttons-for() for examples.</li>
+
+
+
+    </ul>
+
+
+
+    <div class="clearfix"></div>
+    <h3>Buttons</h3>
+    
+    <p><button type="button" class="btn-color2">Color 2 button</button> <button type="button" class="btn-large btn-color1a">color1a</button></p>
+        <p><button type="button" class="btn-action">Action</button>
+        <button type="button" class="btn-crap">Crap</button>
+          <button type="button" class="btn-reaction">Reaction</button> &nbsp;&nbsp;<button type="button" class="btn-success">Success</button>
+          <button type="button" class="btn-failure">Failure</button></p>
+        <p><button type="button" class="btn-info">Info</button>
+          <button type="button" class="btn-warning">Warning</button> &nbsp;&nbsp;<button type="button" class="btn-default">Default</button>
+          <button type="button" class="btn-link">Link</button></p>
+    <h3>Alerts</h3>
+    <div class="alert-color1b" role="alert">
+        <strong>color1b?</strong> What does that even mean?
+    </div>
+    <div class="alert-action" role="alert">
+        <strong>What?</strong> What does that even mean?
+    </div>
+    <div class="alert-reaction" role="alert">
+        <strong>Somehow.</strong> Even more confusing.
+    </div>
+    <div class="alert-default" role="alert">
+        <strong>Whoa!</strong> It's a boring default alert.
+    </div>
+    <div class="alert-success" role="alert">
+        <strong>Well done!</strong> You successfully read this important alert message.
+    </div>
+    <div class="alert-failure" role="alert">
+        <strong>Oh snap!</strong> Change a few things up and try submitting again.
+    </div>
+    <div class="alert-info" role="alert">
+        <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+    </div>
+    <div class="alert-warning" role="alert">
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+    </div>
+  </section>
+  <section>
+    <h3>Palette</h3>
+
+  </section>
+</div>
+<div class="clearfix"></div>
+
+
+
+
+
+
+<div class="container theme-showcase" role="main">
+
+
+      <h1>Buttons</h1>
+      <p>
+        <button type="button" class="btn-default">Default</button>
+        <button type="button" class="btn-primary">Primary</button>
+        <button type="button" class="btn-success">Success</button>
+        <button type="button" class="btn-info">Info</button>
+        <button type="button" class="btn-warning">Warning</button>
+        <button type="button" class="btn-danger">Danger</button>
+        <button type="button" class="btn-link">Link</button>
+      </p>
+
+
+      <div class="page-header">
+        <h1>Tables</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2">1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@TwBootstrap</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="color_wheel_test" class="color-wheel-test">
   <h1>Current</h1>
   <div class="color1 color"></div>
   <div class="color2 color"></div>
@@ -444,624 +736,6 @@
     <p class="swatch"></p>
     <p class="swatch"></p>
   </div>
-
-  <br /><br /><br /><br /><br /><br />
-    <div id="palette_preview_container">
-      <div id="palette_preview">
-          <div class="swatch color1">color1</div>
-          <div class="swatch color1a">color1a</div>
-          <div class="swatch color1b">color1b</div>
-          <div class="swatch color1c">color1c</div>
-          <div class="swatch color2">color2</div>
-          <div class="swatch color2a">color2a</div>
-          <div class="swatch color2b">color2b</div>
-          <div class="swatch color2c">color2c</div>
-          <div class="swatch color3">color3</div>
-          <div class="swatch color3a">color3a</div>
-          <div class="swatch color3b">color3b</div>
-          <div class="swatch color3c">color3c</div>
-          <div class="swatch color4">color4</div>
-          <div class="swatch color4a">color4a</div>
-          <div class="swatch color4b">color4b</div>
-          <div class="swatch color4c">color4c</div>
-          <div class="swatch gray-lighter">gray-lighter</div>
-          <div class="swatch gray-light">gray-light</div>
-          <div class="swatch gray">gray</div>
-          <div class="swatch gray-dark">gray-dark</div>
-          <div class="swatch gray-darker">gray-darker</div>
-          <div class="swatch info">info</div>
-          <div class="swatch warning">warning</div>
-          <div class="swatch success">success</div>
-          <div class="swatch failure">failure</div>
-          <div class="swatch scheme-type">scheme-type: </div>
-          <div class="swatch luma">luma:</div>
-          <div class="swatch lit">lightness:</div>
-      </div>
-    </div>
-
-    <div class="clearfix"></div>
-
-    <div id="pattern_preview_container">
-      <div id="pattern_preview">
-          <div class="pattern argyle">argyle</div>
-          <div class="pattern sixty-lines">60-lines</div>
-          <div class="pattern bright-squares">bright-squares</div>
-          <div class="pattern arches">arches</div>
-      </div>
-    </div>
-
-    <div class="clearfix"></div>
-    <h1>Style Guide and other stuff</h1>
-
-    <h2>Elements</h2>
-    <p>Elements are like components, but have multiple possible visual states. (Like... elements do...)</p>
-    <p>They're self-contained in that they don't refer to variables in other files aside from the standard Strapless variables.</p>
-    <p>They should have the following, in order:</p>
-    <ul>
-      <li>HTML classes that the core mixin is written to.</li>
-      <li>Variables (if they have them).</li>
-      <li>A base class to extend (if it has one).</li>
-      <li>A core mixin (with guards if necessary) that accepts a color argument (or two).</li>
-    </ul>
-    <p>Elements shouldn't be too magical, but they can take liberties in contrast/color adjustments.</p>
-
-    <h2>Color and contrast</h2>
-    <p>Strapless elements don't generally need to be written to work with any color. But ours do because they're the base elements.</p>
-    <p>We also have to make sure everything stays readable. Use contrast mixins to color text.</p>
-
-    <h2>The <em>sl</em> collection</h2>
-    <p>In Strapless, elements are grouped into namespaced collections. The namesake namespace is <em>sl</em>, which prefixes all the standard elements shipping with Strapless.</p>
-    <p>These components should be written to find a good mix between showing off Strapless features and giving the user a simple starting base.</p>
-    <p>Generally, they take the approach of one container element with only standard HTML inside. Sticking to HTML elements gives us extra semantic flexibility, although it can at times feel restrictive.</p>
-
-    <h2>The <em>bs3</em> collection</h2>
-    <p>These elements are ported from Bootstrap 3 components. In Strapless style, they're more self-contained and less reliant on variables.less.</p>
-    <p>Occassionally, they'll have received a minor rewrite or shiv to compensate for dropped BS3 concepts.</p>
-    <p>Some of these have javascript associated with them. Not sure yet how we'll handle that, or just point users to BS3.</p>
-
-    <h2>The <em>1px</em> collection</h2>
-    <p>Not shipped with Strapless, but offered as a collection on the website. Based on the 1pxdeep BS3 theme.</p>
-
-    <h2>Style guidelines</h2>
-    <ul>
-      <li>Use semicolons between mixin arguments (exceptions allowed for readability)</li>
-      <li>Comments are in lower case. Just like CSS!</li>
-      <li>Rough order of things in an element: variables, generator mixins (and anything else that writes CSS, including written CSS), other mixins, base classes</li>
-      <li>Pollute the global namespace as much as you want, variable-wise. Strapless is a bootstrap-inspired first-files-of-the-project kinda thing. Go crazy. Also, LESS has lazy loading of variables so collisions are usually easy to deal with. The only thing that really needs to be namespaced are elements, so we don't have 8 million .buttons to deal with. Leave "base" out if you can. It's not @padding-base, just @padding.</li>
-      <li>We do use "base" at the end of the base classes for elements. Variables are the wild west. Elements are little more locked down.</li>
-      <li>Want a @margin global variable? Define it. Can't think of a good default value? Set it to @padding. We'll end up with some useful defaults only after experimenting a bit.</li>
-      <li>Strapless occasionally relies on prepositions in mixin names to make mixins easier to read. Take a look at .contrast-text-against() and .make-sl-buttons-for() for examples.</li>
-
-
-
-    </ul>
-
-
-
-    <h1>Tray</h1>
-    <p><code>#id_selector { color: #ffffff;}</code></p>
-    <div class="tray">
-      <div class="test">Test</div>
-      <div class="test">Test</div>
-      <div class="test">Test</div>
-      <div class="test">Test</div>
-      <div class="test">Test</div>
-      <div class="test">Test</div>
-    </div>
-    <div class="clearfix"></div>
-
-    <h1>List</h1>
-    <div class="list">
-      <div class="test">Test</div>
-      <div class="test">Test</div>
-      <div class="test">Test</div>
-      <div class="test">Test</div>
-      <div class="test">Test</div>
-      <div class="test">Test</div>
-    </div>
-    <div class="clearfix"></div>
-
-    <h1>Gallery</h1>
-    <div class="gallery">
-      <div class="test">Test that is longer than the others yet it breaks at 25%</div>
-      <div class="test">Test</div>
-      <div class="test">Test</div>
-      <div class="test">Test</div>
-      <div class="test">Test</div>
-      <div class="test">Test</div>
-    </div>
-    <div class="clearfix"></div>
-    <h3>Buttons</h3>
-    
-    <p><button type="button" class="btn-color2">Color 2 button</button> <button type="button" class="btn-large btn-color1a">color1a</button></p>
-        <p><button type="button" class="btn-action">Action</button>
-        <button type="button" class="btn-crap">Crap</button>
-          <button type="button" class="btn-reaction">Reaction</button> &nbsp;&nbsp;<button type="button" class="btn-success">Success</button>
-          <button type="button" class="btn-failure">Failure</button></p>
-        <p><button type="button" class="btn-info">Info</button>
-          <button type="button" class="btn-warning">Warning</button> &nbsp;&nbsp;<button type="button" class="btn-default">Default</button>
-          <button type="button" class="btn-link">Link</button></p>
-    <h3>Alerts</h3>
-    <div class="alert-color1b" role="alert">
-        <strong>color1b?</strong> What does that even mean?
-    </div>
-    <div class="alert-action" role="alert">
-        <strong>What?</strong> What does that even mean?
-    </div>
-    <div class="alert-reaction" role="alert">
-        <strong>Somehow.</strong> Even more confusing.
-    </div>
-    <div class="alert-default" role="alert">
-        <strong>Whoa!</strong> It's a boring default alert.
-    </div>
-    <div class="alert-success" role="alert">
-        <strong>Well done!</strong> You successfully read this important alert message.
-    </div>
-    <div class="alert-failure" role="alert">
-        <strong>Oh snap!</strong> Change a few things up and try submitting again.
-    </div>
-    <div class="alert-info" role="alert">
-        <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-    </div>
-    <div class="alert-warning" role="alert">
-        <strong>Warning!</strong> Better check yourself, you're not looking too good.
-    </div>
-  </section>
-  <section>
-    <h3>Palette</h3>
-
-  </section>
-</div>
-<div class="clearfix"></div>
-
-
-
-
-
-
-<div class="container theme-showcase" role="main">
-
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Theme example</h1>
-        <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
-      </div>
-
-
-      <div class="page-header">
-        <h1>Buttons</h1>
-      </div>
-      <p>
-        <button type="button" class="btn btn-lg btn-default">Default</button>
-        <button type="button" class="btn btn-lg btn-primary">Primary</button>
-        <button type="button" class="btn btn-lg btn-success">Success</button>
-        <button type="button" class="btn btn-lg btn-info">Info</button>
-        <button type="button" class="btn btn-lg btn-warning">Warning</button>
-        <button type="button" class="btn btn-lg btn-danger">Danger</button>
-        <button type="button" class="btn btn-lg btn-link">Link</button>
-      </p>
-      <p>
-        <button type="button" class="btn btn-default">Default</button>
-        <button type="button" class="btn btn-primary">Primary</button>
-        <button type="button" class="btn btn-success">Success</button>
-        <button type="button" class="btn btn-info">Info</button>
-        <button type="button" class="btn btn-warning">Warning</button>
-        <button type="button" class="btn btn-danger">Danger</button>
-        <button type="button" class="btn btn-link">Link</button>
-      </p>
-      <p>
-        <button type="button" class="btn btn-sm btn-default">Default</button>
-        <button type="button" class="btn btn-sm btn-primary">Primary</button>
-        <button type="button" class="btn btn-sm btn-success">Success</button>
-        <button type="button" class="btn btn-sm btn-info">Info</button>
-        <button type="button" class="btn btn-sm btn-warning">Warning</button>
-        <button type="button" class="btn btn-sm btn-danger">Danger</button>
-        <button type="button" class="btn btn-sm btn-link">Link</button>
-      </p>
-      <p>
-        <button type="button" class="btn btn-xs btn-default">Default</button>
-        <button type="button" class="btn btn-xs btn-primary">Primary</button>
-        <button type="button" class="btn btn-xs btn-success">Success</button>
-        <button type="button" class="btn btn-xs btn-info">Info</button>
-        <button type="button" class="btn btn-xs btn-warning">Warning</button>
-        <button type="button" class="btn btn-xs btn-danger">Danger</button>
-        <button type="button" class="btn btn-xs btn-link">Link</button>
-      </p>
-
-
-      <div class="page-header">
-        <h1>Tables</h1>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td rowspan="2">1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@TwBootstrap</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <table class="table table-condensed">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-
-      <div class="page-header">
-        <h1>Thumbnails</h1>
-      </div>
-      <img data-src="holder.js/200x200" class="img-thumbnail" alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera">
-
-
-      <div class="page-header">
-        <h1>Labels</h1>
-      </div>
-      <h1>
-        <span class="label label-default">Default</span>
-        <span class="label label-primary">Primary</span>
-        <span class="label label-success">Success</span>
-        <span class="label label-info">Info</span>
-        <span class="label label-warning">Warning</span>
-        <span class="label label-danger">Danger</span>
-      </h1>
-      <h2>
-        <span class="label label-default">Default</span>
-        <span class="label label-primary">Primary</span>
-        <span class="label label-success">Success</span>
-        <span class="label label-info">Info</span>
-        <span class="label label-warning">Warning</span>
-        <span class="label label-danger">Danger</span>
-      </h2>
-      <h3>
-        <span class="label label-default">Default</span>
-        <span class="label label-primary">Primary</span>
-        <span class="label label-success">Success</span>
-        <span class="label label-info">Info</span>
-        <span class="label label-warning">Warning</span>
-        <span class="label label-danger">Danger</span>
-      </h3>
-      <h4>
-        <span class="label label-default">Default</span>
-        <span class="label label-primary">Primary</span>
-        <span class="label label-success">Success</span>
-        <span class="label label-info">Info</span>
-        <span class="label label-warning">Warning</span>
-        <span class="label label-danger">Danger</span>
-      </h4>
-      <h5>
-        <span class="label label-default">Default</span>
-        <span class="label label-primary">Primary</span>
-        <span class="label label-success">Success</span>
-        <span class="label label-info">Info</span>
-        <span class="label label-warning">Warning</span>
-        <span class="label label-danger">Danger</span>
-      </h5>
-      <h6>
-        <span class="label label-default">Default</span>
-        <span class="label label-primary">Primary</span>
-        <span class="label label-success">Success</span>
-        <span class="label label-info">Info</span>
-        <span class="label label-warning">Warning</span>
-        <span class="label label-danger">Danger</span>
-      </h6>
-      <p>
-        <span class="label label-default">Default</span>
-        <span class="label label-primary">Primary</span>
-        <span class="label label-success">Success</span>
-        <span class="label label-info">Info</span>
-        <span class="label label-warning">Warning</span>
-        <span class="label label-danger">Danger</span>
-      </p>
-
-
-      <div class="page-header">
-        <h1>Badges</h1>
-      </div>
-      <p>
-        <a href="#">Inbox <span class="badge">42</span></a>
-      </p>
-      <ul class="nav nav-pills" role="tablist">
-        <li role="presentation" class="active"><a href="#">Home <span class="badge">42</span></a></li>
-        <li role="presentation"><a href="#">Profile</a></li>
-        <li role="presentation"><a href="#">Messages <span class="badge">3</span></a></li>
-      </ul>
-
-
-      <div class="page-header">
-        <h1>Dropdown menus</h1>
-      </div>
-      <div class="dropdown theme-dropdown clearfix">
-        <a id="dropdownMenu1" href="#" class="sr-only dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li class="active"><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </div>
-
-
-      <div class="page-header">
-        <h1>Navs</h1>
-      </div>
-      <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="#">Profile</a></li>
-        <li role="presentation"><a href="#">Messages</a></li>
-      </ul>
-      <ul class="nav nav-pills" role="tablist">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="#">Profile</a></li>
-        <li role="presentation"><a href="#">Messages</a></li>
-      </ul>
-
-
-
-
-
-      <div class="page-header">
-        <h1>Alerts</h1>
-      </div>
-      <div class="alert alert-success" role="alert">
-        <strong>Well done!</strong> You successfully read this important alert message.
-      </div>
-      <div class="alert alert-info" role="alert">
-        <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-      </div>
-      <div class="alert alert-warning" role="alert">
-        <strong>Warning!</strong> Best check yo self, you're not looking too good.
-      </div>
-      <div class="alert alert-danger" role="alert">
-        <strong>Oh snap!</strong> Change a few things up and try submitting again.
-      </div>
-
-
-      <div class="page-header">
-        <h1>Progress bars</h1>
-      </div>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><span class="sr-only">60% Complete</span></div>
-      </div>
-      <div class="progress">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"><span class="sr-only">40% Complete (success)</span></div>
-      </div>
-      <div class="progress">
-        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"><span class="sr-only">20% Complete</span></div>
-      </div>
-      <div class="progress">
-        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only">60% Complete (warning)</span></div>
-      </div>
-      <div class="progress">
-        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"><span class="sr-only">80% Complete (danger)</span></div>
-      </div>
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only">60% Complete</span></div>
-      </div>
-      <div class="progress">
-        <div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only">35% Complete (success)</span></div>
-        <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span></div>
-        <div class="progress-bar progress-bar-danger" style="width: 10%"><span class='sr-only'>10% Complete (danger)</span></div>
-      </div>
-
-
-      <div class="page-header">
-        <h1>List groups</h1>
-      </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-        </div><!-- /.col-sm-4 -->
-        <div class="col-sm-4">
-          <div class="list-group">
-            <a href="#" class="list-group-item active">
-              Cras justo odio
-            </a>
-            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-            <a href="#" class="list-group-item">Morbi leo risus</a>
-            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-            <a href="#" class="list-group-item">Vestibulum at eros</a>
-          </div>
-        </div><!-- /.col-sm-4 -->
-        <div class="col-sm-4">
-          <div class="list-group">
-            <a href="#" class="list-group-item active">
-              <h4 class="list-group-item-heading">List group item heading</h4>
-              <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            </a>
-            <a href="#" class="list-group-item">
-              <h4 class="list-group-item-heading">List group item heading</h4>
-              <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            </a>
-            <a href="#" class="list-group-item">
-              <h4 class="list-group-item-heading">List group item heading</h4>
-              <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            </a>
-          </div>
-        </div><!-- /.col-sm-4 -->
-      </div>
-
-
-      <div class="page-header">
-        <h1>Panels</h1>
-      </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="panel">
-            <h1>This is a panel.</h1>
-            <p>They make stuff inside line up. Sometimes automatically.</p>
-            <p>They rock.</p>
-          </div>
-        </div><!-- /.col-sm-4 -->
-      </div>
-
-
-      <div class="page-header">
-        <h1>Wells</h1>
-      </div>
-      <div class="well">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
-      </div>
-
-
-      <div class="page-header">
-        <h1>Carousel</h1>
-      </div>
-      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img data-src="holder.js/1140x500/auto/#777:#555/text:First slide" alt="First slide">
-          </div>
-          <div class="item">
-            <img data-src="holder.js/1140x500/auto/#666:#444/text:Second slide" alt="Second slide">
-          </div>
-          <div class="item">
-            <img data-src="holder.js/1140x500/auto/#555:#333/text:Third slide" alt="Third slide">
-          </div>
-        </div>
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
 
 
     </div> <!-- /container -->

@@ -24,7 +24,7 @@
 
 // font stuff.
 
-@font-family-sans-serif:  "Lato", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  "Noto Sans", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
@@ -45,27 +45,28 @@
 // for use with `margin`, `padding`, etc.
 @line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
 
-@headings-font-family:    Helvetica, Arial, sans-serif;;
+@headings-font-family:    'Bitter', Helvetica, Arial, sans-serif;;
 @headings-font-weight:    500;
 @headings-line-height:    1.1;
 @headings-color:          inherit;
 
-// TODO: variables at the top? @headings-font-family should be up here, feels like, or above headings?
+// TODO: variables at the top? @headings-font-family should be up here, feels like, or above headings?8
 
-.text-color(@bg-color: @body-bg) {
-  @hue: hue(@bg-color);
-  color: hsl(@hue; @sat + 10; 98%);
+.text-color(@color) when (luma(@color) < 73.5%) {
+  @hue: hue(@color);
+  @sat: saturation(@color);
+  color: hsl(@hue; @sat + 10; 98%); // pretty much white
 }
 
-.text-color(@bg-color: @body-bg) when (luma(@bg-color) >= @luma-upper-break) {
-  color: mix(darken(@bg-color;30%); #333; 40%);
+.text-color(@color) when (luma(@color) >= 73.5%) {
+  color: mix(darken(@color;30%); #333; 40%);
 }
 
-.headline-color(@bg-color:@body-bg) when (luma(@bg-color) >= @luma-upper-break) {
-    color: mix(darken(@bg-color;30%); #333; 40%);
+.headline-color(@color) {
+    color: mix(darken(@color;30%); #333; 40%);
 }
 
-.headline-color(@bg-color:@body-bg) when (luma(@bg-color) < @luma-upper-break) {
+.headline-color(@color) when (@scheme-type = dark) {
     color:white;
 }
 

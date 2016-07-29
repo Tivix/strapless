@@ -1,8 +1,11 @@
-@import (reference) "variables";
 @import (reference) "mixins.less";
 @import (reference) "colors";
-@import (reference) "targets";
 @import (reference) "patterns";
+@import (reference) "targets";
+
+@padding: 12px;
+@border-radius: 4px;
+@body-bg: white;
 
 @import "normalize";
 @import "utilities";
@@ -14,13 +17,13 @@
 // @import "buttons";
 @import "tables";
 @import "fields";
-@import "code";
+//@import "code";
 
 // TODO: these are the stripped default print rules, component rules need to be
 // moved to component files and added in with .print() ruleset mixin
 @import "print";
 
-// TODO: decide what to support in shiv, whether to rename to bootstrap-shiv.less
+// TODO: decide what to support in shiv, whether to rename to bs3-shiv.less
 @import "shiv";
 
 @import "elements/sl-buttons";
@@ -28,6 +31,15 @@
 @import "elements/sl-alerts";
 
 @import "elements/sl-palette";
+
+@import "elements/sl-code";
+
+// TODO:
+
+// @import "elements/sl-tables";
+// @import "elements/sl-badges";
+// @import "elements/sl-labels";
+
 
 
 @import "elements/close";
@@ -37,12 +49,4 @@
 @import "elements/navs";
 @import "elements/progress-bars";
 
-// @import "elements/alerts"; // so then we'd have 'core' and also 'defaults'
 
-
-
-
-// @import "cards";
-// @import "split-screen";
-// @import "layers"; // similar to Material's z index concepts
-// @import "animate.css"; 
