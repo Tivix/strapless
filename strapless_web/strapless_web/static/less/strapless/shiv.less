@@ -494,7 +494,7 @@ body {
   @test: @scheme-type;
   @test-name: 'scheme type';
 
-  &:before {  
+  &:before {
     content: "@{test-name}: ";
   }
   &:after {
@@ -648,7 +648,7 @@ body {
 
 @huge-palette:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
                       color3, color3a, color3b, color3c, color4, color4a, color4b, color4c,
-                      success, failure, action, reaction, info, warning, 
+                      success, failure, action, reaction, info, warning,
                       gray-lighter, gray-light, gray, gray-dark, gray-darker, primary, danger;
 
 //@huge-palette:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
@@ -670,7 +670,7 @@ body {
   //text-shadow: 0 -.1em 0 darken(@color, 15%);
   margin-bottom: @padding*2;
 
-  h1 { 
+  h1 {
     font-size: @font-size-base*4;
     font-weight: bold;
   }
@@ -711,24 +711,33 @@ body {
   }
 }
 
-.pegboard(@base-color: @color1;) {
+.pegboard(@base-color: @color1; @scale: 1) {
   @base: @base-color;
-  @highlight: lighten(@base, 8%); 
+  @highlight: lighten(@base, 8%);
   @shadow: darken(@base, 8%);
-  @pattern-pegboard: ~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15'%3E%3Crect width='50' height='50' fill='@{base}'/%3E%3Ccircle cx='3' cy='4.3' r='1.8' fill='@{highlight}'/%3E%3Ccircle cx='3' cy='3' r='1.8' fill='@{shadow}'/%3E%3Ccircle cx='10.5' cy='12.5' r='1.8' fill='@{highlight}'/%3E%3Ccircle cx='10.5' cy='11.3' r='1.8' fill='@{shadow}'/%3E%3C/svg%3E";
+  @width: 15px;
+  @height: @width;
+  @pattern-pegboard: ~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{height}'%3E%3Crect width='50' height='50' fill='@{base}'/%3E%3Ccircle cx='3' cy='4.3' r='1.8' fill='@{highlight}'/%3E%3Ccircle cx='3' cy='3' r='1.8' fill='@{shadow}'/%3E%3Ccircle cx='10.5' cy='12.5' r='1.8' fill='@{highlight}'/%3E%3Ccircle cx='10.5' cy='11.3' r='1.8' fill='@{shadow}'/%3E%3C/svg%3E";
   background-image: url("data:image/svg+xml,@{pattern-pegboard}");
+  background-size: (@scale * @width), (@scale * @height);
 }
 
 .checkerboard(@first: @color1; @second: lighten(@first, 2.5%);) {
   @base: @base-color;
-  @highlight: lighten(@base, 8%); 
+  @highlight: lighten(@base, 8%);
   @shadow: darken(@base, 8%);
-  @pattern-checkerboard:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Crect width='60' height='60' fill='@{first}'/%3E%3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='@{second}'/%3E%3C/svg%3E";
+  @width: 60px;
+  @height: @width;
+  @pattern-checkerboard:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{height}'%3E%3Crect width='60' height='60' fill='@{first}'/%3E%3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='@{second}'/%3E%3C/svg%3E";
   background-image: url("data:image/svg+xml,@{pattern-checkerboard}");
+  background-size: (@scale * @width), (@scale * @height);
 }
 
 .blueprint(@background: @color1; @stroke: lighten(@background, 10%); @stroke-inner: darken(@stroke, 2%);) {
-  @pattern-blueprint:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E %3Crect width='100' height='100' fill='@{background}'/%3E %3Cg fill='@{stroke-inner}'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='@{stroke}'/%3E %3C/svg%3E";
+  @width: 100;
+  @height: @width;
+  @pattern-blueprint:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{height}'%3E %3Crect width='100' height='100' fill='@{background}'/%3E %3Cg fill='@{stroke-inner}'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='@{stroke}'/%3E %3C/svg%3E";
   background-image: url("data:image/svg+xml,@{pattern-blueprint}");
+  background-size: (@scale * @width), (@scale * @height);
 }
 
