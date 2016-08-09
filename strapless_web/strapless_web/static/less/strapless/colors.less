@@ -1,9 +1,7 @@
 // configurables
 
-// base-color: #CADFE6
-
-@base-color: tan;
-@base-color-wheel:  accented;
+@base-color: #CADFE6;
+@base-color-wheel:  ebb;
 @body-bg: white;
 
 // semantic colors, themed.
@@ -32,7 +30,7 @@
                     failure,
                     default;
 
-.make-colors(@base-color; @base-color-wheel);
+.make-colors();
 
 .make-colors(@color: @base-color; @wheel: @base-color-wheel) {
 
@@ -107,6 +105,15 @@
                       -@analog/2;
   }
 
+  .make-main-colors(@color; @wheel) {
+    // turn the wheel into its variable form and use it to spin other main colors
+    @wheel-var: @@wheel;
+    @color1: @color;
+    @color2: spin(@color, extract(@wheel-var, 1));
+    @color3: spin(@color, extract(@wheel-var, 2));
+    @color4: spin(@color, extract(@wheel-var, 3));  
+  }
+
   .load-subcolor-bases() {
     .load-subcolor-bases-a();
     .load-subcolor-bases-b();
@@ -140,15 +147,6 @@
     @color2c-base: contrast(@contrast; spin(@color2, @spin); spin(@color2, -@spin));
     @color3c-base: contrast(@contrast; spin(@color3, @spin); spin(@color3, -@spin));
     @color4c-base: contrast(@contrast; spin(@color4, @spin); spin(@color4, -@spin));
-  }
-
-  .make-main-colors(@color; @wheel) {
-    // turn the wheel into its variable form and use it to spin other main colors
-    @wheel-var: @@wheel;
-    @color1: @color;
-    @color2: spin(@color, extract(@wheel-var, 1));
-    @color3: spin(@color, extract(@wheel-var, 2));
-    @color4: spin(@color, extract(@wheel-var, 3));  
   }
 
   .make-subcolors(@scheme-type: medium) {
