@@ -25,7 +25,6 @@
 .sl-alert(@color, @alert-text:'hey!') {
   @background: lighten(@color, 7.5%);
   background-color: @background;
-  .blueprint(@color);
   .contrast-text-against(@background);
 
   &:before {

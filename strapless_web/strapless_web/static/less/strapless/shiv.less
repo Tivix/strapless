@@ -651,8 +651,8 @@ body {
                       success, failure, action, reaction, info, warning,
                       gray-lighter, gray-light, gray, gray-dark, gray-darker, primary, danger;
 
-//@huge-palette:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
-//                     color3, color3a, color3b, color3c, color4, color4a, color4b, color4c;
+@huge-palette:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
+                     color3, color3a, color3b, color3c, color4, color4a, color4b, color4c;
 
 
 .focus-thing {
@@ -666,7 +666,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  .pegboard(@color3a);
+  .checkerboard(@color2b);
   //text-shadow: 0 -.1em 0 darken(@color, 15%);
   margin-bottom: @padding*2;
 
@@ -722,7 +722,7 @@ body {
   background-size: (@scale * @width), (@scale * @height);
 }
 
-.checkerboard(@first: @color1; @second: lighten(@first, 2.5%);) {
+.checkerboard(@first: @color1; @second: lighten(@first, 2.5%); @scale: 1;) {
   @base: @base-color;
   @highlight: lighten(@base, 8%);
   @shadow: darken(@base, 8%);
@@ -731,13 +731,16 @@ body {
   @pattern-checkerboard:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{height}'%3E%3Crect width='60' height='60' fill='@{first}'/%3E%3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='@{second}'/%3E%3C/svg%3E";
   background-image: url("data:image/svg+xml,@{pattern-checkerboard}");
   background-size: (@scale * @width), (@scale * @height);
+  background-position: -@width/4 -@width/4;
 }
 
-.blueprint(@background: @color1; @stroke: lighten(@background, 10%); @stroke-inner: darken(@stroke, 2%);) {
-  @width: 100;
+.blueprint(@background: #4A74A6; @stroke: lighten(@background, 10%); @scale: 1;) {
+  @width: 64px;
   @height: @width;
-  @pattern-blueprint:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{height}'%3E %3Crect width='100' height='100' fill='@{background}'/%3E %3Cg fill='@{stroke-inner}'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='@{stroke}'/%3E %3C/svg%3E";
+  @stroke-inner: darken(@stroke, 2%);
+  @pattern-blueprint:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E %3Crect width='100' height='100' fill='@{background}'/%3E %3Cg fill='@{stroke-inner}'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='@{stroke}'/%3E %3C/svg%3E";
   background-image: url("data:image/svg+xml,@{pattern-blueprint}");
   background-size: (@scale * @width), (@scale * @height);
+  background-position: center -@width/2;
 }
 
