@@ -2,15 +2,17 @@
 
 {% block feature %}
 <div class="jumbotron">
-    <h1 class="display-4">
-        {% if request.user.is_authenticated %}
-            Welcome back, {{ request.user.first_name }}
-        {% else %}
-            Strapless
-        {% endif %}
-    </h1>
-    <p class="lead">Seriously, the floor is made of lava.</p>
-    <a class="btn btn-action btn-lg" href="{% url 'examples' %}" role="button">Get started</a>
+    <div class="container">
+        <h1 class="display-4">
+            {% if request.user.is_authenticated %}
+                Welcome back, {{ request.user.first_name }}
+            {% else %}
+                Strapless
+            {% endif %}
+        </h1>
+        <p class="lead">Seriously, the floor is made of lava.</p>
+        <a class="btn btn-action btn-lg" href="{% url 'examples' %}" role="button">Get started</a>
+    </div>
 </div>
 {% endblock %}
 

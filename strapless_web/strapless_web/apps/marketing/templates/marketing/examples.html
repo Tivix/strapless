@@ -8,52 +8,52 @@
     <h1>Strapless</h1>
     <p class="lead">&middot; LESS and JS library for developing responsive, mobile-first projects on the web</p>
     <p class="lead">&middot; Fork of, and backwards-compatible with, Bootstrap 3</p>
-    
+
 </div> -->
-<div class="focus-thing">
-  <div class="thing">
-    <h1>You can lead a horse to water...</h1>
-    <p class="lead">But you can't make it drink. <span id="less_variable_test">
-    </span></p>
+  <div class="focus-thing">
+    <div class="thing">
+      <h1>You can lead a horse to water...</h1>
+      <p class="lead">But you can't make it drink. <span id="less_variable_test">
+      </span></p>
+    </div>
   </div>
-</div>
 {% endblock %}
 
 {% block body %}
-    <div id="palette_preview_container">
-      <div id="palette_preview">
-          <div class="swatch color1">color1</div>
-          <div class="swatch color1a">color1a</div>
-          <div class="swatch color1b">color1b</div>
-          <div class="swatch color1c">color1c</div>
-          <div class="swatch color2">color2</div>
-          <div class="swatch color2a">color2a</div>
-          <div class="swatch color2b">color2b</div>
-          <div class="swatch color2c">color2c</div>
-          <div class="swatch color3">color3</div>
-          <div class="swatch color3a">color3a</div>
-          <div class="swatch color3b">color3b</div>
-          <div class="swatch color3c">color3c</div>
-          <div class="swatch color4">color4</div>
-          <div class="swatch color4a">color4a</div>
-          <div class="swatch color4b">color4b</div>
-          <div class="swatch color4c">color4c</div>
-          <div class="swatch gray-lighter">gray-lighter</div>
-          <div class="swatch gray-light">gray-light</div>
-          <div class="swatch gray">gray</div>
-          <div class="swatch gray-dark">gray-dark</div>
-          <div class="swatch gray-darker">gray-darker</div>
-          <div class="swatch info">info</div>
-          <div class="swatch warning">warning</div>
-          <div class="swatch success">success</div>
-          <div class="swatch failure">failure</div>
-          <div class="swatch scheme-type">scheme-type: </div>
-          <div class="swatch luma">luma:</div>
-          <div class="swatch lit">lightness:</div>
-      </div>
+  <section id="palette_preview_container">
+    <div id="palette_preview">
+      <div class="swatch color1">color1</div>
+      <div class="swatch color1a">color1a</div>
+      <div class="swatch color1b">color1b</div>
+      <div class="swatch color1c">color1c</div>
+      <div class="swatch color2">color2</div>
+      <div class="swatch color2a">color2a</div>
+      <div class="swatch color2b">color2b</div>
+      <div class="swatch color2c">color2c</div>
+      <div class="swatch color3">color3</div>
+      <div class="swatch color3a">color3a</div>
+      <div class="swatch color3b">color3b</div>
+      <div class="swatch color3c">color3c</div>
+      <div class="swatch color4">color4</div>
+      <div class="swatch color4a">color4a</div>
+      <div class="swatch color4b">color4b</div>
+      <div class="swatch color4c">color4c</div>
+      <div class="swatch gray-lighter">gray-lighter</div>
+      <div class="swatch gray-light">gray-light</div>
+      <div class="swatch gray">gray</div>
+      <div class="swatch gray-dark">gray-dark</div>
+      <div class="swatch gray-darker">gray-darker</div>
+      <div class="swatch info">info</div>
+      <div class="swatch warning">warning</div>
+      <div class="swatch success">success</div>
+      <div class="swatch failure">failure</div>
+      <div class="swatch scheme-type">scheme-type: </div>
+      <div class="swatch luma">luma:</div>
+      <div class="swatch lit">lightness:</div>
     </div>
+  </section>
 
-    <div class="clearfix"></div>
+  <section>
     <h1>Style Guide and other stuff</h1>
 
     <h2>Elements</h2>
@@ -94,34 +94,49 @@
       <li>We do use "base" at the end of the base classes for elements. Variables are the wild west. Elements are little more locked down.</li>
       <li>Want a @margin global variable? Define it. Can't think of a good default value? Set it to @padding. We'll end up with some useful defaults only after experimenting a bit.</li>
       <li>Strapless occasionally relies on prepositions in mixin names to make mixins easier to read. Take a look at .contrast-text-against() and .make-sl-buttons-for() for examples.</li>
-
-
-
     </ul>
+  </section>
 
-
-
-    <div class="clearfix"></div>
+  <section>
     <h3>Buttons</h3>
-
     <p>BS3 (also has btn class):</p>
-    <p><button type="button" class="btn btn-color2">Color 2 button</button> <button type="button" class="btn-large btn-color1a">color1a</button></p>
-        <p><button type="button" class="btn btn-action">Action</button>
-        <button type="button" class="btn btn-crap">Crap</button>
-          <button type="button" class="btn btn-reaction">Reaction</button> &nbsp;&nbsp;<button type="button" class="btn-success">Success</button>
-          <button type="button" class="btn btn-failure">Failure</button></p>
-        <p><button type="button" class="btn btn-info">Info</button>
-          <button type="button" class="btn btn-warning">Warning</button> &nbsp;&nbsp;<button type="button" class="btn-default">Default</button>
-          <button type="button" class="btn btn-link">Link</button></p>
-    
-    <p><button type="button" class="btn-color2">Color 2 button</button> <button type="button" class="btn-large btn-color1a">color1a</button></p>
-        <p><button type="button" class="btn-action">Action</button>
-        <button type="button" class="btn-crap">Crap</button>
-          <button type="button" class="btn-reaction">Reaction</button> &nbsp;&nbsp;<button type="button" class="btn-success">Success</button>
-          <button type="button" class="btn-failure">Failure</button></p>
-        <p><button type="button" class="btn-info">Info</button>
-          <button type="button" class="btn-warning">Warning</button> &nbsp;&nbsp;<button type="button" class="btn-default">Default</button>
-          <button type="button" class="btn-link">Link</button></p>
+    <p>
+      <button type="button" class="btn btn-color2">Color 2 button</button>
+      <button type="button" class="btn-large btn-color1a">color1a</button>
+    </p>
+    <p>
+      <button type="button" class="btn btn-action">Action</button>
+      <button type="button" class="btn btn-crap">Crap</button>
+      <button type="button" class="btn btn-reaction">Reaction</button>
+      <button type="button" class="btn-success">Success</button>
+      <button type="button" class="btn btn-failure">Failure</button>
+    </p>
+    <p>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+      <button type="button" class="btn-default">Default</button>
+      <button type="button" class="btn btn-link">Link</button>
+    </p>
+    <p>
+      <button type="button" class="btn-color2">Color 2 button</button>
+      <button type="button" class="btn-large btn-color1a">color1a</button>
+    </p>
+    <p>
+      <button type="button" class="btn-action">Action</button>
+      <button type="button" class="btn-crap">Crap</button>
+      <button type="button" class="btn-reaction">Reaction</button>
+      <button type="button" class="btn-success">Success</button>
+      <button type="button" class="btn-failure">Failure</button>
+    </p>
+    <p>
+      <button type="button" class="btn-info">Info</button>
+      <button type="button" class="btn-warning">Warning</button>
+      <button type="button" class="btn-default">Default</button>
+      <button type="button" class="btn-link">Link</button>
+    </p>
+  </section>
+
+  <section>
     <h3>Alerts</h3>
     <div class="alert-color1b" role="alert">
         <strong>color1b?</strong> What does that even mean?
@@ -148,616 +163,587 @@
         <strong>Warning!</strong> Better check yourself, you're not looking too good.
     </div>
   </section>
-  <section>
-    <h3>Palette</h3>
 
+  <section class="theme-showcase">
+    <h1>Buttons</h1>
+    <p>
+      <button type="button" class="btn-default">Default</button>
+      <button type="button" class="btn-primary">Primary</button>
+      <button type="button" class="btn-success">Success</button>
+      <button type="button" class="btn-info">Info</button>
+      <button type="button" class="btn-warning">Warning</button>
+      <button type="button" class="btn-danger">Danger</button>
+      <button type="button" class="btn-link">Link</button>
+    </p>
+
+    <div class="page-header">
+      <h1>Tables</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2">1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@TwBootstrap</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </section>
-</div>
-<div class="clearfix"></div>
 
-
-
-
-
-
-<div class="container theme-showcase" role="main">
-
-
-      <h1>Buttons</h1>
-      <p>
-        <button type="button" class="btn-default">Default</button>
-        <button type="button" class="btn-primary">Primary</button>
-        <button type="button" class="btn-success">Success</button>
-        <button type="button" class="btn-info">Info</button>
-        <button type="button" class="btn-warning">Warning</button>
-        <button type="button" class="btn-danger">Danger</button>
-        <button type="button" class="btn-link">Link</button>
-      </p>
-
-
-      <div class="page-header">
-        <h1>Tables</h1>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td rowspan="2">1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@TwBootstrap</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <table class="table table-condensed">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div id="color_wheel_test" class="color-wheel-test">
-  <h1>Current</h1>
-  <div class="color1 color"></div>
-  <div class="color2 color"></div>
-  <div class="color3 color"></div>
-  <div class="color4 color"></div>
-</div>
-
-<p class="clearfix"></p>
-
-
-<div id="color_wheel_accented" class="color-wheel-test">
-  <h1>Accented</h1>
-  <div class="color1 color"></div>
-  <div class="color2 color"></div>
-  <div class="color3 color"></div>
-  <div class="color4 color"></div>
-</div>
-
-<div id="color_wheel_complementary" class="color-wheel-test">
-  <h1>Complementary</h1>
-  <div class="color1 color"></div>
-  <div class="color2 color"></div>
-  <div class="color3 color"></div>
-  <div class="color4 color"></div>
-</div>
-
-<div id="color_wheel_triadic" class="color-wheel-test">
-  <h1>Triadic</h1>
-  <div class="color1 color"></div>
-  <div class="color2 color"></div>
-  <div class="color3 color"></div>
-  <div class="color4 color"></div>
-</div>
-
-<div id="color_wheel_tetradic" class="color-wheel-test">
-  <h1>Tetradic</h1>
-  <div class="color1 color"></div>
-  <div class="color2 color"></div>
-  <div class="color3 color"></div>
-  <div class="color4 color"></div>
-</div>
-
-<div id="color_wheel_square" class="color-wheel-test">
-  <h1>Square</h1>
-  <div class="color1 color"></div>
-  <div class="color2 color"></div>
-  <div class="color3 color"></div>
-  <div class="color4 color"></div>
-</div>
-
-<div id="color_wheel_monochromatic" class="color-wheel-test">
-  <h1>Monochromatic</h1>
-  <div class="color1 color"></div>
-  <div class="color2 color"></div>
-  <div class="color3 color"></div>
-  <div class="color4 color"></div>
-</div>
-
-<div id="color_wheel_ebb" class="color-wheel-test">
-  <h1>Ebb</h1>
-  <div class="color1 color"></div>
-  <div class="color2 color"></div>
-  <div class="color3 color"></div>
-  <div class="color4 color"></div>
-</div>
-
-<div id="color_wheel_flow" class="color-wheel-test">
-  <h1>Flow</h1>
-  <div class="color1 color"></div>
-  <div class="color2 color"></div>
-  <div class="color3 color"></div>
-  <div class="color4 color"></div>
-</div>
-
-<div id="examples">
   <section>
-  <div class="clearfix"></div>
-  <div id="strapless_colors_accented" class="palette-preview">
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    
-  </div>
-  <div id="strapless_colors_complementary" class="palette-preview">
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-  </div>
-  <div id="strapless_colors_complementary-b" class="palette-preview">
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-  </div>
-  <div id="strapless_colors_triadic" class="palette-preview">
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-  </div>
-  <div id="strapless_colors_triadic-b" class="palette-preview">
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-  </div>
-  <div id="strapless_colors_tetradic" class="palette-preview">
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-  </div>
-  <div id="strapless_colors_tetradic-b" class="palette-preview">
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-  </div>
-  <div id="strapless_colors_ebb" class="palette-preview">
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-  </div>
+    <div id="color_wheel_test" class="color-wheel-test">
+      <h1>Current</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
 
-  <div id="strapless_colors_flow" class="palette-preview">
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-  </div>
+    <div id="color_wheel_accented" class="color-wheel-test">
+      <h1>Accented</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
 
-  <div id="strapless_colors_monochromatic" class="palette-preview">
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-  </div>
+    <div id="color_wheel_complementary" class="color-wheel-test">
+      <h1>Complementary</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
 
-  <div id="strapless_colors_monochromatic-b" class="palette-preview">
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-  </div>
+    <div id="color_wheel_triadic" class="color-wheel-test">
+      <h1>Triadic</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
 
-  <div id="strapless_colors_square" class="palette-preview">
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-    <p class="swatch"></p>
-  </div>
+    <div id="color_wheel_tetradic" class="color-wheel-test">
+      <h1>Tetradic</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
 
+    <div id="color_wheel_square" class="color-wheel-test">
+      <h1>Square</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
 
-    </div> <!-- /container -->
+    <div id="color_wheel_monochromatic" class="color-wheel-test">
+      <h1>Monochromatic</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
 
+    <div id="color_wheel_ebb" class="color-wheel-test">
+      <h1>Ebb</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
 
+    <div id="color_wheel_flow" class="color-wheel-test">
+      <h1>Flow</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
+  </section>
 
-
-
-
-
-
+  <section id="examples">
+    <div id="strapless_colors_accented" class="palette-preview">
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+    </div>
+    <div id="strapless_colors_complementary" class="palette-preview">
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+    </div>
+    <div id="strapless_colors_complementary-b" class="palette-preview">
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+    </div>
+    <div id="strapless_colors_triadic" class="palette-preview">
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+    </div>
+    <div id="strapless_colors_triadic-b" class="palette-preview">
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+    </div>
+    <div id="strapless_colors_tetradic" class="palette-preview">
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+    </div>
+    <div id="strapless_colors_tetradic-b" class="palette-preview">
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+    </div>
+    <div id="strapless_colors_ebb" class="palette-preview">
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+    </div>
+    <div id="strapless_colors_flow" class="palette-preview">
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+    </div>
+    <div id="strapless_colors_monochromatic" class="palette-preview">
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+    </div>
+    <div id="strapless_colors_monochromatic-b" class="palette-preview">
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+    </div>
+    <div id="strapless_colors_square" class="palette-preview">
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+      <p class="swatch"></p>
+    </div>
+  </section>
 {% endblock %}
+
 {% block footer_scripts %}
 <script>
     $(function () {

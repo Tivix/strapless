@@ -23,13 +23,13 @@
 }
 
 html {
-  background:mix(#333, @color1c, 80%);
+  background:@color1c;
 }
 
 body {
   padding-top: 50px;
   .text-color(@body-bg);
-  background: @body-bg;
+  background: @color1c;
 }
 
 body > section {
@@ -42,7 +42,13 @@ nav {
 }
 
 footer {
+  .clearfix();
+  margin-top:48px;
+  background: @color1a;
   clear: both;
+  p {
+    margin-top: (@line-height-computed / 2);
+  }
 }
 
 // #nav_collapse {
