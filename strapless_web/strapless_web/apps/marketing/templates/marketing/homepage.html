@@ -4,24 +4,18 @@
 {% block body_id %}examples{% endblock %}
 
 {% block feature %}
-<!-- <div class="brand-thing">
-<h2>Strapless</h2>
-    <h1>Strapless</h1>
-    <p class="lead">&middot; LESS and JS library for developing responsive, mobile-first projects on the web</p>
-    <p class="lead">&middot; Fork of, and backwards-compatible with, Bootstrap 3</p>
-
-</div> -->
-  <div class="focus-thing">
+<div class="feature">
     <div class="thing">
-      <h1>You can lead a horse to water...</h1>
-      <p class="lead">But you can't make it drink. <span id="less_variable_test">
-      </span></p>
+        <h1>Strapless</h1>
+        <p class="lead">LESS library for developing responsive, mobile-first projects on the web</p>
+        <p>less_variable test: <span id="less_variable_test"></span></p>
+        <div class="well color1b">This is a well!</div>
     </div>
-  </div>
+</div>
 {% endblock %}
 
 {% block body %}
-  <section id="palette_preview_container">
+  <section id="palette_preview_container" class="hide">
     <div id="palette_preview">
       <div class="swatch color1">color1</div>
       <div class="swatch color1a">color1a</div>
@@ -54,8 +48,8 @@
     </div>
   </section>
 
-  <section>
-    <h1>Style Guide and other stuff</h1>
+  <section id="style_guide">
+    <h1>Strapless Dev Style Guide and other stuff</h1>
 
     <h2>Elements</h2>
     <p>Elements are like components, but have multiple possible visual states. (Like... elements do...)</p>
@@ -99,32 +93,9 @@
   </section>
 
   <section>
-    <h3>Buttons</h3>
-    <p>BS3 (also has btn class):</p>
-    <p>
-      <button type="button" class="btn btn-color2">Color 2 button</button>
-      <button type="button" class="btn-large btn-color1a">color1a</button>
-    </p>
-    <p>
-      <button type="button" class="btn btn-action">Action</button>
-      <button type="button" class="btn btn-crap">Crap</button>
-      <button type="button" class="btn btn-reaction">Reaction</button>
-      <button type="button" class="btn-success">Success</button>
-      <button type="button" class="btn btn-failure">Failure</button>
-    </p>
-    <p>
-      <button type="button" class="btn btn-info">Info</button>
-      <button type="button" class="btn btn-warning">Warning</button>
-      <button type="button" class="btn-default">Default</button>
-      <button type="button" class="btn btn-link">Link</button>
-    </p>
-    <p>
-      <button type="button" class="btn-color2">Color 2 button</button>
-      <button type="button" class="btn-large btn-color1a">color1a</button>
-    </p>
+    <h3> SL buttons</h3>
     <p>
       <button type="button" class="btn-action">Action</button>
-      <button type="button" class="btn-crap">Crap</button>
       <button type="button" class="btn-reaction">Reaction</button>
       <button type="button" class="btn-success">Success</button>
       <button type="button" class="btn-failure">Failure</button>
@@ -135,13 +106,25 @@
       <button type="button" class="btn-default">Default</button>
       <button type="button" class="btn-link">Link</button>
     </p>
+
+    <h3>BS3 Buttons</h3>
+    <p>
+      <button type="button" class="btn btn-action">Action</button>
+      <button type="button" class="btn btn-reaction">Reaction</button>
+      <button type="button" class="btn btn-success">Success</button>
+      <button type="button" class="btn btn-failure">Failure</button>
+    </p>
+    <p>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+      <button type="button" class="btn btn-default">Default</button>
+      <button type="button" class="btn btn-link">Link</button>
+    </p>
   </section>
 
   <section>
     <h3>Alerts</h3>
-    <div class="alert-color1b" role="alert">
-        <strong>color1b?</strong> What does that even mean?
-    </div>
+    <p>Alerts aren't supposed to look like this as much as they are supposed to show off all of Strapless's features</p>
     <div class="alert-action" role="alert">
         <strong>What?</strong> What does that even mean?
     </div>
@@ -176,6 +159,27 @@
       <button type="button" class="btn-danger">Danger</button>
       <button type="button" class="btn-link">Link</button>
     </p>
+
+    <div class="page-header">
+      <h1>Wells</h1>
+    </div>
+
+    <p>Wells let users bring flat color to patterned ares</p>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="well color2a"><p>It's a well!</p></div>
+        </div>
+        <div class="col-md-3">
+            <div class="well color3b"><p>It's a well!</p></div>
+        </div>
+        <div class="col-md-3">
+            <div class="well color4c"><p>It's a well!</p></div>
+        </div>
+        <div class="col-md-3">
+            <div class="well color1a"><p>It's a well!</p></div>
+        </div>
+    </div>
 
     <div class="page-header">
       <h1>Tables</h1>
@@ -319,7 +323,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="hide">
     <div id="color_wheel_test" class="color-wheel-test">
       <h1>Current</h1>
       <div class="color1 color"></div>
@@ -393,7 +397,7 @@
     </div>
   </section>
 
-  <section id="examples">
+  <section id="colors">
     <div id="strapless_colors_accented" class="palette-preview">
       <p class="swatch"></p>
       <p class="swatch"></p>
@@ -742,6 +746,9 @@
       <p class="swatch"></p>
       <p class="swatch"></p>
     </div>
+  </section>
+
+  <section id="patterns">
   </section>
 {% endblock %}
 
