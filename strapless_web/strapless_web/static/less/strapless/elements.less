@@ -2,9 +2,11 @@
 
 @padding: 12px;
 @border-radius: 4px;
+@content-width: 980px;
+@body-bg: @color3;
 
 html {
-  background: darken(@color1, 33%);
+  background: darken(@body-bg, 33%);
 }
 
 html, body, ul, ol, li, form, fieldset, legend {
@@ -13,7 +15,9 @@ html, body, ul, ol, li, form, fieldset, legend {
 }
 
 body {
+  background-color: @body-bg;
   font-size: calc(1em + 1vw);
+  .contrast-text-against(@body-bg);
 }
 
 h1, h2, h3, h4, h5, h6, p { margin-top: 0; }
@@ -49,12 +53,24 @@ abbr, acronym {
   cursor: help;
 }
 
+nav {
+  max-width: @content-width;
+  margin: 0 auto;
+  
+  > * {
+    
+  }
+}
+
 section {
 	display: flex;
 	flex-flow: row wrap;
+  max-width: @content-width;
+  margin: 0 auto @padding auto;
 
 	> * {
-		&:extend(.container);
+		
+    margin: 0 auto;
 		flex-basis: 10em;
 		flex-grow: 1;
 	}

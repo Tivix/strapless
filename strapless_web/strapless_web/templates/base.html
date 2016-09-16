@@ -44,10 +44,8 @@
     <body>
         {% include 'fragments/navbar.html' %}
         {% block feature %}{% endblock %}
-        <section>
-            {% include 'fragments/messages.html' %}
-            {% block body %}{% endblock %}
-        </section>
+        {% include 'fragments/messages.html' %}
+        {% block body %}{% endblock %}
         {% include 'fragments/footer.html' %}
         {% block footer_scripts %}{% endblock %}
     </body>
