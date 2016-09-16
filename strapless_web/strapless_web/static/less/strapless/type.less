@@ -52,216 +52,200 @@
 
 // TODO: variables at the top? @headings-font-family should be up here, feels like, or above headings?8
 
-.text-color(@color) when (luma(@color) < 73.5%) {
-  @hue: hue(@color);
-  @sat: saturation(@color);
-  color: hsl(@hue; @sat + 10; 98%); // pretty much white
-}
-
-.text-color(@color) when (luma(@color) >= 73.5%) {
-  color: mix(darken(@color;30%); #333; 40%);
-}
-
-.headline-color(@color) {
-    color: mix(darken(@color;30%); #333; 40%);
-}
-
-.headline-color(@color) when (@scheme-type = dark) {
-    color:white;
-}
-
-// body text
-
-p {
-  margin: 0 0 (@line-height-computed / 2);
-  color:inherit;
-}
-
-.lead {
-  margin-bottom: @line-height-computed;
-  font-size: floor((@font-size-base * 1.15));
-  font-weight: 300;
-  line-height: 1.4;
-}
 
 
-// headings
+// // body text
 
-h1 { font-size: floor((@font-size-base * 2.6));}
-h2 { font-size: floor((@font-size-base * 2.15));}
-h3 { font-size: ceil((@font-size-base * 1.7));}
-h4 { font-size: ceil((@font-size-base * 1.25));}
-h5 { font-size: @font-size-h5;}
-h6 { font-size: ceil((@font-size-base * 0.85));}
+// p {
+//   margin: 0 0 (@line-height-computed / 2);
+//   color:inherit;
+// }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: @headings-font-family;
-  font-weight: @headings-font-weight;
-  line-height: @headings-line-height;
-  //.headline-color();
-
-  small,
-  .small {
-    font-weight: normal;
-    line-height: 1;
-  }
-}
-
-h1, h2, h3 {
-  margin-top: @line-height-computed;
-  margin-bottom: (@line-height-computed / 2);
-
-  small,
-  .small {
-    font-size: 65%;
-  }
-}
-
-h4, h5, h6 {
-  margin-top: (@line-height-computed / 2);
-  margin-bottom: (@line-height-computed / 2);
-
-  small,
-  .small {
-    font-size: 75%;
-  }
-}
+// .lead {
+//   margin-bottom: @line-height-computed;
+//   font-size: floor((@font-size-base * 1.15));
+//   font-weight: 300;
+//   line-height: 1.4;
+// }
 
 
-// emphasis & misc
+// // headings
 
-// ex: (12px small font / 14px base font) * 100% = about 85%
-small,
-.small {
-  font-size: floor((100% * @font-size-small / @font-size-base));
-}
+// h1 { font-size: floor((@font-size-base * 2.6));}
+// h2 { font-size: floor((@font-size-base * 2.15));}
+// h3 { font-size: ceil((@font-size-base * 1.7));}
+// h4 { font-size: ceil((@font-size-base * 1.25));}
+// h5 { font-size: @font-size-h5;}
+// h6 { font-size: ceil((@font-size-base * 0.85));}
 
+// h1, h2, h3, h4, h5, h6 {
+//   font-family: @headings-font-family;
+//   font-weight: @headings-font-weight;
+//   line-height: @headings-line-height;
+//   //.headline-color();
 
-// page header TODO: worth keeping? its own component? seems like bell and/or whistle
+//   small,
+//   .small {
+//     font-weight: normal;
+//     line-height: 1;
+//   }
+// }
 
-.page-header {
-  padding-bottom: ((@line-height-computed / 2) - 1);
-  margin: (@line-height-computed * 2) 0 @line-height-computed;
-  border-bottom: 1px solid @page-header-border-color;
-}
+// h1, h2, h3 {
+//   margin-top: @line-height-computed;
+//   margin-bottom: (@line-height-computed / 2);
 
+//   small,
+//   .small {
+//     font-size: 65%;
+//   }
+// }
 
-// lists
+// h4, h5, h6 {
+//   margin-top: (@line-height-computed / 2);
+//   margin-bottom: (@line-height-computed / 2);
 
-// unordered and ordered lists
-
-ul,
-ol {
-  margin-top: 0;
-  margin-bottom: (@line-height-computed / 2);
-
-  ul,
-  ol {
-    margin-bottom: 0;
-  }
-}
-
-// description lists
-
-dl {
-  margin-top: 0; // remove browser default
-  margin-bottom: @line-height-computed;
-}
-
-dt,
-dd {
-  line-height: @line-height-base;
-}
-
-dt { font-weight: bold;}
-
-dd { margin-left: 0;} // remove browser default
+//   small,
+//   .small {
+//     font-size: 75%;
+//   }
+// }
 
 
-// horizontal description lists
+// // emphasis & misc
 
-.dl-horizontal {
-  dd { &:extend(.clearfix all);} // clear the floated `dt` if empty `dd` present
-
-  .on-tablet({
-    dt {
-      float: left;
-      width: (@dl-horizontal-offset - 20);
-      clear: left;
-      text-align: right;
-      .text-overflow();
-    }
-
-    dd {
-      margin-left: @dl-horizontal-offset;
-    }
-  });
-}
+// // ex: (12px small font / 14px base font) * 100% = about 85%
+// small,
+// .small {
+//   font-size: floor((100% * @font-size-small / @font-size-base));
+// }
 
 
-// abbreviations and acronyms
+// // page header TODO: worth keeping? its own component? seems like bell and/or whistle
 
-abbr[title],
-// add data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
-abbr[data-original-title] {
-  cursor: help;
-  border-bottom: 1px dotted @abbr-border-color;
-}
-
-
-.initialism { // TODO: isn't this a utility?
-  font-size: 90%;
-  .text-uppercase();
-}
+// .page-header {
+//   padding-bottom: ((@line-height-computed / 2) - 1);
+//   margin: (@line-height-computed * 2) 0 @line-height-computed;
+//   border-bottom: 1px solid @page-header-border-color;
+// }
 
 
-blockquote {
-  padding: (@line-height-computed / 2) @line-height-computed;
-  margin: 0 0 @line-height-computed;
-  font-size: @blockquote-font-size;
-  border-left: 5px solid @blockquote-border-color;
+// // lists
 
-  p,
-  ul,
-  ol {
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
+// // unordered and ordered lists
 
-  footer{
-    display: block;
-    font-size: 80%; // back to default font-size
-    line-height: @line-height-base;
-    color: @blockquote-small-color;
+// ul,
+// ol {
+//   margin-top: 0;
+//   margin-bottom: (@line-height-computed / 2);
 
-    &:before {
-      content: '\2014 \00A0'; // em dash, nbsp
-    }
-  }
-}
+//   ul,
+//   ol {
+//     margin-bottom: 0;
+//   }
+// }
 
-// opposite alignment of blockquote
+// // description lists
 
-.blockquote-reverse {
-  padding-right: 15px;
-  padding-left: 0;
-  border-right: 5px solid @blockquote-border-color;
-  border-left: 0;
-  text-align: right;
+// dl {
+//   margin-top: 0; // remove browser default
+//   margin-bottom: @line-height-computed;
+// }
 
-  // Account for citation
-  footer {
-    &:before { content: ''; }
-    &:after {
-      content: '\00A0 \2014'; // nbsp, em dash
-    }
-  }
-}
+// dt,
+// dd {
+//   line-height: @line-height-base;
+// }
 
-// Addresses
-address {
-  margin-bottom: @line-height-computed;
-  font-style: normal;
-  line-height: @line-height-base;
-}
+// dt { font-weight: bold;}
+
+// dd { margin-left: 0;} // remove browser default
+
+
+// // horizontal description lists
+
+// .dl-horizontal {
+//   dd { &:extend(.clearfix all);} // clear the floated `dt` if empty `dd` present
+
+//   .on-tablet({
+//     dt {
+//       float: left;
+//       width: (@dl-horizontal-offset - 20);
+//       clear: left;
+//       text-align: right;
+//       .text-overflow();
+//     }
+
+//     dd {
+//       margin-left: @dl-horizontal-offset;
+//     }
+//   });
+// }
+
+
+// // abbreviations and acronyms
+
+// abbr[title],
+// // add data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
+// abbr[data-original-title] {
+//   cursor: help;
+//   border-bottom: 1px dotted @abbr-border-color;
+// }
+
+
+// .initialism { // TODO: isn't this a utility?
+//   font-size: 90%;
+//   .text-uppercase();
+// }
+
+
+// blockquote {
+//   padding: (@line-height-computed / 2) @line-height-computed;
+//   margin: 0 0 @line-height-computed;
+//   font-size: @blockquote-font-size;
+//   border-left: 5px solid @blockquote-border-color;
+
+//   p,
+//   ul,
+//   ol {
+//     &:last-child {
+//       margin-bottom: 0;
+//     }
+//   }
+
+//   footer{
+//     display: block;
+//     font-size: 80%; // back to default font-size
+//     line-height: @line-height-base;
+//     color: @blockquote-small-color;
+
+//     &:before {
+//       content: '\2014 \00A0'; // em dash, nbsp
+//     }
+//   }
+// }
+
+// // opposite alignment of blockquote
+
+// .blockquote-reverse {
+//   padding-right: 15px;
+//   padding-left: 0;
+//   border-right: 5px solid @blockquote-border-color;
+//   border-left: 0;
+//   text-align: right;
+
+//   // Account for citation
+//   footer {
+//     &:before { content: ''; }
+//     &:after {
+//       content: '\00A0 \2014'; // nbsp, em dash
+//     }
+//   }
+// }
+
+// // Addresses
+// address {
+//   margin-bottom: @line-height-computed;
+//   font-style: normal;
+//   line-height: @line-height-base;
+// }

@@ -1,56 +1,15 @@
-@import (reference) "mixins.less";
+@import (reference) "mixins";
 @import (reference) "colors";
 @import (reference) "patterns";
-@import (reference) "patterns";
 @import (reference) "targets";
-
-@padding: 12px;
-@border-radius: 4px;
 
 @import "normalize";
 @import "utilities";
 @import "type";
 
-@import "grid";
-@import "scaffolding";
-
-// @import "buttons";
-@import "tables";
-@import "fields";
-//@import "code";
-
-// TODO: these are the stripped default print rules, component rules need to be
-// moved to component files and added in with .print() ruleset mixin
-@import "print";
-
-// TODO: decide what to support in shiv, whether to rename to bs3-shiv.less
-@import "shiv";
-
-@import "elements/sl-buttons";
-
-@import "elements/sl-alerts";
-
-@import "elements/sl-wells";
+@import "elements";
 
 @import "elements/sl-palette";
 
-@import "elements/sl-code";
-
-// @import "elements/bs3/bs3-buttons";
-
-// TODO:
-
-// @import "elements/sl-tables";
-// @import "elements/sl-badges";
-// @import "elements/sl-labels";
-
-
-
-@import "elements/close";
-
-@import "elements/modals";
-@import "elements/navbar";
-@import "elements/navs";
-@import "elements/progress-bars";
-
-
+// TODO: use shiv to eliminate all traces of BS3 from project
+@import "shiv";

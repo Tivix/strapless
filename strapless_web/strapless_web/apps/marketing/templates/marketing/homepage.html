@@ -4,14 +4,14 @@
 {% block body_id %}examples{% endblock %}
 
 {% block feature %}
-<div class="feature">
+<section class="feature">
     <div class="thing">
         <h1>Strapless</h1>
-        <p class="lead">LESS library for developing responsive, mobile-first projects on the web</p>
+        <p class="lead">A LESS library for colors and patterns</p>
+        <p>Don't call it a framework.</p>
         <p>less_variable test: <span id="less_variable_test"></span></p>
-        <div class="well color1b">This is a well!</div>
     </div>
-</div>
+</section>
 {% endblock %}
 
 {% block body %}
@@ -67,19 +67,6 @@
     <p>Strapless elements don't generally need to be written to work with any color. But ours do because they're the base elements.</p>
     <p>We also have to make sure everything stays readable. Use contrast mixins to color text.</p>
 
-    <h2>The <em>sl</em> collection</h2>
-    <p>In Strapless, elements are grouped into namespaced collections. The namesake namespace is <em>sl</em>, which prefixes all the standard elements shipping with Strapless.</p>
-    <p>These components should be written to find a good mix between showing off Strapless features and giving the user a simple starting base.</p>
-    <p>Generally, they take the approach of one container element with only standard HTML inside. Sticking to HTML elements gives us extra semantic flexibility, although it can at times feel restrictive.</p>
-
-    <h2>The <em>bs3</em> collection</h2>
-    <p>These elements are ported from Bootstrap 3 components. In Strapless style, they're more self-contained and less reliant on variables.less.</p>
-    <p>Occassionally, they'll have received a minor rewrite or shiv to compensate for dropped BS3 concepts.</p>
-    <p>Some of these have javascript associated with them. Not sure yet how we'll handle that, or just point users to BS3.</p>
-
-    <h2>The <em>1px</em> collection</h2>
-    <p>Not shipped with Strapless, but offered as a collection on the website. Based on the 1pxdeep BS3 theme.</p>
-
     <h2>Style guidelines</h2>
     <ul>
       <li>Use semicolons between mixin arguments (exceptions allowed for readability)</li>
@@ -108,6 +95,7 @@
     </p>
 
     <h3>BS3 Buttons</h3>
+    <p>BS3 and SL both output to accept simple HTML classes... which are the same right now, so these just look the same</p>
     <p>
       <button type="button" class="btn btn-action">Action</button>
       <button type="button" class="btn btn-reaction">Reaction</button>
@@ -123,47 +111,6 @@
   </section>
 
   <section>
-    <h3>Alerts</h3>
-    <p>Alerts aren't supposed to look like this as much as they are supposed to show off all of Strapless's features</p>
-    <div class="alert-action" role="alert">
-        <strong>What?</strong> What does that even mean?
-    </div>
-    <div class="alert-reaction" role="alert">
-        <strong>Somehow.</strong> Even more confusing.
-    </div>
-    <div class="alert-default" role="alert">
-        <strong>Whoa!</strong> It's a boring default alert.
-    </div>
-    <div class="alert-success" role="alert">
-        <strong>Well done!</strong> You successfully read this important alert message.
-    </div>
-    <div class="alert-failure" role="alert">
-        <strong>Oh snap!</strong> Change a few things up and try submitting again.
-    </div>
-    <div class="alert-info" role="alert">
-        <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-    </div>
-    <div class="alert-warning" role="alert">
-        <strong>Warning!</strong> Better check yourself, you're not looking too good.
-    </div>
-  </section>
-
-  <section class="theme-showcase">
-    <h1>Buttons</h1>
-    <p>
-      <button type="button" class="btn-default">Default</button>
-      <button type="button" class="btn-primary">Primary</button>
-      <button type="button" class="btn-success">Success</button>
-      <button type="button" class="btn-info">Info</button>
-      <button type="button" class="btn-warning">Warning</button>
-      <button type="button" class="btn-danger">Danger</button>
-      <button type="button" class="btn-link">Link</button>
-    </p>
-
-    <div class="page-header">
-      <h1>Wells</h1>
-    </div>
-
     <p>Wells let users bring flat color to patterned ares</p>
 
     <div class="row">
@@ -184,6 +131,8 @@
     <div class="page-header">
       <h1>Tables</h1>
     </div>
+
+    <p>Tables mostly benefit from border and text color changes and shouldn't need too many color considerations</p>
 
     <div class="row">
       <div class="col-md-6">

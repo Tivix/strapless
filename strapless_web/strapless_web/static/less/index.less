@@ -2,43 +2,6 @@
 
 @import "strapless/strapless";
 
-html {
-  background:mix(#333, @color1c, 80%);
-}
-
-body {
-  padding-top: 50px;
-  .text-color(@body-bg);
-  background: @body-bg;
-}
-
-body > section {
-  &:extend(.container);
-}
-
-nav {
-  .sl-navbar(@color4c);
-}
-
-footer {
-  .clearfix();
-  margin-top:48px;
-  background: @color1a;
-  clear: both;
-  p {
-    margin-top: (@line-height-computed / 2);
-  }
-}
-
-// #nav_collapse {
-//   //&:extend(.navbar-toggle all); // TODO: I think the JS looks for this class...
-//
-//   ul {
-//     &:extend(.nav all);
-//     //&:extend(.navbar-nav all);
-//   }
-// }
-
 
 .feature {
   @color: @color1b;
