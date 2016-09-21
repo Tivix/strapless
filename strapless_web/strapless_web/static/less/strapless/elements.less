@@ -17,7 +17,10 @@ html, body, ul, ol, li, form, fieldset, legend {
 body {
   background-color: @body-bg;
   font-size: calc(1em + 1vw);
+  font-size: 18px;
   .contrast-text-against(@body-bg);
+  line-height: 1.5em;
+  padding-top: 80px;
 }
 
 h1, h2, h3, h4, h5, h6, p { margin-top: 0; }
@@ -53,32 +56,114 @@ abbr, acronym {
   cursor: help;
 }
 
-nav {
-  max-width: @content-width;
-  margin: 0 auto;
-  
-  > * {
-    
+body > nav, section > nav {
+  .sl-navbar(@color4);
+}
+
+.sl-navbar(@color) {
+
+  @height: 50px;
+  @padding: @height * .38;
+
+  background-color:@color;
+  .contrast-text-against(@color);
+
+  height: @height;
+  line-height: @height;
+  max-height: @height;
+  padding-left: @padding;
+  padding-right: @padding;
+  position: fixed; top:0; left: 0;
+  width: 100%;
+  z-index: 1000;
+  overflow: hidden;
+
+  > section > * { // pseudo reset
+    display: none;
+    float:left;
+    position: relative;
+    border: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: @height;
+    vertical-align: middle;
+    overflow: hidden;
+
+    .on-tablet({
+      display: block;
+    });
+
+    &:first-child {
+      display: block;
+      margin-right: @padding * 2;
+
+      .on-large-phone({
+        margin-right: @height;
+      });
+    }
+
+    &:last-child {
+      display: block;
+      float: right;
+      line-height: @height - 6;
+    }
+  }
+
+  ul {
+    height: @height;
+  }
+
+  li {
+    float:left;
+    height: @height;
+    line-height: @height;
+  }
+
+  h1, h2, h3 {
+    display: block;
+    float: left;
+    font-size: @font-size-base*1.5;
+    line-height: @height;
+    margin-right: @height;
+  }
+
+  a {
+    display: block;
+    float: left;
+    .contrast-text-against(@color);
+    padding-left: @padding;
+    padding-right: @padding;
+    text-decoration: none;
+
+    &:hover {
+      background-color: lighten(@color, 10%);
+      text-decoration: none;
+    }
   }
 }
 
 section {
-	display: flex;
-	flex-flow: row wrap;
+	//display: flex;
+	//flex-flow: row wrap;
   max-width: @content-width;
   margin: 0 auto @padding auto;
 
 	> * {
 		
     margin: 0 auto;
-		flex-basis: 10em;
-		flex-grow: 1;
+		//flex-basis: 10em;
+		//flex-grow: 1;
 	}
 
   > * + * {
     margin-top: @padding;
   }
+}
 
+p {
+  margin-bottom: .5em;
 }
 
 // CODE
@@ -101,27 +186,25 @@ section {
 
 // BUTTON
 
-@button-prefix: btn;
+// .make-sl-buttons-for(@semantic-colors);
 
-.make-sl-buttons-for(@semantic-colors);
+// .make-sl-buttons-for(@colors) {
+//   @length: length(@colors);
 
-.make-sl-buttons-for(@colors) {
-  @length: length(@colors);
+//   .make-sl-button();
 
-  .make-sl-button();
+//   .make-sl-button(@index:1) when (@index <= @length) {
+//     @color-name: extract(@colors, @index);
+//     @color: @@color-name;
 
-  .make-sl-button(@index:1) when (@index <= @length) {
-    @color-name: extract(@colors, @index);
-    @color: @@color-name;
+//     button.@{color-name} {
+//       &:extend(.sl-button-base all);
+//       .sl-button(@color);
+//     }
 
-    .@{button-prefix}-@{color-name} {
-      &:extend(.sl-button-base all);
-      .sl-button(@color);
-    }
-
-    .make-sl-button(@index + 1);
-  }  
-}
+//     .make-sl-button(@index + 1);
+//   }  
+// }
 
 .sl-button(@color: @gray) {
   //.contrast-text-against(@color);

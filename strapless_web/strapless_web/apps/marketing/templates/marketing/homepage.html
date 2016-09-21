@@ -48,304 +48,6 @@
     </div>
   </section>
 
-  <section id="style_guide">
-    <h1>Strapless Dev Style Guide and other stuff</h1>
-
-    <h2>Elements</h2>
-    <p>Elements are like components, but have multiple possible visual states. (Like... elements do...)</p>
-    <p>They're self-contained in that they don't refer to variables in other files aside from the standard Strapless variables.</p>
-    <p>They should have the following, in order:</p>
-    <ul>
-      <li>HTML classes that the core mixin is written to.</li>
-      <li>Variables (if they have them).</li>
-      <li>A base class to extend (if it has one).</li>
-      <li>A core mixin (with guards if necessary) that accepts a color argument (or two).</li>
-    </ul>
-    <p>Elements shouldn't be too magical, but they can take liberties in contrast/color adjustments.</p>
-
-    <h2>Color and contrast</h2>
-    <p>Strapless elements don't generally need to be written to work with any color. But ours do because they're the base elements.</p>
-    <p>We also have to make sure everything stays readable. Use contrast mixins to color text.</p>
-
-    <h2>Style guidelines</h2>
-    <ul>
-      <li>Use semicolons between mixin arguments (exceptions allowed for readability)</li>
-      <li>Comments are in lower case. Just like CSS!</li>
-      <li>Rough order of things in an element: variables, generator mixins (and anything else that writes CSS, including written CSS), other mixins, base classes</li>
-      <li>Pollute the global namespace as much as you want, variable-wise. Strapless is a bootstrap-inspired first-files-of-the-project kinda thing. Go crazy. Also, LESS has lazy loading of variables so collisions are usually easy to deal with. The only thing that really needs to be namespaced are elements, so we don't have 8 million .buttons to deal with. Leave "base" out if you can. It's not @padding-base, just @padding.</li>
-      <li>We do use "base" at the end of the base classes for elements. Variables are the wild west. Elements are little more locked down.</li>
-      <li>Want a @margin global variable? Define it. Can't think of a good default value? Set it to @padding. We'll end up with some useful defaults only after experimenting a bit.</li>
-      <li>Strapless occasionally relies on prepositions in mixin names to make mixins easier to read. Take a look at .contrast-text-against() and .make-sl-buttons-for() for examples.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h3> SL buttons</h3>
-    <p>
-      <button type="button" class="btn-action">Action</button>
-      <button type="button" class="btn-reaction">Reaction</button>
-      <button type="button" class="btn-success">Success</button>
-      <button type="button" class="btn-failure">Failure</button>
-    </p>
-    <p>
-      <button type="button" class="btn-info">Info</button>
-      <button type="button" class="btn-warning">Warning</button>
-      <button type="button" class="btn-default">Default</button>
-      <button type="button" class="btn-link">Link</button>
-    </p>
-
-    <h3>BS3 Buttons</h3>
-    <p>BS3 and SL both output to accept simple HTML classes... which are the same right now, so these just look the same</p>
-    <p>
-      <button type="button" class="btn btn-action">Action</button>
-      <button type="button" class="btn btn-reaction">Reaction</button>
-      <button type="button" class="btn btn-success">Success</button>
-      <button type="button" class="btn btn-failure">Failure</button>
-    </p>
-    <p>
-      <button type="button" class="btn btn-info">Info</button>
-      <button type="button" class="btn btn-warning">Warning</button>
-      <button type="button" class="btn btn-default">Default</button>
-      <button type="button" class="btn btn-link">Link</button>
-    </p>
-  </section>
-
-  <section>
-    <p>Wells let users bring flat color to patterned ares</p>
-
-    <div class="row">
-        <div class="col-md-3">
-            <div class="well color2a"><p>It's a well!</p></div>
-        </div>
-        <div class="col-md-3">
-            <div class="well color3b"><p>It's a well!</p></div>
-        </div>
-        <div class="col-md-3">
-            <div class="well color4c"><p>It's a well!</p></div>
-        </div>
-        <div class="col-md-3">
-            <div class="well color1a"><p>It's a well!</p></div>
-        </div>
-    </div>
-
-    <div class="page-header">
-      <h1>Tables</h1>
-    </div>
-
-    <p>Tables mostly benefit from border and text color changes and shouldn't need too many color considerations</p>
-
-    <div class="row">
-      <div class="col-md-6">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-md-6">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td rowspan="2">1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@TwBootstrap</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-md-6">
-        <table class="table table-condensed">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section class="hide">
-    <div id="color_wheel_test" class="color-wheel-test">
-      <h1>Current</h1>
-      <div class="color1 color"></div>
-      <div class="color2 color"></div>
-      <div class="color3 color"></div>
-      <div class="color4 color"></div>
-    </div>
-
-    <div id="color_wheel_accented" class="color-wheel-test">
-      <h1>Accented</h1>
-      <div class="color1 color"></div>
-      <div class="color2 color"></div>
-      <div class="color3 color"></div>
-      <div class="color4 color"></div>
-    </div>
-
-    <div id="color_wheel_complementary" class="color-wheel-test">
-      <h1>Complementary</h1>
-      <div class="color1 color"></div>
-      <div class="color2 color"></div>
-      <div class="color3 color"></div>
-      <div class="color4 color"></div>
-    </div>
-
-    <div id="color_wheel_triadic" class="color-wheel-test">
-      <h1>Triadic</h1>
-      <div class="color1 color"></div>
-      <div class="color2 color"></div>
-      <div class="color3 color"></div>
-      <div class="color4 color"></div>
-    </div>
-
-    <div id="color_wheel_tetradic" class="color-wheel-test">
-      <h1>Tetradic</h1>
-      <div class="color1 color"></div>
-      <div class="color2 color"></div>
-      <div class="color3 color"></div>
-      <div class="color4 color"></div>
-    </div>
-
-    <div id="color_wheel_square" class="color-wheel-test">
-      <h1>Square</h1>
-      <div class="color1 color"></div>
-      <div class="color2 color"></div>
-      <div class="color3 color"></div>
-      <div class="color4 color"></div>
-    </div>
-
-    <div id="color_wheel_monochromatic" class="color-wheel-test">
-      <h1>Monochromatic</h1>
-      <div class="color1 color"></div>
-      <div class="color2 color"></div>
-      <div class="color3 color"></div>
-      <div class="color4 color"></div>
-    </div>
-
-    <div id="color_wheel_ebb" class="color-wheel-test">
-      <h1>Ebb</h1>
-      <div class="color1 color"></div>
-      <div class="color2 color"></div>
-      <div class="color3 color"></div>
-      <div class="color4 color"></div>
-    </div>
-
-    <div id="color_wheel_flow" class="color-wheel-test">
-      <h1>Flow</h1>
-      <div class="color1 color"></div>
-      <div class="color2 color"></div>
-      <div class="color3 color"></div>
-      <div class="color4 color"></div>
-    </div>
-  </section>
-
   <section id="colors">
     <div id="strapless_colors_accented" class="palette-preview">
       <p class="swatch"></p>
@@ -694,6 +396,241 @@
       <p class="swatch"></p>
       <p class="swatch"></p>
       <p class="swatch"></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Buttons</h2>
+    <p>Buttons are just <code>button</code> elements with a class corresponding to a semantic color name.</p>
+    <p>
+      <button type="button" class="action">Action</button>
+      <button type="button" class="reaction">Reaction</button>
+      <button type="button" class="success">Success</button>
+      <button type="button" class="failure">Failure</button>
+    </p>
+    <p>
+      <button type="button" class="info">Info</button>
+      <button type="button" class="warning">Warning</button>
+      <button type="button" class="default">Default</button>
+    </p>
+  </section>
+
+  <section>
+    <div class="page-header">
+      <h1>Tables</h1>
+    </div>
+
+    <p>Tables mostly benefit from border and text color changes and shouldn't need too many color considerations</p>
+
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2">1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@TwBootstrap</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="hide">
+    <div id="color_wheel_test" class="color-wheel-test">
+      <h1>Current</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
+
+    <div id="color_wheel_accented" class="color-wheel-test">
+      <h1>Accented</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
+
+    <div id="color_wheel_complementary" class="color-wheel-test">
+      <h1>Complementary</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
+
+    <div id="color_wheel_triadic" class="color-wheel-test">
+      <h1>Triadic</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
+
+    <div id="color_wheel_tetradic" class="color-wheel-test">
+      <h1>Tetradic</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
+
+    <div id="color_wheel_square" class="color-wheel-test">
+      <h1>Square</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
+
+    <div id="color_wheel_monochromatic" class="color-wheel-test">
+      <h1>Monochromatic</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
+
+    <div id="color_wheel_ebb" class="color-wheel-test">
+      <h1>Ebb</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
+    </div>
+
+    <div id="color_wheel_flow" class="color-wheel-test">
+      <h1>Flow</h1>
+      <div class="color1 color"></div>
+      <div class="color2 color"></div>
+      <div class="color3 color"></div>
+      <div class="color4 color"></div>
     </div>
   </section>
 

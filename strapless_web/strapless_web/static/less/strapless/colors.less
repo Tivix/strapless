@@ -1,18 +1,20 @@
 // configurables
 
 @base-color: #CADFE6;
-//@base-color: #09737B;
-@base-color-wheel:  ebb;
+@base-color-wheel:  complementary-b;
 
 // semantic colors, themed.
 // TODO: use contrast to pick candidates here instead of this awkward sat/lit dance
 
+@sat: saturaton(@base-color);
+@lit: lightness(@base-color);
+
 @action:    @s-action;
 @reaction:  @s-reaction;
-@info:      hsl(hue(@s-info); @sat; @lit);
-@success:   hsl(hue(@s-success); (saturation(@s-success) + @sat)/2.0; lightness(average(@s-success; @base-color;)));
-@failure:   hsl(hue(@s-failure); (saturation(@s-failure) + @sat)/1.8; lightness(average(@s-failure; @base-color;)));
-@warning:   hsl(hue(@s-warning); (saturation(@s-warning) + @sat)/1.7; lightness(average(@s-warning; @base-color;)));
+@info:      blue;
+@success:   green;
+@failure:   red;
+@warning:   orange;
 @default: @color1;
 
 @s-action: @color1b;
@@ -29,6 +31,17 @@
                     success,
                     failure,
                     default;
+
+@huge-palette:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
+                      color3, color3a, color3b, color3c, color4, color4a, color4b, color4c,
+                      success, failure, action, reaction, info, warning,
+                      gray-lighter, gray-light, gray, gray-dark, gray-darker, primary, danger;
+
+@huge-palette:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
+                     color3, color3a, color3b, color3c, color4, color4a, color4b, color4c;
+
+@all-colors:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
+                     color3, color3a, color3b, color3c, color4, color4a, color4b, color4c;
 
 .make-colors();
 
