@@ -22,22 +22,6 @@
           {% endcompress %}
         {% endif %}
 
-        <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
-
-        {% compress js %}
-            <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}global/js/jquery.js"></script>
-            <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}global/js/tether.min.js"></script>
-
-            <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}global/js/util.js"></script>
-            <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}global/js/dropdown.js"></script>
-            <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}global/js/tooltip.js"></script>
-            <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}global/js/collapse.js"></script>
-            <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}global/js/popover.js"></script>
-
-            <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}global/js/modal.js"></script>
-        {% endcompress %}
-
         {% block header_includes %}{% endblock %}
     </head>
 

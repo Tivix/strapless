@@ -29,3 +29,18 @@
 .in-print(@rules) {
 	@media print { @rules();}
 }
+
+// TODO: not sure about these. Like the matching conventions, and shielding from all the hover rules
+// problems that BS3 has, not sure if they work with "targets" though
+
+.on-click(@rules) {
+	&:active {
+		@rules();
+	}
+}
+
+.on-hover(@rules) {
+	&:hover {
+		@rules();
+	}
+}

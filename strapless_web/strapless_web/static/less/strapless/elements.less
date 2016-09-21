@@ -112,6 +112,10 @@ code, pre {
     button.@{color-name} {
       &:extend(.sl-button-base all);
       .sl-button(@color);
+
+      .on-hover({
+
+      });
     }
 
     .make-sl-button(@index + 1);
@@ -119,13 +123,16 @@ code, pre {
 }
 
 .sl-button(@color: @gray) {
-  //.contrast-text-against(@color);
-  .button-state();
+  background-color: @color;
   border-color: mix(@gray-darkest-base; @color; 60%);
 
-  .button-state(@darken:0;) {
-    background-color: darken(@color, @darken);
-  }
+  .on-hover({
+    background: lighten(@color, 3%);
+  });
+
+  .on-click({
+    background: darken(@color, 3%);
+  });
 }
 
 .sl-button-base {
