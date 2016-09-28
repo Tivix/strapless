@@ -1,8 +1,0 @@
----
-
-
--   name: Install optional / nice to have packages
-    apt: name={{ item }} update_cache={{ update_apt_cache }} state=latest
-    with_items:
-        - graphviz  # used by pygraphviz / django-extensions (graph_models)
-        - libgraphviz-dev # see above

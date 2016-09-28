@@ -1,24 +1,43 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
+        <title>Strapless</title>
 
-{% block body_id %}examples{% endblock %}
+        <meta name="keywords" content="" />
+        <meta name="description" content="{% block meta_description %}{% endblock %}" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+        <link href="/less/index.less" media="all" rel="stylesheet/less" type="text/css"/>
+        <script type="text/javascript" charset="utf-8" src="/js/dev/less.min.js"></script>
+    </head>
 
-{% block feature %}
-<section class="feature">
-    <div class="thing">
-        <h1>Strapless</h1>
-        <p class="lead">A LESS library for colors and patterns</p>
-        <p>Don't call it a framework.</p>
-        <p>less_variable test: <span id="less_variable_test"></span></p>
-        <ul class="sl-links">
-          <li><button class="color2c">download</button></li>
-          <li><button class="color3c">github</button></li>
-        </ul>
-    </div>
-</section>
-{% endblock %}
+    <body>
+        <nav>
+            <section>
+                <h1>Strapless</h1>
+                <ul>
+                    <li><a href="#colors">Colors</a></li>
+                    <li><a href="#patterns">Patterns</a></li>
+                    <li><a href="#elements">Elements</a></li>
+                </ul>
+            </section>
+        </nav>
 
-{% block body %}
+    <section class="feature">
+        <div class="thing">
+            <h1>Strapless</h1>
+            <p class="lead">A LESS library for colors and patterns</p>
+            <p>Don't call it a framework.</p>
+            <p>less_variable test: <span id="less_variable_test"></span></p>
+            <ul class="sl-links">
+              <li><button class="color2c">download</button></li>
+              <li><button class="color3c">github</button></li>
+            </ul>
+        </div>
+    </section>
   <section id="palette_preview_container" class="hide">
     <div id="palette_preview">
       <div class="swatch color1">color1</div>
@@ -505,24 +524,5 @@
 
     <p>Donec rutrum non mi eget tincidunt. Fusce sollicitudin quam dui, quis viverra quam porta eget. Quisque gravida quis felis pellentesque gravida. Donec quis eleifend lorem, quis congue mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas ac efficitur turpis. Fusce eget massa vel lectus dapibus porta sed in arcu. Aliquam congue id leo et interdum. Etiam venenatis urna ut sem vehicula, quis auctor nisi malesuada. Donec sollicitudin vestibulum est. Pellentesque pellentesque nisi eget scelerisque vulputate. Ut accumsan dictum nisl vel vehicula. Curabitur tristique gravida tellus ut dapibus. Donec congue sapien ac dignissim molestie.</p>
   </section>
-{% endblock %}
-
-{% block footer_scripts %}
-{% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </body>
+</html>

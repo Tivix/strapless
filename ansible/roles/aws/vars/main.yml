@@ -1,3 +1,0 @@
----
-aws_project_name_env_branch: "{{ project_name + '@' + aws_env  }}"
-aws_project_name_ascii_env_branch: "{{ project_name|replace('_', '-')  + '-at-' + aws_env|replace('_', '-') }}"
