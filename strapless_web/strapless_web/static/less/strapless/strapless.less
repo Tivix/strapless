@@ -1,10 +1,11 @@
 @import (reference) "mixins";
+@import (reference) "variables";
 @import (reference) "colors";
 @import (reference) "patterns";
 @import (reference) "targets";
 
 @import "normalize";
-@import "utilities";
+@import "utilities"; // redundant with mixins?
 @import "type";
 
 @import "elements";
@@ -12,4 +13,4 @@
 @import "elements/sl-palette";
 
 // TODO: use shiv to eliminate all traces of BS3 from project
-@import "shiv";
+// @import "shiv";

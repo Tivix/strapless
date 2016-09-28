@@ -1,8 +1,7 @@
 // configurables
 
 @base-color: #CADFE6;
-@base-color: #93A68A;
-@base-color-wheel:  complementary;
+@base-color-wheel:  monochromatic;
 
 // semantic colors, themed.
 // TODO: use contrast to pick candidates here instead of this awkward sat/lit dance
@@ -33,16 +32,20 @@
                     failure,
                     default;
 
-@huge-palette:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
-                      color3, color3a, color3b, color3c, color4, color4a, color4b, color4c,
-                      success, failure, action, reaction, info, warning,
-                      gray-lighter, gray-light, gray, gray-dark, gray-darker, primary, danger;
+@color-wheels:      accented, complementary, complementary-b, triadic, triadic-b, 
+                    tetradic, tetradic-b, square, ebb, flow, monochromatic, monochromatic-b;
 
-@huge-palette:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
-                     color3, color3a, color3b, color3c, color4, color4a, color4b, color4c;
+
+@huge-palette:      color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
+                    color3, color3a, color3b, color3c, color4, color4a, color4b, color4c,
+                    success, failure, action, reaction, info, warning,
+                    gray-lighter, gray-light, gray, gray-dark, gray-darker, primary, danger;
+
+@huge-palette:      color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
+                    color3, color3a, color3b, color3c, color4, color4a, color4b, color4c;
 
 @all-colors:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
-                     color3, color3a, color3b, color3c, color4, color4a, color4b, color4c;
+                    color3, color3a, color3b, color3c, color4, color4a, color4b, color4c;
 
 .make-colors();
 

@@ -1,10 +1,5 @@
 // CSS for standard HMTL elements
 
-@padding: 12px;
-@border-radius: 4px;
-@content-width: 980px;
-@body-bg: @color4c;
-
 html {
   background: darken(@body-bg, 33%);
 }
@@ -38,6 +33,13 @@ table {
   border-spacing: 0;
 }
 
+tr {
+  border-bottom: 1px solid #ccc;
+}
+th, td {
+  padding: @padding/2;
+}
+
 caption, th, td {
   text-align: left;
   vertical-align: top;
@@ -63,6 +65,7 @@ section {
 	//flex-flow: row wrap;
   max-width: @content-width;
   margin: 0 auto @padding auto;
+  clear: both;
 
 	> * {
 		
@@ -73,11 +76,15 @@ section {
 
   > * + * {
     margin-top: @padding;
+
+    &:last-child {
+      margin-bottom: @padding;
+    }
   }
 }
 
 p {
-  margin-bottom: .5em;
+  margin-bottom: .62em;
 }
 
 code, pre { 
@@ -98,7 +105,7 @@ code, pre {
 
 // BUTTON
 
-.make-sl-buttons-for(@semantic-colors);
+.make-sl-buttons-for(@huge-palette);
 
 .make-sl-buttons-for(@colors) {
   @length: length(@colors);
