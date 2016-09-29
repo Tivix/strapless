@@ -1,0 +1,128 @@
+#strapless_patterns_checkerboard {
+    &:before {
+        content: 'Checkerboard';
+    }
+    .pattern {
+        &:nth-child(1){
+            .checkerboard(@color1);
+            &:before {
+                content: 'color1';
+            }
+        }
+        &:nth-child(2){
+            .checkerboard(@color1a);
+            &:before {
+                content: 'color1a';
+            }
+        }
+        &:nth-child(3){
+            .checkerboard(@color1b);
+            &:before {
+                content: 'color1b';
+            }
+        }
+        &:nth-child(4){
+            .checkerboard(@color1c);
+            &:before {
+                content: 'color1c';
+            }
+        }
+    }
+}
+#strapless_patterns_blueprint {
+    &:before {
+        content: 'Blueprint';
+    }
+    .pattern {
+        &:nth-child(1){
+            .blueprint(@color2);
+            &:before {
+                content: 'color2';
+            }
+        }
+        &:nth-child(2){
+            .blueprint(@color2a);
+            &:before {
+                content: 'color2a';
+            }
+        }
+        &:nth-child(3){
+            .blueprint(@color2b);
+            &:before {
+                content: 'color2b';
+            }
+        }
+        &:nth-child(4){
+            .blueprint(@color2c);
+            &:before {
+                content: 'color2c';
+            }
+        }
+    }
+}
+#strapless_patterns_pegboard {
+    &:before {
+        content: 'Pegboard';
+    }
+    .pattern {
+        &:nth-child(1){
+            .pegboard(@color3);
+            &:before {
+                content: 'color3';
+            }
+        }
+        &:nth-child(2){
+            .pegboard(@color3a);
+            &:before {
+                content: 'color3a';
+            }
+        }
+        &:nth-child(3){
+            .pegboard(@color3b);
+            &:before {
+                content: 'color3b';
+            }
+        }
+        &:nth-child(4){
+            .pegboard(@color3c);
+            &:before {
+                content: 'color3c';
+            }
+        }
+    }
+}
+
+.pattern-preview {
+    .clearfix();
+    padding-top: @padding;
+    &:before {
+        display:block;
+        margin-bottom:@padding;
+    }
+    > .pattern {
+        @size: 200px;
+        @width: @size;
+        @height: @size;
+        @margin: @padding;
+        float: left;
+        min-width: @size;
+        width: 23%;
+        height: @height;
+        margin-right: @margin;
+        margin-bottom: @margin;
+        position: relative;
+        &:last-child {
+            margin-right: 0;
+        }
+        &:before {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0 5px;
+            font-size: 10px;
+            line-height: 20px;
+            background: @color1c;
+            .contrast-text-against(@color1c);
+        }
+    }
+}

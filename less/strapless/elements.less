@@ -65,10 +65,10 @@ section {
 	//flex-flow: row wrap;
   max-width: @content-width;
   margin: 0 auto @padding auto;
-  clear: both;
+  .clearfix();
 
 	> * {
-		
+
     margin: 0 auto;
 		//flex-basis: 10em;
 		//flex-grow: 1;
@@ -87,7 +87,7 @@ p {
   margin-bottom: .62em;
 }
 
-code, pre { 
+code, pre {
   .sl-code(@color2);
 }
 
@@ -126,7 +126,7 @@ code, pre {
     }
 
     .make-sl-button(@index + 1);
-  }  
+  }
 }
 
 .sl-button(@color: @gray) {

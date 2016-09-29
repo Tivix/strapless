@@ -2,7 +2,13 @@
 
 @import "strapless/strapless";
 
-
+body {
+  padding:74px 0 @padding;
+  font-family:'Bitter';
+  section:last-child {
+    margin-bottom:0;
+  }
+}
 .feature {
   @color: @color1b;
 
@@ -59,13 +65,6 @@
   }
 }
 
-#examples {
-  section {
-    //max-width: 520px;
-    margin: 0 auto;
-  }
-}
-
 #less_variable_test {
   @test: @gray-dark-base;
   @test-name: 'accent';
@@ -84,9 +83,6 @@
   margin-bottom:200px;
 }
 
-body {
-  //padding-top: 800px !important;
-}
 
 #palette_preview {
 
@@ -238,6 +234,11 @@ body {
 
 }
 
+#colors {
+  .palette-preview {
+    margin-top:0;
+  }
+}
 
 .color-wheel-test {
   margin: 0 auto;
@@ -282,9 +283,10 @@ body {
 
   > * {
     &:after {
-      font-size:9px;
+      font-size:10px;
       text-align: center;
-      margin-top:2px;
+      font-family:monospace;
+      line-height:1;
     }
   }
 
@@ -380,8 +382,8 @@ body {
 
 .sl-links {
   margin-bottom: @padding;
-
-  li { 
+  display:inline-block;
+  li {
     float: left;
     margin-right: @padding;
 
