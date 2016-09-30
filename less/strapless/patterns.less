@@ -1,11 +1,7 @@
 // POSSIBLE PATTERN PATTERNS
 
-//.patternname(@color, @scale);
-//.make-pattern(patternname, @color, @scale);
-//.pattern-patternname(@color, @scale);
-//.make-pattern(patternname, @scale, @rest);
-	// @rest would be any number of colors and the pattern would just hold the order
-
+// patterns are mixins that have 1-3 colors, then a scale property
+// all patterns should work with only one or zero color argument(s) given
 
 .pegboard(@base-color: @color1; @scale: 1) {
   @base: @base-color;

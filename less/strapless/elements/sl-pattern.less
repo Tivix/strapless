@@ -4,9 +4,9 @@
     }
     .pattern {
         &:nth-child(1){
-            .checkerboard(@color1);
+            .checkerboard(@color1;@color4;);
             &:before {
-                content: 'color1';
+                content: 'color1 & color4';
             }
         }
         &:nth-child(2){
@@ -53,9 +53,9 @@
             }
         }
         &:nth-child(4){
-            .blueprint(@color2c);
+            .blueprint();
             &:before {
-                content: 'color2c';
+                content: 'default';
             }
         }
     }
@@ -72,9 +72,9 @@
             }
         }
         &:nth-child(2){
-            .pegboard(@color3a);
+            .pegboard(@gray-lighter);
             &:before {
-                content: 'color3a';
+                content: 'gray-lighter';
             }
         }
         &:nth-child(3){
@@ -109,9 +109,9 @@
             }
         }
         &:nth-child(3){
-            .shippo(@color4b);
+            .shippo(@color4a; @color2);
             &:before {
-                content: 'color4b';
+                content: 'color4a & color2a';
             }
         }
         &:nth-child(4){
@@ -128,9 +128,9 @@
     }
     .pattern {
         &:nth-child(1){
-            .argyle(@color1);
+            .argyle(@color1;@color2c);
             &:before {
-                content: 'color1';
+                content: 'color1 & color2c';
             }
         }
         &:nth-child(2){
@@ -260,7 +260,7 @@
         @height: @size;
         @margin: @padding;
         float: left;
-        min-width: @size;
+        min-width: @size/2;
         width: 23%;
         height: @height;
         margin-right: @margin;

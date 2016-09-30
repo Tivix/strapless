@@ -1,7 +1,7 @@
 // CSS for standard HMTL elements
 
 html {
-  background: darken(@body-bg, 33%);
+  background: darken(@background, 33%);
 }
 
 html, body, ul, ol, li, form, fieldset, legend {
@@ -10,10 +10,10 @@ html, body, ul, ol, li, form, fieldset, legend {
 }
 
 body {
-  background-color: @body-bg;
+  background-color: @background;
   font-size: calc(1em + 1vw);
   font-size: 18px;
-  .contrast-text-against(@body-bg);
+  .contrast-text-against(@background);
   line-height: 1.5em;
   padding-top: 50px;
 }
@@ -64,11 +64,10 @@ section {
 	//display: flex;
 	//flex-flow: row wrap;
   max-width: @content-width;
-  margin: 0 auto @padding auto;
+  margin: 0 @padding @padding*2 @padding;
   .clearfix();
 
 	> * {
-
     margin: 0 auto;
 		//flex-basis: 10em;
 		//flex-grow: 1;
@@ -81,14 +80,29 @@ section {
       margin-bottom: @padding;
     }
   }
+
+  .on-tablet({
+    margin: 0 auto @padding*2 auto;
+  });
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1em;
+  //max-width: 50vw;
 }
 
 p {
   margin-bottom: .62em;
+  //width: 50vw;
+  max-width: 50ch;
 }
 
 code, pre {
   .sl-code(@color2);
+}
+
+.sl-headline(@index) when (@index <= 6) {
+
 }
 
 .sl-code(@code-color) {
@@ -168,8 +182,6 @@ code, pre {
   height: @height;
   line-height: @height;
   max-height: @height;
-  padding-left: @padding;
-  padding-right: @padding;
   position: fixed; top:0; left: 0;
   width: 100%;
   z-index: 1000;
@@ -194,9 +206,11 @@ code, pre {
 
     &:first-child {
       display: block;
+      margin-left: @padding;
       margin-right: @padding * 2;
 
       .on-large-phone({
+        margin-left: 0;
         margin-right: @height;
       });
     }
@@ -221,7 +235,7 @@ code, pre {
   h1, h2, h3 {
     display: block;
     float: left;
-    font-size: @font-size-base*1.5;
+    font-size: 26px;
     line-height: @height;
     margin-right: @height;
   }

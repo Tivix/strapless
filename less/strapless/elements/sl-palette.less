@@ -9,11 +9,14 @@
   .make-palette();
 
   .make-palette(@index: 1) when (@index <= @iterations) {
+    // grab our scheme name out of @schemes
     @scheme: extract(@schemes, @index);
+
+    // each palette has a corresponding id
     #strapless_colors_@{scheme} {
       .make-swatches-for(@color; @huge-palette; @scheme);
     }
-
+    // make the next palette
     .make-palette(@index + 1);
   }
 }
@@ -37,14 +40,13 @@
     margin-bottom: 12px;
   }
 
-  .make-nth-swatch(@n) when (@n <= @iterations) {
+  .make-nth-swatch(@index) when (@index <= @iterations) {
     
-    @swatch-name: extract(@color-list, @n);
+    @swatch-name: extract(@color-list, @index);
     @swatch: @@swatch-name;
 
-    .swatch:nth-child(@{n}) {
+    .swatch:nth-child(@{index}) {
       .sl-swatch(@swatch);
-      display: block;
       box-shadow: 1px 1px 0 darken(@swatch, 6%);
 
       &:before {
@@ -54,13 +56,13 @@
       }
     }
 
-    .make-nth-swatch(@n + 1);
+    .make-nth-swatch(@index + 1);
   }
 }
 
 .sl-swatch(@color: @gray) {
+  &:extend(.sl-swatch-base all);
   background: @color;
-  //.pegboard(@color);
 }
 
 
@@ -82,10 +84,12 @@
   height: @height;
 
   margin-right: @margin;
-  margin-bottom: @margin*2;
+  margin-bottom: -@margin*4;
 
   text-align: right;
   line-height: @height - 3px;
+
+  display: block;
 
   .rotate(-3deg);
 
@@ -111,9 +115,4 @@
   float: left;
   max-width: 228px;
   margin-bottom: 0;
-
-  .swatch {
-    &:extend(.sl-swatch-base all);
-  }
-
 }

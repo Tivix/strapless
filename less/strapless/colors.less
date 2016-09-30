@@ -1,48 +1,31 @@
 // configurables
 
-@base-color: #CADFE6;
-@base-color-wheel:  monochromatic;
+@base-color: #80A37C;
+@base-color-wheel:  ebb;
 
-// semantic colors, themed.
-// TODO: use contrast to pick candidates here instead of this awkward sat/lit dance
+@action:    @color1;
+@reaction:  @color3;
+@info: #5bc0de;
+@warning: #f0ad4e;
+@success: #5cb85c;
+@failure: #d0534f;
 
-@sat: saturaton(@base-color);
-@lit: lightness(@base-color);
-
-@action:    @s-action;
-@reaction:  @s-reaction;
-@info:      blue;
-@success:   green;
-@failure:   red;
-@warning:   orange;
-@default: @color1;
-
-@s-action: @color1b;
-@s-reaction: @color2b;
-@s-info: #5bc0de;
-@s-success: #5cb85c;
-@s-failure: #d0534f;
-@s-warning: #f0ad4e;
+// variable name lists
 
 @semantic-colors:   action,
                     reaction,
                     info,
                     warning,
                     success,
-                    failure,
-                    default;
+                    failure;
 
 @color-wheels:      accented, complementary, complementary-b, triadic, triadic-b, 
                     tetradic, tetradic-b, square, ebb, flow, monochromatic, monochromatic-b;
-
 
 @huge-palette:      color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
                     color3, color3a, color3b, color3c, color4, color4a, color4b, color4c,
                     success, failure, action, reaction, info, warning,
                     gray-lighter, gray-light, gray, gray-dark, gray-darker, primary, danger;
-
-@huge-palette:      color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
-                    color3, color3a, color3b, color3c, color4, color4a, color4b, color4c;
 
 @all-colors:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
                     color3, color3a, color3b, color3c, color4, color4a, color4b, color4c;
@@ -278,4 +261,14 @@
     @gray-dark:         extract(@gray-bases; 3 + @scheme-type-base);
     @gray-darker:       extract(@gray-bases; 4 + @scheme-type-base);
   }
+}
+
+.make-colors(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 97%) {
+  .make-colors(darken(@color, 10%);@wheel);
+  @body-bg: @color;
+}
+
+.make-colors(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 3%) {
+  .make-colors(lighten(@color, 10%);@wheel);
+  @body-bg: @color;
 }
