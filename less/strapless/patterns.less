@@ -80,4 +80,11 @@
   background-position: center -@width/2;
 }
 
-
+.chevrons(@bg: @color1; @stroke: lighten(@bg, 5%); @scale: 1;) {
+  @width: 60px;
+  @height: @width/2;
+  @pattern-chevrons:~"%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='60' height='30'%3E %3Cdefs%3E %3Crect id='r' width='30' height='15' fill='@{bg}' stroke-width='2.5' stroke='@{stroke}'/%3E %3Cg id='p'%3E %3Cuse xlink:href='#r'/%3E %3Cuse y='15' xlink:href='#r'/%3E %3Cuse y='30' xlink:href='#r'/%3E %3Cuse y='45' xlink:href='#r'/%3E %3C/g%3E %3C/defs%3E %3Cuse xlink:href='#p' transform='translate(0 -25) skewY(40)'/%3E %3Cuse xlink:href='#p' transform='translate(30 0) skewY(-40)'/%3E %3C/svg%3E";
+  background-image: url("data:image/svg+xml,@{pattern-chevrons}");
+  background-size: (@scale * @width), (@scale * @height);
+  background-position: center -@width/2;
+}

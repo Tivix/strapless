@@ -253,6 +253,68 @@
         }
     }
 }
+#strapless_patterns_honeycomb {
+    &:before {
+        content: 'Honeycomb | .honeycomb([bg color,] [stroke color light,] [stroke color dark,] [scale])';
+    }
+    .pattern {
+        &:nth-child(1){
+            .honeycomb(@color4);
+            &:before {
+                content: '.honeycomb(@color4)';
+            }
+        }
+        &:nth-child(2){
+            .honeycomb(@color4a);
+            &:before {
+                content: '.honeycomb(@color4a)';
+            }
+        }
+        &:nth-child(3){
+            .honeycomb(@color4c);
+            &:before {
+                content: '.honeycomb(@color4c)';
+            }
+        }
+        &:nth-child(4){
+            .honeycomb(@color4b, @color4b, @color1a, .25);
+            &:before {
+                content: '.honeycomb(@color4b, @color4b, @color1a, .25)';
+            }
+        }
+    }
+}
+#strapless_patterns_chevrons {
+    &:before {
+        content: 'Chevrons | .chevrons([bg color,] [stroke color,] [scale])';
+    }
+    .pattern {
+        &:nth-child(1){
+            .chevrons(@color1);
+            &:before {
+                content: '.chevrons(@color1)';
+            }
+        }
+        &:nth-child(2){
+            .chevrons(@color2);
+            &:before {
+                content: '.chevrons(@color2)';
+            }
+        }
+        &:nth-child(3){
+            .chevrons(@color3);
+            &:before {
+                content: '.chevrons(@color3)';
+            }
+        }
+        &:nth-child(4){
+            .chevrons(@color2, @color2a, 1.25);
+            &:before {
+                content: '.chevrons(@color2, @color2a, 1.25)';
+            }
+        }
+    }
+}
 
 .pattern-preview {
     .clearfix();
