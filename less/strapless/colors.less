@@ -19,13 +19,13 @@
                     success,
                     failure;
 
-@color-wheels:      accented, complementary, complementary-b, triadic, triadic-b, 
+@color-wheels:      accented, complementary, complementary-b, triadic, triadic-b,
                     tetradic, tetradic-b, square, ebb, flow, monochromatic, monochromatic-b;
 
 @huge-palette:      color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
                     color3, color3a, color3b, color3c, color4, color4a, color4b, color4c,
                     success, failure, action, reaction, info, warning,
-                    gray-lighter, gray-light, gray, gray-dark, gray-darker, primary, danger;
+                    gray-lighter, gray-light, gray, gray-dark, gray-darker;
 
 @all-colors:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
                     color3, color3a, color3b, color3c, color4, color4a, color4b, color4c;
@@ -62,7 +62,7 @@
     @complementary:   @complement,
                       @analog,
                       @complement + @analog;
-                      
+
 
     @complementary-b: @complement,
                       -@analog,
@@ -79,7 +79,7 @@
     @tetradic:        @complement,
                       @accent,
                       @complement + @accent;
-                      
+
     @tetradic-b:      @complement,
                       -@accent,
                       @complement - @accent;
@@ -111,7 +111,7 @@
     @color1: @color;
     @color2: spin(@color, extract(@wheel-var, 1));
     @color3: spin(@color, extract(@wheel-var, 2));
-    @color4: spin(@color, extract(@wheel-var, 3));  
+    @color4: spin(@color, extract(@wheel-var, 3));
   }
 
   .load-subcolor-bases() {
@@ -252,7 +252,7 @@
   }
 
   .make-grays(@color) {
-    
+
     .load-gray-bases(@color);
 
     @gray-lighter:      extract(@gray-bases; 0 + @scheme-type-base);

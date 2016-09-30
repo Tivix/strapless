@@ -1,247 +1,254 @@
+.dots {
+    &:extend(.dots1);
+}
+.stripes {
+    &:extend(.stripes1);
+}
+
 #strapless_patterns_checkerboard {
     &:before {
-        content: 'Checkerboard';
+        content: 'Checkerboard | .checkerboard([color,] [color,] [scale])';
     }
     .pattern {
         &:nth-child(1){
             .checkerboard(@color1;@color4;);
             &:before {
-                content: 'color1 & color4';
+                content: '.checkerboard(@color1, @color4)';
             }
         }
         &:nth-child(2){
             .checkerboard(@color1a);
             &:before {
-                content: 'color1a';
+                content: '.checkerboard(@color1a)';
             }
         }
         &:nth-child(3){
             .checkerboard(@color1b);
             &:before {
-                content: 'color1b';
+                content: '.checkerboard(@color1b)';
             }
         }
         &:nth-child(4){
-            .checkerboard(@color1c);
+            .checkerboard(black, white, 1.5);
             &:before {
-                content: 'color1c';
+                content: '.checkerboard(black, white, 1.5)';
             }
         }
     }
 }
 #strapless_patterns_blueprint {
     &:before {
-        content: 'Blueprint';
+        content: 'Blueprint | .blueprint([bg,] [stroke,] [scale])';
     }
     .pattern {
         &:nth-child(1){
             .blueprint(@color2);
             &:before {
-                content: 'color2';
+                content: '.blueprint(@color2)';
             }
         }
         &:nth-child(2){
             .blueprint(@color2a);
             &:before {
-                content: 'color2a';
+                content: '.blueprint(@color2a)';
             }
         }
         &:nth-child(3){
             .blueprint(@color2b);
             &:before {
-                content: 'color2b';
+                content: '.blueprint(@color2b)';
             }
         }
         &:nth-child(4){
             .blueprint();
             &:before {
-                content: 'default';
+                content: '.blueprint()';
             }
         }
     }
 }
 #strapless_patterns_pegboard {
     &:before {
-        content: 'Pegboard';
+        content: 'Pegboard | .pegboard([color,] [scale])';
     }
     .pattern {
         &:nth-child(1){
             .pegboard(@color3);
             &:before {
-                content: 'color3';
+                content: '.pegboard(@color3)';
             }
         }
         &:nth-child(2){
             .pegboard(@gray-lighter);
             &:before {
-                content: 'gray-lighter';
+                content: '.pegboard(gray-lighter)';
             }
         }
         &:nth-child(3){
             .pegboard(@color3b);
             &:before {
-                content: 'color3b';
+                content: '.pegboard(@color3b)';
             }
         }
         &:nth-child(4){
             .pegboard(@color3c);
             &:before {
-                content: 'color3c';
+                content: '.pegboard(@color3c)';
             }
         }
     }
 }
 #strapless_patterns_shippo {
     &:before {
-        content: 'Shippo';
+        content: 'Shippo | .shippo([color,] [color,] [scale])';
     }
     .pattern {
         &:nth-child(1){
             .shippo(@color4);
             &:before {
-                content: 'color4';
+                content: '.shippo(@color4)';
             }
         }
         &:nth-child(2){
             .shippo(@color4a);
             &:before {
-                content: 'color4a';
+                content: '.shippo(@color4a)';
             }
         }
         &:nth-child(3){
             .shippo(@color4a; @color2);
             &:before {
-                content: 'color4a & color2a';
+                content: '.shippo(@color4a, @color2a)';
             }
         }
         &:nth-child(4){
-            .shippo(@color4c);
+            .shippo(@color3, @color3a, .5);
             &:before {
-                content: 'color4c';
+                content: '.shippo(@color3, @color3a, .5)';
             }
         }
     }
 }
 #strapless_patterns_argyle {
     &:before {
-        content: 'Argyle';
+        content: 'Argyle | .argyle([color,] [color,] [stroke color])';
     }
     .pattern {
         &:nth-child(1){
             .argyle(@color1;@color2c);
             &:before {
-                content: 'color1 & color2c';
+                content: '.argyle(@color1, @color2c)';
             }
         }
         &:nth-child(2){
             .argyle(@color1a);
             &:before {
-                content: 'color1a';
+                content: '.argyle(@color1a)';
             }
         }
         &:nth-child(3){
-            .argyle(@color1b);
+            .argyle(@color1b, @scale: .5);
             &:before {
-                content: 'color1b';
+                content: '.argyle(@color1b, @scale: .5)';
             }
         }
         &:nth-child(4){
-            .argyle(@color1c);
+            .argyle(@gray-light, @gray, mistyrose);
             &:before {
-                content: 'color1c';
+                content: '.argyle(@gray-light, @gray, mistyrose)';
             }
         }
     }
 }
 #strapless_patterns_dots {
     &:before {
-        content: 'Dots';
+        content: 'Dots | .dots([dot color,] [bg color,] [scale])';
     }
     .pattern {
         &:nth-child(1){
             .dots1(@color2);
             &:before {
-                content: 'color2';
+                content: '.dots(@color2)';
             }
         }
         &:nth-child(2){
             .dots1(@color2a);
             &:before {
-                content: 'color2a';
+                content: '.dots(@color2a)';
             }
         }
         &:nth-child(3){
             .dots1(@color2b);
             &:before {
-                content: 'color2b';
+                content: '.dots(@color2b)';
             }
         }
         &:nth-child(4){
-            .dots1(@color2c);
+            .dots1(lightskyblue, white, .4);
             &:before {
-                content: 'color2c';
+                content: '.dots(lightskyblue, white, .4)';
             }
         }
     }
 }
 #strapless_patterns_stripes {
     &:before {
-        content: 'Stripes';
+        content: 'Stripes | .stripes([stripe color,] [bg color,] [scale])';
     }
     .pattern {
         &:nth-child(1){
             .stripes1(@color3);
             &:before {
-                content: 'color3';
+                content: '.stripes1(@color3)';
             }
         }
         &:nth-child(2){
             .stripes1(@color3a);
             &:before {
-                content: 'color3a';
+                content: '.stripes1(@color3a)';
             }
         }
         &:nth-child(3){
             .stripes1(@color3b);
             &:before {
-                content: 'color3b';
+                content: '.stripes1(@color3b)';
             }
         }
         &:nth-child(4){
-            .stripes1(@color3c);
+            .stripes1(@gray-darker, @gray-dark, 3);
             &:before {
-                content: 'color3c';
+                content: '.stripes1(@gray-darker, @gray-dark, 3)';
             }
         }
     }
 }
 #strapless_patterns_honeycomb {
     &:before {
-        content: 'Honeycomb';
+        content: 'Honeycomb | .honeycomb([bg color,] [stroke color light,] [stroke color dark,] [scale])';
     }
     .pattern {
         &:nth-child(1){
             .honeycomb(@color4);
             &:before {
-                content: 'color4';
+                content: '.honeycomb(@color4)';
             }
         }
         &:nth-child(2){
             .honeycomb(@color4a);
             &:before {
-                content: 'color4a';
+                content: '.honeycomb(@color4a)';
             }
         }
         &:nth-child(3){
-            .honeycomb(@color4b);
+            .honeycomb(@color4c);
             &:before {
-                content: 'color4b';
+                content: '.honeycomb(@color4c)';
             }
         }
         &:nth-child(4){
-            .honeycomb(@color4c);
+            .honeycomb(@color4b, @color4b, @color1a, .25);
             &:before {
-                content: 'color4c';
+                content: '.honeycomb(@color4b, @color4b, @color1a, .25)';
             }
         }
     }
@@ -266,18 +273,23 @@
         margin-right: @margin;
         margin-bottom: @margin;
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         &:last-child {
             margin-right: 0;
         }
         &:before {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            padding: 0 5px;
-            font-size: 10px;
-            line-height: 20px;
-            background: @color1c;
+            text-align:center;
+            padding: 6px 0;
+            font-size: 14px;
+            line-height: 16px;
+            background: fade(@color1c, 40%);
+            width:100%;
             .contrast-text-against(@color1c);
+        }
+        &:hover:before {
+            background: @color1c;
         }
     }
 }
