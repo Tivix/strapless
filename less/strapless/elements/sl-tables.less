@@ -22,12 +22,21 @@
 
 .sl-table(@color) {
   @base: @color;
-  thead th {
+  #strapless.make-palette(@base; @base-color-wheel);
+  @row-color-1: @color1a;
+  @row-color-2: lighten(@color1a, 4%);
+  thead > tr > th {
     background-color: @base;
     .contrast-text-against(@base);
   }
-  tbody tr:nth-of-type(odd) {
-    // background-color: @table-row-odd;
+  tbody > tr > td {
+   .contrast-text-against(@row-color-2);
+  }
+  tbody > tr {
+    background-color: @row-color-2;
+  }
+  tbody > tr:nth-of-type(odd) {
+    background-color: @row-color-1;
   }
 }
 
@@ -46,8 +55,21 @@
   thead th {
     vertical-align: bottom;
   }
+
+  thead, tbody {
+    tr > td,
+    tr > th {
+      &:first-child {
+        padding-left: @padding;
+      }
+      &:last-child {
+        padding-right: @padding;
+      }
+    }
+  }
 }
 
 table {
   &:extend(.sl-table-base all);
+  .sl-table(@color1);
 }
