@@ -110,7 +110,7 @@ code, pre {
   	@background: mix(@color, #333, 10%);
 
     font-family: monospace;
-    padding: @padding;
+    padding: @padding * .25 @padding * .67 @padding * .5 @padding * .67;
     border-radius: @border-radius;
     background: @background;
     // border: 1px solid darken(@color, 8%);
@@ -168,6 +168,7 @@ code, pre {
   border-radius: @border-radius;
   outline: none;
   white-space: nowrap;
+  padding: @padding/2 @padding;
   .contrast-text-against(@gray);
 }
 
