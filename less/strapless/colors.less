@@ -1,7 +1,7 @@
 // configurables
 
-@base-color: #80A37C;
-@base-color-wheel:  ebb;
+@base-color: tan;
+@base-color-wheel:  flow;
 
 @action:    @color1;
 @reaction:  @color3;
@@ -30,17 +30,18 @@
 @all-colors:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
                     color3, color3a, color3b, color3c, color4, color4a, color4b, color4c;
 
-.make-colors();
+#strapless.make-palette();
 
-.make-colors(@color: @base-color; @wheel: @base-color-wheel) {
-
-  .configure-scheme-type(@color);
-  .load-color-wheels();
-  .make-main-colors(@color; @wheel);
-  .load-subcolor-bases();
-  .make-subcolors(@scheme-type);
-  .load-gray-bases(@color);
-  .make-grays(@color);
+#strapless {
+  .make-palette(@color: @base-color; @wheel: @base-color-wheel) {
+    #strapless.configure-scheme-type(@color);
+    #strapless.load-color-wheels();
+    #strapless.make-main-colors(@color; @wheel);
+    #strapless.load-subcolor-bases();
+    #strapless.make-subcolors(@scheme-type);
+    #strapless.load-gray-bases(@color);
+    #strapless.make-grays(@color);
+  }
 
   .configure-scheme-type(@color) {
     // sets @scheme-type to dark, medium or light depending on color given
@@ -115,9 +116,9 @@
   }
 
   .load-subcolor-bases() {
-    .load-subcolor-bases-a();
-    .load-subcolor-bases-b();
-    .load-subcolor-bases-c();
+    #strapless.load-subcolor-bases-a();
+    #strapless.load-subcolor-bases-b();
+    #strapless.load-subcolor-bases-c();
   }
 
   .load-subcolor-bases-a() {
@@ -150,9 +151,9 @@
   }
 
   .make-subcolors(@scheme-type: medium) {
-    .make-subcolors-a(@scheme-type);
-    .make-subcolors-b(@scheme-type);
-    .make-subcolors-c(@scheme-type);
+    #strapless.make-subcolors-a(@scheme-type);
+    #strapless.make-subcolors-b(@scheme-type);
+    #strapless.make-subcolors-c(@scheme-type);
   }
 
   .make-subcolors-a(@scheme) {
@@ -253,7 +254,7 @@
 
   .make-grays(@color) {
 
-    .load-gray-bases(@color);
+    #strapless.load-gray-bases(@color);
 
     @gray-lighter:      extract(@gray-bases; 0 + @scheme-type-base);
     @gray-light:        extract(@gray-bases; 1 + @scheme-type-base);
@@ -261,14 +262,14 @@
     @gray-dark:         extract(@gray-bases; 3 + @scheme-type-base);
     @gray-darker:       extract(@gray-bases; 4 + @scheme-type-base);
   }
-}
 
-.make-colors(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 97%) {
-  .make-colors(darken(@color, 10%);@wheel);
-  @body-bg: @color;
-}
+  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 97%) {
+    #strapless.make-palette(darken(@color, 10%);@wheel);
+    @body-bg: @color;
+  }
 
-.make-colors(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 3%) {
-  .make-colors(lighten(@color, 10%);@wheel);
-  @body-bg: @color;
+  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 3%) {
+    #strapless.make-palette(lighten(@color, 10%);@wheel);
+    @body-bg: @color;
+  }
 }

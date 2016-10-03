@@ -24,7 +24,7 @@
 .make-swatches-for(@color; @color-list; @base-color-wheel) {
   @iterations: length(@color-list);
 
-  .make-colors(@color; @base-color-wheel);
+  #strapless.make-palette(@color; @base-color-wheel);
   .make-nth-swatch(1);
 
   position: relative;
