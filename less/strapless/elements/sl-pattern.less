@@ -315,6 +315,37 @@
         }
     }
 }
+#strapless_patterns_carbon {
+    &:before {
+        content: 'Carbon | .carbon([base color,] [scale])';
+    }
+    .pattern {
+        &:nth-child(1){
+            .carbon(@color1a);
+            &:before {
+                content: '.carbon(@color1a)';
+            }
+        }
+        &:nth-child(2){
+            .carbon(@color3a);
+            &:before {
+                content: '.carbon(@color3a)';
+            }
+        }
+        &:nth-child(3){
+            .carbon(@color2c);
+            &:before {
+                content: '.carbon(@color2c)';
+            }
+        }
+        &:nth-child(4){
+            .carbon(@gray-lighter);
+            &:before {
+                content: '.carbon(@gray-lighter)';
+            }
+        }
+    }
+}
 
 .pattern-preview {
     .clearfix();

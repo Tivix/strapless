@@ -88,3 +88,17 @@
   background-size: (@scale * @width), (@scale * @height);
   background-position: center -@width/2;
 }
+
+.carbon(@base: @color1; @scale: 1;) {
+  @highlight: lighten(@base, 4%);
+  @shadow: darken(@base, 4%);
+  @width: 6px;
+  @height: @width;
+  @pattern-carbon:~"%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='6' height='6'%3E%3Crect width='6' height='6' fill='@{base}'/%3E%3Cg id='c'%3E%3Crect width='3' height='3' fill='@{highlight}'/%3E%3Crect y='1' width='3' height='2' fill='@{shadow}'/%3E%3C/g%3E%3Cuse xlink:href='#c' x='3' y='3'/%3E%3C/svg%3E";
+  background-image: url("data:image/svg+xml,@{pattern-carbon}");
+  background-size: (@scale * @width), (@scale * @height);
+  background-position: center -@width/2;
+}
+
+
+
