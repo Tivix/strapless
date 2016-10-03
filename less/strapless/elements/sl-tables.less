@@ -1,0 +1,53 @@
+// TABLES
+
+.make-tables-for(@all-colors);
+
+.make-tables-for(@colors) {
+  @iterations: length(@colors);
+
+  .make-sl-table();
+
+  .make-sl-table(@index: 1) when (@index <= @iterations) {
+
+    @color-name: extract(@colors, @index);
+    @color: @@color-name;
+
+    table.@{color-name} {
+      .sl-table(@color);
+    }
+
+    .make-sl-table(@index + 1);
+  }
+}
+
+.sl-table(@color) {
+  @base: @color;
+  thead th {
+    background-color: @base;
+    .contrast-text-against(@base);
+  }
+  tbody tr:nth-of-type(odd) {
+    // background-color: @table-row-odd;
+  }
+}
+
+.sl-table-base{
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: @padding/2;
+  }
+
+  thead th {
+    vertical-align: bottom;
+  }
+}
+
+table {
+  &:extend(.sl-table-base all);
+}
