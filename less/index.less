@@ -13,7 +13,7 @@ body {
   }
 }
 .feature {
-  @color: @color1b;
+  @color: @success;
 
   position: relative;
   overflow: hidden;
@@ -23,12 +23,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  .checkerboard(@color);
-  //text-shadow: 0 -.1em 0 darken(@color, 15%);
+  .carbon(@color);
   margin-bottom: @padding*2;
+  border-radius: @border-radius;
 
   h1 {
-    font-size: 52px;
+    font-size: 62px;
     font-weight: bold;
   }
 
