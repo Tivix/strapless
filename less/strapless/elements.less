@@ -50,8 +50,18 @@ section {
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1em;
+  margin-top: @navbar-height + @padding;
+  text-align: center;
+  line-height:1.62;
   //max-width: 50vw;
 }
+
+h1 { font-size: 42px;}
+h2 { font-size: 34px;}
+h3 { font-size: 26px;}
+h4 { font-size: 20px;}
+h5 { font-size: 16px; text-transform: uppercase;}
+h6 { font-size: 13px; text-transform: uppercase;}
 
 p {
   margin-bottom: .62em;
@@ -89,16 +99,13 @@ code, pre {
   .sl-code(@color2);
 }
 
-.sl-headline(@index) when (@index <= 6) {
-
-}
-
 .sl-code(@code-color) {
   	@color: mix(@code-color, white, 94%);
   	@background: mix(@color, #333, 10%);
 
     font-family: monospace;
-    padding: @padding * .25 @padding * .67 @padding * .5 @padding * .67;
+    font-size: 90%;
+    padding: @padding * .25 @padding * .67 @padding * .3 @padding * .67;
     border-radius: @border-radius;
     background: @background;
     // border: 1px solid darken(@color, 8%);
@@ -162,7 +169,7 @@ code, pre {
 
 .sl-navbar(@color) {
 
-  @height: 50px;
+  @height: @navbar-height;
   @padding: @height * .38;
 
   background-color:@color;
