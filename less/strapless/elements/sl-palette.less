@@ -14,7 +14,7 @@
 
     // each palette has a corresponding id
     #strapless_colors_@{scheme} {
-      .make-swatches-for(@color; @huge-palette; @scheme);
+      .make-swatches-for(@color; @all-colors; @scheme);
     }
     // make the next palette
     .make-palette(@index + 1);
