@@ -38,7 +38,7 @@
                 </ul>
             </div>
         </section>
-
+<!-- 
         <section id="palette_preview_container">
             <p>Another palette display from testing phase:</p>
             <div id="palette_preview">
@@ -71,7 +71,7 @@
                 <div class="swatch luma">luma:</div>
                 <div class="swatch lit">lightness:</div>
             </div>
-        </section>
+        </section> -->
 
         <section id="colors">
             <h1>Colors</h1>
@@ -754,6 +754,21 @@
             </table>
         </section>
         <section>
+            <h1>LESS</h1>
+            
+            <p>Strapless offers some other handy LESS files, like:</p>
+
+            <h4>mixins.less</h4>
+            <p>Mixins for handling text color issues.</p>
+
+            <h4>variables.less</h4>
+            <p>A very short variable file that you never have to scroll through.</p>
+
+            <h4>targets.less</h4>
+            <p>Simple reusable target mixins for handling responsiveness.</p>
+
+        </section>
+        <section>
             <h1>FAQ</h1>
             
             <h4><strong>Where are all the classes of things I have to memorize?</strong></h4>
@@ -780,6 +795,26 @@
             <p>SVG offers more flexibility.</p>
             <br />
 
+            <h4><strong>What is elements.less?</strong></h4>
+            <p>It's a base file with some simple, opinionated defaults for all of the standard HTML elements.</p>
+
+            <h4><strong>Can I add my own SVGs using this pattern?</strong></h4>
+            <p>You can! But it's kind of a pain. We recommend using the library patterns for development feel/texture, and then replacing them later on when your colors are sorted out.</p>
+            <br />
+
+            <h4><strong>How about a Sass version?</strong></h4>
+            <p>Never. LESS is better. We know which one is more popular and we think everyone is wrong.</p>
+            <p>(If you're interested in putting together a Sass version, instead of just asking for one incessantly, please get in touch!)</p>
+            <br />
+
+            <h4><strong>Who is this even for?</strong></h4>
+            <p>Strapless is for developers who have gotten comfortable with frameworks like Bootstrap and Zurb and want something more lightweight for their next project.</p>
+            <br />
+
+            <h4><strong>You couldn't think up something better than "color2"?</strong></h4>
+            <p>The colors have simple names on purpose. Feel free to reassign any schemeless color to a variable with a better name.</p>
+            <br />
+
         </section>
         <section>
             <h1>Type tests</h1>
@@ -800,6 +835,32 @@
                 <input type="text" name="lastname">
             </form>
             <p>We should treat <code>form</code> like <code>section</code> with some general formatting rules that work for lots of stuff.</p>
+
+        </section>
+        <section>
+        <h1>Forms</h1>
+            <p>Form experimentation:</p>
+            <form>
+              <label for="exampleEmailInput">Your email</label>
+              <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
+              <label for="exampleRecipientInput">Reason for contacting</label>
+              <select class="u-full-width" id="exampleRecipientInput">
+                <option value="Option 1">Questions</option>
+                <option value="Option 2">Admiration</option>
+                <option value="Option 3">Can I get your number?</option>
+              </select>
+              <label for="exampleMessage">Message</label>
+              <textarea class="u-full-width" placeholder="Hi Dave …" id="exampleMessage"></textarea>
+              <label class="example-send-yourself-copy">
+                <input type="checkbox">
+                <span class="label-body">Send a copy to yourself</span>
+              </label>
+              <button class="color3">Submit</button>
+            </form>
+        </section>
+        <section>
+            <h1>Thanks</h1>
+            <!-- bootstrap, LESS, people who made patterns we are using -->
 
         </section>
         <footer>

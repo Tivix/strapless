@@ -1,7 +1,11 @@
 // CSS for standard HMTL elements
 
 html {
-  background: darken(@background, 33%);
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 html, body, ul, ol, li, form, fieldset, legend {
@@ -55,6 +59,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: @navbar-height + @padding;
   text-align: center;
   line-height:1.62;
+  font-weight: bold;
   //max-width: 50vw;
 }
 
@@ -65,10 +70,33 @@ h4 { font-size: 20px;}
 h5 { font-size: 16px; text-transform: uppercase;}
 h6 { font-size: 13px; text-transform: uppercase;}
 
-p {
+p, form {
   margin-bottom: .62em;
   //width: 50vw;
   max-width: 50ch;
+}
+
+form {
+  @color: @color2;
+  background: @color;
+  .contrast-text-against(@color);
+  padding: @padding;
+
+  > * {
+    width: 100%;
+    max-width: 50ch;
+    margin-bottom: @padding;
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: @padding;
+}
+
+input {
+  padding: @padding;
+  border: none;
 }
 
 strong {

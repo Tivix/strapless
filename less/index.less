@@ -1,5 +1,9 @@
 //this is the index.less for strapless-web, NOT strapless!
 
+// TODO: get rid of elements folder?
+// TODO: decide if we're making something like sl-palette and sl-pattern available to the dev
+// it'd be really handy to have something that "just worked" and showed their current palette
+
 @import "strapless/strapless";
 @import "strapless/elements/sl-palette";
 @import "strapless/elements/sl-pattern";
@@ -23,7 +27,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  .carbon(@color);
+  .dots1(@color1; @scale: 20;);
   margin-bottom: @padding*2;
   border-radius: @border-radius;
 
@@ -32,53 +36,45 @@ body {
     font-weight: bold;
   }
 
-  // &:before {
-  //   display:block;
-  //   position: absolute;
-  //   top: -5px;
-  //   left: 0;
-  //   content: "";
-  //   width: 100%;
-  //   height: 5px;
-  //   .box-shadow(0 0 12px 3px darken(@color4c, 90%));
-  //   .opacity(.25);
-  // }
-
   > *:first-child {
     position: relative;
     margin: 0 auto;
     max-width: 620px;
     vertical-align: middle;
     text-align: center;
-
-    &:after {
-      @color: #333;
-      position:relative;
-      top: 50px;
-      display: block;
-      content: "";
-      left: 10%;
-      width: 80%;
-      height: 0;
-      border-radius: 50%;
-      background: transparent;
-      .box-shadow(0 0 16px @color);
-      .opacity(.95);
-    }
   }
 }
 
 #less_variable_test {
-  @test: @gray-dark-base;
-  @test-name: 'accent';
+  @test: @base-color;
+  @test-name: 'base color';
 
-  &:before {
-    content: "@{test-name}: ";
+  .variable-test(@test; @test-name;);
+
+  .variable-test(@test; @test-name;) {
+    &:before {
+      content: "@{test-name}: ";
+    }
+    &:after {
+      display:block;
+      content:"@{test}";
+    }
   }
-  &:after {
-    display:block;
-    content:"@{test}";
+
+  .variable-test(@test; @test-name;) when (isColor(@test)) {    
+    &:before {
+      display: inline-block;
+      width: @padding;
+      height: @padding;
+      background: @test;
+      content: "";
+    }
+    &:after {
+      display:block;
+      content:"@{test-name}: @{test}";
+    }
   }
+  
 }
 
 
