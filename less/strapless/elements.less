@@ -81,10 +81,11 @@ form {
   background: @color;
   .contrast-text-against(@color);
   padding: @padding;
+  max-width: 36ch;
 
   > * {
     width: 100%;
-    max-width: 50ch;
+    max-width: 36ch;
     margin-bottom: @padding;
   }
 }
@@ -97,6 +98,8 @@ label {
 input {
   padding: @padding;
   border: none;
+  background: white;
+  .contrast-text-against(white);
 }
 
 strong {
@@ -143,9 +146,9 @@ code, pre {
   	@background: mix(@color, #333, 10%);
 
     font-family: monospace;
-    font-size: 90%;
+    font-size: 85%;
     padding: @padding * .25 @padding * .67 @padding * .3 @padding * .67;
-    border-radius: @border-radius;
+    border-radius: @border-radius/2;
     background: @background;
     // border: 1px solid darken(@color, 8%);
     color: @color;

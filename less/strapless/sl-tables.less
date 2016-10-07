@@ -1,0 +1,78 @@
+// TABLES
+
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  .sl-table();
+
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: @padding/2;
+  }
+
+  thead th {
+    vertical-align: bottom;
+  }
+
+  thead, tbody {
+    tr > td,
+    tr > th {
+      &:first-child {
+        padding-left: @padding;
+      }
+      &:last-child {
+        padding-right: @padding;
+      }
+    }
+  }
+}
+
+.make-tables-for(@main-colors);
+
+.sl-table(@table-color: white;) {
+  
+  @header: @color1;
+  @row-a: @color1a;
+  @row-b: @color3a;
+
+  #strapless.make-palette(@table-color; monochromatic);
+
+  & > thead > tr > th {
+    background-color: @header;
+    .contrast-text-against(@header);
+  }
+
+  & > tbody > tr > td {
+   .contrast-text-against(@row-a);
+  }
+
+  & > tbody > tr {
+    background-color: @row-a;
+  }
+
+  & > tbody > tr:nth-of-type(odd) {
+    background-color: @row-b;
+  }
+}
+
+.make-tables-for(@colors) {
+  @iterations: length(@colors);
+
+  .make-sl-table(1);
+
+  .make-sl-table(@index) when (@index <= @iterations) {
+
+    @color-name: extract(@colors, @index);
+    @this-color: @@color-name;
+
+    table.@{color-name} {
+      .sl-table(@this-color);
+    }
+
+    .make-sl-table(@index + 1);
+  }
+}
