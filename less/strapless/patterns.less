@@ -15,7 +15,7 @@
   background-position: -@width/4 -@width/4;
 }
 
-.blueprint(@bg: #4A74A6; @stroke: lighten(@bg, 10%); @scale: 1;) {
+.blueprint2(@bg: #4A74A6; @stroke: lighten(@bg, 10%); @scale: 1;) {
   @width: 64px;
   @height: @width;
   @stroke-inner: darken(@stroke, 2%);
@@ -25,12 +25,37 @@
   background-position: center -@width/2;
 }
 
-.pegboard(@base: @color1; @scale: 1) {
+.blueprint(@base: #4A74A6; @scale: 1;) {
+  #strapless.make-palette(@base; monochromatic);
+  @width: 64px;
+  @height: @width;
+  @bg: @color1;
+  @stroke: @color4a;
+  @stroke-inner: @color3a;
+  @pattern-blueprint:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E %3Crect width='100' height='100' fill='@{bg}'/%3E %3Cg fill='@{stroke-inner}'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='@{stroke}'/%3E %3C/svg%3E";
+  background-image: url("data:image/svg+xml,@{pattern-blueprint}");
+  background-size: (@scale * @width), (@scale * @height);
+  background-position: center -@width/2;
+}
+
+.pegboard2(@base: @color1; @scale: 1) {
   @highlight: lighten(@base, 8%);
   @shadow: darken(@base, 8%);
   @width: 15px;
   @height: @width;
   @pattern-pegboard: ~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{height}'%3E%3Crect width='50' height='50' fill='@{base}'/%3E%3Ccircle cx='3' cy='4.3' r='1.8' fill='@{highlight}'/%3E%3Ccircle cx='3' cy='3' r='1.8' fill='@{shadow}'/%3E%3Ccircle cx='10.5' cy='12.5' r='1.8' fill='@{highlight}'/%3E%3Ccircle cx='10.5' cy='11.3' r='1.8' fill='@{shadow}'/%3E%3C/svg%3E";
+  background-image: url("data:image/svg+xml,@{pattern-pegboard}");
+  background-size: (@scale * @width), (@scale * @height);
+}
+
+.pegboard(@base: @base-color; @scale: 1) {
+  #strapless.make-palette(@base; monochromatic);
+  @board: @color1;
+  @highlight: @color1a;
+  @shadow: @color3c;
+  @width: 15px;
+  @height: @width;
+  @pattern-pegboard: ~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{height}'%3E%3Crect width='50' height='50' fill='@{board}'/%3E%3Ccircle cx='3' cy='4.3' r='1.8' fill='@{highlight}'/%3E%3Ccircle cx='3' cy='3' r='1.8' fill='@{shadow}'/%3E%3Ccircle cx='10.5' cy='12.5' r='1.8' fill='@{highlight}'/%3E%3Ccircle cx='10.5' cy='11.3' r='1.8' fill='@{shadow}'/%3E%3C/svg%3E";
   background-image: url("data:image/svg+xml,@{pattern-pegboard}");
   background-size: (@scale * @width), (@scale * @height);
 }
@@ -44,10 +69,23 @@
   background-position: center -@width/2;
 }
 
-.argyle(@first: @color1; @second: lighten(@first, 2.5%); @stroke: fade(greyscale(@first), 75%); @scale: 1;) {
+.argyle2(@first: @color1; @second: lighten(@first, 2.5%); @stroke: fade(greyscale(@first), 75%); @scale: 1;) {
   @width: 60px;
   @height: 90px;
   @pattern-argyle:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='90'%3E %3Cg transform='scale(1 1.5)'%3E %3Crect width='99' height='99' fill='@{first}'/%3E %3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='@{second}'/%3E %3Crect width='99' height='1' transform='rotate(45)' fill='@{stroke}'/%3E %3Crect width='99' height='1' transform='translate(0 60) rotate(-45)' fill='@{stroke}'/%3E %3C/g%3E %3C/svg%3E";
+  background-image: url("data:image/svg+xml,@{pattern-argyle}");
+  background-size: (@scale * @width), (@scale * @height);
+  background-position: center -@width/2;
+}
+
+.argyle(@base: @color1; @scale: 1;) {
+  #strapless.make-palette(@base; ebb);
+  @bg: @color1;
+  @bg2: @color3;
+  @stroke: @color2a;
+  @width: 60px;
+  @height: 90px;
+  @pattern-argyle:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='90'%3E %3Cg transform='scale(1 1.5)'%3E %3Crect width='99' height='99' fill='@{bg}'/%3E %3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='@{bg2}'/%3E %3Crect width='99' height='1' transform='rotate(45)' fill='@{stroke}'/%3E %3Crect width='99' height='1' transform='translate(0 60) rotate(-45)' fill='@{stroke}'/%3E %3C/g%3E %3C/svg%3E";
   background-image: url("data:image/svg+xml,@{pattern-argyle}");
   background-size: (@scale * @width), (@scale * @height);
   background-position: center -@width/2;

@@ -3,7 +3,7 @@
 // TODO: decide if we want these here or in variables.less
 // or maybe only @base-color and @base-color-wheel here?
 
-@base-color: cadetblue;
+@base-color: #EBDFA1;
 @base-color-wheel:  tetradic-b;
 
 @action:    @color1;
@@ -38,12 +38,12 @@
 #strapless.make-palette(@base-color; @base-color-wheel;);
 
 #strapless {
+
   .make-palette(@color; @wheel) {
     #strapless.load-scheme-type(@color);
     #strapless.load-color-wheels();
     #strapless.make-main-colors(@color; @wheel);
-    #strapless.load-subcolor-bases(@color1; @color2; @color3; @color4);
-    #strapless.make-subcolors(@color1; @color2; @color3; @color4; @scheme-type);
+    #strapless.make-subcolors(@color; @wheel);
     #strapless.load-gray-bases(@color);
     #strapless.make-grays(@color);
   }
@@ -120,119 +120,25 @@
     @color4: spin(@color, extract(@wheel-var, 3));
   }
 
-  .load-subcolor-bases(@c1; @c2; @c3; @c4;) {
-    #strapless.load-subcolor-bases-a(@c1; @c2; @c3; @c4;);
-    #strapless.load-subcolor-bases-b(@c1; @c2; @c3; @c4;);
-    #strapless.load-subcolor-bases-c(@c1; @c2; @c3; @c4;);
-  }
+  .make-subcolors(@color; @wheel) {
+    #strapless.make-main-colors(@color; @wheel);
 
-  .load-subcolor-bases-a(@c1; @c2; @c3; @c4;) {
-    // contrast two nearby analogs against black to get the lighter version
-    @spin: @analog;
-    @contrast: green;
-    @color1a-base: contrast(@contrast; spin(@color1, @spin/2); spin(@color1, -@spin/2));
-    @color2a-base: contrast(@contrast; spin(@color2, @spin); spin(@color2, -@spin));
-    @color3a-base: contrast(@contrast; spin(@color3, @spin); spin(@color3, -@spin));
-    @color4a-base: contrast(@contrast; spin(@color4, @spin); spin(@color4, -@spin));
-  }
+    @color1a: lighten(@color1, 10%);
+    @color1b: spin(@color1, 15);
+    @color1c: darken(@color1, 10%);
 
-  .load-subcolor-bases-b(@c1; @c2; @c3; @c4;) {
-    // contrast two nearby accents against the color itself
-    @spin: @accent;
-    @color1b-base: contrast(@color1; spin(@color1, @spin); spin(@color1, -@spin));
-    @color2b-base: contrast(@color2; spin(@color2, @spin); spin(@color2, -@spin));
-    @color3b-base: contrast(@color3; spin(@color3, @spin); spin(@color3, -@spin));
-    @color4b-base: contrast(@color4; spin(@color4, @spin); spin(@color4, -@spin));
-  }
+    @color2a: lighten(@color2, 10%);
+    @color2b: spin(@color2, 15);
+    @color2c: darken(@color2, 10%);
 
-  .load-subcolor-bases-c(@c1; @c2; @c3; @c4;) {
-    // contrast two nearby analogs against white to get the darker version
-    @spin: @analog;
-    @contrast: orange;
-    @color1c-base: contrast(@contrast; spin(@color1, @spin/2); spin(@color1, -@spin/2));
-    @color2c-base: contrast(@contrast; spin(@color2, @spin); spin(@color2, -@spin));
-    @color3c-base: contrast(@contrast; spin(@color3, @spin); spin(@color3, -@spin));
-    @color4c-base: contrast(@contrast; spin(@color4, @spin); spin(@color4, -@spin));
-  }
+    @color3a: lighten(@color3, 10%);
+    @color3b: spin(@color3, 15);
+    @color3c: darken(@color3, 10%);
 
-  .make-subcolors(@c1; @c2; @c3; @c4; @scheme-type: medium) {
-    #strapless.make-subcolors-a(@color1; @color2; @color3; @color4; @scheme-type);
-    #strapless.make-subcolors-b(@color1; @color2; @color3; @color4; @scheme-type);
-    #strapless.make-subcolors-c(@color1; @color2; @color3; @color4; @scheme-type);
-  }
+    @color4a: lighten(@color4, 10%);
+    @color4b: spin(@color4, 15);
+    @color4c: darken(@color4, 10%);
 
-  .make-subcolors-a(@c1; @c2; @c3; @c4; @scheme) {
-    // a is lighter
-    @lighten-by: 10%;
-    @color1a: lighten(@color1a-base, @lighten-by);
-    @color2a: lighten(@color2a-base, @lighten-by);
-    @color3a: lighten(@color3a-base, @lighten-by);
-    @color4a: lighten(@color4a-base, @lighten-by);
-  }
-
-  .make-subcolors-b(@c1; @c2; @c3; @c4; @scheme) {
-    // b is just the base (which is an accent), no lightness changes
-    @color1b: @color1b-base;
-    @color2b: @color2b-base;
-    @color3b: @color3b-base;
-    @color4b: @color4b-base;
-  }
-
-  .make-subcolors-c(@c1; @c2; @c3; @c4; @scheme) {
-    // c is darker
-    @darken-by: 10%;
-    @color1c: darken(@color1c-base, @darken-by);
-    @color2c: darken(@color2c-base, @darken-by);
-    @color3c: darken(@color3c-base, @darken-by);
-    @color4c: darken(@color4c-base, @darken-by);
-  }
-
-  .make-subcolors-a(@c1; @c2; @c3; @c4; @scheme) when (@scheme = light) {
-    @lighten-by: 3%;
-    @color1a: lighten(@color1a-base, @lighten-by);
-    @color2a: lighten(@color2a-base, @lighten-by);
-    @color3a: lighten(@color3a-base, @lighten-by);
-    @color4a: lighten(@color4a-base, @lighten-by);
-  }
-
-  .make-subcolors-b(@c1; @c2; @c3; @c4; @scheme) when (@scheme = light) {
-    @darken-by: 4%;
-    @color1b: darken(@color1b-base, @darken-by);
-    @color2b: darken(@color2b-base, @darken-by);
-    @color3b: darken(@color3b-base, @darken-by);
-    @color4b: darken(@color4b-base, @darken-by);
-  }
-
-  .make-subcolors-c(@c1; @c2; @c3; @c4; @scheme) when (@scheme = light) {
-    @darken-by: 15%;
-    @color1c: darken(@color1c-base, @darken-by);
-    @color2c: darken(@color2c-base, @darken-by);
-    @color3c: darken(@color3c-base, @darken-by);
-    @color4c: darken(@color4c-base, @darken-by);
-  }
-
-  .make-subcolors-a(@c1; @c2; @c3; @c4; @scheme) when (@scheme = dark) {
-    @lighten-by: 15%;
-    @color1a: lighten(@color1a-base, @lighten-by);
-    @color2a: lighten(@color2a-base, @lighten-by);
-    @color3a: lighten(@color3a-base, @lighten-by);
-    @color4a: lighten(@color4a-base, @lighten-by);
-  }
-
-  .make-subcolors-b(@c1; @c2; @c3; @c4; @scheme) when (@scheme = dark) {
-    @lighten-by: 4%;
-    @color1b: lighten(@color1b-base, @lighten-by);
-    @color2b: lighten(@color2b-base, @lighten-by);
-    @color3b: lighten(@color3b-base, @lighten-by);
-    @color4b: lighten(@color4b-base, @lighten-by);
-  }
-
-  .make-subcolors-c(@c1; @c2; @c3; @c4; @scheme) when (@scheme = dark) {
-    @darken-by: 3%;
-    @color1c: darken(@color1c-base, @darken-by);
-    @color2c: darken(@color2c-base, @darken-by);
-    @color3c: darken(@color3c-base, @darken-by);
-    @color4c: darken(@color4c-base, @darken-by);
   }
 
   .load-gray-bases(@color) {
@@ -268,13 +174,13 @@
     @gray-darker:       extract(@gray-bases; 4 + @scheme-type-base);
   }
 
-  // .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 97%) {
-  //   #strapless.make-palette(darken(@color, 10%);@wheel);
-  //   @body-bg: @color;
-  // }
+  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 97%) {
+    #strapless.make-palette(darken(@color, 10%);@wheel);
+    @body-bg: @color;
+  }
 
-  // .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 3%) {
-  //   #strapless.make-palette(lighten(@color, 10%);@wheel);
-  //   @body-bg: @color;
-  // }
+  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 3%) {
+    #strapless.make-palette(lighten(@color, 10%);@wheel);
+    @body-bg: @color;
+  }
 }

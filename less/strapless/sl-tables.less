@@ -33,13 +33,14 @@ table {
 
 .make-tables-for(@main-colors);
 
+// TABLE MIXINS
+
 .sl-table(@table-color: white;) {
   
-  @header: @color1;
-  @row-a: @color1a;
-  @row-b: @color3a;
-
-  #strapless.make-palette(@table-color; monochromatic);
+  #strapless.make-palette(@table-color; monochromatic);  
+    @header: @color1;
+    @row-a: @color1a;
+    @row-b: @color3a;
 
   & > thead > tr > th {
     background-color: @header;

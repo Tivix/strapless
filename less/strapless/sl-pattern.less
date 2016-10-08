@@ -60,6 +60,37 @@
         }
     }
 }
+#strapless_patterns_blueprint2 {
+    &:before {
+        content: 'Blueprint2 | .blueprint2([bg,] [stroke,] [scale])';
+    }
+    .pattern {
+        &:nth-child(1){
+            .blueprint(@color2);
+            &:before {
+                content: '.blueprint2(@color2)';
+            }
+        }
+        &:nth-child(2){
+            .blueprint(@color2a);
+            &:before {
+                content: '.blueprint2(@color2a)';
+            }
+        }
+        &:nth-child(3){
+            .blueprint(@color2b);
+            &:before {
+                content: '.blueprint2(@color2b)';
+            }
+        }
+        &:nth-child(4){
+            .blueprint();
+            &:before {
+                content: '.blueprint2()';
+            }
+        }
+    }
+}
 #strapless_patterns_pegboard {
     &:before {
         content: 'Pegboard | .pegboard([color,] [scale])';
@@ -85,6 +116,37 @@
         }
         &:nth-child(4){
             .pegboard(@color3c);
+            &:before {
+                content: '.pegboard(@color3c)';
+            }
+        }
+    }
+}
+#strapless_patterns_pegboard2 {
+    &:before {
+        content: 'Pegboard2 | .pegboard2([color,] [scale])';
+    }
+    .pattern {
+        &:nth-child(1){
+            .pegboard2(@color3);
+            &:before {
+                content: '.pegboard(@color3)';
+            }
+        }
+        &:nth-child(2){
+            .pegboard2(@gray-lighter);
+            &:before {
+                content: '.pegboard(gray-lighter)';
+            }
+        }
+        &:nth-child(3){
+            .pegboard2(@color3b);
+            &:before {
+                content: '.pegboard(@color3b)';
+            }
+        }
+        &:nth-child(4){
+            .pegboard2(@color3c);
             &:before {
                 content: '.pegboard(@color3c)';
             }
@@ -128,9 +190,9 @@
     }
     .pattern {
         &:nth-child(1){
-            .argyle(@color1;@color2c);
+            .argyle(@color1);
             &:before {
-                content: '.argyle(@color1, @color2c)';
+                content: '.argyle(@color1)';
             }
         }
         &:nth-child(2){
@@ -146,9 +208,9 @@
             }
         }
         &:nth-child(4){
-            .argyle(@gray-light, @gray, mistyrose);
+            .argyle(@gray-light);
             &:before {
-                content: '.argyle(@gray-light, @gray, mistyrose)';
+                content: '.argyle(@gray-light)';
             }
         }
     }
