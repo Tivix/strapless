@@ -1,16 +1,13 @@
+.make-palettes-for(@base-color; @color-wheels);
 
-@all-schemes: accented, complementary, complementary-b, triadic, triadic-b, tetradic, tetradic-b, ebb, flow, square, monochromatic, monochromatic-b;
-
-.make-palettes-for(@base-color; @all-schemes);
-
-.make-palettes-for(@color; @schemes) {
-  @iterations: length(@schemes);
+.make-palettes-for(@color; @wheels) {
+  @iterations: length(@wheels);
 
   .make-palette();
 
   .make-palette(@index: 1) when (@index <= @iterations) {
-    // grab our scheme name out of @schemes
-    @scheme: extract(@schemes, @index);
+    // grab our scheme name out of @wheels
+    @scheme: extract(@wheels, @index);
 
     // each palette has a corresponding id
     #strapless_colors_@{scheme} {
@@ -21,10 +18,10 @@
   }
 }
 
-.make-swatches-for(@color; @color-list; @base-color-wheel) {
+.make-swatches-for(@color; @color-list; @color-wheel) {
   @iterations: length(@color-list);
 
-  #strapless.make-palette(@color; @base-color-wheel);
+  #strapless.make-palette(@color; @color-wheel);
   .make-nth-swatch(1);
 
   position: relative;
@@ -33,7 +30,7 @@
   margin-right: @padding;
 
   &:before {
-    content: "@{base-color-wheel}";
+    content: "@{color-wheel}";
     display: block;
     text-align: center;
     width: 100%;

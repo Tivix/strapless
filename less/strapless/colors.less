@@ -3,8 +3,8 @@
 // TODO: decide if we want these here or in variables.less
 // or maybe only @base-color and @base-color-wheel here?
 
-@base-color: #D18AC4;
-@base-color-wheel:  complementary;
+@base-color: #C3EAF7;
+@base-color-wheel:  accented;
 
 @action:    @color1;
 @reaction:  @color2;
@@ -123,22 +123,26 @@
   .make-subcolors(@color; @wheel) {
     #strapless.make-main-colors(@color; @wheel);
 
-    @color1a: lighten(@color1, 10%);
-    @color1b: spin(@color1, 15);
-    @color1c: darken(@color1, 10%);
+    // color a is a lighter analog
 
-    @color2a: lighten(@color2, 10%);
-    @color2b: spin(@color2, 15);
-    @color2c: darken(@color2, 10%);
+    @color1a: contrast(white; spin(lighten(@color1, 10%), @analog); spin(lighten(@color1, 10%), -@analog););
+    @color2a: contrast(white; spin(lighten(@color2, 10%), @analog); spin(lighten(@color2, 10%), -@analog););
+    @color3a: contrast(white; spin(lighten(@color3, 10%), @analog); spin(lighten(@color3, 10%), -@analog););
+    @color4a: contrast(white; spin(lighten(@color4, 10%), @analog); spin(lighten(@color4, 10%), -@analog););
 
-    @color3a: lighten(@color3, 10%);
-    @color3b: spin(@color3, 15);
-    @color3c: darken(@color3, 10%);
+    // color b is an accent
 
-    @color4a: lighten(@color4, 10%);
-    @color4b: spin(@color4, 15);
-    @color4c: darken(@color4, 10%);
+    @color1b: contrast(@color1; spin(@color4, @accent); spin(@color1, -@accent););
+    @color2b: contrast(@color2; spin(@color4, @accent); spin(@color2, -@accent););
+    @color3b: contrast(@color3; spin(@color4, @accent); spin(@color3, -@accent););
+    @color4b: contrast(@color4; spin(@color4, @accent); spin(@color4, -@accent););
 
+    // color c is a darker analog
+
+    @color1c: contrast(black; spin(darken(@color1, 10%), @analog); spin(darken(@color1, 10%), -@analog););
+    @color2c: contrast(black; spin(darken(@color2, 10%), @analog); spin(darken(@color2, 10%), -@analog););
+    @color3c: contrast(black; spin(darken(@color3, 10%), @analog); spin(darken(@color3, 10%), -@analog););
+    @color4c: contrast(black; spin(darken(@color4, 10%), @analog); spin(darken(@color4, 10%), -@analog););
   }
 
   .load-gray-bases(@color) {
@@ -175,12 +179,12 @@
   }
 
   .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 97%) {
-    #strapless.make-palette(darken(@color, 10%);@wheel);
+    #strapless.make-palette(darken(@color, 7.5%);@wheel);
     @body-bg: @color;
   }
 
   .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 3%) {
-    #strapless.make-palette(lighten(@color, 10%);@wheel);
+    #strapless.make-palette(lighten(@color, 7.5%);@wheel);
     @body-bg: @color;
   }
 }
