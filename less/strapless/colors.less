@@ -3,7 +3,7 @@
 // TODO: decide if we want these here or in variables.less
 // or maybe only @base-color and @base-color-wheel here?
 
-@base-color: #C3EAF7;
+@base-color: #143B47;
 @base-color-wheel:  accented;
 
 @action:    @color1;
@@ -43,7 +43,7 @@
     #strapless.load-scheme-type(@color);
     #strapless.load-color-wheels();
     #strapless.make-main-colors(@color; @wheel);
-    #strapless.make-subcolors(@color; @wheel);
+    #strapless.make-subcolors(@color; @wheel; @scheme-type);
     #strapless.load-gray-bases(@color);
     #strapless.make-grays(@color);
   }
@@ -120,29 +120,98 @@
     @color4: spin(@color, extract(@wheel-var, 3));
   }
 
-  .make-subcolors(@color; @wheel) {
+  .make-subcolors(@color; @wheel; @scheme-type) {
     #strapless.make-main-colors(@color; @wheel);
+
+    @a-by: 10%;
+    @b-by: 10%; // N/A
+    @c-by: 10%;
+    @ceiling: white;
+    @floor: black;
+    @compare: @color1;
 
     // color a is a lighter analog
 
-    @color1a: contrast(white; spin(lighten(@color1, 10%), @analog); spin(lighten(@color1, 10%), -@analog););
-    @color2a: contrast(white; spin(lighten(@color2, 10%), @analog); spin(lighten(@color2, 10%), -@analog););
-    @color3a: contrast(white; spin(lighten(@color3, 10%), @analog); spin(lighten(@color3, 10%), -@analog););
-    @color4a: contrast(white; spin(lighten(@color4, 10%), @analog); spin(lighten(@color4, 10%), -@analog););
+    @color1a: contrast(@ceiling; spin(lighten(@color1, @a-by), @analog); spin(lighten(@color1, @a-by), -@analog););
+    @color2a: contrast(@ceiling; spin(lighten(@color2, @a-by), @analog); spin(lighten(@color2, @a-by), -@analog););
+    @color3a: contrast(@ceiling; spin(lighten(@color3, @a-by), @analog); spin(lighten(@color3, @a-by), -@analog););
+    @color4a: contrast(@ceiling; spin(lighten(@color4, @a-by), @analog); spin(lighten(@color4, @a-by), -@analog););
 
     // color b is an accent
 
-    @color1b: contrast(@color1; spin(@color4, @accent); spin(@color1, -@accent););
-    @color2b: contrast(@color2; spin(@color4, @accent); spin(@color2, -@accent););
-    @color3b: contrast(@color3; spin(@color4, @accent); spin(@color3, -@accent););
-    @color4b: contrast(@color4; spin(@color4, @accent); spin(@color4, -@accent););
+    @color1b: contrast(@compare; spin(@color4, @accent); spin(@color1, -@accent););
+    @color2b: contrast(@compare; spin(@color4, @accent); spin(@color2, -@accent););
+    @color3b: contrast(@compare; spin(@color4, @accent); spin(@color3, -@accent););
+    @color4b: contrast(@compare; spin(@color4, @accent); spin(@color4, -@accent););
 
     // color c is a darker analog
 
-    @color1c: contrast(black; spin(darken(@color1, 10%), @analog); spin(darken(@color1, 10%), -@analog););
-    @color2c: contrast(black; spin(darken(@color2, 10%), @analog); spin(darken(@color2, 10%), -@analog););
-    @color3c: contrast(black; spin(darken(@color3, 10%), @analog); spin(darken(@color3, 10%), -@analog););
-    @color4c: contrast(black; spin(darken(@color4, 10%), @analog); spin(darken(@color4, 10%), -@analog););
+    @color1c: contrast(@floor; spin(darken(@color1, @c-by), @analog); spin(darken(@color1, @c-by), -@analog););
+    @color2c: contrast(@floor; spin(darken(@color2, @c-by), @analog); spin(darken(@color2, @c-by), -@analog););
+    @color3c: contrast(@floor; spin(darken(@color3, @c-by), @analog); spin(darken(@color3, @c-by), -@analog););
+    @color4c: contrast(@floor; spin(darken(@color4, @c-by), @analog); spin(darken(@color4, @c-by), -@analog););
+  }
+
+  .make-subcolors(@color; @wheel; @scheme) when (@scheme-type = light) {
+    #strapless.make-main-colors(@color; @wheel);
+
+    @a-by: 5%;
+    @c-by: 8%;
+    @ceiling: white;
+    @floor: #515151;
+    @compare: @color1;
+
+    // color a is a lighter analog
+
+    @color1a: contrast(@ceiling; spin(lighten(@color1, @a-by), @analog); spin(lighten(@color1, @a-by), -@analog););
+    @color2a: contrast(@ceiling; spin(lighten(@color2, @a-by), @analog); spin(lighten(@color2, @a-by), -@analog););
+    @color3a: contrast(@ceiling; spin(lighten(@color3, @a-by), @analog); spin(lighten(@color3, @a-by), -@analog););
+    @color4a: contrast(@ceiling; spin(lighten(@color4, @a-by), @analog); spin(lighten(@color4, @a-by), -@analog););
+
+    // color b is an accent
+
+    @color1b: contrast(@compare; spin(@color4, @accent); spin(@color1, -@accent););
+    @color2b: contrast(@compare; spin(@color4, @accent); spin(@color2, -@accent););
+    @color3b: contrast(@compare; spin(@color4, @accent); spin(@color3, -@accent););
+    @color4b: contrast(@compare; spin(@color4, @accent); spin(@color4, -@accent););
+
+    // color c is a darker analog
+
+    @color1c: contrast(@floor; spin(darken(@color1, @c-by), @analog); spin(darken(@color1, @c-by), -@analog););
+    @color2c: contrast(@floor; spin(darken(@color2, @c-by), @analog); spin(darken(@color2, @c-by), -@analog););
+    @color3c: contrast(@floor; spin(darken(@color3, @c-by), @analog); spin(darken(@color3, @c-by), -@analog););
+    @color4c: contrast(@floor; spin(darken(@color4, @c-by), @analog); spin(darken(@color4, @c-by), -@analog););
+  }
+
+  .make-subcolors(@color; @wheel; @scheme) when (@scheme-type = dark) {
+    #strapless.make-main-colors(@color; @wheel);
+
+    @a-by: 8%;
+    @c-by: 4%;
+    @ceiling: #515151;
+    @floor: black;
+    @compare: @color1;
+
+    // color a is a lighter analog
+
+    @color1a: contrast(@ceiling; spin(lighten(@color1, @a-by), @analog); spin(lighten(@color1, @a-by), -@analog););
+    @color2a: contrast(@ceiling; spin(lighten(@color2, @a-by), @analog); spin(lighten(@color2, @a-by), -@analog););
+    @color3a: contrast(@ceiling; spin(lighten(@color3, @a-by), @analog); spin(lighten(@color3, @a-by), -@analog););
+    @color4a: contrast(@ceiling; spin(lighten(@color4, @a-by), @analog); spin(lighten(@color4, @a-by), -@analog););
+
+    // color b is an accent
+
+    @color1b: contrast(@compare; spin(@color4, @accent); spin(@color1, -@accent););
+    @color2b: contrast(@compare; spin(@color4, @accent); spin(@color2, -@accent););
+    @color3b: contrast(@compare; spin(@color4, @accent); spin(@color3, -@accent););
+    @color4b: contrast(@compare; spin(@color4, @accent); spin(@color4, -@accent););
+
+    // color c is a darker analog
+
+    @color1c: contrast(@floor; spin(darken(@color1, @c-by), @analog); spin(darken(@color1, @c-by), -@analog););
+    @color2c: contrast(@floor; spin(darken(@color2, @c-by), @analog); spin(darken(@color2, @c-by), -@analog););
+    @color3c: contrast(@floor; spin(darken(@color3, @c-by), @analog); spin(darken(@color3, @c-by), -@analog););
+    @color4c: contrast(@floor; spin(darken(@color4, @c-by), @analog); spin(darken(@color4, @c-by), -@analog););
   }
 
   .load-gray-bases(@color) {
