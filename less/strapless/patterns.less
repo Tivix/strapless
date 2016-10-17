@@ -1,28 +1,18 @@
-// POSSIBLE PATTERN PATTERNS
+// PATTERNS
 
 // patterns are mixins that have 1-3 colors, then a scale property
 // all patterns should work with only one or zero color argument(s) given
 
-.checkerboard(@first: @color1; @second: lighten(@first, 2.5%); @scale: 1;) {
-  @base: @base-color;
-  @highlight: lighten(@base, 8%);
-  @shadow: darken(@base, 8%);
+.checkerboard(@base: @base-color; @scale: 1;) {
+  #strapless.make-palette(@base; complementary);
+  @highlight: @color1;
+  @shadow: @color1a;
   @width: 60px;
   @height: @width;
-  @pattern-checkerboard:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{height}'%3E%3Crect width='60' height='60' fill='@{first}'/%3E%3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='@{second}'/%3E%3C/svg%3E";
+  @pattern-checkerboard:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{height}'%3E%3Crect width='60' height='60' fill='@{highlight}'/%3E%3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='@{shadow}'/%3E%3C/svg%3E";
   background-image: url("data:image/svg+xml,@{pattern-checkerboard}");
-  background-size: (@scale * @width), (@scale * @height);
+  background-size: (@scale * @width), (@scale * @height)*2;
   background-position: -@width/4 -@width/4;
-}
-
-.blueprint2(@bg: #4A74A6; @stroke: lighten(@bg, 10%); @scale: 1;) {
-  @width: 64px;
-  @height: @width;
-  @stroke-inner: darken(@stroke, 2%);
-  @pattern-blueprint:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E %3Crect width='100' height='100' fill='@{bg}'/%3E %3Cg fill='@{stroke-inner}'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='@{stroke}'/%3E %3C/svg%3E";
-  background-image: url("data:image/svg+xml,@{pattern-blueprint}");
-  background-size: (@scale * @width), (@scale * @height);
-  background-position: center -@width/2;
 }
 
 .blueprint(@base: #4A74A6; @scale: 1;) {
@@ -30,29 +20,20 @@
   @width: 64px;
   @height: @width;
   @bg: @color1;
-  @stroke: @color4a;
-  @stroke-inner: @color3a;
+  @stroke: @color1a;
+  @stroke-inner: mix(contrast(@bg; @color4a; @color3a), @bg, 50%);
   @pattern-blueprint:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E %3Crect width='100' height='100' fill='@{bg}'/%3E %3Cg fill='@{stroke-inner}'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='@{stroke}'/%3E %3C/svg%3E";
   background-image: url("data:image/svg+xml,@{pattern-blueprint}");
   background-size: (@scale * @width), (@scale * @height);
   background-position: center -@width/2;
 }
 
-.pegboard2(@base: @color1; @scale: 1) {
-  @highlight: lighten(@base, 8%);
-  @shadow: darken(@base, 8%);
-  @width: 15px;
-  @height: @width;
-  @pattern-pegboard: ~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{height}'%3E%3Crect width='50' height='50' fill='@{base}'/%3E%3Ccircle cx='3' cy='4.3' r='1.8' fill='@{highlight}'/%3E%3Ccircle cx='3' cy='3' r='1.8' fill='@{shadow}'/%3E%3Ccircle cx='10.5' cy='12.5' r='1.8' fill='@{highlight}'/%3E%3Ccircle cx='10.5' cy='11.3' r='1.8' fill='@{shadow}'/%3E%3C/svg%3E";
-  background-image: url("data:image/svg+xml,@{pattern-pegboard}");
-  background-size: (@scale * @width), (@scale * @height);
-}
-
-.pegboard(@base: @base-color; @scale: 1) {
+.pegboard(@base: @base-color; @scale: 1;) {
+  // TODO: make this work with more colors
   #strapless.make-palette(@base; monochromatic);
   @board: @color1;
-  @highlight: @color1a;
-  @shadow: @color3c;
+  @shadow: contrast(@board; @color1c; @color4c);
+  @highlight: contrast(@shadow; @color3a; @color1a);
   @width: 15px;
   @height: @width;
   @pattern-pegboard: ~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{height}'%3E%3Crect width='50' height='50' fill='@{board}'/%3E%3Ccircle cx='3' cy='4.3' r='1.8' fill='@{highlight}'/%3E%3Ccircle cx='3' cy='3' r='1.8' fill='@{shadow}'/%3E%3Ccircle cx='10.5' cy='12.5' r='1.8' fill='@{highlight}'/%3E%3Ccircle cx='10.5' cy='11.3' r='1.8' fill='@{shadow}'/%3E%3C/svg%3E";
@@ -60,29 +41,22 @@
   background-size: (@scale * @width), (@scale * @height);
 }
 
-.shippo(@first: @color1; @second: lighten(@first, 2.5%); @scale: 1;) {
+.shippo(@base: @base-color; @scale: 1;) {
   @width: 80px;
   @height: @width;
-  @pattern-shippo:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E %3Crect width='80' height='80' fill='@{first}'/%3E %3Ccircle cx='40' cy='40' r='40' fill='@{second}'/%3E %3Cpath d='M0 40 A40 40 45 0 0 40 0 A40 40 315 0 0 80 40 A40 40 45 0 0 40 80 A40 40 270 0 0 0 40Z' fill='@{first}'/%3E %3C/svg%3E";
+  @foreground: @base;
+  @background: lighten(@base, 4%);
+  @pattern-shippo:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E %3Crect width='80' height='80' fill='@{foreground}'/%3E %3Ccircle cx='40' cy='40' r='40' fill='@{background}'/%3E %3Cpath d='M0 40 A40 40 45 0 0 40 0 A40 40 315 0 0 80 40 A40 40 45 0 0 40 80 A40 40 270 0 0 0 40Z' fill='@{foreground}'/%3E %3C/svg%3E";
   background-image: url("data:image/svg+xml,@{pattern-shippo}");
   background-size: (@scale * @width), (@scale * @height);
   background-position: center -@width/2;
 }
 
-.argyle2(@first: @color1; @second: lighten(@first, 2.5%); @stroke: fade(greyscale(@first), 75%); @scale: 1;) {
-  @width: 60px;
-  @height: 90px;
-  @pattern-argyle:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='90'%3E %3Cg transform='scale(1 1.5)'%3E %3Crect width='99' height='99' fill='@{first}'/%3E %3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='@{second}'/%3E %3Crect width='99' height='1' transform='rotate(45)' fill='@{stroke}'/%3E %3Crect width='99' height='1' transform='translate(0 60) rotate(-45)' fill='@{stroke}'/%3E %3C/g%3E %3C/svg%3E";
-  background-image: url("data:image/svg+xml,@{pattern-argyle}");
-  background-size: (@scale * @width), (@scale * @height);
-  background-position: center -@width/2;
-}
-
-.argyle(@base: @color1; @scale: 1;) {
+.argyle(@base: @base-color; @scale: 1;) {
   #strapless.make-palette(@base; ebb);
   @bg: @color1;
   @bg2: @color3;
-  @stroke: @color2a;
+  @stroke: mix(greyscale(@color3a, 75%), @color1, 25%);
   @width: 60px;
   @height: 90px;
   @pattern-argyle:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='90'%3E %3Cg transform='scale(1 1.5)'%3E %3Crect width='99' height='99' fill='@{bg}'/%3E %3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='@{bg2}'/%3E %3Crect width='99' height='1' transform='rotate(45)' fill='@{stroke}'/%3E %3Crect width='99' height='1' transform='translate(0 60) rotate(-45)' fill='@{stroke}'/%3E %3C/g%3E %3C/svg%3E";
@@ -91,16 +65,19 @@
   background-position: center -@width/2;
 }
 
-.dots1(@fg: @color1; @bg: lighten(@fg, 10%); @scale: 1;) {
+.dots(@fg: @base-color; @bg: lighten(@fg, 10%); @scale: 1;) {
   @width: 5px;
   @height: @width;
-  @pattern-dots1:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='@{bg}'/%3E %3Crect width='1' height='1' fill='@{fg}'/%3E %3C/svg%3E";
-  background-image: url("data:image/svg+xml,@{pattern-dots1}");
+  @pattern-dots:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='@{bg}'/%3E %3Crect width='1' height='1' fill='@{fg}'/%3E %3C/svg%3E";
+  background-image: url("data:image/svg+xml,@{pattern-dots}");
   background-size: (@scale * @width), (@scale * @height);
   background-position: center -@width/2;
 }
 
-.stripes1(@fg: @color1; @bg: lighten(@fg, 10%); @scale: 1;) {
+.stripes(@base: @base-color; @scale: 1;) {
+  #strapless.make-palette(@base; ebb);
+  @bg: @color1;
+  @fg: @color3a;
   @width: 5px;
   @height: @width;
   @pattern-stripes1:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='@{bg}'/%3E %3Cpath d='M0 5L5 0ZM6 4L4 6ZM-1 1L1 -1Z' stroke='@{fg}' stroke-width='1'/%3E %3C/svg%3E";
@@ -109,7 +86,17 @@
   background-position: center -@width/2;
 }
 
-.honeycomb(@bg: @color1; @stroke1: lighten(@bg, 5%); @stroke2: lighten(@stroke1, 1.5%); @scale: 1;) {
+.bathmat(@base: @background; @scale: 1;) {
+  @bg: @base;
+  @stroke: lighten(@base, 5%);
+  @pattern-bathmat:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='40' height='40' fill='@{bg}'/%3E%3Ccircle r='9.2' stroke-width='1' stroke='@{stroke}' fill='none'/%3E%3Ccircle cy='18.4' r='9.2' stroke-width='1px' stroke='@{stroke}' fill='none'/%3E%3Ccircle cx='18.4' cy='18.4' r='9.2' stroke-width='1' stroke='@{stroke}' fill='none'/%3E%3C/svg%3E";
+  background-image: url("data:image/svg+xml,@{pattern-bathmat}");
+  //background-size: (@scale * @width), (@scale * @height);
+  //background-position: center -@width/2;
+}
+
+
+.honeycomb(@bg: @color1; @stroke1: lighten(@bg, 2.5%); @stroke2: @bg; @scale: 1;) {
   @width: 56px;
   @height: 100px;
   @pattern-honeycomb:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E %3Crect width='56' height='100' fill='@{bg}'/%3E %3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='@{stroke1}' stroke-width='2'/%3E %3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='@{stroke2}' stroke-width='2'/%3E %3C/svg%3E";
@@ -118,7 +105,7 @@
   background-position: center -@width/2;
 }
 
-.chevrons(@bg: @color1; @stroke: lighten(@bg, 5%); @scale: 1;) {
+.chevrons(@bg: @color1; @stroke: lighten(@bg, 2.5%); @scale: 1;) {
   @width: 60px;
   @height: @width/2;
   @pattern-chevrons:~"%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='60' height='30'%3E %3Cdefs%3E %3Crect id='r' width='30' height='15' fill='@{bg}' stroke-width='2.5' stroke='@{stroke}'/%3E %3Cg id='p'%3E %3Cuse xlink:href='#r'/%3E %3Cuse y='15' xlink:href='#r'/%3E %3Cuse y='30' xlink:href='#r'/%3E %3Cuse y='45' xlink:href='#r'/%3E %3C/g%3E %3C/defs%3E %3Cuse xlink:href='#p' transform='translate(0 -25) skewY(40)'/%3E %3Cuse xlink:href='#p' transform='translate(30 0) skewY(-40)'/%3E %3C/svg%3E";
@@ -137,6 +124,3 @@
   background-size: (@scale * @width), (@scale * @height);
   background-position: center -@width/2;
 }
-
-
-

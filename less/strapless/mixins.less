@@ -1,11 +1,17 @@
 .text-color(@color) when (luma(@color) < 73.5%) {
-  @hue: hue(@color);
-  @sat: saturation(@color);
-  color: hsl(@hue; @sat + 10; 98%); // pretty much white
+  color: hsl(hue(@color); saturation(@color) + 10; 98%); // pretty much white
 }
 
 .text-color(@color) when (luma(@color) >= 73.5%) {
   color: mix(darken(@color;30%); #333; 40%);
+}
+
+.text-color-dim(@color) when (luma(@color) < 73.5%) {
+    color: hsl(hue(@color); saturation(@color); 90%);
+}
+
+.text-color-dim(@color) when (luma(@color) >= 73.5%) {
+  color: mix(darken(@color;15%); #444; 50%);
 }
 
 .headline-color(@color) {

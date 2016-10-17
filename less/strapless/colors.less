@@ -3,15 +3,15 @@
 // TODO: decide if we want these here or in variables.less
 // or maybe only @base-color and @base-color-wheel here?
 
-@base-color: #143B47;
-@base-color-wheel:  accented;
+@base-color: #58586E;
+@base-color-wheel:  monochromatic;
 
 @action:    @color1;
 @reaction:  @color2;
-@info: #5bc0de;
-@warning: #f0ad4e;
-@success: #5cb85c;
-@failure: #d0534f;
+@info:      #5bc0de;
+@warning:   #f0ad4e;
+@success:   #5cb85c;
+@failure:   #d0534f;
 
 // variable name lists
 
@@ -139,9 +139,9 @@
 
     // color b is an accent
 
-    @color1b: contrast(@compare; spin(@color4, @accent); spin(@color1, -@accent););
-    @color2b: contrast(@compare; spin(@color4, @accent); spin(@color2, -@accent););
-    @color3b: contrast(@compare; spin(@color4, @accent); spin(@color3, -@accent););
+    @color1b: contrast(@compare; spin(@color1, @accent); spin(@color1, -@accent););
+    @color2b: contrast(@compare; spin(@color2, @accent); spin(@color2, -@accent););
+    @color3b: contrast(@compare; spin(@color3, @accent); spin(@color3, -@accent););
     @color4b: contrast(@compare; spin(@color4, @accent); spin(@color4, -@accent););
 
     // color c is a darker analog
@@ -170,10 +170,10 @@
 
     // color b is an accent
 
-    @color1b: contrast(@compare; spin(@color4, @accent); spin(@color1, -@accent););
-    @color2b: contrast(@compare; spin(@color4, @accent); spin(@color2, -@accent););
-    @color3b: contrast(@compare; spin(@color4, @accent); spin(@color3, -@accent););
-    @color4b: contrast(@compare; spin(@color4, @accent); spin(@color4, -@accent););
+    @color1b: contrast(@compare; spin(@color1, @accent); spin(@color1, -@accent/2););
+    @color2b: contrast(@compare; spin(@color2, @accent); spin(@color2, -@accent/2););
+    @color3b: contrast(@compare; spin(@color3, @accent); spin(@color3, -@accent/2););
+    @color4b: contrast(@compare; spin(@color4, @accent); spin(@color4, -@accent/2););
 
     // color c is a darker analog
 
@@ -201,9 +201,9 @@
 
     // color b is an accent
 
-    @color1b: contrast(@compare; spin(@color4, @accent); spin(@color1, -@accent););
-    @color2b: contrast(@compare; spin(@color4, @accent); spin(@color2, -@accent););
-    @color3b: contrast(@compare; spin(@color4, @accent); spin(@color3, -@accent););
+    @color1b: contrast(@compare; spin(@color1, @accent); spin(@color1, -@accent););
+    @color2b: contrast(@compare; spin(@color2, @accent); spin(@color2, -@accent););
+    @color3b: contrast(@compare; spin(@color3, @accent); spin(@color3, -@accent););
     @color4b: contrast(@compare; spin(@color4, @accent); spin(@color4, -@accent););
 
     // color c is a darker analog
@@ -247,8 +247,8 @@
     @gray-darker:       extract(@gray-bases; 4 + @scheme-type-base);
   }
 
-  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 97%) {
-    #strapless.make-palette(darken(@color, 7.5%);@wheel);
+  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 98%) {
+    #strapless.make-palette(darken(@color, 6%);@wheel);
     @body-bg: @color;
   }
 

@@ -15,7 +15,7 @@ html, body, ul, ol, li, form, fieldset, legend {
 
 body {
   //background-color: @background;
-  .dots1(@color3a; @color3);
+  .bathmat(@background);
   font-size: calc(1em + 1vw);
   font-size: 18px;
   .contrast-text-against(@background);
@@ -23,8 +23,8 @@ body {
   padding-top: 50px;
   margin-bottom: 0;
 
-  & > nav, & > nav {
-    .sl-navbar(@color1c);
+  & > nav {
+    .sl-navbar(@color1);
   }
 }
 
@@ -55,21 +55,30 @@ section {
   });
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 { font-size: 42px;}
+h2 { font-size: 34px;}
+h3 { font-size: 26px;}
+h4 { font-size: 20px;}
+h5 { font-size: 16px;}
+h6 { font-size: 13px; text-transform: uppercase;}
+
+h1, h2, h3, h4 {
   margin-bottom: 1em;
   margin-top: @navbar-height + @padding;
   text-align: center;
   line-height:1.62;
   font-weight: bold;
+  .text-color(@background);
   //max-width: 50vw;
+
+  & + & {
+    margin-top: 0;
+  }
 }
 
-h1 { font-size: 42px;}
-h2 { font-size: 34px;}
-h3 { font-size: 26px;}
-h4 { font-size: 20px;}
-h5 { font-size: 16px; text-transform: uppercase;}
-h6 { font-size: 13px; text-transform: uppercase;}
+h5, h6 {
+
+}
 
 p, form {
   margin-bottom: .62em;
@@ -78,9 +87,13 @@ p, form {
 }
 
 form {
-  @color: @color2;
-  background: @color;
-  .contrast-text-against(@color);
+  .sl-form(@color1a);
+}
+
+.sl-form(@color) {
+  #strapless.make-palette(@color, ebb);
+  background: @color1;
+  .contrast-text-against(@color1);
   padding: @padding;
   max-width: 36ch;
 
@@ -89,18 +102,28 @@ form {
     max-width: 36ch;
     margin-bottom: @padding;
   }
+
+  input {
+    @input-color: average(@gray-lighter, white);
+    padding: @padding;
+    border: none;
+    background: @input-color;
+    .contrast-text-against(@input-color);
+
+    &:not:empty {
+      background: lighten(@input-color, 3%);
+    }
+  }
+
+  button {
+    background: @color1a;
+    .contrast-text-against(@color1a);
+  }
 }
 
 label {
   display: block;
   margin-bottom: @padding;
-}
-
-input {
-  padding: @padding;
-  border: none;
-  background: white;
-  .contrast-text-against(white);
 }
 
 strong {
@@ -138,6 +161,15 @@ abbr, acronym {
   cursor: help;
 }
 
+em {
+  font-weight: bold;
+
+  & > * {
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
 code, pre {
   .sl-code(@color2);
 }
@@ -171,10 +203,6 @@ code, pre {
     button.@{color-name} {
       &:extend(.sl-button-base all);
       .sl-button(@color);
-
-      .on-hover({
-
-      });
     }
 
     .make-sl-button(@index + 1);
@@ -184,14 +212,6 @@ code, pre {
 .sl-button(@color: @gray) {
   background-color: @color;
   border-color: mix(@gray-darkest-base; @color; 60%);
-
-  .on-hover({
-    background: lighten(@color, 3%);
-  });
-
-  .on-click({
-    background: darken(@color, 3%);
-  });
 }
 
 .sl-button-base {

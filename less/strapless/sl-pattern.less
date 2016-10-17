@@ -4,9 +4,9 @@
     }
     .pattern {
         &:nth-child(1){
-            .checkerboard(@color1;@color4;);
+            .checkerboard(@color1);
             &:before {
-                content: '.checkerboard(@color1, @color4)';
+                content: '.checkerboard(@color1)';
             }
         }
         &:nth-child(2){
@@ -22,9 +22,40 @@
             }
         }
         &:nth-child(4){
-            .checkerboard(black, white, 1.5);
+            .checkerboard(black, 1.5);
             &:before {
-                content: '.checkerboard(black, white, 1.5)';
+                content: '.checkerboard(black, 1.5)';
+            }
+        }
+    }
+}
+#strapless_patterns_bathmat {
+    &:before {
+        content: 'Bathmat | .bathmat([color,] [scale])';
+    }
+    .pattern {
+        &:nth-child(1){
+            .bathmat(@color1);
+            &:before {
+                content: '.bathmat(@color1)';
+            }
+        }
+        &:nth-child(2){
+            .bathmat(@color1a);
+            &:before {
+                content: '.bathmat(@color1a)';
+            }
+        }
+        &:nth-child(3){
+            .bathmat(@color1b);
+            &:before {
+                content: '.bathmat(@color1b)';
+            }
+        }
+        &:nth-child(4){
+            .bathmat(@color1c, 1.5);
+            &:before {
+                content: '.bathmat(@color1c, 1.5)';
             }
         }
     }
@@ -35,58 +66,27 @@
     }
     .pattern {
         &:nth-child(1){
-            .blueprint(@color2);
+            .blueprint(@color1);
             &:before {
-                content: '.blueprint(@color2)';
+                content: '.blueprint(@color1)';
             }
         }
         &:nth-child(2){
-            .blueprint(@color2a);
+            .blueprint(@color2c, .5);
             &:before {
-                content: '.blueprint(@color2a)';
+                content: '.blueprint(@color2c, .5)';
             }
         }
         &:nth-child(3){
-            .blueprint(@color2b);
+            .blueprint(@success);
             &:before {
-                content: '.blueprint(@color2b)';
+                content: '.blueprint(@success)';
             }
         }
         &:nth-child(4){
             .blueprint();
             &:before {
                 content: '.blueprint()';
-            }
-        }
-    }
-}
-#strapless_patterns_blueprint2 {
-    &:before {
-        content: 'Blueprint2 | .blueprint2([bg,] [stroke,] [scale])';
-    }
-    .pattern {
-        &:nth-child(1){
-            .blueprint(@color2);
-            &:before {
-                content: '.blueprint2(@color2)';
-            }
-        }
-        &:nth-child(2){
-            .blueprint(@color2a);
-            &:before {
-                content: '.blueprint2(@color2a)';
-            }
-        }
-        &:nth-child(3){
-            .blueprint(@color2b);
-            &:before {
-                content: '.blueprint2(@color2b)';
-            }
-        }
-        &:nth-child(4){
-            .blueprint();
-            &:before {
-                content: '.blueprint2()';
             }
         }
     }
@@ -109,44 +109,13 @@
             }
         }
         &:nth-child(3){
-            .pegboard(@color3b);
+            .pegboard(@color3b, 1.5);
             &:before {
-                content: '.pegboard(@color3b)';
+                content: '.pegboard(@color3b, 1.5)';
             }
         }
         &:nth-child(4){
             .pegboard(@color3c);
-            &:before {
-                content: '.pegboard(@color3c)';
-            }
-        }
-    }
-}
-#strapless_patterns_pegboard2 {
-    &:before {
-        content: 'Pegboard2 | .pegboard2([color,] [scale])';
-    }
-    .pattern {
-        &:nth-child(1){
-            .pegboard2(@color3);
-            &:before {
-                content: '.pegboard(@color3)';
-            }
-        }
-        &:nth-child(2){
-            .pegboard2(white);
-            &:before {
-                content: '.pegboard(white)';
-            }
-        }
-        &:nth-child(3){
-            .pegboard2(@color3b);
-            &:before {
-                content: '.pegboard(@color3b)';
-            }
-        }
-        &:nth-child(4){
-            .pegboard2(@color3c);
             &:before {
                 content: '.pegboard(@color3c)';
             }
@@ -171,15 +140,15 @@
             }
         }
         &:nth-child(3){
-            .shippo(@color4a; @color2);
+            .shippo(@color4a; 2);
             &:before {
-                content: '.shippo(@color4a, @color2a)';
+                content: '.shippo(@color4a, 2)';
             }
         }
         &:nth-child(4){
-            .shippo(@color3, @color3a, .5);
+            .shippo(@info; .5);
             &:before {
-                content: '.shippo(@color3, @color3a, .5)';
+                content: '.shippo(@info, .5)';
             }
         }
     }
@@ -221,25 +190,25 @@
     }
     .pattern {
         &:nth-child(1){
-            .dots1(@color2);
+            .dots(@color2);
             &:before {
                 content: '.dots(@color2)';
             }
         }
         &:nth-child(2){
-            .dots1(@color2a);
+            .dots(@color2a);
             &:before {
                 content: '.dots(@color2a)';
             }
         }
         &:nth-child(3){
-            .dots1(@color2b);
+            .dots(@color2b);
             &:before {
                 content: '.dots(@color2b)';
             }
         }
         &:nth-child(4){
-            .dots1(lightskyblue, white, .4);
+            .dots(lightskyblue, white, .4);
             &:before {
                 content: '.dots(lightskyblue, white, .4)';
             }
@@ -252,27 +221,27 @@
     }
     .pattern {
         &:nth-child(1){
-            .stripes1(@color3);
+            .stripes(@color3);
             &:before {
                 content: '.stripes1(@color3)';
             }
         }
         &:nth-child(2){
-            .stripes1(@color3a);
+            .stripes(@color3a);
             &:before {
                 content: '.stripes1(@color3a)';
             }
         }
         &:nth-child(3){
-            .stripes1(@color3b);
+            .stripes(@color3b);
             &:before {
                 content: '.stripes1(@color3b)';
             }
         }
         &:nth-child(4){
-            .stripes1(@gray-darker, @gray-dark, 3);
+            .stripes(@gray-darker, 3);
             &:before {
-                content: '.stripes1(@gray-darker, @gray-dark, 3)';
+                content: '.stripes1(@gray-darker, 3)';
             }
         }
     }

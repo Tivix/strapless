@@ -26,7 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  .dots1(@color1; @scale: 20;);
+  .dots(@color1; @scale: 20;);
   margin-bottom: @padding*2;
   border-radius: @border-radius;
 
@@ -45,32 +45,30 @@ body {
 }
 
 #less_variable_test {
-  @test: @base-color;
-  @test-name: 'base color';
 
-  .variable-test(@test; @test-name;);
+  .variable-test(@less-test; @less-test-name;);
 
-  .variable-test(@test; @test-name;) {
+  .variable-test(@less-test; @less-test-name;) {
     &:before {
-      content: "@{test-name}: ";
+      content: "@{less-test-name}: ";
     }
     &:after {
       display:block;
-      content:"@{test}";
+      content:"@{less-test}";
     }
   }
 
-  .variable-test(@test; @test-name;) when (isColor(@test)) {    
+  .variable-test(@less-test; @less-test-name;) when (isColor(@less-test)) {    
     &:before {
       display: inline-block;
       width: @padding;
       height: @padding;
-      background: @test;
+      background: @less-test;
       content: "";
     }
     &:after {
       display:block;
-      content:"@{test-name}: @{test}";
+      content:"@{less-test-name}: @{less-test}";
     }
   }
   
