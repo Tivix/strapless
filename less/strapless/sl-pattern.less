@@ -60,6 +60,37 @@
         }
     }
 }
+#strapless_patterns_noise {
+    &:before {
+        content: 'Noise | .noise([color,] [scale])';
+    }
+    .pattern {
+        &:nth-child(1){
+            .noise(@color3);
+            &:before {
+                content: '.noise(@color3)';
+            }
+        }
+        &:nth-child(2){
+            .noise(@color3a);
+            &:before {
+                content: '.noise(@color3a)';
+            }
+        }
+        &:nth-child(3){
+            .noise(@color3b);
+            &:before {
+                content: '.noise(@color3b)';
+            }
+        }
+        &:nth-child(4){
+            .noise(@color3c, 1.5);
+            &:before {
+                content: '.noise(@color3c, 1.5)';
+            }
+        }
+    }
+}
 #strapless_patterns_blueprint {
     &:before {
         content: 'Blueprint | .blueprint([bg,] [stroke,] [scale])';
