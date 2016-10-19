@@ -68,7 +68,7 @@
 .crosshatch(@base: @base-color; @scale: 1;) {
   #strapless.make-palette(@base; accented);
   @bg: @color1;
-  @stroke: @color1a;
+  @stroke: @color1c;
   @pattern-crosshatch:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Crect width='8' height='8' fill='@{bg}'/%3E%3Cpath d='M0 0L8 8ZM8 0L0 8Z' stroke-width='1' stroke='@{stroke}'/%3E%3C/svg%3E";
   background-image: url("data:image/svg+xml,@{pattern-crosshatch}");
 }
