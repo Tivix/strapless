@@ -60,6 +60,37 @@
         }
     }
 }
+#strapless_patterns_crosshatch {
+    &:before {
+        content: 'Crosshatch | .crosshatch([color,] [scale])';
+    }
+    .pattern {
+        &:nth-child(1){
+            .crosshatch(@color1);
+            &:before {
+                content: '.crosshatch(@color1)';
+            }
+        }
+        &:nth-child(2){
+            .crosshatch(@color1a);
+            &:before {
+                content: '.crosshatch(@color1a)';
+            }
+        }
+        &:nth-child(3){
+            .crosshatch(@color1b);
+            &:before {
+                content: '.crosshatch(@color1b)';
+            }
+        }
+        &:nth-child(4){
+            .crosshatch(@color1c, 1.5);
+            &:before {
+                content: '.crosshatch(@color1c, 1.5)';
+            }
+        }
+    }
+}
 #strapless_patterns_noise {
     &:before {
         content: 'Noise | .noise([color,] [scale])';
