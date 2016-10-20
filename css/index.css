@@ -4353,6 +4353,15 @@ body section:last-child {
 #get_color1 {
   color: #798FE8;
 }
+#get_color2 {
+  color: #8ed9df;
+}
+#get_color3 {
+  color: #6694d4;
+}
+#get_color4 {
+  color: #3ec98e;
+}
 #less_variable_test:before {
   content: "@warning: ";
 }

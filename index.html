@@ -9,10 +9,10 @@
         <meta name="description" content="{% block meta_description %}{% endblock %}" />
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link id="favicon" rel="icon" type="image/png" href="ical-icon-complete.png" />
+        <link id="favicon" rel="icon" type="image/png" href="favicon.png" />
         <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
         <link href="/css/index.css" media="all" rel="stylesheet" type="text/css"/>
-        <script type="text/javascript" charset="utf-8" src="/js/dev/less.min.js"></script>
+
     </head>
 
     <body>
@@ -32,8 +32,15 @@
             <h3>Finally, LESS is <em>cool</em> again.</h3>
             <p>Strapless is a LESS library for colors, patterns and HTML element styles.</p>
             <p>less_variable test: <span id="less_variable_test"></span></p>
+
             <footer><button class="color2c">download</button> <button class="color3c">github</button></footer>
-            
+
+            <form id="demo_form" onsubmit="updateScheme();">
+                <label>Seed color</label>
+                <input id="seed_color" class="form-control" type="text" placeholder="proper hex format or this will barf" />
+                <button class="action">Submit</button>
+            </form>
+
         </section>
         <section id="colors">
             <h1>Colors</h1>
@@ -880,10 +887,15 @@
             </section>
             <section>
                 <p>&copy; Tivix, Inc.</p>
-                <p></p>
             </section>
         </footer>
+
+        <!-- Output scheme colors for favicon generation -->
         <span id="get_color1"></span>
-        <script type="text/javascript" charset="utf-8" src="/js/favicon.js"></script>
+        <span id="get_color2"></span>
+        <span id="get_color3"></span>
+        <span id="get_color4"></span>
+        <script type="text/javascript" charset="utf-8" src="/js/strapless.js"></script>
+
     </body>
 </html>
