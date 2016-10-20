@@ -45,7 +45,7 @@ var writeLessFiles = function() {
         var less_js = document.createElement('script');
         less_js.id = 'less_js';
         less_js.type = 'text/javascript';
-        less_js.src = '/js/dev/less.js';
+        less_js.src = '/js/dev/less.min.js';
         less_js.onload = function() {
             resolve();
         }
