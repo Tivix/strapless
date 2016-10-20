@@ -1,40 +1,3 @@
-// configurables
-
-// TODO: decide if we want these here or in variables.less
-// or maybe only @base-color and @base-color-wheel here?
-
-@base-color: #798FE8;
-@base-color-wheel:  accented;
-
-@action:    @color1;
-@reaction:  @color2;
-@info:      #5bc0de;
-@warning:   #f0ad4e;
-@success:   #5cb85c;
-@failure:   #d0534f;
-
-// variable name lists
-
-@semantic-colors:   action,
-                    reaction,
-                    info,
-                    warning,
-                    success,
-                    failure;
-
-@color-wheels:      accented, complementary, complementary-b, triadic, triadic-b,
-                    tetradic, tetradic-b, square, ebb, flow, monochromatic, monochromatic-b;
-
-@huge-palette:      color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
-                    color3, color3a, color3b, color3c, color4, color4a, color4b, color4c,
-                    success, failure, action, reaction, info, warning,
-                    gray-lighter, gray-light, gray, gray-dark, gray-darker;
-
-@main-colors:       color1, color2, color3, color4;
-
-@all-colors:        color1, color1a, color1b, color1c, color2, color2a, color2b, color2c,
-                    color3, color3a, color3b, color3c, color4, color4a, color4b, color4c;
-
 #strapless.make-palette(@base-color; @base-color-wheel;);
 
 #strapless {
@@ -124,11 +87,10 @@
     #strapless.make-main-colors(@color; @wheel);
 
     @a-by: 10%;
-    @b-by: 10%; // N/A
     @c-by: 10%;
     @ceiling: white;
     @floor: black;
-    @compare: @color1;
+    @compare: @color;
 
     // color a is a lighter analog
 
@@ -159,7 +121,7 @@
     @c-by: 8%;
     @ceiling: white;
     @floor: #515151;
-    @compare: @color1;
+    @compare: @color;
 
     // color a is a lighter analog
 
@@ -186,11 +148,11 @@
   .make-subcolors(@color; @wheel; @scheme) when (@scheme-type = dark) {
     #strapless.make-main-colors(@color; @wheel);
 
-    @a-by: 8%;
-    @c-by: 4%;
+    @a-by: 12%;
+    @c-by: 8%;
     @ceiling: #515151;
     @floor: black;
-    @compare: @color1;
+    @compare: @color;
 
     // color a is a lighter analog
 

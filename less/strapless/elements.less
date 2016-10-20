@@ -16,8 +16,8 @@ html, body, ul, ol, li, form, fieldset, legend {
 body {
   background-color: @background;
   
-  font-size: calc(1em + 1vw);
-  font-size: 18px;
+  font-size: calc(.5em + .5vw);
+  // font-size: 18px;
   .contrast-text-against(@background);
   line-height: 1.5em;
   padding-top: 50px;
@@ -43,7 +43,7 @@ section {
 
   > * + * {
     margin-top: @padding;
-    max-width: 52ch;
+    max-width: 50ch;
 
     &:last-child {
       margin-bottom: @padding;
@@ -81,9 +81,9 @@ h5, h6 {
 }
 
 p, form {
-  margin-bottom: .62em;
+  margin-bottom: 1em;
   //width: 50vw;
-  max-width: 52ch;
+  max-width: 50ch;
 }
 
 form {
@@ -171,8 +171,16 @@ strong {
 }
 
 footer {
-  background:@color1c;
+  // background:@color1c;
   margin-bottom: 0;
+
+  section & {
+    text-align: center;
+    display: inline-block;
+    width: auto;
+    border: 1px solid red;
+    margin: 0 auto;
+  }
 }
 
 fieldset,img { border: 0; }
