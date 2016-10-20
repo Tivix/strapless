@@ -14,8 +14,8 @@ html, body, ul, ol, li, form, fieldset, legend {
 }
 
 body {
-  //background-color: @background;
-  .noise(@color4a);
+  background-color: @background;
+  
   font-size: calc(1em + 1vw);
   font-size: 18px;
   .contrast-text-against(@background);
@@ -43,7 +43,7 @@ section {
 
   > * + * {
     margin-top: @padding;
-    max-width: 50ch;
+    max-width: 52ch;
 
     &:last-child {
       margin-bottom: @padding;
@@ -60,7 +60,7 @@ h2 { font-size: 34px;}
 h3 { font-size: 26px;}
 h4 { font-size: 20px;}
 h5 { font-size: 16px;}
-h6 { font-size: 13px; text-transform: uppercase;}
+h6 { font-size: 13px;}
 
 h1, h2, h3, h4 {
   margin-bottom: 1em;
@@ -77,13 +77,13 @@ h1, h2, h3, h4 {
 }
 
 h5, h6 {
-
+  text-transform: uppercase;
 }
 
 p, form {
   margin-bottom: .62em;
   //width: 50vw;
-  max-width: 50ch;
+  max-width: 52ch;
 }
 
 form {
@@ -350,6 +350,7 @@ code, pre {
     font-size: 26px;
     line-height: @height;
     margin-right: @height;
+    .contrast-text-against(@color);
   }
 
   a {

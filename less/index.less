@@ -168,6 +168,7 @@ body {
     .color(@color) {
         background-color:@color;
         .contrast-text-against(@color);
+        .argyle(@color);
         // border:1px solid darken(@color, 5%);
 
         &:before, &:after {
@@ -264,6 +265,7 @@ body {
   }
 }
 
+
 .color-wheel-test(@color-wheel; @color: @base-color;) {
   @base-color-wheel: @@color-wheel;
 
@@ -342,7 +344,6 @@ body {
 }
 
 #color_wheel_complementary {
-  border: 1px solid black;
   .color-wheel-test(complementary);
 }
 

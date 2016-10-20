@@ -3,7 +3,7 @@
 }
 
 .text-color(@color) when (luma(@color) >= 73.5%) {
-  color: mix(darken(@color;30%); #333; 40%);
+  color: mix(darken(@color;20%); #333; 40%);
 }
 
 .text-color-dim(@color) when (luma(@color) < 73.5%) {
@@ -11,7 +11,7 @@
 }
 
 .text-color-dim(@color) when (luma(@color) >= 73.5%) {
-  color: mix(darken(@color;15%); #444; 50%);
+  color: mix(darken(@color;10%); #444; 50%);
 }
 
 .headline-color(@color) {
