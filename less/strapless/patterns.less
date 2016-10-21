@@ -31,8 +31,8 @@
   // TODO: make this work with more colors
   #strapless.make-palette(@base; accented);
   @board: @color1;
-  @shadow: multiply(@color1, @color1a);
-  @highlight: softlight(@color1, @color1a);
+  @shadow: @color1c;
+  @highlight: overlay(@color1, @color1a);
   @width: 15px;
   @height: @width;
   @pattern-pegboard: ~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{height}'%3E%3Crect width='50' height='50' fill='@{board}'/%3E%3Ccircle cx='3' cy='4.3' r='1.8' fill='@{highlight}'/%3E%3Ccircle cx='3' cy='3' r='1.8' fill='@{shadow}'/%3E%3Ccircle cx='10.5' cy='12.5' r='1.8' fill='@{highlight}'/%3E%3Ccircle cx='10.5' cy='11.3' r='1.8' fill='@{shadow}'/%3E%3C/svg%3E";

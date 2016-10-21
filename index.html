@@ -37,7 +37,9 @@
 
             <form id="demo_form" onsubmit="updateScheme();">
                 <label>Seed color</label>
-                <input id="seed_color" class="form-control" type="text" placeholder="proper hex format or this will barf" />
+
+                <!-- <input id="seed_color" class="form-control" type="text" placeholder="proper hex format or this will barf" /> -->
+                <input id="seed_color" class="jscolor" value="ab2567" />
                 <button class="action">Submit</button>
             </form>
 
@@ -580,13 +582,15 @@
             <p>
                 <button type="button" class="action">Action</button>
                 <button type="button" class="reaction">Reaction</button>
+            </p>
+            <p>
                 <button type="button" class="success">Success</button>
                 <button type="button" class="failure">Failure</button>
             </p>
             <p>
                 <button type="button" class="info">Info</button>
                 <button type="button" class="warning">Warning</button>
-                <!-- <button type="button" class="default">Default</button> -->
+                <button type="button" class="default">Default</button>
             </p>
         </section>
         <section>
@@ -896,6 +900,6 @@
         <span id="get_color3"></span>
         <span id="get_color4"></span>
         <script type="text/javascript" charset="utf-8" src="/js/strapless.js"></script>
-
+        <script type="text/javascript" charset="utf-8" src="/js/jscolor.min.js"></script>
     </body>
 </html>

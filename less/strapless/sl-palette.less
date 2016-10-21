@@ -20,6 +20,23 @@
   color4c: @color4c;
 }
 
+#palette {
+  .block {
+    width: 12px;
+    height: 12px;
+    background: red;
+    float: left;
+  }
+  &:before {
+    .block;
+  }
+
+  &:after {
+    .block;
+
+  }
+}
+
 
 .make-palettes-for(@base-color; @color-wheels);
 

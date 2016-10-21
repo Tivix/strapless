@@ -15,7 +15,7 @@ html, body, ul, ol, li, form, fieldset, legend {
 
 body {
   background-color: @background;
-  
+  .noise(@background);
   font-size: calc(.5em + .5vw);
   // font-size: 18px;
   .contrast-text-against(@background);
@@ -96,7 +96,7 @@ form {
   background: @color1;
   .contrast-text-against(@color1);
   padding: @padding;
-  max-width: 36ch;
+  max-width: 38ch;
 
   > * {
     width: 100%;
@@ -250,6 +250,11 @@ code, pre {
 
 // BUTTON
 
+button {
+  &:extend(.sl-button-base all);
+  .sl-button(overlay(@color1, @background));
+}
+
 .make-sl-buttons-for(@huge-palette);
 
 .make-sl-buttons-for(@colors) {
@@ -273,6 +278,14 @@ code, pre {
 .sl-button(@color: @gray) {
   background-color: @color;
   border-color: mix(@gray-darkest-base; @color; 60%);
+
+  &:hover {
+    background-color: lighten(@color, 3%);
+  }
+
+  &:active {
+    background-color: darken(@color, 3%);
+  }
 }
 
 .sl-button-base {

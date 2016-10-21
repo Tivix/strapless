@@ -57,7 +57,7 @@ var writeLessFiles = function() {
 var updateScheme = function() {
     event.preventDefault();
 
-    var seed_color = document.getElementById('seed_color').value;
+    var seed_color = '#' + document.getElementById('seed_color').value;
 
     // gotta be a better way to handle this
     if (!document.getElementById('less_js')) {
