@@ -211,9 +211,9 @@ legend {
   padding: 0;
 }
 body {
-  background-color: tan;
-  font-size: 18px;
-  color: #fdfaf7;
+  background-color: white;
+  font-size: 16px;
+  color: #707070;
   line-height: 1.62;
   padding-top: 50px;
   margin-bottom: 0;
@@ -356,7 +356,7 @@ h4 {
   text-align: center;
   line-height: 1.62;
   font-weight: bold;
-  color: #fdfaf7;
+  color: #707070;
 }
 h1 + h1,
 h1 + h2,
@@ -507,14 +507,14 @@ pre {
   color: #939fd5;
 }
 button {
-  background-color: #efd397;
-  border-color: #a99d85;
+  background-color: #ffffff;
+  border-color: #afafaf;
 }
 button:hover {
-  background-color: #f1d9a5;
+  background-color: #ffffff;
 }
 button:active {
-  background-color: #edcd8a;
+  background-color: #fff0ff;
 }
 button.color1 {
   background-color: tan;
