@@ -36,10 +36,56 @@
             <footer><button class="color2c">download</button> <button class="color3c">github</button></footer>
 
             <form id="demo_form" onsubmit="updateScheme();">
+            <h2>Whoa colors</h2>
+            <div id="strapless_colors_accented" class="palette-preview">
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+                <p class="swatch"></p>
+            </div>
                 <label>Seed color</label>
 
                 <!-- <input id="seed_color" class="form-control" type="text" placeholder="proper hex format or this will barf" /> -->
                 <input id="seed_color" class="jscolor" value="ab2567" />
+
+                <label>Background color</label>
+
+                <input id="background_color" class="jscolor" value="ab2567" />
+
+                <label>Color wheel</label>
+
+                <select id="color_wheel">
+                    <option value="accented">Accented</option>
+                    <option value="monochromatic">Monochromatic</option>
+                    <option value="ebb">Ebb</option>
+                    <option value="flow">Flow</option>
+                </select>
+
+                <p>This "sorta" works</p>
+
                 <button class="action">Submit</button>
             </form>
 
@@ -856,39 +902,6 @@
 
         </section>
         <footer>
-            <section id="palette_preview_container">
-                <p>Another palette display from testing phase:</p>
-                <div id="palette_preview">
-                    <div class="swatch color1">color1</div>
-                    <div class="swatch color1a">color1a</div>
-                    <div class="swatch color1b">color1b</div>
-                    <div class="swatch color1c">color1c</div>
-                    <div class="swatch color2">color2</div>
-                    <div class="swatch color2a">color2a</div>
-                    <div class="swatch color2b">color2b</div>
-                    <div class="swatch color2c">color2c</div>
-                    <div class="swatch color3">color3</div>
-                    <div class="swatch color3a">color3a</div>
-                    <div class="swatch color3b">color3b</div>
-                    <div class="swatch color3c">color3c</div>
-                    <div class="swatch color4">color4</div>
-                    <div class="swatch color4a">color4a</div>
-                    <div class="swatch color4b">color4b</div>
-                    <div class="swatch color4c">color4c</div>
-                    <div class="swatch gray-lighter">gray-lighter</div>
-                    <div class="swatch gray-light">gray-light</div>
-                    <div class="swatch gray">gray</div>
-                    <div class="swatch gray-dark">gray-dark</div>
-                    <div class="swatch gray-darker">gray-darker</div>
-                    <div class="swatch info">info</div>
-                    <div class="swatch warning">warning</div>
-                    <div class="swatch success">success</div>
-                    <div class="swatch failure">failure</div>
-                    <div class="swatch scheme-type">scheme-type: </div>
-                    <div class="swatch luma">luma:</div>
-                    <div class="swatch lit">lightness:</div>
-                </div>
-            </section>
             <section>
                 <p>&copy; Tivix, Inc.</p>
             </section>

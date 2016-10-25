@@ -11,36 +11,9 @@
 body {
   padding:74px 0 0;
   font-family:'Bitter';
+
   section:last-child {
     margin-bottom:0;
-  }
-}
-.feature {
-  @color: @success;
-
-  position: relative;
-  overflow: hidden;
-  background-color: @color;
-  .contrast-text-against(@color);
-  min-height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  .dots(@color1; @scale: 20;);
-  margin-bottom: @padding*2;
-  border-radius: @border-radius;
-
-  h1 {
-    font-size: 62px;
-    font-weight: bold;
-  }
-
-  > *:first-child {
-    position: relative;
-    margin: 0 auto;
-    max-width: 620px;
-    vertical-align: middle;
-    text-align: center;
   }
 }
 #get_color1 {
@@ -55,6 +28,28 @@ body {
 #get_color4 {
   color: @color1c;
 }
+
+/*! Strapless colors */
+// This outputs a palette to your CSS file
+#strapless_colors {
+  color1:  @color1;
+  color1a: @color1a;
+  color1b: @color1b;
+  color1c: @color1c;
+  color2:  @color2;
+  color2a: @color2a;
+  color2b: @color2b;
+  color2c: @color2c;
+  color3:  @color3;
+  color3a: @color3a;
+  color3b: @color3b;
+  color3c: @color3c;
+  color4:  @color4;
+  color4a: @color4a;
+  color4b: @color4b;
+  color4c: @color4c;
+}
+
 #less_variable_test {
 
   .variable-test(@less-test; @less-test-name;);
@@ -399,4 +394,30 @@ body {
       margin-right: 0;
     }
   }
+}
+
+#demo_form {
+    font-size: 12px;
+    position: fixed;
+    bottom: @padding;
+    right: @padding;
+    z-index: 1000;
+    max-width: 200px;
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    .palette-preview {
+        width: 100%;
+        max-width: 100%;
+        pointer-events: none;
+
+        &:before {
+            display: none;
+        }
+
+        margin-bottom: -60px;
+        margin-top: -20px;
+    }
 }

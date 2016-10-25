@@ -15,11 +15,9 @@ html, body, ul, ol, li, form, fieldset, legend {
 
 body {
   background-color: @background;
-  .noise(@background);
-  font-size: calc(.5em + .5vw);
-  // font-size: 18px;
+  font-size: 18px;
   .contrast-text-against(@background);
-  line-height: 1.5em;
+  line-height: @line-height;
   padding-top: 50px;
   margin-bottom: 0;
 
@@ -29,21 +27,17 @@ body {
 }
 
 section {
-  //display: flex;
-  //flex-flow: row wrap;
   max-width: @content-width;
   margin: 0 @padding @padding*2 @padding;
   .clearfix();
 
   > * {
     margin: 0 auto;
-    //flex-basis: 10em;
-    //flex-grow: 1;
   }
 
   > * + * {
     margin-top: @padding;
-    max-width: 50ch;
+    // max-width: 50ch;
 
     &:last-child {
       margin-bottom: @padding;
@@ -55,23 +49,33 @@ section {
   });
 }
 
-h1 { font-size: 42px;}
-h2 { font-size: 34px;}
-h3 { font-size: 26px;}
-h4 { font-size: 20px;}
-h5 { font-size: 16px;}
-h6 { font-size: 13px;}
+// h1 { font-size: 42px;}
+// h2 { font-size: 34px;}
+// h3 { font-size: 26px;}
+// h4 { font-size: 20px;}
+// h5 { font-size: 16px;}
+// h6 { font-size: 13px;}
+
+h1 { font-size: 2.6em;}
+h2 { font-size: 2.2em;}
+h3 { font-size: 1.8em;}
+h4 { font-size: 1.4em;}
+h5 { font-size: 1.2em;}
+h6 { font-size: 1em;}
 
 h1, h2, h3, h4 {
   margin-bottom: 1em;
   margin-top: @navbar-height + @padding;
   text-align: center;
-  line-height:1.62;
+  line-height: @line-height;
   font-weight: bold;
   .text-color(@background);
-  //max-width: 50vw;
 
   & + & {
+    margin-top: 0;
+  }
+
+  form &:first-child {
     margin-top: 0;
   }
 }
@@ -90,80 +94,9 @@ form {
   .sl-form(@color1a);
 }
 
-.sl-form(@color) {
-  #strapless.make-palette(@color, ebb);
-  @input-color: average(@gray-lighter, white);
-  background: @color1;
-  .contrast-text-against(@color1);
-  padding: @padding;
-  max-width: 38ch;
-
-  > * {
-    width: 100%;
-    max-width: 36ch;
-    margin-bottom: @padding;
-  }
-
-  input,
-  textarea {
-    padding: @padding;
-    border: none;
-    background: @input-color;
-    .contrast-text-against(@input-color);
-
-    &:not:empty {
-      background: lighten(@input-color, 3%);
-    }
-  }
-
-  button {
-    background: @color1a;
-    .contrast-text-against(@color1a);
-  }
-
-  select {
-    padding: @padding;
-    .contrast-text-against(@input-color);
-    vertical-align: middle;
-    background: @input-color;
-    background-image: none;
-    border: none;
-    border-radius:0;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-
-    // &:focus {
-    //   border-color: $custom-select-focus-border-color;
-    //   outline: none;
-    //   @include box-shadow($custom-select-focus-box-shadow);
-
-    //   &::-ms-value {
-    //     // For visual consistency with other platforms/browsers,
-    //     // supress the default white text on blue background highlight given to
-    //     // the selected option text when the (still closed) <select> receives focus
-    //     // in IE and (under certain conditions) Edge.
-    //     // See https://github.com/twbs/bootstrap/issues/19398.
-    //     color: $input-color;
-    //     background-color: $input-bg;
-    //   }
-    // }
-
-    // &:disabled {
-    //   color: $custom-select-disabled-color;
-    //   cursor: $cursor-disabled;
-    //   background-color: $custom-select-disabled-bg;
-    // }
-
-    // // Hides the default caret in IE11
-    // &::-ms-expand {
-    //   opacity: 0;
-    // }
-  }
-}
-
 label {
   display: block;
-  margin-bottom: @padding;
+  margin-bottom: .25em;
 }
 
 strong {

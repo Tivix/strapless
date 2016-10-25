@@ -17,16 +17,16 @@ var generateFavicon = function() {
         var fillcolor4 = window.getComputedStyle(colorbox4).color;
 
         ctx.fillStyle = fillcolor1;
-        ctx.fillRect(0, 0, 8, 8);
+        ctx.fillRect(1, 1, 7, 7);
 
         ctx.fillStyle = fillcolor2;
-        ctx.fillRect(8, 8, 16, 16);
+        ctx.fillRect(9, 9, 15, 15);
 
         ctx.fillStyle = fillcolor3;
-        ctx.fillRect(8, 0, 16, 8);
+        ctx.fillRect(9, 1, 15, 7);
 
         ctx.fillStyle = fillcolor4;
-        ctx.fillRect(0, 8, 8, 16);
+        ctx.fillRect(1, 9, 7, 15);
 
         link.href = canvas.toDataURL('image/png');
     }
@@ -58,12 +58,16 @@ var updateScheme = function() {
     event.preventDefault();
 
     var seed_color = '#' + document.getElementById('seed_color').value;
+    var background_color = '#' + document.getElementById('background_color').value;
+    var color_wheel = document.getElementById('color_wheel').value;
 
     // gotta be a better way to handle this
     if (!document.getElementById('less_js')) {
         writeLessFiles().then(function() {
             less.modifyVars({
-                '@base-color': seed_color
+                '@background': background_color,
+                '@base-color': seed_color,
+                '@color-wheel': color_wheel
             });
             less.pageLoadFinished.then(function(){
                 generateFavicon();

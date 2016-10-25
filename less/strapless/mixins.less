@@ -50,3 +50,49 @@
   -webkit-box-shadow: @shadow;
           box-shadow: @shadow;
 }
+
+.sl-form(@color) {
+  #strapless.make-palette(@color, ebb);
+  @input-color: #fafafa;
+  background: @color1;
+  .contrast-text-against(@color1);
+  padding: @padding;
+  max-width: 38ch;
+
+  > * {
+    width: 100%;
+    max-width: 36ch;
+    margin-bottom: .8em;
+
+    & + button {
+      margin-top: .8em;
+      margin-bottom: @padding/4;
+      font-size: 133%;
+    }
+  }
+
+  input,
+  textarea {
+    padding: @padding;
+    border: none;
+    background: @input-color;
+    .contrast-text-against(@input-color);
+  }
+
+  button {
+    background: @color1a;
+    .contrast-text-against(@color1a);
+  }
+
+  select {
+    padding: @padding;
+    .contrast-text-against(@input-color);
+    vertical-align: middle;
+    background: @input-color;
+    background-image: none;
+    border: none;
+    border-radius:0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+}
