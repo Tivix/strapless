@@ -153,6 +153,99 @@
         }
     }
 }
+#strapless_patterns_denim {
+    &:before {
+        content: 'Denim | .denim([bg,] [stroke,] [scale])';
+    }
+    .pattern {
+        &:nth-child(1){
+            .denim(@color1);
+            &:before {
+                content: '.denim(@color1)';
+            }
+        }
+        &:nth-child(2){
+            .denim(@color2c);
+            &:before {
+                content: '.denim(@color2c)';
+            }
+        }
+        &:nth-child(3){
+            .denim(@success);
+            &:before {
+                content: '.denim(@success)';
+            }
+        }
+        &:nth-child(4){
+            .denim();
+            &:before {
+                content: '.denim()';
+            }
+        }
+    }
+}
+#strapless_patterns_beam {
+    &:before {
+        content: 'beam | .beam([bg])';
+    }
+    .pattern {
+        &:nth-child(1){
+            .beam(@color1);
+            &:before {
+                content: '.beam(@color1)';
+            }
+        }
+        &:nth-child(2){
+            .beam(@color2c);
+            &:before {
+                content: '.beam(@color2c)';
+            }
+        }
+        &:nth-child(3){
+            .beam(@success);
+            &:before {
+                content: '.beam(@success)';
+            }
+        }
+        &:nth-child(4){
+            .beam();
+            &:before {
+                content: '.beam()';
+            }
+        }
+    }
+}
+#strapless_patterns_prismatic {
+    &:before {
+        content: 'prismatic | .prismatic([bg])';
+    }
+    .pattern {
+        &:nth-child(1){
+            .prismatic(@color1);
+            &:before {
+                content: '.prismatic(@color1)';
+            }
+        }
+        &:nth-child(2){
+            .prismatic(@color2c);
+            &:before {
+                content: '.prismatic(@color2c)';
+            }
+        }
+        &:nth-child(3){
+            .prismatic(@success);
+            &:before {
+                content: '.prismatic(@success)';
+            }
+        }
+        &:nth-child(4){
+            .prismatic();
+            &:before {
+                content: '.prismatic()';
+            }
+        }
+    }
+}
 #strapless_patterns_pegboard {
     &:before {
         content: 'Pegboard | .pegboard([color,] [scale])';
@@ -180,6 +273,37 @@
             .pegboard(@color3c);
             &:before {
                 content: '.pegboard (@color3c)';
+            }
+        }
+    }
+}
+#strapless_patterns_muni {
+    &:before {
+        content: 'muni | .muni([stripe color,] [bg color,] [scale])';
+    }
+    .pattern {
+        &:nth-child(1){
+            .muni(@color3);
+            &:before {
+                content: '.muni (@color3)';
+            }
+        }
+        &:nth-child(2){
+            .muni(@color3a);
+            &:before {
+                content: '.muni (@color3a)';
+            }
+        }
+        &:nth-child(3){
+            .muni(@color3b);
+            &:before {
+                content: '.muni (@color3b)';
+            }
+        }
+        &:nth-child(4){
+            .muni(@gray-darker);
+            &:before {
+                content: '.muni (@gray-darker)';
             }
         }
     }

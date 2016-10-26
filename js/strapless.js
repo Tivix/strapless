@@ -58,16 +58,12 @@ var updateScheme = function() {
     event.preventDefault();
 
     var seed_color = '#' + document.getElementById('seed_color').value;
-    var background_color = '#' + document.getElementById('background_color').value;
-    var color_wheel = document.getElementById('color_wheel').value;
 
     // gotta be a better way to handle this
     if (!document.getElementById('less_js')) {
         writeLessFiles().then(function() {
             less.modifyVars({
-                '@background': background_color,
-                '@base-color': seed_color,
-                '@color-wheel': color_wheel
+                '@base-color': seed_color
             });
             less.pageLoadFinished.then(function(){
                 generateFavicon();
