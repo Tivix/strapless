@@ -1,5 +1,25 @@
 // CSS for standard HMTL elements
 
+aside {
+  // TODO: does this make sense?
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row; /* works with row or column */
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+
+  > * {
+    margin-left: @padding;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
 html {
   box-sizing: border-box;
 }
@@ -16,12 +36,13 @@ html, body, ul, ol, li, form, fieldset, legend {
 body {
   background-color: @background;
   //.argyle(@background);
-  .muni();
-  font-size: 16px;
+  //.muni();
+  font-size: 18px;
   .contrast-text-against(@background);
   line-height: @line-height;
   padding-top: 50px;
   margin-bottom: 0;
+
 
   & > nav {
     .sl-navbar(@color1);
@@ -213,10 +234,6 @@ button {
 .sl-button(@color: @gray) {
   background-color: @color;
   border-color: mix(@gray-darkest-base; @color; 60%);
-
-  &:hover {
-    background-color: lighten(@color, 3%);
-  }
 
   &:active {
     background-color: darken(@color, 3%);

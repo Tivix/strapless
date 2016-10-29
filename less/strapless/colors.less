@@ -117,7 +117,7 @@
   .make-subcolors(@color; @wheel; @scheme) when (@scheme-type = light) {
     #strapless.make-main-colors(@color; @wheel);
 
-    @a-by: 5%;
+    @a-by: 4%;
     @c-by: 8%;
     @ceiling: white;
     @floor: #515151;
@@ -177,8 +177,8 @@
   }
 
   .load-gray-bases(@color) {
-    @gray-base: desaturate(@color; 85%);
-    @gray-step: 7%;
+    @gray-base: mix(desaturate(@color, 50%), lighten(black, 50%), (10%*@scheme-type-base));
+    @gray-step: 18% - @scheme-type-base*2;
 
     @gray-bases:  @gray-lightest-base,
                   @gray-lighter-base,
@@ -190,23 +190,23 @@
                   darken(@gray-darkest-base, 3%); // placeholder for overflow
 
     @gray-light-base:             lighten(@gray-base; @gray-step);
-    @gray-lighter-base:           lighten(@gray-base; @gray-step * 2);
-    @gray-lightest-base:          lighten(@gray-base; @gray-step * 3);
+    @gray-lighter-base:           lighten(@gray-light-base; @gray-step);
+    @gray-lightest-base:          lighten(@gray-lighter-base; @gray-step);
 
     @gray-dark-base:              darken(@gray-base; @gray-step);
-    @gray-darker-base:            darken(@gray-base; @gray-step * 2);
-    @gray-darkest-base:           darken(@gray-base; @gray-step * 3);
+    @gray-darker-base:            darken(@gray-dark-base; @gray-step);
+    @gray-darkest-base:           darken(@gray-darker-base; @gray-step);
   }
 
   .make-grays(@color) {
-
     #strapless.load-gray-bases(@color);
+    @gray-shift: 4 - @scheme-type-base;
 
-    @gray-lighter:      extract(@gray-bases; 0 + @scheme-type-base);
-    @gray-light:        extract(@gray-bases; 1 + @scheme-type-base);
-    @gray:              extract(@gray-bases; 2 + @scheme-type-base);
-    @gray-dark:         extract(@gray-bases; 3 + @scheme-type-base);
-    @gray-darker:       extract(@gray-bases; 4 + @scheme-type-base);
+    @gray-lighter:      extract(@gray-bases; 0 + @gray-shift);
+    @gray-light:        extract(@gray-bases; 1 + @gray-shift);
+    @gray:              extract(@gray-bases; 2 + @gray-shift);
+    @gray-dark:         extract(@gray-bases; 3 + @gray-shift);
+    @gray-darker:       extract(@gray-bases; 4 + @gray-shift);
   }
 
   .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 98%) {
