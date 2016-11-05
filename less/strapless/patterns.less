@@ -73,7 +73,10 @@
   background-image: url("data:image/svg+xml,@{pattern-crosshatch}");
 }
 
-.dots(@fg: @base-color; @bg: lighten(@fg, 10%); @scale: 1;) {
+.dots(@base: @base-color; @scale: 1;) {
+  #strapless.make-palette(@base; accented);
+  @fg: @color1c;
+  @bg: @color1;
   @width: 5px;
   @height: @width;
   @pattern-dots:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='@{bg}'/%3E %3Crect width='1' height='1' fill='@{fg}'/%3E %3C/svg%3E";
@@ -144,7 +147,7 @@
   @width: 368px;
   @background: @color1;
   @stripe: mix(@color1a, @gray-lighter, 50%);
-  @pattern-denim:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{width}' viewBox='0 0 400 400'%3E%3Cdefs%3E%3Cpattern id='bluestripe' patternUnits='userSpaceOnUse' x='0' y='0' width='5.5' height='5.5' viewBox='0 0 4 4' %3E%3Cline x1='-1' y1='-1' x2='4' y2='4' stroke='@{stripe}' stroke-width='1'/%3E%3Cline x1='3' y1='-1' x2='5' y2='1' stroke='@{stripe}' stroke-width='1'/%3E%3Cline x1='-1' y1='3' x2='1' y2='5' stroke='@{stripe}' stroke-width='1'/%3E%3C/pattern%3E %3Cfilter id='fuzz' x='0' y='0'%3E%3CfeTurbulence type='turbulence' baseFrequency='.5' numOctaves='2' stitchTiles='stitch'/%3E%3CfeConvolveMatrix order='3,3' kernelMatrix='0,-.25,0,-.25,2,-.25,0,-.25,0'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='100%' height='100%' fill='url(#bluestripe)'/%3E%3Crect width='100%' height='100%' filter='url(#fuzz)' opacity='0.5'/%3E%3C/svg%3E";
+  @pattern-denim:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{width}' viewBox='0 0 400 400'%3E%3Cdefs%3E%3Cpattern id='bluestripe' patternUnits='userSpaceOnUse' x='0' y='0' width='5.5' height='5.5' viewBox='0 0 4 4' %3E%3Cline x1='-1' y1='-1' x2='4' y2='4' stroke='@{stripe}' stroke-width='1'/%3E%3Cline x1='3' y1='-1' x2='5' y2='1' stroke='@{stripe}' stroke-width='1'/%3E%3Cline x1='-1' y1='3' x2='1' y2='5' stroke='@{stripe}' stroke-width='1'/%3E%3C/pattern%3E %3Cfilter id='fuzz' x='0' y='0'%3E%3CfeTurbulence type='turbulence' baseFrequency='.5' numOctaves='2' stitchTiles='stitch'/%3E%3CfeConvolveMatrix order='3,3' kernelMatrix='0,-.25,0,-.25,2,-.25,0,-.25,0'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='100%' height='100%' fill='url(#bluestripe)'/%3E%3Crect width='100%' height='100%' filter='url(#fuzz)' opacity='0.25'/%3E%3C/svg%3E";
   background-image: url("data:image/svg+xml,@{pattern-denim}");
   background-color: @background;
 }

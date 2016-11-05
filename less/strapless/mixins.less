@@ -7,7 +7,7 @@
 }
 
 .text-color-dim(@color) when (luma(@color) < 73.5%) {
-    color: hsl(hue(@color); saturation(@color); 90%);
+  color: hsl(hue(@color); saturation(@color); 90%);
 }
 
 .text-color-dim(@color) when (luma(@color) >= 73.5%) {
@@ -15,15 +15,21 @@
 }
 
 .headline-color(@color) {
-    color: mix(darken(@color;30%); #333; 40%);
+  color: mix(darken(@color;30%); #333; 40%);
 }
 
 .headline-color(@color) when (@scheme-type = dark) {
-    color:white;
+  color:white;
 }
 
 .contrast-text-against(@color) {
   .text-color(@color);
+}
+
+.color-catch(@color) {
+  background-color: @color;
+  .contrast-text-against(@color);
+  border-color: @color;
 }
 
 .clearfix() {
@@ -71,6 +77,10 @@
     }
   }
 
+  p {
+    padding: 0;
+  }
+
   input,
   textarea {
     padding: @padding;
@@ -94,5 +104,173 @@
     border-radius:0;
     -moz-appearance: none;
     -webkit-appearance: none;
+  }
+}
+
+.sl-code(@code-color) {
+    @color: mix(@code-color, white, 94%);
+    @background: mix(@color, #333, 10%);
+
+    font-family: monospace;
+    font-size: 85%;
+    padding: @padding * .25 @padding * .67 @padding * .3 @padding * .67;
+    border-radius: @border-radius/2;
+    background: @background;
+    // border: 1px solid darken(@color, 8%);
+    color: @color;
+}
+
+.make-sl-buttons-for(@colors) {
+  @length: length(@colors);
+
+  .make-sl-button();
+
+  .make-sl-button(@index:1) when (@index <= @length) {
+    @color-name: extract(@colors, @index);
+    @color: @@color-name;
+
+    button.@{color-name} {
+      // &:extend(.sl-button-base all);
+      .sl-button(@color);
+    }
+
+    .make-sl-button(@index + 1);
+  }
+}
+
+.sl-button(@color: @gray) {
+  background-color: @color;
+  border-color: darken(@color, 5%);
+
+  &:active {
+    background-color: darken(@color, 3%);
+  }
+}
+
+.sl-navbar(@color) {
+
+  @height: @navbar-height;
+  @padding: @height * .38;
+
+  background-color:@color;
+  .contrast-text-against(@color);
+
+  height: @height;
+  line-height: @height;
+  max-height: @height;
+  position: fixed; top:0; left: 0;
+  width: 100%;
+  z-index: 1000;
+  overflow: hidden;
+
+  > section > * { // pseudo reset
+    display: none;
+    float:left;
+    position: relative;
+    border: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: @height;
+    vertical-align: middle;
+    overflow: hidden;
+
+    .on-tablet({
+      display: block;
+    });
+
+    &:first-child {
+      display: block;
+      margin-left: @padding;
+      margin-right: @padding * 2;
+
+      .on-large-phone({
+        margin-left: 0;
+        margin-right: @height;
+      });
+    }
+
+    &:last-child {
+      display: block;
+      float: right;
+      line-height: @height - 6;
+    }
+  }
+
+  ul {
+    height: @height;
+  }
+
+  li {
+    float:left;
+    height: @height;
+    line-height: @height;
+  }
+
+  h1, h2, h3 {
+    display: block;
+    float: left;
+    font-size: 26px;
+    line-height: @height;
+    margin-right: @height;
+    .contrast-text-against(@color);
+  }
+
+  a {
+    display: block;
+    float: left;
+    .contrast-text-against(@color);
+    padding-left: @padding;
+    padding-right: @padding;
+    text-decoration: none;
+
+    &:hover {
+      background-color: lighten(@color, 10%);
+      text-decoration: none;
+    }
+  }
+}
+
+.sl-table(@table-color: @color1;) {
+  
+  #strapless.make-palette(@table-color; ebb);  
+    @header: @color1;
+    @row-a: @color1a;
+    @row-b: @color3a;
+
+  & > thead > tr > th {
+    background-color: @header;
+    .contrast-text-against(@header);
+  }
+
+  & > tbody > tr > td {
+   .contrast-text-against(@row-a);
+  }
+
+  & > tbody > tr {
+    background-color: @row-a;
+  }
+
+  & > tbody > tr:nth-of-type(odd) {
+    background-color: @row-b;
+  }
+}
+
+.make-tables-for(@colors) {
+  @iterations: length(@colors);
+
+  .make-sl-table(1);
+
+  .make-sl-table(@index) when (@index <= @iterations) {
+
+    @color-name: extract(@colors, @index);
+    @this-color: @@color-name;
+
+    table.@{color-name} {
+      .sl-table(@this-color);
+    }
+
+    .make-sl-table(@index + 1);
   }
 }

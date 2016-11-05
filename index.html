@@ -22,13 +22,32 @@
                 <ul>
                     <li><a href="#colors">Colors</a></li>
                     <li><a href="#patterns">Patterns</a></li>
-                    <li><a href="#elements">Elements</a></li>
+                    <li><a href="/elements">Elements</a></li>
                 </ul>
             </section>
         </nav>
 
         <section>
+            <h1>Strapless</h1>
+            <h3>Finally, LESS is <em>cool</em> again.</h3>
+            <p>Strapless is a LESS library for colors, patterns and HTML element styles.</p>
+            <p>less_variable test: <span id="less_variable_test"></span></p>
+
+            <aside><button class="color2c">download</button> <button class="color3c">github</button></aside>
+
+            <form id="demo_form" onsubmit="updateScheme();">
+                <label>Base color</label>
+
+                <!-- <input id="seed_color" class="form-control" type="text" placeholder="proper hex format or this will barf" /> -->
+                <input id="seed_color" class="jscolor" value="cadfe6" />
+                <button class="action">Submit</button>
+            </form>
+
+        </section>
+        <section>
         <h2>gray tests</h2>
+            <p>Grays are more standardized to the white/black scale now (instead of the scale of near neighbors). Instead of mitigating bad results, the gray selection now just gives you dark or light grays depending on your scheme type.</p>
+            <p>Below are the grays we give to users. Below that is the "full" palette of grays we generate, before we pick the left five, the middle five, or the right five (according to scheme type).</p>
             <h3>Standard issue grays</h3>
             <div id="gray_test">
                 <div></div>
@@ -49,30 +68,37 @@
                 <div></div>
             </div>
         </section>
-
         <section>
-            <h1>Strapless</h1>
-            <h3>Finally, LESS is <em>cool</em> again.</h3>
-            <p>Strapless is a LESS library for colors, patterns and HTML element styles.</p>
-            <p>less_variable test: <span id="less_variable_test"></span></p>
+        <h2>semantic color tests</h2>
+            <p>Semantic colors have a base color and a derived scheme-appropriate color</p>
+            <h3>Semantic colors</h3>
+            <div id="semantic_color_test">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
 
-            <aside><button class="color2c">download</button> <button class="color3c">github</button></aside>
-
-            <form id="demo_form" onsubmit="updateScheme();">
-                <label>Base color</label>
-
-                <!-- <input id="seed_color" class="form-control" type="text" placeholder="proper hex format or this will barf" /> -->
-                <input id="seed_color" class="jscolor" value="ab2567" />
-                <button class="action">Submit</button>
-            </form>
-
+            <h3>Semantic bases</h3>
+            <div id="semantic_base_test">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </section>
         <section>
             <h1>Aside tests</h1>
-            <p>This is a paragraph with some text.</p>
+            <p>Asides center everything inside them now using flexbox.</p>
             <aside>This is an aside.</aside>
-            <p>Yep here we have more text. Yep here we have more text. Yep here we have more text. Yep here we have more text. Yep here we have more text. Yep here we have more text. Yep here we have more text.</p>
-            <aside>And another aside to finish out the section</aside>
+            <p>It's useful for buttons:</p>
+            <aside><button class="success">I'm centered!</button><button class="info">Me too</button></aside>
+            <p class="info">I've added generic support for all color names as classes. I think, in the end, it will save us lines of CSS. (This is an info paragraph)</p>
+            <aside class="success">Another aside with a success class</aside>
         </section>
         <section id="colors">
             <h1>Colors</h1>
@@ -621,19 +647,19 @@
 
             <h2>Buttons</h2>
             <p>Buttons are just <code>button</code> elements with a class corresponding to a semantic color name.</p>
-            <p>
+            <aside>
                 <button type="button" class="action">Action</button>
                 <button type="button" class="reaction">Reaction</button>
-            </p>
-            <p>
+            </aside>
+            <aside>
                 <button type="button" class="success">Success</button>
                 <button type="button" class="failure">Failure</button>
-            </p>
-            <p>
+            </aside>
+            <aside>
                 <button type="button" class="info">Info</button>
                 <button type="button" class="warning">Warning</button>
                 <button type="button" class="default">Default</button>
-            </p>
+            </aside>
         </section>
         <section>
             <h2>Tables</h2>
@@ -984,54 +1010,6 @@
 
             <h4>targets.less</h4>
             <p>Simple reusable target mixins for handling responsiveness.</p>
-
-        </section>
-        <section>
-            <h1>FAQ</h1>
-
-            <h4><strong>Where are all the classes of things I have to memorize?</strong></h4>
-            <p>There aren't any. The only classes Strapless uses are color names.</p>
-            <br />
-
-            <h4><strong>Do you have a table with borders, but like, just in between the columns, and not around the whole table?</strong></h4>
-            <p>Go away.</p>
-            <br />
-
-            <h4><strong>Where's the grid?</strong></h4>
-            <p>There isn't one. Some elements (navbar, footer) try to be smart about where to put stuff. If you need to do more, then grab something that does more and use it on top of Strapless. We recommend: X, Y and Z</p>
-            <br />
-
-            <h4><strong>Do I have to use the elements? I just want colors.</strong></h4>
-            <p>No, you can comment out elements.less and everything will work fine.</p>
-            <br />
-
-            <h4><strong>Aren't all these patterns going to bloat my CSS?</strong></h4>
-            <p>Patterns are written as mixins, so their corresponding files aren't included in your CSS unless you use them.</p>
-            <br />
-
-            <h4><strong>Why didn't you just use CSS for these patterns?</strong></h4>
-            <p>SVG offers more flexibility.</p>
-            <br />
-
-            <h4><strong>What is elements.less?</strong></h4>
-            <p>It's a base file with some simple, opinionated defaults for all of the standard HTML elements.</p>
-
-            <h4><strong>Can I add my own SVGs using this pattern?</strong></h4>
-            <p>You can! But it's kind of a pain. We recommend using the library patterns for development feel/texture, and then replacing them later on when your colors are sorted out.</p>
-            <br />
-
-            <h4><strong>How about a Sass version?</strong></h4>
-            <p>Never. LESS is better. We know which one is more popular and we think everyone is wrong.</p>
-            <p>(If you're interested in putting together a Sass version, instead of just asking for one incessantly, please get in touch!)</p>
-            <br />
-
-            <h4><strong>Who is this even for?</strong></h4>
-            <p>Strapless is for developers who have gotten comfortable with frameworks like Bootstrap and Zurb and want something more lightweight for their next project.</p>
-            <br />
-
-            <h4><strong>You couldn't think up something better than "color2"?</strong></h4>
-            <p>The colors have simple names on purpose. Feel free to reassign any schemeless color to a variable with a better name.</p>
-            <br />
 
         </section>
         <section>

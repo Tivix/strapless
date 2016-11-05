@@ -8,7 +8,6 @@
 @import "strapless/strapless";
 @import "strapless/sl-palette";
 @import "strapless/sl-pattern";
-@import "strapless/sl-tables";
 
 body {
   padding:74px 0 0;
@@ -472,6 +471,82 @@ body {
 
     &:nth-child(7) {
       background: @gray-darkest-base;
+    }
+
+    &:last-child {
+      .clearfix();
+    }
+  }
+}
+
+#semantic_color_test {
+  height: 80px;
+
+  div {
+    width: 100%/6;
+    height: 80px;
+    float: left;
+
+    &:first-child {
+      background: @action;
+    }
+
+    &:nth-child(2) {
+      background: @reaction;
+    }
+
+    &:nth-child(3) {
+      background: @info;
+    }
+
+    &:nth-child(4) {
+      background: @warning;
+    }
+
+    &:nth-child(5) {
+      background: @success;
+    }
+
+    &:nth-child(6) {
+      background: @failure;
+    }
+
+    &:last-child {
+      .clearfix();
+    }
+  }
+}
+
+#semantic_base_test {
+  height: 80px;
+
+  div {
+    width: 100%/6;
+    height: 80px;
+    float: left;
+
+    &:first-child {
+      background: @action-base;
+    }
+
+    &:nth-child(2) {
+      background: @reaction-base;
+    }
+
+    &:nth-child(3) {
+      background: @info-base;
+    }
+
+    &:nth-child(4) {
+      background: @warning-base;
+    }
+
+    &:nth-child(5) {
+      background: @success-base;
+    }
+
+    &:nth-child(6) {
+      background: @failure-base;
     }
 
     &:last-child {

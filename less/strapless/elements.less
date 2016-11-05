@@ -1,24 +1,13 @@
+// Semantic color classes
+
+.info { .color-catch(@info);}
+.warning { .color-catch(@warning);}
+.failure { .color-catch(@failure);}
+.success { .color-catch(@success);}
+.action { .color-catch(@action);}
+.reaction { .color-catch(@reaction);}
+
 // CSS for standard HMTL elements
-
-aside {
-  // TODO: does this make sense?
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row; /* works with row or column */
-  flex-direction: row;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-
-  > * {
-    margin-left: @padding;
-
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-}
 
 html {
   box-sizing: border-box;
@@ -36,7 +25,6 @@ html, body, ul, ol, li, form, fieldset, legend {
 body {
   background-color: @background;
   //.argyle(@background);
-  //.muni();
   font-size: 18px;
   .contrast-text-against(@background);
   line-height: @line-height;
@@ -81,8 +69,8 @@ section {
 
 h1 { font-size: 2.6em;}
 h2 { font-size: 2.2em;}
-h3 { font-size: 1.8em;}
-h4 { font-size: 1.4em;}
+h3 { font-size: 1.9em;}
+h4 { font-size: 1.6em;}
 h5 { font-size: 1.2em;}
 h6 { font-size: 1em;}
 
@@ -104,13 +92,36 @@ h1, h2, h3, h4 {
 }
 
 h5, h6 {
+  text-align: center;
   text-transform: uppercase;
 }
 
 p, form {
-  margin-bottom: 1em;
+  //margin-bottom: 1em;
   //width: 50vw;
   max-width: 50ch;
+  padding: .62ch 1ch; // TODO: this allows us to support color classes but also messes w/ typography... keep?
+}
+
+aside {
+  // TODO: does this make sense?
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  padding: 1ch;
+
+  > * {
+    margin-left: @padding;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 }
 
 form {
@@ -126,6 +137,39 @@ strong {
   font-weight: bold;
 }
 
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  .sl-table();
+
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: @padding/2;
+  }
+
+  thead th {
+    vertical-align: bottom;
+  }
+
+  thead, tbody {
+    tr > td,
+    tr > th {
+      &:first-child {
+        padding-left: @padding;
+      }
+      &:last-child {
+        padding-right: @padding;
+      }
+    }
+  }
+}
+
+.make-tables-for(@semantic-colors);
+
 footer {
   // background:@color1c;
   margin-bottom: 0;
@@ -134,7 +178,6 @@ footer {
     text-align: center;
     display: inline-block;
     width: auto;
-    border: 1px solid red;
     margin: 0 auto;
   }
 }
@@ -191,56 +234,9 @@ code, pre {
   .sl-code(@color2);
 }
 
-.sl-code(@code-color) {
-  	@color: mix(@code-color, white, 94%);
-  	@background: mix(@color, #333, 10%);
-
-    font-family: monospace;
-    font-size: 85%;
-    padding: @padding * .25 @padding * .67 @padding * .3 @padding * .67;
-    border-radius: @border-radius/2;
-    background: @background;
-    // border: 1px solid darken(@color, 8%);
-    color: @color;
-}
-
 // BUTTON
 
 button {
-  &:extend(.sl-button-base all);
-  .sl-button(overlay(@color1, @background));
-}
-
-.make-sl-buttons-for(@huge-palette);
-
-.make-sl-buttons-for(@colors) {
-  @length: length(@colors);
-
-  .make-sl-button();
-
-  .make-sl-button(@index:1) when (@index <= @length) {
-    @color-name: extract(@colors, @index);
-    @color: @@color-name;
-
-    button.@{color-name} {
-      &:extend(.sl-button-base all);
-      .sl-button(@color);
-    }
-
-    .make-sl-button(@index + 1);
-  }
-}
-
-.sl-button(@color: @gray) {
-  background-color: @color;
-  border-color: mix(@gray-darkest-base; @color; 60%);
-
-  &:active {
-    background-color: darken(@color, 3%);
-  }
-}
-
-.sl-button-base {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -248,95 +244,12 @@ button {
   cursor: pointer;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
-  border-bottom: 2px solid transparent;
   border-radius: @border-radius;
   outline: none;
   white-space: nowrap;
-  padding: @padding/2 @padding;
+  padding: .31em .62em;
   .contrast-text-against(@gray);
+  .sl-button(@action);
 }
 
-.sl-navbar(@color) {
-
-  @height: @navbar-height;
-  @padding: @height * .38;
-
-  background-color:@color;
-  .contrast-text-against(@color);
-
-  height: @height;
-  line-height: @height;
-  max-height: @height;
-  position: fixed; top:0; left: 0;
-  width: 100%;
-  z-index: 1000;
-  overflow: hidden;
-
-  > section > * { // pseudo reset
-    display: none;
-    float:left;
-    position: relative;
-    border: none;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    height: @height;
-    vertical-align: middle;
-    overflow: hidden;
-
-    .on-tablet({
-      display: block;
-    });
-
-    &:first-child {
-      display: block;
-      margin-left: @padding;
-      margin-right: @padding * 2;
-
-      .on-large-phone({
-        margin-left: 0;
-        margin-right: @height;
-      });
-    }
-
-    &:last-child {
-      display: block;
-      float: right;
-      line-height: @height - 6;
-    }
-  }
-
-  ul {
-    height: @height;
-  }
-
-  li {
-    float:left;
-    height: @height;
-    line-height: @height;
-  }
-
-  h1, h2, h3 {
-    display: block;
-    float: left;
-    font-size: 26px;
-    line-height: @height;
-    margin-right: @height;
-    .contrast-text-against(@color);
-  }
-
-  a {
-    display: block;
-    float: left;
-    .contrast-text-against(@color);
-    padding-left: @padding;
-    padding-right: @padding;
-    text-decoration: none;
-
-    &:hover {
-      background-color: lighten(@color, 10%);
-      text-decoration: none;
-    }
-  }
-}
+.make-sl-buttons-for(@semantic-colors);

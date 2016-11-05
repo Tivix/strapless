@@ -9,6 +9,7 @@
     #strapless.make-subcolors(@color; @wheel; @scheme-type);
     #strapless.load-gray-bases(@color);
     #strapless.make-grays(@color);
+    #strapless.load-semantic-colors();
   }
 
   .load-scheme-type(@color) {
@@ -177,8 +178,8 @@
   }
 
   .load-gray-bases(@color) {
-    @gray-base: mix(desaturate(@color, 50%), lighten(black, 50%), (10%*@scheme-type-base));
-    @gray-step: 18% - @scheme-type-base*2;
+    @gray-base: mix(desaturate(@color, 80%), #515151, 75%);
+    @gray-step: 10%;
 
     @gray-bases:  @gray-lightest-base,
                   @gray-lighter-base,
@@ -200,7 +201,7 @@
 
   .make-grays(@color) {
     #strapless.load-gray-bases(@color);
-    @gray-shift: 4 - @scheme-type-base;
+    @gray-shift: @scheme-type-base; // TODO: why does this work?
 
     @gray-lighter:      extract(@gray-bases; 0 + @gray-shift);
     @gray-light:        extract(@gray-bases; 1 + @gray-shift);
@@ -209,13 +210,35 @@
     @gray-darker:       extract(@gray-bases; 4 + @gray-shift);
   }
 
+  .load-semantic-colors() {
+    @action-sat: (saturation(@info) + saturation(@success))/2;
+    @action-lit: (lightness(@info) + lightness(@success))/2;
+
+    @reaction-sat: (saturation(@warning) + saturation(@failure))/2;
+    @reaction-lit: (lightness(@warning) + lightness(@failure))/2;
+    
+    @action-base: hsl(hue(@action), @action-sat, @action-lit);
+    @reaction-base: hsl(hue(@reaction), @reaction-sat, @reaction-lit);
+    @info-base: #5bc0de;
+    @warning-base: #f0ad4e;
+    @success-base: #5cb85c;
+    @failure-base: #d0534f;
+
+    @action:    @color1;
+    @reaction:  @color2;
+    @info:      mix(@info-base, @color1, 75%);
+    @warning:   mix(@warning-base, @color2b, 85%);
+    @success:   average(@success-base, hsl(hue(@success-base), saturation(@color1), lightness(@color1)));
+    @failure:   average(@failure-base, hsl(hue(@failure-base), saturation(@color2b), lightness(@color2b)));
+  }
+
   .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 98%) {
-    #strapless.make-palette(darken(@color, 6%);@wheel);
-    @body-bg: @color;
+    #strapless.make-palette(darken(@color, 3%);@wheel);
+    @color1: white;
   }
 
   .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 3%) {
-    #strapless.make-palette(lighten(@color, 7.5%);@wheel);
-    @body-bg: @color;
+    #strapless.make-palette(lighten(@color, 4.5%);@wheel);
+    @color1: white;
   }
 }
