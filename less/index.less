@@ -9,14 +9,63 @@
 @import "strapless/sl-palette";
 @import "strapless/sl-pattern";
 
+@less-test: saturation(@color1);
+@less-test-name: 'sat of color 1';
+
+.sl-bg-catch(@background);
+
+.sl-bg-catch(@color) {
+  // users can select any seed color but not bg, this catches bad ones and doesn't show them
+
+  body {
+    background-color: @color;
+    .contrast-text-against(@color);
+  }
+}
+
+.sl-bg-catch(@color) when (luma(@color) > 85%) {
+  // above a certain brightness, just use white
+  body {
+    background-color: white;
+    .contrast-text-against(white);
+  }
+}
+
+.sl-bg-catch(@color) when (saturation(@color) > 80%) {
+  // for really saturated colors use white
+
+  body {
+    background-color: white;
+    .contrast-text-against(white);
+  }
+}
+
+.sl-bg-catch(@color) when (luma(@color) < 15%) {
+  // for really dark schemes use a dark gray for better color pop
+
+  body {
+    background-color: @gray-darker;
+    .contrast-text-against(@gray-darker);
+  }
+}
+
 body {
-  padding:74px 0 0;
-  font-family:'Bitter';
+  //padding:74px 0 0;
+  font-family: -apple-system, 
+                BlinkMacSystemFont, 
+                "Segoe UI", 
+                Roboto, 
+                Oxygen-Sans, 
+                Ubuntu, 
+                Cantarell, 
+                "Helvetica Neue", 
+                sans-serif;
 
   section:last-child {
     margin-bottom:0;
   }
 }
+
 #get_color1 {
   color: @color1;
 }
@@ -173,7 +222,7 @@ body {
     .color(@color) {
         background-color:@color;
         .contrast-text-against(@color);
-        .pegboard(@color);
+        // .pegboard(@color);
         // border:1px solid darken(@color, 5%);
 
         &:before, &:after {
@@ -519,6 +568,7 @@ body {
 
 #semantic_base_test {
   height: 80px;
+  margin-top: 0;
 
   div {
     width: 100%/6;
@@ -556,27 +606,13 @@ body {
 }
 
 #demo_form {
+
+  .on-desktop({
     font-size: 12px;
     position: fixed;
     bottom: @padding;
     right: @padding;
     z-index: 1000;
     max-width: 200px;
-
-    h2 {
-      margin-bottom: 0;
-    }
-
-    .palette-preview {
-        width: 100%;
-        max-width: 100%;
-        pointer-events: none;
-
-        &:before {
-            display: none;
-        }
-
-        margin-bottom: -60px;
-        margin-top: -20px;
-    }
+  });
 }

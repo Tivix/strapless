@@ -496,26 +496,6 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/less\/strapless\/comments.less": {
-		"allowInsecureImports": 0,
-		"createSourceMap": 0,
-		"disableJavascript": 0,
-		"fileType": 1,
-		"ieCompatibility": 1,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/less\/strapless\/comments.less",
-		"outputAbbreviatedPath": "\/less\/css\/comments.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"strictImports": 0,
-		"strictMath": 0,
-		"strictUnits": 0
-		},
 	"\/less\/strapless\/elements.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,

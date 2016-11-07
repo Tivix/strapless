@@ -226,19 +226,26 @@
 
     @action:    @color1;
     @reaction:  @color2;
-    @info:      mix(@info-base, @color1, 75%);
-    @warning:   mix(@warning-base, @color2b, 85%);
+    @info:      average(@info-base, hsl(hue(@info-base), saturation(@color1), lightness(@color1)));
+    @warning:   average(@warning-base, hsl(hue(@warning-base), saturation(@color2b), lightness(@color2b)));
     @success:   average(@success-base, hsl(hue(@success-base), saturation(@color1), lightness(@color1)));
     @failure:   average(@failure-base, hsl(hue(@failure-base), saturation(@color2b), lightness(@color2b)));
   }
 
   .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 98%) {
-    #strapless.make-palette(darken(@color, 3%);@wheel);
+    #strapless.make-palette(darken(@color, 3%); @wheel);
     @color1: white;
   }
 
   .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 3%) {
-    #strapless.make-palette(lighten(@color, 4.5%);@wheel);
-    @color1: white;
+    #strapless.make-palette(lighten(@color, 4.5%); @wheel);
+  }
+
+  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (saturation(@color) = 0) {
+    #strapless.make-palette(average(@color, spin(#4F4AE6, 180)); @wheel);
+    @color1: @color;
+    @color1a: @gray-light;
+    @color1b: @gray;
+    @color1c: @gray-dark; 
   }
 }

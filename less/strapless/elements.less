@@ -1,12 +1,3 @@
-// Semantic color classes
-
-.info { .color-catch(@info);}
-.warning { .color-catch(@warning);}
-.failure { .color-catch(@failure);}
-.success { .color-catch(@success);}
-.action { .color-catch(@action);}
-.reaction { .color-catch(@reaction);}
-
 // CSS for standard HMTL elements
 
 html {
@@ -24,22 +15,24 @@ html, body, ul, ol, li, form, fieldset, legend {
 
 body {
   background-color: @background;
-  //.argyle(@background);
-  font-size: 18px;
+  font-size: 16px;
   .contrast-text-against(@background);
   line-height: @line-height;
-  padding-top: 50px;
+  padding-top: @navbar-height + @padding;
   margin-bottom: 0;
 
+  .on-large-phone({
+    font-size:18px;
+  });
+}
 
-  & > nav {
-    .sl-navbar(@color1);
-  }
+body > nav {
+  .sl-navbar(@color1);
 }
 
 section {
   max-width: @content-width;
-  margin: 0 @padding @padding*2 @padding;
+  margin: 0 @padding @padding*4 @padding;
   .clearfix();
 
   > * {
@@ -60,6 +53,44 @@ section {
   });
 }
 
+main {
+  @color: @color3;
+  // font-size: 120%;
+  padding: @padding;
+  border-radius: @border-radius;
+  background: @color;
+  margin: 0 @padding;
+  text-align: center;
+  #patterns.dots(@color);
+  .contrast-text-against(@color);
+
+  h1, h2 {
+    & + p {
+      text-align: center;
+      font-size: 125%;
+      margin-bottom: 1em;
+    }
+  }
+
+  p {
+    .text-color-dim(@color);
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  img {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .on-tablet({
+    max-width: @content-width;
+    margin: 0 auto;
+    padding: @padding*2;
+  });
+}
+
 // h1 { font-size: 42px;}
 // h2 { font-size: 34px;}
 // h3 { font-size: 26px;}
@@ -67,41 +98,49 @@ section {
 // h5 { font-size: 16px;}
 // h6 { font-size: 13px;}
 
-h1 { font-size: 2.6em;}
+h1 { font-size: 2.5em;}
 h2 { font-size: 2.2em;}
 h3 { font-size: 1.9em;}
-h4 { font-size: 1.6em;}
-h5 { font-size: 1.2em;}
+h4 { font-size: 1.7em;}
+h5 { font-size: 1.25em;}
 h6 { font-size: 1em;}
 
 h1, h2, h3, h4 {
+  margin-top: .8em;
   margin-bottom: 1em;
-  margin-top: @navbar-height + @padding;
   text-align: center;
   line-height: @line-height;
   font-weight: bold;
-  .text-color(@background);
+  //.text-color(@background);
 
   & + & {
-    margin-top: 0;
-  }
-
-  form &:first-child {
     margin-top: 0;
   }
 }
 
 h5, h6 {
+  margin-top: .5em;
+  margin-bottom: 1em;
   text-align: center;
   text-transform: uppercase;
 }
 
-p, form {
-  //margin-bottom: 1em;
-  //width: 50vw;
-  max-width: 50ch;
-  padding: .62ch 1ch; // TODO: this allows us to support color classes but also messes w/ typography... keep?
+p, form, figure {
+  margin: 0 auto 1em;
+  padding: .5em 0;
+
+  .on-tablet({
+    //width: 50vw;
+    max-width: 50ch;
+    padding: .5em 1em; // TODO: this allows us to support color classes but also messes w/ typography... keep?
+  });
 }
+
+a {
+  color: @action-base;
+}
+
+//sub, sup { line-height: .61;}
 
 aside {
   // TODO: does this make sense?
@@ -113,7 +152,7 @@ aside {
   align-items: center;
   -webkit-justify-content: center;
   justify-content: center;
-  padding: 1ch;
+  padding: 1em;
 
   > * {
     margin-left: @padding;
@@ -122,6 +161,7 @@ aside {
       margin-left: 0;
     }
   }
+  .clearfix();
 }
 
 form {
@@ -138,7 +178,6 @@ strong {
 }
 
 table {
-  width: 100%;
   max-width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
@@ -184,13 +223,11 @@ footer {
 
 fieldset,img { border: 0; }
 
-legend { color: #000; }
-
 li { list-style: none; }
 
-sup { vertical-align: text-top; }
+// sup { vertical-align: text-top; }
 
-sub { vertical-align: text-bottom; }
+// sub { vertical-align: text-bottom; }
 
 caption {
   text-align: left;
@@ -206,15 +243,6 @@ input, textarea, select {
 abbr, acronym {
   border-bottom: .1em dotted;
   cursor: help;
-}
-
-em {
-  font-weight: bold;
-
-  & > * {
-    font-weight: normal;
-    font-style: normal;
-  }
 }
 
 blockquote {
@@ -234,22 +262,36 @@ code, pre {
   .sl-code(@color2);
 }
 
-// BUTTON
-
-button {
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid transparent;
+  // border: 1px solid transparent;
+  border: none;
   border-radius: @border-radius;
   outline: none;
   white-space: nowrap;
-  padding: .31em .62em;
+  padding: .4em 1ch;
   .contrast-text-against(@gray);
   .sl-button(@action);
 }
 
 .make-sl-buttons-for(@semantic-colors);
+
+mark {
+  @color: @color1b;
+  background: @color;
+  .contrast-text-against(@color);
+}
+
+hr {
+  border-color: @background;
+  border-top-color: darken(@background, 2%);
+  border-bottom-color: lighten(@background, 5%);
+}

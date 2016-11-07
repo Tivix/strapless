@@ -7,11 +7,11 @@
 }
 
 .text-color-dim(@color) when (luma(@color) < 73.5%) {
-  color: hsl(hue(@color); saturation(@color); 90%);
+  color: hsl(hue(@color); saturation(@color); 95%);
 }
 
 .text-color-dim(@color) when (luma(@color) >= 73.5%) {
-  color: mix(darken(@color;10%); #444; 50%);
+  color: mix(darken(@color;10%); #333; 50%);
 }
 
 .headline-color(@color) {
@@ -26,7 +26,7 @@
   .text-color(@color);
 }
 
-.color-catch(@color) {
+.colorify(@color) {
   background-color: @color;
   .contrast-text-against(@color);
   border-color: @color;
@@ -63,7 +63,6 @@
   background: @color1;
   .contrast-text-against(@color1);
   padding: @padding;
-  max-width: 38ch;
 
   > * {
     width: 100%;
@@ -220,14 +219,17 @@
   a {
     display: block;
     float: left;
-    .contrast-text-against(@color);
+    text-decoration: none;
+     .contrast-text-against(@color);
+  }
+
+  li > a {
     padding-left: @padding;
     padding-right: @padding;
-    text-decoration: none;
 
     &:hover {
       background-color: lighten(@color, 10%);
-      text-decoration: none;
+      .contrast-text-against(lighten(@color, 10%));
     }
   }
 }
