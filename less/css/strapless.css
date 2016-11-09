@@ -1,4 +1,4 @@
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+/* normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -430,7 +430,7 @@ aside {
   align-items: center;
   -webkit-justify-content: center;
   justify-content: center;
-  padding: 1ch;
+  padding: 1em;
 }
 aside > * {
   margin-left: 12px;
@@ -456,6 +456,7 @@ aside:after {
 }
 form {
   background: #e0c0b1;
+  max-width: 36ch;
   color: #fdf9f7;
   padding: 12px;
 }
@@ -474,6 +475,7 @@ form p {
 }
 form input,
 form textarea {
+  width: 100%;
   padding: 12px;
   border: none;
   background: #fafafa;
@@ -502,7 +504,6 @@ strong {
   font-weight: bold;
 }
 table {
-  width: 100%;
   max-width: 100%;
   border-collapse: collapse;
   border-spacing: 0;

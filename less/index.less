@@ -51,7 +51,7 @@
 
 body {
   //padding:74px 0 0;
-  font-family: -apple-system, 
+  font-family:  -apple-system, 
                 BlinkMacSystemFont, 
                 "Segoe UI", 
                 Roboto, 
@@ -128,169 +128,6 @@ body {
     }
   }
 
-}
-
-
-#palette_preview_container {
-  margin-bottom:200px;
-}
-
-
-#palette_preview {
-
-  // TODO: deprecate, or write as a theme that works atop sl-palette
-
-    float:right;
-    //clear:both;
-
-    @width: 90px;
-    @padding: 8px;
-
-    clear: both;
-
-    margin-bottom: 20px;
-
-    z-index:-100;
-
-    .swatch {
-        position: relative;
-        font-size: 12px;
-        line-height: 42px;
-        font-weight: bold;
-        margin-bottom: @padding;
-        width: @width;
-        height: @width;
-        line-height: @width*1.8;
-        margin-right: @padding;
-        float: right;
-        text-align: right;
-        vertical-align: bottom;
-        // border: 1px solid @gray-darker;
-        // text-indent: -9999px;
-
-        &:nth-child(2n) {
-          min-width: 250px;
-        }
-
-        &:nth-child(3n) {
-          min-width: 380px;
-        }
-
-        &:nth-child(4n+2) {
-          width: 320px;
-        }
-
-        &:nth-child(5n-1) {
-          width:190px;
-        }
-
-        &:nth-child(7n) {
-          width: 140px;
-        }
-
-        &:nth-child(20n) {
-          min-width:0;
-          width: 540px;
-        }
-
-
-        p {
-            text-align: center;
-            line-height: 100px;
-        }
-
-        input {
-            width: 90px;
-            //margin-top:14px;
-            margin-left: 14px;
-        }
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-
-        &:after {
-          display: inline;
-          width:@padding;
-          content: "";
-          margin-right:@padding;
-          // content: " luma: @{thisluma}, lit: @{thislit}";
-
-        }
-    }
-
-    .color(@color) {
-        background-color:@color;
-        .contrast-text-against(@color);
-        // .pegboard(@color);
-        // border:1px solid darken(@color, 5%);
-
-        &:before, &:after {
-          background-color:@color;
-        }
-    }
-
-    .color1 { .color(@color1);}
-    .color1a { .color(@color1a);}
-    .color1b { .color(@color1b);}
-    .color1c { .color(@color1c);}
-
-    .color2 { .color(@color2);}
-    .color2a { .color(@color2a);}
-    .color2b { .color(@color2b);}
-    .color2c { .color(@color2c);}
-
-    .color3 { .color(@color3);}
-    .color3a { .color(@color3a);}
-    .color3b { .color(@color3b);}
-    .color3c { .color(@color3c);}
-
-    .color4 { .color(@color4);}
-    .color4a { .color(@color4a);}
-    .color4b { .color(@color4b);}
-    .color4c { .color(@color4c);}
-
-    .gray { .color(@gray);}
-    .gray-dark { .color(@gray-dark);}
-    .gray-darker { .color(@gray-darker);}
-    .gray-light { .color(@gray-light);}
-    .gray-lighter { .color(@gray-lighter);}
-
-    .info { .color(@info);}
-    .warning { .color(@warning);}
-    .success { .color(@success);}
-    .failure { .color(@failure);}
-
-
-    .scheme-type {
-      &:after {
-        content:"@{scheme-type}";
-      }
-    }
-
-    .luma {
-      @luma: ceil(luma(@base-color));
-      &:after {
-        content:"@{luma}";
-      }
-    }
-
-    .lit {
-      &:after {
-        content:"@{lit}";
-      }
-    }
-
-    .scheme-type, .luma, .lit {
-      //display:none;
-    }
-
-}
-
-#colors {
-  .palette-preview {
-    margin-top:0;
-  }
 }
 
 .color-wheel-test {
@@ -389,69 +226,31 @@ body {
   }
 }
 
-#color_wheel_test {
-  .color-wheel-test(@base-color-wheel);
-}
+.iterate-through(@args; @ruleset) {
+  @iterations: length(@args);
 
-#color_wheel_accented {
-  .color-wheel-test(accented);
-}
+  .iterate();
 
-#color_wheel_complementary {
-  .color-wheel-test(complementary);
-}
+  .iterate(@index: 1) when (@index <= @iterations) {
 
-#color_wheel_triadic {
-  .color-wheel-test(triadic);
-}
-
-#color_wheel_tetradic {
-  .color-wheel-test(tetradic);
-}
-
-#color_wheel_monochromatic {
-  .color-wheel-test(monochromatic);
-}
-
-#color_wheel_square {
-  .color-wheel-test(square);
-}
-
-#color_wheel_ebb {
-  .color-wheel-test(ebb);
-}
-
-#color_wheel_flow {
-  .color-wheel-test(flow);
-}
-
-// pull base values from @base-color. used in constructing new colors.
-// TODO: replace these
-
-@sat: saturation(@base-color);
-@lit: floor(lightness(@base-color));
-@link-color: blue;
-@text-color: #333;
-
-.sl-links {
-  margin-bottom: @padding;
-  display:inline-block;
-  li {
-    float: left;
-    margin-right: @padding;
-
-    &:last-child {
-      margin-right: 0;
-    }
   }
 }
 
-.gray-info(@color) {
-  @lit: lightness(@color);
-  background: @color;
+.make-color-wheels-for();
 
-  &:before {
-    content: "lightness: @{color}";
+.make-color-wheels-for(@wheels: @color-wheels;) {
+  @iterations: length(@color-wheels);
+
+  .make-color-wheel();
+
+  .make-color-wheel(@index: 1) when (@index <= @iterations) {
+    @wheel: extract(@wheels, @index);
+
+    #color_wheel_@{wheel} {
+      .color-wheel-test(@wheel);
+    }
+
+    .make-color-wheel(@index + 1);
   }
 }
 
