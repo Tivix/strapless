@@ -201,7 +201,7 @@
 
   .make-grays(@color) {
     #strapless.load-gray-bases(@color);
-    @gray-shift: @scheme-type-base; // TODO: why does this work?
+    @gray-shift: @scheme-type-base;
 
     @gray-lighter:      extract(@gray-bases; 0 + @gray-shift);
     @gray-light:        extract(@gray-bases; 1 + @gray-shift);

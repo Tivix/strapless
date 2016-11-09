@@ -1,16 +1,18 @@
 //this is the index.less for strapless-web, NOT strapless!
 
-// TODO: decide if we're making something like sl-palette and sl-pattern available to the dev
-// it'd be really handy to have something that "just worked" and showed their current palette
-
-// TODO: include an alternate index.less file without any defined @base-color or @color-wheel
-
 @import "strapless/strapless";
 @import "strapless/sl-palette";
 @import "strapless/sl-pattern";
 
 @less-test: saturation(@color1);
 @less-test-name: 'sat of color 1';
+
+.rotate(@degrees) {
+  -webkit-transform: rotate(@degrees);
+      -ms-transform: rotate(@degrees);
+       -o-transform: rotate(@degrees);
+          transform: rotate(@degrees);
+}
 
 .sl-bg-catch(@background);
 

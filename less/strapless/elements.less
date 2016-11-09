@@ -26,7 +26,7 @@ body {
   });
 }
 
-body > nav {
+nav {
   .sl-navbar(@color1);
 }
 
@@ -140,10 +140,7 @@ a {
   color: @action-base;
 }
 
-//sub, sup { line-height: .61;}
-
 aside {
-  // TODO: does this make sense?
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
@@ -284,7 +281,7 @@ input[type="submit"] {
 
 .make-sl-buttons-for(@semantic-colors);
 
-mark {
+mark, ::selection {
   @color: @color1b;
   background: @color;
   .contrast-text-against(@color);
