@@ -6,6 +6,7 @@ Node/Express version
 ---------
 
 From the home directory:
+
 - ``npm install``
 - ``node index.js``
 - Visit localhost:3000 in your browser
