@@ -51,14 +51,14 @@
 
 body {
   //padding:74px 0 0;
-  font-family: -apple-system, 
-                BlinkMacSystemFont, 
-                "Segoe UI", 
-                Roboto, 
-                Oxygen-Sans, 
-                Ubuntu, 
-                Cantarell, 
-                "Helvetica Neue", 
+  font-family: -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Oxygen-Sans,
+                Ubuntu,
+                Cantarell,
+                "Helvetica Neue",
                 sans-serif;
 
   section:last-child {
@@ -615,4 +615,24 @@ body {
     z-index: 1000;
     max-width: 200px;
   });
+}
+#loading_overlay {
+    display:none;
+    position:absolute;
+    z-index:1001;
+    background-color:rgba(0,0,0,.8);
+    color:white;
+    font-size:62px;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    text-align:center;
+    div {
+        position:absolute;
+        top:50%;
+        margin-top:-60px;
+        left:0;
+        right:0;
+    }
 }

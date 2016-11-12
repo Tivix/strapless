@@ -1,5 +1,6 @@
-(function() {
-    var generateFavicon = function() {
+var Strapless = (function() {
+
+    function _generateFavicon() {
         console.log('generate fav');
         var canvas = document.createElement('canvas');
         var ctx;
@@ -32,15 +33,87 @@
             link.href = canvas.toDataURL('image/png');
         }
     };
-    generateFavicon();
+
+    function _getLessFile(baseColor) {
+        return new Promise(function(resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/less/' + baseColor);
+            xhr.onload = function() {
+                if (this.status >= 200 && this.status < 300) {
+                    resolve(xhr.response);
+                } else {
+                    reject({
+                        status: this.status,
+                        statusText: xhr.statusText
+                    });
+                }
+            };
+            xhr.onerror = function() {
+                reject({
+                    status: this.status,
+                    statusText: xhr.statusText
+                });
+            };
+            xhr.send();
+        });
+    }
+
+    function getStyleSheet(unique_title) {
+        for (var i = 0; i < document.styleSheets.length; i++) {
+            var sheet = document.styleSheets[i];
+            if (sheet.title == unique_title) {
+                return sheet;
+            }
+        }
+    }
+
+    function deleteStyleSheets() {
+        for (var i = 0; i < document.styleSheets.length; i++) {
+            document.head.removeChild(document.styleSheets[i].ownerNode)
+        }
+    }
+
+    function _updateScheme() {
+        var styleBlock = document.getElementById('style_block');
+        var baseColor = document.getElementById('seed_color').value;
+        var overlay = document.getElementById('loading_overlay');
+        overlay.style.display = 'block';
+        _getLessFile(baseColor)
+            .then(function(result) {
+                deleteStyleSheets();
+                var css = result,
+                    head = document.head || document.getElementsByTagName('head')[0],
+                    style = document.createElement('style');
+
+                style.type = 'text/css';
+                if (style.styleSheet) {
+                    style.styleSheet.cssText = css;
+                } else {
+                    style.appendChild(document.createTextNode(css));
+                }
+
+                head.appendChild(style);
+                overlay.style.display = 'none';
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+    }
+
+    return {
+        updateScheme: function() {
+            _updateScheme();
+        },
+        generateFavicon: function() {
+            _generateFavicon();
+        }
+    };
 })();
 
-var updateScheme = function() {
-    var seed_color = document.getElementById('seed_color').value;
-    var less_link = document.getElementById('less_link');
-    var new_href = less_link.href.split('/').slice(0, 4).join('/') + '/' + seed_color;
-    less_link.href = new_href;
-}
+
+// var less_link = document.getElementById('less_link');
+// var new_href = less_link.href.split('/').slice(0, 4).join('/') + '/' + seed_color;
+// less_link.href = new_href;
 
 // var writeLessFiles = function() {
 //     return new Promise(function(resolve, reject) {
