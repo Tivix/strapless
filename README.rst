@@ -1,15 +1,18 @@
+=========
 Dev setup
 =========
 
-### Node/Express version
+Node/Express version
+---------
+
 From the home directory:
 - ``npm install``
 - ``node index.js``
 - Visit localhost:3000 in your browser
 
-On load, the page will use the static, compiled index.css file in ``public/static/css``. This file **must be compiled** with a `@base-color` defined.
+On load, the page will use the static, compiled index.css file in ``public/static/css``. This file **must be compiled** with a ``@base-color`` defined.
 
-On-the-fly scheme changes, either from the colorpicker form or by using a hex value in the url (e.g., `localhost:3000/CADFE6`), will use the index.less file in ``source/less``. This file **can not** contain a defined `@base-color` because the base color must be set at the time of compilation, based on user input.
+On-the-fly scheme changes, either from the colorpicker form or by using a hex value in the url (e.g., ``localhost:3000/CADFE6``), will use the index.less file in ``source/less``. This file **can not** contain a defined ``@base-color`` because the base color must be set at the time of compilation, based on user input.
 
 
 Coding guidelines / standards
