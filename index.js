@@ -32,7 +32,6 @@ var generateStyles = function(baseColor) {
             var options = {
                 filename: less_file_path
             };
-            console.log(options);
             less.render(data, options)
                 .then(function(output) {
                     resolve(output.css);
@@ -43,9 +42,7 @@ var generateStyles = function(baseColor) {
     });
 }
 app.get('/:baseColor?', function(req, res) {
-    console.log('has base color?')
     var baseColor = req.params.baseColor;
-    console.log(baseColor);
     if (!baseColor) {
         console.log('no base color')
         res.render('index', {
@@ -56,10 +53,12 @@ app.get('/:baseColor?', function(req, res) {
         // just send the static html pointing to the compiled css
         // res.sendFile(path.join(__dirname, '/index.html'));
     } else {
-        console.log('has base color')
         // If the url includes a base color, generate the css,
         // use the handlebars template, and render the css in the <style> tag
         generateStyles(baseColor).then(function(css){
+            console.log('***************');
+            console.log(css)
+            console.log('----------------');
             res.render('index', {
                 styles: css,
                 static_css: false
@@ -71,6 +70,9 @@ app.get('/:baseColor?', function(req, res) {
 app.get('/less/:baseColor', function(req, res) {
     console.log('ajax get');
     generateStyles(req.params.baseColor).then(function(css){
+        console.log('***************');
+        console.log(css)
+        console.log('----------------');
         res.send(css);
     })
 });
