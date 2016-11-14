@@ -244,8 +244,8 @@
   .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (saturation(@color) = 0) {
     #strapless.make-palette(average(@color, spin(#4F4AE6, 180)); @wheel);
     @color1: @color;
-    @color1a: @gray-light;
-    @color1b: @gray;
-    @color1c: @gray-dark; 
+    @color1a: @gray-lightest-base;
+    @color1b: @gray-lighter-base;
+    @color1c: @gray-light-base; 
   }
 }

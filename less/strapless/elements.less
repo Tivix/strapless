@@ -27,7 +27,8 @@ body {
 }
 
 nav {
-  .sl-navbar(@color1);
+  .sl-navbar(@color1b);
+  .no-user-select();
 }
 
 section {
@@ -277,6 +278,7 @@ input[type="submit"] {
   padding: .4em 1ch;
   .contrast-text-against(@gray);
   .sl-button(@action);
+  .no-user-select();
 }
 
 .make-sl-buttons-for(@semantic-colors);
