@@ -896,10 +896,11 @@
         <span id="get_color4"></span>
         <script type="text/javascript" charset="utf-8" src="/js/strapless.js"></script>
         <script type="text/javascript" charset="utf-8" src="/js/jscolor.min.js"></script>
-        {{#if invalid_hex }}
-            <script type="text/javascript" charset="utf-8">
+        <script type="text/javascript" charset="utf-8">
+            {{#if invalid_hex }}
                 alert("Invalid hex color value entered.");
-            </script>
-        {{/if}}
+                history.pushState({'baseColor': ''}, '', '/');
+            {{/if}}
+        </script>
     </body>
 </html>

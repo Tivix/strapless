@@ -51,7 +51,7 @@ app.get('/:baseColor?', function(req, res) {
         // just send the static html pointing to the compiled css
         // res.sendFile(path.join(__dirname, '/index.html'));
     } else {
-        var validHex = /^#(?:[0-9a-f]{3}){1,2}$/i.test(baseColor);
+        var validHex = /^(?:[0-9a-f]{3}){1,2}$/i.test(baseColor);
         if(validHex){
             // If the url includes a base color, generate the css,
             // use the handlebars template, and render the css in the <style> tag
@@ -72,7 +72,6 @@ app.get('/:baseColor?', function(req, res) {
 });
 
 app.get('/less/:baseColor', function(req, res) {
-    console.log('ajax get');
     generateStyles(req.params.baseColor).then(function(css){
         res.send(css);
     })

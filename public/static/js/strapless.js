@@ -100,6 +100,7 @@ var Strapless = (function() {
                     history.pushState({'baseColor':response.baseColor}, '', '/' + baseColor);
                     head.appendChild(style);
                     overlay.style.display = 'none';
+                    _generateFavicon();
                 })
                 .catch(function(err) {
                     console.error(err);
