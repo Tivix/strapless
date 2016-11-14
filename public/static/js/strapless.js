@@ -40,7 +40,11 @@ var Strapless = (function() {
             xhr.open('GET', '/less/' + baseColor);
             xhr.onload = function() {
                 if (this.status >= 200 && this.status < 300) {
-                    resolve(xhr.response);
+                    var response = {
+                        'baseColor': baseColor,
+                        'styles': xhr.response
+                    }
+                    resolve(response);
                 } else {
                     reject({
                         status: this.status,
@@ -74,30 +78,35 @@ var Strapless = (function() {
     }
 
     function _updateScheme() {
-        var styleBlock = document.getElementById('style_block');
         var baseColor = document.getElementById('seed_color').value;
-        var overlay = document.getElementById('loading_overlay');
-        overlay.style.display = 'block';
-        _getLessFile(baseColor)
-            .then(function(result) {
-                deleteStyleSheets();
-                var css = result,
-                    head = document.head || document.getElementsByTagName('head')[0],
-                    style = document.createElement('style');
+        var validHex = /^(?:[0-9a-f]{3}){1,2}$/i.test(baseColor);
+        if(validHex){
+            var styleBlock = document.getElementById('style_block');
+            var overlay = document.getElementById('loading_overlay');
+            overlay.style.display = 'block';
+            _getLessFile(baseColor)
+                .then(function(response) {
+                    deleteStyleSheets();
+                    var css = response.styles,
+                        head = document.head || document.getElementsByTagName('head')[0],
+                        style = document.createElement('style');
 
-                style.type = 'text/css';
-                if (style.styleSheet) {
-                    style.styleSheet.cssText = css;
-                } else {
-                    style.appendChild(document.createTextNode(css));
-                }
-
-                head.appendChild(style);
-                overlay.style.display = 'none';
-            })
-            .catch(function(err) {
-                console.error(err);
-            });
+                    style.type = 'text/css';
+                    if (style.styleSheet) {
+                        style.styleSheet.cssText = css;
+                    } else {
+                        style.appendChild(document.createTextNode(css));
+                    }
+                    history.pushState({'baseColor':response.baseColor}, '', '/' + baseColor);
+                    head.appendChild(style);
+                    overlay.style.display = 'none';
+                })
+                .catch(function(err) {
+                    console.error(err);
+                });
+        } else {
+            alert('Invalid hex color value entered.')
+        }
     }
 
     return {

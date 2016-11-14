@@ -11,10 +11,9 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 app.set('views', html_dir);
 
-app.locals.baseColor = '003366';
+app.locals.baseColor = '6CADE6';
 
 var generateStyles = function(baseColor) {
-    console.log('generate styles');
     return new Promise(function(resolve, reject) {
         if (!baseColor) {
             baseColor = app.locals.baseColor;
@@ -44,7 +43,6 @@ var generateStyles = function(baseColor) {
 app.get('/:baseColor?', function(req, res) {
     var baseColor = req.params.baseColor;
     if (!baseColor) {
-        console.log('no base color')
         res.render('index', {
             styles: '',
             static_css: true
@@ -53,26 +51,29 @@ app.get('/:baseColor?', function(req, res) {
         // just send the static html pointing to the compiled css
         // res.sendFile(path.join(__dirname, '/index.html'));
     } else {
-        // If the url includes a base color, generate the css,
-        // use the handlebars template, and render the css in the <style> tag
-        generateStyles(baseColor).then(function(css){
-            console.log('***************');
-            console.log(css)
-            console.log('----------------');
-            res.render('index', {
-                styles: css,
-                static_css: false
+        var validHex = /^#(?:[0-9a-f]{3}){1,2}$/i.test(baseColor);
+        if(validHex){
+            // If the url includes a base color, generate the css,
+            // use the handlebars template, and render the css in the <style> tag
+            generateStyles(baseColor).then(function(css){
+                res.render('index', {
+                    styles: css,
+                    static_css: false
+                });
             });
-        });
+        }else {
+            res.render('index', {
+                styles: '',
+                static_css: true,
+                invalid_hex: true
+            });
+        }
     }
 });
 
 app.get('/less/:baseColor', function(req, res) {
     console.log('ajax get');
     generateStyles(req.params.baseColor).then(function(css){
-        console.log('***************');
-        console.log(css)
-        console.log('----------------');
         res.send(css);
     })
 });
