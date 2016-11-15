@@ -1,21 +1,12 @@
 {
 "CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
-"creatorBuild": "19142",
+"creatorBuild": "19137",
 "files": {
 	"\/css\/index.css": {
 		"fileType": 16,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/index.css",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/elements\/index.html": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/elements\/index.html",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -31,441 +22,122 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/3px-tile.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 209,
-		"inputAbbreviatedPath": "\/images\/3px-tile.png",
-		"outputAbbreviatedPath": "\/images\/3px-tile.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/60-lines.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 629,
-		"inputAbbreviatedPath": "\/images\/60-lines.png",
-		"outputAbbreviatedPath": "\/images\/60-lines.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/app-icon-144.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 29219,
-		"inputAbbreviatedPath": "\/images\/app-icon-144.png",
-		"outputAbbreviatedPath": "\/images\/app-icon-144.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/app-icon-32.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 5629,
-		"inputAbbreviatedPath": "\/images\/app-icon-32.png",
-		"outputAbbreviatedPath": "\/images\/app-icon-32.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/arches.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 712,
-		"inputAbbreviatedPath": "\/images\/arches.png",
-		"outputAbbreviatedPath": "\/images\/arches.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/argyle.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1769,
-		"inputAbbreviatedPath": "\/images\/argyle.png",
-		"outputAbbreviatedPath": "\/images\/argyle.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/az-subtle.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 173,
-		"inputAbbreviatedPath": "\/images\/az-subtle.png",
-		"outputAbbreviatedPath": "\/images\/az-subtle.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/bright-squares.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 41392,
-		"inputAbbreviatedPath": "\/images\/bright-squares.png",
-		"outputAbbreviatedPath": "\/images\/bright-squares.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/diagonal-striped-brick.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1466,
-		"inputAbbreviatedPath": "\/images\/diagonal-striped-brick.png",
-		"outputAbbreviatedPath": "\/images\/diagonal-striped-brick.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/apple-touch-icon-114x114.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 2359,
-		"inputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-114x114.png",
-		"outputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-114x114.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/apple-touch-icon-120x120.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 2370,
-		"inputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-120x120.png",
-		"outputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-120x120.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/apple-touch-icon-144x144.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 2815,
-		"inputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-144x144.png",
-		"outputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-144x144.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/apple-touch-icon-152x152.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 2919,
-		"inputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-152x152.png",
-		"outputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-152x152.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/apple-touch-icon-180x180.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 3338,
-		"inputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-180x180.png",
-		"outputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-180x180.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/apple-touch-icon-57x57.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1494,
-		"inputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-57x57.png",
-		"outputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-57x57.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/apple-touch-icon-60x60.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1541,
-		"inputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-60x60.png",
-		"outputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-60x60.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/apple-touch-icon-72x72.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1790,
-		"inputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-72x72.png",
-		"outputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-72x72.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/apple-touch-icon-76x76.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1803,
-		"inputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-76x76.png",
-		"outputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-76x76.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/apple-touch-icon-precomposed.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 3636,
-		"inputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-precomposed.png",
-		"outputAbbreviatedPath": "\/images\/ico\/apple-touch-icon-precomposed.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/apple-touch-icon.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 3338,
-		"inputAbbreviatedPath": "\/images\/ico\/apple-touch-icon.png",
-		"outputAbbreviatedPath": "\/images\/ico\/apple-touch-icon.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/favicon-160x160.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 3665,
-		"inputAbbreviatedPath": "\/images\/ico\/favicon-160x160.png",
-		"outputAbbreviatedPath": "\/images\/ico\/favicon-160x160.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/favicon-16x16.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 734,
-		"inputAbbreviatedPath": "\/images\/ico\/favicon-16x16.png",
-		"outputAbbreviatedPath": "\/images\/ico\/favicon-16x16.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/favicon-192x192.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 4284,
-		"inputAbbreviatedPath": "\/images\/ico\/favicon-192x192.png",
-		"outputAbbreviatedPath": "\/images\/ico\/favicon-192x192.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/favicon-32x32.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1308,
-		"inputAbbreviatedPath": "\/images\/ico\/favicon-32x32.png",
-		"outputAbbreviatedPath": "\/images\/ico\/favicon-32x32.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/favicon-96x96.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 2590,
-		"inputAbbreviatedPath": "\/images\/ico\/favicon-96x96.png",
-		"outputAbbreviatedPath": "\/images\/ico\/favicon-96x96.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/mstile-144x144.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 3385,
-		"inputAbbreviatedPath": "\/images\/ico\/mstile-144x144.png",
-		"outputAbbreviatedPath": "\/images\/ico\/mstile-144x144.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/mstile-150x150.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 3270,
-		"inputAbbreviatedPath": "\/images\/ico\/mstile-150x150.png",
-		"outputAbbreviatedPath": "\/images\/ico\/mstile-150x150.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/mstile-310x150.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 3405,
-		"inputAbbreviatedPath": "\/images\/ico\/mstile-310x150.png",
-		"outputAbbreviatedPath": "\/images\/ico\/mstile-310x150.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/mstile-310x310.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 6379,
-		"inputAbbreviatedPath": "\/images\/ico\/mstile-310x310.png",
-		"outputAbbreviatedPath": "\/images\/ico\/mstile-310x310.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/ico\/mstile-70x70.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 2598,
-		"inputAbbreviatedPath": "\/images\/ico\/mstile-70x70.png",
-		"outputAbbreviatedPath": "\/images\/ico\/mstile-70x70.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/no_profile_photo.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 16000,
-		"inputAbbreviatedPath": "\/images\/no_profile_photo.png",
-		"outputAbbreviatedPath": "\/images\/no_profile_photo.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/waves-test.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 850,
-		"inputAbbreviatedPath": "\/images\/waves-test.png",
-		"outputAbbreviatedPath": "\/images\/waves-test.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/index.html": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/index.html",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/js\/dev\/less.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/dev\/less.js",
-		"outputAbbreviatedPath": "\/js\/dev\/min\/less-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/js\/dev\/less.min.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/dev\/less.min.js",
-		"outputAbbreviatedPath": "\/js\/dev\/min\/less.min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/js\/jscolor.min.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/jscolor.min.js",
-		"outputAbbreviatedPath": "\/js\/min\/jscolor.min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/js\/min\/strapless-min.js": {
+	"\/index.js": {
 		"fileType": 64,
 		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/min\/strapless-min.js",
-		"outputAbbreviatedPath": "\/js\/min\/min\/strapless-min-min.js",
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/index.js",
+		"outputAbbreviatedPath": "\/min\/index-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/strapless.js": {
-		"fileType": 64,
-		"ignore": 0,
+	"\/package.json": {
+		"fileType": 524288,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/strapless.js",
-		"outputAbbreviatedPath": "\/js\/min\/strapless-min.js",
+		"inputAbbreviatedPath": "\/package.json",
+		"orderOutput": 0,
+		"outputAbbreviatedPath": "\/package-min.json",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
+		"outputStyle": 1
 		},
-	"\/less\/css\/strapless.css": {
+	"\/public\/static\/css\/index.css": {
 		"fileType": 16,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/less\/css\/strapless.css",
+		"inputAbbreviatedPath": "\/public\/static\/css\/index.css",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/less\/index.less": {
+	"\/public\/static\/js\/dev\/less.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/static\/js\/dev\/less.js",
+		"outputAbbreviatedPath": "\/public\/static\/js\/dev\/min\/less-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/public\/static\/js\/dev\/less.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/static\/js\/dev\/less.min.js",
+		"outputAbbreviatedPath": "\/public\/static\/js\/dev\/min\/less.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/public\/static\/js\/jscolor.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/static\/js\/jscolor.min.js",
+		"outputAbbreviatedPath": "\/public\/static\/js\/min\/jscolor.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/public\/static\/js\/min\/strapless-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/static\/js\/min\/strapless-min.js",
+		"outputAbbreviatedPath": "\/public\/static\/js\/min\/min\/strapless-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/public\/static\/js\/strapless.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/public\/static\/js\/strapless.js",
+		"outputAbbreviatedPath": "\/public\/static\/js\/min\/strapless-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/source\/less\/index.less": {
 		"allowInsecureImports": 0,
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"disableJavascript": 0,
 		"fileType": 1,
 		"ieCompatibility": 1,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/less\/index.less",
-		"outputAbbreviatedPath": "\/css\/index.css",
+		"inputAbbreviatedPath": "\/source\/less\/index.less",
+		"outputAbbreviatedPath": "\/public\/static\/css\/index.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 1,
+		"outputStyle": 0,
+		"relativeURLS": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"strictImports": 0,
+		"strictMath": 0,
+		"strictUnits": 0
+		},
+	"\/source\/less\/strapless\/colors.less": {
+		"allowInsecureImports": 0,
+		"createSourceMap": 0,
+		"disableJavascript": 0,
+		"fileType": 1,
+		"ieCompatibility": 1,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/source\/less\/strapless\/colors.less",
+		"outputAbbreviatedPath": "\/source\/less\/css\/colors.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -476,7 +148,7 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/less\/strapless\/colors.less": {
+	"\/source\/less\/strapless\/elements.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
@@ -484,8 +156,8 @@
 		"ieCompatibility": 1,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/less\/strapless\/colors.less",
-		"outputAbbreviatedPath": "\/less\/css\/colors.css",
+		"inputAbbreviatedPath": "\/source\/less\/strapless\/elements.less",
+		"outputAbbreviatedPath": "\/source\/less\/css\/elements.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -496,7 +168,7 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/less\/strapless\/elements.less": {
+	"\/source\/less\/strapless\/mixins.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
@@ -504,8 +176,8 @@
 		"ieCompatibility": 1,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/less\/strapless\/elements.less",
-		"outputAbbreviatedPath": "\/less\/css\/elements.css",
+		"inputAbbreviatedPath": "\/source\/less\/strapless\/mixins.less",
+		"outputAbbreviatedPath": "\/source\/less\/css\/mixins.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -516,7 +188,7 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/less\/strapless\/mixins.less": {
+	"\/source\/less\/strapless\/normalize.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
@@ -524,8 +196,8 @@
 		"ieCompatibility": 1,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/less\/strapless\/mixins.less",
-		"outputAbbreviatedPath": "\/less\/css\/mixins.css",
+		"inputAbbreviatedPath": "\/source\/less\/strapless\/normalize.less",
+		"outputAbbreviatedPath": "\/source\/less\/css\/normalize.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -536,7 +208,7 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/less\/strapless\/normalize.less": {
+	"\/source\/less\/strapless\/patterns.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
@@ -544,8 +216,8 @@
 		"ieCompatibility": 1,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/less\/strapless\/normalize.less",
-		"outputAbbreviatedPath": "\/less\/css\/normalize.css",
+		"inputAbbreviatedPath": "\/source\/less\/strapless\/patterns.less",
+		"outputAbbreviatedPath": "\/source\/less\/css\/patterns.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -556,7 +228,7 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/less\/strapless\/patterns.less": {
+	"\/source\/less\/strapless\/sl-palette.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
@@ -564,8 +236,8 @@
 		"ieCompatibility": 1,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/less\/strapless\/patterns.less",
-		"outputAbbreviatedPath": "\/less\/css\/patterns.css",
+		"inputAbbreviatedPath": "\/source\/less\/strapless\/sl-palette.less",
+		"outputAbbreviatedPath": "\/source\/less\/css\/sl-palette.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -576,7 +248,7 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/less\/strapless\/sl-palette.less": {
+	"\/source\/less\/strapless\/sl-pattern.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
@@ -584,8 +256,8 @@
 		"ieCompatibility": 1,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/less\/strapless\/sl-palette.less",
-		"outputAbbreviatedPath": "\/less\/css\/sl-palette.css",
+		"inputAbbreviatedPath": "\/source\/less\/strapless\/sl-pattern.less",
+		"outputAbbreviatedPath": "\/source\/less\/css\/sl-pattern.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -596,7 +268,7 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/less\/strapless\/sl-pattern.less": {
+	"\/source\/less\/strapless\/strapless.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
@@ -604,8 +276,8 @@
 		"ieCompatibility": 1,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/less\/strapless\/sl-pattern.less",
-		"outputAbbreviatedPath": "\/less\/css\/sl-pattern.css",
+		"inputAbbreviatedPath": "\/source\/less\/strapless\/strapless.less",
+		"outputAbbreviatedPath": "\/source\/less\/css\/strapless.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -616,7 +288,7 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/less\/strapless\/strapless.less": {
+	"\/source\/less\/strapless\/targets.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
@@ -624,8 +296,8 @@
 		"ieCompatibility": 1,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/less\/strapless\/strapless.less",
-		"outputAbbreviatedPath": "\/less\/css\/strapless.css",
+		"inputAbbreviatedPath": "\/source\/less\/strapless\/targets.less",
+		"outputAbbreviatedPath": "\/source\/less\/css\/targets.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -636,7 +308,7 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/less\/strapless\/targets.less": {
+	"\/source\/less\/strapless\/utilities.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
@@ -644,8 +316,8 @@
 		"ieCompatibility": 1,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/less\/strapless\/targets.less",
-		"outputAbbreviatedPath": "\/less\/css\/targets.css",
+		"inputAbbreviatedPath": "\/source\/less\/strapless\/utilities.less",
+		"outputAbbreviatedPath": "\/source\/less\/css\/utilities.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -656,7 +328,7 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/less\/strapless\/utilities.less": {
+	"\/source\/less\/strapless\/variables.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
@@ -664,28 +336,8 @@
 		"ieCompatibility": 1,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/less\/strapless\/utilities.less",
-		"outputAbbreviatedPath": "\/less\/css\/utilities.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"strictImports": 0,
-		"strictMath": 0,
-		"strictUnits": 0
-		},
-	"\/less\/strapless\/variables.less": {
-		"allowInsecureImports": 0,
-		"createSourceMap": 0,
-		"disableJavascript": 0,
-		"fileType": 1,
-		"ieCompatibility": 1,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/less\/strapless\/variables.less",
-		"outputAbbreviatedPath": "\/less\/css\/variables.css",
+		"inputAbbreviatedPath": "\/source\/less\/strapless\/variables.less",
+		"outputAbbreviatedPath": "\/source\/less\/css\/variables.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -699,7 +351,7 @@
 	},
 "hooks": [
 	],
-"lastSavedByUser": "Rex Riepe",
+"lastSavedByUser": "Adam Lord",
 "manualImportLinks": {
 	},
 "projectAttributes": {

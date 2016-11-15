@@ -1,0 +1,25 @@
+{
+  "name": "strapless",
+  "version": "1.0.0",
+  "description": "Dev setup =========",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tivix/strapless.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tivix/strapless/issues"
+  },
+  "homepage": "https://github.com/Tivix/strapless#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "less": "^2.7.1",
+    "less-middleware": "^2.2.0"
+  }
+}
