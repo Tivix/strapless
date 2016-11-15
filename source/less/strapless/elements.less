@@ -26,8 +26,9 @@ body {
   });
 }
 
-body > nav {
-  .sl-navbar(@color1);
+nav {
+  .sl-navbar(@color1b);
+  .no-user-select();
 }
 
 section {
@@ -140,10 +141,7 @@ a {
   color: @action-base;
 }
 
-//sub, sup { line-height: .61;}
-
 aside {
-  // TODO: does this make sense?
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
@@ -280,11 +278,12 @@ input[type="submit"] {
   padding: .4em 1ch;
   .contrast-text-against(@gray);
   .sl-button(@action);
+  .no-user-select();
 }
 
 .make-sl-buttons-for(@semantic-colors);
 
-mark {
+mark, ::selection {
   @color: @color1b;
   background: @color;
   .contrast-text-against(@color);

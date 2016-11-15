@@ -32,6 +32,14 @@
   border-color: @color;
 }
 
+.no-user-select() {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .clearfix() {
   &:before,
   &:after {
@@ -41,20 +49,6 @@
   &:after {
     clear: both;
   }
-}
-
-// TODO: should we keep these?
-
-.rotate(@degrees) {
-  -webkit-transform: rotate(@degrees);
-      -ms-transform: rotate(@degrees);
-       -o-transform: rotate(@degrees);
-          transform: rotate(@degrees);
-}
-
-.box-shadow(@shadow) {
-  -webkit-box-shadow: @shadow;
-          box-shadow: @shadow;
 }
 
 .sl-form(@color) {
@@ -159,8 +153,8 @@
   height: @height;
   line-height: @height;
   max-height: @height;
-  position: fixed; top:0; left: 0;
-  width: 100%;
+  padding: 0 @padding;
+  border-radius: @border-radius;
   z-index: 1000;
   overflow: hidden;
 
@@ -233,6 +227,12 @@
       background-color: lighten(@color, 10%);
       .contrast-text-against(lighten(@color, 10%));
     }
+  }
+
+  body > & {
+    position: fixed; top:0; left: 0;
+    width: 100%;
+    border-radius: 0;
   }
 }
 

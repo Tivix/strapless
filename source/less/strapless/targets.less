@@ -1,13 +1,6 @@
 // reusable targets.
 // these don't work well used inside of each other.
 
-// TODO: more variables that seem to work better here but maybe should go in variables.less
-
-@large-phone-break:   480px;
-@tablet-break:        768px;
-@desktop-break:       992px;
-@large-desktop-break: 1200px;
-
 .on-large-phone(@rules) {
   @media screen and (min-width: @large-phone-break) { @rules();}
 }
@@ -30,19 +23,4 @@
 
 .headlines(@rules) {
 	h1, h2, h3, h4, h5, h6 { @rules();}
-}
-
-// TODO: not sure about these. Like the matching conventions, and shielding from all the hover rules
-// problems that BS3 has, not sure if they work with "targets" though
-
-.on-click(@rules) {
-	&:active {
-		@rules();
-	}
-}
-
-.on-hover(@rules) {
-	&:hover {
-		@rules();
-	}
 }

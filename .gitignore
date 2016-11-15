@@ -21,5 +21,6 @@ ansible/run_bidder
 
 private_key
 strapless/private_key
-strapless/strapless/node_modules/
+
 node_modules
+config.codekit
