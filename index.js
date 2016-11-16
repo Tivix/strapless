@@ -6,6 +6,7 @@ var less = require('less');
 var app = express();
 var html_dir = path.join(__dirname, 'source/');
 var less_file_path = path.join(__dirname, 'source/less/index.less');
+var strapless_file_path = path.join(__dirname, 'source/less/strapless/strapless.less');
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -13,23 +14,23 @@ app.set('views', html_dir);
 
 app.locals.baseColor = '6CADE6';
 
-var generateStyles = function(baseColor) {
+var generateStyles = function(baseColor, filepath) {
     return new Promise(function(resolve, reject) {
         if (!baseColor) {
             baseColor = app.locals.baseColor;
         }
         var options = {
-            filename: less_file_path,
+            filename: filepath,
             sourceMap: {
                 sourceMapFileInline: true
             }
         };
-        fs.readFile(less_file_path, "utf8", function(err, data) {
+        fs.readFile(filepath, "utf8", function(err, data) {
             if (err) throw err;
             var baseColorString = '@base-color: #' + baseColor + ';';
             data = baseColorString + data;
             var options = {
-                filename: less_file_path
+                filename: filepath
             };
             less.render(data, options)
                 .then(function(output) {
@@ -72,13 +73,13 @@ app.get('/:baseColor?', function(req, res) {
 });
 
 app.get('/less/:baseColor', function(req, res) {
-    generateStyles(req.params.baseColor).then(function(css){
+    generateStyles(req.params.baseColor, less_file_path).then(function(css){
         res.send(css);
     })
 });
 
-app.get('/css/:baseColor', function(req, res) {
-    generateStyles(req.params.baseColor).then(function(css){
+app.get('/download/:baseColor', function(req, res) {
+    generateStyles(req.params.baseColor, strapless_file_path).then(function(css){
         res.header("Content-Disposition", "attachment;filename=Strapless_#" + req.params.baseColor + ".css");
         res.header("Content-type", "text/css");
         res.send(css);
