@@ -77,6 +77,14 @@ app.get('/less/:baseColor', function(req, res) {
     })
 });
 
+app.get('/css/:baseColor', function(req, res) {
+    generateStyles(req.params.baseColor).then(function(css){
+        res.header("Content-Disposition", "attachment;filename=Strapless_#" + req.params.baseColor + ".css");
+        res.header("Content-type", "text/css");
+        res.send(css);
+    })
+});
+
 
 app.use(express.static(path.join(__dirname, 'public', 'static')));
 

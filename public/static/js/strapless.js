@@ -1,7 +1,6 @@
 var Strapless = (function() {
 
     function _generateFavicon() {
-        console.log('generate fav');
         var canvas = document.createElement('canvas');
         var ctx;
         var link = document.getElementById('favicon');
@@ -32,7 +31,7 @@ var Strapless = (function() {
 
             link.href = canvas.toDataURL('image/png');
         }
-    };
+    }
 
     function _getLessFile(baseColor) {
         return new Promise(function(resolve, reject) {
@@ -43,7 +42,7 @@ var Strapless = (function() {
                     var response = {
                         'baseColor': baseColor,
                         'styles': xhr.response
-                    }
+                    };
                     resolve(response);
                 } else {
                     reject({
@@ -65,7 +64,7 @@ var Strapless = (function() {
     function getStyleSheet(unique_title) {
         for (var i = 0; i < document.styleSheets.length; i++) {
             var sheet = document.styleSheets[i];
-            if (sheet.title == unique_title) {
+            if (sheet.title === unique_title) {
                 return sheet;
             }
         }
@@ -73,16 +72,31 @@ var Strapless = (function() {
 
     function deleteStyleSheets() {
         for (var i = 0; i < document.styleSheets.length; i++) {
-            document.head.removeChild(document.styleSheets[i].ownerNode)
+            document.head.removeChild(document.styleSheets[i].ownerNode);
+        }
+    }
+
+    function setOverlayColor(overlay, baseColor) {
+        overlay.getElementsByTagName("circle")[0].setAttribute('stroke', '#' + baseColor);
+    }
+
+    function _getCSSFile() {
+        var baseColor = document.getElementById('seed_color').value;
+        var validHex = /^(?:[0-9a-f]{3}){1,2}$/i.test(baseColor);
+        if (validHex) {
+            location.href='/css/' + baseColor;
+        } else {
+            window.alert('Invalid hex color value entered.');
         }
     }
 
     function _updateScheme() {
         var baseColor = document.getElementById('seed_color').value;
+        var styleBlock = document.getElementById('style_block');
         var validHex = /^(?:[0-9a-f]{3}){1,2}$/i.test(baseColor);
-        if(validHex){
-            var styleBlock = document.getElementById('style_block');
+        if (validHex) {
             var overlay = document.getElementById('loading_overlay');
+            setOverlayColor(overlay, baseColor);
             overlay.style.display = 'block';
             _getLessFile(baseColor)
                 .then(function(response) {
@@ -97,7 +111,9 @@ var Strapless = (function() {
                     } else {
                         style.appendChild(document.createTextNode(css));
                     }
-                    history.pushState({'baseColor':response.baseColor}, '', '/' + baseColor);
+                    history.pushState({
+                        'baseColor': response.baseColor
+                    }, '', '/' + baseColor);
                     head.appendChild(style);
                     overlay.style.display = 'none';
                     _generateFavicon();
@@ -106,13 +122,16 @@ var Strapless = (function() {
                     console.error(err);
                 });
         } else {
-            alert('Invalid hex color value entered.')
+            window.alert('Invalid hex color value entered.');
         }
     }
 
     return {
         updateScheme: function() {
             _updateScheme();
+        },
+        downloadCSS: function() {
+            _getCSSFile();
         },
         generateFavicon: function() {
             _generateFavicon();
