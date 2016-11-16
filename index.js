@@ -12,13 +12,8 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 app.set('views', html_dir);
 
-app.locals.baseColor = '6CADE6';
-
 var generateStyles = function(baseColor, filepath) {
     return new Promise(function(resolve, reject) {
-        if (!baseColor) {
-            baseColor = app.locals.baseColor;
-        }
         var options = {
             filename: filepath,
             sourceMap: {
@@ -28,7 +23,7 @@ var generateStyles = function(baseColor, filepath) {
         fs.readFile(filepath, "utf8", function(err, data) {
             if (err) throw err;
             var baseColorString = '@base-color: #' + baseColor + ';';
-            data = baseColorString + data;
+            data = data + baseColorString;
             var options = {
                 filename: filepath
             };
@@ -56,7 +51,7 @@ app.get('/:baseColor?', function(req, res) {
         if(validHex){
             // If the url includes a base color, generate the css,
             // use the handlebars template, and render the css in the <style> tag
-            generateStyles(baseColor).then(function(css){
+            generateStyles(baseColor, less_file_path).then(function(css){
                 res.render('index', {
                     styles: css,
                     static_css: false
