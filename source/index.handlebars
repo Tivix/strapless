@@ -568,22 +568,62 @@
                 <div class="pattern"></div>
             </div>
         </section>
+
         <section id="elements">
             <h1>Elements</h1>
             <p>Line height is set to the golden ratio by default, so it's automatically <em>better</em>.</p>
             <p>Paragraphs have a character width limit! And they do this weird left-aligned centering thing because of our over-reaching faux grid rules.</p>
             <p>It ends up looking pretty good so we're gonna pretend that was on purpose.</p>
-        </section>
-        <section class="hide">
-            <h1>Headlines</h1>
+
+            <main>
+                <h2>Main</h2>
+                <p>The main element includes a background color and the dots pattern by default. There's one at the top of this page, too.</p>
+                <p>This is a main element. There should only be one of them.</p>
+            </main>
+
+
+            <h2>Asides</h2>
+            <p>Asides center everything inside them now using flexbox.</p>
+            <aside>This is an aside.</aside>
+            <p>It's useful for buttons:</p>
+            <aside><button class="reaction">I'm centered!</button><button class="failure">Me too</button></aside>
+
+            <h2>Typography</h2>
+
+            <h3>Headlines</h3>
             <p>Pretty much what you'd expect.</p>
 
-            <h1>This is headline text.</h1>
-            <h2>This is headline text.</h2>
-            <h3>This is headline text.</h3>
-            <h4>This is headline text.</h4>
-            <h5>This is headline text.</h5>
-            <h6>This is headline text.</h6>
+            <h1>This is headline text. (h1)</h1>
+            <h2>This is headline text. (h2)</h2>
+            <h3>This is headline text. (h3)</h3>
+            <h4>This is headline text. (h4)</h4>
+            <h5>This is headline text. (h5)</h5>
+            <h6>This is headline text. (h6)</h6>
+
+            <h3>Blockquotes</h3>
+            <blockquote>
+                This is a blockquote. We doin' those?
+                <cite>Rex Riepe</cite>
+            </blockquote>
+
+            <h3>Figures</h3>
+            <figure>
+                <img src="http://placekitten.com/300/300" alt="A Kitten">
+                <figcaption>This figcaption explains that this is an image of a kitten.</figcaption>
+                <caption>A caption element would accomplish the same thing.</caption>
+            </figure>
+
+            <h3>Other Block Elements</h3>
+            <article>
+                <pre>This is pre-formatted text</pre>
+                <p>Horizontal rule:</p>
+                <hr>
+            </article>
+
+            <h3>Other Inline Elements</h3>
+            <p>Paragraphs may also contain <abbr title="abbreviations, to the layperson">abbreves</abbr> and <acronym title="Aribitrarily Invented Acronyms For Display Purposes">AIAFDPS</acronym>.</p>
+            <p>Sometimes you just need an <code>an inline code snippet</code>.</p>
+
         </section>
         <section>
             <h2>Buttons</h2>
@@ -774,6 +814,7 @@
             </table>
         </section>
         <section>
+            <h2>Nav (navbar)</h2>
             <nav>
                 <section>
                     <h1><a href="/">Strapless</a></h1>
@@ -784,8 +825,26 @@
                     </ul>
                 </section>
             </nav>
-        </section>
 
+        <section>
+            <h2>Forms</h2>
+
+            <form>
+                <label>First name:</label>
+                <input type="text" name="firstname"><br>
+                <label>Last name:</label>
+                <input type="text" name="lastname">
+                <label>Textarea:</label>
+                <textarea rows="4">Placeholder text</textarea>
+                <label>Select:</label>
+                <select>
+                    <option value="1">This would be my first choice</option>
+                    <option value="2">Second choice</option>
+                    <option value="3">Third choice</option>
+                </select>
+            </form>
+
+       </section>
         <section>
             <h1>LESS</h1>
 

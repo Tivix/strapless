@@ -205,8 +205,8 @@ body {
   }
 }
 nav {
-  background-color: #876ce6;
-  color: #f8f6fe;
+  background-color: #cbe66c;
+  color: #fcfef6;
   height: 48px;
   line-height: 48px;
   max-height: 48px;
@@ -270,21 +270,21 @@ nav h3 {
   font-size: 26px;
   line-height: 48px;
   margin-right: 48px;
-  color: #f8f6fe;
+  color: #fcfef6;
 }
 nav a {
   display: block;
   float: left;
   text-decoration: none;
-  color: #f8f6fe;
+  color: #fcfef6;
 }
 nav li > a {
   padding-left: 18.24px;
   padding-right: 18.24px;
 }
 nav li > a:hover {
-  background-color: #aa98ed;
-  color: #f8f6fe;
+  background-color: #dbed98;
+  color: #6a7838;
 }
 body > nav {
   position: fixed;
@@ -416,15 +416,43 @@ h6 {
 }
 p,
 form,
-figure {
+figure,
+article {
   margin: 0 auto 1em;
 }
 @media screen and (min-width: 768px) {
   p,
   form,
-  figure {
+  figure,
+  article {
     max-width: 50ch;
   }
+}
+p.info,
+form.info,
+figure.info,
+article.info,
+p.warning,
+form.warning,
+figure.warning,
+article.warning,
+p.action,
+form.action,
+figure.action,
+article.action,
+p.reaction,
+form.reaction,
+figure.reaction,
+article.reaction,
+p.success,
+form.success,
+figure.success,
+article.success,
+p.failure,
+form.failure,
+figure.failure,
+article.failure {
+  padding: .5em 1em;
 }
 a {
   color: #63a2d9;
@@ -504,6 +532,9 @@ form select {
   -moz-appearance: none;
   -webkit-appearance: none;
 }
+form label input[type="checkbox"] {
+  position: absolute;
+}
 label {
   display: block;
   margin-bottom: .25em;
@@ -564,17 +595,17 @@ table.action > tbody > tr:nth-of-type(odd) {
   background-color: #989aed;
 }
 table.reaction > thead > tr > th {
-  background-color: #e6a56c;
-  color: #fefaf6;
+  background-color: #cbe66c;
+  color: #fcfef6;
 }
 table.reaction > tbody > tr > td {
-  color: #fef8f6;
+  color: #fafef6;
 }
 table.reaction > tbody > tr {
-  background-color: #edaa98;
+  background-color: #b7e97d;
 }
 table.reaction > tbody > tr:nth-of-type(odd) {
-  background-color: #edc098;
+  background-color: #9ce97d;
 }
 table.info > thead > tr > th {
   background-color: #63c5e2;
@@ -644,7 +675,8 @@ img {
 li {
   list-style: none;
 }
-caption {
+caption,
+figcaption {
   text-align: left;
   vertical-align: top;
   font-weight: normal;
@@ -719,11 +751,11 @@ button.action:active {
   background-color: #5fa6e4;
 }
 button.reaction {
-  background-color: #e6a56c;
-  border-color: #e29856;
+  background-color: #cbe66c;
+  border-color: #c4e256;
 }
 button.reaction:active {
-  background-color: #e49d5f;
+  background-color: #c7e45f;
 }
 button.info {
   background-color: #63c5e2;
@@ -804,9 +836,9 @@ hr {
   border-color: #6CADE6;
 }
 .reaction {
-  background-color: #e6a56c;
-  color: #fefaf6;
-  border-color: #e6a56c;
+  background-color: #cbe66c;
+  color: #fcfef6;
+  border-color: #cbe66c;
 }
 .gray {
   background-color: #939393;
@@ -4237,7 +4269,7 @@ body section:last-child {
   background: #6CADE6;
 }
 #semantic_color_test div:nth-child(2) {
-  background: #e6a56c;
+  background: #cbe66c;
 }
 #semantic_color_test div:nth-child(3) {
   background: #63c5e2;
@@ -4280,7 +4312,7 @@ body section:last-child {
   background: #63a2d9;
 }
 #semantic_base_test div:nth-child(2) {
-  background: #e39c5d;
+  background: #c6e35d;
 }
 #semantic_base_test div:nth-child(3) {
   background: #5bc0de;
