@@ -24,7 +24,7 @@
   color: mix(darken(@color;20%); #333; 40%);
 }
 
-.text-color(@color) when ((red(@color) + green(@color) - blue(@color)) > 400) {
+.text-color(@color) when ((red(@color) + green(@color) - blue(@color)) > 420) {
   // for particularly obnoxious yellows
   color: mix(darken(@color;20%); #2f3125; 40%);
 }
@@ -34,6 +34,11 @@
 }
 
 .text-color-dim(@color) when (luma(@color) >= @contrast-break) {
+  color: mix(darken(@color;10%); #333; 50%);
+}
+
+.text-color-dim(@color) when ((red(@color) + green(@color) - blue(@color)) > 420) {
+  // for particularly obnoxious yellows
   color: mix(darken(@color;10%); #333; 50%);
 }
 

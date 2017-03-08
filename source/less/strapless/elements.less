@@ -55,7 +55,7 @@ section {
 }
 
 main {
-  @color: overlay(@color2, @background);
+  @color: overlay(@color1, @background);
   padding: @padding;
   border-radius: @border-radius;
   background: @color;
@@ -73,7 +73,7 @@ main {
   }
 
   p {
-    .text-color-dim(@color);
+    //.text-color-dim(@color);
     text-align: left;
     margin-left: auto;
     margin-right: auto;
@@ -136,6 +136,7 @@ p, form, figure, article {
 
 a {
   color: @action-base;
+  text-decoration: none;
 }
 
 aside {

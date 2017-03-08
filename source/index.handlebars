@@ -37,15 +37,15 @@
             <p>Strapless is a LESS library for colors and patterns. It's also a CSS&nbsp;boilerplate for all the basic HTML elements.</p>
             <aside>
                 <button class="success" type="button" onclick="alert('Coming soon!')">download</button>
-                <button type="button" class="action" onclick="Strapless.downloadCSS();">get CSS</button>
+                <button class="failure" type="button" onclick="Strapless.downloadCSS();">get CSS</button>
                 <button class="info" type="button" onclick="location.href='http://github.com/Tivix/strapless'">github</button>
             </aside>
             <form id="demo_form">
                 <label>Base color</label>
                 <p class="hide"><span id="less_variable_test"></span></p>
                 <input id="seed_color" class="jscolor" value="cadfe6" />
-                <button type="button" class="action" onclick="Strapless.updateScheme();">Preview</button>
-                <button type="button" class="action" onclick="Strapless.downloadCSS();">Download CSS</button>
+                <button type="button" class="info" onclick="Strapless.updateScheme();">Preview</button>
+                <button type="button" class="failure" onclick="Strapless.downloadCSS();">Download CSS</button>
             </form>
         </main>
 
@@ -863,8 +863,7 @@
                     <option value="3">Third choice</option>
                 </select>
             </form>
-
-       </section>
+        </section>
         <section>
             <h1>LESS</h1>
 
@@ -886,6 +885,7 @@
             <p>Simple SVG-based color-shifting patterns ready to drop in to your project.</p>
 
         </section>
+
         <section>
             <h1>Special thanks</h1>
             <p>This library wouldn't be possible without the following awesome OSS contributions:</p>
