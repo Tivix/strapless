@@ -1,3 +1,21 @@
+// utilities (mixins as classes)
+
+.clearfix { .clearfix();}
+
+.hide, .hidden { display: none !important;}
+
+.show { display: block !important;}
+
+.info { .colorify(@info);}
+.warning { .colorify(@warning);}
+.failure { .colorify(@failure);}
+.success { .colorify(@success);}
+.action { .colorify(@action);}
+.reaction { .colorify(@reaction);}
+.gray { .colorify(@gray);}
+
+// mixins
+
 .text-color(@color) when (luma(@color) < 73.5%) {
   color: hsl(hue(@color); saturation(@color) + 10; 98%); // pretty much white
 }
@@ -50,6 +68,8 @@
     clear: both;
   }
 }
+
+// element mixins
 
 .sl-form(@color) {
   #strapless.make-palette(@color, ebb);
@@ -202,6 +222,7 @@
     float:left;
     height: @height;
     line-height: @height;
+    list-style: none;
   }
 
   h1, h2, h3 {

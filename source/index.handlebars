@@ -34,8 +34,12 @@
         <main>
             <h1>Strapless</h1>
             <p>Finally, LESS is <em>cool</em> again.</p>
-            <p>Strapless is a LESS library for colors and patterns. It's also a boilerplate for basic HTML elements.</p>
-            <aside><button class="success" type="button" onclick="alert('Coming soon!')">download</button> <button class="info" type="button" onclick="location.href='http://github.com/Tivix/strapless'">github</button></aside>
+            <p>Strapless is a LESS library for colors and patterns. It's also a CSS&nbsp;boilerplate for all the basic HTML elements.</p>
+            <aside>
+                <button class="success" type="button" onclick="alert('Coming soon!')">download</button>
+                <button type="button" class="action" onclick="Strapless.downloadCSS();">get CSS</button>
+                <button class="info" type="button" onclick="location.href='http://github.com/Tivix/strapless'">github</button>
+            </aside>
             <form id="demo_form">
                 <label>Base color</label>
                 <p class="hide"><span id="less_variable_test"></span></p>
@@ -470,6 +474,16 @@
                 <div class="color3 color"></div>
                 <div class="color4 color"></div>
             </div>
+        </section>
+
+        <section id="philosophy">
+            <h1>Philosophy</h1>
+            <ul>
+                <li>Full support for HTML elements</li>
+                <li>Smart CSS rules for good "out of the box" layouts</li>
+                <li>Simple LESS variables</li>
+                <li>Wide support for color and patterns.</li>
+            </ul>
         </section>
 
         <section id="patterns">
