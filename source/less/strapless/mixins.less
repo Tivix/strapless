@@ -16,31 +16,29 @@
 
 // mixins
 
-.text-color(@color) when (luma(@color) < 73.5%) {
+.text-color(@color) when (luma(@color) < @contrast-break) {
   color: hsl(hue(@color); saturation(@color) + 10; 98%); // pretty much white
 }
 
-.text-color(@color) when (luma(@color) >= 73.5%) {
+.text-color(@color) when (luma(@color) >= @contrast-break) {
   color: mix(darken(@color;20%); #333; 40%);
 }
 
-.text-color-dim(@color) when (luma(@color) < 73.5%) {
+.text-color(@color) when ((red(@color) + green(@color) - blue(@color)) > 400) {
+  // for particularly obnoxious yellows
+  color: mix(darken(@color;20%); #2f3125; 40%);
+}
+
+.text-color-dim(@color) when (luma(@color) < @contrast-break) {
   color: hsl(hue(@color); saturation(@color); 95%);
 }
 
-.text-color-dim(@color) when (luma(@color) >= 73.5%) {
+.text-color-dim(@color) when (luma(@color) >= @contrast-break) {
   color: mix(darken(@color;10%); #333; 50%);
 }
 
-.headline-color(@color) {
-  color: mix(darken(@color;30%); #333; 40%);
-}
-
-.headline-color(@color) when (@scheme-type = dark) {
-  color:white;
-}
-
 .contrast-text-against(@color) {
+  // a more reader-friendly alias for .text-color
   .text-color(@color);
 }
 
@@ -129,11 +127,20 @@
 
     font-family: monospace;
     font-size: 85%;
-    padding: @padding * .25 @padding * .67 @padding * .3 @padding * .67;
+    padding: .1em .5em .15em .5em;
     border-radius: @border-radius/2;
     background: @background;
-    // border: 1px solid darken(@color, 8%);
     color: @color;
+}
+
+.sl-button(@color: @gray) {
+  background-color: @color;
+  border-color: darken(@color, 5%);
+  .contrast-text-against(@color);
+
+  &:active {
+    background-color: darken(@color, 3%);
+  }
 }
 
 .make-sl-buttons-for(@colors) {
@@ -151,15 +158,6 @@
     }
 
     .make-sl-button(@index + 1);
-  }
-}
-
-.sl-button(@color: @gray) {
-  background-color: @color;
-  border-color: darken(@color, 5%);
-
-  &:active {
-    background-color: darken(@color, 3%);
   }
 }
 

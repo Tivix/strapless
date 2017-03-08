@@ -55,7 +55,7 @@ section {
 }
 
 main {
-  @color: @color3;
+  @color: overlay(@color2, @background);
   padding: @padding;
   border-radius: @border-radius;
   background: @color;
@@ -267,13 +267,11 @@ input[type="submit"] {
   touch-action: manipulation;
   cursor: pointer;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  // border: 1px solid transparent;
   border: none;
   border-radius: @border-radius;
   outline: none;
   white-space: nowrap;
   padding: .4em 1ch;
-  .contrast-text-against(@gray);
   .sl-button(@action);
   .no-user-select();
 }

@@ -24,3 +24,28 @@
 .headlines(@rules) {
 	h1, h2, h3, h4, h5, h6 { @rules();}
 }
+
+.block-level-elements(@rules) {
+	p,
+	ol, ul
+	pre,
+	address,
+	blockquote,
+	dl,
+	div,
+	fieldset,
+	form,
+	hr,
+	table {
+		@rules();
+	}
+}
+
+.inline-elements(@rules) {
+	b, big, i, small, tt,
+	abbr, acronym, cite, code, em, strong,
+	a, br, img, map, object, span, sub, sup,
+	button, input, label, select, textarea {
+		@rules();
+	}
+}
