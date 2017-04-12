@@ -61,7 +61,7 @@ main {
   background: @color;
   margin: 0 @padding;
   text-align: center;
-  #patterns.dots(@color);
+  .dots(@color);
   .contrast-text-against(@color);
 
   h1, h2 {
@@ -95,8 +95,8 @@ h1 { font-size: 2.5em;}
 h2 { font-size: 2.2em;}
 h3 { font-size: 1.9em;}
 h4 { font-size: 1.7em;}
-h5 { font-size: 1.25em;}
-h6 { font-size: 1em;}
+h5 { font-size: 1.3em;}
+h6 { font-size: 1.0em;}
 
 h1, h2, h3, h4 {
   margin-top: .8em;
@@ -117,7 +117,7 @@ h5, h6 {
   text-transform: uppercase;
 }
 
-p, form, figure, article, ul {
+p, form, figure, article, ul, li {
   margin: 0 auto 1em;
 
   .on-tablet({
@@ -190,15 +190,13 @@ table {
     vertical-align: bottom;
   }
 
-  thead, tbody {
-    tr > td,
-    tr > th {
-      &:first-child {
-        padding-left: @padding;
-      }
-      &:last-child {
-        padding-right: @padding;
-      }
+  tr > td,
+  tr > th {
+    &:first-child {
+      padding-left: @padding;
+    }
+    &:last-child {
+      padding-right: @padding;
     }
   }
 }
@@ -267,6 +265,7 @@ input[type="submit"] {
   outline: none;
   white-space: nowrap;
   padding: .4em 1ch;
+  .contrast-text-against(@gray);
   .sl-button(@action);
   .no-user-select();
 }
