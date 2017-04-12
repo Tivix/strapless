@@ -55,7 +55,7 @@ section {
 }
 
 main {
-  @color: overlay(@color1, @background);
+  @color: @color1b;
   padding: @padding;
   border-radius: @border-radius;
   background: @color;
@@ -135,8 +135,8 @@ p, form, figure, article, ul {
 }
 
 a {
-  color: mix(@action-base, #333, 90%);
-  text-decoration: none;
+  color: inherit;
+  text-decoration: underline;
 }
 
 aside {
@@ -203,7 +203,7 @@ table {
   }
 }
 
-.make-tables-for(@semantic-colors);
+.make-sl-tables-for(@semantic-colors);
 
 footer {
   // background:@color1c;
@@ -218,12 +218,6 @@ footer {
 }
 
 fieldset,img { border: 0; }
-
-// li { list-style: none; }
-
-// sup { vertical-align: text-top; }
-
-// sub { vertical-align: text-bottom; }
 
 caption, figcaption {
   text-align: left;

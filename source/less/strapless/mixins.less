@@ -274,7 +274,7 @@
   }
 
   & > tbody > tr > td {
-   .contrast-text-against(@row-a);
+    .contrast-text-against(@row-a);
   }
 
   & > tbody > tr {
@@ -286,7 +286,7 @@
   }
 }
 
-.make-tables-for(@colors) {
+.make-sl-tables-for(@colors) {
   @iterations: length(@colors);
 
   .make-sl-table(1);

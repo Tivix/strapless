@@ -102,36 +102,6 @@ body {
   color4c: @color4c;
 }
 
-#less_variable_test {
-
-  .variable-test(@less-test; @less-test-name;);
-
-  .variable-test(@less-test; @less-test-name;) {
-    &:before {
-      content: "@{less-test-name}: ";
-    }
-    &:after {
-      display:block;
-      content:"@{less-test}";
-    }
-  }
-
-  .variable-test(@less-test; @less-test-name;) when (isColor(@less-test)) {
-    &:before {
-      display: inline-block;
-      width: @padding;
-      height: @padding;
-      background: @less-test;
-      content: "";
-    }
-    &:after {
-      display:block;
-      content:"@{less-test-name}: @{less-test}";
-    }
-  }
-
-}
-
 .color-wheel-test {
   margin: 0 auto;
   h1 {
@@ -417,6 +387,21 @@ body {
     max-width: 200px;
   });
 }
+
+.sl-current-color {
+  @size: 18px;
+
+  display: inline-block;
+  width: @size;
+  height: @size;
+  text-indent: -9999px;
+  white-space: nowrap;  
+  background-color: @color1;
+  vertical-align: top;
+  margin-top: 5px;
+  border-radius: @border-radius/4;
+}
+
 #loading_overlay {
     display:none;
     position:fixed;

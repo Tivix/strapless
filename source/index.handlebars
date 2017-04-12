@@ -34,15 +34,14 @@
         <main>
             <h1>Strapless</h1>
             <p>Finally, LESS is <em>cool</em> again.</p>
-            <p>Strapless is a LESS library for colors and patterns. It's also a CSS&nbsp;boilerplate for all the basic HTML elements.</p>
+            <p>Strapless is a CSS&nbsp;boilerplate for all standard HTML elements. <br>It's also a powerful LESS library for colors and patterns.</p>
             <aside>
-                <button class="success" type="button" onclick="alert('Coming soon!')">download</button>
-                <button class="failure" type="button" onclick="Strapless.downloadCSS();">get CSS</button>
+                <button class="success" type="button" onclick="alert('Coming soon!')">Download LESS</button>
+                <button class="failure" type="button" onclick="Strapless.downloadCSS();">Get CSS <span class="sl-current-color">current color</span></button>
                 <button class="info" type="button" onclick="location.href='http://github.com/Tivix/strapless'">github</button>
             </aside>
             <form id="demo_form">
                 <label>Base color</label>
-                <p class="hide"><span id="less_variable_test"></span></p>
                 <input id="seed_color" class="jscolor" value="cadfe6" />
                 <button type="button" class="info" onclick="Strapless.updateScheme();">Preview</button>
                 <button type="button" class="failure" onclick="Strapless.downloadCSS();">Download CSS</button>
@@ -51,6 +50,7 @@
 
         <section id="colors">
             <h1>Colors</h1>
+            <p>Give Strapless a base color and a color wheel, get a full color scheme back.</p>
             <div id="strapless_colors_accented" class="palette-preview">
                 <p class="swatch"></p>
                 <p class="swatch"></p>
@@ -402,80 +402,6 @@
             <div class="clearfix"></div>
         </section>
 
-        <section>
-            <div id="color_wheel_test" class="color-wheel-test">
-                <h1>Current</h1>
-                <div class="color1 color"></div>
-                <div class="color2 color"></div>
-                <div class="color3 color"></div>
-                <div class="color4 color"></div>
-            </div>
-
-            <div id="color_wheel_accented" class="color-wheel-test">
-                <h1>Accented</h1>
-                <div class="color1 color"></div>
-                <div class="color2 color"></div>
-                <div class="color3 color"></div>
-                <div class="color4 color"></div>
-            </div>
-
-            <div id="color_wheel_complementary" class="color-wheel-test">
-                <h1>Complementary</h1>
-                <div class="color1 color"></div>
-                <div class="color2 color"></div>
-                <div class="color3 color"></div>
-                <div class="color4 color"></div>
-            </div>
-
-            <div id="color_wheel_triadic" class="color-wheel-test">
-                <h1>Triadic</h1>
-                <div class="color1 color"></div>
-                <div class="color2 color"></div>
-                <div class="color3 color"></div>
-                <div class="color4 color"></div>
-            </div>
-
-            <div id="color_wheel_tetradic" class="color-wheel-test">
-                <h1>Tetradic</h1>
-                <div class="color1 color"></div>
-                <div class="color2 color"></div>
-                <div class="color3 color"></div>
-                <div class="color4 color"></div>
-            </div>
-
-            <div id="color_wheel_square" class="color-wheel-test">
-                <h1>Square</h1>
-                <div class="color1 color"></div>
-                <div class="color2 color"></div>
-                <div class="color3 color"></div>
-                <div class="color4 color"></div>
-            </div>
-
-            <div id="color_wheel_monochromatic" class="color-wheel-test">
-                <h1>Monochromatic</h1>
-                <div class="color1 color"></div>
-                <div class="color2 color"></div>
-                <div class="color3 color"></div>
-                <div class="color4 color"></div>
-            </div>
-
-            <div id="color_wheel_ebb" class="color-wheel-test">
-                <h1>Ebb</h1>
-                <div class="color1 color"></div>
-                <div class="color2 color"></div>
-                <div class="color3 color"></div>
-                <div class="color4 color"></div>
-            </div>
-
-            <div id="color_wheel_flow" class="color-wheel-test">
-                <h1>Flow</h1>
-                <div class="color1 color"></div>
-                <div class="color2 color"></div>
-                <div class="color3 color"></div>
-                <div class="color4 color"></div>
-            </div>
-        </section>
-
         <section id="philosophy">
             <h1>Philosophy</h1>
             <ul>
@@ -483,7 +409,8 @@
                 <li>Smart CSS rules for good "out of the box" layouts</li>
                 <li>Simple LESS variables backing powerful palettes</li>
                 <li>Wide support for base colors and patterns</li>
-                <li>Don't call it a framework</li>
+                <li>Don't call it a framework!</li>
+                <li>Opinionated but simple design rules</li>
                 <li>Easy to overwrite when everything goes horribly wrong</li>
             </ul>
         </section>
@@ -652,6 +579,7 @@
                 <button type="button" class="info">Info</button>
                 <button type="button" class="warning">Warning</button>
             </aside>
+            <p>Semantic colors respond to the color scheme too, so <code>@success</code> will always be the <em>right</em> green.</p>
         </section>
         <section>
             <h2>Tables</h2>
