@@ -6,3 +6,17 @@
 
 @import "normalize";
 @import "elements";
+
+// utilities (mixins as classes)
+
+.hide, .hidden { display: none !important;}
+
+.show { display: block !important;}
+
+.info { .colorify(@info);}
+.warning { .colorify(@warning);}
+.failure { .colorify(@failure);}
+.success { .colorify(@success);}
+.action { .colorify(@action);}
+.reaction { .colorify(@reaction);}
+.gray { .colorify(@gray);}

@@ -1,23 +1,7 @@
-// utilities (mixins as classes)
-
-.clearfix { .clearfix();}
-
-.hide, .hidden { display: none !important;}
-
-.show { display: block !important;}
-
-.info { .colorify(@info);}
-.warning { .colorify(@warning);}
-.failure { .colorify(@failure);}
-.success { .colorify(@success);}
-.action { .colorify(@action);}
-.reaction { .colorify(@reaction);}
-.gray { .colorify(@gray);}
-
 // mixins
 
 .text-color(@color) when (luma(@color) < @contrast-break) {
-  color: hsl(hue(@color); saturation(@color) + 10; 98%); // pretty much white
+  color: hsl(hue(@color); saturation(@color) + 10; 98.5%); // pretty much white
 }
 
 .text-color(@color) when (luma(@color) >= @contrast-break) {
@@ -58,7 +42,6 @@
   -khtml-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  user-select: none;
 }
 
 .clearfix() {
@@ -76,9 +59,8 @@
 
 .sl-main(@color: @color1;) {
   padding: @padding;
-  border-radius: @border-radius;
   background: @color;
-  margin: 0 @padding;
+  margin: 0;
   text-align: center;
 
   h1, h2 {
@@ -105,6 +87,7 @@
     max-width: @content-width;
     margin: 0 auto;
     padding: @padding*2;
+    border-radius: @border-radius;
   });
 }
 
@@ -222,6 +205,10 @@
   z-index: 1000;
   overflow: hidden;
 
+  > section {
+    padding-top: 0;
+  }
+
   > section > * { // pseudo reset
     display: none;
     float:left;
@@ -241,7 +228,7 @@
 
     &:first-child {
       display: block;
-      margin-left: 0;
+      // margin-left: .5em;
       margin-right: @padding * 2;
 
       .on-large-phone({

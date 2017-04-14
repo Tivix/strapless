@@ -34,7 +34,7 @@ nav {
 section {
   max-width: @content-width;
   margin: 0 @padding @padding*4 @padding;
-  .clearfix();
+  padding-top: @navbar-height;
 
   > * {
     margin: 0 auto;
@@ -84,7 +84,7 @@ h5, h6 {
   text-transform: uppercase;
 }
 
-p, form, figure, article, ul, li {
+p, form, article, ul, li {
   margin: 0 auto 1em;
 
   .on-tablet({
@@ -110,7 +110,6 @@ aside {
   margin-bottom: 1em;
 
   > button {
-    //display: block;
     width: 100%;
     margin-bottom: .5em;
   }
@@ -141,8 +140,6 @@ aside {
       padding-top: 1em;
     }
   });
-
-  .clearfix();
 }
 
 form {
