@@ -74,6 +74,51 @@
 
 // element mixins
 
+.sl-main(@color: @color1;) {
+  padding: @padding;
+  border-radius: @border-radius;
+  background: @color;
+  margin: 0 @padding;
+  text-align: center;
+
+  h1, h2 {
+    & + p {
+      text-align: center;
+      font-size: 125%;
+      margin-bottom: 1em;
+    }
+  }
+
+  p {
+    //.text-color-dim(@color);
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  img {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .on-tablet({
+    max-width: @content-width;
+    margin: 0 auto;
+    padding: @padding*2;
+  });
+}
+
+.sl-main(@color: @color1c) when (@scheme-type = light) {
+  .dots(@color);
+  .contrast-text-against(@color);
+}
+
+.sl-main(@color: @color1b) when (@scheme-type = dark) {
+  .dots(@color);
+  .contrast-text-against(@color);
+}
+
+
 .sl-form(@color) {
   #strapless.make-palette(@color, ebb);
   @input-color: #fafafa;
@@ -172,7 +217,7 @@
   height: @height;
   line-height: @height;
   max-height: @height;
-  padding: 0 @padding;
+  padding: 0;
   border-radius: @border-radius;
   z-index: 1000;
   overflow: hidden;
@@ -196,11 +241,10 @@
 
     &:first-child {
       display: block;
-      margin-left: @padding;
+      margin-left: 0;
       margin-right: @padding * 2;
 
       .on-large-phone({
-        margin-left: 0;
         margin-right: @height;
       });
     }

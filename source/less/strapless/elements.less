@@ -55,40 +55,7 @@ section {
 }
 
 main {
-  @color: @color4;
-  padding: @padding;
-  border-radius: @border-radius;
-  background: @color;
-  margin: 0 @padding;
-  text-align: center;
-  .dots(@color);
-  .contrast-text-against(@color);
-
-  h1, h2 {
-    & + p {
-      text-align: center;
-      font-size: 125%;
-      margin-bottom: 1em;
-    }
-  }
-
-  p {
-    //.text-color-dim(@color);
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  img {
-    margin: 0 auto;
-    max-width: 100%;
-  }
-
-  .on-tablet({
-    max-width: @content-width;
-    margin: 0 auto;
-    padding: @padding*2;
-  });
+  .sl-main();
 }
 
 h1 { font-size: 2.5em;}
@@ -140,23 +107,41 @@ a {
 }
 
 aside {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  padding: 1em;
+  margin-bottom: 1em;
+
+  > button {
+    //display: block;
+    width: 100%;
+    margin-bottom: .5em;
+  }
 
   > * {
-    margin-left: @padding;
+    margin-right: @padding;
 
-    &:first-child {
-      margin-left: 0;
+    &:last-child {
+      margin-right: 0;
     }
   }
+
+  .on-large-phone({
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+
+    > button {
+      width: auto;
+    }
+
+    p + & {
+      padding-top: 1em;
+    }
+  });
+
   .clearfix();
 }
 

@@ -37,14 +37,16 @@
             <p>Strapless is a CSS&nbsp;boilerplate for all standard HTML elements. <br>It's also a powerful LESS library for colors and patterns.</p>
             <aside>
                 <button class="success" type="button" onclick="alert('Coming soon!')">Download LESS</button>
-                <button class="failure" type="button" onclick="Strapless.downloadCSS();">Get CSS <span class="sl-current-color">current color</span></button>
-                <button class="info" type="button" onclick="location.href='http://github.com/Tivix/strapless'">github</button>
+                <button class="failure" type="button" onclick="Strapless.downloadCSS();">Get this CSS <span class="sl-current-color">current color</span></button>
+                <button class="info" type="button" onclick="location.href='http://github.com/Tivix/strapless'">GitHub</button>
             </aside>
             <form id="demo_form">
                 <label>Base color</label>
                 <input id="seed_color" class="jscolor" value="cadfe6" />
-                <button type="button" class="info" onclick="Strapless.updateScheme();">Preview</button>
-                <button type="button" class="failure" onclick="Strapless.downloadCSS();">Download CSS</button>
+                <aside>
+                    <button type="button" class="info" onclick="Strapless.updateScheme();">Preview</button>
+                    <button type="button" class="failure" onclick="Strapless.downloadCSS();">Get CSS</button>
+                </aside>
             </form>
         </main>
 
