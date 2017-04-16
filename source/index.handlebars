@@ -38,6 +38,7 @@
             <aside>
                 <button class="failure" type="button" onclick="Strapless.downloadCSS();">Get this CSS <span class="sl-current-color">current color</span></button>
                 <button class="success" type="button" onclick="location.href='http://github.com/Tivix/strapless'">LESS/GitHub</button>
+                <button class="failure" type="button" onclick="Strapless.downloadSiteCSS();">Get site CSS <span class="sl-current-color">current color</span></button>
             </aside>
             <form id="demo_form">
                 <label>Base color</label>
@@ -53,352 +54,148 @@
             <h1>Colors</h1>
             <p>Give Strapless a base color and a color wheel, get a full color scheme back.</p>
             <div id="strapless_colors_accented" class="palette-preview">
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
+                <p class="sl-color1 swatch"></p>
+                <p class="sl-color1a swatch"></p>
+                <p class="sl-color1b swatch"></p>
+                <p class="sl-color1c swatch"></p>
+                <p class="sl-color2 swatch"></p>
+                <p class="sl-color2a swatch"></p>
+                <p class="sl-color2b swatch"></p>
+                <p class="sl-color2c swatch"></p>
+                <p class="sl-color3 swatch"></p>
+                <p class="sl-color3a swatch"></p>
+                <p class="sl-color3b swatch"></p>
+                <p class="sl-color3c swatch"></p>
+                <p class="sl-color4 swatch"></p>
+                <p class="sl-color4a swatch"></p>
+                <p class="sl-color4b swatch"></p>
+                <p class="sl-color4c swatch"></p>
             </div>
             <div id="strapless_colors_complementary" class="palette-preview">
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-            </div>
-            <div id="strapless_colors_complementary-b" class="palette-preview">
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
+                <p class="sl-color1 swatch"></p>
+                <p class="sl-color1a swatch"></p>
+                <p class="sl-color1b swatch"></p>
+                <p class="sl-color1c swatch"></p>
+                <p class="sl-color2 swatch"></p>
+                <p class="sl-color2a swatch"></p>
+                <p class="sl-color2b swatch"></p>
+                <p class="sl-color2c swatch"></p>
+                <p class="sl-color3 swatch"></p>
+                <p class="sl-color3a swatch"></p>
+                <p class="sl-color3b swatch"></p>
+                <p class="sl-color3c swatch"></p>
+                <p class="sl-color4 swatch"></p>
+                <p class="sl-color4a swatch"></p>
+                <p class="sl-color4b swatch"></p>
+                <p class="sl-color4c swatch"></p>
             </div>
             <div id="strapless_colors_triadic" class="palette-preview">
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-            </div>
-            <div id="strapless_colors_triadic-b" class="palette-preview">
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
+                <p class="sl-color1 swatch"></p>
+                <p class="sl-color1a swatch"></p>
+                <p class="sl-color1b swatch"></p>
+                <p class="sl-color1c swatch"></p>
+                <p class="sl-color2 swatch"></p>
+                <p class="sl-color2a swatch"></p>
+                <p class="sl-color2b swatch"></p>
+                <p class="sl-color2c swatch"></p>
+                <p class="sl-color3 swatch"></p>
+                <p class="sl-color3a swatch"></p>
+                <p class="sl-color3b swatch"></p>
+                <p class="sl-color3c swatch"></p>
+                <p class="sl-color4 swatch"></p>
+                <p class="sl-color4a swatch"></p>
+                <p class="sl-color4b swatch"></p>
+                <p class="sl-color4c swatch"></p>
             </div>
             <div id="strapless_colors_tetradic" class="palette-preview">
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-            </div>
-            <div id="strapless_colors_tetradic-b" class="palette-preview">
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
+                <p class="sl-color1 swatch"></p>
+                <p class="sl-color1a swatch"></p>
+                <p class="sl-color1b swatch"></p>
+                <p class="sl-color1c swatch"></p>
+                <p class="sl-color2 swatch"></p>
+                <p class="sl-color2a swatch"></p>
+                <p class="sl-color2b swatch"></p>
+                <p class="sl-color2c swatch"></p>
+                <p class="sl-color3 swatch"></p>
+                <p class="sl-color3a swatch"></p>
+                <p class="sl-color3b swatch"></p>
+                <p class="sl-color3c swatch"></p>
+                <p class="sl-color4 swatch"></p>
+                <p class="sl-color4a swatch"></p>
+                <p class="sl-color4b swatch"></p>
+                <p class="sl-color4c swatch"></p>
             </div>
             <div id="strapless_colors_ebb" class="palette-preview">
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
+                <p class="sl-color1 swatch"></p>
+                <p class="sl-color1a swatch"></p>
+                <p class="sl-color1b swatch"></p>
+                <p class="sl-color1c swatch"></p>
+                <p class="sl-color2 swatch"></p>
+                <p class="sl-color2a swatch"></p>
+                <p class="sl-color2b swatch"></p>
+                <p class="sl-color2c swatch"></p>
+                <p class="sl-color3 swatch"></p>
+                <p class="sl-color3a swatch"></p>
+                <p class="sl-color3b swatch"></p>
+                <p class="sl-color3c swatch"></p>
+                <p class="sl-color4 swatch"></p>
+                <p class="sl-color4a swatch"></p>
+                <p class="sl-color4b swatch"></p>
+                <p class="sl-color4c swatch"></p>
             </div>
             <div id="strapless_colors_flow" class="palette-preview">
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
+                <p class="sl-color1 swatch"></p>
+                <p class="sl-color1a swatch"></p>
+                <p class="sl-color1b swatch"></p>
+                <p class="sl-color1c swatch"></p>
+                <p class="sl-color2 swatch"></p>
+                <p class="sl-color2a swatch"></p>
+                <p class="sl-color2b swatch"></p>
+                <p class="sl-color2c swatch"></p>
+                <p class="sl-color3 swatch"></p>
+                <p class="sl-color3a swatch"></p>
+                <p class="sl-color3b swatch"></p>
+                <p class="sl-color3c swatch"></p>
+                <p class="sl-color4 swatch"></p>
+                <p class="sl-color4a swatch"></p>
+                <p class="sl-color4b swatch"></p>
+                <p class="sl-color4c swatch"></p>
             </div>
             <div id="strapless_colors_monochromatic" class="palette-preview">
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-            </div>
-            <div id="strapless_colors_monochromatic-b" class="palette-preview">
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
+                <p class="sl-color1 swatch"></p>
+                <p class="sl-color1a swatch"></p>
+                <p class="sl-color1b swatch"></p>
+                <p class="sl-color1c swatch"></p>
+                <p class="sl-color2 swatch"></p>
+                <p class="sl-color2a swatch"></p>
+                <p class="sl-color2b swatch"></p>
+                <p class="sl-color2c swatch"></p>
+                <p class="sl-color3 swatch"></p>
+                <p class="sl-color3a swatch"></p>
+                <p class="sl-color3b swatch"></p>
+                <p class="sl-color3c swatch"></p>
+                <p class="sl-color4 swatch"></p>
+                <p class="sl-color4a swatch"></p>
+                <p class="sl-color4b swatch"></p>
+                <p class="sl-color4c swatch"></p>
             </div>
             <div id="strapless_colors_square" class="palette-preview">
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
-                <p class="swatch"></p>
+                <p class="sl-color1 swatch"></p>
+                <p class="sl-color1a swatch"></p>
+                <p class="sl-color1b swatch"></p>
+                <p class="sl-color1c swatch"></p>
+                <p class="sl-color2 swatch"></p>
+                <p class="sl-color2a swatch"></p>
+                <p class="sl-color2b swatch"></p>
+                <p class="sl-color2c swatch"></p>
+                <p class="sl-color3 swatch"></p>
+                <p class="sl-color3a swatch"></p>
+                <p class="sl-color3b swatch"></p>
+                <p class="sl-color3c swatch"></p>
+                <p class="sl-color4 swatch"></p>
+                <p class="sl-color4a swatch"></p>
+                <p class="sl-color4b swatch"></p>
+                <p class="sl-color4c swatch"></p>
             </div>
             <div class="clearfix"></div>
         </section>
@@ -425,10 +222,8 @@
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
-                <div class="pattern"></div>
             </div>
             <div id="strapless_patterns_blueprint" class="pattern-preview">
-                <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
@@ -437,10 +232,8 @@
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
-                <div class="pattern"></div>
             </div>
             <div id="strapless_patterns_denim" class="pattern-preview">
-                <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
@@ -449,10 +242,8 @@
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
-                <div class="pattern"></div>
             </div>
             <div id="strapless_patterns_pegboard" class="pattern-preview">
-                <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
@@ -461,10 +252,8 @@
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
-                <div class="pattern"></div>
             </div>
             <div id="strapless_patterns_muni" class="pattern-preview">
-                <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
@@ -473,10 +262,8 @@
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
-                <div class="pattern"></div>
             </div>
             <div id="strapless_patterns_dots" class="pattern-preview">
-                <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
@@ -485,10 +272,8 @@
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
-                <div class="pattern"></div>
             </div>
             <div id="strapless_patterns_honeycomb" class="pattern-preview">
-                <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
@@ -497,16 +282,13 @@
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
-                <div class="pattern"></div>
             </div>
             <div id="strapless_patterns_chevrons" class="pattern-preview">
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
-                <div class="pattern"></div>
             </div>
             <div id="strapless_patterns_carbon" class="pattern-preview">
-                <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>

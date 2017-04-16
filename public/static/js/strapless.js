@@ -90,6 +90,16 @@ var Strapless = (function() {
         }
     }
 
+    function _getSiteCSSFile() {
+        var baseColor = document.getElementById('seed_color').value;
+        var validHex = /^(?:[0-9a-f]{3}){1,2}$/i.test(baseColor);
+        if (validHex) {
+            location.href='/sitecss/' + baseColor;
+        } else {
+            window.alert('Invalid hex color value entered.');
+        }
+    }
+
     function _updateScheme() {
         var baseColor = document.getElementById('seed_color').value;
         var styleBlock = document.getElementById('style_block');
@@ -132,6 +142,9 @@ var Strapless = (function() {
         },
         downloadCSS: function() {
             _getCSSFile();
+        },
+        downloadSiteCSS: function() {
+            _getSiteCSSFile();
         },
         generateFavicon: function() {
             _generateFavicon();

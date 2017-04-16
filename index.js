@@ -48,7 +48,7 @@ app.get('/:baseColor?', function(req, res) {
         // res.sendFile(path.join(__dirname, '/index.html'));
     } else {
         var validHex = /^(?:[0-9a-f]{3}){1,2}$/i.test(baseColor);
-        if(validHex){
+        if (validHex) {
             // If the url includes a base color, generate the css,
             // use the handlebars template, and render the css in the <style> tag
             generateStyles(baseColor, less_file_path).then(function(css){
@@ -57,7 +57,7 @@ app.get('/:baseColor?', function(req, res) {
                     static_css: false
                 });
             });
-        }else {
+        } else {
             res.render('index', {
                 styles: '',
                 static_css: true,
@@ -81,9 +81,17 @@ app.get('/download/:baseColor', function(req, res) {
     })
 });
 
+app.get('/sitecss/:baseColor', function(req, res) {
+    generateStyles(req.params.baseColor, less_file_path).then(function(css){
+        res.header("Content-Disposition", "attachment;filename=SITECSS_#" + req.params.baseColor + ".css");
+        res.header("Content-type", "text/css");
+        res.send(css);
+    })
+});
+
 
 app.use(express.static(path.join(__dirname, 'public', 'static')));
 
 var server = app.listen('3000', function() {
-    console.log('Listening on port %d', server.address().port);
+    console.log('Strapless is ready on port %d', server.address().port);
 });

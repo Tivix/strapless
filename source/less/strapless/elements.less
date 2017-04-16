@@ -20,6 +20,15 @@ body {
   line-height: @line-height;
   padding-top: @navbar-height + @padding;
   margin-bottom: 0;
+  font-family: -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Oxygen-Sans,
+                Ubuntu,
+                Cantarell,
+                "Helvetica Neue",
+                sans-serif;
 
   .on-large-phone({
     font-size:18px;
@@ -47,6 +56,11 @@ section {
     &:last-child {
       margin-bottom: @padding;
     }
+  }
+
+  > *:last-child {
+    .clearfix();
+    margin-bottom: @padding;
   }
 
   .on-tablet({

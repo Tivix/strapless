@@ -1,4 +1,4 @@
-.make-palettes-for(@base-color; @color-wheels);
+.make-palettes-for(@base-color; @demo-wheels);
 
 .make-palettes-for(@color; @wheels) {
   @iterations: length(@wheels);
@@ -43,7 +43,6 @@
 
     .swatch:nth-child(@{index}) {
       .sl-swatch(@swatch);
-      //box-shadow: 1px 1px 0 darken(@swatch, 6%);
 
       &:before {
         content: "@{swatch-name}";
@@ -57,7 +56,6 @@
 }
 
 .sl-swatch(@color: @gray) {
-  // &:extend(.sl-swatch-base all);
   background: @color;
   border: 1px solid darken(@color, 2%);
 }
