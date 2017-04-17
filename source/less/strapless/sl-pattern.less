@@ -123,31 +123,6 @@
         }
     }
 }
-#strapless_patterns_denim {
-    &:before {
-        content: 'Denim | .denim([bg,] [stroke,] [scale])';
-    }
-    .pattern {
-        &:nth-child(1){
-            .denim(@color1);
-            &:before {
-                content: '.denim(@color1)';
-            }
-        }
-        &:nth-child(2){
-            .denim(@color2c);
-            &:before {
-                content: '.denim(@color2c)';
-            }
-        }
-        &:nth-child(3){
-            .denim(@success);
-            &:before {
-                content: '.denim(@success)';
-            }
-        }
-    }
-}
 #strapless_patterns_pegboard {
     &:before {
         content: 'Pegboard | .pegboard([color,] [scale])';
@@ -175,68 +150,6 @@
             .pegboard(@color3c);
             &:before {
                 content: '.pegboard (@color3c)';
-            }
-        }
-    }
-}
-#strapless_patterns_muni {
-    &:before {
-        content: 'muni | .muni([stripe color,] [bg color,] [scale])';
-    }
-    .pattern {
-        &:nth-child(1){
-            .muni(@color3);
-            &:before {
-                content: '.muni (@color3)';
-            }
-        }
-        &:nth-child(2){
-            .muni(@color3a);
-            &:before {
-                content: '.muni (@color3a)';
-            }
-        }
-        &:nth-child(3){
-            .muni(@color3b);
-            &:before {
-                content: '.muni (@color3b)';
-            }
-        }
-        &:nth-child(4){
-            .muni(@gray-darker);
-            &:before {
-                content: '.muni (@gray-darker)';
-            }
-        }
-    }
-}
-#strapless_patterns_shippo {
-    &:before {
-        content: 'Shippo | .shippo([color,] [color,] [scale])';
-    }
-    .pattern {
-        &:nth-child(1){
-            .shippo(@color4);
-            &:before {
-                content: '.shippo (@color4)';
-            }
-        }
-        &:nth-child(2){
-            .shippo(@color4a);
-            &:before {
-                content: '.shippo (@color4a)';
-            }
-        }
-        &:nth-child(3){
-            .shippo(@color4a; 2);
-            &:before {
-                content: '.shippo (@color4a, 2)';
-            }
-        }
-        &:nth-child(4){
-            .shippo(@info; .5);
-            &:before {
-                content: '.shippo (@info, .5)';
             }
         }
     }
@@ -442,7 +355,7 @@
         @margin: @padding;
         float: left;
         min-width: @size/2;
-        width: 25%;
+        width: 33.3%;
         height: @height;
         //margin-right: @margin;
         margin-bottom: @margin;

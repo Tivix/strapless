@@ -52,8 +52,8 @@
 
         <section id="colors">
             <h1>Colors</h1>
-            <p>Give Strapless a base color and a color wheel, get a full color scheme back.</p>
-            <div id="strapless_colors_accented" class="palette-preview">
+            <p>Give Strapless a base color and a color wheel to  get a full color scheme back. (For now, the CSS version only supports <em>accented</em>.)</p>
+            <div id="sl_accented" class="palette-preview">
                 <p class="sl-color1 swatch"></p>
                 <p class="sl-color1a swatch"></p>
                 <p class="sl-color1b swatch"></p>
@@ -71,7 +71,7 @@
                 <p class="sl-color4b swatch"></p>
                 <p class="sl-color4c swatch"></p>
             </div>
-            <div id="strapless_colors_complementary" class="palette-preview">
+            <div id="sl_complementary" class="palette-preview">
                 <p class="sl-color1 swatch"></p>
                 <p class="sl-color1a swatch"></p>
                 <p class="sl-color1b swatch"></p>
@@ -89,7 +89,7 @@
                 <p class="sl-color4b swatch"></p>
                 <p class="sl-color4c swatch"></p>
             </div>
-            <div id="strapless_colors_triadic" class="palette-preview">
+            <div id="sl_triadic" class="palette-preview">
                 <p class="sl-color1 swatch"></p>
                 <p class="sl-color1a swatch"></p>
                 <p class="sl-color1b swatch"></p>
@@ -107,7 +107,7 @@
                 <p class="sl-color4b swatch"></p>
                 <p class="sl-color4c swatch"></p>
             </div>
-            <div id="strapless_colors_tetradic" class="palette-preview">
+            <div id="sl_tetradic" class="palette-preview">
                 <p class="sl-color1 swatch"></p>
                 <p class="sl-color1a swatch"></p>
                 <p class="sl-color1b swatch"></p>
@@ -125,7 +125,7 @@
                 <p class="sl-color4b swatch"></p>
                 <p class="sl-color4c swatch"></p>
             </div>
-            <div id="strapless_colors_ebb" class="palette-preview">
+            <div id="sl_ebb" class="palette-preview">
                 <p class="sl-color1 swatch"></p>
                 <p class="sl-color1a swatch"></p>
                 <p class="sl-color1b swatch"></p>
@@ -143,7 +143,7 @@
                 <p class="sl-color4b swatch"></p>
                 <p class="sl-color4c swatch"></p>
             </div>
-            <div id="strapless_colors_flow" class="palette-preview">
+            <div id="sl_flow" class="palette-preview">
                 <p class="sl-color1 swatch"></p>
                 <p class="sl-color1a swatch"></p>
                 <p class="sl-color1b swatch"></p>
@@ -161,7 +161,7 @@
                 <p class="sl-color4b swatch"></p>
                 <p class="sl-color4c swatch"></p>
             </div>
-            <div id="strapless_colors_monochromatic" class="palette-preview">
+            <div id="sl_monochromatic" class="palette-preview">
                 <p class="sl-color1 swatch"></p>
                 <p class="sl-color1a swatch"></p>
                 <p class="sl-color1b swatch"></p>
@@ -179,7 +179,7 @@
                 <p class="sl-color4b swatch"></p>
                 <p class="sl-color4c swatch"></p>
             </div>
-            <div id="strapless_colors_square" class="palette-preview">
+            <div id="sl_square" class="palette-preview">
                 <p class="sl-color1 swatch"></p>
                 <p class="sl-color1a swatch"></p>
                 <p class="sl-color1b swatch"></p>
@@ -203,13 +203,13 @@
         <section id="philosophy">
             <h1>Philosophy</h1>
             <ul>
-                <li>Full support for HTML elements (and only HTML elements!)</li>
+                <li>Full support for HTML elements (and only HTML elements)</li>
                 <li>Smart CSS rules for good "out of the box" layouts</li>
-                <li>Simple LESS variables backing powerful palettes</li>
                 <li>Wide support for base colors and patterns</li>
-                <li>Don't call it a framework!</li>
                 <li>Opinionated but simple design rules</li>
                 <li>Easy to overwrite when everything goes horribly wrong</li>
+                <li>No grid, no columns, no components</li>
+                <li>Don't call it a framework!</li>
             </ul>
         </section>
 
@@ -233,27 +233,12 @@
                 <div class="pattern"></div>
                 <div class="pattern"></div>
             </div>
-            <div id="strapless_patterns_denim" class="pattern-preview">
-                <div class="pattern"></div>
-                <div class="pattern"></div>
-                <div class="pattern"></div>
-            </div>
             <div id="strapless_patterns_bathmat" class="pattern-preview">
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
             </div>
             <div id="strapless_patterns_pegboard" class="pattern-preview">
-                <div class="pattern"></div>
-                <div class="pattern"></div>
-                <div class="pattern"></div>
-            </div>
-            <div id="strapless_patterns_shippo" class="pattern-preview">
-                <div class="pattern"></div>
-                <div class="pattern"></div>
-                <div class="pattern"></div>
-            </div>
-            <div id="strapless_patterns_muni" class="pattern-preview">
                 <div class="pattern"></div>
                 <div class="pattern"></div>
                 <div class="pattern"></div>
@@ -402,7 +387,7 @@
                     default
                 </div>
                 <div>
-                    <table class="success">
+                    <table class="info">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -433,7 +418,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    table.success
+                    table.info
                 </div>
                 <div>
                     <table class="failure">
@@ -470,80 +455,7 @@
                     table.failure
                 </div>
             </aside>
-            <h4>table.info</h4>
-            <table class="info">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>First</th>
-                        <th>Last</th>
-                        <th>Username</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Raya</td>
-                        <td>Langley</td>
-                        <td>vitae.orci.Phasellus@faucibusorciluctus.com</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Hop</td>
-                        <td>Tillman</td>
-                        <td>diam@ultricesmauris.co.uk</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Buffy</td>
-                        <td>Rojas</td>
-                        <td>litora.torquent.per@aliquameuaccumsan.co.uk</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Emerson</td>
-                        <td>Pratt</td>
-                        <td>Proin.eget.odio@tortorInteger.net</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h4>table.warning</h4>
-            <table class="warning">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>First</th>
-                        <th>Last</th>
-                        <th>Username</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Raya</td>
-                        <td>Langley</td>
-                        <td>vitae.orci.Phasellus@faucibusorciluctus.com</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Hop</td>
-                        <td>Tillman</td>
-                        <td>diam@ultricesmauris.co.uk</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Buffy</td>
-                        <td>Rojas</td>
-                        <td>litora.torquent.per@aliquameuaccumsan.co.uk</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Emerson</td>
-                        <td>Pratt</td>
-                        <td>Proin.eget.odio@tortorInteger.net</td>
-                    </tr>
-                </tbody>
-            </table>
+            <p>Tables by default support all the semantic color classes: action, reaction, info, warning, success, failure</p>
         </section>
         <section>
             <h2>Nav (navbar)</h2>

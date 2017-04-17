@@ -10,7 +10,7 @@
     @scheme: extract(@wheels, @index);
 
     // each palette has a corresponding id
-    #strapless_colors_@{scheme} {
+    #sl_@{scheme} {
       .make-swatches-for(@color; @all-colors; @scheme);
     }
     // make the next palette
@@ -41,14 +41,8 @@
     @swatch-name: extract(@color-list, @index);
     @swatch: @@swatch-name;
 
-    .swatch:nth-child(@{index}) {
+    .sl-@{swatch-name} {
       .sl-swatch(@swatch);
-
-      &:before {
-        content: "@{swatch-name}";
-        color: lighten(@swatch, 10%);
-        text-shadow: -1px -1px 0 darken(@swatch, 6%);
-      }
     }
 
     .make-nth-swatch(@index + 1);
@@ -56,8 +50,8 @@
 }
 
 .sl-swatch(@color: @gray) {
-  background: @color;
-  border: 1px solid darken(@color, 2%);
+  background-color: @color;
+  border-color: darken(@color, 2%);
 }
 
 .sl-swatch-base, .swatch {
@@ -75,6 +69,7 @@
   min-width: @size;
   width: 50%;
   height: @height;
+  border: 1px solid transparent;
 
   margin-bottom: -@margin*4;
 
@@ -87,7 +82,7 @@
     display: none;
   }
 
-  .on-desktop({
+  .on-large-phone({
     position: relative;
 
     width: 23%;
@@ -115,7 +110,12 @@
   margin-right: 0;
   margin-bottom: 0;
 
-  .on-desktop({
+  .on-large-phone({
+    max-width: 31.3%;
+    margin-right: 2%;
+  });
+
+  .on-tablet({
     max-width: 23%;
     margin-right: 2%;
   });

@@ -59,24 +59,6 @@
   color: @color4;
 }
 
-.make-color-wheels-for();
-
-.make-color-wheels-for(@wheels: @demo-wheels;) {
-  @iterations: length(@wheels);
-
-  .make-color-wheel();
-
-  .make-color-wheel(@index: 1) when (@index <= @iterations) {
-    @wheel: extract(@wheels, @index);
-
-    #color_wheel_@{wheel} {
-      .color-wheel-test(@wheel);
-    }
-
-    .make-color-wheel(@index + 1);
-  }
-}
-
 #demo_form {
 
   .on-desktop({
