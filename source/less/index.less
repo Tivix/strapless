@@ -11,38 +11,40 @@
 @demo-wheels:  accented, complementary, triadic,
                tetradic, square, ebb, flow, monochromatic;
 
+body, section > *, .swatch { transition: color 2s ease; transition: background-color 2s ease;}
 
-.sl-bg-catch(@background);
+.sl-bg-catch();
 
-.sl-bg-catch(@color) {
+.sl-bg-catch(@color: @background) {
   // users can select any seed color but not bg, this catches bad ones and doesn't show them
+  
   body {
     background-color: @color;
     .contrast-text-against(@color);
   }
-}
 
-.sl-bg-catch(@color) when (luma(@color) > 85%) {
-  // above a certain brightness, just use white
-  body {
-    background-color: white;
-    .contrast-text-against(white);
+  & when (luma(@color) > 85%) {
+    // above a certain brightness, just use white
+    body {
+      background-color: white;
+      .contrast-text-against(white);
+    }
   }
-}
 
-.sl-bg-catch(@color) when (saturation(@color) > 80%) {
-  // for really saturated colors, use white
-  body {
-    background-color: white;
-    .contrast-text-against(white);
+  & when (saturation(@color) > 80%) {
+    // for really saturated colors, use white
+    body {
+      background-color: white;
+      .contrast-text-against(white);
+    }
   }
-}
 
-.sl-bg-catch(@color) when (luma(@color) < 15%) {
-  // for really dark schemes use a dark gray for better color pop
-  body {
-    background-color: @gray-darker;
-    .contrast-text-against(@gray-darker);
+  & when (luma(@color) < 15%) {
+    // for really dark schemes use a dark gray for better color pop
+    body {
+      background-color: @gray-darker;
+      .contrast-text-against(@gray-darker);
+    }
   }
 }
 
@@ -60,6 +62,9 @@
 }
 
 #demo_form {
+  position: relative;
+  // background: @color2b;
+  // .contrast-text-against(@color2b);
 
   .on-desktop({
     font-size: 12px;
@@ -71,27 +76,12 @@
   });
 }
 
-.sl-current-color {
-  @size: 18px;
-
-  display: inline-block;
-  width: @size;
-  height: @size;
-  text-indent: -9999px;
-  white-space: nowrap;  
-  background-color: @color1;
-  border: 2px solid @color1c;
-  vertical-align: top;
-  margin-top: 5px;
-  border-radius: @border-radius/4;
-}
-
 #loading_overlay {
     display:none;
-    position:fixed;
+    position:absolute;
+    background: @color2b;
+    .contrast-text-against(@color2b);
     z-index:1001;
-    background-color:rgba(0,0,0,.8);
-    color:white;
     top:0;
     left:0;
     bottom:0;
@@ -107,6 +97,21 @@
     h1 {
       margin:0;
     }
+}
+
+.sl-current-color {
+  @size: 18px;
+
+  display: inline-block;
+  width: @size;
+  height: @size;
+  text-indent: -9999px;
+  white-space: nowrap;  
+  background-color: @color1;
+  border: 2px solid @color1c;
+  vertical-align: top;
+  margin-top: 5px;
+  border-radius: @border-radius/4;
 }
 
 .rotate(@degrees) {

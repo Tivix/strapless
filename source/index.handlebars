@@ -31,180 +31,196 @@
             </section>
         </nav>
 
-        <main>
-            <h1>Strapless</h1>
-            <p>Finally, LESS is <em>cool</em> again.</p>
-            <p>Strapless is a color-changing CSS&nbsp;boilerplate for HTML elements. <br>It's also a powerful LESS library for colors and patterns.</p>
-            <aside>
-                <button class="failure" type="button" onclick="Strapless.downloadCSS();">Get this CSS <span class="sl-current-color">current color</span></button>
-                <button class="success" type="button" onclick="location.href='http://github.com/Tivix/strapless'">LESS/GitHub</button>
-                <button class="failure" type="button" onclick="Strapless.downloadSiteCSS();">Get site CSS <span class="sl-current-color">current color</span></button>
-            </aside>
-            <form id="demo_form">
-                <label>Base color</label>
-                <input id="seed_color" class="jscolor" value="cadfe6" />
+        <section>
+            <main>
+                <h1>Strapless</h1>
+                <p>Finally, LESS is <em>cool</em> again.</p>
+                <p>Strapless is a color-changing CSS&nbsp;boilerplate for HTML elements. <br>It's also a powerful LESS library for colors and patterns.</p>
                 <aside>
-                    <button type="button" class="info" onclick="Strapless.updateScheme();">Preview</button>
-                    <button type="button" class="failure" onclick="Strapless.downloadCSS();">Get CSS</button>
+                    <button class="failure" type="button" onclick="Strapless.downloadCSS();">Get this CSS <span class="sl-current-color">current color</span></button>
+                    <button class="success" type="button" onclick="location.href='http://github.com/Tivix/strapless'">LESS/GitHub</button>
+                    <button class="failure" type="button" onclick="Strapless.downloadSiteCSS();">Get site CSS <span class="sl-current-color">current color</span></button>
                 </aside>
-            </form>
-        </main>
+                <form id="demo_form">
+                    <label>Base color</label>
+                    <input id="seed_color" class="jscolor" value="cadfe6" />
+                    <aside>
+                        <button type="button" class="info" onclick="Strapless.updateScheme();">Preview</button>
+                        <button type="button" class="failure" onclick="Strapless.downloadCSS();">Get CSS</button>
+                    </aside>
+                    <div id="loading_overlay">
+                        <div style="">
+                            <?xml version="1.0" encoding="utf-8"?>
+                            <svg width='60px' height='60px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-ring">
+                                <rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect>
+                                <circle cx="50" cy="50" r="40" stroke-dasharray="163.36281798666926 87.9645943005142" stroke="#d25353" fill="none" stroke-width="20">
+                                    <animateTransform attributeName="transform" type="rotate" values="0 50 50;180 50 50;360 50 50;" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite" begin="0s"></animateTransform>
+                                </circle>
+                            </svg>
+                        </div>
+                    </div>
+                </form>
+            </main>
+        </section>
 
         <section id="colors">
             <h1>Colors</h1>
             <p>Give Strapless a base color and a color wheel to  get a full color scheme back. (For now, the CSS version only supports <em>accented</em>.)</p>
-            <div id="sl_accented" class="palette-preview">
-                <p class="sl-color1 swatch"></p>
-                <p class="sl-color1a swatch"></p>
-                <p class="sl-color1b swatch"></p>
-                <p class="sl-color1c swatch"></p>
-                <p class="sl-color2 swatch"></p>
-                <p class="sl-color2a swatch"></p>
-                <p class="sl-color2b swatch"></p>
-                <p class="sl-color2c swatch"></p>
-                <p class="sl-color3 swatch"></p>
-                <p class="sl-color3a swatch"></p>
-                <p class="sl-color3b swatch"></p>
-                <p class="sl-color3c swatch"></p>
-                <p class="sl-color4 swatch"></p>
-                <p class="sl-color4a swatch"></p>
-                <p class="sl-color4b swatch"></p>
-                <p class="sl-color4c swatch"></p>
-            </div>
-            <div id="sl_complementary" class="palette-preview">
-                <p class="sl-color1 swatch"></p>
-                <p class="sl-color1a swatch"></p>
-                <p class="sl-color1b swatch"></p>
-                <p class="sl-color1c swatch"></p>
-                <p class="sl-color2 swatch"></p>
-                <p class="sl-color2a swatch"></p>
-                <p class="sl-color2b swatch"></p>
-                <p class="sl-color2c swatch"></p>
-                <p class="sl-color3 swatch"></p>
-                <p class="sl-color3a swatch"></p>
-                <p class="sl-color3b swatch"></p>
-                <p class="sl-color3c swatch"></p>
-                <p class="sl-color4 swatch"></p>
-                <p class="sl-color4a swatch"></p>
-                <p class="sl-color4b swatch"></p>
-                <p class="sl-color4c swatch"></p>
-            </div>
-            <div id="sl_triadic" class="palette-preview">
-                <p class="sl-color1 swatch"></p>
-                <p class="sl-color1a swatch"></p>
-                <p class="sl-color1b swatch"></p>
-                <p class="sl-color1c swatch"></p>
-                <p class="sl-color2 swatch"></p>
-                <p class="sl-color2a swatch"></p>
-                <p class="sl-color2b swatch"></p>
-                <p class="sl-color2c swatch"></p>
-                <p class="sl-color3 swatch"></p>
-                <p class="sl-color3a swatch"></p>
-                <p class="sl-color3b swatch"></p>
-                <p class="sl-color3c swatch"></p>
-                <p class="sl-color4 swatch"></p>
-                <p class="sl-color4a swatch"></p>
-                <p class="sl-color4b swatch"></p>
-                <p class="sl-color4c swatch"></p>
-            </div>
-            <div id="sl_tetradic" class="palette-preview">
-                <p class="sl-color1 swatch"></p>
-                <p class="sl-color1a swatch"></p>
-                <p class="sl-color1b swatch"></p>
-                <p class="sl-color1c swatch"></p>
-                <p class="sl-color2 swatch"></p>
-                <p class="sl-color2a swatch"></p>
-                <p class="sl-color2b swatch"></p>
-                <p class="sl-color2c swatch"></p>
-                <p class="sl-color3 swatch"></p>
-                <p class="sl-color3a swatch"></p>
-                <p class="sl-color3b swatch"></p>
-                <p class="sl-color3c swatch"></p>
-                <p class="sl-color4 swatch"></p>
-                <p class="sl-color4a swatch"></p>
-                <p class="sl-color4b swatch"></p>
-                <p class="sl-color4c swatch"></p>
-            </div>
-            <div id="sl_ebb" class="palette-preview">
-                <p class="sl-color1 swatch"></p>
-                <p class="sl-color1a swatch"></p>
-                <p class="sl-color1b swatch"></p>
-                <p class="sl-color1c swatch"></p>
-                <p class="sl-color2 swatch"></p>
-                <p class="sl-color2a swatch"></p>
-                <p class="sl-color2b swatch"></p>
-                <p class="sl-color2c swatch"></p>
-                <p class="sl-color3 swatch"></p>
-                <p class="sl-color3a swatch"></p>
-                <p class="sl-color3b swatch"></p>
-                <p class="sl-color3c swatch"></p>
-                <p class="sl-color4 swatch"></p>
-                <p class="sl-color4a swatch"></p>
-                <p class="sl-color4b swatch"></p>
-                <p class="sl-color4c swatch"></p>
-            </div>
-            <div id="sl_flow" class="palette-preview">
-                <p class="sl-color1 swatch"></p>
-                <p class="sl-color1a swatch"></p>
-                <p class="sl-color1b swatch"></p>
-                <p class="sl-color1c swatch"></p>
-                <p class="sl-color2 swatch"></p>
-                <p class="sl-color2a swatch"></p>
-                <p class="sl-color2b swatch"></p>
-                <p class="sl-color2c swatch"></p>
-                <p class="sl-color3 swatch"></p>
-                <p class="sl-color3a swatch"></p>
-                <p class="sl-color3b swatch"></p>
-                <p class="sl-color3c swatch"></p>
-                <p class="sl-color4 swatch"></p>
-                <p class="sl-color4a swatch"></p>
-                <p class="sl-color4b swatch"></p>
-                <p class="sl-color4c swatch"></p>
-            </div>
-            <div id="sl_monochromatic" class="palette-preview">
-                <p class="sl-color1 swatch"></p>
-                <p class="sl-color1a swatch"></p>
-                <p class="sl-color1b swatch"></p>
-                <p class="sl-color1c swatch"></p>
-                <p class="sl-color2 swatch"></p>
-                <p class="sl-color2a swatch"></p>
-                <p class="sl-color2b swatch"></p>
-                <p class="sl-color2c swatch"></p>
-                <p class="sl-color3 swatch"></p>
-                <p class="sl-color3a swatch"></p>
-                <p class="sl-color3b swatch"></p>
-                <p class="sl-color3c swatch"></p>
-                <p class="sl-color4 swatch"></p>
-                <p class="sl-color4a swatch"></p>
-                <p class="sl-color4b swatch"></p>
-                <p class="sl-color4c swatch"></p>
-            </div>
-            <div id="sl_square" class="palette-preview">
-                <p class="sl-color1 swatch"></p>
-                <p class="sl-color1a swatch"></p>
-                <p class="sl-color1b swatch"></p>
-                <p class="sl-color1c swatch"></p>
-                <p class="sl-color2 swatch"></p>
-                <p class="sl-color2a swatch"></p>
-                <p class="sl-color2b swatch"></p>
-                <p class="sl-color2c swatch"></p>
-                <p class="sl-color3 swatch"></p>
-                <p class="sl-color3a swatch"></p>
-                <p class="sl-color3b swatch"></p>
-                <p class="sl-color3c swatch"></p>
-                <p class="sl-color4 swatch"></p>
-                <p class="sl-color4a swatch"></p>
-                <p class="sl-color4b swatch"></p>
-                <p class="sl-color4c swatch"></p>
+            <div class="palettes">
+                <div id="sl_accented" class="palette-preview">
+                    <p class="sl-color1 swatch"></p>
+                    <p class="sl-color1a swatch"></p>
+                    <p class="sl-color1b swatch"></p>
+                    <p class="sl-color1c swatch"></p>
+                    <p class="sl-color2 swatch"></p>
+                    <p class="sl-color2a swatch"></p>
+                    <p class="sl-color2b swatch"></p>
+                    <p class="sl-color2c swatch"></p>
+                    <p class="sl-color3 swatch"></p>
+                    <p class="sl-color3a swatch"></p>
+                    <p class="sl-color3b swatch"></p>
+                    <p class="sl-color3c swatch"></p>
+                    <p class="sl-color4 swatch"></p>
+                    <p class="sl-color4a swatch"></p>
+                    <p class="sl-color4b swatch"></p>
+                    <p class="sl-color4c swatch"></p>
+                </div>
+                <div id="sl_complementary" class="palette-preview">
+                    <p class="sl-color1 swatch"></p>
+                    <p class="sl-color1a swatch"></p>
+                    <p class="sl-color1b swatch"></p>
+                    <p class="sl-color1c swatch"></p>
+                    <p class="sl-color2 swatch"></p>
+                    <p class="sl-color2a swatch"></p>
+                    <p class="sl-color2b swatch"></p>
+                    <p class="sl-color2c swatch"></p>
+                    <p class="sl-color3 swatch"></p>
+                    <p class="sl-color3a swatch"></p>
+                    <p class="sl-color3b swatch"></p>
+                    <p class="sl-color3c swatch"></p>
+                    <p class="sl-color4 swatch"></p>
+                    <p class="sl-color4a swatch"></p>
+                    <p class="sl-color4b swatch"></p>
+                    <p class="sl-color4c swatch"></p>
+                </div>
+                <div id="sl_triadic" class="palette-preview">
+                    <p class="sl-color1 swatch"></p>
+                    <p class="sl-color1a swatch"></p>
+                    <p class="sl-color1b swatch"></p>
+                    <p class="sl-color1c swatch"></p>
+                    <p class="sl-color2 swatch"></p>
+                    <p class="sl-color2a swatch"></p>
+                    <p class="sl-color2b swatch"></p>
+                    <p class="sl-color2c swatch"></p>
+                    <p class="sl-color3 swatch"></p>
+                    <p class="sl-color3a swatch"></p>
+                    <p class="sl-color3b swatch"></p>
+                    <p class="sl-color3c swatch"></p>
+                    <p class="sl-color4 swatch"></p>
+                    <p class="sl-color4a swatch"></p>
+                    <p class="sl-color4b swatch"></p>
+                    <p class="sl-color4c swatch"></p>
+                </div>
+                <div id="sl_tetradic" class="palette-preview">
+                    <p class="sl-color1 swatch"></p>
+                    <p class="sl-color1a swatch"></p>
+                    <p class="sl-color1b swatch"></p>
+                    <p class="sl-color1c swatch"></p>
+                    <p class="sl-color2 swatch"></p>
+                    <p class="sl-color2a swatch"></p>
+                    <p class="sl-color2b swatch"></p>
+                    <p class="sl-color2c swatch"></p>
+                    <p class="sl-color3 swatch"></p>
+                    <p class="sl-color3a swatch"></p>
+                    <p class="sl-color3b swatch"></p>
+                    <p class="sl-color3c swatch"></p>
+                    <p class="sl-color4 swatch"></p>
+                    <p class="sl-color4a swatch"></p>
+                    <p class="sl-color4b swatch"></p>
+                    <p class="sl-color4c swatch"></p>
+                </div>
+                <div id="sl_ebb" class="palette-preview">
+                    <p class="sl-color1 swatch"></p>
+                    <p class="sl-color1a swatch"></p>
+                    <p class="sl-color1b swatch"></p>
+                    <p class="sl-color1c swatch"></p>
+                    <p class="sl-color2 swatch"></p>
+                    <p class="sl-color2a swatch"></p>
+                    <p class="sl-color2b swatch"></p>
+                    <p class="sl-color2c swatch"></p>
+                    <p class="sl-color3 swatch"></p>
+                    <p class="sl-color3a swatch"></p>
+                    <p class="sl-color3b swatch"></p>
+                    <p class="sl-color3c swatch"></p>
+                    <p class="sl-color4 swatch"></p>
+                    <p class="sl-color4a swatch"></p>
+                    <p class="sl-color4b swatch"></p>
+                    <p class="sl-color4c swatch"></p>
+                </div>
+                <div id="sl_flow" class="palette-preview">
+                    <p class="sl-color1 swatch"></p>
+                    <p class="sl-color1a swatch"></p>
+                    <p class="sl-color1b swatch"></p>
+                    <p class="sl-color1c swatch"></p>
+                    <p class="sl-color2 swatch"></p>
+                    <p class="sl-color2a swatch"></p>
+                    <p class="sl-color2b swatch"></p>
+                    <p class="sl-color2c swatch"></p>
+                    <p class="sl-color3 swatch"></p>
+                    <p class="sl-color3a swatch"></p>
+                    <p class="sl-color3b swatch"></p>
+                    <p class="sl-color3c swatch"></p>
+                    <p class="sl-color4 swatch"></p>
+                    <p class="sl-color4a swatch"></p>
+                    <p class="sl-color4b swatch"></p>
+                    <p class="sl-color4c swatch"></p>
+                </div>
+                <div id="sl_monochromatic" class="palette-preview">
+                    <p class="sl-color1 swatch"></p>
+                    <p class="sl-color1a swatch"></p>
+                    <p class="sl-color1b swatch"></p>
+                    <p class="sl-color1c swatch"></p>
+                    <p class="sl-color2 swatch"></p>
+                    <p class="sl-color2a swatch"></p>
+                    <p class="sl-color2b swatch"></p>
+                    <p class="sl-color2c swatch"></p>
+                    <p class="sl-color3 swatch"></p>
+                    <p class="sl-color3a swatch"></p>
+                    <p class="sl-color3b swatch"></p>
+                    <p class="sl-color3c swatch"></p>
+                    <p class="sl-color4 swatch"></p>
+                    <p class="sl-color4a swatch"></p>
+                    <p class="sl-color4b swatch"></p>
+                    <p class="sl-color4c swatch"></p>
+                </div>
+                <div id="sl_square" class="palette-preview">
+                    <p class="sl-color1 swatch"></p>
+                    <p class="sl-color1a swatch"></p>
+                    <p class="sl-color1b swatch"></p>
+                    <p class="sl-color1c swatch"></p>
+                    <p class="sl-color2 swatch"></p>
+                    <p class="sl-color2a swatch"></p>
+                    <p class="sl-color2b swatch"></p>
+                    <p class="sl-color2c swatch"></p>
+                    <p class="sl-color3 swatch"></p>
+                    <p class="sl-color3a swatch"></p>
+                    <p class="sl-color3b swatch"></p>
+                    <p class="sl-color3c swatch"></p>
+                    <p class="sl-color4 swatch"></p>
+                    <p class="sl-color4a swatch"></p>
+                    <p class="sl-color4b swatch"></p>
+                    <p class="sl-color4c swatch"></p>
+                </div>
             </div>
             <div class="clearfix"></div>
+            <p>If you're using the LESS version, the color palette is available to your whole project. Colors come in four generically named main colors: <code>@color1</code>, <code>@color2</code>, <code>@color3</code> and <code>@color4</code>. Each has three subcolors: a lightened version (<code>@color1a</code>), an alternate (<code>@color1b</code>) and a darkened version (<code>@color1c</code>).</p>
         </section>
 
         <section id="philosophy">
             <h1>Philosophy</h1>
             <ul>
                 <li>Full support for HTML elements (and only HTML elements)</li>
-                <li>Smart CSS rules for good "out of the box" layouts</li>
+                <li>Smart CSS rules for good out-of-the-box layout</li>
                 <li>Wide support for base colors and patterns</li>
                 <li>Opinionated but simple design rules</li>
                 <li>Easy to overwrite when everything goes horribly wrong</li>
@@ -215,9 +231,9 @@
 
         <section id="patterns">
             <h1>Patterns</h1>
-            <p>It's got patterns!</p>
+            <p>It's got patterns! For the LESS version. (Limited CSS support coming soon.)</p>
             <p>Patterns work like background images... Because they are.</p>
-            <p><code>.pattern-pegboard(@color1);</code></p>
+            <p>Using them is easy: They're mixins that use the pattern's name and take any color as an argument, like <code>.pegboard(@color1)</code> or <code>.blueprint(@info)</code></p>
             <div id="strapless_patterns_checkerboard" class="pattern-preview">
                 <div class="pattern"></div>
                 <div class="pattern"></div>
@@ -285,7 +301,7 @@
             <main>
                 <h2>Main</h2>
                 <p>The main element includes a background color and the dots pattern by default. There's one at the top of this page, too.</p>
-                <p>This is a main element. There should only be one of them.</p>
+                <p>This is a main element. Like the immortals in <em>Highlander</em>, there should only be one of them.</p>
             </main>
 
 
@@ -334,7 +350,7 @@
         </section>
         <section>
             <h2>Buttons</h2>
-            <p>Buttons are just <code>button</code> elements with a class corresponding to a semantic color name.</p>
+            <p>Buttons are just <code>button</code> elements with a class corresponding to a semantic color name. There are six semantic colors by default, shown in these buttons here:</p>
             <aside>
                 <button type="button" class="action">Action</button>
                 <button type="button" class="reaction">Reaction</button>
@@ -347,7 +363,15 @@
                 <button type="button" class="info">Info</button>
                 <button type="button" class="warning">Warning</button>
             </aside>
-            <p>Semantic colors respond to the color scheme too, so <code>@success</code> will always be the <em>right</em> green.</p>
+            <p>Semantic colors respond to the color scheme too, so <code>@success</code> will always be the <em>right</em> green. They don't have any other classes to worry about, until you add them, but they do respond well to font size changes:</p>
+            <aside >
+                <button type="button" class="info" style="font-size:22px;">22 pixels big</button>
+                <button type="button" class="failure" style="font-size:1.5em;">1.5em of failure</button>
+            </aside>
+            <aside>
+                <button type="button" class="action" style="font-size:12px;">12px action button</button>
+                <button type="button" class="warning" style="font-size:7px;">Warning, this is too small</button>
+            </aside>
         </section>
         <section>
             <h2>Tables</h2>
@@ -421,7 +445,7 @@
                     table.info
                 </div>
                 <div>
-                    <table class="failure">
+                    <table class="success">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -452,24 +476,27 @@
                             </tr>
                         </tbody>
                     </table>
-                    table.failure
+                    table.success
                 </div>
             </aside>
-            <p>Tables by default support all the semantic color classes: action, reaction, info, warning, success, failure</p>
+            <p>Tables, like buttons, by default support all the semantic color classes.</p>
         </section>
         <section>
             <h2>Nav (navbar)</h2>
             <nav>
                 <section>
-                    <h1><a href="/">Strapless</a></h1>
+                    <h1><a href="/">Title here</a></h1>
 
                     <ul>
-                        <li><a href="#colors">Colors</a></li>
-                        <li><a href="#patterns">Patterns</a></li>
+                        <li><a href="/">Link 1</a></li>
+                        <li><a href="/">Link 2</a></li>
                     </ul>
                 </section>
             </nav>
-
+            <br>
+            <p>Navbars are simple HTML and CSS, not fully functional components with javascript. Strapless plays well with others-- use the navbar you want, and then use Strapless to style it.</p>
+            <p>All of the more complicated elements that take colors as arguments are located in <code>mixins.less</code>. To take 'em out, just remove them where they're used in <code>elements.less</code>.</p>
+        </section>
         <section>
             <h2>Forms</h2>
 
@@ -487,6 +514,8 @@
                     <option value="3">Third choice</option>
                 </select>
             </form>
+
+            <p>Strapless aims to make simple form markup look good by default. There's no extra markup or JS conventions to worry about.</p>
         </section>
         <section>
             <h1>LESS</h1>
@@ -508,13 +537,29 @@
             <h4>patterns.less</h4>
             <p>Simple SVG-based color-shifting patterns ready to drop in to your project.</p>
 
+            <h4>normalize.less</h4>
+            <p><a href="github.com/necolas/normalize.css">Includes a great normalize file</a> to make your HTML and CSS work easier.</p>
+
+            <h2>Useful LESS variables</h2>
+            <p>StrapLESS calculates some useful variables for your project:</p>
+            <dl>
+                <dt>@scheme-type</dt>
+                <dd>Returns either <em>light</em>, <em>medium</em>, or <em>dark</em> depending on your base color.</dd>
+                <dt>@success and @failure</dt>
+                <dd>A well-paired successful green and failure red that work with your theme</dd>
+                <dt>@info and @warning</dt>
+                <dd>A calming blue and more urgent orange demarking information</dd>
+                <dt>@action and @reaction</dt>
+                <dd>A generic opposing pair of colors based on your projects @base-color</dd>
+            </dl>
+
         </section>
 
         <section>
             <h1>How to use Strapless</h1>
             <ol>
                 <li>Pick the color you like and "Get CSS." Use that CSS in your project.</li>
-                <li>OR grab the LESS version off of Github and <a href="http://lesscss.org/#getting-started">use that</a> in your project, for enhanced customization and flexibility.</li>
+                <li>Alternatively, grab the LESS version off of Github and <a href="http://lesscss.org/#getting-started">use that</a> in your project, for enhanced customization and flexibility.</li>
             </ol>
         </section>
 
@@ -533,18 +578,7 @@
                 <p>&copy; Tivix, Inc.</p>
             </section>
         </footer>
-        <div id="loading_overlay">
-            <div style="">
-                <h1>Scheming...</h1>
-                <?xml version="1.0" encoding="utf-8"?>
-                <svg width='60px' height='60px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-ring">
-                    <rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect>
-                    <circle cx="50" cy="50" r="40" stroke-dasharray="163.36281798666926 87.9645943005142" stroke="#d25353" fill="none" stroke-width="20">
-                        <animateTransform attributeName="transform" type="rotate" values="0 50 50;180 50 50;360 50 50;" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite" begin="0s"></animateTransform>
-                    </circle>
-                </svg>
-            </div>
-        </div>
+        
         <!-- Output scheme colors for favicon generation -->
         <span id="get_color1"></span>
         <span id="get_color2"></span>

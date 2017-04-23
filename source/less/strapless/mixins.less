@@ -1,29 +1,19 @@
 // mixins
 
-.text-color(@color) when (luma(@color) < @contrast-break) {
-  color: hsl(hue(@color); saturation(@color) + 10; 98.5%); // pretty much white
-}
+.text-color(@color: @color1; @contrast: 1;) {
 
-.text-color(@color) when (luma(@color) >= @contrast-break) {
-  color: mix(darken(@color;20%); #333; 40%);
-}
+  & when (luma(@color) < @contrast-break) {
+    color: hsl(hue(@color); saturation(@color) + 10; 98.5%); // pretty much white
+  }
 
-.text-color(@color) when ((red(@color) + green(@color) - blue(@color)) > 420) {
-  // for particularly obnoxious yellows
-  color: mix(darken(@color;20%); #2f3125; 40%);
-}
+  & when (luma(@color) >= @contrast-break) {
+    color: mix(darken(@color;20%); #333; 40%);
+  }
 
-.text-color-dim(@color) when (luma(@color) < @contrast-break) {
-  color: hsl(hue(@color); saturation(@color); 95%);
-}
-
-.text-color-dim(@color) when (luma(@color) >= @contrast-break) {
-  color: mix(darken(@color;10%); #333; 50%);
-}
-
-.text-color-dim(@color) when ((red(@color) + green(@color) - blue(@color)) > 420) {
-  // for particularly obnoxious yellows
-  color: mix(darken(@color;10%); #333; 50%);
+  & when ((red(@color) + green(@color) - blue(@color)) > 420) {
+    // for particularly obnoxious yellows
+    color: mix(darken(@color;20%); #2f3125; 40%);
+  }
 }
 
 .contrast-text-against(@color) {
@@ -59,9 +49,9 @@
 
 .sl-main(@color: @color1c;) {
   padding: @padding;
-  background: @color;
   margin: 0;
-  text-align: center;
+  background-color: @color;
+  .contrast-text-against(@color);
 
   h1, h2 {
     & + p {
@@ -71,36 +61,18 @@
     }
   }
 
-  p {
-    //.text-color-dim(@color);
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   img {
     margin: 0 auto;
     max-width: 100%;
   }
 
-  .on-tablet({
+  .on-large-phone({
     max-width: @content-width;
     margin: 0 auto;
     padding: @padding*2;
     border-radius: @border-radius;
   });
 }
-
-.sl-main(@color: @color1c) when (@scheme-type = light) {
-  .dots(@color);
-  .contrast-text-against(@color);
-}
-
-.sl-main(@color: @color1b) when (@scheme-type = dark) {
-  .dots(@color);
-  .contrast-text-against(@color);
-}
-
 
 .sl-form(@color) {
   #strapless.make-palette(@color, ebb);
@@ -150,7 +122,7 @@
 }
 
 .sl-code(@code-color) {
-    @color: mix(@code-color, white, 6%);
+    @color: mix(@code-color, white, 10%);
     @background: mix(@color, #333, 10%);
 
     font-family: monospace;
@@ -172,6 +144,9 @@
 }
 
 .make-sl-buttons-for(@colors) {
+  // make buttons for a list of color variable names
+  // buttons will use variable names as class names
+
   @length: length(@colors);
 
   .make-sl-button();
@@ -192,7 +167,7 @@
 .sl-navbar(@color) {
 
   @height: @navbar-height;
-  @padding: @height * .38;
+  // @padding: @height * .38;
 
   background-color:@color;
   .contrast-text-against(@color);
@@ -254,12 +229,12 @@
     list-style: none;
   }
 
-  h1, h2, h3 {
+  h1 {
     display: block;
     float: left;
     font-size: 26px;
     line-height: @height;
-    margin-right: @height;
+    padding: 0 @padding;
     .contrast-text-against(@color);
   }
 
@@ -284,6 +259,10 @@
     position: fixed; top:0; left: 0;
     width: 100%;
     border-radius: 0;
+
+    h1 {
+      padding: 0;
+    }
   }
 }
 
@@ -313,6 +292,9 @@
 }
 
 .make-sl-tables-for(@colors) {
+  // make tables for a list of color variable names
+  // tables will use variable names as class names
+
   @iterations: length(@colors);
 
   .make-sl-table(1);

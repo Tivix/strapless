@@ -1,15 +1,31 @@
-#strapless.make-palette(@base-color; @base-color-wheel;);
+#strapless.make-palette(@base-color; @base-color-wheel);
 
 #strapless {
 
   .make-palette(@color; @wheel) {
     #strapless.load-scheme-type(@color);
     #strapless.load-color-wheels();
-    #strapless.make-main-colors(@color; @wheel);
-    #strapless.make-subcolors(@color; @wheel; @scheme-type);
+    #strapless.make-colors(@color; @wheel; @scheme-type);
     #strapless.load-gray-bases(@color);
     #strapless.make-grays(@color);
     #strapless.load-semantic-colors();
+  }
+
+  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 98%) {
+    #strapless.make-palette(darken(@color, 3%); @wheel);
+    @color1: @color;
+  }
+
+  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 3%) {
+    #strapless.make-palette(lighten(@color, 4.5%); @wheel);
+  }
+
+  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (saturation(@color) = 0) {
+    #strapless.make-palette(average(@color, #8198EE); @wheel);
+    @color1: @color;
+    @color1a: @gray-light;
+    @color1b: @gray;
+    @color1c: @gray-dark; 
   }
 
   .load-scheme-type(@color) {
@@ -20,10 +36,16 @@
   }
 
   .load-color-wheels() {
+
+    // color wheel position conventions
+
     @complement: 180deg;
     @triadic-pair: 120deg;
     @accent: 45deg;
     @analog: 15deg;
+
+    // color wheels
+    // these (like everything else) eventually bubble up to global scope
 
     @accented:        @complement,
                       @accent,
@@ -74,17 +96,14 @@
                       -@analog/2;
   }
 
-  .make-main-colors(@color; @wheel) {
+  .make-colors(@color; @wheel; @scheme-type) {
     // turn the wheel into its variable form and use it to spin other main colors
+
     @wheel-var: @@wheel;
     @color1: @color;
     @color2: spin(@color, extract(@wheel-var, 1));
     @color3: spin(@color, extract(@wheel-var, 2));
     @color4: spin(@color, extract(@wheel-var, 3));
-  }
-
-  .make-subcolors(@color; @wheel; @scheme-type) {
-    #strapless.make-main-colors(@color; @wheel);
 
     @a-by: 10%;
     @c-by: 10%;
@@ -114,8 +133,13 @@
     @color4c: contrast(@floor; spin(darken(@color4, @c-by), @analog); spin(darken(@color4, @c-by), -@analog); 50%);
   }
 
-  .make-subcolors(@color; @wheel; @scheme) when (@scheme-type = light) {
-    #strapless.make-main-colors(@color; @wheel);
+  .make-colors(@color; @wheel; @scheme-type) when (@scheme-type = light) {
+
+    @wheel-var: @@wheel;
+    @color1: @color;
+    @color2: spin(@color, extract(@wheel-var, 1));
+    @color3: spin(@color, extract(@wheel-var, 2));
+    @color4: spin(@color, extract(@wheel-var, 3));
 
     @a-by: 4%;
     @c-by: 8%;
@@ -145,8 +169,13 @@
     @color4c: contrast(@floor; spin(darken(@color4, @c-by), @analog); spin(darken(@color4, @c-by), -@analog); 50%;);
   }
 
-  .make-subcolors(@color; @wheel; @scheme) when (@scheme-type = dark) {
-    #strapless.make-main-colors(@color; @wheel);
+  .make-colors(@color; @wheel; @scheme-type) when (@scheme-type = dark) {
+
+    @wheel-var: @@wheel;
+    @color1: @color;
+    @color2: spin(@color, extract(@wheel-var, 1));
+    @color3: spin(@color, extract(@wheel-var, 2));
+    @color4: spin(@color, extract(@wheel-var, 3));
 
     @a-by: 12%;
     @c-by: 8%;
@@ -229,22 +258,5 @@
     @warning:   average(@warning-base, hsl(hue(@warning-base), saturation(@color2b), lightness(@color2b)));
     @success:   average(@success-base, hsl(hue(@success-base), saturation(@color1), lightness(@color1)));
     @failure:   average(@failure-base, hsl(hue(@failure-base), saturation(@color2b), lightness(@color2b)));
-  }
-
-  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 98%) {
-    #strapless.make-palette(darken(@color, 3%); @wheel);
-    @color1: white;
-  }
-
-  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 3%) {
-    #strapless.make-palette(lighten(@color, 4.5%); @wheel);
-  }
-
-  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (saturation(@color) = 0) {
-    #strapless.make-palette(average(@color, spin(#4F4AE6, 180)); @wheel);
-    @color1: @color;
-    @color1a: @gray-lightest-base;
-    @color1b: @gray-lighter-base;
-    @color1c: @gray-light-base; 
   }
 }

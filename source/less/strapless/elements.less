@@ -15,7 +15,7 @@ html, body, ul, ol, li, form, fieldset, legend {
 
 body {
   background-color: @background;
-  font-size: 16px;
+  font-size: 14px;
   .contrast-text-against(@background);
   line-height: @line-height;
   padding-top: @navbar-height + @padding;
@@ -30,7 +30,11 @@ body {
                 "Helvetica Neue",
                 sans-serif;
 
-  .on-large-phone({
+  .on-tablet({
+    font-size:16px;
+  });
+
+  .on-desktop({
     font-size:18px;
   });
 }
@@ -43,7 +47,7 @@ nav {
 section {
   max-width: @content-width;
   margin: 0 @padding @padding*4 @padding;
-  padding-top: @navbar-height;
+  padding-bottom: @padding*4;
 
   > * {
     margin: 0 auto;
@@ -51,7 +55,6 @@ section {
 
   > * + * {
     margin-top: @padding;
-    // max-width: 50ch;
 
     &:last-child {
       margin-bottom: @padding;
@@ -98,7 +101,7 @@ h5, h6 {
   text-transform: uppercase;
 }
 
-p, form, article, ul, li {
+p, form, article, ul, dl, li {
   margin: 0 auto 1em;
 
   .on-tablet({
@@ -113,6 +116,15 @@ p, form, article, ul, li {
   &.failure {
     padding: .5em 1em;
   }
+}
+
+dt { 
+  font-weight: bold;
+  font-size: 90%;
+}
+
+dd {
+  margin-bottom: @padding;
 }
 
 a {
