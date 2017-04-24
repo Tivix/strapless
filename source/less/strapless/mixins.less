@@ -54,6 +54,8 @@
   .contrast-text-against(@color);
 
   h1, h2 {
+    text-align: center; 
+
     & + p {
       text-align: center;
       font-size: 125%;
@@ -167,7 +169,6 @@
 .sl-navbar(@color) {
 
   @height: @navbar-height;
-  // @padding: @height * .38;
 
   background-color:@color;
   .contrast-text-against(@color);
@@ -178,7 +179,6 @@
   padding: 0;
   border-radius: @border-radius;
   z-index: 1000;
-  overflow: hidden;
 
   > section {
     padding-top: 0;
@@ -203,7 +203,6 @@
 
     &:first-child {
       display: block;
-      // margin-left: .5em;
       margin-right: @padding * 2;
 
       .on-large-phone({
@@ -255,14 +254,10 @@
     }
   }
 
-  body > & {
+  body > &:first-child, body > &:last-child {
     position: fixed; top:0; left: 0;
     width: 100%;
     border-radius: 0;
-
-    h1 {
-      padding: 0;
-    }
   }
 }
 

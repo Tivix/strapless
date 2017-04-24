@@ -24,16 +24,8 @@
   #strapless.make-palette(@color; @color-wheel);
   .make-nth-swatch(1);
 
-  position: relative;
-  padding-top: @padding*2;
-  //width: 56*4px + 40px;
-
   &:before {
     content: "@{color-wheel}";
-    display: block;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 12px;
   }
 
   .make-nth-swatch(@index) when (@index <= @iterations) {
@@ -88,7 +80,7 @@
     width: 23%;
     height: @height;
     margin-right: 2%;
-    margin-bottom: -@margin*4;
+    margin-bottom: -@margin*2;
 
     .rotate(-3deg);
     &:nth-child(4n + 2) { .rotate(-1deg); top:-2px;}
@@ -116,6 +108,16 @@
   width: 50%;
   margin-right: 0;
   margin-bottom: 0;
+  position: relative;
+  padding-top: @padding*2;
+  //width: 56*4px + 40px;
+
+  &:before {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 12px;
+  }
 
   .on-large-phone({
     max-width: 32%;

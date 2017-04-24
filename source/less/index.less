@@ -11,12 +11,12 @@
 @demo-wheels:  accented, complementary, triadic,
                tetradic, square, ebb, flow, monochromatic;
 
-body, section > *, .swatch { transition: color 2s ease; transition: background-color 2s ease;}
+body, main, section > *, #demo_form, #loading_overlay, .swatch { transition: color 2s ease; transition: background-color 2s ease;}
 
 .sl-bg-catch();
 
 .sl-bg-catch(@color: @background) {
-  // users can select any seed color but not bg, this catches bad ones and doesn't show them
+  // users can select any seed color but not bg, this catches bad ones and shows something better
   
   body {
     background-color: @color;
@@ -62,9 +62,11 @@ body, section > *, .swatch { transition: color 2s ease; transition: background-c
 }
 
 #demo_form {
+  @color: @color3c;
   position: relative;
-  // background: @color2b;
-  // .contrast-text-against(@color2b);
+  border-radius: @border-radius;
+  background: @color;
+  .contrast-text-against(@color);
 
   .on-desktop({
     font-size: 12px;
@@ -77,26 +79,30 @@ body, section > *, .swatch { transition: color 2s ease; transition: background-c
 }
 
 #loading_overlay {
-    display:none;
-    position:absolute;
-    background: @color2b;
-    .contrast-text-against(@color2b);
-    z-index:1001;
-    top:0;
-    left:0;
-    bottom:0;
-    right:0;
-    text-align:center;
-    div {
-        position:absolute;
-        top:50%;
-        margin-top:-100px;
-        left:0;
-        right:0;
-    }
-    h1 {
-      margin:0;
-    }
+  @color: @color4a;
+
+  display: none;
+  position: absolute;
+  background: @color;
+  .contrast-text-against(@color);
+  border-radius: @border-radius;
+  z-index: 1001;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  div {
+      position: absolute;
+      top: 50%;
+      margin-top: -30px;
+      left: 0;
+      right: 0;
+  }
+  h1 {
+    margin: 0;
+  }
 }
 
 .sl-current-color {

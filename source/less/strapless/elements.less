@@ -45,9 +45,16 @@ nav {
 }
 
 section {
+  @section-padding: @navbar-height + @padding;
+
   max-width: @content-width;
-  margin: 0 @padding @padding*4 @padding;
-  padding-bottom: @padding*4;
+  margin: 0 auto @section-padding auto;
+  margin-bottom: @section-padding;
+  padding-top: @section-padding;
+
+  &:first-child {
+    margin-top: 0;
+  }
 
   > * {
     margin: 0 auto;
@@ -66,9 +73,9 @@ section {
     margin-bottom: @padding;
   }
 
-  .on-tablet({
-    margin: 0 auto @padding*2 auto;
-  });
+  // .on-tablet({
+  //   margin: 0 auto @padding*2 auto;
+  // });
 }
 
 main {
@@ -83,7 +90,7 @@ h5 { font-size: 1.3em;}
 h6 { font-size: 1.0em;}
 
 h1, h2, h3, h4 {
-  margin-top: .8em;
+  margin-top: 1em;
   margin-bottom: 1em;
   text-align: center;
   line-height: @line-height;
