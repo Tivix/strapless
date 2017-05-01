@@ -1,262 +1,259 @@
-#strapless.make-palette(@base-color; @base-color-wheel);
+.make-palette();
 
-#strapless {
+.make-palette(@color: @base-color; @wheel: @base-color-wheel) {
+  .load-scheme-type(@color);
+  .load-color-wheels();
+  .make-colors(@color; @wheel; @scheme-type);
+  .load-gray-bases(@color);
+  .make-grays(@color);
+  .load-semantic-colors();
+}
 
-  .make-palette(@color; @wheel) {
-    #strapless.load-scheme-type(@color);
-    #strapless.load-color-wheels();
-    #strapless.make-colors(@color; @wheel; @scheme-type);
-    #strapless.load-gray-bases(@color);
-    #strapless.make-grays(@color);
-    #strapless.load-semantic-colors();
-  }
+.make-palette(@color: @base-color; @wheel: @base-color-wheel) when (saturation(@color) = 0) {
+  // for grays, set up working color2, 3 and 4 and then reinforce gray color1
+  .make-palette(average(@color, #8198EE); @wheel);
+  @color1: @color;
+  @color1a: @gray-light;
+  @color1b: @gray;
+  @color1c: @gray-dark; 
+}
 
-  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 98%) {
-    #strapless.make-palette(darken(@color, 3%); @wheel);
-    @color1: @color;
-  }
+.make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 98%) {
+  .make-palette(darken(@color, 3%); @wheel);
+  @color1: @color;
+}
 
-  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 3%) {
-    #strapless.make-palette(lighten(@color, 4.5%); @wheel);
-  }
+.make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 3%) {
+  .make-palette(lighten(@color, 4.5%); @wheel);
+}
 
-  .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (saturation(@color) = 0) {
-    #strapless.make-palette(average(@color, #8198EE); @wheel);
-    @color1: @color;
-    @color1a: @gray-light;
-    @color1b: @gray;
-    @color1c: @gray-dark; 
-  }
+.load-scheme-type(@color) {
+  // sets @scheme-type to dark, medium or light depending on color given
+  @scheme-type-base: unit(ceil(luma(@color)*3/100));
+  @scheme-types: dark, medium, light;
+  @scheme-type: extract(@scheme-types, @scheme-type-base);
+}
 
-  .load-scheme-type(@color) {
-    // sets @scheme-type to dark, medium or light depending on color given
-    @scheme-type-base: unit(ceil(luma(@color)*3/100));
-    @scheme-types: dark, medium, light;
-    @scheme-type: extract(@scheme-types, @scheme-type-base);
-  }
+.load-color-wheels() {
+  // color wheel position conventions
 
-  .load-color-wheels() {
+  @complement: 180deg;
+  @triadic-pair: 120deg;
+  @accent: 45deg;
+  @analog: 15deg;
 
-    // color wheel position conventions
+  // color wheels
+  // these (like everything else) eventually bubble up to global scope
 
-    @complement: 180deg;
-    @triadic-pair: 120deg;
-    @accent: 45deg;
-    @analog: 15deg;
+  @accented:        @complement,
+                    @accent,
+                    -@accent;
 
-    // color wheels
-    // these (like everything else) eventually bubble up to global scope
+  @complementary:   @complement,
+                    @analog,
+                    @complement + @analog;
 
-    @accented:        @complement,
-                      @accent,
-                      -@accent;
+  @complementary-b: @complement,
+                    -@analog,
+                    @complement - @analog;
 
-    @complementary:   @complement,
-                      @analog,
-                      @complement + @analog;
+  @triadic:         @triadic-pair,
+                    -@triadic-pair,
+                    -@analog;
 
-    @complementary-b: @complement,
-                      -@analog,
-                      @complement - @analog;
+  @triadic-b:       -@triadic-pair,
+                    @triadic-pair,
+                    @analog;
 
-    @triadic:         @triadic-pair,
-                      -@triadic-pair,
-                      -@analog;
+  @tetradic:        @complement,
+                    @accent,
+                    @complement + @accent;
 
-    @triadic-b:       -@triadic-pair,
-                      @triadic-pair,
-                      @analog;
+  @tetradic-b:      @complement,
+                    -@accent,
+                    @complement - @accent;
 
-    @tetradic:        @complement,
-                      @accent,
-                      @complement + @accent;
+  @square:          @complement,
+                    @complement/2,
+                    -@complement/2;
 
-    @tetradic-b:      @complement,
-                      -@accent,
-                      @complement - @accent;
+  @ebb:             @complement + @analog,
+                    @analog,
+                    @accent;
 
-    @square:          @complement,
-                      @complement/2,
-                      -@complement/2;
+  @flow:            @complement - @analog,
+                    -@analog,
+                    -@accent;
 
-    @ebb:             @complement + @analog,
-                      @analog,
-                      @accent;
+  @monochromatic:   @accent,
+                    @analog/2,
+                    -@analog/2;
 
-    @flow:            @complement - @analog,
-                      -@analog,
-                      -@accent;
+  @monochromatic-b: -@accent,
+                    @analog/2,
+                    -@analog/2;
+}
 
-    @monochromatic:   @accent,
-                      @analog/2,
-                      -@analog/2;
+.make-colors(@color; @wheel; @scheme-type) {
+  // turn the wheel into its variable form and use it to spin other main colors
 
-    @monochromatic-b: -@accent,
-                      @analog/2,
-                      -@analog/2;
-  }
+  @wheel-var: @@wheel;
+  @color1: @color;
+  @color2: spin(@color, extract(@wheel-var, 1));
+  @color3: spin(@color, extract(@wheel-var, 2));
+  @color4: spin(@color, extract(@wheel-var, 3));
 
-  .make-colors(@color; @wheel; @scheme-type) {
-    // turn the wheel into its variable form and use it to spin other main colors
+  @a-by: 10%;
+  @c-by: 10%;
+  @ceiling: white;
+  @floor: black;
+  @compare: @color;
 
-    @wheel-var: @@wheel;
-    @color1: @color;
-    @color2: spin(@color, extract(@wheel-var, 1));
-    @color3: spin(@color, extract(@wheel-var, 2));
-    @color4: spin(@color, extract(@wheel-var, 3));
+  // color a is a lighter analog
 
-    @a-by: 10%;
-    @c-by: 10%;
-    @ceiling: white;
-    @floor: black;
-    @compare: @color;
+  @color1a: contrast(@ceiling; spin(lighten(@color1, @a-by), @analog); spin(lighten(@color1, @a-by), -@analog); 50%);
+  @color2a: contrast(@ceiling; spin(lighten(@color2, @a-by), @analog); spin(lighten(@color2, @a-by), -@analog); 50%);
+  @color3a: contrast(@ceiling; spin(lighten(@color3, @a-by), @analog); spin(lighten(@color3, @a-by), -@analog); 50%);
+  @color4a: contrast(@ceiling; spin(lighten(@color4, @a-by), @analog); spin(lighten(@color4, @a-by), -@analog); 50%);
 
-    // color a is a lighter analog
+  // color b is an accent
 
-    @color1a: contrast(@ceiling; spin(lighten(@color1, @a-by), @analog); spin(lighten(@color1, @a-by), -@analog); 50%);
-    @color2a: contrast(@ceiling; spin(lighten(@color2, @a-by), @analog); spin(lighten(@color2, @a-by), -@analog); 50%);
-    @color3a: contrast(@ceiling; spin(lighten(@color3, @a-by), @analog); spin(lighten(@color3, @a-by), -@analog); 50%);
-    @color4a: contrast(@ceiling; spin(lighten(@color4, @a-by), @analog); spin(lighten(@color4, @a-by), -@analog); 50%);
+  @color1b: contrast(@compare; spin(@color1, @accent); spin(@color1, -@accent); 50%);
+  @color2b: contrast(@compare; spin(@color2, @accent); spin(@color2, -@accent); 50%);
+  @color3b: contrast(@compare; spin(@color3, @accent); spin(@color3, -@accent); 50%);
+  @color4b: contrast(@compare; spin(@color4, @accent); spin(@color4, -@accent); 50%);
 
-    // color b is an accent
+  // color c is a darker analog
 
-    @color1b: contrast(@compare; spin(@color1, @accent); spin(@color1, -@accent); 50%);
-    @color2b: contrast(@compare; spin(@color2, @accent); spin(@color2, -@accent); 50%);
-    @color3b: contrast(@compare; spin(@color3, @accent); spin(@color3, -@accent); 50%);
-    @color4b: contrast(@compare; spin(@color4, @accent); spin(@color4, -@accent); 50%);
+  @color1c: contrast(@floor; spin(darken(@color1, @c-by), @analog); spin(darken(@color1, @c-by), -@analog); 50%);
+  @color2c: contrast(@floor; spin(darken(@color2, @c-by), @analog); spin(darken(@color2, @c-by), -@analog); 50%);
+  @color3c: contrast(@floor; spin(darken(@color3, @c-by), @analog); spin(darken(@color3, @c-by), -@analog); 50%);
+  @color4c: contrast(@floor; spin(darken(@color4, @c-by), @analog); spin(darken(@color4, @c-by), -@analog); 50%);
+}
 
-    // color c is a darker analog
+.make-colors(@color; @wheel; @scheme-type) when (@scheme-type = light) {
 
-    @color1c: contrast(@floor; spin(darken(@color1, @c-by), @analog); spin(darken(@color1, @c-by), -@analog); 50%);
-    @color2c: contrast(@floor; spin(darken(@color2, @c-by), @analog); spin(darken(@color2, @c-by), -@analog); 50%);
-    @color3c: contrast(@floor; spin(darken(@color3, @c-by), @analog); spin(darken(@color3, @c-by), -@analog); 50%);
-    @color4c: contrast(@floor; spin(darken(@color4, @c-by), @analog); spin(darken(@color4, @c-by), -@analog); 50%);
-  }
+  @wheel-var: @@wheel;
+  @color1: @color;
+  @color2: spin(@color, extract(@wheel-var, 1));
+  @color3: spin(@color, extract(@wheel-var, 2));
+  @color4: spin(@color, extract(@wheel-var, 3));
 
-  .make-colors(@color; @wheel; @scheme-type) when (@scheme-type = light) {
+  @a-by: 4%;
+  @c-by: 8%;
+  @ceiling: white;
+  @floor: #515151;
+  @compare: @color;
 
-    @wheel-var: @@wheel;
-    @color1: @color;
-    @color2: spin(@color, extract(@wheel-var, 1));
-    @color3: spin(@color, extract(@wheel-var, 2));
-    @color4: spin(@color, extract(@wheel-var, 3));
+  // color a is a lighter analog
 
-    @a-by: 4%;
-    @c-by: 8%;
-    @ceiling: white;
-    @floor: #515151;
-    @compare: @color;
+  @color1a: contrast(@ceiling; spin(lighten(@color1, @a-by), @analog); spin(lighten(@color1, @a-by), -@analog); 50%;);
+  @color2a: contrast(@ceiling; spin(lighten(@color2, @a-by), @analog); spin(lighten(@color2, @a-by), -@analog); 50%;);
+  @color3a: contrast(@ceiling; spin(lighten(@color3, @a-by), @analog); spin(lighten(@color3, @a-by), -@analog); 50%;);
+  @color4a: contrast(@ceiling; spin(lighten(@color4, @a-by), @analog); spin(lighten(@color4, @a-by), -@analog); 50%;);
 
-    // color a is a lighter analog
+  // color b is an accent
 
-    @color1a: contrast(@ceiling; spin(lighten(@color1, @a-by), @analog); spin(lighten(@color1, @a-by), -@analog); 50%;);
-    @color2a: contrast(@ceiling; spin(lighten(@color2, @a-by), @analog); spin(lighten(@color2, @a-by), -@analog); 50%;);
-    @color3a: contrast(@ceiling; spin(lighten(@color3, @a-by), @analog); spin(lighten(@color3, @a-by), -@analog); 50%;);
-    @color4a: contrast(@ceiling; spin(lighten(@color4, @a-by), @analog); spin(lighten(@color4, @a-by), -@analog); 50%;);
+  @color1b: contrast(@compare; spin(@color1, @accent); spin(@color1, -@accent/2); 50%;);
+  @color2b: contrast(@compare; spin(@color2, @accent); spin(@color2, -@accent/2); 50%;);
+  @color3b: contrast(@compare; spin(@color3, @accent); spin(@color3, -@accent/2); 50%;);
+  @color4b: contrast(@compare; spin(@color4, @accent); spin(@color4, -@accent/2); 50%;);
 
-    // color b is an accent
+  // color c is a darker analog
 
-    @color1b: contrast(@compare; spin(@color1, @accent); spin(@color1, -@accent/2); 50%;);
-    @color2b: contrast(@compare; spin(@color2, @accent); spin(@color2, -@accent/2); 50%;);
-    @color3b: contrast(@compare; spin(@color3, @accent); spin(@color3, -@accent/2); 50%;);
-    @color4b: contrast(@compare; spin(@color4, @accent); spin(@color4, -@accent/2); 50%;);
+  @color1c: contrast(@floor; spin(darken(@color1, @c-by), @analog); spin(darken(@color1, @c-by), -@analog); 50%;);
+  @color2c: contrast(@floor; spin(darken(@color2, @c-by), @analog); spin(darken(@color2, @c-by), -@analog); 50%;);
+  @color3c: contrast(@floor; spin(darken(@color3, @c-by), @analog); spin(darken(@color3, @c-by), -@analog); 50%;);
+  @color4c: contrast(@floor; spin(darken(@color4, @c-by), @analog); spin(darken(@color4, @c-by), -@analog); 50%;);
+}
 
-    // color c is a darker analog
+.make-colors(@color; @wheel; @scheme-type) when (@scheme-type = dark) {
 
-    @color1c: contrast(@floor; spin(darken(@color1, @c-by), @analog); spin(darken(@color1, @c-by), -@analog); 50%;);
-    @color2c: contrast(@floor; spin(darken(@color2, @c-by), @analog); spin(darken(@color2, @c-by), -@analog); 50%;);
-    @color3c: contrast(@floor; spin(darken(@color3, @c-by), @analog); spin(darken(@color3, @c-by), -@analog); 50%;);
-    @color4c: contrast(@floor; spin(darken(@color4, @c-by), @analog); spin(darken(@color4, @c-by), -@analog); 50%;);
-  }
+  @wheel-var: @@wheel;
+  @color1: @color;
+  @color2: spin(@color, extract(@wheel-var, 1));
+  @color3: spin(@color, extract(@wheel-var, 2));
+  @color4: spin(@color, extract(@wheel-var, 3));
 
-  .make-colors(@color; @wheel; @scheme-type) when (@scheme-type = dark) {
+  @a-by: 12%;
+  @c-by: 8%;
+  @ceiling: #515151;
+  @floor: black;
+  @compare: @color;
 
-    @wheel-var: @@wheel;
-    @color1: @color;
-    @color2: spin(@color, extract(@wheel-var, 1));
-    @color3: spin(@color, extract(@wheel-var, 2));
-    @color4: spin(@color, extract(@wheel-var, 3));
+  // color a is a lighter analog
 
-    @a-by: 12%;
-    @c-by: 8%;
-    @ceiling: #515151;
-    @floor: black;
-    @compare: @color;
+  @color1a: contrast(@ceiling; spin(lighten(@color1, @a-by), @analog); spin(lighten(@color1, @a-by), -@analog); 50%);
+  @color2a: contrast(@ceiling; spin(lighten(@color2, @a-by), @analog); spin(lighten(@color2, @a-by), -@analog); 50%);
+  @color3a: contrast(@ceiling; spin(lighten(@color3, @a-by), @analog); spin(lighten(@color3, @a-by), -@analog); 50%);
+  @color4a: contrast(@ceiling; spin(lighten(@color4, @a-by), @analog); spin(lighten(@color4, @a-by), -@analog); 50%);
 
-    // color a is a lighter analog
+  // color b is an accent
 
-    @color1a: contrast(@ceiling; spin(lighten(@color1, @a-by), @analog); spin(lighten(@color1, @a-by), -@analog); 50%);
-    @color2a: contrast(@ceiling; spin(lighten(@color2, @a-by), @analog); spin(lighten(@color2, @a-by), -@analog); 50%);
-    @color3a: contrast(@ceiling; spin(lighten(@color3, @a-by), @analog); spin(lighten(@color3, @a-by), -@analog); 50%);
-    @color4a: contrast(@ceiling; spin(lighten(@color4, @a-by), @analog); spin(lighten(@color4, @a-by), -@analog); 50%);
+  @color1b: contrast(@compare; spin(@color1, @accent); spin(@color1, -@accent); 50%);
+  @color2b: contrast(@compare; spin(@color2, @accent); spin(@color2, -@accent); 50%);
+  @color3b: contrast(@compare; spin(@color3, @accent); spin(@color3, -@accent); 50%);
+  @color4b: contrast(@compare; spin(@color4, @accent); spin(@color4, -@accent); 50%);
 
-    // color b is an accent
+  // color c is a darker analog
 
-    @color1b: contrast(@compare; spin(@color1, @accent); spin(@color1, -@accent); 50%);
-    @color2b: contrast(@compare; spin(@color2, @accent); spin(@color2, -@accent); 50%);
-    @color3b: contrast(@compare; spin(@color3, @accent); spin(@color3, -@accent); 50%);
-    @color4b: contrast(@compare; spin(@color4, @accent); spin(@color4, -@accent); 50%);
+  @color1c: contrast(@floor; spin(darken(@color1, @c-by), @analog); spin(darken(@color1, @c-by), -@analog); 50%);
+  @color2c: contrast(@floor; spin(darken(@color2, @c-by), @analog); spin(darken(@color2, @c-by), -@analog); 50%);
+  @color3c: contrast(@floor; spin(darken(@color3, @c-by), @analog); spin(darken(@color3, @c-by), -@analog); 50%);
+  @color4c: contrast(@floor; spin(darken(@color4, @c-by), @analog); spin(darken(@color4, @c-by), -@analog); 50%);
+}
 
-    // color c is a darker analog
+.load-gray-bases(@color) {
+  @gray-base: mix(desaturate(@color, 80%), #515151, 75%);
+  @gray-step: 10%;
 
-    @color1c: contrast(@floor; spin(darken(@color1, @c-by), @analog); spin(darken(@color1, @c-by), -@analog); 50%);
-    @color2c: contrast(@floor; spin(darken(@color2, @c-by), @analog); spin(darken(@color2, @c-by), -@analog); 50%);
-    @color3c: contrast(@floor; spin(darken(@color3, @c-by), @analog); spin(darken(@color3, @c-by), -@analog); 50%);
-    @color4c: contrast(@floor; spin(darken(@color4, @c-by), @analog); spin(darken(@color4, @c-by), -@analog); 50%);
-  }
+  @gray-bases:  @gray-lightest-base,
+                @gray-lighter-base,
+                @gray-light-base,
+                @gray-base,
+                @gray-dark-base,
+                @gray-darker-base,
+                @gray-darkest-base,
+                darken(@gray-darkest-base, 3%); // placeholder for overflow
 
-  .load-gray-bases(@color) {
-    @gray-base: mix(desaturate(@color, 80%), #515151, 75%);
-    @gray-step: 10%;
+  @gray-light-base:             lighten(@gray-base; @gray-step);
+  @gray-lighter-base:           lighten(@gray-light-base; @gray-step);
+  @gray-lightest-base:          lighten(@gray-lighter-base; @gray-step);
 
-    @gray-bases:  @gray-lightest-base,
-                  @gray-lighter-base,
-                  @gray-light-base,
-                  @gray-base,
-                  @gray-dark-base,
-                  @gray-darker-base,
-                  @gray-darkest-base,
-                  darken(@gray-darkest-base, 3%); // placeholder for overflow
+  @gray-dark-base:              darken(@gray-base; @gray-step);
+  @gray-darker-base:            darken(@gray-dark-base; @gray-step);
+  @gray-darkest-base:           darken(@gray-darker-base; @gray-step);
+}
 
-    @gray-light-base:             lighten(@gray-base; @gray-step);
-    @gray-lighter-base:           lighten(@gray-light-base; @gray-step);
-    @gray-lightest-base:          lighten(@gray-lighter-base; @gray-step);
+.make-grays(@color) {
+  .load-gray-bases(@color);
+  @gray-shift: @scheme-type-base;
 
-    @gray-dark-base:              darken(@gray-base; @gray-step);
-    @gray-darker-base:            darken(@gray-dark-base; @gray-step);
-    @gray-darkest-base:           darken(@gray-darker-base; @gray-step);
-  }
+  @gray-lighter:      extract(@gray-bases; 0 + @gray-shift);
+  @gray-light:        extract(@gray-bases; 1 + @gray-shift);
+  @gray:              extract(@gray-bases; 2 + @gray-shift);
+  @gray-dark:         extract(@gray-bases; 3 + @gray-shift);
+  @gray-darker:       extract(@gray-bases; 4 + @gray-shift);
+}
 
-  .make-grays(@color) {
-    #strapless.load-gray-bases(@color);
-    @gray-shift: @scheme-type-base;
+.load-semantic-colors() {
+  @action-sat: (saturation(@info) + saturation(@success))/2;
+  @action-lit: (lightness(@info) + lightness(@success))/2;
 
-    @gray-lighter:      extract(@gray-bases; 0 + @gray-shift);
-    @gray-light:        extract(@gray-bases; 1 + @gray-shift);
-    @gray:              extract(@gray-bases; 2 + @gray-shift);
-    @gray-dark:         extract(@gray-bases; 3 + @gray-shift);
-    @gray-darker:       extract(@gray-bases; 4 + @gray-shift);
-  }
+  @reaction-sat: (saturation(@warning) + saturation(@failure))/2;
+  @reaction-lit: (lightness(@warning) + lightness(@failure))/2;
+  
+  @action-base: hsl(hue(@action), @action-sat, @action-lit);
+  @reaction-base: hsl(hue(@reaction), @reaction-sat, @reaction-lit);
+  @info-base: #5bc0de;
+  @warning-base: #ff6b23;
+  @success-base: #5cb85c;
+  @failure-base: #d0534f;
 
-  .load-semantic-colors() {
-    @action-sat: (saturation(@info) + saturation(@success))/2;
-    @action-lit: (lightness(@info) + lightness(@success))/2;
-
-    @reaction-sat: (saturation(@warning) + saturation(@failure))/2;
-    @reaction-lit: (lightness(@warning) + lightness(@failure))/2;
-    
-    @action-base: hsl(hue(@action), @action-sat, @action-lit);
-    @reaction-base: hsl(hue(@reaction), @reaction-sat, @reaction-lit);
-    @info-base: #5bc0de;
-    @warning-base: #f0ad4e;
-    @success-base: #5cb85c;
-    @failure-base: #d0534f;
-
-    @action:    @color1;
-    @reaction:  @color2b;
-    @info:      average(@info-base, hsl(hue(@info-base), saturation(@color1), lightness(@color1)));
-    @warning:   average(@warning-base, hsl(hue(@warning-base), saturation(@color2b), lightness(@color2b)));
-    @success:   average(@success-base, hsl(hue(@success-base), saturation(@color1), lightness(@color1)));
-    @failure:   average(@failure-base, hsl(hue(@failure-base), saturation(@color2b), lightness(@color2b)));
-  }
+  @action:    @color1;
+  @reaction:  @color2b;
+  @info:      average(@info-base, hsl(hue(@info-base), saturation(@action), lightness(@action)));
+  @warning:   average(@warning-base, hsl(hue(@warning-base), saturation(@reaction), lightness(@reaction)));
+  @success:   average(@success-base, hsl(hue(@success-base), saturation(@action), lightness(@action)));
+  @failure:   average(@failure-base, hsl(hue(@failure-base), saturation(@reaction), lightness(@reaction)));
 }

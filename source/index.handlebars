@@ -23,7 +23,6 @@
         <nav>
             <section>
                 <h1><a href="/">Strapless</a></h1>
-
                 <ul>
                     <li><a href="#colors">Colors</a></li>
                     <li><a href="#patterns">Patterns</a></li>
@@ -37,12 +36,13 @@
             <p>Strapless is a color-changing CSS&nbsp;boilerplate for HTML elements. <br>It's also a powerful LESS library for colors and patterns.</p>
             <aside>
                 <button class="failure" type="button" onclick="Strapless.downloadCSS();">Get this CSS <span class="sl-current-color">current color</span></button>
-                <button class="success" type="button" onclick="location.href='http://github.com/Tivix/strapless'">LESS/GitHub</button>
+                <button class="info" type="button" onclick="location.href='http://github.com/Tivix/strapless'">LESS/GitHub</button>
                 <button class="failure" type="button" onclick="Strapless.downloadSiteCSS();">Get site CSS <span class="sl-current-color">current color</span></button>
             </aside>
             <form id="demo_form">
+                <p>Try a color now!</p>
                 <label>Base color</label>
-                <input id="seed_color" class="jscolor" value="cadfe6" />
+                <input id="seed_color" class="jscolor" value="E0273B" />
                 <aside>
                     <button type="button" class="reaction" onclick="Strapless.updateScheme();">Preview</button>
                     <button type="button" class="failure" onclick="Strapless.downloadCSS();">Get CSS</button>
@@ -212,6 +212,23 @@
             </div>
             <div class="clearfix"></div>
             <p>If you're using the LESS version, the color palette is available to your whole project. Colors come in four generically named main colors: <code>@color1</code>, <code>@color2</code>, <code>@color3</code> and <code>@color4</code>. Each has three subcolors: a lightened version (<code>@color1a</code>), an alternate (<code>@color1b</code>) and a darkened version (<code>@color1c</code>).</p>
+            <p>Additionally, Strapless figures out a few semantic colors:</p>
+            <aside>
+                <p class="sl-single-color sl-color-action">@action</p>
+                <p class="sl-single-color sl-color-reaction">@reaction</p>
+                <p class="sl-single-color sl-color-info">@info</p>
+                <p class="sl-single-color sl-color-warning">@warning</p>
+                <p class="sl-single-color sl-color-success">@success</p>
+                <p class="sl-single-color sl-color-failure">@failure</p>
+            </aside>
+            <p>And a full suite of grays:</p>
+            <aside>
+                <p class="sl-single-color sl-gray sl-color-gray-lighter">@gray-lighter</p>
+                <p class="sl-single-color sl-gray sl-color-gray-light">@gray-light</p>
+                <p class="sl-single-color sl-gray sl-color-gray">@gray</p>
+                <p class="sl-single-color sl-gray sl-color-gray-dark">@gray-dark</p>
+                <p class="sl-single-color sl-gray sl-color-gray-darker">@gray-darker</p>
+            </aside>
         </section>
 
         <section id="philosophy">
@@ -235,6 +252,8 @@
                 <p>This is a main element. Like the immortals in <em>Highlander</em>, there should be only one of them.</p>
             </main>
 
+            <h2>Sections</h2>
+            <p>Use of the <code>&lt;section&gt;</code> element (seen throughout this page) is encouraged. Sections have default CSS for spacing out your content that's aimed at getting it looking good on the first pass.</p>
 
             <h2>Asides</h2>
             <p>Asides center everything inside them using flexbox.</p>
@@ -244,10 +263,10 @@
 
             <h2>Typography</h2>
 
-            <p>Typography rules in Strapless offer you a smart base to build from.</p>
+            <p>Typography rules are applied directly to HTML elements.</p>
 
             <h3>Headlines</h3>
-            <p>Pretty much what you'd expect:</p>
+            <p>Pretty much what you'd expect. Headlines are centered by default but that's probably easy to change.</p>
 
             <h1>This is headline text. (h1)</h1>
             <h2>This is headline text. (h2)</h2>
@@ -263,11 +282,11 @@
             </blockquote>
 
             <h3>Paragraphs, etc.</h3>
-            <p>Paragraphs (like this one!) are by default limited to 50 characters width. They have an aggressive, but not too aggressive, line height of 1.62.</p>
+            <p>Paragraphs (like this one!) are by default limited to 50 characters width (or whatever <code>@text-measure</code> is set to). They have an aggressive, but not too aggressive, line height of 1.62 (also a variable!).</p>
 
             <h3>Figures</h3>
             <figure>
-                <!-- <img src="http://placekitten.com/300/300" alt="A Kitten"> -->
+                <img src="http://placekitten.com/300/300" alt="A Kitten">
                 <figcaption>This figcaption explains that this is an image of a kitten.</figcaption>
                 <caption>A caption element would accomplish the same thing.</caption>
             </figure>
@@ -299,7 +318,7 @@
                 <button type="button" class="info">Info</button>
                 <button type="button" class="warning">Warning</button>
             </aside>
-            <p>Semantic colors respond to the color scheme too, so <code>@success</code> will always be the <em>right</em> green. They don't have any other classes to worry about, until you add them, but they do respond well to font size changes:</p>
+            <p>Semantic colors respond to the color scheme too, so <code>@success</code> will always be the <em>right</em> green (along with its corresponding button). They don't have any other classes to worry about, until you add them, but they do respond well to font size changes:</p>
             <aside >
                 <button type="button" class="info" style="font-size:22px;">22 pixels big</button>
                 <button type="button" class="failure" style="font-size:1.5em;">1.5em of failure</button>
@@ -432,6 +451,7 @@
             <br>
             <p>Navbars are simple HTML and CSS, not fully functional components with javascript. Strapless plays well with others-- use the navbar you want, and then use Strapless to style it.</p>
             <p>All of the more complicated elements that take colors as arguments are located in <code>mixins.less</code>. To take 'em out, just remove them where they're used in <code>elements.less</code>.</p>
+            <p>If you place a <code>nav</code> element 
         </section>
         <section>
             <h2>Forms</h2>
@@ -559,7 +579,7 @@
                 <dt>@info and @warning</dt>
                 <dd>A calming blue and more urgent orange demarking information</dd>
                 <dt>@action and @reaction</dt>
-                <dd>A generic opposing pair of colors based on your projects @base-color</dd>
+                <dd>A generic opposing pair of colors based on your project's @base-color</dd>
             </dl>
 
         </section>
@@ -568,7 +588,7 @@
             <h1>How to use Strapless</h1>
             <ol>
                 <li>Pick the color you like and "Get CSS." Use that CSS in your project.</li>
-                <li>Alternatively, grab the LESS version off of Github and <a href="http://lesscss.org/#getting-started">use that</a> in your project, for enhanced customization and flexibility.</li>
+                <li>Alternatively, grab the <a href="http://github.com/Tivix/strapless">LESS version</a> off of Github and <a href="http://lesscss.org/#getting-started">use that</a> in your project, for enhanced customization and flexibility.</li>
             </ol>
         </section>
 

@@ -1,6 +1,6 @@
 #strapless_patterns_checkerboard {
     &:before {
-        content: 'Checkerboard | .checkerboard([color,] [color,] [scale])';
+        content: 'Checkerboard';
     }
     .pattern {
         &:nth-child(1){
@@ -25,7 +25,7 @@
 }
 #strapless_patterns_bathmat {
     &:before {
-        content: 'Bathmat | .bathmat([color,] [scale])';
+        content: 'Bathmat';
     }
     .pattern {
         &:nth-child(1){
@@ -50,7 +50,7 @@
 }
 #strapless_patterns_crosshatch {
     &:before {
-        content: 'Crosshatch | .crosshatch([color,] [scale])';
+        content: 'Crosshatch';
     }
     .pattern {
         &:nth-child(1){
@@ -75,7 +75,7 @@
 }
 #strapless_patterns_noise {
     &:before {
-        content: 'Noise | .noise([color,] [scale])';
+        content: 'Noise';
     }
     .pattern {
         &:nth-child(1){
@@ -100,7 +100,7 @@
 }
 #strapless_patterns_blueprint {
     &:before {
-        content: 'Blueprint | .blueprint([bg,] [stroke,] [scale])';
+        content: 'Blueprint';
     }
     .pattern {
         &:nth-child(1){
@@ -125,38 +125,32 @@
 }
 #strapless_patterns_pegboard {
     &:before {
-        content: 'Pegboard | .pegboard([color,] [scale])';
+        content: 'Pegboard';
     }
     .pattern {
         &:nth-child(1){
+            .pegboard(@color2);
+            &:before {
+                content: '.pegboard (@color2)';
+            }
+        }
+        &:nth-child(2){
             .pegboard(@color3);
             &:before {
                 content: '.pegboard (@color3)';
             }
         }
-        &:nth-child(2){
-            .pegboard(white);
-            &:before {
-                content: '.pegboard (white)';
-            }
-        }
         &:nth-child(3){
-            .pegboard(@color3b, 1.5);
+            .pegboard(@color4c, 1.5);
             &:before {
-                content: '.pegboard (@color3b, 1.5)';
-            }
-        }
-        &:nth-child(4){
-            .pegboard(@color3c);
-            &:before {
-                content: '.pegboard (@color3c)';
+                content: '.pegboard (@color4c, 1.5)';
             }
         }
     }
 }
 #strapless_patterns_argyle {
     &:before {
-        content: 'Argyle | .argyle([color,] [color,] [stroke color])';
+        content: 'Argyle';
     }
     .pattern {
         &:nth-child(1){
@@ -177,17 +171,11 @@
                 content: '.argyle (@color1b, @scale: .5)';
             }
         }
-        &:nth-child(4){
-            .argyle(@gray-light);
-            &:before {
-                content: '.argyle (@gray-light)';
-            }
-        }
     }
 }
 #strapless_patterns_dots {
     &:before {
-        content: 'Dots | .dots([dot color,] [bg color,] [scale])';
+        content: 'Dots';
     }
     .pattern {
         &:nth-child(1){
@@ -208,17 +196,11 @@
                 content: '.dots (@color2b)';
             }
         }
-        &:nth-child(4){
-            .dots(@success);
-            &:before {
-                content: '.dots (@success)';
-            }
-        }
     }
 }
 #strapless_patterns_stripes {
     &:before {
-        content: 'Stripes | .stripes([stripe color,] [bg color,] [scale])';
+        content: 'Stripes';
     }
     .pattern {
         &:nth-child(1){
@@ -239,17 +221,11 @@
                 content: '.stripes1 (@color3b)';
             }
         }
-        &:nth-child(4){
-            .stripes(@gray-darker, 3);
-            &:before {
-                content: '.stripes1 (@gray-darker, 3)';
-            }
-        }
     }
 }
 #strapless_patterns_honeycomb {
     &:before {
-        content: 'Honeycomb | .honeycomb([bg color,] [stroke color light,] [stroke color dark,] [scale])';
+        content: 'Honeycomb';
     }
     .pattern {
         &:nth-child(1){
@@ -270,17 +246,11 @@
                 content: '.honeycomb (@failure)';
             }
         }
-        &:nth-child(4){
-            .honeycomb(@color4b, @color4b, @color1a, .25);
-            &:before {
-                content: '.honeycomb (@color4b, @color4b, @color1a, .25)';
-            }
-        }
     }
 }
 #strapless_patterns_chevrons {
     &:before {
-        content: 'Chevrons | .chevrons([bg color,] [stroke color,] [scale])';
+        content: 'Chevrons';
     }
     .pattern {
         &:nth-child(1){
@@ -301,17 +271,11 @@
                 content: '.chevrons (@color3)';
             }
         }
-        &:nth-child(4){
-            .chevrons(@color2, @color2a, .34);
-            &:before {
-                content: '.chevrons (@color2, @color2a, .34)';
-            }
-        }
     }
 }
 #strapless_patterns_carbon {
     &:before {
-        content: 'Carbon | .carbon([base color,] [scale])';
+        content: 'Carbon';
     }
     .pattern {
         &:nth-child(1){
@@ -330,12 +294,6 @@
             .carbon(@color2c);
             &:before {
                 content: '.carbon (@color2c)';
-            }
-        }
-        &:nth-child(4){
-            .carbon(@gray-lighter);
-            &:before {
-                content: '.carbon (@gray-lighter)';
             }
         }
     }
@@ -357,7 +315,6 @@
         min-width: @size/2;
         width: 33.3%;
         height: @height;
-        //margin-right: @margin;
         margin-bottom: @margin;
         position: relative;
         display: flex;

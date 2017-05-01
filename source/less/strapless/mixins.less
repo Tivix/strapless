@@ -3,7 +3,7 @@
 .text-color(@color: @color1; @contrast: 1;) {
 
   & when (luma(@color) < @contrast-break) {
-    color: hsl(hue(@color); saturation(@color) + 10; 98.5%); // pretty much white
+    color: hsl(hue(@color); saturation(@color) + 10; 98%); // pretty much white
   }
 
   & when (luma(@color) >= @contrast-break) {
@@ -77,16 +77,17 @@
 }
 
 .sl-form(@color) {
-  #strapless.make-palette(@color, ebb);
-  @input-color: #fafafa;
+  .make-palette(@color, ebb);
+  @input-bg-color: mix(@gray-lightest-base, white, 25%);
+  @form-measure: 36ch;
   background: @color1;
-  max-width: 36ch;
+  max-width: @form-measure;
   .contrast-text-against(@color1);
-  padding: @padding;
+  padding: 2ch;
 
   > * {
     width: 100%;
-    max-width: 36ch;
+    max-width: @form-measure;
     margin-bottom: .8em;
 
     & + button {
@@ -103,21 +104,21 @@
   input,
   textarea {
     width: 100%;
-    padding: @padding;
+    padding: 1ch;
     border: none;
-    background: @input-color;
-    .contrast-text-against(@input-color);
+    background: @input-bg-color;
+    .contrast-text-against(@input-bg-color);
   }
 
   select {
-    padding: @padding;
-    .contrast-text-against(@input-color);
+    padding: 1ch;
+    .contrast-text-against(@input-bg-color);
     vertical-align: middle;
-    background: @input-color;
+    background: @input-bg-color;
     background-image: none;
     border: none;
     border-radius:0;
-    height:16px + @padding * 2;
+    height: 2.5em;
     -moz-appearance: menulist-button;
     -webkit-appearance: menulist-button;
   }
@@ -181,7 +182,7 @@
   z-index: 1000;
 
   > section {
-    padding-top: 0;
+    padding: 0;
   }
 
   > section > * { // pseudo reset
@@ -263,7 +264,7 @@
 
 .sl-table(@table-color: @color1;) {
 
-  #strapless.make-palette(@table-color; ebb);
+  .make-palette(@table-color; ebb);
     @header: @color1;
     @row-a: @color1a;
     @row-b: darken(@row-a, 1.5%);

@@ -15,7 +15,7 @@ html, body, ul, ol, li, form, fieldset, legend {
 
 body {
   background-color: @background;
-  font-size: 14px;
+  font-size: 16px;
   .contrast-text-against(@background);
   line-height: @line-height;
   padding-top: @navbar-height + @padding;
@@ -31,10 +31,6 @@ body {
                 sans-serif;
 
   .on-tablet({
-    font-size:16px;
-  });
-
-  .on-desktop({
     font-size:18px;
   });
 }
@@ -45,12 +41,9 @@ nav {
 }
 
 section {
-  @section-padding: @navbar-height + @padding;
-
   max-width: @content-width;
-  margin: 0 auto @section-padding auto;
-  margin-bottom: @section-padding;
-  padding-top: @section-padding;
+  margin: 0 auto @padding auto;
+  padding: @padding;
 
   &:first-child {
     margin-top: 0;
@@ -58,24 +51,15 @@ section {
 
   > * {
     margin: 0 auto;
+
+    &:last-child {
+      margin-bottom: @padding;
+    }    
   }
 
   > * + * {
     margin-top: @padding;
-
-    &:last-child {
-      margin-bottom: @padding;
-    }
   }
-
-  > *:last-child {
-    .clearfix();
-    margin-bottom: @padding;
-  }
-
-  // .on-tablet({
-  //   margin: 0 auto @padding*2 auto;
-  // });
 }
 
 main {
@@ -112,7 +96,7 @@ p, form, article, ul, dl, li {
   margin: 0 auto 1em;
 
   .on-tablet({
-    max-width: 50ch;
+    max-width: @text-measure;
   });
 
   &.info,
@@ -123,6 +107,10 @@ p, form, article, ul, dl, li {
   &.failure {
     padding: .5em 1em;
   }
+}
+
+ul, ol {
+  padding-left: 2ch;
 }
 
 dt { 
@@ -176,7 +164,7 @@ aside {
 }
 
 form {
-  .sl-form(@color1a);
+  .sl-form(@color1);
 }
 
 label {
@@ -251,6 +239,12 @@ abbr, acronym {
 blockquote {
   padding-left:1em;
   border-left:5px solid @color1a;
+  max-width: @text-measure;
+
+  &:nth-child(even) {
+    text-align: right;
+  }
+
   cite {
     font-style:italic;
     display:block;

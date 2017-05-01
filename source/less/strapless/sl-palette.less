@@ -1,6 +1,7 @@
 .make-palettes-for(@base-color; @demo-wheels);
 
 .make-palettes-for(@color; @wheels) {
+  // iterate through @wheels
   @iterations: length(@wheels);
 
   .make-palette();
@@ -19,17 +20,13 @@
 }
 
 .make-swatches-for(@color; @color-list; @color-wheel) {
+  // iterate through color-list
   @iterations: length(@color-list);
 
-  #strapless.make-palette(@color; @color-wheel);
+  .make-palette(@color; @color-wheel);
   .make-nth-swatch(1);
 
-  &:before {
-    content: "@{color-wheel}";
-  }
-
   .make-nth-swatch(@index) when (@index <= @iterations) {
-    
     @swatch-name: extract(@color-list, @index);
     @swatch: @@swatch-name;
 
@@ -37,6 +34,7 @@
       .sl-swatch(@swatch);
     }
 
+    // make next swatch
     .make-nth-swatch(@index + 1);
   }
 }
@@ -140,4 +138,65 @@
       margin-right: 0;
     }
   });
+}
+
+.sl-single-color {
+  @width: 75px;
+  @height: 40px;
+  font-size: 12px;
+  line-height: @height;
+  width: @width;
+  height: @height;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding: 0 6px;
+  text-align: center;
+}
+
+.sl-gray {
+  width: 95px;
+}
+
+.sl-color-action {
+  .colorify(@action);
+}
+
+.sl-color-reaction {
+  .colorify(@reaction);
+}
+
+.sl-color-info {
+  .colorify(@info);
+}
+
+.sl-color-warning {
+  .colorify(@warning);
+}
+
+.sl-color-success {
+  .colorify(@success);
+}
+
+.sl-color-failure {
+  .colorify(@failure);
+}
+
+.sl-color-gray-lighter {
+  .colorify(@gray-lighter);
+}
+
+.sl-color-gray-light {
+  .colorify(@gray-light);
+}
+
+.sl-color-gray {
+  .colorify(@gray);
+}
+
+.sl-color-gray-dark {
+  .colorify(@gray-dark);
+}
+
+.sl-color-gray-darker {
+  .colorify(@gray-darker);
 }
