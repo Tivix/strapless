@@ -1891,8 +1891,8 @@ hr {
 body,
 #feature,
 #feature > *,
-section > *,
-nav,
+#strapless_nav,
+#strapless_main,
 #demo_form,
 #loading_overlay {
   transition: color 2s ease;
