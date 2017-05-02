@@ -12,6 +12,7 @@
 
     // each palette has a corresponding id
     #sl_@{scheme} {
+      &:before { content: "@{scheme}";}
       .make-swatches-for(@color; @all-colors; @scheme);
     }
     // make the next palette
@@ -27,6 +28,7 @@
   .make-nth-swatch(1);
 
   .make-nth-swatch(@index) when (@index <= @iterations) {
+    // color list is a list
     @swatch-name: extract(@color-list, @index);
     @swatch: @@swatch-name;
 

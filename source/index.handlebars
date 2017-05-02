@@ -256,7 +256,7 @@
             <p>Use of the <code>&lt;section&gt;</code> element (seen throughout this page) is encouraged. Sections have default CSS for spacing out your content that's aimed at getting it looking good on the first pass.</p>
 
             <h2>Asides</h2>
-            <p>Asides center everything inside them using flexbox.</p>
+            <p>Asides center everything inside them using flexbox. On mobile, they stack up their contents.</p>
             <aside>This is an aside.</aside>
             <p>It's useful for buttons:</p>
             <aside><button class="reaction">I'm centered!</button><button class="failure">Me too</button></aside>
@@ -282,14 +282,7 @@
             </blockquote>
 
             <h3>Paragraphs, etc.</h3>
-            <p>Paragraphs (like this one!) are by default limited to 50 characters width (or whatever <code>@text-measure</code> is set to). They have an aggressive, but not too aggressive, line height of 1.62 (also a variable!).</p>
-
-            <h3>Figures</h3>
-            <figure>
-                <img src="http://placekitten.com/300/300" alt="A Kitten">
-                <figcaption>This figcaption explains that this is an image of a kitten.</figcaption>
-                <caption>A caption element would accomplish the same thing.</caption>
-            </figure>
+            <p>Paragraphs (like this one!) are by default limited to 55 characters width (or whatever <code>@text-measure</code> is set to). They have an aggressive, but not too aggressive, line height of 1.62 (also a variable!).</p>
 
             <h3>Other Block Elements</h3>
             <article>
@@ -449,9 +442,9 @@
                 </section>
             </nav>
             <br>
-            <p>Navbars are simple HTML and CSS, not fully functional components with javascript. Strapless plays well with others-- use the navbar you want, and then use Strapless to style it.</p>
+            <p>Navbars are simple HTML and CSS, not fully functional components with javascript. Strapless plays well with others, so use the navbar you want, and then use Strapless to style it.</p>
             <p>All of the more complicated elements that take colors as arguments are located in <code>mixins.less</code>. To take 'em out, just remove them where they're used in <code>elements.less</code>.</p>
-            <p>If you place a <code>nav</code> element 
+            <p>If you place a <code>nav</code> element at the very beginning or very end of <code>body</code>, it will stick to the top and stretch across the page (seen above).</p>
         </section>
         <section>
             <h2>Forms</h2>
