@@ -282,7 +282,10 @@
             </blockquote>
 
             <h3>Paragraphs, etc.</h3>
-            <p>Paragraphs (like this one!) are by default limited to 55 characters width (or whatever <code>@text-measure</code> is set to). They have an aggressive, but not too aggressive, line height of 1.62 (also a variable!).</p>
+            <p>Paragraphs (like this one!) are by default limited to 55 characters width (or whatever <code>@text-measure</code> is set to). They have an aggressive, but not too aggressive, line height of 1.62 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
+            <p class="info">I'm informing you of something.</p>
+            <p class="success">Your form wasn't lost in cyber space!</p>
+            <p class="failure">I've made a huge mistake.</p>
 
             <h3>Other Block Elements</h3>
             <article>
@@ -429,9 +432,9 @@
             </aside>
             <p>Tables, like buttons, by default support all the semantic color classes.</p>
         </section>
-        <section>
+        <section class="info">
             <h2>Nav (navbar)</h2>
-            <nav>
+            <nav class="reaction">
                 <section>
                     <h1><a href="/">Title here</a></h1>
 
@@ -446,7 +449,7 @@
             <p>All of the more complicated elements that take colors as arguments are located in <code>mixins.less</code>. To take 'em out, just remove them where they're used in <code>elements.less</code>.</p>
             <p>If you place a <code>nav</code> element at the very beginning or very end of <code>body</code>, it will stick to the top and stretch across the page (seen above).</p>
         </section>
-        <section>
+        <section class="warning">
             <h2>Forms</h2>
 
             <form>
@@ -462,9 +465,16 @@
                     <option value="2">Second choice</option>
                     <option value="3">Third choice</option>
                 </select>
+                <button class="reaction">Submit</button>
             </form>
 
-            <p>Strapless aims to make simple form markup look good by default. There's no extra markup or JS conventions to worry about.</p>
+            <p>Strapless aims to make simple form markup look good by default. There's no extra markup or JS conventions to worry about. They also work well with semantic classes, like this <code>.info</code> form here:</p>
+
+            <form class="info">
+                <label>Your favorite color:</label>
+                <input type="text" name="fav_color"><br>
+                <button>Submit</button>
+            </form>
         </section>
 
         <section id="patterns">
@@ -597,6 +607,7 @@
         </section>
         <footer>
             <section>
+                <svg class="logo" height="50" viewBox="10 2 70 19" width="70" xmlns="http://www.w3.org/2000/svg"><path class="letter" d="M35 2.3h3.6l5.6 14 5.6-14h3.6l-7.6 18.4h-3.3L35 2.3z"></path><path class="letter" d="M15.9 5.6H10v-3.2h15.1v3.3h-5.9v15.1h-3.3V5.6z"></path><path class="letter" d="M28.4 2.3h3.3v18.4h-3.3V2.3z"></path><path class="letter" d="M56.7 2.3h3.3v18.4h-3.3V2.3z"></path><path class="letter" d="M69.8 11.5l-6.6-9.2h3.6l4.8 6.7 4.8-6.7h3.6L73.4 11.5l6.6 9.2h-3.6l-4.8-6.7 -4.8 6.7h-3.6L69.8 11.5z"></path><polygon class="accent" points="41.9 2.3 44.2 8 46.5 2.3 43.6 2.3 "></polygon></svg>
                 <p>&copy; Tivix, Inc.</p>
             </section>
         </footer>

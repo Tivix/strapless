@@ -49,6 +49,7 @@
 
 .sl-main(@color: @color1c;) {
   padding: @padding;
+  max-width: @content-max-width;
   margin: 0;
   background-color: @color;
   .contrast-text-against(@color);
@@ -69,7 +70,7 @@
   }
 
   .on-tablet({
-    max-width: @content-width;
+    width: @section-width;
     margin: 0 auto;
     padding: @padding*2;
     border-radius: @border-radius;
@@ -167,7 +168,7 @@
   }
 }
 
-.sl-navbar(@color) {
+.sl-nav(@color) {
 
   @height: @navbar-height;
 
@@ -183,6 +184,7 @@
 
   > section {
     padding: 0;
+    max-width: @content-max-width;
   }
 
   > section > * { // pseudo reset
@@ -235,14 +237,14 @@
     font-size: 26px;
     line-height: @height;
     padding: 0 @padding;
-    .contrast-text-against(@color);
+    color: inherit;
   }
 
   a {
     display: block;
     float: left;
     text-decoration: none;
-     .contrast-text-against(@color);
+    color: inherit;
   }
 
   li > a {
@@ -250,8 +252,7 @@
     padding-right: @padding;
 
     &:hover {
-      background-color: lighten(@color, 10%);
-      .contrast-text-against(lighten(@color, 10%));
+      background-color: rgba(255,255,255,.15);
     }
   }
 

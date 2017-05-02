@@ -197,11 +197,11 @@ body {
   line-height: 1.62;
   padding-top: 60px;
   margin-bottom: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
 }
 @media screen and (min-width: 768px) {
   body {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 nav {
@@ -220,6 +220,7 @@ nav {
 }
 nav > section {
   padding: 0;
+  max-width: 920px;
 }
 nav > section > * {
   display: none;
@@ -268,21 +269,20 @@ nav h1 {
   font-size: 26px;
   line-height: 48px;
   padding: 0 12px;
-  color: #f6fafe;
+  color: inherit;
 }
 nav a {
   display: block;
   float: left;
   text-decoration: none;
-  color: #f6fafe;
+  color: inherit;
 }
 nav li > a {
   padding-left: 12px;
   padding-right: 12px;
 }
 nav li > a:hover {
-  background-color: #98c5ed;
-  color: #385a78;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 body > nav:first-child,
 body > nav:last-child {
@@ -293,15 +293,16 @@ body > nav:last-child {
   border-radius: 0;
 }
 section {
-  max-width: 768px;
-  margin: 0 auto 12px auto;
-  padding: 12px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 12px 12px 24px 12px;
 }
 section:first-child {
   margin-top: 0;
 }
 section > * {
   margin: 0 auto;
+  max-width: 920px;
 }
 section > *:last-child {
   margin-bottom: 12px;
@@ -311,6 +312,7 @@ section > * + * {
 }
 main {
   padding: 12px;
+  max-width: 920px;
   margin: 0;
   background-color: #40bcdf;
   color: #f6fcfe;
@@ -329,9 +331,9 @@ main img {
   margin: 0 auto;
   max-width: 100%;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 768px) {
   main {
-    max-width: 768px;
+    width: 100%;
     margin: 0 auto;
     padding: 24px;
     border-radius: 6px;
@@ -405,45 +407,15 @@ li {
   ul,
   dl,
   li {
-    max-width: 50ch;
+    max-width: 55ch;
   }
 }
 p.info,
-form.info,
-article.info,
-ul.info,
-dl.info,
-li.info,
 p.warning,
-form.warning,
-article.warning,
-ul.warning,
-dl.warning,
-li.warning,
 p.action,
-form.action,
-article.action,
-ul.action,
-dl.action,
-li.action,
 p.reaction,
-form.reaction,
-article.reaction,
-ul.reaction,
-dl.reaction,
-li.reaction,
 p.success,
-form.success,
-article.success,
-ul.success,
-dl.success,
-li.success,
-p.failure,
-form.failure,
-article.failure,
-ul.failure,
-dl.failure,
-li.failure {
+p.failure {
   padding: .5em 1em;
 }
 ul,
@@ -684,7 +656,7 @@ acronym {
 blockquote {
   padding-left: 1em;
   border-left: 5px solid #98b0ed;
-  max-width: 50ch;
+  max-width: 55ch;
 }
 blockquote:nth-child(even) {
   text-align: right;
@@ -841,6 +813,9 @@ hr {
   color: #faf9f9;
   border-color: #939393;
 }
+#sl_accented:before {
+  content: "accented";
+}
 #sl_accented .sl-color1 {
   background-color: #6CADE6;
   border-color: #63a8e5;
@@ -904,6 +879,9 @@ hr {
 #sl_accented .sl-color4c {
   background-color: #40dfd9;
   border-color: #38ddd8;
+}
+#sl_complementary:before {
+  content: "complementary";
 }
 #sl_complementary .sl-color1 {
   background-color: #6CADE6;
@@ -969,6 +947,9 @@ hr {
   background-color: #dfd940;
   border-color: #ddd838;
 }
+#sl_triadic:before {
+  content: "triadic";
+}
 #sl_triadic .sl-color1 {
   background-color: #6CADE6;
   border-color: #63a8e5;
@@ -1032,6 +1013,9 @@ hr {
 #sl_triadic .sl-color4c {
   background-color: #40dfd9;
   border-color: #38ddd8;
+}
+#sl_tetradic:before {
+  content: "tetradic";
 }
 #sl_tetradic .sl-color1 {
   background-color: #6CADE6;
@@ -1097,6 +1081,9 @@ hr {
   background-color: #dfd940;
   border-color: #ddd838;
 }
+#sl_square:before {
+  content: "square";
+}
 #sl_square .sl-color1 {
   background-color: #6CADE6;
   border-color: #63a8e5;
@@ -1160,6 +1147,9 @@ hr {
 #sl_square .sl-color4c {
   background-color: #6ddf40;
   border-color: #66dd38;
+}
+#sl_ebb:before {
+  content: "ebb";
 }
 #sl_ebb .sl-color1 {
   background-color: #6CADE6;
@@ -1225,6 +1215,9 @@ hr {
   background-color: #8a40df;
   border-color: #8538dd;
 }
+#sl_flow:before {
+  content: "flow";
+}
 #sl_flow .sl-color1 {
   background-color: #6CADE6;
   border-color: #63a8e5;
@@ -1288,6 +1281,9 @@ hr {
 #sl_flow .sl-color4c {
   background-color: #40dfd9;
   border-color: #38ddd8;
+}
+#sl_monochromatic:before {
+  content: "monochromatic";
 }
 #sl_monochromatic .sl-color1 {
   background-color: #6CADE6;
@@ -1898,10 +1894,18 @@ body,
 section > *,
 nav,
 #demo_form,
-#loading_overlay,
-.swatch {
+#loading_overlay {
   transition: color 2s ease;
   transition: background 2s ease;
+}
+.logo {
+  width: 150px;
+}
+.logo .letter {
+  fill: white;
+}
+.logo .accent {
+  fill: #64cf64;
 }
 body {
   background-color: #98b0ed;

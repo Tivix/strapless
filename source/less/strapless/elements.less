@@ -32,19 +32,19 @@ body {
                 sans-serif;
 
   .on-tablet({
-    font-size: 18px;
+    font-size: 20px;
   });
 }
 
 nav {
-  .sl-navbar(@color1);
+  .sl-nav(@color1);
   .no-user-select();
 }
 
 section {
-  max-width: @content-width;
-  margin: 0 auto @padding auto;
-  padding: @padding;
+  width: @section-width;
+  margin: 0 auto;
+  padding: @padding @padding @padding*2 @padding;
 
   &:first-child {
     margin-top: 0;
@@ -52,6 +52,7 @@ section {
 
   > * {
     margin: 0 auto;
+    max-width: @content-max-width;
 
     &:last-child {
       margin-bottom: @padding;
@@ -99,16 +100,22 @@ p, form, article, ul, dl, li {
   .on-tablet({
     max-width: @text-measure;
   });
+}
 
-  &.info,
+p.info {
+  padding: .5em 1em;
+}
+
+p {
   &.warning,
   &.action,
   &.reaction,
   &.success,
   &.failure {
-    padding: .5em 1em;
+    &:extend(p.info);
   }
 }
+  
 
 ul, ol {
   padding-left: 2ch;
