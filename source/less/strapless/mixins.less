@@ -91,10 +91,10 @@
     max-width: @form-measure;
     margin-bottom: .8em;
 
-    & + button {
+    & + button, &:last-child > button {
       margin-top: .8em;
       margin-bottom: @padding/4;
-      font-size: 133%;
+      font-size: 125%;
     }
   }
 
@@ -123,6 +123,10 @@
     -moz-appearance: menulist-button;
     -webkit-appearance: menulist-button;
   }
+
+  .headlines({
+    &:first-child { margin-top: 0;}
+  })
 }
 
 .sl-code(@code-color) {
