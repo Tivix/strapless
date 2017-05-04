@@ -16,7 +16,7 @@
 .bathmat(@base: @color1; @scale: 1;) {
     .make-palette(@base; monochromatic);
     @bg: @color1;
-    @stroke: @color1c;
+    @stroke: average(@color1, contrast(@color1, @color1a, @color1c));
     @pattern-bathmat:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='40' height='40' fill='@{bg}'/%3E%3Ccircle r='9.2' stroke-width='1' stroke='@{stroke}' fill='none'/%3E%3Ccircle cy='18.4' r='9.2' stroke-width='1px' stroke='@{stroke}' fill='none'/%3E%3Ccircle cx='18.4' cy='18.4' r='9.2' stroke-width='1' stroke='@{stroke}' fill='none'/%3E%3C/svg%3E";
     background-image: url("data:image/svg+xml,@{pattern-bathmat}");
 }
@@ -26,8 +26,9 @@
     @width: 64px;
     @height: @width;
     @bg: @color1;
-    @stroke: @color1a;
-    @stroke-inner: mix(contrast(@bg; @color4a; @color3a), @bg, 50%);
+    @stroke-base: contrast(@bg; @color4a; @color3a);
+    @stroke: mix(overlay(@stroke-base, @bg), @bg, 30%);
+    @stroke-inner: mix(@stroke-base, @bg, 25%);
     @pattern-blueprint:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E %3Crect width='100' height='100' fill='@{bg}'/%3E %3Cg fill='@{stroke-inner}'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='@{stroke}'/%3E %3C/svg%3E";
     background-image: url("data:image/svg+xml,@{pattern-blueprint}");
     background-size: (@scale * @width), (@scale * @height);
@@ -48,7 +49,7 @@
 .checkerboard(@base: @color1; @scale: 1;) {
     .make-palette(@base; monochromatic);
     @highlight: @color1;
-    @shadow: @color3b;
+    @shadow: contrast(@color1, @color3, @color4);
     @width: 60px;
     @height: @width;
     @pattern-checkerboard:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{height}'%3E%3Crect width='60' height='60' fill='@{highlight}'/%3E%3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='@{shadow}'/%3E%3C/svg%3E";
@@ -92,7 +93,7 @@
     .make-palette(@base; accented);
     @bg: @color1;
     @stroke1: @color1;
-    @stroke2: average(@color3c, @color1);
+    @stroke2: average(@color1c, @color1);
     @width: 56px;
     @height: 100px;
     @pattern-honeycomb:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E %3Crect width='56' height='100' fill='@{bg}'/%3E %3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='@{stroke1}' stroke-width='2'/%3E %3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='@{stroke2}' stroke-width='2'/%3E %3C/svg%3E";

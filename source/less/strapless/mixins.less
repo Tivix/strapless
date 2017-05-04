@@ -81,7 +81,7 @@
   .make-palette(@color, ebb);
   @input-bg-color: mix(@gray-lightest-base, white, 20%);
   @form-measure: 36ch;
-  background: @color1;
+  // background: @color1;
   max-width: @form-measure;
   .contrast-text-against(@color1);
   padding: 2ch;
@@ -129,8 +129,11 @@
     -webkit-appearance: menulist-button;
   }
 
-  footer {
+  > footer {
     text-align: right;
+    > button + button {
+      margin-left: @padding;
+    }
   }
 
   .headlines({
