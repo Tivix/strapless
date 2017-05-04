@@ -79,7 +79,7 @@
 
 .sl-form(@color) {
   .make-palette(@color, ebb);
-  @input-bg-color: mix(@gray-lightest-base, white, 25%);
+  @input-bg-color: mix(@gray-lightest-base, white, 20%);
   @form-measure: 36ch;
   background: @color1;
   max-width: @form-measure;
@@ -109,6 +109,11 @@
     border: none;
     background: @input-bg-color;
     .contrast-text-against(@input-bg-color);
+
+    & when (@scheme-type = light) {
+      background: white;
+      .contrast-text-against(@input-bg-color);
+    }
   }
 
   select {
