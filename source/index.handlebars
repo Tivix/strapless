@@ -248,7 +248,7 @@
             <main class="info">
                 <h2>Main</h2>
                 <p>The main element includes a background color and the dots pattern by default. There's one at the top of this page, too.</p>
-                <p>This is a main element. Like the immortals in <em>Highlander</em>, there should be only one of them. Like pretty much everything else, they support semantic classes, like <code>.info</code>.</p>
+                <p>This is a main element. Like the immortals in <em>Highlander</em>, there should be only one of them. They support semantic classes, like <code>.info</code>.</p>
             </main>
         </section>
 
@@ -288,7 +288,7 @@
             <h3>Paragraphs, etc.</h3>
             <p>Paragraphs (like this one!) are by default limited to 55 characters width (or whatever <code>@text-measure</code> is set to). They have an aggressive, but not too aggressive, line height of 1.62 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
             <p class="info">I'm informing you of something.</p>
-            <p class="success">Your form wasn't lost in cyber space!</p>
+            <p class="success">Your stuff wasn't lost in cyber space!</p>
             <p class="failure">I've made a huge mistake.</p>
 
             <h3>Other Block Elements</h3>
@@ -470,7 +470,10 @@
                     <option value="2">Second choice</option>
                     <option value="3">Third choice</option>
                 </select>
-                <button class="reaction">Submit</button>
+                <footer>
+                    <button class="reaction">Submit</button>
+                    <button class="failure">Cancel</button>
+                </footer>
             </form>
 
             <p>Strapless aims to make simple form markup look good by default. There's no extra markup or JS conventions to worry about. Strapless forms also work well with semantic classes, like this <code>.info</code> form here:</p>
@@ -610,14 +613,13 @@
                 <li><a href="http://lea.verou.me/css3patterns/">Lea Verou</a>, who made a lot of <em>those</em> patterns originally, in CSS.</li>
             </ul>
         </section>
-        <footer class="reaction">
+        <footer class="failure">
             <section>
                 <aside>
                     <svg class="logo" height="50" viewBox="10 2 70 19" width="70" xmlns="http://www.w3.org/2000/svg"><path class="letter" d="M35 2.3h3.6l5.6 14 5.6-14h3.6l-7.6 18.4h-3.3L35 2.3z"></path><path class="letter" d="M15.9 5.6H10v-3.2h15.1v3.3h-5.9v15.1h-3.3V5.6z"></path><path class="letter" d="M28.4 2.3h3.3v18.4h-3.3V2.3z"></path><path class="letter" d="M56.7 2.3h3.3v18.4h-3.3V2.3z"></path><path class="letter" d="M69.8 11.5l-6.6-9.2h3.6l4.8 6.7 4.8-6.7h3.6L73.4 11.5l6.6 9.2h-3.6l-4.8-6.7 -4.8 6.7h-3.6L69.8 11.5z"></path><polygon class="accent" points="41.9 2.3 44.2 8 46.5 2.3 43.6 2.3 "></polygon></svg>
                     <p>Strapless is a Tivix project built by Rex Riepe and Adam Lord.</p>
                     <p id="demo_form_placeholder"></p>
                 </aside>
-                
             </section>
         </footer>
         
