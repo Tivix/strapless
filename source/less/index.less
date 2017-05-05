@@ -11,7 +11,7 @@
 @demo-wheels:  accented, complementary, triadic,
                tetradic, square, ebb, flow, monochromatic;
 
-body, #feature, #feature > *, #strapless_nav, #strapless_main, #demo_form, #loading_overlay { transition: color 2s ease; transition: background 2s ease;}
+body, #feature, #feature > *, #strapless_nav, #strapless_main, #strapless_footer, #demo_form, #loading_overlay { transition: color 2s ease; transition: background 2s ease;}
 
 .logo {
   width: 150px;
@@ -78,7 +78,7 @@ body, #feature, #feature > *, #strapless_nav, #strapless_main, #demo_form, #load
 }
 
 #demo_form {
-  @color: @action;
+  @color: @info;
   position: relative;
   border-radius: @border-radius;
   background: @color;
@@ -87,6 +87,7 @@ body, #feature, #feature > *, #strapless_nav, #strapless_main, #demo_form, #load
   .on-desktop({
     font-size: 12px;
     position: fixed;
+    margin-bottom: 0;
     bottom: @padding;
     right: @padding;
     z-index: 1000;

@@ -13,9 +13,9 @@
   // for grays, set up working color2, 3 and 4 and then reinforce gray color1
   .make-palette(average(@color, #8198EE); @wheel);
   @color1: @color;
-  @color1a: @gray-light;
-  @color1b: @gray;
-  @color1c: @gray-dark; 
+  @color1a: greyscale(@gray-light);
+  @color1b: greyscale(@gray);
+  @color1c: greyscale(@gray-dark); 
 }
 
 .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 98%) {

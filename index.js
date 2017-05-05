@@ -81,9 +81,9 @@ app.get('/download/:baseColor', function(req, res) {
     })
 });
 
-app.get('/sitecss/:baseColor', function(req, res) {
+app.get('/democss/:baseColor', function(req, res) {
     generateStyles(req.params.baseColor, less_file_path).then(function(css){
-        res.header("Content-Disposition", "attachment;filename=SITECSS_#" + req.params.baseColor + ".css");
+        res.header("Content-Disposition", "attachment;filename=DEMOCSS_#" + req.params.baseColor + ".css");
         res.header("Content-type", "text/css");
         res.send(css);
     })

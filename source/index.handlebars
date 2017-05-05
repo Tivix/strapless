@@ -33,11 +33,11 @@
         <main id="feature">
             <h1>Strapless</h1>
             <p>Finally, LESS is <em>cool</em> again.</p>
-            <p>Strapless is a color-changing CSS&nbsp;boilerplate for HTML elements. <br>It's also a powerful LESS library for colors and patterns.</p>
+            <p>Strapless is a color-changing CSS&nbsp;boilerplate for HTML elements, and a powerful LESS library for colors and patterns.</p>
             <aside>
                 <button class="failure" type="button" onclick="Strapless.downloadCSS();">Get this CSS <span class="sl-current-color">current color</span></button>
                 <button class="info" type="button" onclick="location.href='http://github.com/Tivix/strapless'">LESS/GitHub</button>
-                <button class="failure" type="button" onclick="Strapless.downloadSiteCSS();">Get site CSS <span class="sl-current-color">current color</span></button>
+                <button class="failure" type="button" onclick="Strapless.downloadDemoCSS();">Get site CSS <span class="sl-current-color">current color</span></button>
             </aside>
             <form id="demo_form">
                 <div id="loading_overlay">
@@ -248,14 +248,8 @@
             <main class="info">
                 <h2>Main</h2>
                 <p>The main element includes a background color and the dots pattern by default. There's one at the top of this page, too.</p>
-                <p>This is a main element. Like the immortals in <em>Highlander</em>, there should be only one of them. They support semantic classes, like <code>.info</code>.</p>
+                <p>This is a main element. Like the immortals in <em>Highlander</em>, there should be only one of them. They support semantic classes, like <code>info</code>.</p>
             </main>
-        </section>
-
-        <section class="warning">
-            <h2>Sections</h2>
-            <p>Use of the <code>&lt;section&gt;</code> element (seen throughout this page) is encouraged. Sections have default CSS for spacing out your content that's aimed at getting it looking good on the first pass.</p>
-            <p>Sections support semantic classes. This one is using <code>.warning</code>.</p>
         </section>
 
         <section>
@@ -264,7 +258,15 @@
             <aside>This is an aside.</aside>
             <p>It's useful for buttons:</p>
             <aside><button class="reaction">I'm centered!</button><button class="failure">Me too</button></aside>
+        </section>
 
+        <section class="warning">
+            <h2>Sections</h2>
+            <p>Use of the <code>&lt;section&gt;</code> element (seen throughout this page) is encouraged. Sections have default CSS for spacing out your content that's aimed at getting it looking good on the first pass.</p>
+            <p>Sections support semantic classes. This one is using <code>warning</code>.</p>
+        </section>
+
+        <section>
             <h2>Typography</h2>
 
             <p>Typography rules are applied directly to HTML elements.</p>
@@ -280,10 +282,17 @@
             <h6>This is headline text. (h6)</h6>
 
             <h3>Blockquotes</h3>
+            <p>Blockquotes look like this:</p>
             <blockquote>
                 You may delay, but time will not.
                 <cite>Benjamin Franklin</cite>
             </blockquote>
+            <p>They alternate switching sides by default, no classes needed.</p>
+            <blockquote>
+                Blushing is the color of virtue.
+                <cite>Diogenes</cite>
+            </blockquote>
+            <p>They don't support semantic classes.</p>
 
             <h3>Paragraphs, etc.</h3>
             <p>Paragraphs (like this one!) are by default limited to 55 characters width (or whatever <code>@text-measure</code> is set to). They have an aggressive, but not too aggressive, line height of 1.62 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
@@ -476,12 +485,12 @@
                 </footer>
             </form>
 
-            <p>Strapless aims to make simple form markup look good by default. There's no extra markup or JS conventions to worry about. Strapless forms also work well with semantic classes, like this <code>.info</code> form here:</p>
+            <p>Strapless aims to make simple form markup look good by default. There's no extra markup or JS conventions to worry about. Strapless forms also work well with semantic classes, like this <code>action</code> form here:</p>
 
-            <form class="info">
+            <form class="action">
                 <label>Your favorite color:</label>
                 <input type="text" name="fav_color"><br>
-                <button>Submit</button>
+                <button class="reaction">Submit</button>
             </form>
         </section>
 
@@ -613,13 +622,18 @@
                 <li><a href="http://lea.verou.me/css3patterns/">Lea Verou</a>, who made a lot of <em>those</em> patterns originally, in CSS.</li>
             </ul>
         </section>
-        <footer class="failure">
+        <footer id="strapless_footer" class="action">
             <section>
                 <aside>
                     <svg class="logo" height="50" viewBox="10 2 70 19" width="70" xmlns="http://www.w3.org/2000/svg"><path class="letter" d="M35 2.3h3.6l5.6 14 5.6-14h3.6l-7.6 18.4h-3.3L35 2.3z"></path><path class="letter" d="M15.9 5.6H10v-3.2h15.1v3.3h-5.9v15.1h-3.3V5.6z"></path><path class="letter" d="M28.4 2.3h3.3v18.4h-3.3V2.3z"></path><path class="letter" d="M56.7 2.3h3.3v18.4h-3.3V2.3z"></path><path class="letter" d="M69.8 11.5l-6.6-9.2h3.6l4.8 6.7 4.8-6.7h3.6L73.4 11.5l6.6 9.2h-3.6l-4.8-6.7 -4.8 6.7h-3.6L69.8 11.5z"></path><polygon class="accent" points="41.9 2.3 44.2 8 46.5 2.3 43.6 2.3 "></polygon></svg>
                     <p>Strapless is a Tivix project built by Rex Riepe and Adam Lord.</p>
                     <p id="demo_form_placeholder"></p>
                 </aside>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
             </section>
         </footer>
         

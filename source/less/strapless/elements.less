@@ -42,7 +42,7 @@ nav {
 }
 
 section {
-  width: @section-width;
+  width: 100%;
   margin: 0 auto;
   padding: @padding @padding @padding*4 @padding;
 
@@ -235,10 +235,11 @@ abbr, acronym {
 blockquote {
   @border: 5px solid @color1a;
   padding-left: 1em;
+  margin-bottom: 1em;
   border-left: @border;
   max-width: @text-measure;
 
-  &:nth-child(even) {
+  &:nth-of-type(even) {
     text-align: right;
     border-left: none;
     border-right: @border;
