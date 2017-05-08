@@ -245,15 +245,15 @@
   
   @action-base: hsl(hue(@action), @action-sat, @action-lit);
   @reaction-base: hsl(hue(@reaction), @reaction-sat, @reaction-lit);
-  @info-base: #5bc0de;
+  @info-base: #43a3e6;
   @warning-base: #ff6b23;
-  @success-base: #5cb85c;
-  @failure-base: #d0534f;
+  @success-base: #51ad51;
+  @failure-base: #e11d1d;
 
   @action:    @color1;
   @reaction:  @color2b;
   @info:      average(@info-base, hsl(hue(@info-base), saturation(@action), lightness(@action)));
-  @warning:   average(@warning-base, hsl(hue(@warning-base), saturation(@reaction), lightness(@reaction)));
+  @warning:   average(@warning-base, hsl(hue(@warning-base), saturation(@reaction), lightness(@reaction)*1.2));
   @success:   average(@success-base, hsl(hue(@success-base), saturation(@action), lightness(@action)));
   @failure:   average(@failure-base, hsl(hue(@failure-base), saturation(@reaction), lightness(@reaction)));
 }
