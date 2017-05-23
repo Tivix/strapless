@@ -84,7 +84,7 @@ var Strapless = (function() {
         var baseColor = document.getElementById('seed_color').value;
         var validHex = /^(?:[0-9a-f]{3}){1,2}$/i.test(baseColor);
         if (validHex) {
-            location.href='/download/' + baseColor;
+            location.href='/css-version/' + baseColor;
         } else {
             window.alert('Invalid hex color value entered.');
         }

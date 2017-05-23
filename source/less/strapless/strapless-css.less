@@ -1,0 +1,43 @@
+@import (reference) "variables";
+@import (reference) "mixins";
+@import (reference) "colors";
+@import (reference) "patterns";
+@import (reference) "targets";
+
+@import "normalize";
+.sl-bg-catch();
+@import "elements";
+@import "utilities";
+
+.sl-bg-catch(@color: @background) {
+  // users can select any seed color but not bg, this catches bad ones and shows something better
+  
+  body {
+    background-color: @color;
+    .contrast-text-against(@color);
+  }
+
+  & when (luma(@color) > 85%) {
+    // above a certain brightness, just use white
+    body {
+      background-color: white;
+      .contrast-text-against(white);
+    }
+  }
+
+  & when (saturation(@color) > 80%) {
+    // for really saturated colors, use white
+    body {
+      background-color: white;
+      .contrast-text-against(white);
+    }
+  }
+
+  & when (luma(@color) < 15%) {
+    // for really dark schemes use a dark gray for better color pop
+    body {
+      background-color: @gray-darker;
+      .contrast-text-against(@gray-darker);
+    }
+  }
+}
