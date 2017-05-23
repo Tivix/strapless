@@ -5,8 +5,9 @@ var exphbs = require('express-handlebars');
 var less = require('less');
 var app = express();
 var html_dir = path.join(__dirname, 'source/');
-var less_file_path = path.join(__dirname, 'source/less/index.less');
+var demo_file_path = path.join(__dirname, 'source/less/index.less');
 var strapless_file_path = path.join(__dirname, 'source/less/strapless/strapless.less');
+var css_file_path = path.join(__dirname, 'source/less/strapless/strapless-css.less');
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -51,7 +52,7 @@ app.get('/:baseColor?', function(req, res) {
         if (validHex) {
             // If the url includes a base color, generate the css,
             // use the handlebars template, and render the css in the <style> tag
-            generateStyles(baseColor, less_file_path).then(function(css){
+            generateStyles(baseColor, demo_file_path).then(function(css){
                 res.render('index', {
                     styles: css,
                     static_css: false
@@ -67,28 +68,29 @@ app.get('/:baseColor?', function(req, res) {
     }
 });
 
-app.get('/less/:baseColor', function(req, res) {
-    generateStyles(req.params.baseColor, less_file_path).then(function(css){
-        res.send(css);
-    })
-});
-
-app.get('/download/:baseColor', function(req, res) {
-    generateStyles(req.params.baseColor, strapless_file_path).then(function(css){
-        res.header("Content-Disposition", "attachment;filename=Strapless_#" + req.params.baseColor + ".css");
-        res.header("Content-type", "text/css");
-        res.send(css);
-    })
-});
+// app.get('/download/:baseColor', function(req, res) {
+//     generateStyles(req.params.baseColor, strapless_file_path).then(function(css){
+//         res.header("Content-Disposition", "attachment;filename=Library#" + req.params.baseColor + ".css");
+//         res.header("Content-type", "text/css");
+//         res.send(css);
+//     })
+// });
 
 app.get('/democss/:baseColor', function(req, res) {
-    generateStyles(req.params.baseColor, less_file_path).then(function(css){
+    generateStyles(req.params.baseColor, demo_file_path).then(function(css){
         res.header("Content-Disposition", "attachment;filename=DEMOCSS_#" + req.params.baseColor + ".css");
         res.header("Content-type", "text/css");
         res.send(css);
     })
 });
 
+app.get('/css-version/:baseColor', function(req, res) {
+    generateStyles(req.params.baseColor, css_file_path).then(function(css){
+        res.header("Content-Disposition", "attachment;filename=Strapless_#" + req.params.baseColor + ".css");
+        res.header("Content-type", "text/css");
+        res.send(css);
+    })
+});
 
 app.use(express.static(path.join(__dirname, 'public', 'static')));
 

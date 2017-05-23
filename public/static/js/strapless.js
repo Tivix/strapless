@@ -36,7 +36,7 @@ var Strapless = (function() {
     function _getLessFile(baseColor) {
         return new Promise(function(resolve, reject) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', '/less/' + baseColor);
+            xhr.open('GET', '/democss/' + baseColor);
             xhr.onload = function() {
                 if (this.status >= 200 && this.status < 300) {
                     var response = {
@@ -90,11 +90,11 @@ var Strapless = (function() {
         }
     }
 
-    function _getSiteCSSFile() {
+    function _getDemoCSSFile() {
         var baseColor = document.getElementById('seed_color').value;
         var validHex = /^(?:[0-9a-f]{3}){1,2}$/i.test(baseColor);
         if (validHex) {
-            location.href='/sitecss/' + baseColor;
+            location.href='/democss/' + baseColor;
         } else {
             window.alert('Invalid hex color value entered.');
         }
@@ -143,8 +143,8 @@ var Strapless = (function() {
         downloadCSS: function() {
             _getCSSFile();
         },
-        downloadSiteCSS: function() {
-            _getSiteCSSFile();
+        downloadDemoCSS: function() {
+            _getDemoCSSFile();
         },
         generateFavicon: function() {
             _generateFavicon();

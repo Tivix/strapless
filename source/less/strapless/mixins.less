@@ -1,12 +1,12 @@
 // mixins
 
-.text-color(@color: @color1; @contrast: 1;) {
+.text-color(@color: @background;) {
 
-  & when (luma(@color) < @contrast-break) {
+  & when (luma(@color) < @text-contrast-break) {
     color: hsl(hue(@color); saturation(@color) + 10; 98%); // pretty much white
   }
 
-  & when (luma(@color) >= @contrast-break) {
+  & when (luma(@color) >= @text-contrast-break) {
     color: mix(darken(@color;20%); #333; 40%);
   }
 
@@ -21,10 +21,9 @@
   .text-color(@color);
 }
 
-.colorify(@color) {
+.colorize(@color) {
   background-color: @color;
   .contrast-text-against(@color);
-  border-color: @color;
 }
 
 .no-user-select() {
@@ -81,10 +80,11 @@
   .make-palette(@color, ebb);
   @input-bg-color: mix(@gray-lightest-base, white, 20%);
   @form-measure: 36ch;
-  // background: @color1;
+  background: @color;
   max-width: @form-measure;
   .contrast-text-against(@color1);
   padding: 2ch;
+  margin-bottom: 2em;
 
   > * {
     width: 100%;
@@ -146,8 +146,8 @@
     @background: mix(@color, #333, 10%);
 
     font-family: monospace;
-    font-size: 85%;
-    padding: .1em .5em .15em .5em;
+    //font-size: 85%;
+    padding: .125em .5ch;
     border-radius: @border-radius/2;
     background: @background;
     color: @color;
@@ -273,6 +273,7 @@
   }
 
   body > &:first-child, body > &:last-child {
+    // go sticky if at end or beginning of body
     position: fixed; top:0; left: 0;
     width: 100%;
     border-radius: 0;
@@ -305,7 +306,7 @@
 }
 
 .make-sl-tables-for(@colors) {
-  // make tables for a list of color variable names
+  // make table colors for a list of color variable names
   // tables will use variable names as class names
 
   @iterations: length(@colors);
@@ -322,5 +323,22 @@
     }
 
     .make-sl-table(@index + 1);
+  }
+}
+
+.make-color-classes-for(@colors) {
+  @iterations: length(@colors);
+
+  .make-color-class(1);
+
+  .make-color-class(@index) when (@index <= @iterations) {
+    @color-name: extract(@colors, @index);
+    @this-color: @@color-name;
+
+    .@{color-name} {
+      .colorize(@this-color);
+    }
+
+    .make-color-class(@index + 1);
   }
 }

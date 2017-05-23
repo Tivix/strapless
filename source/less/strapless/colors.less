@@ -11,7 +11,7 @@
 
 .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (saturation(@color) = 0) {
   // for grays, set up working color2, 3 and 4 and then reinforce gray color1
-  .make-palette(average(@color, #8198EE); @wheel);
+  .make-palette(average(@color, #57A0EE); @wheel); // @color is always gray so this desaturates
   @color1: @color;
   @color1a: greyscale(@gray-light);
   @color1b: greyscale(@gray);
@@ -23,8 +23,8 @@
   @color1: @color;
 }
 
-.make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 3%) {
-  .make-palette(lighten(@color, 4.5%); @wheel);
+.make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 2%) {
+  .make-palette(lighten(@color, 3%); @wheel);
 }
 
 .load-scheme-type(@color) {
@@ -57,13 +57,13 @@
                     -@analog,
                     @complement - @analog;
 
-  @triadic:         @triadic-pair,
-                    -@triadic-pair,
-                    -@analog;
-
-  @triadic-b:       -@triadic-pair,
+  @triadic:         -@triadic-pair,
                     @triadic-pair,
                     @analog;
+
+  @triadic-b:       @triadic-pair,
+                    -@triadic-pair,
+                    -@analog;
 
   @tetradic:        @complement,
                     @accent,
@@ -205,7 +205,7 @@
 
 .load-gray-bases(@color) {
   @gray-base: mix(desaturate(@color, 80%), #515151, 75%);
-  @gray-step: 10%;
+  @gray-step: 12%;
 
   @gray-bases:  @gray-lightest-base,
                 @gray-lighter-base,

@@ -11,7 +11,10 @@
 @demo-wheels:  accented, complementary, triadic,
                tetradic, square, ebb, flow, monochromatic;
 
-body, #feature, #feature > *, #strapless_nav, #strapless_main, #strapless_footer, #demo_form, #loading_overlay { transition: color 2s ease; transition: background 2s ease;}
+.pull-left { float: left;}
+.pull-right { float: right;}
+
+body, #feature, #feature > *, #strapless_nav, #strapless_main, #strapless_footer, #demo_form, #loading_overlay, #section_example { transition: color 2s ease; transition: background 2s ease;}
 
 .logo {
   width: 150px;
@@ -78,13 +81,10 @@ body, #feature, #feature > *, #strapless_nav, #strapless_main, #strapless_footer
 }
 
 #demo_form {
-  @color: @reaction;
   position: relative;
   border-radius: @border-radius;
-  background: @color;
-  .contrast-text-against(@color);
 
-  .on-desktop({
+  .on-tablet({
     font-size: 12px;
     position: fixed;
     margin-bottom: 0;

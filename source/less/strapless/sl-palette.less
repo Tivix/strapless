@@ -160,45 +160,55 @@
 }
 
 .sl-color-action {
-  .colorify(@action);
+  .colorize(@action);
 }
 
 .sl-color-reaction {
-  .colorify(@reaction);
+  .colorize(@reaction);
 }
 
 .sl-color-info {
-  .colorify(@info);
+  .colorize(@info);
 }
 
 .sl-color-warning {
-  .colorify(@warning);
+  .colorize(@warning);
 }
 
 .sl-color-success {
-  .colorify(@success);
+  .colorize(@success);
 }
 
 .sl-color-failure {
-  .colorify(@failure);
+  .colorize(@failure);
 }
 
 .sl-color-gray-lighter {
-  .colorify(@gray-lighter);
+  .colorize(@gray-lighter);
 }
 
 .sl-color-gray-light {
-  .colorify(@gray-light);
+  .colorize(@gray-light);
 }
 
 .sl-color-gray {
-  .colorify(@gray);
+  .colorize(@gray);
 }
 
 .sl-color-gray-dark {
-  .colorify(@gray-dark);
+  .colorize(@gray-dark);
 }
 
 .sl-color-gray-darker {
-  .colorify(@gray-darker);
+  .colorize(@gray-darker);
+}
+
+.sl-color-white {
+  background: white;
+  .contrast-text-against(white);
+}
+
+.sl-color-black {
+  background: black;
+  .contrast-text-against(black);
 }

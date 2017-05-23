@@ -1,13 +1,8 @@
-// utilities (mixins as classes)
+// utilities
 
 .hide, .hidden { display: none !important;}
 
 .clearfix { .clearfix();}
 
-.info { .colorify(@info);}
-.warning { .colorify(@warning);}
-.failure { .colorify(@failure);}
-.success { .colorify(@success);}
-.action { .colorify(@action);}
-.reaction { .colorify(@reaction);}
-.gray { .colorify(@gray);}
+.make-color-classes-for(@semantic-colors);
+// .make-color-classes-for(@all-colors);
