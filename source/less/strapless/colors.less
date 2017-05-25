@@ -6,7 +6,8 @@
   .make-colors(@color; @wheel; @scheme-type);
   .load-gray-bases(@color);
   .make-grays(@color);
-  .load-semantic-colors();
+  .load-action-colors(@color1, @color1, @color3b);
+  .load-reaction-colors(@color2, @color2b, @color4);
 }
 
 .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (saturation(@color) = 0) {
@@ -236,24 +237,130 @@
   @gray-darker:       extract(@gray-bases; 4 + @gray-shift);
 }
 
-.load-semantic-colors() {
+.load-action-colors(@base: @base-color, @c1: @champion, @c2: @challenger) {
+
+  @success-base: #51ad51;
+  @info-base: #43a3e6;
+
+  @info: average(@info-base, hsl(hue(@info-base), saturation(@base), lightness(@base)));
+  @success: average(@success-base, hsl(hue(@success-base), saturation(@base), lightness(@base)));
+
   @action-sat: (saturation(@info) + saturation(@success))/2;
   @action-lit: (lightness(@info) + lightness(@success))/2;
 
+  @r-values-s-c1: 2*(red(@c1) - red(@success))*(red(@c1) - red(@success));
+  @g-values-s-c1: 4*(green(@c1) - green(@success))*(green(@c1) - green(@success));
+  @b-values-s-c1: 3*(blue(@c1) - blue(@success))*(blue(@c1) - blue(@success));
+
+  @r-values-s-c2: 2*(red(@c2) - red(@success))*(red(@c2) - red(@success));
+  @g-values-s-c2: 4*(green(@c2) - green(@success))*(green(@c2) - green(@success));
+  @b-values-s-c2: 3*(blue(@c2) - blue(@success))*(blue(@c2) - blue(@success));
+
+  @d-c1-success: sqrt(@r-values-s-c1 + @g-values-s-c1 + @b-values-s-c1);
+  @d-c2-success: sqrt(@r-values-s-c2 + @g-values-s-c2 + @b-values-s-c2);
+
+  @r-values-i-c1: 2*(red(@c1) - red(@info))*(red(@c1) - red(@info));
+  @g-values-i-c1: 4*(green(@c1) - green(@info))*(green(@c1) - green(@info));
+  @b-values-i-c1: 3*(blue(@c1) - blue(@info))*(blue(@c1) - blue(@info));
+
+  @r-values-i-c2: 2*(red(@c2) - red(@info))*(red(@c2) - red(@info));
+  @g-values-i-c2: 4*(green(@c2) - green(@info))*(green(@c2) - green(@info));
+  @b-values-i-c2: 3*(blue(@c2) - blue(@info))*(blue(@c2) - blue(@info));
+
+  @d-c1-info: sqrt(@r-values-i-c1 + @g-values-i-c1 + @b-values-i-c1);
+  @d-c2-info: sqrt(@r-values-i-c2 + @g-values-i-c2 + @b-values-i-c2);
+
+  // if che champion is farther from success or info, the champion remains champion
+  // challenger only wins if it is farther in terms of success sameness and info sameness
+
+  .determine-action-winner(@d-c1-info, @d-c2-info, @d-c1-success, @d-c2-success);
+
+  .sl-color-action:after {
+    .contrast-text-against(@background);
+    display: none;
+  }
+
+  .determine-action-winner(@d-c1-info, @d-c2-info, @d-c1-success, @d-c2-success) when (@d-c2-info > @d-c1-info) {
+    @action: @c2;
+    @action-base: hsl(hue(@c2), @action-sat, @action-lit);
+
+    .sl-color-action:after {
+      content: "c1 lost info";
+      .colorize(@c1);
+    }
+  }
+
+  .determine-action-winner(@d-c1-info, @d-c2-info, @d-c1-success, @d-c2-success) when (@d-c2-success > @d-c1-success) {
+    @action: @c2;
+    @action-base: hsl(hue(@c2), @action-sat, @action-lit);
+
+    .sl-color-action:after {
+      content: "c1 lost success";
+      .colorize(@c1);
+    }
+  }
+
+  .determine-action-winner(@d-c1-info, @d-c2-info, @d-c1-success, @d-c2-success) when (default()) {
+    @action: @c1;
+    @action-base: hsl(hue(@c1), @action-sat, @action-lit);
+
+    .sl-color-action:after {
+      content: "c2 lost";
+      .colorize(@c2);
+    }
+  } 
+}
+
+.load-reaction-colors(@base: @base-color, @r1: @champion, @r2: @challenger) {
+
+  @failure-base: #e11d1d;
+  @warning-base: #ff6b23;
+  
+  @failure:   average(@failure-base, hsl(hue(@failure-base), saturation(@base), lightness(@base)));
+  @warning:   average(@warning-base, hsl(hue(@warning-base), saturation(@base), lightness(@base)*1.2));
+
   @reaction-sat: (saturation(@warning) + saturation(@failure))/2;
   @reaction-lit: (lightness(@warning) + lightness(@failure))/2;
-  
-  @action-base: hsl(hue(@action), @action-sat, @action-lit);
-  @reaction-base: hsl(hue(@reaction), @reaction-sat, @reaction-lit);
-  @info-base: #43a3e6;
-  @warning-base: #ff6b23;
-  @success-base: #51ad51;
-  @failure-base: #e11d1d;
 
-  @action:    @color1;
-  @reaction:  @color2b;
-  @info:      average(@info-base, hsl(hue(@info-base), saturation(@action), lightness(@action)));
-  @warning:   average(@warning-base, hsl(hue(@warning-base), saturation(@reaction), lightness(@reaction)*1.2));
-  @success:   average(@success-base, hsl(hue(@success-base), saturation(@action), lightness(@action)));
-  @failure:   average(@failure-base, hsl(hue(@failure-base), saturation(@reaction), lightness(@reaction)));
+  @r-values-f-r1: 2*(red(@r1) - red(@failure))*(red(@r1) - red(@failure));
+  @g-values-f-r1: 4*(green(@r1) - green(@failure))*(green(@r1) - green(@failure));
+  @b-values-f-r1: 3*(blue(@r1) - blue(@failure))*(blue(@r1) - blue(@failure));
+
+  @r-values-f-r2: 2*(red(@r2) - red(@failure))*(red(@r2) - red(@failure));
+  @g-values-f-r2: 4*(green(@r2) - green(@failure))*(green(@r2) - green(@failure));
+  @b-values-f-r2: 3*(blue(@r2) - blue(@failure))*(blue(@r2) - blue(@failure));
+
+  @d-r1-failure: sqrt(@r-values-f-r1 + @g-values-f-r1 + @b-values-f-r1);
+  @d-r2-failure: sqrt(@r-values-f-r2 + @g-values-f-r2 + @b-values-f-r2);
+
+  @r-values-w-r1: 2*(red(@r1) - red(@warning))*(red(@r1) - red(@warning));
+  @g-values-w-r1: 4*(green(@r1) - green(@warning))*(green(@r1) - green(@warning));
+  @b-values-w-r1: 3*(blue(@r1) - blue(@warning))*(blue(@r1) - blue(@warning));
+
+  @r-values-w-r2: 2*(red(@r2) - red(@warning))*(red(@r2) - red(@warning));
+  @g-values-w-r2: 4*(green(@r2) - green(@warning))*(green(@r2) - green(@warning));
+  @b-values-w-r2: 3*(blue(@r2) - blue(@warning))*(blue(@r2) - blue(@warning));
+
+  @d-r1-warning: sqrt(@r-values-w-r1 + @g-values-w-r1 + @b-values-w-r1);
+  @d-r2-warning: sqrt(@r-values-w-r2 + @g-values-w-r2 + @b-values-w-r2);
+
+  // if che champion is farther from failure or warning, the champion remains champion
+  // challenger only wins if it is farther in terms of failure sameness and warning sameness
+
+  .determine-reaction-winner(@d-r1-failure, @d-r2-failure, @d-r1-warning, @d-r2-warning);
+
+  .determine-reaction-winner(@d-r1-failure, @d-r2-failure, @d-r1-warning, @d-r2-warning) when (@d-r1-warning > @d-r2-warning) {
+    @reaction: @r1;
+    @reaction-base: hsl(hue(@r2), @reaction-sat, @reaction-lit);
+  }
+
+  .determine-reaction-winner(@d-r1-failure, @d-r2-failure, @d-r1-warning, @d-r2-warning) when (@d-r1-failure > @d-r2-failure) {
+    @reaction: @r1;
+    @reaction-base: hsl(hue(@r2), @reaction-sat, @reaction-lit);
+  }
+
+  .determine-reaction-winner(@d-r1-failure, @d-r2-failure, @d-r1-warning, @d-r2-warning) when (default()) {
+    @reaction: @r2;
+    @reaction-base: hsl(hue(@r2), @reaction-sat, @reaction-lit);
+  }
 }

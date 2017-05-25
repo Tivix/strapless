@@ -11,7 +11,20 @@
 @demo-wheels:  accented, complementary, triadic,
                tetradic, square, ebb, flow, monochromatic;
 
-body, #feature, #feature > *, #strapless_nav, #strapless_main, #strapless_footer, #demo_form, #loading_overlay, #section_example { transition: color 2s ease; transition: background 2s ease;}
+body, 
+#feature, 
+#feature > *, 
+#strapless_nav, 
+#strapless_main, 
+#strapless_footer, 
+#demo_form, 
+#loading_overlay, 
+#section_example 
+#semantic_colors > p,
+#grays > p { 
+  @ease: ~'ease-out';
+  transition: color 2s @ease; transition: background 2s @ease;
+}
 
 .logo {
   width: 150px;
