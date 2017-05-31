@@ -1,6 +1,6 @@
 // mixins
 
-.text-color(@color: @background;) {
+.text-color(@color: @background; @strict: true) {
 
   & when (luma(@color) < @text-contrast-break) {
     color: hsl(hue(@color); saturation(@color) + 10; 98%); // pretty much white
@@ -22,6 +22,7 @@
 }
 
 .colorize(@color) {
+  // set a background color and make sure text works with it
   background-color: @color;
   .contrast-text-against(@color);
 }
@@ -49,10 +50,14 @@
 .sl-main(@color: @color1c;) {
   padding: @padding;
   max-width: @content-max-width;
-  margin: 0;
+  margin: 0 auto;
   margin-bottom: 1em;
-  background-color: @color;
-  .contrast-text-against(@color);
+  .colorize(@color);
+
+  & when (luma(@color) < 20%) {
+    @color: average(@gray-darker, @color1c);
+    .colorize(@color);
+  }
 
   h1, h2 {
     text-align: center; 
@@ -69,8 +74,7 @@
     max-width: 100%;
   }
 
-  .on-tablet({
-    margin: 0 auto;
+  .on-desktop({
     padding: @padding*2;
     border-radius: @border-radius;
   });
@@ -148,7 +152,6 @@
     font-family: monospace;
     font-size: 80%;
     padding: .125em .62em;
-    padding: .125ch .62ch;
     border-radius: @border-radius/2;
     background: @background;
     color: @color;

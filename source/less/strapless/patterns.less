@@ -7,7 +7,7 @@
     @bg-green: round(green(@bg-base));
     @bg-blue: round(blue(@bg-base));
     @bg: ~"rgb(@{bg-red},@{bg-green},@{bg-blue})";
-    @bg2-base: @color3;
+    @bg2-base: average(@color1, @color3);
     @bg2-red: round(red(@bg2-base));
     @bg2-green: round(green(@bg2-base));
     @bg2-blue: round(blue(@bg2-base));
@@ -73,7 +73,7 @@
     @highlight-green: round(green(@highlight-base));
     @highlight-blue: round(blue(@highlight-base));
     @highlight: ~"rgb(@{highlight-red},@{highlight-green},@{highlight-blue})";
-    @shadow-base: contrast(@color1, @color3, @color4);
+    @shadow-base: average(@color1, @color1b);
     @shadow-red: round(red(@shadow-base));
     @shadow-green: round(green(@shadow-base));
     @shadow-blue: round(blue(@shadow-base));
@@ -142,7 +142,7 @@
 }
 
 .honeycomb(@base: @color1; @scale: 1;) {
-    .make-palette(@base; accented);
+    .make-palette(@base; ebb);
     @bg-base: @color1;
     @bg-red: round(red(@bg-base));
     @bg-green: round(green(@bg-base));
@@ -153,7 +153,7 @@
     @stroke1-green: round(green(@stroke1-base));
     @stroke1-blue: round(blue(@stroke1-base));
     @stroke1: ~"rgb(@{stroke1-red},@{stroke1-green},@{stroke1-blue})";
-    @stroke2-base: average(@color1b, @color1);
+    @stroke2-base: mix(@bg-base, @color2b, 75%);
     @stroke2-red: round(red(@stroke2-base));
     @stroke2-green: round(green(@stroke2-base));
     @stroke2-blue: round(blue(@stroke2-base));
@@ -183,7 +183,7 @@
     @board-green: round(green(@board-base));
     @board-blue: round(blue(@board-base));
     @board: ~"rgb(@{board-red},@{board-green},@{board-blue})";
-    @shadow-base: darken(@color1, 10%);
+    @shadow-base: darken(@color1, 6%);
     @shadow-red: round(red(@shadow-base));
     @shadow-green: round(green(@shadow-base));
     @shadow-blue: round(blue(@shadow-base));

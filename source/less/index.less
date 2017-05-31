@@ -2,9 +2,10 @@
 // strapless-web has a few automatic stylistic considerations
 // index.less and strapless.less produce different CSS
 
-@import "strapless/strapless";
 @import "strapless/sl-palette";
 @import "strapless/sl-pattern";
+@import "strapless/strapless";
+.sl-bg-catch(@background);
 
 // demo-wheels doesn't contain any -b wheeels
 
@@ -39,41 +40,6 @@ body,
 
   .accent {
     fill: @success;
-  }
-}
-
-.sl-bg-catch();
-
-.sl-bg-catch(@color: @background) {
-  // users can select any seed color but not bg, this catches bad ones and shows something better
-  
-  body {
-    background-color: @color;
-    .contrast-text-against(@color);
-  }
-
-  & when (luma(@color) > 85%) {
-    // above a certain brightness, just use white
-    body {
-      background-color: white;
-      .contrast-text-against(white);
-    }
-  }
-
-  & when (saturation(@color) > 80%) {
-    // for really saturated colors, use white
-    body {
-      background-color: white;
-      .contrast-text-against(white);
-    }
-  }
-
-  & when (luma(@color) < 15%) {
-    // for really dark schemes use a dark gray for better color pop
-    body {
-      background-color: @gray-darker;
-      .contrast-text-against(@gray-darker);
-    }
   }
 }
 

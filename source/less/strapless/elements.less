@@ -97,25 +97,19 @@ h5, h6 {
 p, form, article, ul, dl, li {
   margin: 0 auto 1em;
 
-  .on-tablet({
+  .on-large-phone({
     max-width: @text-measure;
   });
 }
 
-p.info {
+p.info,
+p.warning,
+p.action,
+p.reaction,
+p.success,
+p.failure {
   padding: .5em 1em;
 }
-
-p {
-  &.warning,
-  &.action,
-  &.reaction,
-  &.success,
-  &.failure {
-    &:extend(p.info);
-  }
-}
-  
 
 ul, ol {
   padding-left: 2ch;
@@ -172,7 +166,7 @@ aside {
 }
 
 form {
-  .sl-form(@color2);
+  .sl-form(@color1);
 }
 
 label {
@@ -277,7 +271,7 @@ input[type="submit"] {
   white-space: nowrap;
   padding: .4em 1ch;
   .contrast-text-against(@gray);
-  .sl-button(@color2c);
+  .sl-button(@reaction);
   .no-user-select();
 }
 
