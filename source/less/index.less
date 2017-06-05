@@ -5,12 +5,35 @@
 @import "strapless/sl-palette";
 @import "strapless/sl-pattern";
 @import "strapless/strapless";
-.sl-bg-catch(@background);
 
 // demo-wheels doesn't contain any -b wheeels
 
 @demo-wheels:  accented, complementary, triadic,
                tetradic, square, ebb, flow, monochromatic;
+
+
+@l1-test: white;
+@l2-test: @background;
+
+@l1: unit(luma(@l1-test))/100;
+@l2: unit(luma(@l2-test))/100;
+
+
+// (L1 + 0.05) / (L2 + 0.05)
+
+@contrast-test: (@l1 + .05)/(@l2 + .05);
+
+
+@less-var-test: @contrast-test; 
+
+.less-var-test {
+  height: 42px;
+  color: white;
+
+  &:after { content: "@{less-var-test}";}
+
+  border: 5px solid red;
+}
 
 body, 
 #feature, 
@@ -20,7 +43,7 @@ body,
 #strapless_footer, 
 #demo_form, 
 #loading_overlay, 
-#section_example 
+#section_example,
 #semantic_colors > p,
 #grays > p { 
   @ease: ~'ease-out';
@@ -34,7 +57,7 @@ body,
     fill: white;
 
     & when (@scheme-type = light) {
-      fill: black;
+      fill: average(@gray-darkest-base, black);
     }
   }
 

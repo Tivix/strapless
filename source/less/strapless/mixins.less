@@ -1,24 +1,22 @@
 // mixins
 
-.text-color(@color: @background; @strict: true) {
+.contrast-text-against(@bg-color: @background) {
+  // automatically sets contrastful text color given a background color
 
-  & when (luma(@color) < @text-contrast-break) {
-    color: hsl(hue(@color); saturation(@color) + 10; 98%); // pretty much white
+  // decides tinting or shading
+  @tone-color: contrast(@bg-color, white, black);
+
+  .set-text-color(@bg-color);
+
+  .set-text-color(@bg-color) when (@tone-color = black) {
+    #sl-tools.shade-text(@bg-color);
+    border-right: 15px solid green;
   }
 
-  & when (luma(@color) >= @text-contrast-break) {
-    color: mix(darken(@color;20%); #333; 40%);
+  .set-text-color(@bg-color) when (@tone-color = white) {
+    #sl-tools.tint-text(@bg-color);
+    border-right: 15px solid red;
   }
-
-  & when ((red(@color) + green(@color) - blue(@color)) > 420) {
-    // for particularly obnoxious yellows
-    color: mix(darken(@color;20%); #2f3125; 40%);
-  }
-}
-
-.contrast-text-against(@color) {
-  // a more reader-friendly alias for .text-color
-  .text-color(@color);
 }
 
 .colorize(@color) {
@@ -45,122 +43,55 @@
   }
 }
 
-// element mixins
+// element color mixins
+
+.sl-body(@color) when (luma(@color) > 88%) {
+  .colorize(white);
+}
+
+.sl-body(@color) when (saturation(@color) > 80%) {
+  // for really saturated colors, use white
+  .colorize(white);
+}
+
+.sl-body(@color) when (luma(@color) < 8%) {
+  // for really dark schemes use a dark gray for better color pop
+  .colorize(@gray-darker);
+}
+
+.sl-body(@color) when (default()) {
+  .colorize(@background);
+}
 
 .sl-main(@color: @color1c;) {
-  padding: @padding;
-  max-width: @content-max-width;
-  margin: 0 auto;
-  margin-bottom: 1em;
   .colorize(@color);
 
   & when (luma(@color) < 20%) {
     @color: average(@gray-darker, @color1c);
     .colorize(@color);
   }
-
-  h1, h2 {
-    text-align: center; 
-
-    & + p {
-      text-align: center;
-      font-size: 125%;
-      margin-bottom: 1em;
-    }
-  }
-
-  img {
-    margin: 0 auto;
-    max-width: 100%;
-  }
-
-  .on-desktop({
-    padding: @padding*2;
-    border-radius: @border-radius;
-  });
 }
 
 .sl-form(@color) {
-  .make-palette(@color, ebb);
-  @input-bg-color: mix(@gray-lightest-base, white, 20%);
-  @form-measure: 36ch;
-  background: @color;
-  max-width: @form-measure;
-  .contrast-text-against(@color1);
-  padding: 2ch;
-  margin-bottom: 2em;
 
-  > * {
-    width: 100%;
-    max-width: @form-measure;
-    margin-bottom: .8em;
-
-    & + button, &:last-child > button {
-      margin-top: .8em;
-      margin-bottom: @padding/4;
-      font-size: 125%;
-    }
-  }
-
-  p {
-    padding: 0;
-  }
+  .colorize(@color);
 
   input,
   textarea {
-    width: 100%;
-    padding: 1ch;
-    border: none;
-    background: @input-bg-color;
-    .contrast-text-against(@input-bg-color);
-
-    & when (@scheme-type = light) {
-      background: white;
-      .contrast-text-against(@input-bg-color);
-    }
+    @input-bg-color: mix(@gray-lightest-base, white, 20%);
+    .colorize(@input-bg-color);
+    color: #333;
   }
-
-  select {
-    padding: 1ch;
-    .contrast-text-against(@input-bg-color);
-    vertical-align: middle;
-    background: @input-bg-color;
-    background-image: none;
-    border: none;
-    border-radius:0;
-    height: 2.5em;
-    -moz-appearance: menulist-button;
-    -webkit-appearance: menulist-button;
-  }
-
-  > footer {
-    text-align: right;
-    > button + button {
-      margin-left: @padding;
-    }
-  }
-
-  .headlines({
-    &:first-child { margin-top: 0;}
-  })
 }
 
 .sl-code(@code-color) {
-    @color: mix(@code-color, white, 10%);
-    @background: mix(@color, #333, 10%);
-
-    font-family: monospace;
-    font-size: 80%;
-    padding: .125em .62em;
-    border-radius: @border-radius/2;
-    background: @background;
-    color: @color;
+  background: mix(@code-color, #333, 10%);
+  color: mix(@code-color, white, 10%);
 }
 
 .sl-button(@color: @gray) {
   background-color: @color;
   border-color: darken(@color, 5%);
-  .contrast-text-against(@color);
 
   &:active {
     background-color: darken(@color, 3%);

@@ -8,6 +8,7 @@
   .make-grays(@color);
   .load-action-colors(@color, @color1, @color4);
   .load-reaction-colors(@color, @color2, @color3);
+  .load-semantic-tone(@action, @reaction, @failure, @success, @info, @warning);
 }
 
 .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (saturation(@color) = 0) {
@@ -24,8 +25,8 @@
   @color1: @color;
 }
 
-.make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 2%) {
-  .make-palette(lighten(@color, 3%); @wheel);
+.make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < 1%) {
+  .make-palette(lighten(@color, 1%); @wheel);
 }
 
 .load-scheme-type(@color) {
@@ -140,7 +141,7 @@
   @color3: spin(@color, extract(@wheel-var, 2));
   @color4: spin(@color, extract(@wheel-var, 3));
 
-  @a-by: 8%;
+  @a-by: 6%;
   @c-by: 12%;
   @ceiling: white;
   @floor: #515151;
@@ -216,7 +217,7 @@
   @success-info-midpoint: average(@info, @success);
 
   #sl-tools.quadratic-compare(@success-info-midpoint, @c1, @c2);
-    @action-base: @winner;
+    @action-base: @farther;
 
   @action-sat: (saturation(@info) + saturation(@success))/2;
   @action-lit: (lightness(@info) + lightness(@success))/2;
@@ -235,7 +236,7 @@
   @failure-warning-midpoint: average(@failure, @warning);
 
   #sl-tools.quadratic-compare(@failure-warning-midpoint, @r1, @r2);
-    @reaction-base: @winner;
+    @reaction-base: @farther;
   
   @reaction-sat: (saturation(@warning) + saturation(@failure))/2;
   @reaction-lit: (lightness(@warning) + lightness(@failure))/2;
@@ -243,6 +244,11 @@
   @reaction: average(@reaction-base, hsl(hue(@reaction-base), @reaction-sat, @reaction-lit));
 }
 
+.load-semantic-tone(@action, @reaction, @failure, @success, @info, @warning) {
+  @action-pair: average(@action, @reaction);
+  @info-pair: average(@info, @warning);
+  @success-pair: average(@success, @failure);
+}
 
 .load-gray-bases(@color) {
   @gray-base: mix(desaturate(@color, 80%), #515151, 75%);

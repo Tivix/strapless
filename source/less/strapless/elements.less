@@ -14,9 +14,8 @@ html, body, ul, ol, li, form, fieldset, legend {
 }
 
 body {
-  background-color: @background;
+  .sl-body(@background);
   font-size: 16px;
-  .contrast-text-against(@background);
   line-height: @line-height;
   padding-top: @navbar-height + @padding;
   margin-bottom: 0;
@@ -65,6 +64,31 @@ section {
 }
 
 main {
+  padding: @padding;
+  max-width: @content-max-width;
+  margin: 0 auto;
+  margin-bottom: 1em;
+
+  h1, h2 {
+    text-align: center; 
+
+    & + p {
+      text-align: center;
+      font-size: 125%;
+      margin-bottom: 1em;
+    }
+  }
+
+  img {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .on-desktop({
+    padding: @padding*2;
+    border-radius: @border-radius;
+  });
+
   .sl-main();
 }
 
@@ -166,6 +190,44 @@ aside {
 }
 
 form {
+  @form-measure: 36ch;
+  max-width: @form-measure;
+  padding: 1.62ch;
+  margin-bottom: 2em;
+
+  > * {
+    width: 100%;
+    max-width: @form-measure;
+    margin-bottom: .8em;
+
+    & + button, &:last-child > button {
+      margin-top: .8em;
+      margin-bottom: @padding/4;
+    }
+  }
+
+  p {
+    padding: 0;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 1ch;
+    border: none;
+  }
+
+  > footer {
+    text-align: right;
+    > button + button {
+      margin-left: @padding;
+    }
+  }
+
+  .headlines({
+    &:first-child { margin-top: 0;}
+  });
+
   .sl-form(@color1);
 }
 
@@ -252,6 +314,10 @@ blockquote {
 }
 
 code, pre {
+  font-family: monospace;
+  font-size: 80%;
+  padding: .125em .62em;
+  border-radius: @border-radius/2;
   .sl-code(@color2);
 }
 
@@ -270,7 +336,6 @@ input[type="submit"] {
   outline: none;
   white-space: nowrap;
   padding: .4em 1ch;
-  .contrast-text-against(@gray);
   .sl-button(@reaction);
   .no-user-select();
 }

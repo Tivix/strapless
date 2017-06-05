@@ -8,7 +8,8 @@
 
 #sl-tools {
 	.quadratic-compare(@midpoint, @c1, @c2) {
-		// compares c1 and c2 to midpoint, assigns @winner to farthest in rgb-space
+		// compares c1 and c2 to midpoint, assigns a @farther and @closer
+		// midpoint doesn't have to be an averaged color, it can be a single color
 
 		@r-values-m-c1: 2*(red(@c1) - red(@midpoint))*(red(@c1) - red(@midpoint));
 		@g-values-m-c1: 4*(green(@c1) - green(@midpoint))*(green(@c1) - green(@midpoint));
@@ -24,47 +25,74 @@
 		.resolve();
 
 		.resolve() when (@d-m-c2 > @d-m-c1) {
-			@winner: @c2;
+			@farther: @c2;
+			@closer: @c1;
 		}
 
 		.resolve() when (default()) {
-			@winner: @c1;
+			@farther: @c1;
+			@closer: @c2;
 		}
 	}
-}
 
+	.set-contrast-ratio(@a, @b) {
+		// sets variable @contrast-ratio to contrast ratio between two colors
+		@l1: unit(luma(@a))/100;
+		@l2: unit(luma(@b))/100;
+		@contrast-ratio: round((@l1 + .05)/(@l2 + .05),2);
+	}
 
-.sl-bg-catch(@color: @background) {
-  // users can select any seed color but not bg, this catches bad ones and shows something better
-  
-  body {
-  	.colorize(@color1a);
-  }
+	.set-contrast-ratio(@a, @b) when (luma(@b) > luma(@a)) {
+		@l1: unit(luma(@b))/100;
+		@l2: unit(luma(@a))/100;
+		@contrast-ratio: round((@l1 + .05)/(@l2 + .05),2);
+	}
 
-  & when (luma(@color) > 88%) {
-    // above a certain brightness, just use white
-    body {
-      .colorize(white);
-    }
-  }
+	.set-contrast-ratio(@a, @b) when (luma(@b) = luma(@a)) {
+		@contrast-ratio: 1;
+	}
 
-  & when (saturation(@color) > 80%) {
-    // for really saturated colors, use white
-    body {
-      .colorize(white);
-    }
-  }
+	.tint-text(@bg-color) {
+		@base-tint: lighten(@bg-color, 10%);
+		#sl-tools.set-contrast-ratio(@bg-color, @base-tint);
+		.tint(@base-tint, @contrast-ratio, 1);
 
-  & when (luma(@color) < 20%) {
-    body {
-      .colorize(@color1c);
-    }
-  }
+		.tint(@color, @contrast-ratio, @index) when (@contrast-ratio < 7) and (@index < 15) and (luma(@color) < 100%) {
+			// slowly adds white until contrast ratio is met
 
-  & when (luma(@color) < 10%) {
-    // for really dark schemes use a dark gray for better color pop
-    body {
-      .colorize(@gray-darker);
-    }
-  }
+			#sl-tools.set-contrast-ratio(@bg-color, @color);
+
+			.tint(lighten(@base-tint, @index*5 + 5%); @contrast-ratio; @index + 1);
+		}
+
+		.tint(@color, @contrast-ratio, @index) when (default()) {
+			color: @color;
+			#sl-tools.set-contrast-ratio(@bg-color, @color);
+			&:after { content: " tinted, @{contrast-ratio}, @{index}";}
+		}
+	}
+
+	.shade-text(@bg-color) {
+		.shade(@bg-color, 1, 1);
+
+		.shade(@color, @contrast-ratio, @index) when (@contrast-ratio < 4.5) and (@index < 15) {
+			// slowly adds black until contrast ratio is met
+
+			#sl-tools.set-contrast-ratio(@bg-color, @shade);
+
+			@shade: darken(@bg-color, @index*5 + 10%);
+
+			.shade(@shade; @contrast-ratio; @index + 1);
+		}
+
+		// .shade(@color, @contrast-ratio, @index) when (@contrast-ratio < 4.5) and (@index > 10) {
+		// 	#sl-tools.tint-text(@bg-color);
+		// }
+
+		.shade(@color, @contrast-ratio, @index) when (default()) {
+			color: @color;
+			#sl-tools.set-contrast-ratio(@bg-color, @color);
+			&:after { content: " shaded, @{contrast-ratio}, @{index}";}
+		}
+	}
 }
