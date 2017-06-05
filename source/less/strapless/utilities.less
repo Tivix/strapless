@@ -67,8 +67,6 @@
 
 		.tint(@color, @contrast-ratio, @index) when (default()) {
 			color: @color;
-			#sl-tools.set-contrast-ratio(@bg-color, @color);
-			&:after { content: " tinted, @{contrast-ratio}, @{index}";}
 		}
 	}
 
@@ -85,14 +83,8 @@
 			.shade(@shade; @contrast-ratio; @index + 1);
 		}
 
-		// .shade(@color, @contrast-ratio, @index) when (@contrast-ratio < 4.5) and (@index > 10) {
-		// 	#sl-tools.tint-text(@bg-color);
-		// }
-
 		.shade(@color, @contrast-ratio, @index) when (default()) {
 			color: @color;
-			#sl-tools.set-contrast-ratio(@bg-color, @color);
-			&:after { content: " shaded, @{contrast-ratio}, @{index}";}
 		}
 	}
 }

@@ -10,12 +10,10 @@
 
   .set-text-color(@bg-color) when (@tone-color = black) {
     #sl-tools.shade-text(@bg-color);
-    border-right: 15px solid green;
   }
 
   .set-text-color(@bg-color) when (@tone-color = white) {
     #sl-tools.tint-text(@bg-color);
-    border-right: 15px solid red;
   }
 }
 

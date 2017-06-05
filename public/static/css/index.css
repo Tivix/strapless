@@ -669,106 +669,54 @@
 .sl-color-action {
   background-color: #8fe9d4;
   color: #146552;
-  border-right: 15px solid green;
-}
-.sl-color-action:after {
-  content: " shaded, 4.89, 9";
 }
 .sl-color-reaction {
   background-color: #a98ef4;
   color: #300e8e;
-  border-right: 15px solid green;
-}
-.sl-color-reaction:after {
-  content: " shaded, 4.96, 8";
 }
 .sl-color-info {
   background-color: #75bbec;
   color: #0f466d;
-  border-right: 15px solid green;
-}
-.sl-color-info:after {
-  content: " shaded, 4.75, 8";
 }
 .sl-color-warning {
   background-color: #feaf89;
   color: #872d01;
-  border-right: 15px solid green;
-}
-.sl-color-warning:after {
-  content: " shaded, 4.89, 9";
 }
 .sl-color-success {
   background-color: #7cd07c;
   color: #1b4b1b;
-  border-right: 15px solid green;
-}
-.sl-color-success:after {
-  content: " shaded, 5.37, 8";
 }
 .sl-color-failure {
   background-color: #ea6262;
   color: #440909;
-  border-right: 15px solid green;
-}
-.sl-color-failure:after {
-  content: " shaded, 4.98, 9";
 }
 .sl-color-gray-lighter {
   background-color: #e1e1e1;
   color: #616161;
-  border-right: 15px solid green;
-}
-.sl-color-gray-lighter:after {
-  content: " shaded, 4.7, 9";
 }
 .sl-color-gray-light {
   background-color: #c7c7c7;
   color: #484848;
-  border-right: 15px solid green;
-}
-.sl-color-gray-light:after {
-  content: " shaded, 5.44, 9";
 }
 .sl-color-gray {
   background-color: #aeaeae;
   color: #3b3b3b;
-  border-right: 15px solid green;
-}
-.sl-color-gray:after {
-  content: " shaded, 5.03, 8";
 }
 .sl-color-gray-dark {
   background-color: #949494;
   color: #222222;
-  border-right: 15px solid green;
-}
-.sl-color-gray-dark:after {
-  content: " shaded, 5.29, 8";
 }
 .sl-color-gray-darker {
   background-color: #7b7b7b;
   color: #080808;
-  border-right: 15px solid green;
-}
-.sl-color-gray-darker:after {
-  content: " shaded, 4.72, 8";
 }
 .sl-color-white {
   background: white;
   color: #737373;
-  border-right: 15px solid green;
-}
-.sl-color-white:after {
-  content: " shaded, 4.76, 10";
 }
 .sl-color-black {
   background: black;
   color: #a6a6a6;
-  border-right: 15px solid red;
-}
-.sl-color-black:after {
-  content: " tinted, 8.6, 11";
 }
 #strapless_patterns_checkerboard:before {
   content: 'Checkerboard';
@@ -1092,10 +1040,6 @@
   background: rgba(148, 148, 148, 0.4);
   width: 100%;
   color: #222222;
-  border-right: 15px solid green;
-}
-.pattern-preview > .pattern:before:after {
-  content: " shaded, 5.29, 8";
 }
 .pattern-preview > .pattern:hover:before {
   background: #949494;
@@ -1295,15 +1239,11 @@ legend {
 body {
   background-color: #c7c7c7;
   color: #484848;
-  border-right: 15px solid green;
   font-size: 16px;
   line-height: 1.62;
   padding-top: 60px;
   margin-bottom: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
-}
-body:after {
-  content: " shaded, 5.44, 9";
 }
 @media screen and (min-width: 768px) {
   body {
@@ -1313,7 +1253,6 @@ body:after {
 nav {
   background-color: white;
   color: #737373;
-  border-right: 15px solid green;
   height: 48px;
   line-height: 48px;
   max-height: 48px;
@@ -1324,9 +1263,6 @@ nav {
   -khtml-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-}
-nav:after {
-  content: " shaded, 4.76, 10";
 }
 nav > section {
   padding: 0;
@@ -1427,7 +1363,6 @@ main {
   margin-bottom: 1em;
   background-color: #949494;
   color: #222222;
-  border-right: 15px solid green;
 }
 main h1,
 main h2 {
@@ -1448,9 +1383,6 @@ main img {
     padding: 24px;
     border-radius: 6px;
   }
-}
-main:after {
-  content: " shaded, 5.29, 8";
 }
 h1 {
   font-size: 2.5em;
@@ -1583,7 +1515,6 @@ form {
   margin-bottom: 2em;
   background-color: white;
   color: #737373;
-  border-right: 15px solid green;
 }
 form > * {
   width: 100%;
@@ -1618,19 +1549,11 @@ form h5:first-child,
 form h6:first-child {
   margin-top: 0;
 }
-form:after {
-  content: " shaded, 4.76, 10";
-}
 form input,
 form textarea {
   background-color: #fefefe;
   color: #727272;
-  border-right: 15px solid green;
   color: #333;
-}
-form input:after,
-form textarea:after {
-  content: " shaded, 4.78, 10";
 }
 label {
   display: block;
@@ -1647,17 +1570,9 @@ table {
 table > thead > tr > th {
   background-color: white;
   color: #737373;
-  border-right: 15px solid green;
-}
-table > thead > tr > th:after {
-  content: " shaded, 4.76, 10";
 }
 table > tbody > tr > td {
   color: #484848;
-  border-right: 15px solid green;
-}
-table > tbody > tr > td:after {
-  content: " shaded, 5.44, 9";
 }
 table > tbody > tr {
   background-color: #c7c7c7;
@@ -1685,17 +1600,9 @@ table tr > th:last-child {
 table.action > thead > tr > th {
   background-color: #8fe9d4;
   color: #146552;
-  border-right: 15px solid green;
-}
-table.action > thead > tr > th:after {
-  content: " shaded, 4.89, 9";
 }
 table.action > tbody > tr > td {
   color: #156941;
-  border-right: 15px solid green;
-}
-table.action > tbody > tr > td:after {
-  content: " shaded, 5.02, 10";
 }
 table.action > tbody > tr {
   background-color: #a9eecd;
@@ -1706,17 +1613,9 @@ table.action > tbody > tr:nth-of-type(odd) {
 table.reaction > thead > tr > th {
   background-color: #a98ef4;
   color: #300e8e;
-  border-right: 15px solid green;
-}
-table.reaction > thead > tr > th:after {
-  content: " shaded, 4.96, 8";
 }
 table.reaction > tbody > tr > td {
   color: #1d19e9;
-  border-right: 15px solid green;
-}
-table.reaction > tbody > tr > td:after {
-  content: " shaded, 4.95, 6";
 }
 table.reaction > tbody > tr {
   background-color: #bdbcf9;
@@ -1727,17 +1626,9 @@ table.reaction > tbody > tr:nth-of-type(odd) {
 table.info > thead > tr > th {
   background-color: #75bbec;
   color: #0f466d;
-  border-right: 15px solid green;
-}
-table.info > thead > tr > th:after {
-  content: " shaded, 4.75, 8";
 }
 table.info > tbody > tr > td {
   color: #15429a;
-  border-right: 15px solid green;
-}
-table.info > tbody > tr > td:after {
-  content: " shaded, 4.88, 8";
 }
 table.info > tbody > tr {
   background-color: #a2bdf2;
@@ -1748,17 +1639,9 @@ table.info > tbody > tr:nth-of-type(odd) {
 table.warning > thead > tr > th {
   background-color: #feaf89;
   color: #872d01;
-  border-right: 15px solid green;
-}
-table.warning > thead > tr > th:after {
-  content: " shaded, 4.89, 9";
 }
 table.warning > tbody > tr > td {
   color: #a00e02;
-  border-right: 15px solid green;
-}
-table.warning > tbody > tr > td:after {
-  content: " shaded, 5.3, 10";
 }
 table.warning > tbody > tr {
   background-color: #fec1bc;
@@ -1769,17 +1652,9 @@ table.warning > tbody > tr:nth-of-type(odd) {
 table.success > thead > tr > th {
   background-color: #7cd07c;
   color: #1b4b1b;
-  border-right: 15px solid green;
-}
-table.success > thead > tr > th:after {
-  content: " shaded, 5.37, 8";
 }
 table.success > tbody > tr > td {
   color: #225e31;
-  border-right: 15px solid green;
-}
-table.success > tbody > tr > td:after {
-  content: " shaded, 4.99, 9";
 }
 table.success > tbody > tr {
   background-color: #a2ddb1;
@@ -1790,17 +1665,9 @@ table.success > tbody > tr:nth-of-type(odd) {
 table.failure > thead > tr > th {
   background-color: #ea6262;
   color: #440909;
-  border-right: 15px solid green;
-}
-table.failure > thead > tr > th:after {
-  content: " shaded, 4.98, 9";
 }
 table.failure > tbody > tr > td {
   color: #7a2b10;
-  border-right: 15px solid green;
-}
-table.failure > tbody > tr > td:after {
-  content: " shaded, 5.19, 9";
 }
 table.failure > tbody > tr {
   background-color: #f1ae98;
@@ -1932,11 +1799,6 @@ mark,
 ::selection {
   background: #aeaeae;
   color: #3b3b3b;
-  border-right: 15px solid green;
-}
-mark:after,
-::selection:after {
-  content: " shaded, 5.03, 8";
 }
 hr {
   border-color: #c7c7c7;
@@ -1958,50 +1820,26 @@ hr {
 .action {
   background-color: #8fe9d4;
   color: #146552;
-  border-right: 15px solid green;
-}
-.action:after {
-  content: " shaded, 4.89, 9";
 }
 .reaction {
   background-color: #a98ef4;
   color: #300e8e;
-  border-right: 15px solid green;
-}
-.reaction:after {
-  content: " shaded, 4.96, 8";
 }
 .info {
   background-color: #75bbec;
   color: #0f466d;
-  border-right: 15px solid green;
-}
-.info:after {
-  content: " shaded, 4.75, 8";
 }
 .warning {
   background-color: #feaf89;
   color: #872d01;
-  border-right: 15px solid green;
-}
-.warning:after {
-  content: " shaded, 4.89, 9";
 }
 .success {
   background-color: #7cd07c;
   color: #1b4b1b;
-  border-right: 15px solid green;
-}
-.success:after {
-  content: " shaded, 5.37, 8";
 }
 .failure {
   background-color: #ea6262;
   color: #440909;
-  border-right: 15px solid green;
-}
-.failure:after {
-  content: " shaded, 4.98, 9";
 }
 .less-var-test {
   height: 42px;
@@ -2066,7 +1904,6 @@ body,
   position: absolute;
   background: #d4f9e7;
   color: #107142;
-  border-right: 15px solid green;
   border-radius: 6px;
   z-index: 1001;
   height: 100%;
@@ -2075,9 +1912,6 @@ body,
   bottom: 0;
   right: 0;
   text-align: center;
-}
-#loading_overlay:after {
-  content: " shaded, 5.31, 12";
 }
 #loading_overlay div {
   position: absolute;
