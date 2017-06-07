@@ -14,8 +14,8 @@ html, body, ul, ol, li, form, fieldset, legend {
 }
 
 body {
-  .sl-body(@background);
   font-size: 16px;
+  background: @color1a;
   line-height: @line-height;
   padding-top: @navbar-height + @padding;
   margin-bottom: 0;
@@ -33,6 +33,8 @@ body {
   .on-tablet({
     font-size: 20px;
   });
+
+  .sl-body(@background);
 }
 
 nav {
@@ -191,18 +193,19 @@ aside {
 
 form {
   @form-measure: 36ch;
-  max-width: @form-measure;
-  padding: 1.62ch;
+  padding: .4em 1.62ch;
   margin-bottom: 2em;
+  max-width: @form-measure;
 
   > * {
-    width: 100%;
+    // width: 100%;
     max-width: @form-measure;
-    margin-bottom: .8em;
+    margin-top: .4em;
+    margin-bottom: .4em;
 
     & + button, &:last-child > button {
-      margin-top: .8em;
-      margin-bottom: @padding/4;
+      // margin-top: .8em;
+      // margin-bottom: @padding/4;
     }
   }
 
@@ -214,7 +217,7 @@ form {
   textarea {
     width: 100%;
     padding: 1ch;
-    border: none;
+    border: 1px solid @gray-darker;
   }
 
   > footer {
@@ -228,12 +231,15 @@ form {
     &:first-child { margin-top: 0;}
   });
 
-  .sl-form(@color1);
+  .buttons({
+    font-size: 110%;
+    margin-top: .4em;
+    margin-bottom: .4em;
+  });
 }
 
 label {
   display: block;
-  margin-bottom: .25em;
 }
 
 strong {
@@ -315,16 +321,14 @@ blockquote {
 
 code, pre {
   font-family: monospace;
-  font-size: 80%;
-  padding: .125em .62em;
+  vertical-align: middle;
+  font-size: 72%;
+  padding: .125em .5em .175em .5em;
   border-radius: @border-radius/2;
   .sl-code(@color2);
 }
 
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+.buttons({
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -338,7 +342,7 @@ input[type="submit"] {
   padding: .4em 1ch;
   .sl-button(@reaction);
   .no-user-select();
-}
+});
 
 .make-sl-buttons-for(@semantic-colors);
 

@@ -105,8 +105,8 @@
   @color3: spin(@color, extract(@wheel-var, 2));
   @color4: spin(@color, extract(@wheel-var, 3));
 
-  @a-by: 10%;
-  @c-by: 10%;
+  @a-by: 8%;
+  @c-by: 12%;
   @ceiling: white;
   @floor: black;
   @compare: @color;
@@ -141,7 +141,7 @@
   @color3: spin(@color, extract(@wheel-var, 2));
   @color4: spin(@color, extract(@wheel-var, 3));
 
-  @a-by: 6%;
+  @a-by: 4%;
   @c-by: 12%;
   @ceiling: white;
   @floor: #515151;
@@ -178,7 +178,7 @@
   @color4: spin(@color, extract(@wheel-var, 3));
 
   @a-by: 12%;
-  @c-by: 6%;
+  @c-by: 4%;
   @ceiling: #515151;
   @floor: black;
   @compare: @color;
@@ -239,15 +239,28 @@
     @reaction-base: @farther;
   
   @reaction-sat: (saturation(@warning) + saturation(@failure))/2;
-  @reaction-lit: (lightness(@warning) + lightness(@failure))/2;
+  @reaction-lit: (lightness(@warning) + lightness(@failure))*.9/2;
 
   @reaction: average(@reaction-base, hsl(hue(@reaction-base), @reaction-sat, @reaction-lit));
 }
 
 .load-semantic-tone(@action, @reaction, @failure, @success, @info, @warning) {
-  @action-pair: average(@action, @reaction);
-  @info-pair: average(@info, @warning);
-  @success-pair: average(@success, @failure);
+  @luma: (luma(@action) + 
+  luma(@reaction) + 
+  luma(@failure) + 
+  luma(@success) + 
+  luma(@info) +
+  luma(@warning))/6;
+
+  .set-semantic-tone(@luma);
+
+  .set-semantic-tone(@luma) when (@luma > 43%) {
+    @semantic-tone: black;
+  }
+
+  .set-semantic-tone(@luma) when (@luma <= 43%) {
+    @semantic-tone: white;
+  }
 }
 
 .load-gray-bases(@color) {

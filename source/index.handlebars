@@ -36,14 +36,14 @@
             <p>Strapless is a color-changing CSS&nbsp;boilerplate for HTML elements, and a powerful LessCSS library for colors and patterns.</p>
             <aside>
                 <button class="failure" type="button" onclick="Strapless.downloadCSS();">Get CSS for <span class="sl-current-color">current color</span></button>
-                <button class="info" type="button" onclick="location.href='http://github.com/Tivix/strapless'">Less/GitHub</button>
+                <button class="reaction" type="button" onclick="location.href='http://github.com/Tivix/strapless'">Less/GitHub</button>
                 <button class="failure" type="button" onclick="Strapless.downloadDemoCSS();">Get demo CSS (dev)</button>
             </aside>
             <form id="demo_form">
                 <div id="loading_overlay">
                     <div style="">
                         <?xml version="1.0" encoding="utf-8"?>
-                        <svg width='60px' height='60px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-ring">
+                        <svg width='30px' height='30px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-ring">
                             <rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect>
                             <circle cx="50" cy="50" r="40" stroke-dasharray="163.36281798666926 87.9645943005142" stroke="#d25353" fill="none" stroke-width="20">
                                 <animateTransform attributeName="transform" type="rotate" values="0 50 50;180 50 50;360 50 50;" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite" begin="0s"></animateTransform>
@@ -51,11 +51,10 @@
                         </svg>
                     </div>
                 </div>
-                <div class="less-var-test"></div>
-                <label>Try a base color:</label>
-                <input id="seed_color" class="jscolor" value="E0273B" />
                 <aside>
-                    <button type="button" class="action" onclick="Strapless.updateScheme();">Preview</button>
+                    <label>Try a base color:</label>
+                    <input id="seed_color" class="jscolor" value="E0273B" />
+                    <button type="button" class="reaction" onclick="Strapless.updateScheme();">Preview</button>
                     <button type="button" class="failure" onclick="Strapless.downloadCSS();">Get CSS</button>
                 </aside>
             </form>

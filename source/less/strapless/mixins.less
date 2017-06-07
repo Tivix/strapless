@@ -43,22 +43,18 @@
 
 // element color mixins
 
-.sl-body(@color) when (luma(@color) > 88%) {
-  .colorize(white);
-}
-
-.sl-body(@color) when (saturation(@color) > 80%) {
-  // for really saturated colors, use white
-  .colorize(white);
-}
-
-.sl-body(@color) when (luma(@color) < 8%) {
-  // for really dark schemes use a dark gray for better color pop
-  .colorize(@gray-darker);
-}
-
 .sl-body(@color) when (default()) {
   .colorize(@background);
+}
+
+.sl-body(@color) when (luma(@color) > 88%), 
+                      (saturation(@color) > 80%),
+                      (saturation(@color) = 0) {
+  .colorize(white);
+}
+
+.sl-body(@color) when (luma(@color) < 15%) {
+  .colorize(@gray-darker);
 }
 
 .sl-main(@color: @color1c;) {
@@ -79,6 +75,7 @@
     @input-bg-color: mix(@gray-lightest-base, white, 20%);
     .colorize(@input-bg-color);
     color: #333;
+    border: 1px solid darken(@color, 10%);
   }
 }
 
@@ -87,13 +84,21 @@
   color: mix(@code-color, white, 10%);
 }
 
-.sl-button(@color: @gray) {
+.sl-button(@color: @gray, @tone: @semantic-tone) {
   background-color: @color;
   border-color: darken(@color, 5%);
 
   &:active {
     background-color: darken(@color, 3%);
   }
+}
+
+.sl-button(@color: @gray, @tone: @semantic-tone) when (@tone = black) {
+  #sl-tools.shade-text(@color);
+}
+
+.sl-button(@color: @gray, @tone: @semantic-tone) when (@tone = white) {
+  #sl-tools.tint-text(@color);
 }
 
 .make-sl-buttons-for(@colors) {
@@ -108,10 +113,13 @@
     @color-name: extract(@colors, @index);
     @color: @@color-name;
 
-    button.@{color-name} {
-      // &:extend(.sl-button-base all);
-      .sl-button(@color);
-    }
+    .buttons({
+      &.@{color-name} { .sl-button(@color);}
+    });
+    // button.@{color-name} {
+    //   // &:extend(.sl-button-base all);
+    //   .sl-button(@color);
+    // }
 
     .make-sl-button(@index + 1);
   }

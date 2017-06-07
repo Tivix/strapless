@@ -11,30 +11,6 @@
 @demo-wheels:  accented, complementary, triadic,
                tetradic, square, ebb, flow, monochromatic;
 
-
-@l1-test: white;
-@l2-test: @background;
-
-@l1: unit(luma(@l1-test))/100;
-@l2: unit(luma(@l2-test))/100;
-
-
-// (L1 + 0.05) / (L2 + 0.05)
-
-@contrast-test: (@l1 + .05)/(@l2 + .05);
-
-
-@less-var-test: @contrast-test; 
-
-.less-var-test {
-  height: 42px;
-  color: white;
-
-  &:after { content: "@{less-var-test}";}
-
-  border: 5px solid red;
-}
-
 body, 
 #feature, 
 #feature > *, 
@@ -47,7 +23,7 @@ body,
 #semantic_colors > p,
 #grays > p { 
   @ease: ~'ease-out';
-  transition: color 2s @ease; transition: background 2s @ease;
+  transition: color 2s @ease; transition: background 2s @ease; 
 }
 
 .logo {
@@ -82,6 +58,18 @@ body,
 #demo_form {
   position: relative;
   border-radius: @border-radius;
+  .colorize(darken(@background, 5%));
+  padding-top: 0;
+  padding-bottom: 0;
+  border: 1px solid darken(@background, 12%);
+
+  label {
+    width: 220px;
+  }
+
+  > * {
+    max-width: none;
+  }
 
   .on-tablet({
     font-size: 12px;
@@ -90,12 +78,17 @@ body,
     bottom: @padding;
     right: @padding;
     z-index: 1000;
-    max-width: 200px;
+    width: 532px;
+    max-width: 90%;
   });
 }
 
+#seed_color {
+  border: 1px solid darken(@background, 12%);
+}
+
 #loading_overlay {
-  @color: @color4a;
+  @color: @gray;
 
   display: none;
   position: absolute;
@@ -108,11 +101,12 @@ body,
   left: 0;
   bottom: 0;
   right: 0;
+  margin: 0;
   text-align: center;
   div {
       position: absolute;
       top: 50%;
-      margin-top: -30px;
+      margin-top: -15px;
       left: 0;
       right: 0;
   }

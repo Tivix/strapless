@@ -53,16 +53,14 @@
 	}
 
 	.tint-text(@bg-color) {
-		@base-tint: lighten(@bg-color, 10%);
-		#sl-tools.set-contrast-ratio(@bg-color, @base-tint);
-		.tint(@base-tint, @contrast-ratio, 1);
+		.tint(@bg-color, 1, 1);
 
 		.tint(@color, @contrast-ratio, @index) when (@contrast-ratio < 7) and (@index < 15) and (luma(@color) < 100%) {
 			// slowly adds white until contrast ratio is met
 
 			#sl-tools.set-contrast-ratio(@bg-color, @color);
 
-			.tint(lighten(@base-tint, @index*5 + 5%); @contrast-ratio; @index + 1);
+			.tint(lighten(@bg-color, @index*5 + 5%); @contrast-ratio; @index + 1);
 		}
 
 		.tint(@color, @contrast-ratio, @index) when (default()) {
