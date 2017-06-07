@@ -1,5 +1,7 @@
 var Strapless = (function() {
 
+    var server_ip = 'http://104.199.126.237:3000';
+
     function _generateFavicon() {
         var canvas = document.createElement('canvas');
         var ctx;
@@ -36,7 +38,7 @@ var Strapless = (function() {
     function _getLessFile(baseColor) {
         return new Promise(function(resolve, reject) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', '/democss/' + baseColor);
+            xhr.open('GET', server_ip + '/democss/' + baseColor);
             xhr.onload = function() {
                 if (this.status >= 200 && this.status < 300) {
                     var response = {

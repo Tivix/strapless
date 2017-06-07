@@ -94,6 +94,12 @@ app.get('/css-version/:baseColor', function(req, res) {
 
 app.use(express.static(path.join(__dirname, 'public', 'static')));
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", ['http://localhost:3000', 'https://tivix.github.io/Strapless']);
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 var server = app.listen('3000', function() {
     console.log('Strapless is ready on port %d', server.address().port);
 });
