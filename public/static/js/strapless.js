@@ -1,6 +1,6 @@
 var Strapless = (function() {
 
-    var server_ip = 'http://104.199.126.237:3000';
+    var server_ip = 'https://104.199.126.237:3000';
 
     function _generateFavicon() {
         var canvas = document.createElement('canvas');
