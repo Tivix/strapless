@@ -1,0 +1,285 @@
+// mixins
+
+.contrast-text-against(@bg-color: @background) {
+  // automatically sets contrastful text color given a background color
+
+  // decides tinting or shading
+  @tone-color: contrast(@bg-color, white, black);
+
+  .set-text-color(@bg-color);
+
+  .set-text-color(@bg-color) when (@tone-color = black) {
+    #sl-tools.shade-text(@bg-color);
+  }
+
+  .set-text-color(@bg-color) when (@tone-color = white) {
+    #sl-tools.tint-text(@bg-color);
+  }
+}
+
+.colorize(@color) {
+  // set a background color and make sure text works with it
+  background-color: @color;
+  .contrast-text-against(@color);
+}
+
+.no-user-select() {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// element color mixins
+
+.sl-body(@color) when (default()) {
+  .colorize(@background);
+}
+
+.sl-body(@color) when (luma(@color) > 88%), 
+                      (saturation(@color) > 80%),
+                      (saturation(@color) = 0) {
+  .colorize(white);
+}
+
+.sl-body(@color) when (luma(@color) < 15%) {
+  .colorize(@gray-darker);
+}
+
+.sl-main(@color: @color1c;) {
+  .colorize(@color);
+
+  & when (luma(@color) < 20%) {
+    @color: average(@gray-darker, @color1c);
+    .colorize(@color);
+  }
+}
+
+.sl-form(@color) {
+
+  .colorize(@color);
+
+  input,
+  textarea {
+    @input-bg-color: mix(@gray-lightest-base, white, 20%);
+    .colorize(@input-bg-color);
+    color: #333;
+    border: 1px solid darken(@color, 10%);
+  }
+}
+
+.sl-code(@code-color) {
+  background: mix(@code-color, #333, 10%);
+  color: mix(@code-color, white, 10%);
+}
+
+.sl-button(@color: @gray, @tone: @semantic-tone) {
+  background-color: @color;
+  border-color: darken(@color, 5%);
+
+  &:active {
+    background-color: darken(@color, 3%);
+  }
+}
+
+.sl-button(@color: @gray, @tone: @semantic-tone) when (@tone = black) {
+  #sl-tools.shade-text(@color);
+}
+
+.sl-button(@color: @gray, @tone: @semantic-tone) when (@tone = white) {
+  #sl-tools.tint-text(@color);
+}
+
+.make-sl-buttons-for(@colors) {
+  // make buttons for a list of color variable names
+  // buttons will use variable names as class names
+
+  @length: length(@colors);
+
+  .make-sl-button();
+
+  .make-sl-button(@index:1) when (@index <= @length) {
+    @color-name: extract(@colors, @index);
+    @color: @@color-name;
+
+    .buttons({
+      &.@{color-name} { .sl-button(@color);}
+    });
+    // button.@{color-name} {
+    //   // &:extend(.sl-button-base all);
+    //   .sl-button(@color);
+    // }
+
+    .make-sl-button(@index + 1);
+  }
+}
+
+.sl-nav(@color) {
+
+  @height: @navbar-height;
+
+  background-color:@color;
+  .contrast-text-against(@color);
+
+  height: @height;
+  line-height: @height;
+  max-height: @height;
+  padding: 0;
+  border-radius: @border-radius;
+  z-index: 1000;
+
+  > section {
+    padding: 0;
+    max-width: @content-max-width;
+  }
+
+  > section > * { // pseudo reset
+    display: none;
+    float:left;
+    position: relative;
+    border: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: @height;
+    vertical-align: middle;
+    overflow: hidden;
+
+    .on-tablet({
+      display: block;
+    });
+
+    &:first-child {
+      display: block;
+      margin-right: @padding * 2;
+
+      .on-large-phone({
+        margin-right: @height;
+      });
+    }
+
+    &:last-child {
+      display: block;
+      float: right;
+      line-height: @height - 6;
+    }
+  }
+
+  ul {
+    height: @height;
+  }
+
+  li {
+    float:left;
+    height: @height;
+    line-height: @height;
+    list-style: none;
+  }
+
+  h1 {
+    display: block;
+    float: left;
+    font-size: 26px;
+    line-height: @height;
+    padding: 0 @padding;
+    color: inherit;
+  }
+
+  a {
+    display: block;
+    float: left;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  li > a {
+    padding-left: @padding;
+    padding-right: @padding;
+
+    &:hover {
+      background-color: rgba(255,255,255,.15);
+    }
+  }
+
+  body > &:first-child, body > &:last-child {
+    // go sticky if at end or beginning of body
+    position: fixed; top:0; left: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+.sl-table(@table-color: @color1;) {
+
+  .make-palette(@table-color; ebb);
+    @header: @color1;
+    @row-a: @color1a;
+    @row-b: darken(@row-a, 1.5%);
+
+  & > thead > tr > th {
+    background-color: @header;
+    .contrast-text-against(@header);
+  }
+
+  & > tbody > tr > td {
+    .contrast-text-against(@row-a);
+  }
+
+  & > tbody > tr {
+    background-color: @row-a;
+  }
+
+  & > tbody > tr:nth-of-type(odd) {
+    background-color: @row-b;
+  }
+}
+
+.make-sl-tables-for(@colors) {
+  // make table colors for a list of color variable names
+  // tables will use variable names as class names
+
+  @iterations: length(@colors);
+
+  .make-sl-table(1);
+
+  .make-sl-table(@index) when (@index <= @iterations) {
+
+    @color-name: extract(@colors, @index);
+    @this-color: @@color-name;
+
+    table.@{color-name} {
+      .sl-table(@this-color);
+    }
+
+    .make-sl-table(@index + 1);
+  }
+}
+
+.make-color-classes-for(@colors) {
+  @iterations: length(@colors);
+
+  .make-color-class(1);
+
+  .make-color-class(@index) when (@index <= @iterations) {
+    @color-name: extract(@colors, @index);
+    @this-color: @@color-name;
+
+    .@{color-name} {
+      .colorize(@this-color);
+    }
+
+    .make-color-class(@index + 1);
+  }
+}

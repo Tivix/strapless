@@ -1,0 +1,359 @@
+// CSS for standard HMTL elements
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body, ul, ol, li, form, fieldset, legend {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  background: @color1a;
+  line-height: @line-height;
+  padding-top: @navbar-height + @padding;
+  margin-bottom: 0;
+  font-family: -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Oxygen-Sans,
+                Ubuntu,
+                Cantarell,
+                "Helvetica Neue",
+                Arial,
+                sans-serif;
+
+  .on-tablet({
+    font-size: 20px;
+  });
+
+  .sl-body(@background);
+}
+
+nav {
+  .sl-nav(@color1);
+  .no-user-select();
+}
+
+section {
+  width: 100%;
+  margin: 0 auto;
+  padding: @padding @padding @padding*4 @padding;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  > * {
+    margin: 0 auto;
+    max-width: @content-max-width;
+
+    &:last-child {
+      margin-bottom: @padding;
+    }    
+  }
+
+  > * + * {
+    margin-top: @padding;
+  }
+}
+
+main {
+  padding: @padding;
+  max-width: @content-max-width;
+  margin: 0 auto;
+  margin-bottom: 1em;
+
+  h1, h2 {
+    text-align: center; 
+
+    & + p {
+      text-align: center;
+      font-size: 125%;
+      margin-bottom: 1em;
+    }
+  }
+
+  img {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .on-desktop({
+    padding: @padding*2;
+    border-radius: @border-radius;
+  });
+
+  .sl-main();
+}
+
+h1 { font-size: 2.5em;}
+h2 { font-size: 2.2em;}
+h3 { font-size: 1.9em;}
+h4 { font-size: 1.7em;}
+h5 { font-size: 1.3em;}
+h6 { font-size: 1.0em;}
+
+h1, h2, h3, h4 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  line-height: @line-height;
+  font-weight: bold;
+
+  & + & {
+    margin-top: 0;
+  }
+}
+
+h5, h6 {
+  margin-top: .5em;
+  margin-bottom: 1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+p, form, article, ul, dl, li {
+  margin: 0 auto 1em;
+
+  .on-large-phone({
+    max-width: @text-measure;
+  });
+}
+
+p.info,
+p.warning,
+p.action,
+p.reaction,
+p.success,
+p.failure {
+  padding: .5em 1em;
+}
+
+ul, ol {
+  padding-left: 2ch;
+}
+
+dt { 
+  font-weight: bold;
+  font-size: 90%;
+}
+
+dd {
+  margin-bottom: @padding;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+aside {
+  margin-bottom: 1em;
+
+  > button {
+    width: 100%;
+    margin-bottom: .5em;
+  }
+
+  > * {
+    margin-right: @padding;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .on-large-phone({
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+
+    > button {
+      width: auto;
+    }
+
+    p + & {
+      padding-top: 1em;
+    }
+  });
+}
+
+form {
+  @form-measure: 36ch;
+  padding: .4em 1.62ch;
+  margin-bottom: 2em;
+  max-width: @form-measure;
+
+  > * {
+    // width: 100%;
+    max-width: @form-measure;
+    margin-top: .4em;
+    margin-bottom: .4em;
+
+    & + button, &:last-child > button {
+      // margin-top: .8em;
+      // margin-bottom: @padding/4;
+    }
+  }
+
+  p {
+    padding: 0;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 1ch;
+    border: 1px solid @gray-darker;
+  }
+
+  > footer {
+    text-align: right;
+    > button + button {
+      margin-left: @padding;
+    }
+  }
+
+  .headlines({
+    &:first-child { margin-top: 0;}
+  });
+
+  .buttons({
+    font-size: 110%;
+    margin-top: .4em;
+    margin-bottom: .4em;
+  });
+}
+
+label {
+  display: block;
+}
+
+strong {
+  font-weight: bold;
+}
+
+table {
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  .sl-table();
+
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: @padding/2;
+  }
+
+  thead th {
+    vertical-align: bottom;
+  }
+
+  tr > td,
+  tr > th {
+    &:first-child {
+      padding-left: @padding;
+    }
+    &:last-child {
+      padding-right: @padding;
+    }
+  }
+}
+
+.make-sl-tables-for(@semantic-colors);
+
+fieldset,img { border: 0; }
+
+caption, figcaption {
+  text-align: left;
+  vertical-align: top;
+  font-weight: normal;
+}
+
+input, textarea {
+  font-size: 110%;
+  line-height: 1.1;
+}
+
+abbr, acronym {
+  border-bottom: .1em dotted;
+  cursor: help;
+}
+
+blockquote {
+  @border: 5px solid @color1a;
+  padding-left: 1em;
+  margin-bottom: 1em;
+  border-left: @border;
+  max-width: @text-measure;
+
+  &:nth-of-type(even) {
+    text-align: right;
+    border-left: none;
+    border-right: @border;
+    padding-left: 0;
+    padding-right: 1em;
+  }
+
+  cite {
+    font-style: italic;
+    display: block;
+    &:before {
+      content: '—';
+      padding-right: 5px;
+    }
+  }
+}
+
+code, pre {
+  font-family: monospace;
+  vertical-align: middle;
+  font-size: 72%;
+  padding: .125em .5em .175em .5em;
+  border-radius: @border-radius/2;
+  .sl-code(@color2);
+}
+
+.buttons({
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: none;
+  border-radius: @border-radius;
+  outline: none;
+  white-space: nowrap;
+  padding: .4em 1ch;
+  .sl-button(@reaction);
+  .no-user-select();
+});
+
+.make-sl-buttons-for(@semantic-colors);
+
+mark, ::selection {
+  @color: @color1b;
+  background: @color;
+  .contrast-text-against(@color);
+}
+
+hr {
+  border-color: @background;
+  border-top-color: darken(@background, 2%);
+  border-bottom-color: lighten(@background, 5%);
+}
