@@ -1,6 +1,5 @@
 var path = require('path');
 var http = require('http');
-var https = require('https');
 var fs = require('fs');
 var express = require('express');
 var exphbs = require('express-handlebars');
@@ -103,10 +102,4 @@ app.get('/css-version/:baseColor', function(req, res) {
 
 app.use(express.static(path.join(__dirname, 'public', 'static')));
 
-var sslOptions = {
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem'),
-  passphrase: 'strapless',
-};
-
-https.createServer(sslOptions, app).listen(8443)
+http.createServer(app).listen(8000)
