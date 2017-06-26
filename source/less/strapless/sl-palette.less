@@ -12,7 +12,7 @@
 
     // each palette has a corresponding id
     #sl_@{scheme} {
-      &:before { content: "@{scheme}";}
+      // &:before { content: "@{scheme}";}
       .make-swatches-for(@color; @all-colors; @scheme);
     }
     // make the next palette
@@ -43,7 +43,13 @@
 
 .sl-swatch(@color: @gray) {
   background-color: @color;
-  border-color: darken(@color, 2%);
+  border-color: darken(@color, 12%);
+  .rotate(hue(@color));
+
+  &:after {
+    @after: round(luma(@color),2);
+    //content: "@{after}";
+  }
 }
 
 .sl-swatch-base, .swatch {
@@ -59,16 +65,19 @@
   font-size: 10px;
 
   min-width: @size;
-  width: 25%;
-  height: @height/2;
+  width: 23%;
+  height: @height;
   border: 1px solid transparent;
 
-  margin-bottom: 0;
+  margin-bottom: 2%;
+  margin-right: 2%;
 
   text-align: right;
   line-height: @height - 3px;
 
   display: block;
+
+  border-radius: @border-radius;
 
   &:before {
     display: none;
@@ -76,31 +85,17 @@
 
   .on-large-phone({
     position: relative;
-
-    width: 23%;
-    height: @height;
-    margin-right: 2%;
-    margin-bottom: -@margin*2;
-
-    .rotate(-3deg);
-    &:nth-child(4n + 2) { .rotate(-1deg); top:-2px;}
-    &:nth-child(4n + 3) { .rotate(1deg); top:-3px;}
-    &:nth-child(4n + 4) { .rotate(3deg); top:-2px;}
-
-    &:before {
-      font-size: 9px;
-      font-weight: bold;
-      pointer-events: none;
-      position: relative;
-      bottom: -@height/4;
-      right: 3px;
-    }
+    height: @height + 4;
   });  
 }
 
 .palettes {
   .clearfix();
   margin-bottom: @padding*5;
+}
+
+.sl-color-container {
+  margin-bottom: 0;
 }
 
 .palette-preview {
@@ -141,6 +136,8 @@
     }
   });
 }
+
+
 
 .sl-single-color {
   @width: 75px;

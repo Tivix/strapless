@@ -57,34 +57,45 @@ body,
 
 #demo_form {
   position: relative;
-  border-radius: @border-radius;
-  .colorize(darken(@background, 5%));
-  padding-top: 0;
-  padding-bottom: 0;
-  border: 1px solid darken(@background, 12%);
 
   label {
-    width: 220px;
+    max-width: 220px;
   }
 
   > * {
     max-width: none;
   }
 
-  .on-tablet({
-    font-size: 12px;
+  .on-large-phone({
     position: fixed;
     margin-bottom: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    .colorize(darken(@background, 5%));
+    padding-top: 0;
+    padding-bottom: 0;
+    z-index: 1000;
+  });
+
+  .on-tablet({
+    font-size: 12px;
     bottom: @padding;
     right: @padding;
+    left: auto;
     z-index: 1000;
-    width: 532px;
+    width: 402px;
     max-width: 90%;
+    border: 5px solid darken(@background, 12%);
+    border-radius: @border-radius;
   });
 }
 
 #seed_color {
   border: 1px solid darken(@background, 12%);
+  max-width: 237px;
 }
 
 #loading_overlay {

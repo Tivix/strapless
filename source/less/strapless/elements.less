@@ -14,8 +14,22 @@ html, body, ul, ol, li, form, fieldset, legend {
 }
 
 body {
+  .body-color(@color) when (default()) {
+    .colorize(@background);
+  }
+
+  .body-color(@color) when (luma(@color) < 15%) {
+    .colorize(@gray-darker);
+  }
+
+  .body-color(@color) when (luma(@color) > 88%), 
+                        (saturation(@color) > 80%),
+                        (saturation(@color) = 0) {
+    .colorize(white);
+  }
+
+  .body-color(@background);
   font-size: 16px;
-  background: @color1a;
   line-height: @line-height;
   padding-top: @navbar-height + @padding;
   margin-bottom: 0;
@@ -33,12 +47,101 @@ body {
   .on-tablet({
     font-size: 20px;
   });
-
-  .sl-body(@background);
 }
 
 nav {
-  .sl-nav(@color1);
+  @color: @base-color;
+  @height: @navbar-height;
+
+  .colorize(@color);
+
+  height: @height;
+  line-height: @height;
+  max-height: @height;
+  padding: 0;
+  border-radius: @border-radius;
+  z-index: 1000;
+
+  > section {
+    padding: 0;
+    max-width: @content-max-width;
+  }
+
+  > section > * { // pseudo reset
+    display: none;
+    float:left;
+    position: relative;
+    border: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: @height;
+    vertical-align: middle;
+    overflow: hidden;
+
+    .on-tablet({
+      display: block;
+    });
+
+    &:first-child {
+      display: block;
+      margin-right: @padding * 2;
+
+      .on-large-phone({
+        margin-right: @height;
+      });
+    }
+
+    &:last-child {
+      display: block;
+      float: right;
+      line-height: @height - 6;
+    }
+  }
+
+  ul {
+    height: @height;
+  }
+
+  li {
+    float:left;
+    height: @height;
+    line-height: @height;
+    list-style: none;
+  }
+
+  h1 {
+    display: block;
+    float: left;
+    font-size: 26px;
+    line-height: @height;
+    padding: 0 @padding;
+    color: inherit;
+  }
+
+  a {
+    display: block;
+    float: left;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  li > a {
+    padding-left: @padding;
+    padding-right: @padding;
+
+    &:hover {
+      background-color: rgba(255,255,255,.15);
+    }
+  }
+
+  body > &:first-child, body > &:last-child {
+    // go sticky if at end or beginning of body
+    position: fixed; top:0; left: 0;
+    width: 100%;
+    border-radius: 0;
+  }
   .no-user-select();
 }
 
@@ -66,6 +169,16 @@ section {
 }
 
 main {
+  .main-color(@color) {
+    .colorize(@color);
+  }
+
+  .main-color(@color) when (luma(@color) < 20%) {
+    @color: average(@gray-darker, @color1c);
+    .colorize(@color);
+  }
+
+  .main-color(@color1c);
   padding: @padding;
   max-width: @content-max-width;
   margin: 0 auto;
@@ -90,8 +203,6 @@ main {
     padding: @padding*2;
     border-radius: @border-radius;
   });
-
-  .sl-main();
 }
 
 h1 { font-size: 2.5em;}
@@ -192,7 +303,22 @@ aside {
 }
 
 form {
-  @form-measure: 36ch;
+  @form-measure: 45ch;
+
+  .form-color(@color) {
+
+    .colorize(@color);
+
+    input,
+    textarea {
+      @input-bg-color: mix(@gray-lightest-base, white, 20%);
+      .colorize(@input-bg-color);
+      color: #333;
+      border: 1px solid darken(@color, 10%);
+    }
+  }
+
+  .form-color(@color1);
   padding: .4em 1.62ch;
   margin-bottom: 2em;
   max-width: @form-measure;
@@ -227,11 +353,11 @@ form {
     }
   }
 
-  .headlines({
+  .headline-elements({
     &:first-child { margin-top: 0;}
   });
 
-  .buttons({
+  .button-elements({
     font-size: 110%;
     margin-top: .4em;
     margin-bottom: .4em;
@@ -246,12 +372,105 @@ strong {
   font-weight: bold;
 }
 
+.table-color(@color) {
+
+  .make-palette(@color; ebb);
+  @header: @color1;
+  @row-a: @color1a;
+  @row-b: darken(@row-a, 1.5%);
+
+  & > thead > tr > th {
+    background-color: @header;
+    .contrast-text-against(@header);
+  }
+
+  & > tbody > tr > td {
+    .contrast-text-against(@row-a);
+  }
+
+  & > tbody > tr {
+    background-color: @row-a;
+  }
+
+  & > tbody > tr:nth-of-type(odd) {
+    background-color: @row-b;
+  }
+}
+
+.make-table-colors-for(@colors) {
+  // make table colors/classes for a list of color variable names
+  // tables will use variable names as class names
+
+  @iterations: length(@colors);
+
+  .make-table-color(1);
+
+  .make-table-color(@index) when (@index <= @iterations) {
+
+    @color-name: extract(@colors, @index);
+    @this-color: @@color-name;
+
+    table.@{color-name} {
+      .table-color(@this-color);
+    }
+
+    .make-table-color(@index + 1);
+  }
+}
+
 table {
+
+  .table-color(@color) {
+
+    .make-palette(@color; ebb);
+      @header: @color1;
+      @row-a: @color1a;
+      @row-b: darken(@row-a, 1.5%);
+
+    & > thead > tr > th {
+      background-color: @header;
+      .contrast-text-against(@header);
+    }
+
+    & > tbody > tr > td {
+      .contrast-text-against(@row-a);
+    }
+
+    & > tbody > tr {
+      background-color: @row-a;
+    }
+
+    & > tbody > tr:nth-of-type(odd) {
+      background-color: @row-b;
+    }
+  }
+
+  .make-table-colors-for(@colors) {
+    // make table colors for a list of color variable names
+    // tables will use variable names as class names
+
+    @iterations: length(@colors);
+
+    .make-table-color(1);
+
+    .make-table-color(@index) when (@index <= @iterations) {
+
+      @color-name: extract(@colors, @index);
+      @this-color: @@color-name;
+
+      table.@{color-name} {
+        .table-color(@this-color);
+      }
+
+      .make-table-color(@index + 1);
+    }
+  }
+
   max-width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
 
-  .sl-table();
+  .table-color(@gray);
 
   th, td {
     text-align: left;
@@ -274,8 +493,6 @@ table {
   }
 }
 
-.make-sl-tables-for(@semantic-colors);
-
 fieldset,img { border: 0; }
 
 caption, figcaption {
@@ -296,12 +513,15 @@ abbr, acronym {
 
 blockquote {
   @border: 5px solid @color1a;
+  
   padding-left: 1em;
   margin-bottom: 1em;
   border-left: @border;
   max-width: @text-measure;
 
   &:nth-of-type(even) {
+    // alternates left and right layout
+
     text-align: right;
     border-left: none;
     border-right: @border;
@@ -320,36 +540,76 @@ blockquote {
 }
 
 code, pre {
+  .code-color(@code-color) {
+    background: mix(@code-color, #333, 10%);
+    color: mix(@code-color, white, 10%);
+  }
+
+  .code-color(@color2);
   font-family: monospace;
   vertical-align: middle;
   font-size: 72%;
   padding: .125em .5em .175em .5em;
   border-radius: @border-radius/2;
-  .sl-code(@color2);
 }
 
-.buttons({
+.button-elements({
+
+  .button-color(@color) {
+    background-color: @color;
+    border-color: darken(@color, 5%);
+
+    &:active {
+      background-color: darken(@color, 3%);
+    }
+  }
+
+  .button-color(@color) when (@tone = black) {
+    .shade-text(@color);
+  }
+
+  .button-color(@color) when (@tone = white) {
+    .tint-text(@color);
+  }
+
+  .make-buttons-for(@colors) {
+    // make buttons for a list of color variable names
+    // buttons will use variable names as class names
+
+    @length: length(@colors);
+
+    .make-button();
+
+    .make-button(@index:1) when (@index <= @length) {
+      @color-name: extract(@colors, @index);
+      @color: @@color-name;
+
+      &.@{color-name} { .button-color(@color);}
+
+      .make-button(@index + 1);
+    }
+  }
+
+  .make-buttons-for(@semantic-colors);
   display: inline-block;
   text-align: center;
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  background-image: none;
   border: none;
   border-radius: @border-radius;
   outline: none;
   white-space: nowrap;
   padding: .4em 1ch;
-  .sl-button(@reaction);
+  .button-color(@reaction);
   .no-user-select();
 });
 
-.make-sl-buttons-for(@semantic-colors);
+
 
 mark, ::selection {
-  @color: @color1b;
-  background: @color;
-  .contrast-text-against(@color);
+  .colorize(@color1b);
 }
 
 hr {

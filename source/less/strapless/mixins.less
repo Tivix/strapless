@@ -3,18 +3,49 @@
 .contrast-text-against(@bg-color: @background) {
   // automatically sets contrastful text color given a background color
 
-  // decides tinting or shading
-  @tone-color: contrast(@bg-color, white, black);
+  .set-contrast-ratio-black();
+  .set-contrast-ratio-white();
 
-  .set-text-color(@bg-color);
+  .text-color(@bg-color);
 
-  .set-text-color(@bg-color) when (@tone-color = black) {
-    #sl-tools.shade-text(@bg-color);
+  .set-contrast-ratio-black() {
+    .set-contrast-ratio(@bg-color, black);
+    @contrast-ratio-black: @contrast-ratio;
   }
 
-  .set-text-color(@bg-color) when (@tone-color = white) {
-    #sl-tools.tint-text(@bg-color);
+  .set-contrast-ratio-white() {
+    .set-contrast-ratio(@bg-color, white);
+    @contrast-ratio-white: @contrast-ratio;
   }
+
+  .text-color(@color) when (@contrast-ratio-white > @contrast-ratio-black) {
+    .tint-text(@color);
+  }
+
+  .text-color(@color) when (default()) {
+    .shade-text(@color);
+  }
+}
+
+.contrast-text-against(@bg-color: @background) when (luma(@bg-color) = 100%) {
+  color: #545454;
+}
+
+.set-contrast-ratio(@a, @b) {
+  // sets variable @contrast-ratio to contrast ratio between two colors
+  @l1: unit(luma(@a))/100;
+  @l2: unit(luma(@b))/100;
+  @contrast-ratio: round((@l1 + .05)/(@l2 + .05),2);
+}
+
+.set-contrast-ratio(@a, @b) when (luma(@b) > luma(@a)) {
+  @l1: unit(luma(@b))/100;
+  @l2: unit(luma(@a))/100;
+  @contrast-ratio: round((@l1 + .05)/(@l2 + .05),2);
+}
+
+.set-contrast-ratio(@a, @b) when (luma(@b) = luma(@a)) {
+  @contrast-ratio: 1;
 }
 
 .colorize(@color) {
@@ -41,232 +72,6 @@
   }
 }
 
-// element color mixins
-
-.sl-body(@color) when (default()) {
-  .colorize(@background);
-}
-
-.sl-body(@color) when (luma(@color) > 88%), 
-                      (saturation(@color) > 80%),
-                      (saturation(@color) = 0) {
-  .colorize(white);
-}
-
-.sl-body(@color) when (luma(@color) < 15%) {
-  .colorize(@gray-darker);
-}
-
-.sl-main(@color: @color1c;) {
-  .colorize(@color);
-
-  & when (luma(@color) < 20%) {
-    @color: average(@gray-darker, @color1c);
-    .colorize(@color);
-  }
-}
-
-.sl-form(@color) {
-
-  .colorize(@color);
-
-  input,
-  textarea {
-    @input-bg-color: mix(@gray-lightest-base, white, 20%);
-    .colorize(@input-bg-color);
-    color: #333;
-    border: 1px solid darken(@color, 10%);
-  }
-}
-
-.sl-code(@code-color) {
-  background: mix(@code-color, #333, 10%);
-  color: mix(@code-color, white, 10%);
-}
-
-.sl-button(@color: @gray, @tone: @semantic-tone) {
-  background-color: @color;
-  border-color: darken(@color, 5%);
-
-  &:active {
-    background-color: darken(@color, 3%);
-  }
-}
-
-.sl-button(@color: @gray, @tone: @semantic-tone) when (@tone = black) {
-  #sl-tools.shade-text(@color);
-}
-
-.sl-button(@color: @gray, @tone: @semantic-tone) when (@tone = white) {
-  #sl-tools.tint-text(@color);
-}
-
-.make-sl-buttons-for(@colors) {
-  // make buttons for a list of color variable names
-  // buttons will use variable names as class names
-
-  @length: length(@colors);
-
-  .make-sl-button();
-
-  .make-sl-button(@index:1) when (@index <= @length) {
-    @color-name: extract(@colors, @index);
-    @color: @@color-name;
-
-    .buttons({
-      &.@{color-name} { .sl-button(@color);}
-    });
-    // button.@{color-name} {
-    //   // &:extend(.sl-button-base all);
-    //   .sl-button(@color);
-    // }
-
-    .make-sl-button(@index + 1);
-  }
-}
-
-.sl-nav(@color) {
-
-  @height: @navbar-height;
-
-  background-color:@color;
-  .contrast-text-against(@color);
-
-  height: @height;
-  line-height: @height;
-  max-height: @height;
-  padding: 0;
-  border-radius: @border-radius;
-  z-index: 1000;
-
-  > section {
-    padding: 0;
-    max-width: @content-max-width;
-  }
-
-  > section > * { // pseudo reset
-    display: none;
-    float:left;
-    position: relative;
-    border: none;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    height: @height;
-    vertical-align: middle;
-    overflow: hidden;
-
-    .on-tablet({
-      display: block;
-    });
-
-    &:first-child {
-      display: block;
-      margin-right: @padding * 2;
-
-      .on-large-phone({
-        margin-right: @height;
-      });
-    }
-
-    &:last-child {
-      display: block;
-      float: right;
-      line-height: @height - 6;
-    }
-  }
-
-  ul {
-    height: @height;
-  }
-
-  li {
-    float:left;
-    height: @height;
-    line-height: @height;
-    list-style: none;
-  }
-
-  h1 {
-    display: block;
-    float: left;
-    font-size: 26px;
-    line-height: @height;
-    padding: 0 @padding;
-    color: inherit;
-  }
-
-  a {
-    display: block;
-    float: left;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  li > a {
-    padding-left: @padding;
-    padding-right: @padding;
-
-    &:hover {
-      background-color: rgba(255,255,255,.15);
-    }
-  }
-
-  body > &:first-child, body > &:last-child {
-    // go sticky if at end or beginning of body
-    position: fixed; top:0; left: 0;
-    width: 100%;
-    border-radius: 0;
-  }
-}
-
-.sl-table(@table-color: @color1;) {
-
-  .make-palette(@table-color; ebb);
-    @header: @color1;
-    @row-a: @color1a;
-    @row-b: darken(@row-a, 1.5%);
-
-  & > thead > tr > th {
-    background-color: @header;
-    .contrast-text-against(@header);
-  }
-
-  & > tbody > tr > td {
-    .contrast-text-against(@row-a);
-  }
-
-  & > tbody > tr {
-    background-color: @row-a;
-  }
-
-  & > tbody > tr:nth-of-type(odd) {
-    background-color: @row-b;
-  }
-}
-
-.make-sl-tables-for(@colors) {
-  // make table colors for a list of color variable names
-  // tables will use variable names as class names
-
-  @iterations: length(@colors);
-
-  .make-sl-table(1);
-
-  .make-sl-table(@index) when (@index <= @iterations) {
-
-    @color-name: extract(@colors, @index);
-    @this-color: @@color-name;
-
-    table.@{color-name} {
-      .sl-table(@this-color);
-    }
-
-    .make-sl-table(@index + 1);
-  }
-}
-
 .make-color-classes-for(@colors) {
   @iterations: length(@colors);
 
@@ -281,5 +86,82 @@
     }
 
     .make-color-class(@index + 1);
+  }
+}
+
+.quadratic-compare(@compare, @c1, @c2) {
+  // compares c1 and c2 to a given color, assigns a @farther and @closer
+
+  .set-distance-m-c1();
+  .set-distance-m-c2();
+
+  .resolve();
+
+  .set-distance-m-c1() {
+    .set-distance(@compare, @c1);
+    @distance-m-c1: @distance;
+  }
+
+  .set-distance-m-c2() {
+    .set-distance(@compare, @c2);
+    @distance-m-c2: @distance;
+  }
+
+  .resolve() when (@distance-m-c2 > @distance-m-c1) {
+    @farther: @c2;
+    @closer: @c1;
+  }
+
+  .resolve() when (default()) {
+    @farther: @c1;
+    @closer: @c2;
+  }
+}
+
+.set-distance(@a, @b) {
+  // sets @distance to distance between two colors
+
+  @r-values-a-b: 2*(red(@b) - red(@a))*(red(@b) - red(@a));
+  @g-values-a-b: 4*(green(@b) - green(@a))*(green(@b) - green(@a));
+  @b-values-a-b: 3*(blue(@b) - blue(@a))*(blue(@b) - blue(@a));
+
+  @distance: sqrt(@r-values-a-b + @g-values-a-b + @b-values-a-b);
+}
+
+.tint-text(@bg-color;) {
+  .tint(@bg-color, 1, 1);
+
+  .tint(@color, @contrast-ratio, @index) when (@contrast-ratio < 7) 
+                                          and (@index < 15) 
+                                          and (luma(@color) < 100%) {
+    // adds white until contrast ratio is met
+
+    .set-contrast-ratio(@bg-color, @color);
+
+    .tint(tint(@bg-color, 40% + @index*4); @contrast-ratio; @index + 1);
+  }
+
+  .tint(@color, @contrast-ratio, @index) when (default()) {
+    color: @color;
+    .set-contrast-ratio(@bg-color, @color);
+    &:after { content: "@{contrast-ratio}, @{index}"}
+  }
+}
+
+.shade-text(@bg-color;) {
+  .shade(@bg-color, 1, 1);
+
+  .shade(@color, @contrast-ratio, @index) when (@contrast-ratio < 4.5) and (@index < 15) {
+    // slowly adds black until contrast ratio is met
+
+    .set-contrast-ratio(@bg-color, @color);
+
+    .shade(shade(@bg-color, @index*3 + 60%); @contrast-ratio; @index + 1);
+  }
+
+  .shade(@color, @contrast-ratio, @index) when (default()) {
+    color: @color;
+    .set-contrast-ratio(@bg-color, @color);
+    &:after { content: "@{contrast-ratio}, @{index}"}
   }
 }

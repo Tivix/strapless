@@ -102,4 +102,4 @@ app.get('/css-version/:baseColor', function(req, res) {
 
 app.use(express.static(path.join(__dirname, 'public', 'static')));
 
-http.createServer(app).listen(8000)
+http.createServer(app).listen(8000);
