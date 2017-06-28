@@ -1,34 +1,109 @@
-// mixins
-
-.contrast-text-against(@bg-color: @background) {
+.contrast-text-against(@color: @background) when (default()) {
   // automatically sets contrastful text color given a background color
 
-  .set-contrast-ratio-black();
-  .set-contrast-ratio-white();
-
-  .text-color(@bg-color);
-
   .set-contrast-ratio-black() {
-    .set-contrast-ratio(@bg-color, black);
+    .set-contrast-ratio(@color, black);
     @contrast-ratio-black: @contrast-ratio;
   }
 
   .set-contrast-ratio-white() {
-    .set-contrast-ratio(@bg-color, white);
+    .set-contrast-ratio(@color, white);
     @contrast-ratio-white: @contrast-ratio;
   }
 
-  .text-color(@color) when (@contrast-ratio-white > @contrast-ratio-black) {
-    .tint-text(@color);
+  .tint-or-shade(@color) when (@contrast-ratio-black > @contrast-ratio-white) {
+    .shade-text-against(@color);
   }
 
-  .text-color(@color) when (default()) {
-    .shade-text(@color);
+  .tint-or-shade(@color) when (default()) {
+    .tint-text-against(@color);
+  }
+
+  .set-contrast-ratio-black();
+  .set-contrast-ratio-white();
+
+  .tint-or-shade(@color);
+}
+
+.contrast-text-against(@color: @background) when (luma(@color) = 100%) {
+  // the objectively correct text color against white
+  // arrived at by monks after years of meditation and seclusion
+
+  color: #595959;
+}
+
+.tint-text-against(@color: @background;) {
+  // adds white to color until contrast ratio is met
+
+  @contrast-standard: 7;
+  @start: 50%;
+  @iterations: 10;
+  @interval: unit(100 - @start)/@iterations;
+  @tint: tint(@color, @start + @index*@interval);
+  @index: 0;
+
+  .tint-text(1, 1);
+
+  .tint-text(@contrast-ratio, @index) when (@contrast-ratio < @contrast-standard) 
+                                       and (@index < @iterations) {
+    .set-contrast-ratio(@color, @tint);
+    .tint-text(@contrast-ratio; @index + 1);
+  }
+
+  .tint-text(@contrast-ratio, @index) when (default()) {
+    color: @tint;
   }
 }
 
-.contrast-text-against(@bg-color: @background) when (luma(@bg-color) = 100%) {
-  color: #545454;
+.shade-text-against(@color: @background;) {
+  // adds black to color until contrast ratio is met
+
+  @contrast-standard: 4.5;
+  @start: 40%;
+  @iterations: 12;
+  @interval: unit((100% - @start)/@iterations);
+  @shade: shade(@color, @start + @index*@interval);
+  @index: 0;
+
+  .shade-text(1, 0);
+
+  .shade-text(@contrast-ratio, @index) when (@contrast-ratio < @contrast-standard) 
+                                        and (@index < @iterations) {
+    .set-contrast-ratio(@color, @shade);
+    .shade-text(@contrast-ratio; @index + 1);
+  }
+
+  .shade-text(@contrast-ratio, @index) when (default()) {
+    color: @shade;
+  }
+}
+
+.set-tone(@color) {
+  // sets @tone to either white or black
+  // tone gets added to text to increase contrast
+
+  .set-contrast-ratio-black() {
+    .set-contrast-ratio(@color, black);
+    @contrast-ratio-black: @contrast-ratio;
+  }
+
+  .set-contrast-ratio-white() {
+    .set-contrast-ratio(@color, white);
+    @contrast-ratio-white: @contrast-ratio;
+  }
+
+  .set-tone(@color) when (@contrast-ratio-black > @contrast-ratio-white) {
+    @tone: black;
+  }
+
+  .set-tone(@color) when (default()) {
+    @tone: white;
+  }
+
+  .set-contrast-ratio-black();
+  .set-contrast-ratio-white();
+
+  .set-tone(@color);
 }
 
 .set-contrast-ratio(@a, @b) {
@@ -48,45 +123,14 @@
   @contrast-ratio: 1;
 }
 
-.colorize(@color) {
-  // set a background color and make sure text works with it
-  background-color: @color;
-  .contrast-text-against(@color);
-}
+.set-distance(@a, @b) {
+  // sets variable @distance to distance between two colors
 
-.no-user-select() {
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
+  @r-values-a-b: 2*(red(@b) - red(@a))*(red(@b) - red(@a));
+  @g-values-a-b: 4*(green(@b) - green(@a))*(green(@b) - green(@a));
+  @b-values-a-b: 3*(blue(@b) - blue(@a))*(blue(@b) - blue(@a));
 
-.clearfix() {
-  &:before,
-  &:after {
-    content: " ";
-    display: table;
-  }
-  &:after {
-    clear: both;
-  }
-}
-
-.make-color-classes-for(@colors) {
-  @iterations: length(@colors);
-
-  .make-color-class(1);
-
-  .make-color-class(@index) when (@index <= @iterations) {
-    @color-name: extract(@colors, @index);
-    @this-color: @@color-name;
-
-    .@{color-name} {
-      .colorize(@this-color);
-    }
-
-    .make-color-class(@index + 1);
-  }
+  @distance: sqrt(@r-values-a-b + @g-values-a-b + @b-values-a-b);
 }
 
 .quadratic-compare(@compare, @c1, @c2) {
@@ -118,50 +162,46 @@
   }
 }
 
-.set-distance(@a, @b) {
-  // sets @distance to distance between two colors
-
-  @r-values-a-b: 2*(red(@b) - red(@a))*(red(@b) - red(@a));
-  @g-values-a-b: 4*(green(@b) - green(@a))*(green(@b) - green(@a));
-  @b-values-a-b: 3*(blue(@b) - blue(@a))*(blue(@b) - blue(@a));
-
-  @distance: sqrt(@r-values-a-b + @g-values-a-b + @b-values-a-b);
+.colorize(@color) {
+  // sets a background color and makes sure text works with it
+  background-color: @color;
+  .contrast-text-against(@color);
 }
 
-.tint-text(@bg-color;) {
-  .tint(@bg-color, 1, 1);
+.no-user-select() {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
 
-  .tint(@color, @contrast-ratio, @index) when (@contrast-ratio < 7) 
-                                          and (@index < 15) 
-                                          and (luma(@color) < 100%) {
-    // adds white until contrast ratio is met
-
-    .set-contrast-ratio(@bg-color, @color);
-
-    .tint(tint(@bg-color, 40% + @index*4); @contrast-ratio; @index + 1);
+.clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
   }
-
-  .tint(@color, @contrast-ratio, @index) when (default()) {
-    color: @color;
-    .set-contrast-ratio(@bg-color, @color);
-    &:after { content: "@{contrast-ratio}, @{index}"}
+  &:after {
+    clear: both;
   }
 }
 
-.shade-text(@bg-color;) {
-  .shade(@bg-color, 1, 1);
+.make-color-classes-for(@colors) {
+  // takes a list of variable names, creates color(ize) classes for them
+  // names must have corresponding variables
 
-  .shade(@color, @contrast-ratio, @index) when (@contrast-ratio < 4.5) and (@index < 15) {
-    // slowly adds black until contrast ratio is met
+  @iterations: length(@colors);
 
-    .set-contrast-ratio(@bg-color, @color);
+  .make-color-class(1);
 
-    .shade(shade(@bg-color, @index*3 + 60%); @contrast-ratio; @index + 1);
-  }
+  .make-color-class(@index) when (@index <= @iterations) {
+    @color-name: extract(@colors, @index);
+    @this-color: @@color-name;
 
-  .shade(@color, @contrast-ratio, @index) when (default()) {
-    color: @color;
-    .set-contrast-ratio(@bg-color, @color);
-    &:after { content: "@{contrast-ratio}, @{index}"}
+    .@{color-name} {
+      .colorize(@this-color);
+    }
+
+    .make-color-class(@index + 1);
   }
 }

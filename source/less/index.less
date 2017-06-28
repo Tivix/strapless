@@ -57,24 +57,31 @@ body,
 
 #demo_form {
   position: relative;
+  max-width: auto;
 
   label {
-    max-width: 220px;
+    max-width: 120px;
   }
 
   > * {
-    max-width: none;
+    display: block;
+    float: left;
+    margin-top: 6px;
+    margin-right: 8px;
+    max-width: auto;
+  }
+
+  > input { 
+    width: 82px;
+  }
+
+  button {
+    line-height: 18px;
   }
 
   .on-large-phone({
-    position: fixed;
+    position: relative;
     margin-bottom: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    max-width: 100%;
-    .colorize(darken(@background, 5%));
     padding-top: 0;
     padding-bottom: 0;
     z-index: 1000;
@@ -82,13 +89,8 @@ body,
 
   .on-tablet({
     font-size: 12px;
-    bottom: @padding;
-    right: @padding;
-    left: auto;
     z-index: 1000;
-    width: 402px;
-    max-width: 90%;
-    border: 5px solid darken(@background, 12%);
+    width: 700px;
     border-radius: @border-radius;
   });
 }

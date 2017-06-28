@@ -14,21 +14,7 @@ html, body, ul, ol, li, form, fieldset, legend {
 }
 
 body {
-  .body-color(@color) when (default()) {
-    .colorize(@background);
-  }
-
-  .body-color(@color) when (luma(@color) < 15%) {
-    .colorize(@gray-darker);
-  }
-
-  .body-color(@color) when (luma(@color) > 88%), 
-                        (saturation(@color) > 80%),
-                        (saturation(@color) = 0) {
-    .colorize(white);
-  }
-
-  .body-color(@background);
+  .colorize(@background);
   font-size: 16px;
   line-height: @line-height;
   padding-top: @navbar-height + @padding;
@@ -138,10 +124,16 @@ nav {
 
   body > &:first-child, body > &:last-child {
     // go sticky if at end or beginning of body
-    position: fixed; top:0; left: 0;
+    position: fixed; top: 0; left: 0;
     width: 100%;
     border-radius: 0;
   }
+
+  body > &:last-child {
+    // stick to bottom if at end of body
+    position: fixed; top: auto; bottom: 0;
+  }
+
   .no-user-select();
 }
 
@@ -169,16 +161,15 @@ section {
 }
 
 main {
-  .main-color(@color) {
+  .main-color(@color, @color-when-dark) {
     .colorize(@color);
   }
 
-  .main-color(@color) when (luma(@color) < 20%) {
-    @color: average(@gray-darker, @color1c);
-    .colorize(@color);
+  .main-color(@color, @color-when-dark) when (@scheme-type = dark) {
+    .colorize(@color-when-dark);
   }
 
-  .main-color(@color1c);
+  .main-color(@color1c, contrast(@background; @color1c; @color1a));
   padding: @padding;
   max-width: @content-max-width;
   margin: 0 auto;
@@ -303,17 +294,14 @@ aside {
 }
 
 form {
-  @form-measure: 45ch;
-
   .form-color(@color) {
 
     .colorize(@color);
 
     input,
     textarea {
-      @input-bg-color: mix(@gray-lightest-base, white, 20%);
+      @input-bg-color: mix(@gray-lightest-base, white, 15%);
       .colorize(@input-bg-color);
-      color: #333;
       border: 1px solid darken(@color, 10%);
     }
   }
@@ -321,11 +309,9 @@ form {
   .form-color(@color1);
   padding: .4em 1.62ch;
   margin-bottom: 2em;
-  max-width: @form-measure;
 
   > * {
     // width: 100%;
-    max-width: @form-measure;
     margin-top: .4em;
     margin-bottom: .4em;
 
@@ -555,6 +541,30 @@ code, pre {
 
 .button-elements({
 
+  // button contrast is based on @action, not ever
+  .set-contrast-ratio-black();
+  .set-contrast-ratio-white();
+
+  .text-color(@action);
+
+  .set-contrast-ratio-black() {
+    .set-contrast-ratio(@action, black);
+    @contrast-ratio-black: @contrast-ratio;
+  }
+
+  .set-contrast-ratio-white() {
+    .set-contrast-ratio(@action, white);
+    @contrast-ratio-white: @contrast-ratio;
+  }
+
+  .text-color(@color) when (@contrast-ratio-white > @contrast-ratio-black) {
+    .tint-text-against(@color);
+  }
+
+  .text-color(@color) when (default()) {
+    .shade-text-against(@color);
+  }
+
   .button-color(@color) {
     background-color: @color;
     border-color: darken(@color, 5%);
@@ -562,14 +572,6 @@ code, pre {
     &:active {
       background-color: darken(@color, 3%);
     }
-  }
-
-  .button-color(@color) when (@tone = black) {
-    .shade-text(@color);
-  }
-
-  .button-color(@color) when (@tone = white) {
-    .tint-text(@color);
   }
 
   .make-buttons-for(@colors) {
