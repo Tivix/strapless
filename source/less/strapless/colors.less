@@ -5,7 +5,6 @@
   .load-color-wheels();
   .make-main-colors(@color; @wheel);
   .make-subcolors(@color1; @color2; @color3; @color4; @scheme-type);
-  .set-background(@color, @color1a, @color1c);
   .make-grays(@color; @scheme-type);
   .load-action-colors(@color, @color1, @color4);
   .load-reaction-colors(@color, @color2, @color3);
@@ -18,20 +17,6 @@
   @color1a: greyscale(@gray-light);
   @color1b: greyscale(@gray);
   @color1c: greyscale(@gray-dark);
-}
-
-.set-background(@color, @light-alternate, @dark-alternate) when (default()) {
-  @background: @light-alternate;
-}
-
-.set-background(@color, @light-alternate, @dark-alternate) when (luma(@color) < 15%) {
-  @background: @dark-alternate;
-}
-
-.set-background(@color, @light-alternate, @dark-alternate) when (luma(@color) > 65%), 
-                       (saturation(@color) > 78%),
-                       (saturation(@color) = 0) {
-  @background: white;
 }
 
 .set-scheme-type(@color) {
