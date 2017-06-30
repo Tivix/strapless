@@ -25,6 +25,31 @@
   .tint-or-shade(@color);
 }
 
+.auto-contrast(@color: @background) {
+  .set-contrast-ratio-black() {
+    .set-contrast-ratio(@color, black);
+    @contrast-ratio-black: @contrast-ratio;
+  }
+
+  .set-contrast-ratio-white() {
+    .set-contrast-ratio(@color, white);
+    @contrast-ratio-white: @contrast-ratio;
+  }
+
+  .tint-or-shade(@color) when (@contrast-ratio-black > @contrast-ratio-white) {
+    .shade-text-against(@color);
+  }
+
+  .tint-or-shade(@color) when (default()) {
+    .tint-text-against(@color);
+  }
+
+  .set-contrast-ratio-black();
+  .set-contrast-ratio-white();
+
+  .tint-or-shade(@color);
+}
+
 .contrast-text-against(@color: @background) when (luma(@color) = 100%) {
   // the objectively correct text color against white
   // arrived at by monks after years of meditation and seclusion
@@ -76,34 +101,6 @@
   .shade-text(@contrast-ratio, @index) when (default()) {
     color: @shade;
   }
-}
-
-.set-tone(@color) {
-  // sets @tone to either white or black
-  // tone gets added to text to increase contrast
-
-  .set-contrast-ratio-black() {
-    .set-contrast-ratio(@color, black);
-    @contrast-ratio-black: @contrast-ratio;
-  }
-
-  .set-contrast-ratio-white() {
-    .set-contrast-ratio(@color, white);
-    @contrast-ratio-white: @contrast-ratio;
-  }
-
-  .set-tone(@color) when (@contrast-ratio-black > @contrast-ratio-white) {
-    @tone: black;
-  }
-
-  .set-tone(@color) when (default()) {
-    @tone: white;
-  }
-
-  .set-contrast-ratio-black();
-  .set-contrast-ratio-white();
-
-  .set-tone(@color);
 }
 
 .set-contrast-ratio(@a, @b) {

@@ -5,7 +5,7 @@
   .load-color-wheels();
   .make-main-colors(@color; @wheel);
   .make-subcolors(@color1; @color2; @color3; @color4; @scheme-type);
-  .set-background-base(@color, @color1a, @color1c);
+  .set-background(@color, @color1a, @color1c);
   .make-grays(@color; @scheme-type);
   .load-action-colors(@color, @color1, @color4);
   .load-reaction-colors(@color, @color2, @color3);
@@ -20,29 +20,19 @@
   @color1c: greyscale(@gray-dark);
 }
 
-.set-background-base(@color, @light-alternate, @dark-alternate) when (default()) {
-  @background-base: @light-alternate;
+.set-background(@color, @light-alternate, @dark-alternate) when (default()) {
+  @background: @light-alternate;
 }
 
-.set-background-base(@color, @light-alternate, @dark-alternate) when (luma(@color) < 15%) {
-  @background-base: @dark-alternate;
+.set-background(@color, @light-alternate, @dark-alternate) when (luma(@color) < 15%) {
+  @background: @dark-alternate;
 }
 
-.set-background-base(@color, @light-alternate, @dark-alternate) when (luma(@color) > 65%), 
+.set-background(@color, @light-alternate, @dark-alternate) when (luma(@color) > 65%), 
                        (saturation(@color) > 78%),
                        (saturation(@color) = 0) {
-  @background-base: white;
+  @background: white;
 }
-
-// .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) > 99.5%) {
-//   .make-palette(darken(@color, 1%); @wheel);
-//   @color1: @color;
-// }
-
-// .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (luma(@color) < .5%) {
-//   .make-palette(lighten(@color, 1%); @wheel);
-//   @color1: @color;
-// }
 
 .set-scheme-type(@color) {
   .set-contrast-ratio-black() {
