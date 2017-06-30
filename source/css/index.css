@@ -1690,8 +1690,8 @@ legend {
   padding: 0;
 }
 body {
-  background-color: #3a4452;
-  color: #e1e3e5;
+  background-color: white;
+  color: #595959;
   font-size: 16px;
   line-height: 1.62;
   padding-top: 60px;
@@ -1817,8 +1817,6 @@ section > * + * {
 main {
   background-color: #3a4452;
   color: #e1e3e5;
-  background-color: #68658d;
-  color: #ffffff;
   padding: 12px;
   max-width: 920px;
   margin: 0 auto;
@@ -2221,9 +2219,9 @@ mark,
   color: #ffffff;
 }
 hr {
-  border-color: #3a4452;
-  border-top-color: #363f4c;
-  border-bottom-color: #455061;
+  border-color: white;
+  border-top-color: #fafafa;
+  border-bottom-color: #ffffff;
 }
 .hide,
 .hidden {
@@ -2334,7 +2332,7 @@ body,
   }
 }
 #seed_color {
-  border: 1px solid #21262e;
+  border: 1px solid #e0e0e0;
   max-width: 237px;
 }
 #loading_overlay {
