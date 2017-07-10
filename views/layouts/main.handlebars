@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+        <title>Strapless | {{> page/title }}</title>
+
+        <meta name="keywords" content="" />
+        <meta name="description" content="Strapless is a color-changing CSS boilerplate for HTML elements, and a powerful LessCSS library for colors and patterns." />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link id="favicon" rel="icon" type="image/png" href="favicon.png" />
+        {{#if static_css }}
+            <link title="static_styles" href="css/index.css" media="all" rel="stylesheet" type="text/css"/>
+        {{ else }}
+        <style type="text/css">
+            {{{styles}}}
+        </style>
+        {{/if}}
+    </head>
+
+    <body onload="Strapless.generateFavicon();">
+        {{> page/nav}}
+
+        {{{ body }}}
+        <div class="less-var-test"></div>
+        <footer id="strapless_footer" class="action">
+            <section>
+                <aside>
+                    <svg class="logo" height="50" viewBox="10 2 70 19" width="70" xmlns="http://www.w3.org/2000/svg"><path class="letter" d="M35 2.3h3.6l5.6 14 5.6-14h3.6l-7.6 18.4h-3.3L35 2.3z"></path><path class="letter" d="M15.9 5.6H10v-3.2h15.1v3.3h-5.9v15.1h-3.3V5.6z"></path><path class="letter" d="M28.4 2.3h3.3v18.4h-3.3V2.3z"></path><path class="letter" d="M56.7 2.3h3.3v18.4h-3.3V2.3z"></path><path class="letter" d="M69.8 11.5l-6.6-9.2h3.6l4.8 6.7 4.8-6.7h3.6L73.4 11.5l6.6 9.2h-3.6l-4.8-6.7 -4.8 6.7h-3.6L69.8 11.5z"></path><polygon class="accent" points="41.9 2.3 44.2 8 46.5 2.3 43.6 2.3 "></polygon></svg>
+                    <p>Strapless is a Tivix project built by Rex Riepe and Adam Lord.</p>
+                    <p id="demo_form_placeholder"></p>
+                </aside>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </section>
+        </footer>
+        
+        <!-- Output scheme colors for favicon generation -->
+        <span id="get_color1"></span>
+        <span id="get_color2"></span>
+        <span id="get_color3"></span>
+        <span id="get_color4"></span>
+        <script type="text/javascript" charset="utf-8" src="/js/strapless.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/jscolor.min.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            {{#if invalid_hex }}
+                alert("Invalid hex color value entered.");
+                history.pushState({'baseColor': ''}, '', '/');
+            {{/if}}
+        </script>
+    </body>
+</html>

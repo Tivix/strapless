@@ -1,0 +1,56 @@
+// reusable targets
+// these don't work well used inside of each other
+
+.on-large-phone(@rules) {
+ 	@media screen and (min-width: @large-phone-break) { @rules();}
+}
+
+.on-tablet(@rules) {
+	@media screen and (min-width: @tablet-break) { @rules();}
+}
+
+.on-desktop(@rules) {
+	@media screen and (min-width: @desktop-break) { @rules();}
+}
+
+.in-print(@rules) {
+	@media print { @rules();}
+}
+
+.headline-elements(@rules) {
+	h1, h2, h3, h4, h5, h6 { @rules();}
+}
+
+.button-elements(@rules) {
+	button, 
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"] { @rules();}
+}
+
+.block-level-elements(@rules) {
+	p,
+	ol, ul
+	pre,
+	address,
+	blockquote,
+	dl,
+	div,
+	fieldset,
+	form,
+	hr,
+	main,
+	section,
+	table {
+		@rules();
+	}
+}
+
+.inline-elements(@rules) {
+	b, big, i, small, tt,
+	abbr, acronym, cite, code, em, strong,
+	a, br, img, map, object, span, sub, sup,
+	button, input, label, select, textarea {
+		@rules();
+	}
+}

@@ -115,7 +115,80 @@
 }
 
 .make-subcolors(@c1; @c2; @c3; @c4; @scheme-type) {
+
+  .settings() when (@scheme-type = light) {
+    @contrast-standard-a: 1.25;
+    @contrast-standard-c: 1.4;
+    @jump: 3%;
+  }
+
+  .settings() when (default()) {
+    @contrast-standard-a: 1.4;
+    @contrast-standard-c: 1.4;
+    @jump: 6%;
+  }
+
+  .settings() when (@scheme-type = dark) {
+    @contrast-standard-a: 1.4;
+    @contrast-standard-c: 1.25;
+    @jump: 3%;
+  }
   
+  .settings();
+
+  .set-a-color(@color, @compare: @color) {
+    @contrast-standard: @contrast-standard-a;
+    @iterations: 10;
+    @candidate1: spin(@color, @analog);
+    @candidate2: spin(@color, -@analog);
+
+    .set-a(@a, @contrast-ratio, @index) when (@index <= @iterations) 
+                                         and (@contrast-ratio < @contrast-standard) 
+                                         and (luma(@a) < 98%) {
+      @lighter-color: lighten(@a-color-base, @index * @jump);
+      .set-contrast-ratio(@a-color-base, @lighter-color);
+      .set-a(@lighter-color, @contrast-ratio, @index + 1);
+    }
+
+    .set-a(@a, @contrast-ratio, @index) when (default()) {
+      @a-color: @a;
+    }
+
+    .set-closer-farther(@compare; @candidate1; @candidate2);
+    @a-color-base: @closer;
+    .set-a(@color, 1, 1);
+  }
+
+  .set-b-color(@color, @compare: @color) {
+    @candidate1: spin(@color, @accent);
+    @candidate2: spin(@color, -@accent);
+    .set-closer-farther(@compare; @candidate1; @candidate2);
+    @b-color: @farther;
+  }
+
+  .set-c-color(@color, @compare: @color) {
+    @contrast-standard: @contrast-standard-c;
+    @iterations: 10;
+    @candidate1: spin(@color, @analog);
+    @candidate2: spin(@color, -@analog);
+
+    .set-c(@c, @contrast-ratio, @index) when (@index <= @iterations) 
+                                         and (@contrast-ratio < @contrast-standard) 
+                                         and (luma(@c) > 5%) {
+      @darker-color: darken(@c-color-base, @index * @jump);
+      .set-contrast-ratio(@c-color-base, @darker-color);
+      .set-c(@darker-color, @contrast-ratio, @index + 1);
+    }
+
+    .set-c(@c, @contrast-ratio, @index) when (default()) {
+      @c-color: darken(@c-color-base, @index * @jump);
+    }
+
+    .set-closer-farther(@compare; @candidate1; @candidate2);
+    @c-color-base: @closer;
+    .set-c(@color, 1, 1);
+  }
+
   .make-color1a() { 
     .set-a-color(@c1);
     @color1a: @a-color;
@@ -175,65 +248,6 @@
     .set-c-color(@c4);
     @color4c: @c-color;
   }.make-color4c();
-}
-
-.set-a-color(@color, @compare: @color, @contrast-standard: 1.4) {
-  @iterations: 10;
-  @luma: luma(@color);
-
-  .adjust-contrast(@luma) when (@luma > 90%) {
-    @contrast-standard: 1.1;
-  }
-
-  .adjust-contrast(@luma);
-
-  .set-a(@a, @contrast-ratio, @index) when (@index <= @iterations)  
-                                       and (@contrast-ratio < @contrast-standard)
-                                       and (luma(@a) < (78% + (luma(@color)/10) )) {
-    @new-a: lighten(@a, 3.5%);
-    .set-contrast-ratio(@color, @new-a);
-    .set-a(@new-a, @contrast-ratio, @index + 1);
-  }
-
-  .set-a(@a, @contrast-ratio, @index) when (default()) {
-    @a-color: @a;
-  }
-
-  .set-closer-farther(@compare; spin(@color, @analog); spin(@color, -@analog));
-  @a-color-base: @closer;
-  .set-a(@a-color-base, 1, 1);
-}
-
-.set-b-color(@color, @compare: @color) {
-  @candidate1: spin(@color, @accent);
-  @candidate2: spin(@color, -@accent);
-  .set-closer-farther(@compare; @candidate1; @candidate2);
-  @b-color: @farther;
-}
-
-.set-c-color(@color, @compare: @color, @contrast-standard: 1.25) {
-  @iterations: 10;
-
-  .adjust-contrast(@luma) when (@luma < 10%) {
-    @contrast-standard: 1.1;
-  }
-
-  .adjust-contrast(@luma);
-
-  .set-c(@c, @contrast-ratio, @index) when (@index <= @iterations)  
-                                       and (@contrast-ratio < @contrast-standard) {
-    @new-c: darken(@c, 3.5%);
-    .set-contrast-ratio(@color, @new-c);
-    .set-c(@new-c, @contrast-ratio, @index + 1);
-  }
-
-  .set-c(@c, @contrast-ratio, @index) when (default()) {
-    @c-color: @c;
-  }
-
-  .set-closer-farther(@compare; spin(@color, @analog); spin(@color, -@analog));
-  @c-color-base: @closer;
-  .set-c(@c-color-base, 1, 1);
 }
 
 .load-action-colors(@base: @base-color, @c1, @c2) {

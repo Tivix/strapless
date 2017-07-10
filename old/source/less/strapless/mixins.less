@@ -32,18 +32,6 @@
   color: #595959;
 }
 
-@less-var-test: 'test';
-
-.tone-test(@color) {
-  .set-tone(@color);
-  @tone-test1: contrast(@color, black, white, 21.4%);
-  @tone-test2: @tone;
-
-  .less-var-test:before { content: "@{tone-test1}, @{tone-test2}";}
-}
-
-.tone-test(@base-color);
-
 .tint-text-against(@color: @background;) {
   // adds black to color until contrast ratio is met
 
@@ -145,32 +133,6 @@
     @farther: @c1;
     @closer: @c2;
   }
-}
-
-.set-tone(@color) {
-  // sets variable @tone to white or black, depending on which is better for text contrast
-  .set-contrast-ratio-black() {
-    .set-contrast-ratio(@color, black);
-    @contrast-ratio-black: @contrast-ratio;
-  }
-
-  .set-contrast-ratio-white() {
-    .set-contrast-ratio(@color, white);
-    @contrast-ratio-white: @contrast-ratio;
-  }
-
-  .tint-or-shade(@color) when (@contrast-ratio-black > @contrast-ratio-white) {
-    @tone: black;
-  }
-
-  .tint-or-shade(@color) when (default()) {
-    @tone: white;
-  }
-
-  .set-contrast-ratio-black();
-  .set-contrast-ratio-white();
-
-  .tint-or-shade(@color);
 }
 
 .colorize(@color) {
