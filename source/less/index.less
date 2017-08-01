@@ -26,7 +26,10 @@ body,
   transition: color 2s @ease; transition: background 2s @ease; 
 }
 
+// body { @color: @action; .blueprint(@color, 1); .contrast-text-against(@color);}
+
 .less-var-test {
+  display: none;
   position: fixed;
   bottom: @padding;
   left: @padding;
@@ -43,7 +46,9 @@ body,
   .letter {
     fill: white;
 
-    & when (@scheme-type = light) {
+    .set-tone(@color1);
+
+    & when (@tone = black) {
       fill: average(@gray-darkest-base, black);
     }
   }
@@ -95,12 +100,10 @@ body,
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
-    z-index: 1000;
   });
 
   .on-tablet({
     font-size: 12px;
-    z-index: 1000;
     width: 700px;
     border-radius: @border-radius;
   });

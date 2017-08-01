@@ -45,11 +45,6 @@
   background-color: @color;
   border-color: darken(@color, 12%);
   .rotate(hue(@color));
-
-  &:after {
-    @after: round(luma(@color),2);
-    //content: "@{after}";
-  }
 }
 
 .sl-swatch-base, .swatch {
@@ -78,6 +73,8 @@
   display: block;
 
   border-radius: @border-radius/2;
+
+  &:nth-child(4n + 1) { border-radius: 50%;}
 
   &:before {
     display: none;

@@ -41,17 +41,18 @@
 }
 
 .bathmat(@base: @color1; @scale: 1;) {
+    .set-tone(@base);
 
     .colors() when (@tone = white) {
         .set-a-color(@base);
         @bg-base: @base;
-        @stroke-base: average(@base, @a-color);
+        @stroke-base: mix(@base, @a-color, 75%);
     }
 
     .colors() when (default()) {
         .set-c-color(@base);
         @bg-base: @base;
-        @stroke-base: average(@base, @c-color);
+        @stroke-base: mix(@base, @c-color, 75%);
     }
     
     .colors();
@@ -68,6 +69,7 @@
 
     @pattern-bathmat:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='40' height='40' fill='@{bg}'/%3E%3Ccircle r='9.2' stroke-width='1' stroke='@{stroke}' fill='none'/%3E%3Ccircle cy='18.4' r='9.2' stroke-width='1px' stroke='@{stroke}' fill='none'/%3E%3Ccircle cx='18.4' cy='18.4' r='9.2' stroke-width='1' stroke='@{stroke}' fill='none'/%3E%3C/svg%3E";
     background-image: url("data:image/svg+xml,@{pattern-bathmat}");
+    background-size: (@scale * 20px) (@scale * 20px);
 }
 
 .blueprint(@base: #4A74A6; @scale: 1;) {
@@ -76,21 +78,27 @@
     .colors() when (@tone = white) {
         .set-a-color(@base);
         @bg-base: @base;
-        @stroke-base: mix(@a-color, @base, 50%);
+        @stroke-base: mix(@a-color, @base, 45%);
         @stroke-inner-base: mix(@stroke-base, @bg-base, 75%);
     }
 
     .colors() when (default()) {
         .set-c-color(@base);
         @bg-base: @base;
-        @stroke-base: mix(@c-color, @base, 50%);
+        @stroke-base: mix(@c-color, @base, 45%);
         @stroke-inner-base: mix(@stroke-base, @bg-base, 75%);
     }
     
     .colors();
     
-    @width: 64px;
+    @width: 80px;
+    @grid-width: @width;
+    @grid-spacer: @grid-width/4;
+    @grid-spacer-2: @grid-width/4 * 1;
+    @grid-spacer-3: @grid-width/4 * 2;
+    @grid-spacer-4: @grid-width/4 * 3;
     @height: @width;
+    @offset: @width/2;
     @bg-red: round(red(@bg-base));
     @bg-green: round(green(@bg-base));
     @bg-blue: round(blue(@bg-base));
@@ -103,10 +111,10 @@
     @stroke-inner-green: round(green(@stroke-inner-base));
     @stroke-inner-blue: round(blue(@stroke-inner-base));
     @stroke-inner: ~"rgb(@{stroke-inner-red},@{stroke-inner-green},@{stroke-inner-blue})";
-    @pattern-blueprint:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E %3Crect width='100' height='100' fill='@{bg}'/%3E %3Cg fill='@{stroke-inner}'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='@{stroke}'/%3E %3C/svg%3E";
+    @pattern-blueprint:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{grid-width}' height='@{grid-width}'%3E %3Crect width='@{grid-width}' height='@{grid-width}' fill='@{bg}'/%3E %3Cg fill='@{stroke-inner}'%3E %3Crect width='@{grid-width}' height='1' y='@{grid-spacer-2}'/%3E %3Crect width='@{grid-width}' height='1' y='@{grid-spacer-3}'/%3E %3Crect width='@{grid-width}' height='1' y='@{grid-spacer-4}'/%3E %3Crect width='1' height='@{grid-width}' x='@{grid-spacer-2}'/%3E %3Crect width='1' height='@{grid-width}' x='0'/%3E %3Crect width='1' height='@{grid-width}' x='@{grid-spacer-4}'/%3E %3C/g%3E %3Crect width='@{grid-width}' height='1' y='0' fill='none' stroke-width='1' stroke='@{stroke}'/%3E %3Crect width='1' height='@{grid-width}' x='@{offset}' fill='none' stroke-width='1' stroke='@{stroke}'/%3E %3C/svg%3E";
     background-image: url("data:image/svg+xml,@{pattern-blueprint}");
     background-size: (@scale * @width), (@scale * @height);
-    background-position: center -@width/2;
+    background-position: center 0;
 }
 
 .checkerboard(@base: @color1; @scale: 1;) {
@@ -178,7 +186,6 @@
 }
 
 .crosshatch(@base: @base-color; @scale: 1;) {
-    .make-palette(@base; accented);
     .set-tone(@base);
 
     .colors() when (@tone = white) {
@@ -207,6 +214,7 @@
 
     @pattern-crosshatch:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Crect width='8' height='8' fill='@{bg}'/%3E%3Cpath d='M0 0L8 8ZM8 0L0 8Z' stroke-width='1' stroke='@{stroke}'/%3E%3C/svg%3E";
     background-image: url("data:image/svg+xml,@{pattern-crosshatch}");
+    background-size: (@scale * 8px) (@scale * 8px);
 }
 
 .dots(@base: @base-color; @scale: 1;) {
@@ -343,13 +351,13 @@
     .colors() when (@tone = white) {
         .set-a-color(@base);
         @bg-base: @base;
-        @fg-base: @a-color;
+        @fg-base: average(@base, @a-color);
     }
 
     .colors() when (default()) {
         .set-c-color(@base);
         @bg-base: @base;
-        @fg-base: @c-color;
+        @fg-base: average(@base, @c-color);
     }
     
     .colors();

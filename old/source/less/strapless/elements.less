@@ -182,6 +182,23 @@ section {
   > * + * {
     margin-top: @padding;
   }
+
+  .section-color(@color) when (@scheme-type = light) {
+    .colorize(average(@color, white));
+    background: 5px solid black;
+  }
+
+  .section-color(@color) when (@scheme-type = dark) {
+    .colorize(average(@color, black));
+    background: 4px solid green;
+  }
+
+  .section-color(@color) when (default()) {
+    .colorize(@color);
+    background: 5px solid red;
+  }
+
+  &.info { .section-color(@info) !important;}
 }
 
 main {

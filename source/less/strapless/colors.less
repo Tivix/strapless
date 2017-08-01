@@ -1,7 +1,8 @@
 .make-palette(@base-color, @base-color-wheel);
 
 .make-palette(@color; @wheel) {
-  .set-scheme-type(@color);
+  // make all variables for a color palette
+  .load-scheme-type(@color);
   .load-color-wheels();
   .make-main-colors(@color; @wheel);
   .make-subcolors(@color1; @color2; @color3; @color4; @scheme-type);
@@ -12,14 +13,19 @@
 
 .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (saturation(@color) < 1.5%) {
   // for grays, set up working color2, 3 and 4 and then reinforce gray color1
-  .make-palette(average(@color, #57A0EE); @wheel); // @color is always gray so this desaturates
+  @standin-base: spin(#ABD0F7, 180);
+  .make-palette(average(@color, @standin-base); @wheel); // @color is always gray so this desaturates
   @color1: @color;
-  @color1a: greyscale(@gray-light);
+  .set-a-color(@color1);
+  .set-c-color(@color1);
+  @color1a: greyscale(@a-color);
   @color1b: greyscale(@gray);
-  @color1c: greyscale(@gray-dark);
+  @color1c: greyscale(@c-color);
 }
 
-.set-scheme-type(@color) {
+.load-scheme-type(@color) {
+  // set @scheme-type to light, medium or dark
+
   .set-contrast-ratio-black() {
     .set-contrast-ratio(@color, black);
     @contrast-ratio-black: @contrast-ratio;
@@ -107,6 +113,8 @@
 }
 
 .make-main-colors(@color; @wheel) {
+  // makes the four main colors
+
   @wheel-var: @@wheel;
   @color1: @color;
   @color2: spin(@color, extract(@wheel-var, 1));
@@ -137,7 +145,7 @@
   }.make-color2a();
 
   .make-color2b() { 
-    .set-b-color(@c2; @c1);
+    .set-b-color(@c2);
     @color2b: @b-color;
   }.make-color2b();
 
@@ -167,7 +175,7 @@
   }.make-color4a();
 
   .make-color4b() { 
-    .set-b-color(@c4; @color3b);
+    .set-b-color(@c4, @color3b);
     @color4b: @b-color;
   }.make-color4b();
 
@@ -177,30 +185,36 @@
   }.make-color4c();
 }
 
-.set-a-color(@color, @compare: @color, @contrast-standard: 1.4) {
+.set-a-color(@color, @compare: @color, @scheme: @scheme-type) {
   @iterations: 10;
-  @luma: luma(@color);
+  @luma: luma(@base-color);
 
-  .adjust-contrast(@luma) when (@luma > 90%) {
-    @contrast-standard: 1.1;
+  .adjust-contrast() when (@scheme = light) {
+    @contrast-standard: 1.35;
+    @initial-lighten: 4%;
   }
 
-  .adjust-contrast(@luma);
+  .adjust-contrast() when (default()) {
+    @contrast-standard: 1.4;
+    @initial-lighten: 8%;
+  }
+
+  .adjust-contrast();
 
   .set-a(@a, @contrast-ratio, @index) when (@index <= @iterations)  
                                        and (@contrast-ratio < @contrast-standard)
-                                       and (luma(@a) < (78% + (luma(@color)/10) )) {
+                                       and (luma(@a) < 85%) {
     @new-a: lighten(@a, 3.5%);
     .set-contrast-ratio(@color, @new-a);
     .set-a(@new-a, @contrast-ratio, @index + 1);
-  }
+  }                                            
 
   .set-a(@a, @contrast-ratio, @index) when (default()) {
     @a-color: @a;
   }
 
-  .set-closer-farther(@compare; spin(@color, @analog); spin(@color, -@analog));
-  @a-color-base: @closer;
+  .set-closer-farther(@compare; spin(@color, @analog/2); spin(@color, -@analog/2));
+  @a-color-base: lighten(@closer, @initial-lighten);
   .set-a(@a-color-base, 1, 1);
 }
 
@@ -208,21 +222,53 @@
   @candidate1: spin(@color, @accent);
   @candidate2: spin(@color, -@accent);
   .set-closer-farther(@compare; @candidate1; @candidate2);
-  @b-color: @farther;
-}
+  @b-base: @farther;
 
-.set-c-color(@color, @compare: @color, @contrast-standard: 1.25) {
-  @iterations: 10;
+  @iterations: 5;
 
-  .adjust-contrast(@luma) when (@luma < 10%) {
-    @contrast-standard: 1.1;
+  .adjust-b(@b, @index) when (luma(@b) < luma(@color))
+                         and (@index <= @iterations) {
+    @new-b: lighten(@b, 2%);
+    .adjust-b(@new-b, @index + 1);
   }
 
-  .adjust-contrast(@luma);
+  .adjust-b(@b, @index) when (luma(@b) > luma(@color))
+                         and (@index <= @iterations) {
+    @new-b: darken(@b, 1.75%);
+    .adjust-b(@new-b, @index + 1);
+  }
+
+  .adjust-b(@b, @index) when (default()) {
+    @b-color: @b;
+  }
+
+  .adjust-b(@b-base, 1);
+}
+
+.set-c-color(@color, @compare: @color, @scheme: @scheme-type) {
+  @iterations: 10;
+  @luma: luma(@base-color);
+
+  .adjust-contrast() when (@scheme = dark) {
+    @contrast-standard: 1.3;
+    @initial-darken: 4%;
+  }
+
+  .adjust-contrast() when (@luma < 10%) {
+    @contrast-standard: 1.15;
+    @initial-darken: 2%;    
+  }
+
+  .adjust-contrast() when (default()) {
+    @contrast-standard: 1.4;
+    @initial-darken: 8%;
+  }
+
+  .adjust-contrast();
 
   .set-c(@c, @contrast-ratio, @index) when (@index <= @iterations)  
                                        and (@contrast-ratio < @contrast-standard) {
-    @new-c: darken(@c, 3.5%);
+    @new-c: darken(@c, 2.5%);
     .set-contrast-ratio(@color, @new-c);
     .set-c(@new-c, @contrast-ratio, @index + 1);
   }
@@ -231,9 +277,10 @@
     @c-color: @c;
   }
 
-  .set-closer-farther(@compare; spin(@color, @analog); spin(@color, -@analog));
-  @c-color-base: @closer;
-  .set-c(@c-color-base, 1, 1);
+  .set-closer-farther(@compare; spin(@color, @analog/2); spin(@color, -@analog/2));
+  .set-contrast-ratio(@color, @c-color-base);
+  @c-color-base: darken(@closer, @initial-darken);
+  .set-c(@c-color-base, @contrast-ratio, 1);
 }
 
 .load-action-colors(@base: @base-color, @c1, @c2) {

@@ -14,26 +14,10 @@ html, body, ul, ol, li, form, fieldset, legend {
 }
 
 body {
-  .colorize(@color) {
-    .argyle(@color);
-  }
-
-  .body-color() when (luma(@color1) < 80%) and (saturation(@color1) > 1.5%) {
-    .colorize(@color1);
-  }
-
-  .body-color() when (luma(@color1) < 20%) {
-    .colorize(@color1c);
-  }
-
-  .body-color() when (default()) {
-    .colorize(white);
-  }
-
-  .body-color();
+  .colorize(@background);
   font-size: 16px;
   line-height: @line-height;
-  padding-top: @navbar-height + @padding;
+  & when (@sticky-nav = true) { padding-top: @nav-height + @padding;}
   margin-bottom: 0;
   font-family: -apple-system,
                 BlinkMacSystemFont,
@@ -53,28 +37,17 @@ body {
 
 nav {
   @color: @base-color;
-  @height: @navbar-height;
+  @height: @nav-height;
 
-  .body-color() when (luma(@color1) < 80%) and (saturation(@color1) > 1.5%) {
-    .colorize(@color1c);
-  }
-
-  .body-color() when (luma(@color1) < 20%) {
-    .colorize(@color1a);
-  }
-
-  .body-color() when (default()) {
-    .colorize(@color1);
-  }
-
-  .body-color();
+  .colorize(@color);
 
   height: @height;
   line-height: @height;
   font-size: 18px;
   max-height: @height;
   padding: 0;
-  border-radius: @border-radius;
+  margin-bottom: @padding;
+  & when (@sticky-nav = true) { border-radius: @border-radius;}
   z-index: 1000;
 
   > section {
@@ -151,16 +124,10 @@ nav {
     }
   }
 
-  body > &:first-child, body > &:last-child {
-    // go sticky if at end or beginning of body
+  & when (@sticky-nav = true) {
     position: fixed; top: 0; left: 0;
     width: 100%;
     border-radius: 0;
-  }
-
-  body > &:last-child {
-    // stick to bottom if at end of body
-    position: fixed; top: auto; bottom: 0;
   }
 
   .no-user-select();
@@ -181,24 +148,70 @@ section {
 
     &:last-child {
       margin-bottom: @padding;
-    }    
+    }
+
+    &:only-child {
+      margin-top: @padding;
+    }
   }
 
   > * + * {
     margin-top: @padding;
   }
+
+  .make-section-colors-for(@colors) {
+    // make section colors for a list of color variable names
+    // sections will use variable names as class names
+
+    @iterations: length(@colors);
+
+    .make-section-color(1);
+
+    .make-section-color(@index) when (@index <= @iterations) {
+
+      @color-name: extract(@colors, @index);
+      @this-color: @@color-name;
+
+      &.@{color-name} {
+        .section-color(@this-color);
+      }
+
+      .make-section-color(@index + 1);
+    }
+  }
+
+  .section-color(@color) when (@scheme-type = dark) {
+    .colorize(average(@color, black));
+  }
+
+  .section-color(@color) when (default()) {
+    .colorize(average(@color, white));
+  }
+
+  .make-section-colors-for(@semantic-colors);
+}
+
+section.info,
+section.warning,
+section.action,
+section.reaction,
+section.success,
+section.failure {
+  padding-bottom: @padding;
 }
 
 main {
-  .main-color(@color, @color-when-dark) {
-    .colorize(@color);
+  
+  .set-main-color() when (@scheme-type = light) {
+    @main-color: @color1c;
   }
 
-  .main-color(@color, @color-when-dark) when (@scheme-type = dark) {
-    .colorize(@color-when-dark);
+  .set-main-color() when (default()) {
+    @main-color: @color1a;
   }
 
-  .main-color(@color1, @color1a);
+  .set-main-color();
+  .colorize(@main-color);
   padding: @padding;
   max-width: @content-max-width;
   margin: 0 auto;
@@ -223,6 +236,17 @@ main {
     padding: @padding*2;
     border-radius: @border-radius;
   });
+}
+
+footer {
+  body > & {
+    padding-top: @padding*2;
+    width: auto;
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  aside { max-width: @content-max-width;}
 }
 
 h1 { font-size: 2.5em;}
@@ -251,9 +275,19 @@ h5, h6 {
   text-transform: uppercase;
 }
 
-p, form, article, ul, dl, li {
+p, form, article, ul, dl, li, aside {
   margin: 0 auto 1em;
 
+  .on-large-phone({
+    max-width: @text-measure;
+  });
+}
+
+ul {
+  margin: 0 auto 2em;
+}
+
+footer {
   .on-large-phone({
     max-width: @text-measure;
   });
@@ -264,8 +298,56 @@ p.warning,
 p.action,
 p.reaction,
 p.success,
-p.failure {
-  padding: .5em 1em;
+p.failure,
+aside.info,
+aside.warning,
+aside.action,
+aside.reaction,
+aside.success,
+aside.failure {
+  padding: @padding 1em (1.2 * @padding) 1em;
+}
+
+p, aside {
+  .p-color(@color) {
+
+    .set-a-color(@color);
+    .set-c-color(@color);
+    .set-tone(@color);
+
+    .set-bg(@bg-color) when (@scheme-type = dark) {
+      @bg: average(@color, black);
+    }
+
+    .set-bg(@bg-color) when (@scheme-type = light) {
+      @bg: average(@color, white);
+    }
+
+    .set-bg(@bg-color) when (default()) {
+      @bg: average(@color, @gray);
+    }
+    .set-bg(@color);
+    .colorize(@bg);
+  }
+
+  .make-paragraphs-for(@colors) {
+    // make paragraphs for a list of color variable names
+
+    @length: length(@colors);
+
+    .make-p();
+
+    .make-p(@index:1) when (@index <= @length) {
+      @color-name: extract(@colors, @index);
+      @color: @@color-name;
+
+      &.@{color-name} { .p-color(@color);}
+
+      .make-p(@index + 1);
+    }
+  }
+
+  .make-paragraphs-for(@semantic-colors);
 }
 
 ul, ol {
@@ -286,23 +368,26 @@ a {
   text-decoration: underline;
 }
 
-aside {
+aside, footer {
+
   margin-bottom: 1em;
+  padding-bottom: @padding;
 
   > button {
     width: 100%;
-    margin-bottom: .5em;
+    margin-bottom: @padding;
   }
 
-  > * {
-    margin-right: @padding;
+  p + & {
+    padding-top: @padding;
+  }
 
-    &:last-child {
-      margin-right: 0;
-    }
+  > *:only-child {
+    margin-bottom: 0;
   }
 
   .on-large-phone({
+    padding: 0 1em;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: row;
@@ -311,14 +396,38 @@ aside {
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
+    border-radius: @border-radius;
 
     > button {
       width: auto;
+      margin-bottom: 0;
     }
 
-    p + & {
-      padding-top: 1em;
+    > * {
+      margin-left: @padding/2;
+      margin-right: @padding/2;
+      margin-bottom: 0;
     }
+
+    p {
+      margin-left: @padding*2;
+      margin-right: @padding*2;
+    }
+
+    .headline-elements({
+      margin-top: 0;
+      margin-left: @padding*2;
+      margin-right: @padding*2;
+    });
+  });
+}
+
+footer {
+  .on-large-phone({
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
   });
 }
 
@@ -537,7 +646,7 @@ code, pre {
 
     .darken-bg(@bg-color, @contrast-ratio, @index) when (default()) {
       background-color: @bg-color;
-      .tint-text-against(@bg-color);
+      color: white;
 
       &:active { background-color: darken(@bg-color, 5%);}
     }
@@ -554,8 +663,9 @@ code, pre {
     .make-button(@index:1) when (@index <= @length) {
       @color-name: extract(@colors, @index);
       @color: @@color-name;
-
-      &.@{color-name} { .button-color(@color);}
+      
+      .@{color-name} & { .button-color(@color);}
+      &.@{color-name} { .button-color(@color) !important;}
 
       .make-button(@index + 1);
     }
@@ -564,6 +674,7 @@ code, pre {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
+  min-height: 46px;
   touch-action: manipulation;
   cursor: pointer;
   background-image: none;
@@ -572,7 +683,7 @@ code, pre {
   outline: none;
   white-space: nowrap;
   padding: .35em .65em;
-  .button-color(@gray);
+  .button-color(@action);
   .make-buttons-for(@semantic-colors);
   .no-user-select();
 });
@@ -580,7 +691,7 @@ code, pre {
 
 
 mark, ::selection {
-  .colorize(@color1b);
+  .colorize(@color2c);
 }
 
 hr {
