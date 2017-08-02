@@ -195,7 +195,7 @@ body {
   color: #595959;
   font-size: 16px;
   line-height: 1.62;
-  padding-top: 60px;
+  padding-top: 48px;
   margin-bottom: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
 }
@@ -206,7 +206,11 @@ body {
 }
 nav {
   background-color: #4A4F68;
+<<<<<<< Updated upstream
   color: #ffffff;
+=======
+  color: #f7f7f8;
+>>>>>>> Stashed changes
   height: 48px;
   line-height: 48px;
   font-size: 18px;
@@ -345,6 +349,11 @@ section.failure {
   padding-bottom: 12px;
 }
 main {
+<<<<<<< Updated upstream
+=======
+  background-color: #35394a;
+  color: #dbdbde;
+>>>>>>> Stashed changes
   background-color: #626e8a;
   color: #ffffff;
   padding: 12px;
@@ -374,12 +383,18 @@ main img {
 }
 body > footer {
   padding-top: 24px;
+<<<<<<< Updated upstream
   width: auto;
   max-width: 100%;
   border-radius: 0;
 }
 footer aside {
   max-width: 960px;
+=======
+}
+footer aside {
+  max-width: 920px;
+>>>>>>> Stashed changes
 }
 h1 {
   font-size: 2.5em;
@@ -451,6 +466,7 @@ aside {
   dl,
   li,
   aside {
+<<<<<<< Updated upstream
     max-width: 55ch;
   }
 }
@@ -459,6 +475,8 @@ ul {
 }
 @media screen and (min-width: 480px) {
   footer {
+=======
+>>>>>>> Stashed changes
     max-width: 55ch;
   }
 }
@@ -506,6 +524,36 @@ aside.failure {
   background-color: #521a1a;
   color: #e8e0e0;
 }
+p.action,
+aside.action {
+  background-color: #6d77aa;
+  color: #050507;
+}
+p.reaction,
+aside.reaction {
+  background-color: #8e5db2;
+  color: #ffffff;
+}
+p.info,
+aside.info {
+  background-color: #75a4c5;
+  color: #223039;
+}
+p.warning,
+aside.warning {
+  background-color: #d29476;
+  color: #3d2b22;
+}
+p.success,
+aside.success {
+  background-color: #74b174;
+  color: #223422;
+}
+p.failure,
+aside.failure {
+  background-color: #cb5959;
+  color: #110707;
+}
 ul,
 ol {
   padding-left: 2ch;
@@ -521,15 +569,24 @@ a {
   color: inherit;
   text-decoration: underline;
 }
+<<<<<<< Updated upstream
 aside,
 footer {
   margin-bottom: 1em;
   padding-bottom: 12px;
+=======
+aside {
+  padding: 0 1em;
+>>>>>>> Stashed changes
 }
 aside > button,
 footer > button {
   width: 100%;
+<<<<<<< Updated upstream
   margin-bottom: 12px;
+=======
+  margin-bottom: 1em;
+>>>>>>> Stashed changes
 }
 p + aside,
 p + footer {
@@ -538,6 +595,9 @@ p + footer {
 aside > *:only-child,
 footer > *:only-child {
   margin-bottom: 0;
+}
+p + aside {
+  padding-top: 12px;
 }
 @media screen and (min-width: 480px) {
   aside,
@@ -569,6 +629,7 @@ footer > *:only-child {
     margin-left: 24px;
     margin-right: 24px;
   }
+<<<<<<< Updated upstream
   aside h1,
   footer h1,
   aside h2,
@@ -593,6 +654,8 @@ footer > *:only-child {
     -webkit-justify-content: flex-end;
     justify-content: flex-end;
   }
+=======
+>>>>>>> Stashed changes
 }
 form {
   padding: .4em 1.62ch;
@@ -829,6 +892,7 @@ input[type="submit"]:active {
 }
 button.action,
 html input[type="button"].action,
+<<<<<<< Updated upstream
 input[type="submit"].action {
   background-color: #454d77 !important;
   color: white !important;
@@ -957,6 +1021,141 @@ hr {
   border-color: #3b4253;
   border-top-color: #373d4d;
   border-bottom-color: #464e62;
+=======
+input[type="reset"].action,
+input[type="submit"].action,
+.action > button,
+.action > html input[type="button"],
+.action > input[type="reset"],
+.action > input[type="submit"] {
+  background-color: #454d77;
+  color: #f7f7f9;
+}
+button.action:active,
+html input[type="button"].action:active,
+input[type="reset"].action:active,
+input[type="submit"].action:active,
+.action > button:active,
+.action > html input[type="button"]:active,
+.action > input[type="reset"]:active,
+.action > input[type="submit"]:active {
+  background-color: #3b4266;
+}
+button.reaction,
+html input[type="button"].reaction,
+input[type="reset"].reaction,
+input[type="submit"].reaction,
+.reaction > button,
+.reaction > html input[type="button"],
+.reaction > input[type="reset"],
+.reaction > input[type="submit"] {
+  background-color: #5f3a79;
+  color: #f1edf3;
+}
+button.reaction:active,
+html input[type="button"].reaction:active,
+input[type="reset"].reaction:active,
+input[type="submit"].reaction:active,
+.reaction > button:active,
+.reaction > html input[type="button"]:active,
+.reaction > input[type="reset"]:active,
+.reaction > input[type="submit"]:active {
+  background-color: #513168;
+}
+button.info,
+html input[type="button"].info,
+input[type="reset"].info,
+input[type="submit"].info,
+.info > button,
+.info > html input[type="button"],
+.info > input[type="reset"],
+.info > input[type="submit"] {
+  background-color: #3b6684;
+  color: #ffffff;
+}
+button.info:active,
+html input[type="button"].info:active,
+input[type="reset"].info:active,
+input[type="submit"].info:active,
+.info > button:active,
+.info > html input[type="button"]:active,
+.info > input[type="reset"]:active,
+.info > input[type="submit"]:active {
+  background-color: #335973;
+}
+button.warning,
+html input[type="button"].warning,
+input[type="reset"].warning,
+input[type="submit"].warning,
+.warning > button,
+.warning > html input[type="button"],
+.warning > input[type="reset"],
+.warning > input[type="submit"] {
+  background-color: #995635;
+  color: #ffffff;
+}
+button.warning:active,
+html input[type="button"].warning:active,
+input[type="reset"].warning:active,
+input[type="submit"].warning:active,
+.warning > button:active,
+.warning > html input[type="button"]:active,
+.warning > input[type="reset"]:active,
+.warning > input[type="submit"]:active {
+  background-color: #864b2f;
+}
+button.success,
+html input[type="button"].success,
+input[type="reset"].success,
+input[type="submit"].success,
+.success > button,
+.success > html input[type="button"],
+.success > input[type="reset"],
+.success > input[type="submit"] {
+  background-color: #3f6b3f;
+  color: #ffffff;
+}
+button.success:active,
+html input[type="button"].success:active,
+input[type="reset"].success:active,
+input[type="submit"].success:active,
+.success > button:active,
+.success > html input[type="button"]:active,
+.success > input[type="reset"]:active,
+.success > input[type="submit"]:active {
+  background-color: #365b36;
+}
+button.failure,
+html input[type="button"].failure,
+input[type="reset"].failure,
+input[type="submit"].failure,
+.failure > button,
+.failure > html input[type="button"],
+.failure > input[type="reset"],
+.failure > input[type="submit"] {
+  background-color: #993030;
+  color: #ffffff;
+}
+button.failure:active,
+html input[type="button"].failure:active,
+input[type="reset"].failure:active,
+input[type="submit"].failure:active,
+.failure > button:active,
+.failure > html input[type="button"]:active,
+.failure > input[type="reset"]:active,
+.failure > input[type="submit"]:active {
+  background-color: #852a2a;
+}
+mark,
+::selection {
+  background-color: #3f5759;
+  color: #ffffff;
+}
+hr {
+  border-color: #3f4459;
+  border-top-color: #3b4053;
+  border-bottom-color: #4a5068;
+>>>>>>> Stashed changes
 }
 .hide,
 .hidden {
@@ -1007,8 +1206,13 @@ hr {
   color: #ffffff;
 }
 .color1c {
+<<<<<<< Updated upstream
   background-color: #3b4253;
   color: #ffffff;
+=======
+  background-color: #3f4459;
+  color: #e5e6e9;
+>>>>>>> Stashed changes
 }
 .color2 {
   background-color: #68634a;
@@ -1023,7 +1227,11 @@ hr {
   color: #ffffff;
 }
 .color2c {
+<<<<<<< Updated upstream
   background-color: #5b5340;
+=======
+  background-color: #59543f;
+>>>>>>> Stashed changes
   color: #ffffff;
 }
 .color3 {
@@ -1036,11 +1244,19 @@ hr {
 }
 .color3b {
   background-color: #474c64;
+<<<<<<< Updated upstream
   color: #ffffff;
 }
 .color3c {
   background-color: #53405b;
   color: #ffffff;
+=======
+  color: #f7f7f8;
+}
+.color3c {
+  background-color: #543f59;
+  color: #f0eef0;
+>>>>>>> Stashed changes
 }
 .color4 {
   background-color: #4a6568;
@@ -1055,7 +1271,11 @@ hr {
   color: #ffffff;
 }
 .color4c {
+<<<<<<< Updated upstream
   background-color: #405b5a;
+=======
+  background-color: #3f5859;
+>>>>>>> Stashed changes
   color: #ffffff;
 }
 .gray-darker {

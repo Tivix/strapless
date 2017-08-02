@@ -23,12 +23,21 @@
   transform: rotate(185);
 }
 #sl_accented .sl-color1c {
+<<<<<<< Updated upstream
   background-color: #3b4253;
   border-color: #22262f;
   -webkit-transform: rotate(222.5);
   -ms-transform: rotate(222.5);
   -o-transform: rotate(222.5);
   transform: rotate(222.5);
+=======
+  background-color: #3f4459;
+  border-color: #262935;
+  -webkit-transform: rotate(228.5);
+  -ms-transform: rotate(228.5);
+  -o-transform: rotate(228.5);
+  transform: rotate(228.5);
+>>>>>>> Stashed changes
 }
 #sl_accented .sl-color2 {
   background-color: #68634a;
@@ -55,12 +64,21 @@
   transform: rotate(5);
 }
 #sl_accented .sl-color2c {
+<<<<<<< Updated upstream
   background-color: #5b5340;
   border-color: #373227;
   -webkit-transform: rotate(42.5);
   -ms-transform: rotate(42.5);
   -o-transform: rotate(42.5);
   transform: rotate(42.5);
+=======
+  background-color: #59543f;
+  border-color: #353226;
+  -webkit-transform: rotate(48.5);
+  -ms-transform: rotate(48.5);
+  -o-transform: rotate(48.5);
+  transform: rotate(48.5);
+>>>>>>> Stashed changes
 }
 #sl_accented .sl-color3 {
   background-color: #5b4a68;
@@ -87,12 +105,21 @@
   transform: rotate(230);
 }
 #sl_accented .sl-color3c {
+<<<<<<< Updated upstream
   background-color: #53405b;
   border-color: #322737;
   -webkit-transform: rotate(282.5);
   -ms-transform: rotate(282.5);
   -o-transform: rotate(282.5);
   transform: rotate(282.5);
+=======
+  background-color: #543f59;
+  border-color: #322635;
+  -webkit-transform: rotate(288.5);
+  -ms-transform: rotate(288.5);
+  -o-transform: rotate(288.5);
+  transform: rotate(288.5);
+>>>>>>> Stashed changes
 }
 #sl_accented .sl-color4 {
   background-color: #4a6568;
@@ -119,12 +146,21 @@
   transform: rotate(140);
 }
 #sl_accented .sl-color4c {
+<<<<<<< Updated upstream
   background-color: #405b5a;
   border-color: #273736;
   -webkit-transform: rotate(177.5);
   -ms-transform: rotate(177.5);
   -o-transform: rotate(177.5);
   transform: rotate(177.5);
+=======
+  background-color: #3f5859;
+  border-color: #263435;
+  -webkit-transform: rotate(183.5);
+  -ms-transform: rotate(183.5);
+  -o-transform: rotate(183.5);
+  transform: rotate(183.5);
+>>>>>>> Stashed changes
 }
 #sl_complementary .sl-color1 {
   background-color: #4A4F68;
@@ -151,12 +187,21 @@
   transform: rotate(185);
 }
 #sl_complementary .sl-color1c {
+<<<<<<< Updated upstream
   background-color: #3b4253;
   border-color: #22262f;
   -webkit-transform: rotate(222.5);
   -ms-transform: rotate(222.5);
   -o-transform: rotate(222.5);
   transform: rotate(222.5);
+=======
+  background-color: #3f4459;
+  border-color: #262935;
+  -webkit-transform: rotate(228.5);
+  -ms-transform: rotate(228.5);
+  -o-transform: rotate(228.5);
+  transform: rotate(228.5);
+>>>>>>> Stashed changes
 }
 #sl_complementary .sl-color2 {
   background-color: #68634a;
@@ -183,12 +228,21 @@
   transform: rotate(5);
 }
 #sl_complementary .sl-color2c {
+<<<<<<< Updated upstream
   background-color: #5b5340;
   border-color: #373227;
   -webkit-transform: rotate(42.5);
   -ms-transform: rotate(42.5);
   -o-transform: rotate(42.5);
   transform: rotate(42.5);
+=======
+  background-color: #59543f;
+  border-color: #353226;
+  -webkit-transform: rotate(48.5);
+  -ms-transform: rotate(48.5);
+  -o-transform: rotate(48.5);
+  transform: rotate(48.5);
+>>>>>>> Stashed changes
 }
 #sl_complementary .sl-color3 {
   background-color: #4c4a68;
@@ -215,12 +269,21 @@
   transform: rotate(200);
 }
 #sl_complementary .sl-color3c {
+<<<<<<< Updated upstream
   background-color: #40425b;
   border-color: #272837;
   -webkit-transform: rotate(237.5);
   -ms-transform: rotate(237.5);
   -o-transform: rotate(237.5);
   transform: rotate(237.5);
+=======
+  background-color: #413f59;
+  border-color: #272635;
+  -webkit-transform: rotate(243.5);
+  -ms-transform: rotate(243.5);
+  -o-transform: rotate(243.5);
+  transform: rotate(243.5);
+>>>>>>> Stashed changes
 }
 #sl_complementary .sl-color4 {
   background-color: #66684a;
@@ -247,12 +310,21 @@
   transform: rotate(20);
 }
 #sl_complementary .sl-color4c {
+<<<<<<< Updated upstream
   background-color: #5b5a40;
   border-color: #373627;
   -webkit-transform: rotate(57.5);
   -ms-transform: rotate(57.5);
   -o-transform: rotate(57.5);
   transform: rotate(57.5);
+=======
+  background-color: #58593f;
+  border-color: #343526;
+  -webkit-transform: rotate(63.5);
+  -ms-transform: rotate(63.5);
+  -o-transform: rotate(63.5);
+  transform: rotate(63.5);
+>>>>>>> Stashed changes
 }
 #sl_triadic .sl-color1 {
   background-color: #4A4F68;
@@ -279,12 +351,21 @@
   transform: rotate(185);
 }
 #sl_triadic .sl-color1c {
+<<<<<<< Updated upstream
   background-color: #3b4253;
   border-color: #22262f;
   -webkit-transform: rotate(222.5);
   -ms-transform: rotate(222.5);
   -o-transform: rotate(222.5);
   transform: rotate(222.5);
+=======
+  background-color: #3f4459;
+  border-color: #262935;
+  -webkit-transform: rotate(228.5);
+  -ms-transform: rotate(228.5);
+  -o-transform: rotate(228.5);
+  transform: rotate(228.5);
+>>>>>>> Stashed changes
 }
 #sl_triadic .sl-color2 {
   background-color: #4f684a;
@@ -311,12 +392,21 @@
   transform: rotate(65);
 }
 #sl_triadic .sl-color2c {
+<<<<<<< Updated upstream
   background-color: #425b40;
   border-color: #283727;
   -webkit-transform: rotate(117.5);
   -ms-transform: rotate(117.5);
   -o-transform: rotate(117.5);
   transform: rotate(117.5);
+=======
+  background-color: #3f5941;
+  border-color: #263527;
+  -webkit-transform: rotate(123.5);
+  -ms-transform: rotate(123.5);
+  -o-transform: rotate(123.5);
+  transform: rotate(123.5);
+>>>>>>> Stashed changes
 }
 #sl_triadic .sl-color3 {
   background-color: #684a4f;
@@ -343,12 +433,21 @@
   transform: rotate(305);
 }
 #sl_triadic .sl-color3c {
+<<<<<<< Updated upstream
   background-color: #5b4048;
   border-color: #37272c;
   -webkit-transform: rotate(342.5);
   -ms-transform: rotate(342.5);
   -o-transform: rotate(342.5);
   transform: rotate(342.5);
+=======
+  background-color: #593f44;
+  border-color: #352629;
+  -webkit-transform: rotate(348.5);
+  -ms-transform: rotate(348.5);
+  -o-transform: rotate(348.5);
+  transform: rotate(348.5);
+>>>>>>> Stashed changes
 }
 #sl_triadic .sl-color4 {
   background-color: #4c4a68;
@@ -375,12 +474,21 @@
   transform: rotate(200);
 }
 #sl_triadic .sl-color4c {
+<<<<<<< Updated upstream
   background-color: #40425b;
   border-color: #272837;
   -webkit-transform: rotate(237.5);
   -ms-transform: rotate(237.5);
   -o-transform: rotate(237.5);
   transform: rotate(237.5);
+=======
+  background-color: #413f59;
+  border-color: #272635;
+  -webkit-transform: rotate(243.5);
+  -ms-transform: rotate(243.5);
+  -o-transform: rotate(243.5);
+  transform: rotate(243.5);
+>>>>>>> Stashed changes
 }
 #sl_tetradic .sl-color1 {
   background-color: #4A4F68;
@@ -407,12 +515,21 @@
   transform: rotate(185);
 }
 #sl_tetradic .sl-color1c {
+<<<<<<< Updated upstream
   background-color: #3b4253;
   border-color: #22262f;
   -webkit-transform: rotate(222.5);
   -ms-transform: rotate(222.5);
   -o-transform: rotate(222.5);
   transform: rotate(222.5);
+=======
+  background-color: #3f4459;
+  border-color: #262935;
+  -webkit-transform: rotate(228.5);
+  -ms-transform: rotate(228.5);
+  -o-transform: rotate(228.5);
+  transform: rotate(228.5);
+>>>>>>> Stashed changes
 }
 #sl_tetradic .sl-color2 {
   background-color: #68634a;
@@ -439,12 +556,21 @@
   transform: rotate(5);
 }
 #sl_tetradic .sl-color2c {
+<<<<<<< Updated upstream
   background-color: #5b5340;
   border-color: #373227;
   -webkit-transform: rotate(42.5);
   -ms-transform: rotate(42.5);
   -o-transform: rotate(42.5);
   transform: rotate(42.5);
+=======
+  background-color: #59543f;
+  border-color: #353226;
+  -webkit-transform: rotate(48.5);
+  -ms-transform: rotate(48.5);
+  -o-transform: rotate(48.5);
+  transform: rotate(48.5);
+>>>>>>> Stashed changes
 }
 #sl_tetradic .sl-color3 {
   background-color: #5b4a68;
@@ -471,12 +597,21 @@
   transform: rotate(230);
 }
 #sl_tetradic .sl-color3c {
+<<<<<<< Updated upstream
   background-color: #53405b;
   border-color: #322737;
   -webkit-transform: rotate(282.5);
   -ms-transform: rotate(282.5);
   -o-transform: rotate(282.5);
   transform: rotate(282.5);
+=======
+  background-color: #543f59;
+  border-color: #322635;
+  -webkit-transform: rotate(288.5);
+  -ms-transform: rotate(288.5);
+  -o-transform: rotate(288.5);
+  transform: rotate(288.5);
+>>>>>>> Stashed changes
 }
 #sl_tetradic .sl-color4 {
   background-color: #56684a;
@@ -503,12 +638,21 @@
   transform: rotate(50);
 }
 #sl_tetradic .sl-color4c {
+<<<<<<< Updated upstream
   background-color: #4f5b40;
   border-color: #303727;
   -webkit-transform: rotate(87.5);
   -ms-transform: rotate(87.5);
   -o-transform: rotate(87.5);
   transform: rotate(87.5);
+=======
+  background-color: #4b593f;
+  border-color: #2d3526;
+  -webkit-transform: rotate(93.5);
+  -ms-transform: rotate(93.5);
+  -o-transform: rotate(93.5);
+  transform: rotate(93.5);
+>>>>>>> Stashed changes
 }
 #sl_square .sl-color1 {
   background-color: #4A4F68;
@@ -535,12 +679,21 @@
   transform: rotate(185);
 }
 #sl_square .sl-color1c {
+<<<<<<< Updated upstream
   background-color: #3b4253;
   border-color: #22262f;
   -webkit-transform: rotate(222.5);
   -ms-transform: rotate(222.5);
   -o-transform: rotate(222.5);
   transform: rotate(222.5);
+=======
+  background-color: #3f4459;
+  border-color: #262935;
+  -webkit-transform: rotate(228.5);
+  -ms-transform: rotate(228.5);
+  -o-transform: rotate(228.5);
+  transform: rotate(228.5);
+>>>>>>> Stashed changes
 }
 #sl_square .sl-color2 {
   background-color: #68634a;
@@ -567,12 +720,21 @@
   transform: rotate(5);
 }
 #sl_square .sl-color2c {
+<<<<<<< Updated upstream
   background-color: #5b5340;
   border-color: #373227;
   -webkit-transform: rotate(42.5);
   -ms-transform: rotate(42.5);
   -o-transform: rotate(42.5);
   transform: rotate(42.5);
+=======
+  background-color: #59543f;
+  border-color: #353226;
+  -webkit-transform: rotate(48.5);
+  -ms-transform: rotate(48.5);
+  -o-transform: rotate(48.5);
+  transform: rotate(48.5);
+>>>>>>> Stashed changes
 }
 #sl_square .sl-color3 {
   background-color: #684a5e;
@@ -599,12 +761,21 @@
   transform: rotate(5);
 }
 #sl_square .sl-color3c {
+<<<<<<< Updated upstream
   background-color: #5b404f;
   border-color: #372730;
   -webkit-transform: rotate(327.5);
   -ms-transform: rotate(327.5);
   -o-transform: rotate(327.5);
   transform: rotate(327.5);
+=======
+  background-color: #593f4b;
+  border-color: #35262d;
+  -webkit-transform: rotate(333.5);
+  -ms-transform: rotate(333.5);
+  -o-transform: rotate(333.5);
+  transform: rotate(333.5);
+>>>>>>> Stashed changes
 }
 #sl_square .sl-color4 {
   background-color: #4a6854;
@@ -631,12 +802,21 @@
   transform: rotate(185);
 }
 #sl_square .sl-color4c {
+<<<<<<< Updated upstream
   background-color: #405b46;
   border-color: #27372a;
   -webkit-transform: rotate(132.5);
   -ms-transform: rotate(132.5);
   -o-transform: rotate(132.5);
   transform: rotate(132.5);
+=======
+  background-color: #3f5947;
+  border-color: #26352b;
+  -webkit-transform: rotate(138.5);
+  -ms-transform: rotate(138.5);
+  -o-transform: rotate(138.5);
+  transform: rotate(138.5);
+>>>>>>> Stashed changes
 }
 #sl_ebb .sl-color1 {
   background-color: #4A4F68;
@@ -663,12 +843,21 @@
   transform: rotate(185);
 }
 #sl_ebb .sl-color1c {
+<<<<<<< Updated upstream
   background-color: #3b4253;
   border-color: #22262f;
   -webkit-transform: rotate(222.5);
   -ms-transform: rotate(222.5);
   -o-transform: rotate(222.5);
   transform: rotate(222.5);
+=======
+  background-color: #3f4459;
+  border-color: #262935;
+  -webkit-transform: rotate(228.5);
+  -ms-transform: rotate(228.5);
+  -o-transform: rotate(228.5);
+  transform: rotate(228.5);
+>>>>>>> Stashed changes
 }
 #sl_ebb .sl-color2 {
   background-color: #66684a;
@@ -695,12 +884,21 @@
   transform: rotate(20);
 }
 #sl_ebb .sl-color2c {
+<<<<<<< Updated upstream
   background-color: #555b40;
   border-color: #343727;
   -webkit-transform: rotate(72.5);
   -ms-transform: rotate(72.5);
   -o-transform: rotate(72.5);
   transform: rotate(72.5);
+=======
+  background-color: #51593f;
+  border-color: #313526;
+  -webkit-transform: rotate(78.5);
+  -ms-transform: rotate(78.5);
+  -o-transform: rotate(78.5);
+  transform: rotate(78.5);
+>>>>>>> Stashed changes
 }
 #sl_ebb .sl-color3 {
   background-color: #4c4a68;
@@ -727,12 +925,21 @@
   transform: rotate(200);
 }
 #sl_ebb .sl-color3c {
+<<<<<<< Updated upstream
   background-color: #40425b;
   border-color: #272837;
   -webkit-transform: rotate(237.5);
   -ms-transform: rotate(237.5);
   -o-transform: rotate(237.5);
   transform: rotate(237.5);
+=======
+  background-color: #413f59;
+  border-color: #272635;
+  -webkit-transform: rotate(243.5);
+  -ms-transform: rotate(243.5);
+  -o-transform: rotate(243.5);
+  transform: rotate(243.5);
+>>>>>>> Stashed changes
 }
 #sl_ebb .sl-color4 {
   background-color: #5b4a68;
@@ -759,12 +966,21 @@
   transform: rotate(320);
 }
 #sl_ebb .sl-color4c {
+<<<<<<< Updated upstream
   background-color: #53405b;
   border-color: #322737;
   -webkit-transform: rotate(282.5);
   -ms-transform: rotate(282.5);
   -o-transform: rotate(282.5);
   transform: rotate(282.5);
+=======
+  background-color: #543f59;
+  border-color: #322635;
+  -webkit-transform: rotate(288.5);
+  -ms-transform: rotate(288.5);
+  -o-transform: rotate(288.5);
+  transform: rotate(288.5);
+>>>>>>> Stashed changes
 }
 #sl_flow .sl-color1 {
   background-color: #4A4F68;
@@ -791,12 +1007,21 @@
   transform: rotate(185);
 }
 #sl_flow .sl-color1c {
+<<<<<<< Updated upstream
   background-color: #3b4253;
   border-color: #22262f;
   -webkit-transform: rotate(222.5);
   -ms-transform: rotate(222.5);
   -o-transform: rotate(222.5);
   transform: rotate(222.5);
+=======
+  background-color: #3f4459;
+  border-color: #262935;
+  -webkit-transform: rotate(228.5);
+  -ms-transform: rotate(228.5);
+  -o-transform: rotate(228.5);
+  transform: rotate(228.5);
+>>>>>>> Stashed changes
 }
 #sl_flow .sl-color2 {
   background-color: #685c4a;
@@ -823,12 +1048,21 @@
   transform: rotate(350);
 }
 #sl_flow .sl-color2c {
+<<<<<<< Updated upstream
   background-color: #5b4c40;
   border-color: #372e27;
   -webkit-transform: rotate(27.5);
   -ms-transform: rotate(27.5);
   -o-transform: rotate(27.5);
   transform: rotate(27.5);
+=======
+  background-color: #594e3f;
+  border-color: #352f26;
+  -webkit-transform: rotate(33.5);
+  -ms-transform: rotate(33.5);
+  -o-transform: rotate(33.5);
+  transform: rotate(33.5);
+>>>>>>> Stashed changes
 }
 #sl_flow .sl-color3 {
   background-color: #4a5668;
@@ -855,12 +1089,21 @@
   transform: rotate(170);
 }
 #sl_flow .sl-color3c {
+<<<<<<< Updated upstream
   background-color: #40485b;
   border-color: #272c37;
   -webkit-transform: rotate(222.5);
   -ms-transform: rotate(222.5);
   -o-transform: rotate(222.5);
   transform: rotate(222.5);
+=======
+  background-color: #454b61;
+  border-color: #2b2f3d;
+  -webkit-transform: rotate(225.5);
+  -ms-transform: rotate(225.5);
+  -o-transform: rotate(225.5);
+  transform: rotate(225.5);
+>>>>>>> Stashed changes
 }
 #sl_flow .sl-color4 {
   background-color: #4a6568;
@@ -887,12 +1130,21 @@
   transform: rotate(230);
 }
 #sl_flow .sl-color4c {
+<<<<<<< Updated upstream
   background-color: #405b5a;
   border-color: #273736;
   -webkit-transform: rotate(177.5);
   -ms-transform: rotate(177.5);
   -o-transform: rotate(177.5);
   transform: rotate(177.5);
+=======
+  background-color: #3f5859;
+  border-color: #263435;
+  -webkit-transform: rotate(183.5);
+  -ms-transform: rotate(183.5);
+  -o-transform: rotate(183.5);
+  transform: rotate(183.5);
+>>>>>>> Stashed changes
 }
 #sl_monochromatic .sl-color1 {
   background-color: #4A4F68;
@@ -919,12 +1171,21 @@
   transform: rotate(185);
 }
 #sl_monochromatic .sl-color1c {
+<<<<<<< Updated upstream
   background-color: #3b4253;
   border-color: #22262f;
   -webkit-transform: rotate(222.5);
   -ms-transform: rotate(222.5);
   -o-transform: rotate(222.5);
   transform: rotate(222.5);
+=======
+  background-color: #3f4459;
+  border-color: #262935;
+  -webkit-transform: rotate(228.5);
+  -ms-transform: rotate(228.5);
+  -o-transform: rotate(228.5);
+  transform: rotate(228.5);
+>>>>>>> Stashed changes
 }
 #sl_monochromatic .sl-color2 {
   background-color: #504a68;
@@ -951,12 +1212,21 @@
   transform: rotate(207.5);
 }
 #sl_monochromatic .sl-color2c {
+<<<<<<< Updated upstream
   background-color: #43405b;
   border-color: #282737;
   -webkit-transform: rotate(245);
   -ms-transform: rotate(245);
   -o-transform: rotate(245);
   transform: rotate(245);
+=======
+  background-color: #443f59;
+  border-color: #292635;
+  -webkit-transform: rotate(251);
+  -ms-transform: rotate(251);
+  -o-transform: rotate(251);
+  transform: rotate(251);
+>>>>>>> Stashed changes
 }
 #sl_monochromatic .sl-color3 {
   background-color: #4a4b68;
@@ -983,12 +1253,21 @@
   transform: rotate(192.5);
 }
 #sl_monochromatic .sl-color3c {
+<<<<<<< Updated upstream
   background-color: #43405b;
   border-color: #282737;
   -webkit-transform: rotate(245);
   -ms-transform: rotate(245);
   -o-transform: rotate(245);
   transform: rotate(245);
+=======
+  background-color: #443f59;
+  border-color: #292635;
+  -webkit-transform: rotate(251);
+  -ms-transform: rotate(251);
+  -o-transform: rotate(251);
+  transform: rotate(251);
+>>>>>>> Stashed changes
 }
 #sl_monochromatic .sl-color4 {
   background-color: #4a5368;
@@ -1015,12 +1294,21 @@
   transform: rotate(177.5);
 }
 #sl_monochromatic .sl-color4c {
+<<<<<<< Updated upstream
   background-color: #40455b;
   border-color: #272a37;
   -webkit-transform: rotate(230);
   -ms-transform: rotate(230);
   -o-transform: rotate(230);
   transform: rotate(230);
+=======
+  background-color: #454861;
+  border-color: #2b2d3d;
+  -webkit-transform: rotate(233);
+  -ms-transform: rotate(233);
+  -o-transform: rotate(233);
+  transform: rotate(233);
+>>>>>>> Stashed changes
 }
 .sl-swatch-base,
 .swatch {
@@ -1187,7 +1475,11 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60px' height='60px'%3E%3Crect width='60' height='60' fill='rgb(74,79,104)'/%3E%3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='rgb(78,84,109)'/%3E%3C/svg%3E");
   background-size: 60px, 120px;
   background-position: -15px -15px;
+<<<<<<< Updated upstream
   color: #ffffff;
+=======
+  color: #f7f7f8;
+>>>>>>> Stashed changes
 }
 #strapless_patterns_checkerboard .pattern:nth-child(1):before {
   content: '.checkerboard (@color1)';
@@ -1203,7 +1495,11 @@
 }
 #strapless_patterns_checkerboard .pattern:nth-child(3) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60px' height='60px'%3E%3Crect width='60' height='60' fill='rgb(63,87,89)'/%3E%3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='rgb(67,92,94)'/%3E%3C/svg%3E");
+<<<<<<< Updated upstream
   background-size: 300px, 600px;
+=======
+  background-size: 60px, 120px;
+>>>>>>> Stashed changes
   background-position: -15px -15px;
   color: #ffffff;
 }
@@ -1215,15 +1511,22 @@
 }
 #strapless_patterns_bathmat .pattern:nth-child(1) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='40' height='40' fill='rgb(74,79,104)'/%3E%3Ccircle r='9.2' stroke-width='1' stroke='rgb(80,87,113)' fill='none'/%3E%3Ccircle cy='18.4' r='9.2' stroke-width='1px' stroke='rgb(80,87,113)' fill='none'/%3E%3Ccircle cx='18.4' cy='18.4' r='9.2' stroke-width='1' stroke='rgb(80,87,113)' fill='none'/%3E%3C/svg%3E");
+<<<<<<< Updated upstream
   background-size: 15px 15px;
   color: #ffffff;
+=======
+  color: #f7f7f8;
+>>>>>>> Stashed changes
 }
 #strapless_patterns_bathmat .pattern:nth-child(1):before {
   content: '.bathmat (@color1, .75)';
 }
 #strapless_patterns_bathmat .pattern:nth-child(2) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='40' height='40' fill='rgb(98,110,138)'/%3E%3Ccircle r='9.2' stroke-width='1' stroke='rgb(106,119,145)' fill='none'/%3E%3Ccircle cy='18.4' r='9.2' stroke-width='1px' stroke='rgb(106,119,145)' fill='none'/%3E%3Ccircle cx='18.4' cy='18.4' r='9.2' stroke-width='1' stroke='rgb(106,119,145)' fill='none'/%3E%3C/svg%3E");
+<<<<<<< Updated upstream
   background-size: 20px 20px;
+=======
+>>>>>>> Stashed changes
   color: #ffffff;
 }
 #strapless_patterns_bathmat .pattern:nth-child(2):before {
@@ -1231,7 +1534,10 @@
 }
 #strapless_patterns_bathmat .pattern:nth-child(3) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='40' height='40' fill='rgb(63,87,89)'/%3E%3Ccircle r='9.2' stroke-width='1' stroke='rgb(69,96,97)' fill='none'/%3E%3Ccircle cy='18.4' r='9.2' stroke-width='1px' stroke='rgb(69,96,97)' fill='none'/%3E%3Ccircle cx='18.4' cy='18.4' r='9.2' stroke-width='1' stroke='rgb(69,96,97)' fill='none'/%3E%3C/svg%3E");
+<<<<<<< Updated upstream
   background-size: 20px 20px;
+=======
+>>>>>>> Stashed changes
   color: #ffffff;
 }
 #strapless_patterns_bathmat .pattern:nth-child(3):before {
@@ -1242,23 +1548,34 @@
 }
 #strapless_patterns_crosshatch .pattern:nth-child(1) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Crect width='8' height='8' fill='rgb(74,79,104)'/%3E%3Cpath d='M0 0L8 8ZM8 0L0 8Z' stroke-width='1' stroke='rgb(80,87,113)'/%3E%3C/svg%3E");
+<<<<<<< Updated upstream
   background-size: 8px 8px;
   color: #ffffff;
+=======
+  color: #f7f7f8;
+>>>>>>> Stashed changes
 }
 #strapless_patterns_crosshatch .pattern:nth-child(1):before {
   content: '.crosshatch (@color1)';
 }
 #strapless_patterns_crosshatch .pattern:nth-child(2) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Crect width='8' height='8' fill='rgb(98,110,138)'/%3E%3Cpath d='M0 0L8 8ZM8 0L0 8Z' stroke-width='1' stroke='rgb(106,119,145)'/%3E%3C/svg%3E");
+<<<<<<< Updated upstream
   background-size: 16px 16px;
   color: #ffffff;
+=======
+  color: #1b1e23;
+>>>>>>> Stashed changes
 }
 #strapless_patterns_crosshatch .pattern:nth-child(2):before {
   content: '.crosshatch (@color1a, 2)';
 }
 #strapless_patterns_crosshatch .pattern:nth-child(3) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Crect width='8' height='8' fill='rgb(63,87,89)'/%3E%3Cpath d='M0 0L8 8ZM8 0L0 8Z' stroke-width='1' stroke='rgb(69,96,97)'/%3E%3C/svg%3E");
+<<<<<<< Updated upstream
   background-size: 24px 24px;
+=======
+>>>>>>> Stashed changes
   color: #ffffff;
 }
 #strapless_patterns_crosshatch .pattern:nth-child(3):before {
@@ -1292,27 +1609,46 @@
   content: 'Blueprint';
 }
 #strapless_patterns_blueprint .pattern:nth-child(1) {
+<<<<<<< Updated upstream
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80px' height='80px'%3E %3Crect width='80px' height='80px' fill='rgb(74,79,104)'/%3E %3Cg fill='rgb(82,89,116)'%3E %3Crect width='80px' height='1' y='20px'/%3E %3Crect width='80px' height='1' y='40px'/%3E %3Crect width='80px' height='1' y='60px'/%3E %3Crect width='1' height='80px' x='20px'/%3E %3Crect width='1' height='80px' x='0'/%3E %3Crect width='1' height='80px' x='60px'/%3E %3C/g%3E %3Crect width='80px' height='1' y='0' fill='none' stroke-width='1' stroke='rgb(85,93,119)'/%3E %3Crect width='1' height='80px' x='40px' fill='none' stroke-width='1' stroke='rgb(85,93,119)'/%3E %3C/svg%3E");
   background-size: 80px, 80px;
   background-position: center 0;
   color: #ffffff;
+=======
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E %3Crect width='100' height='100' fill='rgb(74,79,104)'/%3E %3Cg fill='rgb(85,93,119)'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='rgb(89,98,125)'/%3E %3C/svg%3E");
+  background-size: 64px, 64px;
+  background-position: center -32px;
+  color: #f7f7f8;
+>>>>>>> Stashed changes
 }
 #strapless_patterns_blueprint .pattern:nth-child(1):before {
   content: '.blueprint (@color1)';
 }
 #strapless_patterns_blueprint .pattern:nth-child(2) {
+<<<<<<< Updated upstream
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80px' height='80px'%3E %3Crect width='80px' height='80px' fill='rgb(91,83,64)'/%3E %3Cg fill='rgb(102,92,73)'%3E %3Crect width='80px' height='1' y='20px'/%3E %3Crect width='80px' height='1' y='40px'/%3E %3Crect width='80px' height='1' y='60px'/%3E %3Crect width='1' height='80px' x='20px'/%3E %3Crect width='1' height='80px' x='0'/%3E %3Crect width='1' height='80px' x='60px'/%3E %3C/g%3E %3Crect width='80px' height='1' y='0' fill='none' stroke-width='1' stroke='rgb(106,95,75)'/%3E %3Crect width='1' height='80px' x='40px' fill='none' stroke-width='1' stroke='rgb(106,95,75)'/%3E %3C/svg%3E");
   background-size: 40px, 40px;
   background-position: center 0;
+=======
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E %3Crect width='100' height='100' fill='rgb(89,84,63)'/%3E %3Cg fill='rgb(105,97,74)'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='rgb(110,101,78)'/%3E %3C/svg%3E");
+  background-size: 32px, 32px;
+  background-position: center -32px;
+>>>>>>> Stashed changes
   color: #ffffff;
 }
 #strapless_patterns_blueprint .pattern:nth-child(2):before {
   content: '.blueprint (@color2c, .5)';
 }
 #strapless_patterns_blueprint .pattern:nth-child(3) {
+<<<<<<< Updated upstream
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80px' height='80px'%3E %3Crect width='80px' height='80px' fill='rgb(78,139,78)'/%3E %3Cg fill='rgb(77,134,75)'%3E %3Crect width='80px' height='1' y='20px'/%3E %3Crect width='80px' height='1' y='40px'/%3E %3Crect width='80px' height='1' y='60px'/%3E %3Crect width='1' height='80px' x='20px'/%3E %3Crect width='1' height='80px' x='0'/%3E %3Crect width='1' height='80px' x='60px'/%3E %3C/g%3E %3Crect width='80px' height='1' y='0' fill='none' stroke-width='1' stroke='rgb(77,132,74)'/%3E %3Crect width='1' height='80px' x='40px' fill='none' stroke-width='1' stroke='rgb(77,132,74)'/%3E %3C/svg%3E");
   background-size: 80px, 80px;
   background-position: center 0;
+=======
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E %3Crect width='100' height='100' fill='rgb(78,139,78)'/%3E %3Cg fill='rgb(74,131,73)'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='rgb(73,129,72)'/%3E %3C/svg%3E");
+  background-size: 64px, 64px;
+  background-position: center -32px;
+>>>>>>> Stashed changes
   color: #060c06;
 }
 #strapless_patterns_blueprint .pattern:nth-child(3):before {
@@ -1338,7 +1674,11 @@
   content: '.pegboard (@color3)';
 }
 #strapless_patterns_pegboard .pattern:nth-child(3) {
+<<<<<<< Updated upstream
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15px' height='15px'%3E%3Crect width='50' height='50' fill='rgb(64,91,90)'/%3E%3Ccircle cx='3' cy='4.3' r='1.8' fill='rgb(89,122,125)'/%3E%3Ccircle cx='3' cy='3' r='1.8' fill='rgb(52,73,72)'/%3E%3Ccircle cx='10.5' cy='12.5' r='1.8' fill='rgb(89,122,125)'/%3E%3Ccircle cx='10.5' cy='11.3' r='1.8' fill='rgb(52,73,72)'/%3E%3C/svg%3E");
+=======
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15px' height='15px'%3E%3Crect width='50' height='50' fill='rgb(63,88,89)'/%3E%3Ccircle cx='3' cy='4.3' r='1.8' fill='rgb(88,123,121)'/%3E%3Ccircle cx='3' cy='3' r='1.8' fill='rgb(51,70,71)'/%3E%3Ccircle cx='10.5' cy='12.5' r='1.8' fill='rgb(88,123,121)'/%3E%3Ccircle cx='10.5' cy='11.3' r='1.8' fill='rgb(51,70,71)'/%3E%3C/svg%3E");
+>>>>>>> Stashed changes
   background-size: 22.5px, 22.5px;
   color: #ffffff;
 }
@@ -1352,7 +1692,11 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='90'%3E %3Cg transform='scale(1 1.5)'%3E %3Crect width='99' height='99' fill='rgb(74,79,104)'/%3E %3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='rgb(78,84,109)'/%3E %3Crect width='99' height='1' transform='rotate(45)' fill='rgb(87,91,108)'/%3E %3Crect width='99' height='1' transform='translate(0 60) rotate(-45)' fill='rgb(87,91,108)'/%3E %3C/g%3E %3C/svg%3E");
   background-size: 60px, 90px;
   background-position: center -30px;
+<<<<<<< Updated upstream
   color: #ffffff;
+=======
+  color: #f7f7f8;
+>>>>>>> Stashed changes
 }
 #strapless_patterns_argyle .pattern:nth-child(1):before {
   content: '.argyle (@color1)';
@@ -1388,8 +1732,13 @@
   content: '.dots (@color2)';
 }
 #strapless_patterns_dots .pattern:nth-child(2) {
+<<<<<<< Updated upstream
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(138,127,98)'/%3E %3Crect width='1' height='1' fill='rgb(117,112,84)'/%3E %3C/svg%3E");
   background-size: 10px, 10px;
+=======
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(138,127,98)'/%3E %3Crect width='1' height='1' fill='rgb(116,115,82)'/%3E %3C/svg%3E");
+  background-size: 5px, 5px;
+>>>>>>> Stashed changes
   background-position: center -2.5px;
   color: #11100c;
 }
@@ -1419,7 +1768,11 @@
 }
 #strapless_patterns_stripes .pattern:nth-child(2) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(127,98,138)'/%3E %3Cpath d='M0 5L5 0ZM6 4L4 6ZM-1 1L1 -1Z' stroke='rgb(143,114,152)' stroke-width='1'/%3E %3C/svg%3E");
+<<<<<<< Updated upstream
   background-size: 20px, 20px;
+=======
+  background-size: 5px, 5px;
+>>>>>>> Stashed changes
   background-position: center -2.5px;
   color: #ffffff;
 }
@@ -1430,7 +1783,11 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(71,76,100)'/%3E %3Cpath d='M0 5L5 0ZM6 4L4 6ZM-1 1L1 -1Z' stroke='rgb(84,92,117)' stroke-width='1'/%3E %3C/svg%3E");
   background-size: 5px, 5px;
   background-position: center -2.5px;
+<<<<<<< Updated upstream
   color: #ffffff;
+=======
+  color: #f7f7f8;
+>>>>>>> Stashed changes
 }
 #strapless_patterns_stripes .pattern:nth-child(3):before {
   content: '.stripes (@color3b)';
@@ -1448,8 +1805,13 @@
   content: '.honeycomb (@color4)';
 }
 #strapless_patterns_honeycomb .pattern:nth-child(2) {
+<<<<<<< Updated upstream
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E %3Crect width='56' height='100' fill='rgb(78,139,78)'/%3E %3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='rgb(78,139,78)' stroke-width='2'/%3E %3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='rgb(77,135,75)' stroke-width='2'/%3E %3C/svg%3E");
   background-size: 28px, 50px;
+=======
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E %3Crect width='56' height='100' fill='rgb(78,139,78)'/%3E %3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='rgb(78,139,78)' stroke-width='2'/%3E %3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='rgb(76,134,75)' stroke-width='2'/%3E %3C/svg%3E");
+  background-size: 56px, 100px;
+>>>>>>> Stashed changes
   background-position: center -28px;
   color: #060c06;
 }
@@ -1472,7 +1834,11 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='60' height='30'%3E %3Cdefs%3E %3Crect id='r' width='30' height='15' fill='rgb(74,79,104)' stroke-width='2.5' stroke='rgb(79,85,111)'/%3E %3Cg id='p'%3E %3Cuse xlink:href='%23r'/%3E %3Cuse y='15' xlink:href='%23r'/%3E %3Cuse y='30' xlink:href='%23r'/%3E %3Cuse y='45' xlink:href='%23r'/%3E %3C/g%3E %3C/defs%3E %3Cuse xlink:href='%23p' transform='translate(0 -25) skewY(40)'/%3E %3Cuse xlink:href='%23p' transform='translate(30 0) skewY(-40)'/%3E %3C/svg%3E");
   background-size: 60px, 30px;
   background-position: center -30px;
+<<<<<<< Updated upstream
   color: #ffffff;
+=======
+  color: #f7f7f8;
+>>>>>>> Stashed changes
 }
 #strapless_patterns_chevrons .pattern:nth-child(1):before {
   content: '.chevrons (@color1)';
@@ -1530,6 +1896,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+<<<<<<< Updated upstream
 }
 @media screen and (min-width: 768px) {
   .pattern-preview > .pattern {
@@ -1553,6 +1920,12 @@
     line-height: 16px;
     width: 100%;
   }
+=======
+  padding: 6px;
+  font-size: 18px;
+  line-height: 16px;
+  width: 100%;
+>>>>>>> Stashed changes
 }
 html {
   font-family: sans-serif;
@@ -1752,7 +2125,7 @@ body {
   color: #595959;
   font-size: 16px;
   line-height: 1.62;
-  padding-top: 60px;
+  padding-top: 48px;
   margin-bottom: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
 }
@@ -1763,7 +2136,11 @@ body {
 }
 nav {
   background-color: #4A4F68;
+<<<<<<< Updated upstream
   color: #ffffff;
+=======
+  color: #f7f7f8;
+>>>>>>> Stashed changes
   height: 48px;
   line-height: 48px;
   font-size: 18px;
@@ -1902,6 +2279,11 @@ section.failure {
   padding-bottom: 12px;
 }
 main {
+<<<<<<< Updated upstream
+=======
+  background-color: #35394a;
+  color: #dbdbde;
+>>>>>>> Stashed changes
   background-color: #626e8a;
   color: #ffffff;
   padding: 12px;
@@ -1931,12 +2313,18 @@ main img {
 }
 body > footer {
   padding-top: 24px;
+<<<<<<< Updated upstream
   width: auto;
   max-width: 100%;
   border-radius: 0;
 }
 footer aside {
   max-width: 960px;
+=======
+}
+footer aside {
+  max-width: 920px;
+>>>>>>> Stashed changes
 }
 h1 {
   font-size: 2.5em;
@@ -2008,6 +2396,7 @@ aside {
   dl,
   li,
   aside {
+<<<<<<< Updated upstream
     max-width: 55ch;
   }
 }
@@ -2016,6 +2405,8 @@ ul {
 }
 @media screen and (min-width: 480px) {
   footer {
+=======
+>>>>>>> Stashed changes
     max-width: 55ch;
   }
 }
@@ -2063,6 +2454,36 @@ aside.failure {
   background-color: #521a1a;
   color: #e8e0e0;
 }
+p.action,
+aside.action {
+  background-color: #6d77aa;
+  color: #050507;
+}
+p.reaction,
+aside.reaction {
+  background-color: #8e5db2;
+  color: #ffffff;
+}
+p.info,
+aside.info {
+  background-color: #75a4c5;
+  color: #223039;
+}
+p.warning,
+aside.warning {
+  background-color: #d29476;
+  color: #3d2b22;
+}
+p.success,
+aside.success {
+  background-color: #74b174;
+  color: #223422;
+}
+p.failure,
+aside.failure {
+  background-color: #cb5959;
+  color: #110707;
+}
 ul,
 ol {
   padding-left: 2ch;
@@ -2078,15 +2499,24 @@ a {
   color: inherit;
   text-decoration: underline;
 }
+<<<<<<< Updated upstream
 aside,
 footer {
   margin-bottom: 1em;
   padding-bottom: 12px;
+=======
+aside {
+  padding: 0 1em;
+>>>>>>> Stashed changes
 }
 aside > button,
 footer > button {
   width: 100%;
+<<<<<<< Updated upstream
   margin-bottom: 12px;
+=======
+  margin-bottom: 1em;
+>>>>>>> Stashed changes
 }
 p + aside,
 p + footer {
@@ -2095,6 +2525,9 @@ p + footer {
 aside > *:only-child,
 footer > *:only-child {
   margin-bottom: 0;
+}
+p + aside {
+  padding-top: 12px;
 }
 @media screen and (min-width: 480px) {
   aside,
@@ -2121,6 +2554,7 @@ footer > *:only-child {
     margin-right: 6px;
     margin-bottom: 0;
   }
+<<<<<<< Updated upstream
   aside p,
   footer p {
     margin-left: 24px;
@@ -2150,6 +2584,8 @@ footer > *:only-child {
     -webkit-justify-content: flex-end;
     justify-content: flex-end;
   }
+=======
+>>>>>>> Stashed changes
 }
 form {
   padding: .4em 1.62ch;
@@ -2387,6 +2823,7 @@ input[type="submit"]:active {
 }
 button.action,
 html input[type="button"].action,
+<<<<<<< Updated upstream
 input[type="submit"].action {
   background-color: #454d77 !important;
   color: white !important;
@@ -2515,6 +2952,141 @@ hr {
   border-color: #3b4253;
   border-top-color: #373d4d;
   border-bottom-color: #464e62;
+=======
+input[type="reset"].action,
+input[type="submit"].action,
+.action > button,
+.action > html input[type="button"],
+.action > input[type="reset"],
+.action > input[type="submit"] {
+  background-color: #454d77;
+  color: #f7f7f9;
+}
+button.action:active,
+html input[type="button"].action:active,
+input[type="reset"].action:active,
+input[type="submit"].action:active,
+.action > button:active,
+.action > html input[type="button"]:active,
+.action > input[type="reset"]:active,
+.action > input[type="submit"]:active {
+  background-color: #3b4266;
+}
+button.reaction,
+html input[type="button"].reaction,
+input[type="reset"].reaction,
+input[type="submit"].reaction,
+.reaction > button,
+.reaction > html input[type="button"],
+.reaction > input[type="reset"],
+.reaction > input[type="submit"] {
+  background-color: #5f3a79;
+  color: #f1edf3;
+}
+button.reaction:active,
+html input[type="button"].reaction:active,
+input[type="reset"].reaction:active,
+input[type="submit"].reaction:active,
+.reaction > button:active,
+.reaction > html input[type="button"]:active,
+.reaction > input[type="reset"]:active,
+.reaction > input[type="submit"]:active {
+  background-color: #513168;
+}
+button.info,
+html input[type="button"].info,
+input[type="reset"].info,
+input[type="submit"].info,
+.info > button,
+.info > html input[type="button"],
+.info > input[type="reset"],
+.info > input[type="submit"] {
+  background-color: #3b6684;
+  color: #ffffff;
+}
+button.info:active,
+html input[type="button"].info:active,
+input[type="reset"].info:active,
+input[type="submit"].info:active,
+.info > button:active,
+.info > html input[type="button"]:active,
+.info > input[type="reset"]:active,
+.info > input[type="submit"]:active {
+  background-color: #335973;
+}
+button.warning,
+html input[type="button"].warning,
+input[type="reset"].warning,
+input[type="submit"].warning,
+.warning > button,
+.warning > html input[type="button"],
+.warning > input[type="reset"],
+.warning > input[type="submit"] {
+  background-color: #995635;
+  color: #ffffff;
+}
+button.warning:active,
+html input[type="button"].warning:active,
+input[type="reset"].warning:active,
+input[type="submit"].warning:active,
+.warning > button:active,
+.warning > html input[type="button"]:active,
+.warning > input[type="reset"]:active,
+.warning > input[type="submit"]:active {
+  background-color: #864b2f;
+}
+button.success,
+html input[type="button"].success,
+input[type="reset"].success,
+input[type="submit"].success,
+.success > button,
+.success > html input[type="button"],
+.success > input[type="reset"],
+.success > input[type="submit"] {
+  background-color: #3f6b3f;
+  color: #ffffff;
+}
+button.success:active,
+html input[type="button"].success:active,
+input[type="reset"].success:active,
+input[type="submit"].success:active,
+.success > button:active,
+.success > html input[type="button"]:active,
+.success > input[type="reset"]:active,
+.success > input[type="submit"]:active {
+  background-color: #365b36;
+}
+button.failure,
+html input[type="button"].failure,
+input[type="reset"].failure,
+input[type="submit"].failure,
+.failure > button,
+.failure > html input[type="button"],
+.failure > input[type="reset"],
+.failure > input[type="submit"] {
+  background-color: #993030;
+  color: #ffffff;
+}
+button.failure:active,
+html input[type="button"].failure:active,
+input[type="reset"].failure:active,
+input[type="submit"].failure:active,
+.failure > button:active,
+.failure > html input[type="button"]:active,
+.failure > input[type="reset"]:active,
+.failure > input[type="submit"]:active {
+  background-color: #852a2a;
+}
+mark,
+::selection {
+  background-color: #3f5759;
+  color: #ffffff;
+}
+hr {
+  border-color: #3f4459;
+  border-top-color: #3b4053;
+  border-bottom-color: #4a5068;
+>>>>>>> Stashed changes
 }
 .hide,
 .hidden {
@@ -2666,7 +3238,11 @@ body,
   text-indent: -9999px;
   white-space: nowrap;
   background-color: #4A4F68;
+<<<<<<< Updated upstream
   border: 2px solid #3b4253;
+=======
+  border: 2px solid #3f4459;
+>>>>>>> Stashed changes
   vertical-align: top;
   margin-top: 5px;
   border-radius: 1.5px;

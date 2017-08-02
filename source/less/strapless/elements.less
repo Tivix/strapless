@@ -15,7 +15,7 @@ html, body, ul, ol, li, form, fieldset, legend {
 
 body {
   .colorize(@background);
-  font-size: 16px;
+  font-size: 18px;
   line-height: @line-height;
   & when (@sticky-nav = true) { padding-top: @nav-height + @padding;}
   margin-bottom: 0;
@@ -133,10 +133,10 @@ nav {
   .no-user-select();
 }
 
-section {
+section, main {
   width: 100%;
   margin: 0 auto;
-  padding: @padding @padding @padding*4 @padding;
+  padding: @padding;
 
   &:first-child {
     margin-top: 0;
@@ -146,13 +146,13 @@ section {
     margin: 0 auto;
     max-width: @content-max-width;
 
-    &:last-child {
-      margin-bottom: @padding;
-    }
-
     &:only-child {
       margin-top: @padding;
     }
+  }
+
+  > aside {
+    margin-bottom: @padding;
   }
 
   > * + * {
@@ -197,21 +197,10 @@ section.action,
 section.reaction,
 section.success,
 section.failure {
-  padding-bottom: @padding;
+  // padding-bottom: @padding;
 }
 
 main {
-  
-  .set-main-color() when (@scheme-type = light) {
-    @main-color: @color1c;
-  }
-
-  .set-main-color() when (default()) {
-    @main-color: @color1a;
-  }
-
-  .set-main-color();
-  .colorize(@main-color);
   padding: @padding;
   max-width: @content-max-width;
   margin: 0 auto;
@@ -276,7 +265,7 @@ h5, h6 {
 }
 
 p, form, article, ul, dl, li, aside {
-  margin: 0 auto 1em;
+  margin: 0 auto 1em auto;
 
   .on-large-phone({
     max-width: @text-measure;
@@ -293,22 +282,9 @@ footer {
   });
 }
 
-p.info,
-p.warning,
-p.action,
-p.reaction,
-p.success,
-p.failure,
-aside.info,
-aside.warning,
-aside.action,
-aside.reaction,
-aside.success,
-aside.failure {
-  padding: @padding 1em (1.2 * @padding) 1em;
-}
-
 p, aside {
+  padding: 0;
+
   .p-color(@color) {
 
     .set-a-color(@color);
@@ -316,15 +292,11 @@ p, aside {
     .set-tone(@color);
 
     .set-bg(@bg-color) when (@scheme-type = dark) {
-      @bg: average(@color, black);
-    }
-
-    .set-bg(@bg-color) when (@scheme-type = light) {
-      @bg: average(@color, white);
+      @bg: @a-color;
     }
 
     .set-bg(@bg-color) when (default()) {
-      @bg: average(@color, @gray);
+      @bg: @a-color;
     }
     .set-bg(@color);
     .colorize(@bg);
@@ -350,6 +322,10 @@ p, aside {
   .make-paragraphs-for(@semantic-colors);
 }
 
+aside { 
+  padding: @padding 1em;
+}
+
 ul, ol {
   padding-left: 2ch;
 }
@@ -370,16 +346,17 @@ a {
 
 aside, footer {
 
-  margin-bottom: 1em;
+  margin-bottom: @padding;
   padding-bottom: @padding;
+  border-radius: @border-radius;
+
+  > form {
+    padding: 0;
+  }
 
   > button {
     width: 100%;
     margin-bottom: @padding;
-  }
-
-  p + & {
-    padding-top: @padding;
   }
 
   > *:only-child {
@@ -387,7 +364,7 @@ aside, footer {
   }
 
   .on-large-phone({
-    padding: 0 1em;
+    padding: @padding 1em;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: row;
@@ -396,7 +373,6 @@ aside, footer {
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
-    border-radius: @border-radius;
 
     > button {
       width: auto;
@@ -404,14 +380,13 @@ aside, footer {
     }
 
     > * {
-      margin-left: @padding/2;
-      margin-right: @padding/2;
+      margin-left: 0;
+      margin-right: @padding;
       margin-bottom: 0;
-    }
 
-    p {
-      margin-left: @padding*2;
-      margin-right: @padding*2;
+      &:last-child {
+        margin-right: 0;
+      }
     }
 
     .headline-elements({
@@ -445,7 +420,7 @@ form {
   }
 
   padding: .4em 1.62ch;
-  margin-bottom: 2em;
+  margin-bottom: 0;
 
   > * {
     // width: 100%;
@@ -465,15 +440,19 @@ form {
   input,
   textarea {
     width: 100%;
+    min-width: 18ch;
     padding: 1ch;
     border: 1px solid @gray-darker;
   }
 
   > footer {
     text-align: right;
-    > button + button {
-      margin-left: @padding;
-    }
+
+    .on-large-phone({
+      > button + button {
+        margin-left: @padding;
+      }
+    });
   }
 
   .headline-elements({
@@ -617,16 +596,26 @@ blockquote {
 
 code, pre {
   .code-color(@code-color) {
-    background: mix(@code-color, #333, 10%);
-    color: mix(@code-color, white, 10%);
+    @bg: average(@code-color, #333);
+    background: @bg;
+    .tint-text-against(@bg);
   }
 
-  .code-color(@color2);
+  .code-color(@gray-darker);
   font-family: monospace;
   vertical-align: middle;
-  font-size: 72%;
-  padding: .125em .5em .175em .5em;
+  padding: @padding 1em;
+  border-radius: @border-radius;
+}
+
+code {
+  font-size: 80%;
+  padding: .16em .5em;
   border-radius: @border-radius/2;
+}
+
+pre {
+  margin-bottom: 1em;
 }
 
 .button-elements({
