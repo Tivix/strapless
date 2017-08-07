@@ -1,6 +1,7 @@
 .contrast-text-against(@color: @background) when (default()) {
   // automatically sets contrastful text color given a background color
 
+  // find how much we could potentially tint by finding white contrast ratio
   .set-contrast-ratio(@color, white);
 
   .tint-or-shade(@color) when (@contrast-ratio > 4.5) {
@@ -9,13 +10,14 @@
   }
 
   .tint-or-shade(@color) when (default()) {
+    // otherwise, shade the text
     .shade-text-against(@color);
   }
 
   .tint-or-shade(@color);
 }
 
-.contrast-text-against(@color: @background) when (luma(@color) = 100%) {
+.contrast-text-against(@color: @background) when (@color = white) {
   // the objectively correct text color against white
   // arrived at by monks after years of meditation and seclusion
 
@@ -23,7 +25,7 @@
 }
 
 .tint-text-against(@color: @background;) {
-  // adds black to color until contrast ratio is met
+  // adds white to color until contrast ratio is met
 
   @contrast-standard: 9;
   @start: 55%;
@@ -100,11 +102,6 @@
   // compares c1 and c2 to a given color, assigns a @farther and @closer
   // based on distance in RGB space
 
-  .set-distance-m-c1();
-  .set-distance-m-c2();
-
-  .resolve();
-
   .set-distance-m-c1() {
     .set-distance(@compare, @c1);
     @distance-m-c1: @distance;
@@ -124,7 +121,14 @@
     @farther: @c1;
     @closer: @c2;
   }
+
+  .set-distance-m-c1();
+  .set-distance-m-c2();
+
+  .resolve();
 }
+
+.set-farther-closer(@compare, @c1, @c2) { .set-closer-farther(@compare, @c1, @c2);}
 
 .set-tone(@color) {
   // sets variable @tone to white or black, depending on which is better for text contrast
@@ -159,27 +163,45 @@
   .contrast-text-against(@color);
 }
 
-.set-a-color(@color, @compare: @color, @scheme: @scheme-type) {
-  // makes "a" color in schemes, a lighter version of @color
+.colorize(@color-l, @color-m, @color-d) {
+  // when given three arguments, colorizes in light, medium, dark
 
-  @iterations: 10;
-  @luma: luma(@base-color);
-
-  .adjust-contrast() when (@scheme = light) {
-    @contrast-standard: 1.35;
-    @initial-lighten: 4%;
+  .set-bg() when (@scheme-type = dark) {
+    @bg: @color-d;
   }
 
-  .adjust-contrast() when (default()) {
+  .set-bg() when (@scheme-type = light) {
+    .set-a-color(@color);
+    @bg: @color-l;
+  }
+
+  .set-bg() when (default()) {
+    @bg: @color-m;
+  }
+
+  .set-bg;
+  .colorize(@bg);
+}
+
+.set-a-color(@color, @compare: @color, @scheme: @scheme-type) {
+  
+  .settings() when (@scheme = light) {
+    @contrast-standard: 1.15;
+    @initial-lighten: 4%;
+    @iterations: 6;
+  }
+
+  .settings() when (default()) {
     @contrast-standard: 1.4;
     @initial-lighten: 8%;
+    @iterations: 10;
   }
 
-  .adjust-contrast();
+  .settings();
 
   .set-a(@a, @contrast-ratio, @index) when (@index <= @iterations)  
                                        and (@contrast-ratio < @contrast-standard)
-                                       and (luma(@a) < 85%) {
+                                       and (luma(@a) < 90%) {
     @new-a: lighten(@a, 3.5%);
     .set-contrast-ratio(@color, @new-a);
     .set-a(@new-a, @contrast-ratio, @index + 1);
@@ -190,16 +212,13 @@
   }
 
   .set-closer-farther(@compare; spin(@color, @analog/2); spin(@color, -@analog/2));
-  @a-color-base: lighten(@closer, @initial-lighten);
-  .set-a(@a-color-base, 1, 1);
+  .set-a(lighten(@closer, @initial-lighten), 1, 1);
 }
 
 .set-b-color(@color, @compare: @color) {
-  // makes "b" color in schemes, an analog with similar lightness
-
-  @candidate1: spin(@color, @accent);
-  @candidate2: spin(@color, -@accent);
-  .set-closer-farther(@compare; @candidate1; @candidate2);
+  @b-candidate-1: spin(@color, @accent);
+  @b-candidate-2: spin(@color, -@accent);
+  .set-closer-farther(@compare; @b-candidate-1; @b-candidate-2);
   @b-base: @farther;
 
   @iterations: 5;
@@ -224,27 +243,28 @@
 }
 
 .set-c-color(@color, @compare: @color, @scheme: @scheme-type) {
-  // makes "c" color in schemes, a darker version of @color
-
-  @iterations: 10;
+  
   @luma: luma(@base-color);
 
-  .adjust-contrast() when (@scheme = dark) {
+  .settings() when (@scheme = dark) {
     @contrast-standard: 1.3;
     @initial-darken: 4%;
+    @iterations: 8;
   }
 
-  .adjust-contrast() when (@luma < 10%) {
+  .settings() when (@luma < 10%) {
     @contrast-standard: 1.15;
-    @initial-darken: 2%;    
+    @initial-darken: 2%;
+    @iterations: 6; 
   }
 
-  .adjust-contrast() when (default()) {
+  .settings() when (default()) {
     @contrast-standard: 1.4;
     @initial-darken: 8%;
+    @iterations: 10;
   }
 
-  .adjust-contrast();
+  .settings();
 
   .set-c(@c, @contrast-ratio, @index) when (@index <= @iterations)  
                                        and (@contrast-ratio < @contrast-standard) {
@@ -258,9 +278,7 @@
   }
 
   .set-closer-farther(@compare; spin(@color, @analog/2); spin(@color, -@analog/2));
-  .set-contrast-ratio(@color, @c-color-base);
-  @c-color-base: darken(@closer, @initial-darken);
-  .set-c(@c-color-base, @contrast-ratio, 1);
+  .set-c(darken(@closer, @initial-darken), 1, 1);
 }
 
 .set-average(@colors) {

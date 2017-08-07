@@ -1,4 +1,4 @@
-<main id="feature" class="action">
+<main id="feature">
     <h1>Strapless</h1>
     <p>Finally, Less is <strong>cool</strong> again.</p>
     <p>Strapless is a color-changing CSS&nbsp;boilerplate, and a powerful LessCSS library for colors and patterns.</p>
@@ -23,11 +23,13 @@
     </div>
     <label>Try a base color:</label>
     <input id="seed_color" class="jscolor" value="4A4F68" />
-    <button type="button" class="reaction" onclick="Strapless.updateScheme();">Preview</button>
-    <button type="button" class="failure" onclick="Strapless.downloadCSS();">Get CSS</button>
+    <footer>
+        <button type="button" class="reaction" onclick="Strapless.updateScheme();">Preview</button>
+        <button type="button" class="failure" onclick="Strapless.downloadCSS();">Get CSS</button>
+    </footer>
 </form>
 
-<section id="tests">
+<!-- <section id="tests">
     <table class="">
         <tr>
             <th>
@@ -53,68 +55,9 @@
         </tr>
 
     </table>
-</section>
+</section> -->
 
 <section id="why">
-    <div class="palettes">
-        <div id="sl_accented" class="palette-preview">
-            <h3>Accented</h3>
-            <div class="sl-color-container sl-color1-colors">
-                <p class="sl-color1 swatch"></p>
-                <p class="sl-color1a swatch"></p>
-                <p class="sl-color1b swatch"></p>
-                <p class="sl-color1c swatch"></p>
-            </div>
-            <div class="sl-color-container sl-color2-colors">
-                <p class="sl-color2 swatch"></p>
-                <p class="sl-color2a swatch"></p>
-                <p class="sl-color2b swatch"></p>
-                <p class="sl-color2c swatch"></p>
-            </div>
-            <div class="sl-color-container sl-color3-colors">
-                <p class="sl-color3 swatch"></p>
-                <p class="sl-color3a swatch"></p>
-                <p class="sl-color3b swatch"></p>
-                <p class="sl-color3c swatch"></p>
-            </div>
-            <div class="sl-color-container sl-color4-colors">
-                <p class="sl-color4 swatch"></p>
-                <p class="sl-color4a swatch"></p>
-                <p class="sl-color4b swatch"></p>
-                <p class="sl-color4c swatch"></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="palettes">
-        <div id="sl_accented" class="palette-preview">
-            <h3>Accented</h3>
-            <div class="sl-color-container sl-color1-colors">
-                <p class="sl-color1b swatch"></p>
-                <p class="sl-color1a swatch"></p>
-                <p class="sl-color1 swatch"></p>
-                <p class="sl-color1c swatch"></p>
-            </div>
-            <div class="sl-color-container sl-color2-colors">
-                <p class="sl-color2b swatch"></p>
-                <p class="sl-color2a swatch"></p>
-                <p class="sl-color2 swatch"></p>
-                <p class="sl-color2c swatch"></p>
-            </div>
-            <div class="sl-color-container sl-color3-colors">
-                <p class="sl-color3b swatch"></p>
-                <p class="sl-color3a swatch"></p>
-                <p class="sl-color3 swatch"></p>
-                <p class="sl-color3c swatch"></p>
-            </div>
-            <div class="sl-color-container sl-color4-colors">
-                <p class="sl-color4b swatch"></p>
-                <p class="sl-color4a swatch"></p>
-                <p class="sl-color4 swatch"></p>
-                <p class="sl-color4c swatch"></p>
-            </div>
-        </div>
-    </div>
     <h1>Why Strapless?</h1>
     <p>Strapless isn't a CSS micro/mini/nano-framework. It's a CSS boilerplate. It just makes your plain HTML look good.</p>
     <p>With only six semantic CSS classes to worry about (action, reaction, success, failure, info, warning), Strapless frees you from the overprescriptive cruft of frameworks. Use the grid you like. Snag a dropdown menu that works for your project, not the one we picked and named for you. You were probably going to do that <em>anyway</em>, right?</p>
@@ -133,18 +76,155 @@
         <li>No grid, no columns, no components</li>
         <li>There are no ugly colors, only ugly color schemes</li>
     </ul>
-    <aside class="success">
-        <button type="button">E-mail for more info</button>
-        <p>This is a particular thing to three lines. That's the idea. That's perfectly fine. Wait, wait, it's too long! Wai--</p>
+</section>
+
+<section id="elements" class="action">
+    <h1>Elements</h1>
+</section>
+
+<section class="reaction">
+    <aside>
+        <button>A big button</button>
     </aside>
+</section>
+
+<section id="elements_about">
+    <p>All of Strapless's components happen to be HTML elements too. There are no classes to remember, just different ways to put together HTML tags. Here are some examples.</p>
+</section>
+
+<section id="main_element">
+    <h1>&lt;main&gt;</h1>
+    <p>The <em>main</em> element should give a high-level description of the page and a quick follow-up action.</p>
+    <main class="success">
+        <h2>The <em>main</em> element</h2>
+        <p>This is the lead paragraph.</p>
+        <p>A longer, more descriptive line can follow. Please write 
+    punchy copy and refrain from punching people.</p>
+        <aside>
+            <button class="reaction">Button #1</button>
+            <button>Button #2</button>
+        </aside>
+    </main>
+    <pre>&lt;main class="success"&gt;
+    &lt;h2&gt;The &lt;em&gt;main&lt;/em&gt; element&lt;/h2&gt;
+    &lt;p&gt;This is the lead paragraph.&lt;/p&gt;
+    &lt;p&gt;A longer, more descriptive line can follow. Please write 
+    punchy copy and refrain from punching people.&lt;/p&gt;
+    &lt;aside&gt;
+        &lt;button class="reaction"&gt;Button #1&lt;/button&gt;
+        &lt;button&gt;Button #2&lt;/button&gt;
+    &lt;/aside&gt;
+&lt;/main&gt;</pre>
+    <br>
+    <main class="action">
+        <h1>The quick brown fox jumps <br>over the lazy dog.</h1>
+        <button>Chase the fox away</button>
+    </main>
+    <pre>&lt;main class="action"&gt;
+    &lt;h1&gt;The quick brown fox jumps &lt;br&gt;over the lazy dog.&lt;/h1&gt;
+    &lt;button&gt;Chase the fox away&lt;/button&gt;
+&lt;/main&gt;</pre>
+</section>
+
+<section id="sections">
+    <h1>&lt;section&gt;</h1>
+    <p>Use of the <code>&lt;section&gt;</code> element (seen throughout this page) is encouraged. Sections have default CSS for spacing out your content that's aimed at getting it looking good on the first pass.</p>
+</section>
+<section class="reaction">
+    <h2>Section title</h2>
+    <p>Sections support semantic classes. This one is using <code>reaction</code>.</p>
+    <pre>&lt;section class="reaction"&gt;
+    &lt;h2&gt;Section title&lt;/h2&gt;
+    &lt;p&gt;Sections support semantic classes. 
+    This one is using &lt;code&gt;reaction&lt;/code&gt;.&lt;/p&gt;
+&lt;/section&gt;</pre>
+</section>
+
+<section id="asides">
+    <h1>&lt;aside&gt;</h1>
+    <p>Asides center everything inside them using flexbox. On mobile, they stack up their contents. Asides are an easy way to present multiple pieces of content side by side.</p>
+    <aside>This is an aside.</aside>
+    <pre>&lt;aside&gt;This is an aside.&lt;/aside&gt;</pre>
+    <p>It's useful for buttons:</p>
+    <aside>
+        <button class="reaction">I'm centered!</button>
+        <button class="failure">Me too</button>
+    </aside>
+    <pre>&lt;aside&gt;
+    &lt;button class="reaction"&gt;I'm centered!&lt;/button&gt;
+    &lt;button class="failure"&gt;Me too&lt;/button&gt;
+&lt;/aside&gt;</pre>
+    <p>Asides support semantic classes, which makes them good for notification messages:</p>
+    <aside class="failure">
+        <p>You just deleted the <strong>entire site</strong>.</p>
+        <button>Okay</button>
+    </aside>
+    <pre>&lt;aside class="failure"&gt;
+    &lt;p&gt;You just deleted the &lt;strong&gt;entire site&lt;/strong&gt;.&lt;/p&gt;
+    &lt;button&gt;Okay&lt;/button&gt;
+&lt;/aside&gt;</pre>
+    <br>
+    <aside class="success">
+        <p>You've updated your profile.</p>
+    </aside>
+    <pre>&lt;aside class="success"&gt;
+    &lt;p&gt;You've updated your profile.&lt;/p&gt;
+&lt;/aside&gt;</pre>
+    <br>
+    <aside>
+        <h6>Join our newsletter</h6>
+        <form>
+            <aside>
+                <input type="text" name="firstname">
+                <button onclick="return false" class="reaction">Submit</button>
+            </aside>
+        </form>
+    </aside>
+    <pre>&lt;aside&gt;
+    &lt;h6&gt;Join our newsletter&lt;/h6&gt;
+    &lt;form&gt;
+        &lt;aside&gt;
+            &lt;input type="text" name="firstname"&gt;
+            &lt;button class="reaction"&gt;Submit&lt;/button&gt;
+        &lt;/aside&gt;
+    &lt;/form&gt;
+&lt;/aside&gt;</pre>
+    <p>Nesting more than one aside inside another will <em>rapidly</em> accelerate the entropic heat death of the universe. Use a full grid solution to avoid prematurely warping the fabric of reality.</p>
+</section>
+
+<section id="paragraphs">
+    <h1>&lt;p&gt;</h1>
+    <p>Paragraphs (like this one!) are by default limited to 55 characters width (or whatever <code>@text-measure</code> is set to). They have an aggressive, but not too aggressive, line height of 1.62 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
+    <p class="info">I'm informing you of something.</p>
+    <pre>&lt;p class="info"&gt;I'm informing you of something.&lt;/p&gt;</pre>
+    <br>
+    <p class="failure">I've made a huge mistake.</p>
+    <pre>&lt;p class="failure"&gt;I've made a huge mistake.&lt;/p&gt;</pre>
+    <br>
+    <p>Of course, paragraphs without a class just look like normal paragraphs.</p>
+    <pre>&lt;p&gt;Of course, paragraphs without a class just look like normal paragraphs.&lt;/p&gt;</pre>
+    <br>
+</section>
+
+<section id="footer">
+    <h1>&lt;footer&gt;</h1>
+    <p>Footers work a lot like asides, except they tend to align elements inside to the right.</p>
     <footer>
-        <button class="reaction">
-            Button 1!
-        </button>
-        <button>
-            Button 2!
-        </button>
+        <button>Submit</button>
     </footer>
+    <pre>&lt;footer&gt;
+    &lt;button&gt;Submit&lt;/button&gt;
+&lt;/footer&gt;</pre>
+    <br>
+    <p>Footers support multiple buttons and semantic classes:</p>
+    <footer class="success">
+        <button class="reaction">Stop the presses</button>
+        <button>Print a banner</button>
+    </footer>
+    <pre>&lt;footer class="success"&gt;
+    &lt;button class="reaction"&gt;Stop the presses&lt;/button&gt;
+    &lt;button&gt;Print a banner&lt;/button&gt;
+&lt;/footer&gt;</pre>
 </section>
 
 <section id="less">
@@ -346,114 +426,6 @@
     <p>All of these colors adjust to the color scheme while still retaining their semantic meaning. The <code>@action</code> and <code>@reaction</code> pair are based on the base color and its complement.</p>
 </section>
 
-<section id="elements">
-    <h1>Elements</h1>
-    <p>All of Strapless's components happen to be HTML elements too. There are no classes to remember, just different ways to put together HTML tags. Here are some examples.</p>
-</section>
-
-<section>
-    <h1>&lt;main&gt;</h1>
-    <p>The <em>main</em> element should give a high description of the page and a quick follow-up action.</p>
-    <main class="info">
-        <h2>The <em>main</em> element</h2>
-        <p>This is the lead paragraph.</p>
-        <p>A longer, more descriptive line can follow. Please write 
-    punchy copy and refrain from punching people.</p>
-        <aside>
-            <button class="reaction">Button #1</button>
-            <button>Button #2</button>
-        </aside>
-    </main>
-    <pre>&lt;main class="info"&gt;
-    &lt;h2&gt;The &lt;em&gt;main&lt;/em&gt; element&lt;/h2&gt;
-    &lt;p&gt;This is the lead paragraph.&lt;/p&gt;
-    &lt;p&gt;A longer, more descriptive line can follow. Please write 
-    punchy copy and refrain from punching people.&lt;/p&gt;
-    &lt;aside&gt;
-        &lt;button class="reaction"&gt;Button #1&lt;/button&gt;
-        &lt;button&gt;Button #2&lt;/button&gt;
-    &lt;/aside&gt;
-&lt;/main&gt;</pre>
-    <br>
-    <main class="action">
-        <h1>The quick brown fox jumps <br>over the lazy dog.</h1>
-        <aside>
-            <button>Chase the fox away</button>
-        </aside>
-    </main>
-    <pre>&lt;main class="action"&gt;
-    &lt;h1&gt;The quick brown fox jumps &lt;br&gt;over the lazy dog.&lt;/h1&gt;
-    &lt;aside&gt;
-        &lt;button&gt;Chase the fox away&lt;/button&gt;
-    &lt;/aside&gt;
-&lt;/main&gt;</pre>
-</section>
-
-<section id="asides">
-    <h1>&lt;aside&gt;</h1>
-    <p>Asides center everything inside them using flexbox. On mobile, they stack up their contents. Asides are an easy way to present multiple pieces of content side by side.</p>
-    <aside>This is an aside.</aside>
-    <pre>&lt;aside&gt;This is an aside.&lt;/aside&gt;</pre>
-    <p>It's useful for buttons:</p>
-    <aside>
-        <button class="reaction">I'm centered!</button>
-        <button class="failure">Me too</button>
-    </aside>
-    <pre>&lt;aside&gt;
-    &lt;button class="reaction"&gt;I'm centered!&lt;/button&gt;
-    &lt;button class="failure"&gt;Me too&lt;/button&gt;
-&lt;/aside&gt;</pre>
-    <p>Asides support semantic classes, which makes them good for notification messages:</p>
-    <aside class="failure">
-        <p>You just deleted the <strong>entire site</strong>.</p>
-        <button>Okay</button>
-    </aside>
-    <pre>&lt;aside class="failure"&gt;
-    &lt;p&gt;You just deleted the &lt;strong&gt;entire site&lt;/strong&gt;.&lt;/p&gt;
-    &lt;button&gt;Okay&lt;/button&gt;
-&lt;/aside&gt;</pre>
-    <br>
-    <aside class="success">
-        <p>You've updated your profile.</p>
-    </aside>
-    <pre>&lt;aside class="success"&gt;
-    &lt;p&gt;You've updated your profile.&lt;/p&gt;
-&lt;/aside&gt;</pre>
-    <br>
-    <aside class="info">
-        <h6>Join our newsletter</h6>
-        <form>
-            <aside>
-                <input type="text" name="firstname"><br>
-                <button onclick="return false" class="reaction">Submit</button>
-            </aside>
-        </form>
-    </aside>
-    <pre>&lt;aside class="info"&gt;
-    &lt;h6&gt;Join our newsletter&lt;/h6&gt;
-    &lt;form&gt;
-        &lt;aside&gt;
-            &lt;input type="text" name="firstname"&gt;&lt;br&gt;
-            &lt;button class="reaction"&gt;Submit&lt;/button&gt;
-        &lt;/aside&gt;
-    &lt;/form&gt;
-&lt;/aside&gt;</pre>
-</section>
-
-<section id="section_example">
-    <h1>&lt;section&gt;</h1>
-    <p>Use of the <code>&lt;section&gt;</code> element (seen throughout this page) is encouraged. Sections have default CSS for spacing out your content that's aimed at getting it looking good on the first pass.</p>
-</section>
-<section class="reaction">
-    <h2>Section title</h2>
-    <p>Sections support semantic classes. This one is using <code>reaction</code>.</p>
-    <pre>&lt;section class="reaction"&gt;
-    &lt;h2&gt;Section title&lt;/h2&gt;
-    &lt;p&gt;Sections support semantic classes. 
-    This one is using &lt;code&gt;reaction&lt;/code&gt;.&lt;/p&gt;
-&lt;/section&gt;</pre>
-</section>
-
 <section id="typography">
     <h2>Typography</h2>
 
@@ -481,12 +453,6 @@
         <cite>Diogenes</cite>
     </blockquote>
     <p>They don't support semantic classes.</p>
-
-    <h3>Paragraphs, etc.</h3>
-    <p>Paragraphs (like this one!) are by default limited to 55 characters width (or whatever <code>@text-measure</code> is set to). They have an aggressive, but not too aggressive, line height of 1.62 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
-    <p class="info">I'm informing you of something.</p>
-    <p class="success">Your stuff wasn't lost in cyber space!</p>
-    <p class="failure">I've made a huge mistake.</p>
 
     <h3>Other Block Elements</h3>
     <article>
@@ -657,19 +623,79 @@
     <p>If you place a <code>nav</code> element at the very beginning or very end of <code>body</code>, it will stick to the top and stretch across the page (seen above).</p>
 </section>
 
+<div class="palettes">
+        <div id="sl_accented" class="palette-preview">
+            <h3>Accented</h3>
+            <div class="sl-color-container sl-color1-colors">
+                <p class="sl-color1 swatch"></p>
+                <p class="sl-color1a swatch"></p>
+                <p class="sl-color1b swatch"></p>
+                <p class="sl-color1c swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color2-colors">
+                <p class="sl-color2 swatch"></p>
+                <p class="sl-color2a swatch"></p>
+                <p class="sl-color2b swatch"></p>
+                <p class="sl-color2c swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color3-colors">
+                <p class="sl-color3 swatch"></p>
+                <p class="sl-color3a swatch"></p>
+                <p class="sl-color3b swatch"></p>
+                <p class="sl-color3c swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color4-colors">
+                <p class="sl-color4 swatch"></p>
+                <p class="sl-color4a swatch"></p>
+                <p class="sl-color4b swatch"></p>
+                <p class="sl-color4c swatch"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="palettes">
+        <div id="sl_accented" class="palette-preview">
+            <h3>Accented</h3>
+            <div class="sl-color-container sl-color1-colors">
+                <p class="sl-color1b swatch"></p>
+                <p class="sl-color1a swatch"></p>
+                <p class="sl-color1 swatch"></p>
+                <p class="sl-color1c swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color2-colors">
+                <p class="sl-color2b swatch"></p>
+                <p class="sl-color2a swatch"></p>
+                <p class="sl-color2 swatch"></p>
+                <p class="sl-color2c swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color3-colors">
+                <p class="sl-color3b swatch"></p>
+                <p class="sl-color3a swatch"></p>
+                <p class="sl-color3 swatch"></p>
+                <p class="sl-color3c swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color4-colors">
+                <p class="sl-color4b swatch"></p>
+                <p class="sl-color4a swatch"></p>
+                <p class="sl-color4 swatch"></p>
+                <p class="sl-color4c swatch"></p>
+            </div>
+        </div>
+    </div>
+
 <section id="forms">
     <h2>Forms</h2>
 
     <form>
-        <h3>Enter your information</h3>
+        <h3 class="success">Enter your information</h3>
         <label>First name:</label>
         <input type="text" name="firstname"><br>
         <label>Last name:</label>
         <input type="text" name="lastname">
         <label>Textarea:</label>
         <textarea rows="4">Placeholder text</textarea>
-        <footer>
-            <button onclick="return false" class="action">Submit</button>
+        <footer class="action">
+            <button onclick="return false" class="reaction">Submit</button>
             <button onclick="return false">Cancel</button>
         </footer>
     </form>

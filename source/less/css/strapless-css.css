@@ -195,29 +195,25 @@ body {
   color: #595959;
   font-size: 16px;
   line-height: 1.62;
-  padding-top: 48px;
+  padding-top: 61px;
   margin-bottom: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
 }
 @media screen and (min-width: 768px) {
   body {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 nav {
   background-color: #4A4F68;
-<<<<<<< Updated upstream
   color: #ffffff;
-=======
-  color: #f7f7f8;
->>>>>>> Stashed changes
-  height: 48px;
-  line-height: 48px;
+  height: 45px;
+  line-height: 45px;
   font-size: 18px;
-  max-height: 48px;
+  max-height: 45px;
   padding: 0;
-  margin-bottom: 12px;
-  border-radius: 6px;
+  margin-bottom: 16px;
+  border-radius: 8px;
   z-index: 1000;
   position: fixed;
   top: 0;
@@ -231,7 +227,7 @@ nav {
 }
 nav > section {
   padding: 0;
-  max-width: 960px;
+  max-width: 980px;
 }
 nav > section > * {
   display: none;
@@ -242,7 +238,7 @@ nav > section > * {
   margin-bottom: 0;
   padding-top: 0;
   padding-bottom: 0;
-  height: 48px;
+  height: 45px;
   vertical-align: middle;
   overflow: hidden;
 }
@@ -253,33 +249,33 @@ nav > section > * {
 }
 nav > section > *:first-child {
   display: block;
-  margin-right: 24px;
+  margin-right: 32px;
 }
 @media screen and (min-width: 480px) {
   nav > section > *:first-child {
-    margin-right: 48px;
+    margin-right: 45px;
   }
 }
 nav > section > *:last-child {
   display: block;
   float: right;
-  line-height: 42px;
+  line-height: 39px;
 }
 nav ul {
-  height: 48px;
+  height: 45px;
 }
 nav li {
   float: left;
-  height: 48px;
-  line-height: 48px;
+  height: 45px;
+  line-height: 45px;
   list-style: none;
 }
 nav h1 {
   display: block;
   float: left;
   font-size: 26px;
-  line-height: 48px;
-  padding: 0 12px;
+  line-height: 45px;
+  padding: 0 16px;
   color: inherit;
 }
 nav a {
@@ -289,8 +285,8 @@ nav a {
   color: inherit;
 }
 nav li > a {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 nav li > a:hover {
   background-color: rgba(255, 255, 255, 0.15);
@@ -298,23 +294,23 @@ nav li > a:hover {
 section {
   width: 100%;
   margin: 0 auto;
-  padding: 12px 12px 48px 12px;
+  padding: 16px;
 }
 section:first-child {
   margin-top: 0;
 }
 section > * {
   margin: 0 auto;
-  max-width: 960px;
-}
-section > *:last-child {
-  margin-bottom: 12px;
+  max-width: 980px;
 }
 section > *:only-child {
-  margin-top: 12px;
+  margin-bottom: 0;
+}
+section > aside {
+  margin-bottom: 1em;
 }
 section > * + * {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 section.action {
   background-color: #252a40;
@@ -340,26 +336,17 @@ section.failure {
   background-color: #521a1a;
   color: #e8e0e0;
 }
-section.info,
-section.warning,
-section.action,
-section.reaction,
-section.success,
-section.failure {
-  padding-bottom: 12px;
-}
 main {
-<<<<<<< Updated upstream
-=======
-  background-color: #35394a;
-  color: #dbdbde;
->>>>>>> Stashed changes
-  background-color: #626e8a;
-  color: #ffffff;
-  padding: 12px;
-  max-width: 960px;
+  padding: 16px;
+  max-width: 980px;
   margin: 0 auto;
   margin-bottom: 1em;
+  text-align: center;
+  background-color: #626e8a;
+  color: #ffffff;
+}
+main p {
+  text-align: left;
 }
 main h1,
 main h2 {
@@ -375,26 +362,76 @@ main img {
   margin: 0 auto;
   max-width: 100%;
 }
-@media screen and (min-width: 960px) {
+section > main {
+  border-radius: 8px;
+}
+main button,
+main html input[type="button"],
+main input[type="submit"] {
+  font-size: 110%;
+}
+main button:only-child,
+main html input[type="button"]:only-child,
+main input[type="submit"]:only-child,
+main button:only-of-type,
+main html input[type="button"]:only-of-type,
+main input[type="submit"]:only-of-type {
+  font-size: 125%;
+  margin-bottom: 1em;
+}
+@media screen and (min-width: 980px) {
   main {
-    padding: 24px;
-    border-radius: 6px;
+    border-radius: 8px;
   }
 }
-body > footer {
-  padding-top: 24px;
-<<<<<<< Updated upstream
-  width: auto;
-  max-width: 100%;
-  border-radius: 0;
+@media screen and (min-width: 960px) {
+  main {
+    max-width: 784px;
+  }
 }
-footer aside {
-  max-width: 960px;
-=======
+main.action {
+  background-color: #6175a4;
+  color: #ffffff;
 }
-footer aside {
-  max-width: 920px;
->>>>>>> Stashed changes
+main.reaction {
+  background-color: #9151ac;
+  color: #ffffff;
+}
+main.info {
+  background-color: #759ac5;
+  color: #1d2731;
+}
+main.warning {
+  background-color: #ce9669;
+  color: #3c2c1e;
+}
+main.success {
+  background-color: #70ab68;
+  color: #21321e;
+}
+main.failure {
+  background-color: #c74c5b;
+  color: #ffffff;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  line-height: 1.62;
+  font-weight: bold;
+}
+h1:only-child,
+h2:only-child,
+h3:only-child,
+h4:only-child,
+h5:only-child,
+h6:only-child {
+  margin-top: 0;
 }
 h1 {
   font-size: 2.5em;
@@ -412,17 +449,7 @@ h5 {
   font-size: 1.3em;
 }
 h6 {
-  font-size: 1.0em;
-}
-h1,
-h2,
-h3,
-h4 {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  text-align: center;
-  line-height: 1.62;
-  font-weight: bold;
+  font-size: 1.1em;
 }
 h1 + h1,
 h1 + h2,
@@ -445,8 +472,6 @@ h4 + h4 {
 h5,
 h6 {
   margin-top: .5em;
-  margin-bottom: 1em;
-  text-align: center;
   text-transform: uppercase;
 }
 p,
@@ -456,7 +481,7 @@ ul,
 dl,
 li,
 aside {
-  margin: 0 auto 1em;
+  margin: 0 auto 1em auto;
 }
 @media screen and (min-width: 480px) {
   p,
@@ -466,143 +491,89 @@ aside {
   dl,
   li,
   aside {
-<<<<<<< Updated upstream
     max-width: 55ch;
   }
 }
 ul {
   margin: 0 auto 2em;
 }
-@media screen and (min-width: 480px) {
-  footer {
-=======
->>>>>>> Stashed changes
-    max-width: 55ch;
-  }
+p {
+  padding: 0;
 }
-p.info,
-p.warning,
-p.action,
-p.reaction,
-p.success,
-p.failure,
-aside.info,
-aside.warning,
-aside.action,
-aside.reaction,
-aside.success,
-aside.failure {
-  padding: 12px 1em 14.4px 1em;
+p.action {
+  background-color: #1f2535;
+  color: #d7d8db;
 }
-p.action,
-aside.action {
-  background-color: #252a40;
-  color: #d8d9dd;
+p.reaction {
+  background-color: #2e1a36;
+  color: #d0cbd2;
 }
-p.reaction,
-aside.reaction {
-  background-color: #331f42;
-  color: #dad7dd;
+p.info {
+  background-color: #20344b;
+  color: #e1e4e7;
 }
-p.info,
-aside.info {
-  background-color: #234054;
-  color: #f5f6f7;
+p.warning {
+  background-color: #51331b;
+  color: #f7f6f5;
 }
-p.warning,
-aside.warning {
-  background-color: #5f341f;
-  color: #f8f6f5;
+p.success {
+  background-color: #263e23;
+  color: #ebeeeb;
 }
-p.success,
-aside.success {
-  background-color: #274527;
-  color: #f5f7f5;
+p.failure {
+  background-color: #4a171d;
+  color: #ded5d6;
 }
-p.failure,
-aside.failure {
-  background-color: #521a1a;
-  color: #e8e0e0;
-}
-p.action,
-aside.action {
-  background-color: #6d77aa;
-  color: #050507;
-}
-p.reaction,
-aside.reaction {
-  background-color: #8e5db2;
-  color: #ffffff;
-}
-p.info,
-aside.info {
-  background-color: #75a4c5;
-  color: #223039;
-}
-p.warning,
-aside.warning {
-  background-color: #d29476;
-  color: #3d2b22;
-}
-p.success,
-aside.success {
-  background-color: #74b174;
-  color: #223422;
-}
-p.failure,
-aside.failure {
-  background-color: #cb5959;
-  color: #110707;
-}
-ul,
-ol {
-  padding-left: 2ch;
-}
-dt {
-  font-weight: bold;
-  font-size: 90%;
-}
-dd {
-  margin-bottom: 12px;
-}
-a {
-  color: inherit;
-  text-decoration: underline;
-}
-<<<<<<< Updated upstream
 aside,
 footer {
-  margin-bottom: 1em;
-  padding-bottom: 12px;
-=======
-aside {
-  padding: 0 1em;
->>>>>>> Stashed changes
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+aside > *,
+footer > * {
+  margin-bottom: 8px;
+}
+aside > *:last-child,
+footer > *:last-child {
+  margin-bottom: 0;
+}
+aside > form,
+footer > form {
+  padding: 0;
 }
 aside > button,
 footer > button {
   width: 100%;
-<<<<<<< Updated upstream
-  margin-bottom: 12px;
-=======
-  margin-bottom: 1em;
->>>>>>> Stashed changes
 }
-p + aside,
-p + footer {
-  padding-top: 12px;
-}
-aside > *:only-child,
-footer > *:only-child {
+aside aside,
+footer aside {
+  margin-top: 0;
   margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
-p + aside {
-  padding-top: 12px;
+aside:only-child,
+footer:only-child {
+  margin-bottom: 0;
+  font-size: 120%;
+}
+aside.action,
+footer.action,
+aside.reaction,
+footer.reaction,
+aside.info,
+footer.info,
+aside.warning,
+footer.warning,
+aside.success,
+footer.success,
+aside.failure,
+footer.failure {
+  padding: 16px 1em;
 }
 @media screen and (min-width: 480px) {
   aside,
   footer {
-    padding: 0 1em;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: row;
@@ -611,7 +582,6 @@ p + aside {
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
-    border-radius: 6px;
   }
   aside > button,
   footer > button {
@@ -620,16 +590,22 @@ p + aside {
   }
   aside > *,
   footer > * {
-    margin-left: 6px;
-    margin-right: 6px;
+    margin-left: 16px;
     margin-bottom: 0;
   }
-  aside p,
-  footer p {
-    margin-left: 24px;
-    margin-right: 24px;
+  aside > *:first-child,
+  footer > *:first-child {
+    margin-left: 0;
   }
-<<<<<<< Updated upstream
+  aside > p,
+  footer > p {
+    margin-right: 0;
+    margin-left: 32px;
+  }
+  aside > p + *,
+  footer > p + * {
+    margin-left: 32px;
+  }
   aside h1,
   footer h1,
   aside h2,
@@ -642,10 +618,49 @@ p + aside {
   footer h5,
   aside h6,
   footer h6 {
-    margin-top: 0;
-    margin-left: 24px;
-    margin-right: 24px;
+    margin: 0 32px;
   }
+}
+p.success,
+p.failure,
+p.action,
+p.reaction,
+p.info,
+p.warning {
+  padding: 16px 1em;
+}
+ul,
+ol {
+  padding-left: 2ch;
+}
+dt {
+  font-weight: bold;
+  font-size: 90%;
+}
+dd {
+  margin-bottom: 16px;
+}
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+body > footer {
+  padding-top: 16px;
+  margin-top: 64px;
+  width: auto;
+  max-width: 100%;
+  border-radius: 0;
+}
+footer aside {
+  max-width: 980px;
+}
+footer.action,
+footer.reaction,
+footer.info,
+footer.warning,
+footer.success,
+footer.failure {
+  padding: 16px;
 }
 @media screen and (min-width: 480px) {
   footer {
@@ -654,16 +669,10 @@ p + aside {
     -webkit-justify-content: flex-end;
     justify-content: flex-end;
   }
-=======
->>>>>>> Stashed changes
 }
 form {
   padding: .4em 1.62ch;
-  margin-bottom: 2em;
-}
-form > * {
-  margin-top: .4em;
-  margin-bottom: .4em;
+  margin-bottom: 0;
 }
 form p {
   padding: 0;
@@ -671,14 +680,15 @@ form p {
 form input,
 form textarea {
   width: 100%;
+  min-width: 18ch;
   padding: 1ch;
   border: 1px solid #3e3e3e;
 }
-form > footer {
-  text-align: right;
-}
-form > footer > button + button {
-  margin-left: 12px;
+form input + form input,
+form input + form label,
+form label + form input,
+form label + form label {
+  margin-top: 16px;
 }
 form h1:first-child,
 form h2:first-child,
@@ -687,13 +697,6 @@ form h4:first-child,
 form h5:first-child,
 form h6:first-child {
   margin-top: 0;
-}
-form button,
-form html input[type="button"],
-form input[type="submit"] {
-  font-size: 110%;
-  margin-top: .4em;
-  margin-bottom: .4em;
 }
 label {
   display: block;
@@ -788,18 +791,18 @@ table th,
 table td {
   text-align: left;
   vertical-align: top;
-  padding: 6px;
+  padding: 8px;
 }
 table thead th {
   vertical-align: bottom;
 }
 table tr > td:first-child,
 table tr > th:first-child {
-  padding-left: 12px;
+  padding-left: 16px;
 }
 table tr > td:last-child,
 table tr > th:last-child {
-  padding-right: 12px;
+  padding-right: 16px;
 }
 fieldset,
 img {
@@ -810,11 +813,6 @@ figcaption {
   text-align: left;
   vertical-align: top;
   font-weight: normal;
-}
-input,
-textarea {
-  font-size: 110%;
-  line-height: 1.1;
 }
 abbr,
 acronym {
@@ -844,13 +842,20 @@ blockquote cite:before {
 }
 code,
 pre {
-  background: #383835;
-  color: #f0efed;
+  background-color: #1f1f1f;
+  color: #cdcdcd;
   font-family: monospace;
+  font-size: 85%;
   vertical-align: middle;
-  font-size: 72%;
-  padding: .125em .5em .175em .5em;
-  border-radius: 3px;
+  padding: 16px 1em;
+  border-radius: 8px;
+}
+code {
+  padding: .16em .5em;
+  border-radius: 4px;
+}
+pre {
+  margin-bottom: 1em;
 }
 button,
 html input[type="button"],
@@ -863,7 +868,7 @@ input[type="submit"] {
   cursor: pointer;
   background-image: none;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   outline: none;
   white-space: nowrap;
   padding: .35em .65em;
@@ -877,7 +882,8 @@ input[type="submit"] {
 button:active,
 html input[type="button"]:active,
 input[type="submit"]:active {
-  background-color: #3b4266;
+  background-color: #374360;
+  box-shadow: inset 0 1px 0 #333e58;
 }
 .action button,
 .action html input[type="button"],
@@ -888,11 +894,11 @@ input[type="submit"]:active {
 .action button:active,
 .action html input[type="button"]:active,
 .action input[type="submit"]:active {
-  background-color: #3b4266;
+  background-color: #374360;
+  box-shadow: inset 0 1px 0 #333e58;
 }
 button.action,
 html input[type="button"].action,
-<<<<<<< Updated upstream
 input[type="submit"].action {
   background-color: #454d77 !important;
   color: white !important;
@@ -900,7 +906,8 @@ input[type="submit"].action {
 button.action:active,
 html input[type="button"].action:active,
 input[type="submit"].action:active {
-  background-color: #3b4266 !important;
+  background-color: #374360 !important;
+  box-shadow: inset 0 1px 0 #333e58 !important;
 }
 .reaction button,
 .reaction html input[type="button"],
@@ -911,7 +918,8 @@ input[type="submit"].action:active {
 .reaction button:active,
 .reaction html input[type="button"]:active,
 .reaction input[type="submit"]:active {
-  background-color: #513168;
+  background-color: #522e61;
+  box-shadow: inset 0 1px 0 #4b2a59;
 }
 button.reaction,
 html input[type="button"].reaction,
@@ -922,7 +930,8 @@ input[type="submit"].reaction {
 button.reaction:active,
 html input[type="button"].reaction:active,
 input[type="submit"].reaction:active {
-  background-color: #513168 !important;
+  background-color: #522e61 !important;
+  box-shadow: inset 0 1px 0 #4b2a59 !important;
 }
 .info button,
 .info html input[type="button"],
@@ -933,7 +942,8 @@ input[type="submit"].reaction:active {
 .info button:active,
 .info html input[type="button"]:active,
 .info input[type="submit"]:active {
-  background-color: #335973;
+  background-color: #305b6c;
+  box-shadow: inset 0 1px 0 #2c5363;
 }
 button.info,
 html input[type="button"].info,
@@ -944,7 +954,8 @@ input[type="submit"].info {
 button.info:active,
 html input[type="button"].info:active,
 input[type="submit"].info:active {
-  background-color: #335973 !important;
+  background-color: #305b6c !important;
+  box-shadow: inset 0 1px 0 #2c5363 !important;
 }
 .warning button,
 .warning html input[type="button"],
@@ -955,7 +966,8 @@ input[type="submit"].info:active {
 .warning button:active,
 .warning html input[type="button"]:active,
 .warning input[type="submit"]:active {
-  background-color: #864b2f;
+  background-color: #88412f;
+  box-shadow: inset 0 1px 0 #7e3d2c;
 }
 button.warning,
 html input[type="button"].warning,
@@ -966,7 +978,8 @@ input[type="submit"].warning {
 button.warning:active,
 html input[type="button"].warning:active,
 input[type="submit"].warning:active {
-  background-color: #864b2f !important;
+  background-color: #88412f !important;
+  box-shadow: inset 0 1px 0 #7e3d2c !important;
 }
 .success button,
 .success html input[type="button"],
@@ -977,7 +990,8 @@ input[type="submit"].warning:active {
 .success button:active,
 .success html input[type="button"]:active,
 .success input[type="submit"]:active {
-  background-color: #365b36;
+  background-color: #3b5d37;
+  box-shadow: inset 0 1px 0 #365432;
 }
 button.success,
 html input[type="button"].success,
@@ -988,7 +1002,8 @@ input[type="submit"].success {
 button.success:active,
 html input[type="button"].success:active,
 input[type="submit"].success:active {
-  background-color: #365b36 !important;
+  background-color: #3b5d37 !important;
+  box-shadow: inset 0 1px 0 #365432 !important;
 }
 .failure button,
 .failure html input[type="button"],
@@ -999,7 +1014,8 @@ input[type="submit"].success:active {
 .failure button:active,
 .failure html input[type="button"]:active,
 .failure input[type="submit"]:active {
-  background-color: #852a2a;
+  background-color: #872a36;
+  box-shadow: inset 0 1px 0 #7e2732;
 }
 button.failure,
 html input[type="button"].failure,
@@ -1010,7 +1026,8 @@ input[type="submit"].failure {
 button.failure:active,
 html input[type="button"].failure:active,
 input[type="submit"].failure:active {
-  background-color: #852a2a !important;
+  background-color: #872a36 !important;
+  box-shadow: inset 0 1px 0 #7e2732 !important;
 }
 mark,
 ::selection {
@@ -1021,141 +1038,6 @@ hr {
   border-color: #3b4253;
   border-top-color: #373d4d;
   border-bottom-color: #464e62;
-=======
-input[type="reset"].action,
-input[type="submit"].action,
-.action > button,
-.action > html input[type="button"],
-.action > input[type="reset"],
-.action > input[type="submit"] {
-  background-color: #454d77;
-  color: #f7f7f9;
-}
-button.action:active,
-html input[type="button"].action:active,
-input[type="reset"].action:active,
-input[type="submit"].action:active,
-.action > button:active,
-.action > html input[type="button"]:active,
-.action > input[type="reset"]:active,
-.action > input[type="submit"]:active {
-  background-color: #3b4266;
-}
-button.reaction,
-html input[type="button"].reaction,
-input[type="reset"].reaction,
-input[type="submit"].reaction,
-.reaction > button,
-.reaction > html input[type="button"],
-.reaction > input[type="reset"],
-.reaction > input[type="submit"] {
-  background-color: #5f3a79;
-  color: #f1edf3;
-}
-button.reaction:active,
-html input[type="button"].reaction:active,
-input[type="reset"].reaction:active,
-input[type="submit"].reaction:active,
-.reaction > button:active,
-.reaction > html input[type="button"]:active,
-.reaction > input[type="reset"]:active,
-.reaction > input[type="submit"]:active {
-  background-color: #513168;
-}
-button.info,
-html input[type="button"].info,
-input[type="reset"].info,
-input[type="submit"].info,
-.info > button,
-.info > html input[type="button"],
-.info > input[type="reset"],
-.info > input[type="submit"] {
-  background-color: #3b6684;
-  color: #ffffff;
-}
-button.info:active,
-html input[type="button"].info:active,
-input[type="reset"].info:active,
-input[type="submit"].info:active,
-.info > button:active,
-.info > html input[type="button"]:active,
-.info > input[type="reset"]:active,
-.info > input[type="submit"]:active {
-  background-color: #335973;
-}
-button.warning,
-html input[type="button"].warning,
-input[type="reset"].warning,
-input[type="submit"].warning,
-.warning > button,
-.warning > html input[type="button"],
-.warning > input[type="reset"],
-.warning > input[type="submit"] {
-  background-color: #995635;
-  color: #ffffff;
-}
-button.warning:active,
-html input[type="button"].warning:active,
-input[type="reset"].warning:active,
-input[type="submit"].warning:active,
-.warning > button:active,
-.warning > html input[type="button"]:active,
-.warning > input[type="reset"]:active,
-.warning > input[type="submit"]:active {
-  background-color: #864b2f;
-}
-button.success,
-html input[type="button"].success,
-input[type="reset"].success,
-input[type="submit"].success,
-.success > button,
-.success > html input[type="button"],
-.success > input[type="reset"],
-.success > input[type="submit"] {
-  background-color: #3f6b3f;
-  color: #ffffff;
-}
-button.success:active,
-html input[type="button"].success:active,
-input[type="reset"].success:active,
-input[type="submit"].success:active,
-.success > button:active,
-.success > html input[type="button"]:active,
-.success > input[type="reset"]:active,
-.success > input[type="submit"]:active {
-  background-color: #365b36;
-}
-button.failure,
-html input[type="button"].failure,
-input[type="reset"].failure,
-input[type="submit"].failure,
-.failure > button,
-.failure > html input[type="button"],
-.failure > input[type="reset"],
-.failure > input[type="submit"] {
-  background-color: #993030;
-  color: #ffffff;
-}
-button.failure:active,
-html input[type="button"].failure:active,
-input[type="reset"].failure:active,
-input[type="submit"].failure:active,
-.failure > button:active,
-.failure > html input[type="button"]:active,
-.failure > input[type="reset"]:active,
-.failure > input[type="submit"]:active {
-  background-color: #852a2a;
-}
-mark,
-::selection {
-  background-color: #3f5759;
-  color: #ffffff;
-}
-hr {
-  border-color: #3f4459;
-  border-top-color: #3b4053;
-  border-bottom-color: #4a5068;
->>>>>>> Stashed changes
 }
 .hide,
 .hidden {
@@ -1206,32 +1088,23 @@ hr {
   color: #ffffff;
 }
 .color1c {
-<<<<<<< Updated upstream
   background-color: #3b4253;
   color: #ffffff;
-=======
-  background-color: #3f4459;
-  color: #e5e6e9;
->>>>>>> Stashed changes
 }
 .color2 {
   background-color: #68634a;
   color: #ffffff;
 }
 .color2a {
-  background-color: #8a7f62;
-  color: #11100c;
+  background-color: #8a8962;
+  color: #171710;
 }
 .color2b {
-  background-color: #7b5a57;
+  background-color: #536447;
   color: #ffffff;
 }
 .color2c {
-<<<<<<< Updated upstream
   background-color: #5b5340;
-=======
-  background-color: #59543f;
->>>>>>> Stashed changes
   color: #ffffff;
 }
 .color3 {
@@ -1244,38 +1117,26 @@ hr {
 }
 .color3b {
   background-color: #474c64;
-<<<<<<< Updated upstream
   color: #ffffff;
 }
 .color3c {
   background-color: #53405b;
   color: #ffffff;
-=======
-  color: #f7f7f8;
-}
-.color3c {
-  background-color: #543f59;
-  color: #f0eef0;
->>>>>>> Stashed changes
 }
 .color4 {
   background-color: #4a6568;
   color: #ffffff;
 }
 .color4a {
-  background-color: #628a89;
-  color: #101717;
+  background-color: #62828a;
+  color: #080b0c;
 }
 .color4b {
   background-color: #476451;
   color: #ffffff;
 }
 .color4c {
-<<<<<<< Updated upstream
-  background-color: #405b5a;
-=======
-  background-color: #3f5859;
->>>>>>> Stashed changes
+  background-color: #40555b;
   color: #ffffff;
 }
 .gray-darker {

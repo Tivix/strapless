@@ -37,7 +37,7 @@
     @pattern-argyle:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='90'%3E %3Cg transform='scale(1 1.5)'%3E %3Crect width='99' height='99' fill='@{bg}'/%3E %3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='@{bg2}'/%3E %3Crect width='99' height='1' transform='rotate(45)' fill='@{stroke}'/%3E %3Crect width='99' height='1' transform='translate(0 60) rotate(-45)' fill='@{stroke}'/%3E %3C/g%3E %3C/svg%3E";
     background-image: url("data:image/svg+xml,@{pattern-argyle}");
     background-size: (@scale * @width), (@scale * @height);
-    background-position: center -@width/2;
+    background-position: center center;
 }
 
 .bathmat(@base: @color1; @scale: 1;) {
@@ -114,7 +114,7 @@
     @pattern-blueprint:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{grid-width}' height='@{grid-width}'%3E %3Crect width='@{grid-width}' height='@{grid-width}' fill='@{bg}'/%3E %3Cg fill='@{stroke-inner}'%3E %3Crect width='@{grid-width}' height='1' y='@{grid-spacer-2}'/%3E %3Crect width='@{grid-width}' height='1' y='@{grid-spacer-3}'/%3E %3Crect width='@{grid-width}' height='1' y='@{grid-spacer-4}'/%3E %3Crect width='1' height='@{grid-width}' x='@{grid-spacer-2}'/%3E %3Crect width='1' height='@{grid-width}' x='0'/%3E %3Crect width='1' height='@{grid-width}' x='@{grid-spacer-4}'/%3E %3C/g%3E %3Crect width='@{grid-width}' height='1' y='0' fill='none' stroke-width='1' stroke='@{stroke}'/%3E %3Crect width='1' height='@{grid-width}' x='@{offset}' fill='none' stroke-width='1' stroke='@{stroke}'/%3E %3C/svg%3E";
     background-image: url("data:image/svg+xml,@{pattern-blueprint}");
     background-size: (@scale * @width), (@scale * @height);
-    background-position: center 0;
+    background-position: center center;
 }
 
 .checkerboard(@base: @color1; @scale: 1;) {
@@ -149,20 +149,22 @@
     @pattern-checkerboard:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{width}' height='@{height}'%3E%3Crect width='60' height='60' fill='@{highlight}'/%3E%3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='@{shadow}'/%3E%3C/svg%3E";
     background-image: url("data:image/svg+xml,@{pattern-checkerboard}");
     background-size: (@scale * @width), (@scale * @height)*2;
-    background-position: -@width/4 -@width/4;
+    background-position: center center;
 }
 
 .chevrons(@base: @color1; @scale: 1;) {
     .set-tone(@base);
 
     .colors() when (@tone = white) {
+        .set-a-color(@base);
         @bg-base: @base;
-        @stroke-base: lighten(@bg-base, 2.5%);
+        @stroke-base: mix(@a-color, @base, 15%);
     }
 
     .colors() when (default()) {
+        .set-c-color(@base);
         @bg-base: @base;
-        @stroke-base: darken(@bg-base, 2.5%);
+        @stroke-base: mix(@c-color, @base, 15%);
     }
     
     .colors();
@@ -249,7 +251,7 @@
     @pattern-dots:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='@{bg}'/%3E %3Crect width='1' height='1' fill='@{fg}'/%3E %3C/svg%3E";
     background-image: url("data:image/svg+xml,@{pattern-dots}");
     background-size: (@scale * @width), (@scale * @height);
-    background-position: center -@width/2;
+    background-position: top left;
 }
 
 .honeycomb(@base: @base-color; @scale: 1;) {
@@ -291,7 +293,7 @@
     @pattern-honeycomb:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E %3Crect width='56' height='100' fill='@{bg}'/%3E %3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='@{stroke1}' stroke-width='2'/%3E %3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='@{stroke2}' stroke-width='2'/%3E %3C/svg%3E";
     background-image: url("data:image/svg+xml,@{pattern-honeycomb}");
     background-size: (@scale * @width), (@scale * @height);
-    background-position: center -@width/2;
+    background-position: center -@width/4;
 }
 
 .noise(@base: @base-color; @scale: 1;) {

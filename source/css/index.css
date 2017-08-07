@@ -1,1314 +1,514 @@
 #sl_accented .sl-color1 {
   background-color: #4A4F68;
-  border-color: #313444;
-  -webkit-transform: rotate(230);
-  -ms-transform: rotate(230);
-  -o-transform: rotate(230);
-  transform: rotate(230);
+  border-color: #3b4253;
 }
 #sl_accented .sl-color1a {
   background-color: #626e8a;
-  border-color: #495267;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
+  border-color: #546275;
 }
 #sl_accented .sl-color1b {
   background-color: #3f5759;
-  border-color: #263435;
-  -webkit-transform: rotate(185);
-  -ms-transform: rotate(185);
-  -o-transform: rotate(185);
-  transform: rotate(185);
+  border-color: #364c4b;
 }
 #sl_accented .sl-color1c {
-<<<<<<< Updated upstream
   background-color: #3b4253;
-  border-color: #22262f;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
-=======
-  background-color: #3f4459;
-  border-color: #262935;
-  -webkit-transform: rotate(228.5);
-  -ms-transform: rotate(228.5);
-  -o-transform: rotate(228.5);
-  transform: rotate(228.5);
->>>>>>> Stashed changes
+  border-color: #323a46;
 }
 #sl_accented .sl-color2 {
   background-color: #68634a;
-  border-color: #444131;
-  -webkit-transform: rotate(50);
-  -ms-transform: rotate(50);
-  -o-transform: rotate(50);
-  transform: rotate(50);
+  border-color: #5b5340;
 }
 #sl_accented .sl-color2a {
-  background-color: #8a7f62;
-  border-color: #675e49;
-  -webkit-transform: rotate(42.5);
-  -ms-transform: rotate(42.5);
-  -o-transform: rotate(42.5);
-  transform: rotate(42.5);
+  background-color: #8a8962;
+  border-color: #7a7d59;
 }
 #sl_accented .sl-color2b {
-  background-color: #7b5a57;
-  border-color: #57403e;
-  -webkit-transform: rotate(5);
-  -ms-transform: rotate(5);
-  -o-transform: rotate(5);
-  transform: rotate(5);
+  background-color: #536447;
+  border-color: #45573e;
 }
 #sl_accented .sl-color2c {
-<<<<<<< Updated upstream
   background-color: #5b5340;
-  border-color: #373227;
-  -webkit-transform: rotate(42.5);
-  -ms-transform: rotate(42.5);
-  -o-transform: rotate(42.5);
-  transform: rotate(42.5);
-=======
-  background-color: #59543f;
-  border-color: #353226;
-  -webkit-transform: rotate(48.5);
-  -ms-transform: rotate(48.5);
-  -o-transform: rotate(48.5);
-  transform: rotate(48.5);
->>>>>>> Stashed changes
+  border-color: #4d4437;
 }
 #sl_accented .sl-color3 {
   background-color: #5b4a68;
-  border-color: #3c3144;
-  -webkit-transform: rotate(275);
-  -ms-transform: rotate(275);
-  -o-transform: rotate(275);
-  transform: rotate(275);
+  border-color: #53405b;
 }
 #sl_accented .sl-color3a {
   background-color: #7f628a;
-  border-color: #5e4967;
-  -webkit-transform: rotate(282.5);
-  -ms-transform: rotate(282.5);
-  -o-transform: rotate(282.5);
-  transform: rotate(282.5);
+  border-color: #77597d;
 }
 #sl_accented .sl-color3b {
   background-color: #474c64;
-  border-color: #2e3141;
-  -webkit-transform: rotate(230);
-  -ms-transform: rotate(230);
-  -o-transform: rotate(230);
-  transform: rotate(230);
+  border-color: #393f4f;
 }
 #sl_accented .sl-color3c {
-<<<<<<< Updated upstream
   background-color: #53405b;
-  border-color: #322737;
-  -webkit-transform: rotate(282.5);
-  -ms-transform: rotate(282.5);
-  -o-transform: rotate(282.5);
-  transform: rotate(282.5);
-=======
-  background-color: #543f59;
-  border-color: #322635;
-  -webkit-transform: rotate(288.5);
-  -ms-transform: rotate(288.5);
-  -o-transform: rotate(288.5);
-  transform: rotate(288.5);
->>>>>>> Stashed changes
+  border-color: #44374d;
 }
 #sl_accented .sl-color4 {
   background-color: #4a6568;
-  border-color: #314344;
-  -webkit-transform: rotate(185);
-  -ms-transform: rotate(185);
-  -o-transform: rotate(185);
-  transform: rotate(185);
+  border-color: #405b5a;
 }
 #sl_accented .sl-color4a {
-  background-color: #628a89;
-  border-color: #496765;
-  -webkit-transform: rotate(177.5);
-  -ms-transform: rotate(177.5);
-  -o-transform: rotate(177.5);
-  transform: rotate(177.5);
+  background-color: #62828a;
+  border-color: #59717d;
 }
 #sl_accented .sl-color4b {
   background-color: #476451;
-  border-color: #2e4134;
-  -webkit-transform: rotate(140);
-  -ms-transform: rotate(140);
-  -o-transform: rotate(140);
-  transform: rotate(140);
+  border-color: #3e5743;
 }
 #sl_accented .sl-color4c {
-<<<<<<< Updated upstream
-  background-color: #405b5a;
-  border-color: #273736;
-  -webkit-transform: rotate(177.5);
-  -ms-transform: rotate(177.5);
-  -o-transform: rotate(177.5);
-  transform: rotate(177.5);
-=======
-  background-color: #3f5859;
-  border-color: #263435;
-  -webkit-transform: rotate(183.5);
-  -ms-transform: rotate(183.5);
-  -o-transform: rotate(183.5);
-  transform: rotate(183.5);
->>>>>>> Stashed changes
+  background-color: #40555b;
+  border-color: #374b4d;
 }
 #sl_complementary .sl-color1 {
   background-color: #4A4F68;
-  border-color: #313444;
-  -webkit-transform: rotate(230);
-  -ms-transform: rotate(230);
-  -o-transform: rotate(230);
-  transform: rotate(230);
+  border-color: #3b4253;
 }
 #sl_complementary .sl-color1a {
   background-color: #626e8a;
-  border-color: #495267;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
+  border-color: #546275;
 }
 #sl_complementary .sl-color1b {
   background-color: #3f5759;
-  border-color: #263435;
-  -webkit-transform: rotate(185);
-  -ms-transform: rotate(185);
-  -o-transform: rotate(185);
-  transform: rotate(185);
+  border-color: #364c4b;
 }
 #sl_complementary .sl-color1c {
-<<<<<<< Updated upstream
   background-color: #3b4253;
-  border-color: #22262f;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
-=======
-  background-color: #3f4459;
-  border-color: #262935;
-  -webkit-transform: rotate(228.5);
-  -ms-transform: rotate(228.5);
-  -o-transform: rotate(228.5);
-  transform: rotate(228.5);
->>>>>>> Stashed changes
+  border-color: #323a46;
 }
 #sl_complementary .sl-color2 {
   background-color: #68634a;
-  border-color: #444131;
-  -webkit-transform: rotate(50);
-  -ms-transform: rotate(50);
-  -o-transform: rotate(50);
-  transform: rotate(50);
+  border-color: #5b5340;
 }
 #sl_complementary .sl-color2a {
-  background-color: #8a7f62;
-  border-color: #675e49;
-  -webkit-transform: rotate(42.5);
-  -ms-transform: rotate(42.5);
-  -o-transform: rotate(42.5);
-  transform: rotate(42.5);
+  background-color: #8a8962;
+  border-color: #7a7d59;
 }
 #sl_complementary .sl-color2b {
-  background-color: #7b5a57;
-  border-color: #57403e;
-  -webkit-transform: rotate(5);
-  -ms-transform: rotate(5);
-  -o-transform: rotate(5);
-  transform: rotate(5);
+  background-color: #536447;
+  border-color: #45573e;
 }
 #sl_complementary .sl-color2c {
-<<<<<<< Updated upstream
   background-color: #5b5340;
-  border-color: #373227;
-  -webkit-transform: rotate(42.5);
-  -ms-transform: rotate(42.5);
-  -o-transform: rotate(42.5);
-  transform: rotate(42.5);
-=======
-  background-color: #59543f;
-  border-color: #353226;
-  -webkit-transform: rotate(48.5);
-  -ms-transform: rotate(48.5);
-  -o-transform: rotate(48.5);
-  transform: rotate(48.5);
->>>>>>> Stashed changes
+  border-color: #4d4437;
 }
 #sl_complementary .sl-color3 {
   background-color: #4c4a68;
-  border-color: #323144;
-  -webkit-transform: rotate(245);
-  -ms-transform: rotate(245);
-  -o-transform: rotate(245);
-  transform: rotate(245);
+  border-color: #40425b;
 }
 #sl_complementary .sl-color3a {
   background-color: #62648a;
-  border-color: #494a67;
-  -webkit-transform: rotate(237.5);
-  -ms-transform: rotate(237.5);
-  -o-transform: rotate(237.5);
-  transform: rotate(237.5);
+  border-color: #5c597d;
 }
 #sl_complementary .sl-color3b {
   background-color: #3f5159;
-  border-color: #263035;
-  -webkit-transform: rotate(200);
-  -ms-transform: rotate(200);
-  -o-transform: rotate(200);
-  transform: rotate(200);
+  border-color: #36474c;
 }
 #sl_complementary .sl-color3c {
-<<<<<<< Updated upstream
   background-color: #40425b;
-  border-color: #272837;
-  -webkit-transform: rotate(237.5);
-  -ms-transform: rotate(237.5);
-  -o-transform: rotate(237.5);
-  transform: rotate(237.5);
-=======
-  background-color: #413f59;
-  border-color: #272635;
-  -webkit-transform: rotate(243.5);
-  -ms-transform: rotate(243.5);
-  -o-transform: rotate(243.5);
-  transform: rotate(243.5);
->>>>>>> Stashed changes
+  border-color: #39374d;
 }
 #sl_complementary .sl-color4 {
   background-color: #66684a;
-  border-color: #434431;
-  -webkit-transform: rotate(65);
-  -ms-transform: rotate(65);
-  -o-transform: rotate(65);
-  transform: rotate(65);
+  border-color: #5b5a40;
 }
 #sl_complementary .sl-color4a {
-  background-color: #8a8962;
-  border-color: #676549;
-  -webkit-transform: rotate(57.5);
-  -ms-transform: rotate(57.5);
-  -o-transform: rotate(57.5);
-  transform: rotate(57.5);
+  background-color: #828a62;
+  border-color: #717d59;
 }
 #sl_complementary .sl-color4b {
-  background-color: #7b6357;
-  border-color: #57463e;
-  -webkit-transform: rotate(20);
-  -ms-transform: rotate(20);
-  -o-transform: rotate(20);
-  transform: rotate(20);
+  background-color: #556f4f;
+  border-color: #4e6246;
 }
 #sl_complementary .sl-color4c {
-<<<<<<< Updated upstream
-  background-color: #5b5a40;
-  border-color: #373627;
-  -webkit-transform: rotate(57.5);
-  -ms-transform: rotate(57.5);
-  -o-transform: rotate(57.5);
-  transform: rotate(57.5);
-=======
-  background-color: #58593f;
-  border-color: #343526;
-  -webkit-transform: rotate(63.5);
-  -ms-transform: rotate(63.5);
-  -o-transform: rotate(63.5);
-  transform: rotate(63.5);
->>>>>>> Stashed changes
+  background-color: #555b40;
+  border-color: #4b4d37;
 }
 #sl_triadic .sl-color1 {
   background-color: #4A4F68;
-  border-color: #313444;
-  -webkit-transform: rotate(230);
-  -ms-transform: rotate(230);
-  -o-transform: rotate(230);
-  transform: rotate(230);
+  border-color: #3b4253;
 }
 #sl_triadic .sl-color1a {
   background-color: #626e8a;
-  border-color: #495267;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
+  border-color: #546275;
 }
 #sl_triadic .sl-color1b {
   background-color: #3f5759;
-  border-color: #263435;
-  -webkit-transform: rotate(185);
-  -ms-transform: rotate(185);
-  -o-transform: rotate(185);
-  transform: rotate(185);
+  border-color: #364c4b;
 }
 #sl_triadic .sl-color1c {
-<<<<<<< Updated upstream
   background-color: #3b4253;
-  border-color: #22262f;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
-=======
-  background-color: #3f4459;
-  border-color: #262935;
-  -webkit-transform: rotate(228.5);
-  -ms-transform: rotate(228.5);
-  -o-transform: rotate(228.5);
-  transform: rotate(228.5);
->>>>>>> Stashed changes
+  border-color: #323a46;
 }
 #sl_triadic .sl-color2 {
   background-color: #4f684a;
-  border-color: #344431;
-  -webkit-transform: rotate(110);
-  -ms-transform: rotate(110);
-  -o-transform: rotate(110);
-  transform: rotate(110);
+  border-color: #425b40;
 }
 #sl_triadic .sl-color2a {
-  background-color: #648a62;
-  border-color: #4a6749;
-  -webkit-transform: rotate(117.5);
-  -ms-transform: rotate(117.5);
-  -o-transform: rotate(117.5);
-  transform: rotate(117.5);
+  background-color: #6e8a62;
+  border-color: #687d59;
 }
 #sl_triadic .sl-color2b {
   background-color: #626447;
-  border-color: #3f412e;
-  -webkit-transform: rotate(65);
-  -ms-transform: rotate(65);
-  -o-transform: rotate(65);
-  transform: rotate(65);
+  border-color: #57563e;
 }
 #sl_triadic .sl-color2c {
-<<<<<<< Updated upstream
   background-color: #425b40;
-  border-color: #283727;
-  -webkit-transform: rotate(117.5);
-  -ms-transform: rotate(117.5);
-  -o-transform: rotate(117.5);
-  transform: rotate(117.5);
-=======
-  background-color: #3f5941;
-  border-color: #263527;
-  -webkit-transform: rotate(123.5);
-  -ms-transform: rotate(123.5);
-  -o-transform: rotate(123.5);
-  transform: rotate(123.5);
->>>>>>> Stashed changes
+  border-color: #374d39;
 }
 #sl_triadic .sl-color3 {
   background-color: #684a4f;
-  border-color: #443134;
-  -webkit-transform: rotate(350);
-  -ms-transform: rotate(350);
-  -o-transform: rotate(350);
-  transform: rotate(350);
+  border-color: #5b4048;
 }
 #sl_triadic .sl-color3a {
   background-color: #8a626e;
-  border-color: #674952;
-  -webkit-transform: rotate(342.5);
-  -ms-transform: rotate(342.5);
-  -o-transform: rotate(342.5);
-  transform: rotate(342.5);
+  border-color: #7d5968;
 }
 #sl_triadic .sl-color3b {
   background-color: #644762;
-  border-color: #412e3f;
-  -webkit-transform: rotate(305);
-  -ms-transform: rotate(305);
-  -o-transform: rotate(305);
-  transform: rotate(305);
+  border-color: #563e57;
 }
 #sl_triadic .sl-color3c {
-<<<<<<< Updated upstream
   background-color: #5b4048;
-  border-color: #37272c;
-  -webkit-transform: rotate(342.5);
-  -ms-transform: rotate(342.5);
-  -o-transform: rotate(342.5);
-  transform: rotate(342.5);
-=======
-  background-color: #593f44;
-  border-color: #352629;
-  -webkit-transform: rotate(348.5);
-  -ms-transform: rotate(348.5);
-  -o-transform: rotate(348.5);
-  transform: rotate(348.5);
->>>>>>> Stashed changes
+  border-color: #4d3740;
 }
 #sl_triadic .sl-color4 {
   background-color: #4c4a68;
-  border-color: #323144;
-  -webkit-transform: rotate(245);
-  -ms-transform: rotate(245);
-  -o-transform: rotate(245);
-  transform: rotate(245);
+  border-color: #40425b;
 }
 #sl_triadic .sl-color4a {
-  background-color: #62648a;
-  border-color: #494a67;
-  -webkit-transform: rotate(237.5);
-  -ms-transform: rotate(237.5);
-  -o-transform: rotate(237.5);
-  transform: rotate(237.5);
+  background-color: #6b628a;
+  border-color: #5c597d;
 }
 #sl_triadic .sl-color4b {
   background-color: #3f5159;
-  border-color: #263035;
-  -webkit-transform: rotate(200);
-  -ms-transform: rotate(200);
-  -o-transform: rotate(200);
-  transform: rotate(200);
+  border-color: #36474c;
 }
 #sl_triadic .sl-color4c {
-<<<<<<< Updated upstream
-  background-color: #40425b;
-  border-color: #272837;
-  -webkit-transform: rotate(237.5);
-  -ms-transform: rotate(237.5);
-  -o-transform: rotate(237.5);
-  transform: rotate(237.5);
-=======
-  background-color: #413f59;
-  border-color: #272635;
-  -webkit-transform: rotate(243.5);
-  -ms-transform: rotate(243.5);
-  -o-transform: rotate(243.5);
-  transform: rotate(243.5);
->>>>>>> Stashed changes
+  background-color: #46405b;
+  border-color: #39374d;
 }
 #sl_tetradic .sl-color1 {
   background-color: #4A4F68;
-  border-color: #313444;
-  -webkit-transform: rotate(230);
-  -ms-transform: rotate(230);
-  -o-transform: rotate(230);
-  transform: rotate(230);
+  border-color: #3b4253;
 }
 #sl_tetradic .sl-color1a {
   background-color: #626e8a;
-  border-color: #495267;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
+  border-color: #546275;
 }
 #sl_tetradic .sl-color1b {
   background-color: #3f5759;
-  border-color: #263435;
-  -webkit-transform: rotate(185);
-  -ms-transform: rotate(185);
-  -o-transform: rotate(185);
-  transform: rotate(185);
+  border-color: #364c4b;
 }
 #sl_tetradic .sl-color1c {
-<<<<<<< Updated upstream
   background-color: #3b4253;
-  border-color: #22262f;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
-=======
-  background-color: #3f4459;
-  border-color: #262935;
-  -webkit-transform: rotate(228.5);
-  -ms-transform: rotate(228.5);
-  -o-transform: rotate(228.5);
-  transform: rotate(228.5);
->>>>>>> Stashed changes
+  border-color: #323a46;
 }
 #sl_tetradic .sl-color2 {
   background-color: #68634a;
-  border-color: #444131;
-  -webkit-transform: rotate(50);
-  -ms-transform: rotate(50);
-  -o-transform: rotate(50);
-  transform: rotate(50);
+  border-color: #5b5340;
 }
 #sl_tetradic .sl-color2a {
-  background-color: #8a7f62;
-  border-color: #675e49;
-  -webkit-transform: rotate(42.5);
-  -ms-transform: rotate(42.5);
-  -o-transform: rotate(42.5);
-  transform: rotate(42.5);
+  background-color: #8a8962;
+  border-color: #7a7d59;
 }
 #sl_tetradic .sl-color2b {
-  background-color: #7b5a57;
-  border-color: #57403e;
-  -webkit-transform: rotate(5);
-  -ms-transform: rotate(5);
-  -o-transform: rotate(5);
-  transform: rotate(5);
+  background-color: #536447;
+  border-color: #45573e;
 }
 #sl_tetradic .sl-color2c {
-<<<<<<< Updated upstream
   background-color: #5b5340;
-  border-color: #373227;
-  -webkit-transform: rotate(42.5);
-  -ms-transform: rotate(42.5);
-  -o-transform: rotate(42.5);
-  transform: rotate(42.5);
-=======
-  background-color: #59543f;
-  border-color: #353226;
-  -webkit-transform: rotate(48.5);
-  -ms-transform: rotate(48.5);
-  -o-transform: rotate(48.5);
-  transform: rotate(48.5);
->>>>>>> Stashed changes
+  border-color: #4d4437;
 }
 #sl_tetradic .sl-color3 {
   background-color: #5b4a68;
-  border-color: #3c3144;
-  -webkit-transform: rotate(275);
-  -ms-transform: rotate(275);
-  -o-transform: rotate(275);
-  transform: rotate(275);
+  border-color: #53405b;
 }
 #sl_tetradic .sl-color3a {
   background-color: #7f628a;
-  border-color: #5e4967;
-  -webkit-transform: rotate(282.5);
-  -ms-transform: rotate(282.5);
-  -o-transform: rotate(282.5);
-  transform: rotate(282.5);
+  border-color: #77597d;
 }
 #sl_tetradic .sl-color3b {
   background-color: #474c64;
-  border-color: #2e3141;
-  -webkit-transform: rotate(230);
-  -ms-transform: rotate(230);
-  -o-transform: rotate(230);
-  transform: rotate(230);
+  border-color: #393f4f;
 }
 #sl_tetradic .sl-color3c {
-<<<<<<< Updated upstream
   background-color: #53405b;
-  border-color: #322737;
-  -webkit-transform: rotate(282.5);
-  -ms-transform: rotate(282.5);
-  -o-transform: rotate(282.5);
-  transform: rotate(282.5);
-=======
-  background-color: #543f59;
-  border-color: #322635;
-  -webkit-transform: rotate(288.5);
-  -ms-transform: rotate(288.5);
-  -o-transform: rotate(288.5);
-  transform: rotate(288.5);
->>>>>>> Stashed changes
+  border-color: #44374d;
 }
 #sl_tetradic .sl-color4 {
   background-color: #56684a;
-  border-color: #394431;
-  -webkit-transform: rotate(95);
-  -ms-transform: rotate(95);
-  -o-transform: rotate(95);
-  transform: rotate(95);
+  border-color: #4f5b40;
 }
 #sl_tetradic .sl-color4a {
   background-color: #788a62;
-  border-color: #596749;
-  -webkit-transform: rotate(87.5);
-  -ms-transform: rotate(87.5);
-  -o-transform: rotate(87.5);
-  transform: rotate(87.5);
+  border-color: #717d59;
 }
 #sl_tetradic .sl-color4b {
   background-color: #645f47;
-  border-color: #413d2e;
-  -webkit-transform: rotate(50);
-  -ms-transform: rotate(50);
-  -o-transform: rotate(50);
-  transform: rotate(50);
+  border-color: #57503e;
 }
 #sl_tetradic .sl-color4c {
-<<<<<<< Updated upstream
-  background-color: #4f5b40;
-  border-color: #303727;
-  -webkit-transform: rotate(87.5);
-  -ms-transform: rotate(87.5);
-  -o-transform: rotate(87.5);
-  transform: rotate(87.5);
-=======
-  background-color: #4b593f;
-  border-color: #2d3526;
-  -webkit-transform: rotate(93.5);
-  -ms-transform: rotate(93.5);
-  -o-transform: rotate(93.5);
-  transform: rotate(93.5);
->>>>>>> Stashed changes
+  background-color: #485b40;
+  border-color: #404d37;
 }
 #sl_square .sl-color1 {
   background-color: #4A4F68;
-  border-color: #313444;
-  -webkit-transform: rotate(230);
-  -ms-transform: rotate(230);
-  -o-transform: rotate(230);
-  transform: rotate(230);
+  border-color: #3b4253;
 }
 #sl_square .sl-color1a {
   background-color: #626e8a;
-  border-color: #495267;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
+  border-color: #546275;
 }
 #sl_square .sl-color1b {
   background-color: #3f5759;
-  border-color: #263435;
-  -webkit-transform: rotate(185);
-  -ms-transform: rotate(185);
-  -o-transform: rotate(185);
-  transform: rotate(185);
+  border-color: #364c4b;
 }
 #sl_square .sl-color1c {
-<<<<<<< Updated upstream
   background-color: #3b4253;
-  border-color: #22262f;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
-=======
-  background-color: #3f4459;
-  border-color: #262935;
-  -webkit-transform: rotate(228.5);
-  -ms-transform: rotate(228.5);
-  -o-transform: rotate(228.5);
-  transform: rotate(228.5);
->>>>>>> Stashed changes
+  border-color: #323a46;
 }
 #sl_square .sl-color2 {
   background-color: #68634a;
-  border-color: #444131;
-  -webkit-transform: rotate(50);
-  -ms-transform: rotate(50);
-  -o-transform: rotate(50);
-  transform: rotate(50);
+  border-color: #5b5340;
 }
 #sl_square .sl-color2a {
-  background-color: #8a7f62;
-  border-color: #675e49;
-  -webkit-transform: rotate(42.5);
-  -ms-transform: rotate(42.5);
-  -o-transform: rotate(42.5);
-  transform: rotate(42.5);
+  background-color: #8a8962;
+  border-color: #7a7d59;
 }
 #sl_square .sl-color2b {
-  background-color: #7b5a57;
-  border-color: #57403e;
-  -webkit-transform: rotate(5);
-  -ms-transform: rotate(5);
-  -o-transform: rotate(5);
-  transform: rotate(5);
+  background-color: #536447;
+  border-color: #45573e;
 }
 #sl_square .sl-color2c {
-<<<<<<< Updated upstream
   background-color: #5b5340;
-  border-color: #373227;
-  -webkit-transform: rotate(42.5);
-  -ms-transform: rotate(42.5);
-  -o-transform: rotate(42.5);
-  transform: rotate(42.5);
-=======
-  background-color: #59543f;
-  border-color: #353226;
-  -webkit-transform: rotate(48.5);
-  -ms-transform: rotate(48.5);
-  -o-transform: rotate(48.5);
-  transform: rotate(48.5);
->>>>>>> Stashed changes
+  border-color: #4d4437;
 }
 #sl_square .sl-color3 {
   background-color: #684a5e;
-  border-color: #44313e;
-  -webkit-transform: rotate(320);
-  -ms-transform: rotate(320);
-  -o-transform: rotate(320);
-  transform: rotate(320);
+  border-color: #5b404f;
 }
 #sl_square .sl-color3a {
   background-color: #8a6278;
-  border-color: #674959;
-  -webkit-transform: rotate(327.5);
-  -ms-transform: rotate(327.5);
-  -o-transform: rotate(327.5);
-  transform: rotate(327.5);
+  border-color: #7d5968;
 }
 #sl_square .sl-color3b {
   background-color: #644a47;
-  border-color: #412f2e;
-  -webkit-transform: rotate(5);
-  -ms-transform: rotate(5);
-  -o-transform: rotate(5);
-  transform: rotate(5);
+  border-color: #573e3f;
 }
 #sl_square .sl-color3c {
-<<<<<<< Updated upstream
   background-color: #5b404f;
-  border-color: #372730;
-  -webkit-transform: rotate(327.5);
-  -ms-transform: rotate(327.5);
-  -o-transform: rotate(327.5);
-  transform: rotate(327.5);
-=======
-  background-color: #593f4b;
-  border-color: #35262d;
-  -webkit-transform: rotate(333.5);
-  -ms-transform: rotate(333.5);
-  -o-transform: rotate(333.5);
-  transform: rotate(333.5);
->>>>>>> Stashed changes
+  border-color: #4d3746;
 }
 #sl_square .sl-color4 {
   background-color: #4a6854;
-  border-color: #314437;
-  -webkit-transform: rotate(140);
-  -ms-transform: rotate(140);
-  -o-transform: rotate(140);
-  transform: rotate(140);
+  border-color: #405b46;
 }
 #sl_square .sl-color4a {
-  background-color: #628a6b;
-  border-color: #49674f;
-  -webkit-transform: rotate(132.5);
-  -ms-transform: rotate(132.5);
-  -o-transform: rotate(132.5);
-  transform: rotate(132.5);
+  background-color: #628a75;
+  border-color: #597d6e;
 }
 #sl_square .sl-color4b {
-  background-color: #476264;
-  border-color: #2e3f41;
-  -webkit-transform: rotate(185);
-  -ms-transform: rotate(185);
-  -o-transform: rotate(185);
-  transform: rotate(185);
+  background-color: #536447;
+  border-color: #45573e;
 }
 #sl_square .sl-color4c {
-<<<<<<< Updated upstream
   background-color: #405b46;
-  border-color: #27372a;
-  -webkit-transform: rotate(132.5);
-  -ms-transform: rotate(132.5);
-  -o-transform: rotate(132.5);
-  transform: rotate(132.5);
-=======
-  background-color: #3f5947;
-  border-color: #26352b;
-  -webkit-transform: rotate(138.5);
-  -ms-transform: rotate(138.5);
-  -o-transform: rotate(138.5);
-  transform: rotate(138.5);
->>>>>>> Stashed changes
+  border-color: #374d39;
 }
 #sl_ebb .sl-color1 {
   background-color: #4A4F68;
-  border-color: #313444;
-  -webkit-transform: rotate(230);
-  -ms-transform: rotate(230);
-  -o-transform: rotate(230);
-  transform: rotate(230);
+  border-color: #3b4253;
 }
 #sl_ebb .sl-color1a {
   background-color: #626e8a;
-  border-color: #495267;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
+  border-color: #546275;
 }
 #sl_ebb .sl-color1b {
   background-color: #3f5759;
-  border-color: #263435;
-  -webkit-transform: rotate(185);
-  -ms-transform: rotate(185);
-  -o-transform: rotate(185);
-  transform: rotate(185);
+  border-color: #364c4b;
 }
 #sl_ebb .sl-color1c {
-<<<<<<< Updated upstream
   background-color: #3b4253;
-  border-color: #22262f;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
-=======
-  background-color: #3f4459;
-  border-color: #262935;
-  -webkit-transform: rotate(228.5);
-  -ms-transform: rotate(228.5);
-  -o-transform: rotate(228.5);
-  transform: rotate(228.5);
->>>>>>> Stashed changes
+  border-color: #323a46;
 }
 #sl_ebb .sl-color2 {
   background-color: #66684a;
-  border-color: #434431;
-  -webkit-transform: rotate(65);
-  -ms-transform: rotate(65);
-  -o-transform: rotate(65);
-  transform: rotate(65);
+  border-color: #5b5a40;
 }
 #sl_ebb .sl-color2a {
   background-color: #828a62;
-  border-color: #606749;
-  -webkit-transform: rotate(72.5);
-  -ms-transform: rotate(72.5);
-  -o-transform: rotate(72.5);
-  transform: rotate(72.5);
+  border-color: #717d59;
 }
 #sl_ebb .sl-color2b {
-  background-color: #7b6357;
-  border-color: #57463e;
-  -webkit-transform: rotate(20);
-  -ms-transform: rotate(20);
-  -o-transform: rotate(20);
-  transform: rotate(20);
+  background-color: #556f4f;
+  border-color: #4e6246;
 }
 #sl_ebb .sl-color2c {
-<<<<<<< Updated upstream
   background-color: #555b40;
-  border-color: #343727;
-  -webkit-transform: rotate(72.5);
-  -ms-transform: rotate(72.5);
-  -o-transform: rotate(72.5);
-  transform: rotate(72.5);
-=======
-  background-color: #51593f;
-  border-color: #313526;
-  -webkit-transform: rotate(78.5);
-  -ms-transform: rotate(78.5);
-  -o-transform: rotate(78.5);
-  transform: rotate(78.5);
->>>>>>> Stashed changes
+  border-color: #4b4d37;
 }
 #sl_ebb .sl-color3 {
   background-color: #4c4a68;
-  border-color: #323144;
-  -webkit-transform: rotate(245);
-  -ms-transform: rotate(245);
-  -o-transform: rotate(245);
-  transform: rotate(245);
+  border-color: #40425b;
 }
 #sl_ebb .sl-color3a {
   background-color: #62648a;
-  border-color: #494a67;
-  -webkit-transform: rotate(237.5);
-  -ms-transform: rotate(237.5);
-  -o-transform: rotate(237.5);
-  transform: rotate(237.5);
+  border-color: #5c597d;
 }
 #sl_ebb .sl-color3b {
   background-color: #3f5159;
-  border-color: #263035;
-  -webkit-transform: rotate(200);
-  -ms-transform: rotate(200);
-  -o-transform: rotate(200);
-  transform: rotate(200);
+  border-color: #36474c;
 }
 #sl_ebb .sl-color3c {
-<<<<<<< Updated upstream
   background-color: #40425b;
-  border-color: #272837;
-  -webkit-transform: rotate(237.5);
-  -ms-transform: rotate(237.5);
-  -o-transform: rotate(237.5);
-  transform: rotate(237.5);
-=======
-  background-color: #413f59;
-  border-color: #272635;
-  -webkit-transform: rotate(243.5);
-  -ms-transform: rotate(243.5);
-  -o-transform: rotate(243.5);
-  transform: rotate(243.5);
->>>>>>> Stashed changes
+  border-color: #39374d;
 }
 #sl_ebb .sl-color4 {
   background-color: #5b4a68;
-  border-color: #3c3144;
-  -webkit-transform: rotate(275);
-  -ms-transform: rotate(275);
-  -o-transform: rotate(275);
-  transform: rotate(275);
+  border-color: #53405b;
 }
 #sl_ebb .sl-color4a {
   background-color: #7f628a;
-  border-color: #5e4967;
-  -webkit-transform: rotate(282.5);
-  -ms-transform: rotate(282.5);
-  -o-transform: rotate(282.5);
-  transform: rotate(282.5);
+  border-color: #77597d;
 }
 #sl_ebb .sl-color4b {
   background-color: #64475b;
-  border-color: #412e3a;
-  -webkit-transform: rotate(320);
-  -ms-transform: rotate(320);
-  -o-transform: rotate(320);
-  transform: rotate(320);
+  border-color: #573e52;
 }
 #sl_ebb .sl-color4c {
-<<<<<<< Updated upstream
-  background-color: #53405b;
-  border-color: #322737;
-  -webkit-transform: rotate(282.5);
-  -ms-transform: rotate(282.5);
-  -o-transform: rotate(282.5);
-  transform: rotate(282.5);
-=======
-  background-color: #543f59;
-  border-color: #322635;
-  -webkit-transform: rotate(288.5);
-  -ms-transform: rotate(288.5);
-  -o-transform: rotate(288.5);
-  transform: rotate(288.5);
->>>>>>> Stashed changes
+  background-color: #4c405b;
+  border-color: #3e374d;
 }
 #sl_flow .sl-color1 {
   background-color: #4A4F68;
-  border-color: #313444;
-  -webkit-transform: rotate(230);
-  -ms-transform: rotate(230);
-  -o-transform: rotate(230);
-  transform: rotate(230);
+  border-color: #3b4253;
 }
 #sl_flow .sl-color1a {
   background-color: #626e8a;
-  border-color: #495267;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
+  border-color: #546275;
 }
 #sl_flow .sl-color1b {
   background-color: #3f5759;
-  border-color: #263435;
-  -webkit-transform: rotate(185);
-  -ms-transform: rotate(185);
-  -o-transform: rotate(185);
-  transform: rotate(185);
+  border-color: #364c4b;
 }
 #sl_flow .sl-color1c {
-<<<<<<< Updated upstream
   background-color: #3b4253;
-  border-color: #22262f;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
-=======
-  background-color: #3f4459;
-  border-color: #262935;
-  -webkit-transform: rotate(228.5);
-  -ms-transform: rotate(228.5);
-  -o-transform: rotate(228.5);
-  transform: rotate(228.5);
->>>>>>> Stashed changes
+  border-color: #323a46;
 }
 #sl_flow .sl-color2 {
   background-color: #685c4a;
-  border-color: #443c31;
-  -webkit-transform: rotate(35);
-  -ms-transform: rotate(35);
-  -o-transform: rotate(35);
-  transform: rotate(35);
+  border-color: #5b4c40;
 }
 #sl_flow .sl-color2a {
-  background-color: #8a7562;
-  border-color: #675649;
-  -webkit-transform: rotate(27.5);
-  -ms-transform: rotate(27.5);
-  -o-transform: rotate(27.5);
-  transform: rotate(27.5);
+  background-color: #8a7f62;
+  border-color: #757054;
 }
 #sl_flow .sl-color2b {
-  background-color: #7b575d;
-  border-color: #573e42;
-  -webkit-transform: rotate(350);
-  -ms-transform: rotate(350);
-  -o-transform: rotate(350);
-  transform: rotate(350);
+  background-color: #5b6447;
+  border-color: #52573e;
 }
 #sl_flow .sl-color2c {
-<<<<<<< Updated upstream
   background-color: #5b4c40;
-  border-color: #372e27;
-  -webkit-transform: rotate(27.5);
-  -ms-transform: rotate(27.5);
-  -o-transform: rotate(27.5);
-  transform: rotate(27.5);
-=======
-  background-color: #594e3f;
-  border-color: #352f26;
-  -webkit-transform: rotate(33.5);
-  -ms-transform: rotate(33.5);
-  -o-transform: rotate(33.5);
-  transform: rotate(33.5);
->>>>>>> Stashed changes
+  border-color: #4d3e37;
 }
 #sl_flow .sl-color3 {
   background-color: #4a5668;
-  border-color: #313944;
-  -webkit-transform: rotate(215);
-  -ms-transform: rotate(215);
-  -o-transform: rotate(215);
-  transform: rotate(215);
+  border-color: #40485b;
 }
 #sl_flow .sl-color3a {
   background-color: #626e8a;
-  border-color: #495267;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
+  border-color: #546275;
 }
 #sl_flow .sl-color3b {
   background-color: #3f5955;
-  border-color: #263533;
-  -webkit-transform: rotate(170);
-  -ms-transform: rotate(170);
-  -o-transform: rotate(170);
-  transform: rotate(170);
+  border-color: #364c45;
 }
 #sl_flow .sl-color3c {
-<<<<<<< Updated upstream
   background-color: #40485b;
-  border-color: #272c37;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
-=======
-  background-color: #454b61;
-  border-color: #2b2f3d;
-  -webkit-transform: rotate(225.5);
-  -ms-transform: rotate(225.5);
-  -o-transform: rotate(225.5);
-  transform: rotate(225.5);
->>>>>>> Stashed changes
+  border-color: #37404d;
 }
 #sl_flow .sl-color4 {
   background-color: #4a6568;
-  border-color: #314344;
-  -webkit-transform: rotate(185);
-  -ms-transform: rotate(185);
-  -o-transform: rotate(185);
-  transform: rotate(185);
+  border-color: #405b5a;
 }
 #sl_flow .sl-color4a {
   background-color: #628a89;
-  border-color: #496765;
-  -webkit-transform: rotate(177.5);
-  -ms-transform: rotate(177.5);
-  -o-transform: rotate(177.5);
-  transform: rotate(177.5);
+  border-color: #597a7d;
 }
 #sl_flow .sl-color4b {
-  background-color: #575d7b;
-  border-color: #3e4257;
-  -webkit-transform: rotate(230);
-  -ms-transform: rotate(230);
-  -o-transform: rotate(230);
-  transform: rotate(230);
+  background-color: #476451;
+  border-color: #3e5743;
 }
 #sl_flow .sl-color4c {
-<<<<<<< Updated upstream
-  background-color: #405b5a;
-  border-color: #273736;
-  -webkit-transform: rotate(177.5);
-  -ms-transform: rotate(177.5);
-  -o-transform: rotate(177.5);
-  transform: rotate(177.5);
-=======
-  background-color: #3f5859;
-  border-color: #263435;
-  -webkit-transform: rotate(183.5);
-  -ms-transform: rotate(183.5);
-  -o-transform: rotate(183.5);
-  transform: rotate(183.5);
->>>>>>> Stashed changes
+  background-color: #40555b;
+  border-color: #374b4d;
 }
 #sl_monochromatic .sl-color1 {
   background-color: #4A4F68;
-  border-color: #313444;
-  -webkit-transform: rotate(230);
-  -ms-transform: rotate(230);
-  -o-transform: rotate(230);
-  transform: rotate(230);
+  border-color: #3b4253;
 }
 #sl_monochromatic .sl-color1a {
   background-color: #626e8a;
-  border-color: #495267;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
+  border-color: #546275;
 }
 #sl_monochromatic .sl-color1b {
   background-color: #3f5759;
-  border-color: #263435;
-  -webkit-transform: rotate(185);
-  -ms-transform: rotate(185);
-  -o-transform: rotate(185);
-  transform: rotate(185);
+  border-color: #364c4b;
 }
 #sl_monochromatic .sl-color1c {
-<<<<<<< Updated upstream
   background-color: #3b4253;
-  border-color: #22262f;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
-=======
-  background-color: #3f4459;
-  border-color: #262935;
-  -webkit-transform: rotate(228.5);
-  -ms-transform: rotate(228.5);
-  -o-transform: rotate(228.5);
-  transform: rotate(228.5);
->>>>>>> Stashed changes
+  border-color: #323a46;
 }
 #sl_monochromatic .sl-color2 {
   background-color: #504a68;
-  border-color: #353144;
-  -webkit-transform: rotate(252.5);
-  -ms-transform: rotate(252.5);
-  -o-transform: rotate(252.5);
-  transform: rotate(252.5);
+  border-color: #49405b;
 }
 #sl_monochromatic .sl-color2a {
-  background-color: #66628a;
-  border-color: #4b4967;
-  -webkit-transform: rotate(245);
-  -ms-transform: rotate(245);
-  -o-transform: rotate(245);
-  transform: rotate(245);
+  background-color: #70628a;
+  border-color: #69597d;
 }
 #sl_monochromatic .sl-color2b {
-  background-color: #3f4d59;
-  border-color: #262e35;
-  -webkit-transform: rotate(207.5);
-  -ms-transform: rotate(207.5);
-  -o-transform: rotate(207.5);
-  transform: rotate(207.5);
+  background-color: #634764;
+  border-color: #573e55;
 }
 #sl_monochromatic .sl-color2c {
-<<<<<<< Updated upstream
   background-color: #43405b;
-  border-color: #282737;
-  -webkit-transform: rotate(245);
-  -ms-transform: rotate(245);
-  -o-transform: rotate(245);
-  transform: rotate(245);
-=======
-  background-color: #443f59;
-  border-color: #292635;
-  -webkit-transform: rotate(251);
-  -ms-transform: rotate(251);
-  -o-transform: rotate(251);
-  transform: rotate(251);
->>>>>>> Stashed changes
+  border-color: #37384d;
 }
 #sl_monochromatic .sl-color3 {
   background-color: #4a4b68;
-  border-color: #313144;
-  -webkit-transform: rotate(237.5);
-  -ms-transform: rotate(237.5);
-  -o-transform: rotate(237.5);
-  transform: rotate(237.5);
+  border-color: #43405b;
 }
 #sl_monochromatic .sl-color3a {
   background-color: #66628a;
-  border-color: #4b4967;
-  -webkit-transform: rotate(245);
-  -ms-transform: rotate(245);
-  -o-transform: rotate(245);
-  transform: rotate(245);
+  border-color: #595a7d;
 }
 #sl_monochromatic .sl-color3b {
   background-color: #3f5459;
-  border-color: #263235;
-  -webkit-transform: rotate(192.5);
-  -ms-transform: rotate(192.5);
-  -o-transform: rotate(192.5);
-  transform: rotate(192.5);
+  border-color: #364a4c;
 }
 #sl_monochromatic .sl-color3c {
-<<<<<<< Updated upstream
   background-color: #43405b;
-  border-color: #282737;
-  -webkit-transform: rotate(245);
-  -ms-transform: rotate(245);
-  -o-transform: rotate(245);
-  transform: rotate(245);
-=======
-  background-color: #443f59;
-  border-color: #292635;
-  -webkit-transform: rotate(251);
-  -ms-transform: rotate(251);
-  -o-transform: rotate(251);
-  transform: rotate(251);
->>>>>>> Stashed changes
+  border-color: #37384d;
 }
 #sl_monochromatic .sl-color4 {
   background-color: #4a5368;
-  border-color: #313644;
-  -webkit-transform: rotate(222.5);
-  -ms-transform: rotate(222.5);
-  -o-transform: rotate(222.5);
-  transform: rotate(222.5);
+  border-color: #40455b;
 }
 #sl_monochromatic .sl-color4a {
-  background-color: #62698a;
-  border-color: #494e67;
-  -webkit-transform: rotate(230);
-  -ms-transform: rotate(230);
-  -o-transform: rotate(230);
-  transform: rotate(230);
+  background-color: #62738a;
+  border-color: #546675;
 }
 #sl_monochromatic .sl-color4b {
   background-color: #3f5958;
-  border-color: #263535;
-  -webkit-transform: rotate(177.5);
-  -ms-transform: rotate(177.5);
-  -o-transform: rotate(177.5);
-  transform: rotate(177.5);
+  border-color: #364a4c;
 }
 #sl_monochromatic .sl-color4c {
-<<<<<<< Updated upstream
   background-color: #40455b;
-  border-color: #272a37;
-  -webkit-transform: rotate(230);
-  -ms-transform: rotate(230);
-  -o-transform: rotate(230);
-  transform: rotate(230);
-=======
-  background-color: #454861;
-  border-color: #2b2d3d;
-  -webkit-transform: rotate(233);
-  -ms-transform: rotate(233);
-  -o-transform: rotate(233);
-  transform: rotate(233);
->>>>>>> Stashed changes
+  border-color: #323746;
 }
 .sl-swatch-base,
 .swatch {
@@ -1324,7 +524,7 @@
   text-align: right;
   line-height: 37px;
   display: block;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 .sl-swatch-base:nth-child(4n + 1),
 .swatch:nth-child(4n + 1) {
@@ -1342,7 +542,7 @@
   }
 }
 .palettes {
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 .palettes:before,
 .palettes:after {
@@ -1369,7 +569,7 @@
   margin-right: 2%;
   margin-bottom: 0;
   position: relative;
-  padding-top: 24px;
+  padding-top: 32px;
 }
 .palette-preview h3 {
   font-size: 14px;
@@ -1474,12 +674,8 @@
 #strapless_patterns_checkerboard .pattern:nth-child(1) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60px' height='60px'%3E%3Crect width='60' height='60' fill='rgb(74,79,104)'/%3E%3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='rgb(78,84,109)'/%3E%3C/svg%3E");
   background-size: 60px, 120px;
-  background-position: -15px -15px;
-<<<<<<< Updated upstream
+  background-position: center center;
   color: #ffffff;
-=======
-  color: #f7f7f8;
->>>>>>> Stashed changes
 }
 #strapless_patterns_checkerboard .pattern:nth-child(1):before {
   content: '.checkerboard (@color1)';
@@ -1487,7 +683,7 @@
 #strapless_patterns_checkerboard .pattern:nth-child(2) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60px' height='60px'%3E%3Crect width='60' height='60' fill='rgb(98,110,138)'/%3E%3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='rgb(103,115,142)'/%3E%3C/svg%3E");
   background-size: 60px, 120px;
-  background-position: -15px -15px;
+  background-position: center center;
   color: #ffffff;
 }
 #strapless_patterns_checkerboard .pattern:nth-child(2):before {
@@ -1495,12 +691,8 @@
 }
 #strapless_patterns_checkerboard .pattern:nth-child(3) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60px' height='60px'%3E%3Crect width='60' height='60' fill='rgb(63,87,89)'/%3E%3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='rgb(67,92,94)'/%3E%3C/svg%3E");
-<<<<<<< Updated upstream
   background-size: 300px, 600px;
-=======
-  background-size: 60px, 120px;
->>>>>>> Stashed changes
-  background-position: -15px -15px;
+  background-position: center center;
   color: #ffffff;
 }
 #strapless_patterns_checkerboard .pattern:nth-child(3):before {
@@ -1511,22 +703,15 @@
 }
 #strapless_patterns_bathmat .pattern:nth-child(1) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='40' height='40' fill='rgb(74,79,104)'/%3E%3Ccircle r='9.2' stroke-width='1' stroke='rgb(80,87,113)' fill='none'/%3E%3Ccircle cy='18.4' r='9.2' stroke-width='1px' stroke='rgb(80,87,113)' fill='none'/%3E%3Ccircle cx='18.4' cy='18.4' r='9.2' stroke-width='1' stroke='rgb(80,87,113)' fill='none'/%3E%3C/svg%3E");
-<<<<<<< Updated upstream
   background-size: 15px 15px;
   color: #ffffff;
-=======
-  color: #f7f7f8;
->>>>>>> Stashed changes
 }
 #strapless_patterns_bathmat .pattern:nth-child(1):before {
   content: '.bathmat (@color1, .75)';
 }
 #strapless_patterns_bathmat .pattern:nth-child(2) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='40' height='40' fill='rgb(98,110,138)'/%3E%3Ccircle r='9.2' stroke-width='1' stroke='rgb(106,119,145)' fill='none'/%3E%3Ccircle cy='18.4' r='9.2' stroke-width='1px' stroke='rgb(106,119,145)' fill='none'/%3E%3Ccircle cx='18.4' cy='18.4' r='9.2' stroke-width='1' stroke='rgb(106,119,145)' fill='none'/%3E%3C/svg%3E");
-<<<<<<< Updated upstream
   background-size: 20px 20px;
-=======
->>>>>>> Stashed changes
   color: #ffffff;
 }
 #strapless_patterns_bathmat .pattern:nth-child(2):before {
@@ -1534,10 +719,7 @@
 }
 #strapless_patterns_bathmat .pattern:nth-child(3) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='40' height='40' fill='rgb(63,87,89)'/%3E%3Ccircle r='9.2' stroke-width='1' stroke='rgb(69,96,97)' fill='none'/%3E%3Ccircle cy='18.4' r='9.2' stroke-width='1px' stroke='rgb(69,96,97)' fill='none'/%3E%3Ccircle cx='18.4' cy='18.4' r='9.2' stroke-width='1' stroke='rgb(69,96,97)' fill='none'/%3E%3C/svg%3E");
-<<<<<<< Updated upstream
   background-size: 20px 20px;
-=======
->>>>>>> Stashed changes
   color: #ffffff;
 }
 #strapless_patterns_bathmat .pattern:nth-child(3):before {
@@ -1548,34 +730,23 @@
 }
 #strapless_patterns_crosshatch .pattern:nth-child(1) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Crect width='8' height='8' fill='rgb(74,79,104)'/%3E%3Cpath d='M0 0L8 8ZM8 0L0 8Z' stroke-width='1' stroke='rgb(80,87,113)'/%3E%3C/svg%3E");
-<<<<<<< Updated upstream
   background-size: 8px 8px;
   color: #ffffff;
-=======
-  color: #f7f7f8;
->>>>>>> Stashed changes
 }
 #strapless_patterns_crosshatch .pattern:nth-child(1):before {
   content: '.crosshatch (@color1)';
 }
 #strapless_patterns_crosshatch .pattern:nth-child(2) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Crect width='8' height='8' fill='rgb(98,110,138)'/%3E%3Cpath d='M0 0L8 8ZM8 0L0 8Z' stroke-width='1' stroke='rgb(106,119,145)'/%3E%3C/svg%3E");
-<<<<<<< Updated upstream
   background-size: 16px 16px;
   color: #ffffff;
-=======
-  color: #1b1e23;
->>>>>>> Stashed changes
 }
 #strapless_patterns_crosshatch .pattern:nth-child(2):before {
   content: '.crosshatch (@color1a, 2)';
 }
 #strapless_patterns_crosshatch .pattern:nth-child(3) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Crect width='8' height='8' fill='rgb(63,87,89)'/%3E%3Cpath d='M0 0L8 8ZM8 0L0 8Z' stroke-width='1' stroke='rgb(69,96,97)'/%3E%3C/svg%3E");
-<<<<<<< Updated upstream
   background-size: 24px 24px;
-=======
->>>>>>> Stashed changes
   color: #ffffff;
 }
 #strapless_patterns_crosshatch .pattern:nth-child(3):before {
@@ -1609,46 +780,27 @@
   content: 'Blueprint';
 }
 #strapless_patterns_blueprint .pattern:nth-child(1) {
-<<<<<<< Updated upstream
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80px' height='80px'%3E %3Crect width='80px' height='80px' fill='rgb(74,79,104)'/%3E %3Cg fill='rgb(82,89,116)'%3E %3Crect width='80px' height='1' y='20px'/%3E %3Crect width='80px' height='1' y='40px'/%3E %3Crect width='80px' height='1' y='60px'/%3E %3Crect width='1' height='80px' x='20px'/%3E %3Crect width='1' height='80px' x='0'/%3E %3Crect width='1' height='80px' x='60px'/%3E %3C/g%3E %3Crect width='80px' height='1' y='0' fill='none' stroke-width='1' stroke='rgb(85,93,119)'/%3E %3Crect width='1' height='80px' x='40px' fill='none' stroke-width='1' stroke='rgb(85,93,119)'/%3E %3C/svg%3E");
   background-size: 80px, 80px;
-  background-position: center 0;
+  background-position: center center;
   color: #ffffff;
-=======
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E %3Crect width='100' height='100' fill='rgb(74,79,104)'/%3E %3Cg fill='rgb(85,93,119)'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='rgb(89,98,125)'/%3E %3C/svg%3E");
-  background-size: 64px, 64px;
-  background-position: center -32px;
-  color: #f7f7f8;
->>>>>>> Stashed changes
 }
 #strapless_patterns_blueprint .pattern:nth-child(1):before {
   content: '.blueprint (@color1)';
 }
 #strapless_patterns_blueprint .pattern:nth-child(2) {
-<<<<<<< Updated upstream
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80px' height='80px'%3E %3Crect width='80px' height='80px' fill='rgb(91,83,64)'/%3E %3Cg fill='rgb(102,92,73)'%3E %3Crect width='80px' height='1' y='20px'/%3E %3Crect width='80px' height='1' y='40px'/%3E %3Crect width='80px' height='1' y='60px'/%3E %3Crect width='1' height='80px' x='20px'/%3E %3Crect width='1' height='80px' x='0'/%3E %3Crect width='1' height='80px' x='60px'/%3E %3C/g%3E %3Crect width='80px' height='1' y='0' fill='none' stroke-width='1' stroke='rgb(106,95,75)'/%3E %3Crect width='1' height='80px' x='40px' fill='none' stroke-width='1' stroke='rgb(106,95,75)'/%3E %3C/svg%3E");
   background-size: 40px, 40px;
-  background-position: center 0;
-=======
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E %3Crect width='100' height='100' fill='rgb(89,84,63)'/%3E %3Cg fill='rgb(105,97,74)'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='rgb(110,101,78)'/%3E %3C/svg%3E");
-  background-size: 32px, 32px;
-  background-position: center -32px;
->>>>>>> Stashed changes
+  background-position: center center;
   color: #ffffff;
 }
 #strapless_patterns_blueprint .pattern:nth-child(2):before {
   content: '.blueprint (@color2c, .5)';
 }
 #strapless_patterns_blueprint .pattern:nth-child(3) {
-<<<<<<< Updated upstream
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80px' height='80px'%3E %3Crect width='80px' height='80px' fill='rgb(78,139,78)'/%3E %3Cg fill='rgb(77,134,75)'%3E %3Crect width='80px' height='1' y='20px'/%3E %3Crect width='80px' height='1' y='40px'/%3E %3Crect width='80px' height='1' y='60px'/%3E %3Crect width='1' height='80px' x='20px'/%3E %3Crect width='1' height='80px' x='0'/%3E %3Crect width='1' height='80px' x='60px'/%3E %3C/g%3E %3Crect width='80px' height='1' y='0' fill='none' stroke-width='1' stroke='rgb(77,132,74)'/%3E %3Crect width='1' height='80px' x='40px' fill='none' stroke-width='1' stroke='rgb(77,132,74)'/%3E %3C/svg%3E");
   background-size: 80px, 80px;
-  background-position: center 0;
-=======
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E %3Crect width='100' height='100' fill='rgb(78,139,78)'/%3E %3Cg fill='rgb(74,131,73)'%3E %3Crect width='100' height='1' y='20'/%3E %3Crect width='100' height='1' y='40'/%3E %3Crect width='100' height='1' y='60'/%3E %3Crect width='100' height='1' y='80'/%3E %3Crect width='1' height='100' x='20'/%3E %3Crect width='1' height='100' x='40'/%3E %3Crect width='1' height='100' x='60'/%3E %3Crect width='1' height='100' x='80'/%3E %3C/g%3E %3Crect width='100' height='100' fill='none' stroke-width='2' stroke='rgb(73,129,72)'/%3E %3C/svg%3E");
-  background-size: 64px, 64px;
-  background-position: center -32px;
->>>>>>> Stashed changes
+  background-position: center center;
   color: #060c06;
 }
 #strapless_patterns_blueprint .pattern:nth-child(3):before {
@@ -1674,11 +826,7 @@
   content: '.pegboard (@color3)';
 }
 #strapless_patterns_pegboard .pattern:nth-child(3) {
-<<<<<<< Updated upstream
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15px' height='15px'%3E%3Crect width='50' height='50' fill='rgb(64,91,90)'/%3E%3Ccircle cx='3' cy='4.3' r='1.8' fill='rgb(89,122,125)'/%3E%3Ccircle cx='3' cy='3' r='1.8' fill='rgb(52,73,72)'/%3E%3Ccircle cx='10.5' cy='12.5' r='1.8' fill='rgb(89,122,125)'/%3E%3Ccircle cx='10.5' cy='11.3' r='1.8' fill='rgb(52,73,72)'/%3E%3C/svg%3E");
-=======
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15px' height='15px'%3E%3Crect width='50' height='50' fill='rgb(63,88,89)'/%3E%3Ccircle cx='3' cy='4.3' r='1.8' fill='rgb(88,123,121)'/%3E%3Ccircle cx='3' cy='3' r='1.8' fill='rgb(51,70,71)'/%3E%3Ccircle cx='10.5' cy='12.5' r='1.8' fill='rgb(88,123,121)'/%3E%3Ccircle cx='10.5' cy='11.3' r='1.8' fill='rgb(51,70,71)'/%3E%3C/svg%3E");
->>>>>>> Stashed changes
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15px' height='15px'%3E%3Crect width='50' height='50' fill='rgb(64,85,91)'/%3E%3Ccircle cx='3' cy='4.3' r='1.8' fill='rgb(89,122,125)'/%3E%3Ccircle cx='3' cy='3' r='1.8' fill='rgb(52,68,73)'/%3E%3Ccircle cx='10.5' cy='12.5' r='1.8' fill='rgb(89,122,125)'/%3E%3Ccircle cx='10.5' cy='11.3' r='1.8' fill='rgb(52,68,73)'/%3E%3C/svg%3E");
   background-size: 22.5px, 22.5px;
   color: #ffffff;
 }
@@ -1691,12 +839,8 @@
 #strapless_patterns_argyle .pattern:nth-child(1) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='90'%3E %3Cg transform='scale(1 1.5)'%3E %3Crect width='99' height='99' fill='rgb(74,79,104)'/%3E %3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='rgb(78,84,109)'/%3E %3Crect width='99' height='1' transform='rotate(45)' fill='rgb(87,91,108)'/%3E %3Crect width='99' height='1' transform='translate(0 60) rotate(-45)' fill='rgb(87,91,108)'/%3E %3C/g%3E %3C/svg%3E");
   background-size: 60px, 90px;
-  background-position: center -30px;
-<<<<<<< Updated upstream
+  background-position: center center;
   color: #ffffff;
-=======
-  color: #f7f7f8;
->>>>>>> Stashed changes
 }
 #strapless_patterns_argyle .pattern:nth-child(1):before {
   content: '.argyle (@color1)';
@@ -1704,7 +848,7 @@
 #strapless_patterns_argyle .pattern:nth-child(2) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='90'%3E %3Cg transform='scale(1 1.5)'%3E %3Crect width='99' height='99' fill='rgb(98,110,138)'/%3E %3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='rgb(103,115,142)'/%3E %3Crect width='99' height='1' transform='rotate(45)' fill='rgb(113,121,141)'/%3E %3Crect width='99' height='1' transform='translate(0 60) rotate(-45)' fill='rgb(113,121,141)'/%3E %3C/g%3E %3C/svg%3E");
   background-size: 60px, 90px;
-  background-position: center -30px;
+  background-position: center center;
   color: #ffffff;
 }
 #strapless_patterns_argyle .pattern:nth-child(2):before {
@@ -1713,7 +857,7 @@
 #strapless_patterns_argyle .pattern:nth-child(3) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='90'%3E %3Cg transform='scale(1 1.5)'%3E %3Crect width='99' height='99' fill='rgb(63,87,89)'/%3E %3Crect width='42.42' height='42.42' transform='translate(30 0) rotate(45)' fill='rgb(67,92,94)'/%3E %3Crect width='99' height='1' transform='rotate(45)' fill='rgb(76,93,94)'/%3E %3Crect width='99' height='1' transform='translate(0 60) rotate(-45)' fill='rgb(76,93,94)'/%3E %3C/g%3E %3C/svg%3E");
   background-size: 30px, 45px;
-  background-position: center -30px;
+  background-position: center center;
   color: #ffffff;
 }
 #strapless_patterns_argyle .pattern:nth-child(3):before {
@@ -1725,30 +869,25 @@
 #strapless_patterns_dots .pattern:nth-child(1) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(104,99,74)'/%3E %3Crect width='1' height='1' fill='rgb(138,127,98)'/%3E %3C/svg%3E");
   background-size: 5px, 5px;
-  background-position: center -2.5px;
+  background-position: top left;
   color: #ffffff;
 }
 #strapless_patterns_dots .pattern:nth-child(1):before {
   content: '.dots (@color2)';
 }
 #strapless_patterns_dots .pattern:nth-child(2) {
-<<<<<<< Updated upstream
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(138,127,98)'/%3E %3Crect width='1' height='1' fill='rgb(117,112,84)'/%3E %3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(138,137,98)'/%3E %3Crect width='1' height='1' fill='rgb(122,125,89)'/%3E %3C/svg%3E");
   background-size: 10px, 10px;
-=======
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(138,127,98)'/%3E %3Crect width='1' height='1' fill='rgb(116,115,82)'/%3E %3C/svg%3E");
-  background-size: 5px, 5px;
->>>>>>> Stashed changes
-  background-position: center -2.5px;
-  color: #11100c;
+  background-position: top left;
+  color: #171710;
 }
 #strapless_patterns_dots .pattern:nth-child(2):before {
   content: '.dots (@color2a, 2)';
 }
 #strapless_patterns_dots .pattern:nth-child(3) {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(123,90,87)'/%3E %3Crect width='1' height='1' fill='rgb(155,114,116)'/%3E %3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(83,100,71)'/%3E %3Crect width='1' height='1' fill='rgb(107,135,96)'/%3E %3C/svg%3E");
   background-size: 5px, 5px;
-  background-position: center -2.5px;
+  background-position: top left;
   color: #ffffff;
 }
 #strapless_patterns_dots .pattern:nth-child(3):before {
@@ -1768,26 +907,18 @@
 }
 #strapless_patterns_stripes .pattern:nth-child(2) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(127,98,138)'/%3E %3Cpath d='M0 5L5 0ZM6 4L4 6ZM-1 1L1 -1Z' stroke='rgb(143,114,152)' stroke-width='1'/%3E %3C/svg%3E");
-<<<<<<< Updated upstream
-  background-size: 20px, 20px;
-=======
-  background-size: 5px, 5px;
->>>>>>> Stashed changes
+  background-size: 7.5px, 7.5px;
   background-position: center -2.5px;
   color: #ffffff;
 }
 #strapless_patterns_stripes .pattern:nth-child(2):before {
-  content: '.stripes (@color3a, 4)';
+  content: '.stripes (@color3a, 1.5)';
 }
 #strapless_patterns_stripes .pattern:nth-child(3) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(71,76,100)'/%3E %3Cpath d='M0 5L5 0ZM6 4L4 6ZM-1 1L1 -1Z' stroke='rgb(84,92,117)' stroke-width='1'/%3E %3C/svg%3E");
   background-size: 5px, 5px;
   background-position: center -2.5px;
-<<<<<<< Updated upstream
   color: #ffffff;
-=======
-  color: #f7f7f8;
->>>>>>> Stashed changes
 }
 #strapless_patterns_stripes .pattern:nth-child(3):before {
   content: '.stripes (@color3b)';
@@ -1798,21 +929,16 @@
 #strapless_patterns_honeycomb .pattern:nth-child(1) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E %3Crect width='56' height='100' fill='rgb(74,101,104)'/%3E %3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='rgb(74,101,104)' stroke-width='2'/%3E %3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='rgb(80,111,112)' stroke-width='2'/%3E %3C/svg%3E");
   background-size: 56px, 100px;
-  background-position: center -28px;
+  background-position: center -14px;
   color: #ffffff;
 }
 #strapless_patterns_honeycomb .pattern:nth-child(1):before {
   content: '.honeycomb (@color4)';
 }
 #strapless_patterns_honeycomb .pattern:nth-child(2) {
-<<<<<<< Updated upstream
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E %3Crect width='56' height='100' fill='rgb(78,139,78)'/%3E %3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='rgb(78,139,78)' stroke-width='2'/%3E %3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='rgb(77,135,75)' stroke-width='2'/%3E %3C/svg%3E");
   background-size: 28px, 50px;
-=======
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E %3Crect width='56' height='100' fill='rgb(78,139,78)'/%3E %3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='rgb(78,139,78)' stroke-width='2'/%3E %3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='rgb(76,134,75)' stroke-width='2'/%3E %3C/svg%3E");
-  background-size: 56px, 100px;
->>>>>>> Stashed changes
-  background-position: center -28px;
+  background-position: center -14px;
   color: #060c06;
 }
 #strapless_patterns_honeycomb .pattern:nth-child(2):before {
@@ -1821,7 +947,7 @@
 #strapless_patterns_honeycomb .pattern:nth-child(3) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E %3Crect width='56' height='100' fill='rgb(165,52,52)'/%3E %3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='rgb(165,52,52)' stroke-width='2'/%3E %3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='rgb(173,58,61)' stroke-width='2'/%3E %3C/svg%3E");
   background-size: 56px, 100px;
-  background-position: center -28px;
+  background-position: center -14px;
   color: #ffffff;
 }
 #strapless_patterns_honeycomb .pattern:nth-child(3):before {
@@ -1831,20 +957,16 @@
   content: 'Chevrons';
 }
 #strapless_patterns_chevrons .pattern:nth-child(1) {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='60' height='30'%3E %3Cdefs%3E %3Crect id='r' width='30' height='15' fill='rgb(74,79,104)' stroke-width='2.5' stroke='rgb(79,85,111)'/%3E %3Cg id='p'%3E %3Cuse xlink:href='%23r'/%3E %3Cuse y='15' xlink:href='%23r'/%3E %3Cuse y='30' xlink:href='%23r'/%3E %3Cuse y='45' xlink:href='%23r'/%3E %3C/g%3E %3C/defs%3E %3Cuse xlink:href='%23p' transform='translate(0 -25) skewY(40)'/%3E %3Cuse xlink:href='%23p' transform='translate(30 0) skewY(-40)'/%3E %3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='60' height='30'%3E %3Cdefs%3E %3Crect id='r' width='30' height='15' fill='rgb(74,79,104)' stroke-width='2.5' stroke='rgb(78,84,109)'/%3E %3Cg id='p'%3E %3Cuse xlink:href='%23r'/%3E %3Cuse y='15' xlink:href='%23r'/%3E %3Cuse y='30' xlink:href='%23r'/%3E %3Cuse y='45' xlink:href='%23r'/%3E %3C/g%3E %3C/defs%3E %3Cuse xlink:href='%23p' transform='translate(0 -25) skewY(40)'/%3E %3Cuse xlink:href='%23p' transform='translate(30 0) skewY(-40)'/%3E %3C/svg%3E");
   background-size: 60px, 30px;
   background-position: center -30px;
-<<<<<<< Updated upstream
   color: #ffffff;
-=======
-  color: #f7f7f8;
->>>>>>> Stashed changes
 }
 #strapless_patterns_chevrons .pattern:nth-child(1):before {
   content: '.chevrons (@color1)';
 }
 #strapless_patterns_chevrons .pattern:nth-child(2) {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='60' height='30'%3E %3Cdefs%3E %3Crect id='r' width='30' height='15' fill='rgb(104,99,74)' stroke-width='2.5' stroke='rgb(111,106,79)'/%3E %3Cg id='p'%3E %3Cuse xlink:href='%23r'/%3E %3Cuse y='15' xlink:href='%23r'/%3E %3Cuse y='30' xlink:href='%23r'/%3E %3Cuse y='45' xlink:href='%23r'/%3E %3C/g%3E %3C/defs%3E %3Cuse xlink:href='%23p' transform='translate(0 -25) skewY(40)'/%3E %3Cuse xlink:href='%23p' transform='translate(30 0) skewY(-40)'/%3E %3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='60' height='30'%3E %3Cdefs%3E %3Crect id='r' width='30' height='15' fill='rgb(104,99,74)' stroke-width='2.5' stroke='rgb(109,103,78)'/%3E %3Cg id='p'%3E %3Cuse xlink:href='%23r'/%3E %3Cuse y='15' xlink:href='%23r'/%3E %3Cuse y='30' xlink:href='%23r'/%3E %3Cuse y='45' xlink:href='%23r'/%3E %3C/g%3E %3C/defs%3E %3Cuse xlink:href='%23p' transform='translate(0 -25) skewY(40)'/%3E %3Cuse xlink:href='%23p' transform='translate(30 0) skewY(-40)'/%3E %3C/svg%3E");
   background-size: 60px, 30px;
   background-position: center -30px;
   color: #ffffff;
@@ -1853,7 +975,7 @@
   content: '.chevrons (@color2)';
 }
 #strapless_patterns_chevrons .pattern:nth-child(3) {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='60' height='30'%3E %3Cdefs%3E %3Crect id='r' width='30' height='15' fill='rgb(91,74,104)' stroke-width='2.5' stroke='rgb(98,79,111)'/%3E %3Cg id='p'%3E %3Cuse xlink:href='%23r'/%3E %3Cuse y='15' xlink:href='%23r'/%3E %3Cuse y='30' xlink:href='%23r'/%3E %3Cuse y='45' xlink:href='%23r'/%3E %3C/g%3E %3C/defs%3E %3Cuse xlink:href='%23p' transform='translate(0 -25) skewY(40)'/%3E %3Cuse xlink:href='%23p' transform='translate(30 0) skewY(-40)'/%3E %3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='60' height='30'%3E %3Cdefs%3E %3Crect id='r' width='30' height='15' fill='rgb(91,74,104)' stroke-width='2.5' stroke='rgb(97,78,109)'/%3E %3Cg id='p'%3E %3Cuse xlink:href='%23r'/%3E %3Cuse y='15' xlink:href='%23r'/%3E %3Cuse y='30' xlink:href='%23r'/%3E %3Cuse y='45' xlink:href='%23r'/%3E %3C/g%3E %3C/defs%3E %3Cuse xlink:href='%23p' transform='translate(0 -25) skewY(40)'/%3E %3Cuse xlink:href='%23p' transform='translate(30 0) skewY(-40)'/%3E %3C/svg%3E");
   background-size: 60px, 30px;
   background-position: center -30px;
   color: #ffffff;
@@ -1862,7 +984,7 @@
   content: '.chevrons (@color3)';
 }
 .pattern-preview {
-  padding-top: 12px;
+  padding-top: 16px;
   margin-bottom: 2em;
 }
 .pattern-preview:before,
@@ -1883,20 +1005,19 @@
 }
 .pattern-preview:before {
   display: none;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 .pattern-preview > .pattern {
   width: 100%;
   min-height: 120px;
-  padding: 12px;
-  margin-bottom: 12px;
-  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-<<<<<<< Updated upstream
 }
 @media screen and (min-width: 768px) {
   .pattern-preview > .pattern {
@@ -1904,7 +1025,7 @@
     min-width: 100px;
     width: 32%;
     height: 200px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
   .pattern-preview > .pattern:nth-child(2) {
     margin-left: 2%;
@@ -1920,12 +1041,6 @@
     line-height: 16px;
     width: 100%;
   }
-=======
-  padding: 6px;
-  font-size: 18px;
-  line-height: 16px;
-  width: 100%;
->>>>>>> Stashed changes
 }
 html {
   font-family: sans-serif;
@@ -2125,29 +1240,25 @@ body {
   color: #595959;
   font-size: 16px;
   line-height: 1.62;
-  padding-top: 48px;
+  padding-top: 61px;
   margin-bottom: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
 }
 @media screen and (min-width: 768px) {
   body {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 nav {
   background-color: #4A4F68;
-<<<<<<< Updated upstream
   color: #ffffff;
-=======
-  color: #f7f7f8;
->>>>>>> Stashed changes
-  height: 48px;
-  line-height: 48px;
+  height: 45px;
+  line-height: 45px;
   font-size: 18px;
-  max-height: 48px;
+  max-height: 45px;
   padding: 0;
-  margin-bottom: 12px;
-  border-radius: 6px;
+  margin-bottom: 16px;
+  border-radius: 8px;
   z-index: 1000;
   position: fixed;
   top: 0;
@@ -2161,7 +1272,7 @@ nav {
 }
 nav > section {
   padding: 0;
-  max-width: 960px;
+  max-width: 980px;
 }
 nav > section > * {
   display: none;
@@ -2172,7 +1283,7 @@ nav > section > * {
   margin-bottom: 0;
   padding-top: 0;
   padding-bottom: 0;
-  height: 48px;
+  height: 45px;
   vertical-align: middle;
   overflow: hidden;
 }
@@ -2183,33 +1294,33 @@ nav > section > * {
 }
 nav > section > *:first-child {
   display: block;
-  margin-right: 24px;
+  margin-right: 32px;
 }
 @media screen and (min-width: 480px) {
   nav > section > *:first-child {
-    margin-right: 48px;
+    margin-right: 45px;
   }
 }
 nav > section > *:last-child {
   display: block;
   float: right;
-  line-height: 42px;
+  line-height: 39px;
 }
 nav ul {
-  height: 48px;
+  height: 45px;
 }
 nav li {
   float: left;
-  height: 48px;
-  line-height: 48px;
+  height: 45px;
+  line-height: 45px;
   list-style: none;
 }
 nav h1 {
   display: block;
   float: left;
   font-size: 26px;
-  line-height: 48px;
-  padding: 0 12px;
+  line-height: 45px;
+  padding: 0 16px;
   color: inherit;
 }
 nav a {
@@ -2219,8 +1330,8 @@ nav a {
   color: inherit;
 }
 nav li > a {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 nav li > a:hover {
   background-color: rgba(255, 255, 255, 0.15);
@@ -2228,23 +1339,23 @@ nav li > a:hover {
 section {
   width: 100%;
   margin: 0 auto;
-  padding: 12px 12px 48px 12px;
+  padding: 16px;
 }
 section:first-child {
   margin-top: 0;
 }
 section > * {
   margin: 0 auto;
-  max-width: 960px;
-}
-section > *:last-child {
-  margin-bottom: 12px;
+  max-width: 980px;
 }
 section > *:only-child {
-  margin-top: 12px;
+  margin-bottom: 0;
+}
+section > aside {
+  margin-bottom: 1em;
 }
 section > * + * {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 section.action {
   background-color: #252a40;
@@ -2270,26 +1381,17 @@ section.failure {
   background-color: #521a1a;
   color: #e8e0e0;
 }
-section.info,
-section.warning,
-section.action,
-section.reaction,
-section.success,
-section.failure {
-  padding-bottom: 12px;
-}
 main {
-<<<<<<< Updated upstream
-=======
-  background-color: #35394a;
-  color: #dbdbde;
->>>>>>> Stashed changes
-  background-color: #626e8a;
-  color: #ffffff;
-  padding: 12px;
-  max-width: 960px;
+  padding: 16px;
+  max-width: 980px;
   margin: 0 auto;
   margin-bottom: 1em;
+  text-align: center;
+  background-color: #626e8a;
+  color: #ffffff;
+}
+main p {
+  text-align: left;
 }
 main h1,
 main h2 {
@@ -2305,26 +1407,76 @@ main img {
   margin: 0 auto;
   max-width: 100%;
 }
-@media screen and (min-width: 960px) {
+section > main {
+  border-radius: 8px;
+}
+main button,
+main html input[type="button"],
+main input[type="submit"] {
+  font-size: 110%;
+}
+main button:only-child,
+main html input[type="button"]:only-child,
+main input[type="submit"]:only-child,
+main button:only-of-type,
+main html input[type="button"]:only-of-type,
+main input[type="submit"]:only-of-type {
+  font-size: 125%;
+  margin-bottom: 1em;
+}
+@media screen and (min-width: 980px) {
   main {
-    padding: 24px;
-    border-radius: 6px;
+    border-radius: 8px;
   }
 }
-body > footer {
-  padding-top: 24px;
-<<<<<<< Updated upstream
-  width: auto;
-  max-width: 100%;
-  border-radius: 0;
+@media screen and (min-width: 960px) {
+  main {
+    max-width: 784px;
+  }
 }
-footer aside {
-  max-width: 960px;
-=======
+main.action {
+  background-color: #6175a4;
+  color: #ffffff;
 }
-footer aside {
-  max-width: 920px;
->>>>>>> Stashed changes
+main.reaction {
+  background-color: #9151ac;
+  color: #ffffff;
+}
+main.info {
+  background-color: #759ac5;
+  color: #1d2731;
+}
+main.warning {
+  background-color: #ce9669;
+  color: #3c2c1e;
+}
+main.success {
+  background-color: #70ab68;
+  color: #21321e;
+}
+main.failure {
+  background-color: #c74c5b;
+  color: #ffffff;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  line-height: 1.62;
+  font-weight: bold;
+}
+h1:only-child,
+h2:only-child,
+h3:only-child,
+h4:only-child,
+h5:only-child,
+h6:only-child {
+  margin-top: 0;
 }
 h1 {
   font-size: 2.5em;
@@ -2342,17 +1494,7 @@ h5 {
   font-size: 1.3em;
 }
 h6 {
-  font-size: 1.0em;
-}
-h1,
-h2,
-h3,
-h4 {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  text-align: center;
-  line-height: 1.62;
-  font-weight: bold;
+  font-size: 1.1em;
 }
 h1 + h1,
 h1 + h2,
@@ -2375,8 +1517,6 @@ h4 + h4 {
 h5,
 h6 {
   margin-top: .5em;
-  margin-bottom: 1em;
-  text-align: center;
   text-transform: uppercase;
 }
 p,
@@ -2386,7 +1526,7 @@ ul,
 dl,
 li,
 aside {
-  margin: 0 auto 1em;
+  margin: 0 auto 1em auto;
 }
 @media screen and (min-width: 480px) {
   p,
@@ -2396,143 +1536,89 @@ aside {
   dl,
   li,
   aside {
-<<<<<<< Updated upstream
     max-width: 55ch;
   }
 }
 ul {
   margin: 0 auto 2em;
 }
-@media screen and (min-width: 480px) {
-  footer {
-=======
->>>>>>> Stashed changes
-    max-width: 55ch;
-  }
+p {
+  padding: 0;
 }
-p.info,
-p.warning,
-p.action,
-p.reaction,
-p.success,
-p.failure,
-aside.info,
-aside.warning,
-aside.action,
-aside.reaction,
-aside.success,
-aside.failure {
-  padding: 12px 1em 14.4px 1em;
+p.action {
+  background-color: #1f2535;
+  color: #d7d8db;
 }
-p.action,
-aside.action {
-  background-color: #252a40;
-  color: #d8d9dd;
+p.reaction {
+  background-color: #2e1a36;
+  color: #d0cbd2;
 }
-p.reaction,
-aside.reaction {
-  background-color: #331f42;
-  color: #dad7dd;
+p.info {
+  background-color: #20344b;
+  color: #e1e4e7;
 }
-p.info,
-aside.info {
-  background-color: #234054;
-  color: #f5f6f7;
+p.warning {
+  background-color: #51331b;
+  color: #f7f6f5;
 }
-p.warning,
-aside.warning {
-  background-color: #5f341f;
-  color: #f8f6f5;
+p.success {
+  background-color: #263e23;
+  color: #ebeeeb;
 }
-p.success,
-aside.success {
-  background-color: #274527;
-  color: #f5f7f5;
+p.failure {
+  background-color: #4a171d;
+  color: #ded5d6;
 }
-p.failure,
-aside.failure {
-  background-color: #521a1a;
-  color: #e8e0e0;
-}
-p.action,
-aside.action {
-  background-color: #6d77aa;
-  color: #050507;
-}
-p.reaction,
-aside.reaction {
-  background-color: #8e5db2;
-  color: #ffffff;
-}
-p.info,
-aside.info {
-  background-color: #75a4c5;
-  color: #223039;
-}
-p.warning,
-aside.warning {
-  background-color: #d29476;
-  color: #3d2b22;
-}
-p.success,
-aside.success {
-  background-color: #74b174;
-  color: #223422;
-}
-p.failure,
-aside.failure {
-  background-color: #cb5959;
-  color: #110707;
-}
-ul,
-ol {
-  padding-left: 2ch;
-}
-dt {
-  font-weight: bold;
-  font-size: 90%;
-}
-dd {
-  margin-bottom: 12px;
-}
-a {
-  color: inherit;
-  text-decoration: underline;
-}
-<<<<<<< Updated upstream
 aside,
 footer {
-  margin-bottom: 1em;
-  padding-bottom: 12px;
-=======
-aside {
-  padding: 0 1em;
->>>>>>> Stashed changes
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+aside > *,
+footer > * {
+  margin-bottom: 8px;
+}
+aside > *:last-child,
+footer > *:last-child {
+  margin-bottom: 0;
+}
+aside > form,
+footer > form {
+  padding: 0;
 }
 aside > button,
 footer > button {
   width: 100%;
-<<<<<<< Updated upstream
-  margin-bottom: 12px;
-=======
-  margin-bottom: 1em;
->>>>>>> Stashed changes
 }
-p + aside,
-p + footer {
-  padding-top: 12px;
-}
-aside > *:only-child,
-footer > *:only-child {
+aside aside,
+footer aside {
+  margin-top: 0;
   margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
-p + aside {
-  padding-top: 12px;
+aside:only-child,
+footer:only-child {
+  margin-bottom: 0;
+  font-size: 120%;
+}
+aside.action,
+footer.action,
+aside.reaction,
+footer.reaction,
+aside.info,
+footer.info,
+aside.warning,
+footer.warning,
+aside.success,
+footer.success,
+aside.failure,
+footer.failure {
+  padding: 16px 1em;
 }
 @media screen and (min-width: 480px) {
   aside,
   footer {
-    padding: 0 1em;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: row;
@@ -2541,7 +1627,6 @@ p + aside {
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
-    border-radius: 6px;
   }
   aside > button,
   footer > button {
@@ -2550,15 +1635,21 @@ p + aside {
   }
   aside > *,
   footer > * {
-    margin-left: 6px;
-    margin-right: 6px;
+    margin-left: 16px;
     margin-bottom: 0;
   }
-<<<<<<< Updated upstream
-  aside p,
-  footer p {
-    margin-left: 24px;
-    margin-right: 24px;
+  aside > *:first-child,
+  footer > *:first-child {
+    margin-left: 0;
+  }
+  aside > p,
+  footer > p {
+    margin-right: 0;
+    margin-left: 32px;
+  }
+  aside > p + *,
+  footer > p + * {
+    margin-left: 32px;
   }
   aside h1,
   footer h1,
@@ -2572,10 +1663,49 @@ p + aside {
   footer h5,
   aside h6,
   footer h6 {
-    margin-top: 0;
-    margin-left: 24px;
-    margin-right: 24px;
+    margin: 0 32px;
   }
+}
+p.success,
+p.failure,
+p.action,
+p.reaction,
+p.info,
+p.warning {
+  padding: 16px 1em;
+}
+ul,
+ol {
+  padding-left: 2ch;
+}
+dt {
+  font-weight: bold;
+  font-size: 90%;
+}
+dd {
+  margin-bottom: 16px;
+}
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+body > footer {
+  padding-top: 16px;
+  margin-top: 64px;
+  width: auto;
+  max-width: 100%;
+  border-radius: 0;
+}
+footer aside {
+  max-width: 980px;
+}
+footer.action,
+footer.reaction,
+footer.info,
+footer.warning,
+footer.success,
+footer.failure {
+  padding: 16px;
 }
 @media screen and (min-width: 480px) {
   footer {
@@ -2584,16 +1714,10 @@ p + aside {
     -webkit-justify-content: flex-end;
     justify-content: flex-end;
   }
-=======
->>>>>>> Stashed changes
 }
 form {
   padding: .4em 1.62ch;
-  margin-bottom: 2em;
-}
-form > * {
-  margin-top: .4em;
-  margin-bottom: .4em;
+  margin-bottom: 0;
 }
 form p {
   padding: 0;
@@ -2601,14 +1725,15 @@ form p {
 form input,
 form textarea {
   width: 100%;
+  min-width: 18ch;
   padding: 1ch;
   border: 1px solid #3e3e3e;
 }
-form > footer {
-  text-align: right;
-}
-form > footer > button + button {
-  margin-left: 12px;
+form input + form input,
+form input + form label,
+form label + form input,
+form label + form label {
+  margin-top: 16px;
 }
 form h1:first-child,
 form h2:first-child,
@@ -2617,13 +1742,6 @@ form h4:first-child,
 form h5:first-child,
 form h6:first-child {
   margin-top: 0;
-}
-form button,
-form html input[type="button"],
-form input[type="submit"] {
-  font-size: 110%;
-  margin-top: .4em;
-  margin-bottom: .4em;
 }
 label {
   display: block;
@@ -2718,18 +1836,18 @@ table th,
 table td {
   text-align: left;
   vertical-align: top;
-  padding: 6px;
+  padding: 8px;
 }
 table thead th {
   vertical-align: bottom;
 }
 table tr > td:first-child,
 table tr > th:first-child {
-  padding-left: 12px;
+  padding-left: 16px;
 }
 table tr > td:last-child,
 table tr > th:last-child {
-  padding-right: 12px;
+  padding-right: 16px;
 }
 fieldset,
 img {
@@ -2740,11 +1858,6 @@ figcaption {
   text-align: left;
   vertical-align: top;
   font-weight: normal;
-}
-input,
-textarea {
-  font-size: 110%;
-  line-height: 1.1;
 }
 abbr,
 acronym {
@@ -2775,13 +1888,21 @@ blockquote cite:before {
 code,
 pre,
 .less-var-test {
-  background: #383835;
-  color: #f0efed;
+  background-color: #1f1f1f;
+  color: #cdcdcd;
   font-family: monospace;
+  font-size: 85%;
   vertical-align: middle;
-  font-size: 72%;
-  padding: .125em .5em .175em .5em;
-  border-radius: 3px;
+  padding: 16px 1em;
+  border-radius: 8px;
+}
+code,
+.less-var-test {
+  padding: .16em .5em;
+  border-radius: 4px;
+}
+pre {
+  margin-bottom: 1em;
 }
 button,
 html input[type="button"],
@@ -2794,7 +1915,7 @@ input[type="submit"] {
   cursor: pointer;
   background-image: none;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   outline: none;
   white-space: nowrap;
   padding: .35em .65em;
@@ -2808,7 +1929,8 @@ input[type="submit"] {
 button:active,
 html input[type="button"]:active,
 input[type="submit"]:active {
-  background-color: #3b4266;
+  background-color: #374360;
+  box-shadow: inset 0 1px 0 #333e58;
 }
 .action button,
 .action html input[type="button"],
@@ -2819,11 +1941,11 @@ input[type="submit"]:active {
 .action button:active,
 .action html input[type="button"]:active,
 .action input[type="submit"]:active {
-  background-color: #3b4266;
+  background-color: #374360;
+  box-shadow: inset 0 1px 0 #333e58;
 }
 button.action,
 html input[type="button"].action,
-<<<<<<< Updated upstream
 input[type="submit"].action {
   background-color: #454d77 !important;
   color: white !important;
@@ -2831,7 +1953,8 @@ input[type="submit"].action {
 button.action:active,
 html input[type="button"].action:active,
 input[type="submit"].action:active {
-  background-color: #3b4266 !important;
+  background-color: #374360 !important;
+  box-shadow: inset 0 1px 0 #333e58 !important;
 }
 .reaction button,
 .reaction html input[type="button"],
@@ -2842,7 +1965,8 @@ input[type="submit"].action:active {
 .reaction button:active,
 .reaction html input[type="button"]:active,
 .reaction input[type="submit"]:active {
-  background-color: #513168;
+  background-color: #522e61;
+  box-shadow: inset 0 1px 0 #4b2a59;
 }
 button.reaction,
 html input[type="button"].reaction,
@@ -2853,7 +1977,8 @@ input[type="submit"].reaction {
 button.reaction:active,
 html input[type="button"].reaction:active,
 input[type="submit"].reaction:active {
-  background-color: #513168 !important;
+  background-color: #522e61 !important;
+  box-shadow: inset 0 1px 0 #4b2a59 !important;
 }
 .info button,
 .info html input[type="button"],
@@ -2864,7 +1989,8 @@ input[type="submit"].reaction:active {
 .info button:active,
 .info html input[type="button"]:active,
 .info input[type="submit"]:active {
-  background-color: #335973;
+  background-color: #305b6c;
+  box-shadow: inset 0 1px 0 #2c5363;
 }
 button.info,
 html input[type="button"].info,
@@ -2875,7 +2001,8 @@ input[type="submit"].info {
 button.info:active,
 html input[type="button"].info:active,
 input[type="submit"].info:active {
-  background-color: #335973 !important;
+  background-color: #305b6c !important;
+  box-shadow: inset 0 1px 0 #2c5363 !important;
 }
 .warning button,
 .warning html input[type="button"],
@@ -2886,7 +2013,8 @@ input[type="submit"].info:active {
 .warning button:active,
 .warning html input[type="button"]:active,
 .warning input[type="submit"]:active {
-  background-color: #864b2f;
+  background-color: #88412f;
+  box-shadow: inset 0 1px 0 #7e3d2c;
 }
 button.warning,
 html input[type="button"].warning,
@@ -2897,7 +2025,8 @@ input[type="submit"].warning {
 button.warning:active,
 html input[type="button"].warning:active,
 input[type="submit"].warning:active {
-  background-color: #864b2f !important;
+  background-color: #88412f !important;
+  box-shadow: inset 0 1px 0 #7e3d2c !important;
 }
 .success button,
 .success html input[type="button"],
@@ -2908,7 +2037,8 @@ input[type="submit"].warning:active {
 .success button:active,
 .success html input[type="button"]:active,
 .success input[type="submit"]:active {
-  background-color: #365b36;
+  background-color: #3b5d37;
+  box-shadow: inset 0 1px 0 #365432;
 }
 button.success,
 html input[type="button"].success,
@@ -2919,7 +2049,8 @@ input[type="submit"].success {
 button.success:active,
 html input[type="button"].success:active,
 input[type="submit"].success:active {
-  background-color: #365b36 !important;
+  background-color: #3b5d37 !important;
+  box-shadow: inset 0 1px 0 #365432 !important;
 }
 .failure button,
 .failure html input[type="button"],
@@ -2930,7 +2061,8 @@ input[type="submit"].success:active {
 .failure button:active,
 .failure html input[type="button"]:active,
 .failure input[type="submit"]:active {
-  background-color: #852a2a;
+  background-color: #872a36;
+  box-shadow: inset 0 1px 0 #7e2732;
 }
 button.failure,
 html input[type="button"].failure,
@@ -2941,7 +2073,8 @@ input[type="submit"].failure {
 button.failure:active,
 html input[type="button"].failure:active,
 input[type="submit"].failure:active {
-  background-color: #852a2a !important;
+  background-color: #872a36 !important;
+  box-shadow: inset 0 1px 0 #7e2732 !important;
 }
 mark,
 ::selection {
@@ -2952,141 +2085,6 @@ hr {
   border-color: #3b4253;
   border-top-color: #373d4d;
   border-bottom-color: #464e62;
-=======
-input[type="reset"].action,
-input[type="submit"].action,
-.action > button,
-.action > html input[type="button"],
-.action > input[type="reset"],
-.action > input[type="submit"] {
-  background-color: #454d77;
-  color: #f7f7f9;
-}
-button.action:active,
-html input[type="button"].action:active,
-input[type="reset"].action:active,
-input[type="submit"].action:active,
-.action > button:active,
-.action > html input[type="button"]:active,
-.action > input[type="reset"]:active,
-.action > input[type="submit"]:active {
-  background-color: #3b4266;
-}
-button.reaction,
-html input[type="button"].reaction,
-input[type="reset"].reaction,
-input[type="submit"].reaction,
-.reaction > button,
-.reaction > html input[type="button"],
-.reaction > input[type="reset"],
-.reaction > input[type="submit"] {
-  background-color: #5f3a79;
-  color: #f1edf3;
-}
-button.reaction:active,
-html input[type="button"].reaction:active,
-input[type="reset"].reaction:active,
-input[type="submit"].reaction:active,
-.reaction > button:active,
-.reaction > html input[type="button"]:active,
-.reaction > input[type="reset"]:active,
-.reaction > input[type="submit"]:active {
-  background-color: #513168;
-}
-button.info,
-html input[type="button"].info,
-input[type="reset"].info,
-input[type="submit"].info,
-.info > button,
-.info > html input[type="button"],
-.info > input[type="reset"],
-.info > input[type="submit"] {
-  background-color: #3b6684;
-  color: #ffffff;
-}
-button.info:active,
-html input[type="button"].info:active,
-input[type="reset"].info:active,
-input[type="submit"].info:active,
-.info > button:active,
-.info > html input[type="button"]:active,
-.info > input[type="reset"]:active,
-.info > input[type="submit"]:active {
-  background-color: #335973;
-}
-button.warning,
-html input[type="button"].warning,
-input[type="reset"].warning,
-input[type="submit"].warning,
-.warning > button,
-.warning > html input[type="button"],
-.warning > input[type="reset"],
-.warning > input[type="submit"] {
-  background-color: #995635;
-  color: #ffffff;
-}
-button.warning:active,
-html input[type="button"].warning:active,
-input[type="reset"].warning:active,
-input[type="submit"].warning:active,
-.warning > button:active,
-.warning > html input[type="button"]:active,
-.warning > input[type="reset"]:active,
-.warning > input[type="submit"]:active {
-  background-color: #864b2f;
-}
-button.success,
-html input[type="button"].success,
-input[type="reset"].success,
-input[type="submit"].success,
-.success > button,
-.success > html input[type="button"],
-.success > input[type="reset"],
-.success > input[type="submit"] {
-  background-color: #3f6b3f;
-  color: #ffffff;
-}
-button.success:active,
-html input[type="button"].success:active,
-input[type="reset"].success:active,
-input[type="submit"].success:active,
-.success > button:active,
-.success > html input[type="button"]:active,
-.success > input[type="reset"]:active,
-.success > input[type="submit"]:active {
-  background-color: #365b36;
-}
-button.failure,
-html input[type="button"].failure,
-input[type="reset"].failure,
-input[type="submit"].failure,
-.failure > button,
-.failure > html input[type="button"],
-.failure > input[type="reset"],
-.failure > input[type="submit"] {
-  background-color: #993030;
-  color: #ffffff;
-}
-button.failure:active,
-html input[type="button"].failure:active,
-input[type="reset"].failure:active,
-input[type="submit"].failure:active,
-.failure > button:active,
-.failure > html input[type="button"]:active,
-.failure > input[type="reset"]:active,
-.failure > input[type="submit"]:active {
-  background-color: #852a2a;
-}
-mark,
-::selection {
-  background-color: #3f5759;
-  color: #ffffff;
-}
-hr {
-  border-color: #3f4459;
-  border-top-color: #3b4053;
-  border-bottom-color: #4a5068;
->>>>>>> Stashed changes
 }
 .hide,
 .hidden {
@@ -3124,7 +2122,6 @@ hr {
   background-color: #a53434;
   color: #ffffff;
 }
-body,
 #feature,
 #feature > *,
 #strapless_nav,
@@ -3141,8 +2138,8 @@ body,
 .less-var-test {
   display: none;
   position: fixed;
-  bottom: 12px;
-  left: 12px;
+  bottom: 16px;
+  left: 16px;
   font-size: 14px;
   font-family: monospace;
 }
@@ -3168,8 +2165,11 @@ body,
   color: #4a6568;
 }
 #demo_form {
-  position: relative;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
   max-width: auto;
+  z-index: 1000;
 }
 #demo_form label {
   max-width: 120px;
@@ -3185,21 +2185,13 @@ body,
   width: 82px;
 }
 #demo_form button {
-  line-height: 18px;
-}
-@media screen and (min-width: 480px) {
-  #demo_form {
-    position: relative;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
+  min-height: 32px;
 }
 @media screen and (min-width: 768px) {
   #demo_form {
     font-size: 12px;
-    width: 700px;
-    border-radius: 6px;
+    width: 200px;
+    border-radius: 8px;
   }
 }
 #seed_color {
@@ -3211,7 +2203,7 @@ body,
   position: absolute;
   background: #717171;
   color: #ffffff;
-  border-radius: 6px;
+  border-radius: 8px;
   z-index: 1001;
   height: 100%;
   top: 0;
@@ -3238,12 +2230,8 @@ body,
   text-indent: -9999px;
   white-space: nowrap;
   background-color: #4A4F68;
-<<<<<<< Updated upstream
   border: 2px solid #3b4253;
-=======
-  border: 2px solid #3f4459;
->>>>>>> Stashed changes
   vertical-align: top;
   margin-top: 5px;
-  border-radius: 1.5px;
+  border-radius: 2px;
 }

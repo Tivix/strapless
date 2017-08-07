@@ -43,8 +43,8 @@
 
 .sl-swatch(@color: @gray) {
   background-color: @color;
-  border-color: darken(@color, 12%);
-  .rotate(hue(@color));
+  .set-c-color(@color);
+  border-color: @c-color;
 }
 
 .sl-swatch-base, .swatch {

@@ -11,10 +11,6 @@
 @demo-wheels:  accented, complementary, triadic,
                tetradic, square, ebb, flow, monochromatic;
 
-
-
-
-body, 
 #feature, 
 #feature > *, 
 #strapless_nav, 
@@ -44,6 +40,8 @@ body,
 }
 
 .logo {
+  // Tivix logo
+
   width: 150px;
 
   .letter {
@@ -75,8 +73,11 @@ body,
 }
 
 #demo_form {
-  position: relative;
+  position: fixed;
+  bottom: @padding;
+  right: @padding;
   max-width: auto;
+  z-index: 1000;
 
   label {
     max-width: 120px;
@@ -95,19 +96,12 @@ body,
   }
 
   button {
-    line-height: 18px;
+    min-height: 32px;
   }
-
-  .on-large-phone({
-    position: relative;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-  });
 
   .on-tablet({
     font-size: 12px;
-    width: 700px;
+    width: 200px;
     border-radius: @border-radius;
   });
 }
