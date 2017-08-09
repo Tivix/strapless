@@ -621,6 +621,36 @@ footer.failure {
     margin: 0 32px;
   }
 }
+aside.action,
+footer.action {
+  background-color: #1f2535;
+  color: #d7d8db;
+}
+aside.reaction,
+footer.reaction {
+  background-color: #2e1a36;
+  color: #d0cbd2;
+}
+aside.info,
+footer.info {
+  background-color: #20344b;
+  color: #e1e4e7;
+}
+aside.warning,
+footer.warning {
+  background-color: #51331b;
+  color: #f7f6f5;
+}
+aside.success,
+footer.success {
+  background-color: #263e23;
+  color: #ebeeeb;
+}
+aside.failure,
+footer.failure {
+  background-color: #4a171d;
+  color: #ded5d6;
+}
 p.success,
 p.failure,
 p.action,

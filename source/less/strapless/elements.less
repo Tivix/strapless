@@ -39,7 +39,7 @@ nav {
   @color: @base-color;
   @height: @nav-height;
 
-  .colorize(@color);
+  .button-color(@color1, @active-state: false);
 
   height: @height;
   line-height: @height;
@@ -147,6 +147,8 @@ section {
     max-width: @content-max-width;
 
     &:only-child {
+      padding-top: 1em;
+      padding-bottom: 1em;
       margin-bottom: 0;
     }
   }
@@ -180,24 +182,13 @@ section {
     }
   }
 
-  .section-color(@color) when (@scheme-type = dark) {
-    .colorize(average(@color, black));
-  }
-
-  .section-color(@color) when (default()) {
-    .colorize(average(@color, white));
+  .section-color(@color) {
+    @light-bg: average(@color, @gray-lightest-base);
+    @dark-bg: average(@color, @gray-darkest-base);
+    .colorize(@light-bg, @light-bg, @dark-bg);
   }
 
   .make-section-colors-for(@semantic-colors);
-}
-
-section.info,
-section.warning,
-section.action,
-section.reaction,
-section.success,
-section.failure {
-  // padding-bottom: @padding;
 }
 
 main {
@@ -206,7 +197,6 @@ main {
   margin: 0 auto;
   margin-bottom: 1em;
   text-align: center;
-  .main-color(@base-color);
 
   p { text-align: left;}
 
@@ -231,6 +221,7 @@ main {
 
   .button-elements({
     font-size: 110%;
+    .button-color(@base-color);
 
     &:only-child, &:only-of-type { font-size: 125%; margin-bottom: 1em;}
   });
@@ -268,18 +259,9 @@ main {
     }
   }
 
-  .main-color(@color) when (@scheme-type = dark) {
+  .main-color(@color) {
     .set-a-color(@color);
-    .colorize(@a-color);
-  }
-
-  .main-color(@color) when (@scheme-type = medium) {
-    .colorize(@color);
-  }
-
-  .main-color(@color) when (default()) {
-    .set-c-color(@color);
-    .colorize(@c-color);
+    .colorize(@color, @a-color, @a-color);
   }
 
   .main-color(@base-color);
@@ -333,24 +315,8 @@ p {
   padding: 0;
 
   .p-color(@color) {
-
-    .set-tone(@color);
-
-    .set-bg(@bg-color) when (@scheme-type = dark) {
-      .set-c-color(@color);
-      @bg: mix(@c-color, black, 50%);
-    }
-
-    .set-bg(@bg-color) when (@scheme-type = light) {
-      .set-a-color(@color);
-      @bg: mix(@a-color, white, 50%);
-    }
-
-    .set-bg(@bg-color) when (default()) {
-      @bg: mix(@bg-color, #515151, 50%);
-    }
-    .set-bg(@color);
-    .colorize(@bg);
+    .set-a-color(@color);
+    .colorize(@a-color, @a-color, @color);
   }
 
   .make-paragraphs-for(@colors) {
@@ -448,22 +414,14 @@ aside, footer {
   });
 
   .aside-color(@color) {
+    .set-a-color(@color);
+    .set-c-color(@color);
 
-    .set-tone(@color);
+    @light-bg: mix(@color, white, 50%);
+    @mid-bg: @light-bg;
+    @dark-bg: mix(@c-color, black, 50%);
 
-    .set-bg(@bg-color) when (@scheme-type = dark) {
-      .set-c-color(@color);
-      .colorize(mix(@c-color, black, 50%));
-    }
-
-    .set-bg(@bg-color) when (@scheme-type = light) {
-      .set-a-color(@color);
-      .colorize(mix(@a-color, white, 50%));
-    }
-
-    .set-bg(@bg-color) when (default()) {
-      .colorize(mix(@bg-color, #515151, 50%));
-    }
+    .colorize(@light-bg, @mid-bg, @dark-bg);
   }
 
   .make-paragraphs-for(@colors) {
@@ -576,12 +534,13 @@ table {
 
   .table-color(@color) {
 
-    @header: @color;
-    @row-a: lighten(@color, 3%);
-    @row-b: lighten(@color, 6%);
+    .set-c-color(@color);
+
+    @row-a: mix(@color, @c-color, 80%);
+    @row-b: mix(@color, @c-color, 60%);
 
     & th {
-      .colorize(@header);
+      .button-color(@color, @active-state: false);
     }
 
     & td {
@@ -589,10 +548,10 @@ table {
     }
 
     & tr {
-      background-color: @row-a;
+      background-color: @row-b;
 
       &:nth-of-type(odd) {
-        background-color: @row-b;
+        background-color: @row-a;
       }
     }
   }
@@ -618,12 +577,15 @@ table {
     }
   }
 
+  border-radius: @border-radius;
   max-width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
 
   // .table-color(@base-color);
   .make-table-colors-for(@semantic-colors);
+
+  .table-color(@background);
 
   th, td {
     text-align: left;
@@ -633,6 +595,22 @@ table {
 
   thead th {
     vertical-align: bottom;
+  }
+
+  tr:first-child > th:first-child {
+    border-top-left-radius: @border-radius;
+  }
+
+  tr:first-child > th:last-child {
+    border-top-right-radius: @border-radius;
+  }
+
+  tr:last-child > td:first-child {
+    border-bottom-left-radius: @border-radius;
+  }
+
+  tr:last-child > td:last-child {
+    border-bottom-right-radius: @border-radius;
   }
 
   tr > td,
@@ -706,43 +684,44 @@ pre {
   margin-bottom: 1em;
 }
 
-.button-elements({
-  .button-color(@color) {
+.button-color(@color; @active-state: true) {
 
-    @iterations: 10;
+  @iterations: 10;
 
-    .set-contrast-ratio(@color, white);
-    .darken-bg(darken(@color, 3%), @contrast-ratio, 1);
+  .set-contrast-ratio(@color, white);
+  .darken-bg(darken(@color, 3%), @contrast-ratio, 1);
 
-    .darken-bg(@bg-color, @contrast-ratio, @index) when (@contrast-ratio < 4.5)
-                                                    and (@index < @iterations) {
-      @new-bg-color: desaturate(darken(@bg-color, 5% + @index), 2.5%);
-      .set-contrast-ratio(white, @new-bg-color);
-      .darken-bg(@new-bg-color, @contrast-ratio, @index + 1);
-    }
+  .darken-bg(@bg-color, @contrast-ratio, @index) when (@contrast-ratio < 4.5)
+                                                  and (@index < @iterations) {
+    @new-bg-color: desaturate(darken(@bg-color, 5% + @index), 2.5%);
+    .set-contrast-ratio(white, @new-bg-color);
+    .darken-bg(@new-bg-color, @contrast-ratio, @index + 1);
+  }
 
-    .darken-bg(@bg-color, @contrast-ratio, @index) when (default()) {
-      background-color: @bg-color;
-      color: white;
+  .darken-bg(@bg-color, @contrast-ratio, @index) when (default()) {
+    background-color: @bg-color;
+    color: white;
 
-      &:active { 
-        .set-c-color(@bg-color);
-        background-color: @c-color; 
+    &:active when (@active-state = true) { 
+      .set-c-color(@bg-color);
+      background-color: @c-color;
 
-        & when (@scheme-type = light) {
-          box-shadow: inset 0 1px 0 darken(@c-color, 7.5%);
-        }
+      & when (@scheme-type = light) {
+        box-shadow: inset 0 1px 0 darken(@c-color, 7.5%);
+      }
 
-        & when (@scheme-type = medium) {
-          box-shadow: inset 0 1px 0 darken(@c-color, 5%);
-        }
+      & when (@scheme-type = medium) {
+        box-shadow: inset 0 1px 0 darken(@c-color, 5%);
+      }
 
-        & when (@scheme-type = dark) {
-          box-shadow: inset 0 1px 0 darken(@c-color, 2.5%);
-        }
+      & when (@scheme-type = dark) {
+        box-shadow: inset 0 1px 0 darken(@c-color, 2.5%);
       }
     }
   }
+}
+
+.button-elements({
 
   .make-buttons-for(@colors) {
     // make buttons for a list of color variable names
@@ -776,7 +755,7 @@ pre {
   outline: none;
   white-space: nowrap;
   padding: .35em .65em;
-  .button-color(@action);
+  .button-color(@gray);
   .make-buttons-for(@semantic-colors);
   .no-user-select();
 });
@@ -786,8 +765,11 @@ mark, ::selection {
 }
 
 hr {
-  @background: @color1c;
-  border-color: @background;
-  border-top-color: darken(@background, 2%);
-  border-bottom-color: lighten(@background, 5%);
+  @background: @color1;
+  background: @background;
+  border-color: transparent;
+  border-radius: @border-radius;
+  height: @border-radius;
+  margin-bottom: 1em;
+  max-width: @text-measure;
 }

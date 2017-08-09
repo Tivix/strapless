@@ -25,6 +25,10 @@
   transition: color 2s @ease; transition: background 2s @ease; 
 }
 
+pre {
+  max-width: 78ch;
+}
+
 // body { @color: @action; .blueprint(@color, 1); .contrast-text-against(@color);}
 
 .less-var-test {
@@ -50,7 +54,7 @@
     .set-tone(@color1);
 
     & when (@tone = black) {
-      fill: average(@gray-darkest-base, black);
+      fill: @gray-darker;
     }
   }
 

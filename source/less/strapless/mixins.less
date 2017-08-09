@@ -184,6 +184,8 @@
 }
 
 .set-a-color(@color, @compare: @color, @scheme: @scheme-type) {
+
+  // a lighter version of the color
   
   .settings() when (@scheme = light) {
     @contrast-standard: 1.15;
@@ -216,6 +218,9 @@
 }
 
 .set-b-color(@color, @compare: @color) {
+
+  // a similar luma alternate
+
   @b-candidate-1: spin(@color, @accent);
   @b-candidate-2: spin(@color, -@accent);
   .set-closer-farther(@compare; @b-candidate-1; @b-candidate-2);
@@ -243,6 +248,8 @@
 }
 
 .set-c-color(@color, @compare: @color, @scheme: @scheme-type) {
+
+  // a darker version of the color
   
   @luma: luma(@base-color);
 

@@ -140,6 +140,20 @@
 &lt;/section&gt;</pre>
 </section>
 
+<section id="paragraphs">
+    <h1>&lt;p&gt;</h1>
+    <p>Paragraphs (like this one!) are by default limited to 55 characters width (or whatever <code>@text-measure</code> is set to). They have an aggressive, but not too aggressive, line height of 1.62 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
+    <p class="info">I'm informing you of something.</p>
+    <pre>&lt;p class="info"&gt;I'm informing you of something.&lt;/p&gt;</pre>
+    <br>
+    <p class="failure">I've made a huge mistake.</p>
+    <pre>&lt;p class="failure"&gt;I've made a huge mistake.&lt;/p&gt;</pre>
+    <br>
+    <p>Of course, without a class they just look like normal paragraphs.</p>
+    <pre>&lt;p&gt;Of course, without a class they just look like normal paragraphs.&lt;/p&gt;</pre>
+    <br>
+</section>
+
 <section id="asides">
     <h1>&lt;aside&gt;</h1>
     <p>Asides center everything inside them using flexbox. On mobile, they stack up their contents. Asides are an easy way to present multiple pieces of content side by side.</p>
@@ -192,18 +206,75 @@
     <p>Nesting more than one aside inside another will <em>rapidly</em> accelerate the entropic heat death of the universe. Use a full grid solution to avoid prematurely warping the fabric of reality.</p>
 </section>
 
-<section id="paragraphs">
-    <h1>&lt;p&gt;</h1>
-    <p>Paragraphs (like this one!) are by default limited to 55 characters width (or whatever <code>@text-measure</code> is set to). They have an aggressive, but not too aggressive, line height of 1.62 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
-    <p class="info">I'm informing you of something.</p>
-    <pre>&lt;p class="info"&gt;I'm informing you of something.&lt;/p&gt;</pre>
+<section id="buttons">
+    <h1>&lt;button&gt;</h1>
+    <p>Buttons are just <code>button</code> elements. There's no button class.</p>
+    <p><button>Example button</button></p>
+    <pre>&lt;button&gt;Example button&lt;/button&gt;</pre>
     <br>
-    <p class="failure">I've made a huge mistake.</p>
-    <pre>&lt;p class="failure"&gt;I've made a huge mistake.&lt;/p&gt;</pre>
+    <p>Buttons can take a semantic class.</p>
+    <p><button class="info">Example button</button></p>
+    <pre>&lt;button class="info"&gt;Example button&lt;/button&gt;</pre>
     <br>
-    <p>Of course, paragraphs without a class just look like normal paragraphs.</p>
-    <pre>&lt;p&gt;Of course, paragraphs without a class just look like normal paragraphs.&lt;/p&gt;</pre>
-    <br>
+    <p>There are six semantic colors by default, shown in these buttons here:</p>
+    <aside>
+        <button type="button" class="action">Action</button>
+        <button type="button" class="reaction">Reaction</button>
+    </aside>
+    <aside>
+        <button type="button" class="success">Success</button>
+        <button type="button" class="failure">Failure</button>
+    </aside>
+    <aside>
+        <button type="button" class="info">Info</button>
+        <button type="button" class="warning">Warning</button>
+    </aside>
+    <p>Semantic colors respond to the color scheme too, so <code>@success</code> will always be the <em>right</em> green (along with its corresponding button). They don't have any other classes to worry about, until you add them, but they do respond well to font size changes:</p>
+    <aside>
+        <button type="button" class="info" style="font-size:22px;">22 pixels big</button>
+        <button type="button" class="failure" style="font-size:1.5em;">1.5em of failure</button>
+    </aside>
+    <aside>
+        <button type="button" class="action" style="font-size:12px;">12px action button</button>
+        <button type="button" class="warning" style="font-size:7px;">Warning, this is too small</button>
+    </aside>
+    <p>Buttons always have tinted (white) text. Sometimes they have darker background colors than the rest of the theme.</p>
+    <aside class="success">
+        <p>Buttons will inherit colors from color class parents, so you don't need redundant classes.</p>
+        <button>Got it!</button>
+    </aside>
+    <pre>&lt;aside class="success"&gt;
+    &lt;p&gt;Buttons will inherit colors from color class parents, so you 
+    don't need redundant classes.&lt;/p&gt;
+    &lt;button&gt;Got it!&lt;/button&gt;
+&lt;/aside&gt;</pre>
+</section>
+
+<section id="nav">
+    <h1>&lt;nav&gt;</h1>
+    <!-- <nav class="reaction">
+        <section>
+            <h1><a href="/">Title here</a></h1>
+
+            <ul>
+                <li><a href="/">Link 1</a></li>
+                <li><a href="/">Link 2</a></li>
+            </ul>
+        </section>
+    </nav> -->
+    <p>Navbars are simple HTML and CSS, not fully functional components with javascript. Strapless plays well with others, so use the navbar you want, and then use Strapless to style it.</p>
+    <p>All of the more complicated elements that take colors as arguments are located in <code>mixins.less</code>. To take 'em out, just remove them where they're used in <code>elements.less</code>.</p>
+    <p>If you place a <code>nav</code> element at the very beginning or very end of <code>body</code>, it will stick to the top and stretch across the page (seen above).</p>
+    <pre>&lt;nav id="strapless_nav"&gt;
+    &lt;section&gt;
+        &lt;h1&gt;&lt;a href="/"&gt;Strapless&lt;/a&gt;&lt;/h1&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#colors"&gt;Colors&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#patterns"&gt;Patterns&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#elements"&gt;Elements&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/section&gt;
+&lt;/nav&gt;</pre>
 </section>
 
 <section id="footer">
@@ -217,14 +288,167 @@
 &lt;/footer&gt;</pre>
     <br>
     <p>Footers support multiple buttons and semantic classes:</p>
-    <footer class="success">
-        <button class="reaction">Stop the presses</button>
-        <button>Print a banner</button>
+    <footer class="failure">
+        <button class="warning">File a bug report</button>
+        <button>Accept</button>
     </footer>
-    <pre>&lt;footer class="success"&gt;
-    &lt;button class="reaction"&gt;Stop the presses&lt;/button&gt;
-    &lt;button&gt;Print a banner&lt;/button&gt;
+    <pre>&lt;footer class="failure"&gt;
+    &lt;button class="warning"&gt;File a bug report&lt;/button&gt;
+    &lt;button&gt;Accept&lt;/button&gt;
 &lt;/footer&gt;</pre>
+</section>
+
+<section id="tables">
+    <h1>&lt;table&gt;</h1>
+    <aside>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First</th>
+                        <th>Last</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Raya</td>
+                        <td>Langley</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Hop</td>
+                        <td>Tillman</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Buffy</td>
+                        <td>Rojas</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Emerson</td>
+                        <td>Pratt</td>
+                    </tr>
+                </tbody>
+            </table>
+            default
+        </div>
+        <div>
+            <table class="info">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First</th>
+                        <th>Last</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Raya</td>
+                        <td>Langley</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Hop</td>
+                        <td>Tillman</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Buffy</td>
+                        <td>Rojas</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Emerson</td>
+                        <td>Pratt</td>
+                    </tr>
+                </tbody>
+            </table>
+            table.info
+        </div>
+    </aside>
+    <aside>
+        <div>
+            <table class="success">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First</th>
+                        <th>Last</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Raya</td>
+                        <td>Langley</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Hop</td>
+                        <td>Tillman</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Buffy</td>
+                        <td>Rojas</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Emerson</td>
+                        <td>Pratt</td>
+                    </tr>
+                </tbody>
+            </table>
+            table.success
+        </div>
+    </aside>
+    <p>Tables, like buttons, by default support all the semantic color classes.</p>
+</section>
+
+<section id="headlines">
+    <h1>&lt;h1&gt;</h1>
+    <p>Headlines are centered by default.</p>
+
+    <h1>This is headline text. (h1)</h1>
+    <h2>This is headline text. (h2)</h2>
+    <h3>This is headline text. (h3)</h3>
+    <h4>This is headline text. (h4)</h4>
+    <h5>This is headline text. (h5)</h5>
+    <h6>This is headline text. (h6)</h6>
+</section>
+
+<section id="blockquotes">
+    <h1>&lt;blockquote&gt;</h1>
+    <blockquote>
+        You may delay, but time will not.
+        <cite>Benjamin Franklin</cite>
+    </blockquote>
+    <pre>&lt;blockquote&gt;
+    You may delay, but time will not.
+    &lt;cite&gt;Benjamin Franklin&lt;/cite&gt;
+&lt;/blockquote&gt;</pre>
+    <br>
+    <p>They alternate switching sides by default, no classes needed.</p>
+    <blockquote>
+        Blushing is the color of virtue.
+        <cite>Diogenes</cite>
+    </blockquote>
+    <p>They don't support semantic classes.</p>
+</section>
+<section id="elements_etc">
+    <h1>&lt;etc&gt;</h1>
+    <p>Pre-formatted text:</p>
+    <article>
+        <pre>This is pre-formatted text</pre>
+    </article>
+    <p>Horizontal rule:</p>
+    <hr>
+    <p>Paragraphs may also contain <abbr title="abbreviations, to the layperson">abbreves</abbr> and <acronym title="Aribitrarily Invented Acronyms For Display Purposes">AIAFDPS</acronym>.</p>
+    <p>Sometimes you just need an <code>an inline code snippet</code>.</p>
 </section>
 
 <section id="less">
@@ -372,38 +596,6 @@
     <p>Patterns are intended to give Strapless users a way to quickly add texture and depth to their sites.</p>
 </section>
 
-
-<section id="buttons">
-    <h2>Buttons</h2>
-    <p>Buttons are just <code>button</code> elements with a class corresponding to a semantic color name. There are six semantic colors by default, shown in these buttons here:</p>
-    <aside>
-        <button type="button" class="action">Action</button>
-        <button type="button" class="reaction">Reaction</button>
-    </aside>
-    <aside>
-        <button type="button" class="success">Success</button>
-        <button type="button" class="failure">Failure</button>
-    </aside>
-    <aside>
-        <button type="button" class="info">Info</button>
-        <button type="button" class="warning">Warning</button>
-    </aside>
-    <p>Semantic colors respond to the color scheme too, so <code>@success</code> will always be the <em>right</em> green (along with its corresponding button). They don't have any other classes to worry about, until you add them, but they do respond well to font size changes:</p>
-    <aside>
-        <button type="button" class="info" style="font-size:22px;">22 pixels big</button>
-        <button type="button" class="failure" style="font-size:1.5em;">1.5em of failure</button>
-    </aside>
-    <aside>
-        <button type="button" class="action" style="font-size:12px;">12px action button</button>
-        <button type="button" class="warning" style="font-size:7px;">Warning, this is too small</button>
-    </aside>
-    <p>Buttons always have tinted (white) text. Sometimes they have darker background colors than the rest of the theme.</p>
-    <aside class="success">
-        <p>Buttons will inherit colors from color class parents, so you don't need redundant classes.</p>
-        <button type="button">Submit</button>
-    </aside>
-</section>
-
 <section>
     <p>If you're using the Less version, the color palette is available to your whole project. Colors come in four generically named main colors: <code>@color1</code>, <code>@color2</code>, <code>@color3</code> and <code>@color4</code>. Each has three subcolors: a lightened version (<code>@color1a</code>), an alternate (<code>@color1b</code>) and a darkened version (<code>@color1c</code>).</p>
     <p>Additionally, Strapless figures out a few semantic colors:</p>
@@ -424,203 +616,6 @@
         <p class="sl-single-color sl-gray sl-color-gray-darker">@gray-darker</p>
     </aside>
     <p>All of these colors adjust to the color scheme while still retaining their semantic meaning. The <code>@action</code> and <code>@reaction</code> pair are based on the base color and its complement.</p>
-</section>
-
-<section id="typography">
-    <h2>Typography</h2>
-
-    <p>Typography rules are applied directly to HTML elements.</p>
-
-    <h3>Headlines</h3>
-    <p>Pretty much what you'd expect. Headlines are centered by default but that's easy to change.</p>
-
-    <h1>This is headline text. (h1)</h1>
-    <h2>This is headline text. (h2)</h2>
-    <h3>This is headline text. (h3)</h3>
-    <h4>This is headline text. (h4)</h4>
-    <h5>This is headline text. (h5)</h5>
-    <h6>This is headline text. (h6)</h6>
-
-    <h3>Blockquotes</h3>
-    <p>Blockquotes look like this:</p>
-    <blockquote>
-        You may delay, but time will not.
-        <cite>Benjamin Franklin</cite>
-    </blockquote>
-    <p>They alternate switching sides by default, no classes needed.</p>
-    <blockquote>
-        Blushing is the color of virtue.
-        <cite>Diogenes</cite>
-    </blockquote>
-    <p>They don't support semantic classes.</p>
-
-    <h3>Other Block Elements</h3>
-    <article>
-        <pre>This is pre-formatted text</pre>
-        <p>Horizontal rule:</p>
-        <hr>
-    </article>
-
-    <h3>Other Inline Elements</h3>
-    <p>Paragraphs may also contain <abbr title="abbreviations, to the layperson">abbreves</abbr> and <acronym title="Aribitrarily Invented Acronyms For Display Purposes">AIAFDPS</acronym>.</p>
-    <p>Sometimes you just need an <code>an inline code snippet</code>.</p>
-
-</section>
-
-<section id="buttons">
-    <h2>Buttons</h2>
-    <p>Buttons are just <code>button</code> elements with a class corresponding to a semantic color name. There are six semantic colors by default, shown in these buttons here:</p>
-    <aside>
-        <button type="button" class="action">Action</button>
-        <button type="button" class="reaction">Reaction</button>
-    </aside>
-    <aside>
-        <button type="button" class="success">Success</button>
-        <button type="button" class="failure">Failure</button>
-    </aside>
-    <aside>
-        <button type="button" class="info">Info</button>
-        <button type="button" class="warning">Warning</button>
-    </aside>
-    <p>Semantic colors respond to the color scheme too, so <code>@success</code> will always be the <em>right</em> green (along with its corresponding button). They don't have any other classes to worry about, until you add them, but they do respond well to font size changes:</p>
-    <aside >
-        <button type="button" class="info" style="font-size:22px;">22 pixels big</button>
-        <button type="button" class="failure" style="font-size:1.5em;">1.5em of failure</button>
-    </aside>
-    <aside>
-        <button type="button" class="action" style="font-size:12px;">12px action button</button>
-        <button type="button" class="warning" style="font-size:7px;">Warning, this is too small</button>
-    </aside>
-    <p>Buttons always have tinted (white) text. Sometimes they have darker background colors than the rest of the theme.</p>
-</section>
-
-<section id="tables">
-    <h2>Tables</h2>
-    <aside>
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>First</th>
-                        <th>Last</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Raya</td>
-                        <td>Langley</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Hop</td>
-                        <td>Tillman</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Buffy</td>
-                        <td>Rojas</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Emerson</td>
-                        <td>Pratt</td>
-                    </tr>
-                </tbody>
-            </table>
-            default
-        </div>
-        <div>
-            <table class="info">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>First</th>
-                        <th>Last</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Raya</td>
-                        <td>Langley</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Hop</td>
-                        <td>Tillman</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Buffy</td>
-                        <td>Rojas</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Emerson</td>
-                        <td>Pratt</td>
-                    </tr>
-                </tbody>
-            </table>
-            table.info
-        </div>
-    </aside>
-    <aside>
-        <div>
-            <table class="success">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>First</th>
-                        <th>Last</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Raya</td>
-                        <td>Langley</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Hop</td>
-                        <td>Tillman</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Buffy</td>
-                        <td>Rojas</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Emerson</td>
-                        <td>Pratt</td>
-                    </tr>
-                </tbody>
-            </table>
-            table.success
-        </div>
-    </aside>
-    <p>Tables, like buttons, by default support all the semantic color classes.</p>
-</section>
-
-<section id="nav">
-    <h2>Nav (navbar)</h2>
-    <!-- <nav class="reaction">
-        <section>
-            <h1><a href="/">Title here</a></h1>
-
-            <ul>
-                <li><a href="/">Link 1</a></li>
-                <li><a href="/">Link 2</a></li>
-            </ul>
-        </section>
-    </nav> -->
-    <br>
-    <p>Navbars are simple HTML and CSS, not fully functional components with javascript. Strapless plays well with others, so use the navbar you want, and then use Strapless to style it.</p>
-    <p>All of the more complicated elements that take colors as arguments are located in <code>mixins.less</code>. To take 'em out, just remove them where they're used in <code>elements.less</code>.</p>
-    <p>If you place a <code>nav</code> element at the very beginning or very end of <code>body</code>, it will stick to the top and stretch across the page (seen above).</p>
 </section>
 
 <div class="palettes">
