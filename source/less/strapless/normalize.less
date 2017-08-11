@@ -12,12 +12,17 @@ html {
   -webkit-text-size-adjust: 100%; // 2
 }
 
-//
-// Remove default margin.
-//
+html {
+  box-sizing: border-box;
+}
 
-body {
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body, ul, ol, li, form, fieldset, legend {
   margin: 0;
+  padding: 0;
 }
 
 // HTML5 display definitions

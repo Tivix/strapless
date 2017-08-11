@@ -17,6 +17,7 @@
 #strapless_main, 
 #strapless_footer, 
 #demo_form, 
+#philosophy,
 #loading_overlay, 
 #section_example,
 #semantic_colors > p,
@@ -28,6 +29,8 @@
 pre {
   max-width: 78ch;
 }
+
+.make-color-classes-for(@all-colors);
 
 // body { @color: @action; .blueprint(@color, 1); .contrast-text-against(@color);}
 
@@ -49,17 +52,26 @@ pre {
   width: 150px;
 
   .letter {
-    fill: white;
 
-    .set-tone(@color1);
+    .set-tone(@action);
+    .fill();
 
-    & when (@tone = black) {
-      fill: @gray-darker;
+    .fill() when (@tone = black) {
+      fill: @gray-darkest-base;
+    }
+
+    .fill() when (default()) {
+      fill: white;
     }
   }
 
   .accent {
-    fill: @success;
+
+    .fill();
+
+    .fill() when (default()) {
+      fill: @success;
+    }
   }
 }
 

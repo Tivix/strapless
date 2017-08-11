@@ -70,6 +70,47 @@
   }
 }
 
+.invert-text-against(@color, @button: false) {
+
+  // always has white text
+  // darkens background to meet contrast ratio of 7
+
+  @iterations: 10;
+
+  .set-contrast-ratio(@color, white);
+  .darken-bg(@color, @contrast-ratio, 1);
+
+  .darken-bg(@bg-color, @contrast-ratio, @index) when (@contrast-ratio < 7)
+                                                  and (@index < @iterations) {
+    @new-bg-color: desaturate(darken(@bg-color, 5% + @index), 2.5%);
+    .set-contrast-ratio(white, @new-bg-color);
+    .darken-bg(@new-bg-color, @contrast-ratio, @index + 1);
+  }
+
+  .darken-bg(@bg-color, @contrast-ratio, @index) when (default()) {
+    background-color: @bg-color;
+    color: white;
+
+    // button used just for button shadows
+    & when (@button = true) {
+      .set-c-color(@bg-color);
+
+      &:active {
+        background-color: @c-color;
+      }
+      &:active when (@scheme-type = light) {
+        box-shadow: inset 0 1px 0 darken(@c-color, 7.5%);
+      }
+      &:active when (@scheme-type = medium) {
+        box-shadow: inset 0 1px 0 darken(@c-color, 5%);
+      }
+      &:active when (@scheme-type = dark) {
+        box-shadow: inset 0 1px 0 darken(@c-color, 2.5%);
+      }
+    } 
+  }
+}
+
 .set-contrast-ratio(@a, @b) {
   // sets variable @contrast-ratio to contrast ratio between two colors
 
@@ -143,18 +184,18 @@
     @contrast-ratio-white: @contrast-ratio;
   }
 
-  .tint-or-shade(@color) when (@contrast-ratio-black > @contrast-ratio-white) {
+  .set-tone(@color) when (@contrast-ratio-black > @contrast-ratio-white) {
     @tone: black;
   }
 
-  .tint-or-shade(@color) when (default()) {
+  .set-tone(@color) when (default()) {
     @tone: white;
   }
 
   .set-contrast-ratio-black();
   .set-contrast-ratio-white();
 
-  .tint-or-shade(@color);
+  .set-tone(@color);
 }
 
 .colorize(@color) {

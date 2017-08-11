@@ -25,3 +25,4 @@ strapless/private_key
 node_modules
 config.codekit
 Dockerfile
+strapless-app-deployment.yml

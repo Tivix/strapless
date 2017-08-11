@@ -1,0 +1,27 @@
+blockquote {
+  @border: 5px solid @color1a;
+  
+  padding-left: 1em;
+  margin-bottom: 1em;
+  border-left: @border;
+  max-width: @text-measure;
+
+  &:nth-of-type(even) {
+    // alternates left and right layout
+
+    text-align: right;
+    border-left: none;
+    border-right: @border;
+    padding-left: 0;
+    padding-right: 1em;
+  }
+
+  cite {
+    font-style: italic;
+    display: block;
+    &:before {
+      content: '—';
+      padding-right: 5px;
+    }
+  }
+}

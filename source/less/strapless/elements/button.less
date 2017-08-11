@@ -1,0 +1,42 @@
+.button-color(@color) {
+  .invert-text-against(@color, @button: true);
+}
+
+.button-elements({
+
+  .make-buttons-for(@colors) {
+    // make buttons for a list of color variable names
+    // buttons will use variable names as class names
+
+    @length: length(@colors);
+
+    .make-button();
+
+    .make-button(@index:1) when (@index <= @length) {
+      @color-name: extract(@colors, @index);
+      @color: @@color-name;
+      
+      .@{color-name} & { .button-color(@color);}
+      &.@{color-name} { .button-color(@color) !important;}
+
+      .make-button(@index + 1);
+    }
+  }
+
+  display: inline-block;
+
+  text-align: center;
+  vertical-align: middle;
+  min-height: 32px;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: none;
+  border-radius: @border-radius;
+  outline: none;
+  white-space: nowrap;
+  padding: .35em .65em;
+  .button-color(@gray);
+  .make-buttons-for(@semantic-colors);
+  .no-user-select();
+});

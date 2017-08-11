@@ -1,0 +1,29 @@
+.headline-elements({
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  line-height: @line-height;
+  font-weight: bold;
+
+  &:only-child {
+    margin-top: 0;
+  }
+});
+
+h1 { font-size: 2.5em;}
+h2 { font-size: 2.2em;}
+h3 { font-size: 1.9em;}
+h4 { font-size: 1.7em;}
+h5 { font-size: 1.3em;}
+h6 { font-size: 1.1em;}
+
+h1, h2, h3, h4 {
+  & + & {
+    margin-top: 0;
+  }
+}
+
+h5, h6 {
+  margin-top: .5em;
+  text-transform: uppercase;
+}

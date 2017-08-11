@@ -8,7 +8,7 @@ Node/Express version
 From the home directory:
 
 - ``npm install``
-- ``node index.js``
+- ``node server.js``
 - Visit localhost:3000 in your browser
 
 On load, the page will use the static, compiled index.css file in ``public/static/css``. 

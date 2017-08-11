@@ -1,0 +1,77 @@
+main {
+  padding: @padding;
+  max-width: (670 + @content-max-width)/2;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  text-align: center;
+
+  p { text-align: left;}
+
+  h1, h2 {
+    text-align: center; 
+
+    & + p {
+      text-align: center;
+      font-size: 125%;
+      margin-bottom: 1em;
+    }
+  }
+
+  img {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  section > & {
+    border-radius: @border-radius;
+  }
+
+  .button-elements({
+    font-size: 110%;
+    .button-color(@base-color);
+
+    &:only-child, &:only-of-type { font-size: 125%; margin-bottom: 1em;}
+  });
+
+  .modal-breakpoint(@rules) {
+    @media screen and (min-width: @content-max-width) { @rules();}
+  }
+
+  .modal-breakpoint({
+    border-radius: @border-radius;
+  });
+
+  .make-main-colors-for(@colors) {
+    // make main colors for a list of color variable names
+    // mains will use variable names as class names
+
+    @iterations: length(@colors);
+
+    .make-main-color(1);
+
+    .make-main-color(@index) when (@index <= @iterations) {
+
+      @color-name: extract(@colors, @index);
+      @this-color: @@color-name;
+
+      &.@{color-name} {
+        .main-color(@this-color);
+      }
+
+      .make-main-color(@index + 1);
+    }
+  }
+
+  .main-color(@color) {
+    .set-tone(@color);
+    .colorize(@color);
+
+    &.inverted when (@tone = black) {
+      .invert-text-against(@color);
+    }
+  }
+
+  .main-color(@base-color);
+
+  .make-main-colors-for(@semantic-colors);
+}

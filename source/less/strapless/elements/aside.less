@@ -1,0 +1,108 @@
+aside {
+  margin-bottom: @padding;
+  border-radius: @border-radius;
+
+  > form {
+    padding: 0;
+    margin-bottom: 1em;
+  }
+
+  > button {
+    width: 100%;
+  }
+
+  > * { 
+    margin-bottom: @padding/2;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  aside {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &:only-child {
+    margin-bottom: 0;
+    font-size: 120%;
+  }
+
+  .semantic-classes({
+    padding: @padding 1em;
+  });
+
+  .on-large-phone({
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+
+    > button {
+      width: auto;
+      margin-bottom: 0;
+    }
+
+    > * { 
+      margin-left: @padding;
+      margin-bottom: 0;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    > p {
+      margin-right: 0;
+      margin-left: @padding*2;
+      margin-bottom: 0;
+    }
+
+    > form {
+      margin-bottom: 0;
+    }
+
+    > p + * {
+      margin-left: @padding*2;
+    }
+
+    .headline-elements({
+      margin: 0 @padding*2;
+    });
+  });
+
+  .aside-color(@color) {
+    .set-a-color(@color);
+    .set-c-color(@color);
+
+    @light-bg: mix(@color, @background, 50%);
+
+    .colorize(@light-bg);
+  }
+
+  .make-paragraphs-for(@colors) {
+    // make paragraphs for a list of color variable names
+
+    @length: length(@colors);
+
+    .make-aside();
+
+    .make-aside(@index:1) when (@index <= @length) {
+      @color-name: extract(@colors, @index);
+      @color: @@color-name;
+
+      &.@{color-name} { .aside-color(@color);}
+
+      .make-aside(@index + 1);
+    }
+  }
+
+  .make-paragraphs-for(@semantic-colors);
+}

@@ -173,6 +173,6 @@ app.get('/css-version/:baseColor', function(req, res) {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(3000, function () {
-    console.log('Strapless listening on: 3000');
+app.listen(8000, function () {
+    console.log('Strapless listening on: 8000');
 });

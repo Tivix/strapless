@@ -1,0 +1,24 @@
+footer {
+  &:extend(aside all);
+  
+  body > & {
+    padding-top: @padding;
+    margin-top: @padding*4;
+    width: auto;
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  aside { max-width: @content-max-width;}
+
+  .semantic-classes({
+    padding: @padding;
+  });
+
+  .on-large-phone({
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+  });
+}

@@ -1,0 +1,132 @@
+nav {
+  @color: @base-color;
+  @height: @nav-height;
+
+  .set-yellow-distance(@color) {
+    .set-distance(@color, yellow);
+    @yellow-distance: @distance;
+  }
+
+  .set-orange-distance(@color) {
+    .set-distance(@color, orange);
+    @orange-distance: @distance;
+  }
+
+  .set-lemon-distance(@color) {
+    .set-distance(@color, LemonChiffon);
+    @lemon-distance: @distance;
+  }
+
+  .set-mid-yellow-distance(@color) {
+    .set-distance(@color, #E6EB6A);
+    @mid-yellow-distance: @distance;
+  }
+
+  .nav-color() when (@orange-distance < 150),
+                    (@yellow-distance < 100),
+                    (@mid-yellow-distance < 100),
+                    (@lemon-distance < 50) {
+    // orange and yellow lose theme cohesion when darkened
+    .colorize(@color);
+  }
+
+  .nav-color() when (default()) {
+    .invert-text-against(@color);
+  }
+  
+  .set-yellow-distance(@color);
+  .set-lemon-distance(@color);
+  .set-orange-distance(@color);
+  .set-mid-yellow-distance(@color);
+  .nav-color();
+  height: @height;
+  line-height: @height;
+  font-size: 18px;
+  max-height: @height;
+  padding: 0;
+  margin-bottom: @padding;
+  & when (@sticky-nav = true) { border-radius: @border-radius;}
+  z-index: 1000;
+
+  > section {
+    padding: 0;
+    max-width: @content-max-width;
+  }
+
+  > section > * { // pseudo reset
+    display: none;
+    float:left;
+    position: relative;
+    border: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: @height;
+    vertical-align: middle;
+    overflow: hidden;
+
+    .on-tablet({
+      display: block;
+    });
+
+    &:first-child {
+      display: block;
+      margin-right: @padding * 2;
+
+      .on-large-phone({
+        margin-right: @height;
+      });
+    }
+
+    &:last-child {
+      display: block;
+      float: right;
+      line-height: @height - 6;
+    }
+  }
+
+  ul {
+    height: @height;
+  }
+
+  li {
+    float:left;
+    height: @height;
+    line-height: @height;
+    list-style: none;
+  }
+
+  h1 {
+    display: block;
+    float: left;
+    font-size: 26px;
+    line-height: @height;
+    padding: 0 @padding;
+    color: inherit;
+  }
+
+  a {
+    display: block;
+    float: left;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  li > a {
+    padding-left: @padding;
+    padding-right: @padding;
+
+    &:hover {
+      background-color: rgba(255,255,255,.15);
+    }
+  }
+
+  & when (@sticky-nav = true) {
+    position: fixed; top: 0; left: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .no-user-select();
+}
