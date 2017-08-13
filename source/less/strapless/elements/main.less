@@ -64,7 +64,9 @@ main {
 
   .main-color(@color) {
     .set-tone(@color);
-    .colorize(@color);
+    .set-a-color(@color);
+    .set-c-color(@color);
+    .colorize(@a-color, @a-color, @c-color);
 
     &.inverted when (@tone = black) {
       .invert-text-against(@color);

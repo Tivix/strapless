@@ -1,7 +1,7 @@
-.contrast-text-against(@color: @background) when (default()) {
+.contrast-text-against(@color) when (default()) {
   // automatically sets contrastful text color given a background color
 
-  // find how much we could potentially tint by finding white contrast ratio
+  // find how much we could tint by finding color/white contrast ratio
   .set-contrast-ratio(@color, white);
 
   .tint-or-shade(@color) when (@contrast-ratio > 4.5) {
@@ -17,17 +17,16 @@
   .tint-or-shade(@color);
 }
 
-.contrast-text-against(@color: @background) when (@color = white) {
+.contrast-text-against(@color, @contrast-standard: 7) when (@color = white) {
   // the objectively correct text color against white
   // arrived at by monks after years of meditation and seclusion
 
   color: #595959;
 }
 
-.tint-text-against(@color: @background;) {
+.tint-text-against(@color; @contrast-standard: 9) {
   // adds white to color until contrast ratio is met
 
-  @contrast-standard: 9;
   @start: 55%;
   @iterations: 10;
   @interval: unit((100% - @start)/@iterations);
@@ -47,10 +46,9 @@
   }
 }
 
-.shade-text-against(@color: @background;) {
+.shade-text-against(@color: @background; @contrast-standard: 4.5) {
   // adds black to color until contrast ratio is met
 
-  @contrast-standard: 4.5;
   @start: 50%;
   @iterations: 12;
   @interval: unit((100% - @start)/@iterations);
@@ -72,17 +70,17 @@
 
 .invert-text-against(@color, @button: false) {
 
-  // always has white text
-  // darkens background to meet contrast ratio of 7
+  // always results in white text
+  // darkens background to meet contrast ratio of at least 4.5
 
   @iterations: 10;
 
   .set-contrast-ratio(@color, white);
   .darken-bg(@color, @contrast-ratio, 1);
 
-  .darken-bg(@bg-color, @contrast-ratio, @index) when (@contrast-ratio < 7)
+  .darken-bg(@bg-color, @contrast-ratio, @index) when (@contrast-ratio < 4.5)
                                                   and (@index < @iterations) {
-    @new-bg-color: desaturate(darken(@bg-color, 5% + @index), 2.5%);
+    @new-bg-color: darken(@bg-color, 5% + @index);
     .set-contrast-ratio(white, @new-bg-color);
     .darken-bg(@new-bg-color, @contrast-ratio, @index + 1);
   }
@@ -198,7 +196,7 @@
   .set-tone(@color);
 }
 
-.colorize(@color) {
+.colorize(@color;) {
   // sets a background color and makes sure text works with it
   background-color: @color;
   .contrast-text-against(@color);
@@ -267,7 +265,7 @@
   .set-closer-farther(@compare; @b-candidate-1; @b-candidate-2);
   @b-base: @farther;
 
-  @iterations: 5;
+  @iterations: 10;
 
   .adjust-b(@b, @index) when (luma(@b) < luma(@color))
                          and (@index <= @iterations) {
