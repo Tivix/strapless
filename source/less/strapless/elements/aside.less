@@ -12,7 +12,7 @@ aside {
   }
 
   > * { 
-    margin-bottom: @padding/2;
+    margin-bottom: @padding*.62;
   }
 
   > *:last-child {
@@ -29,6 +29,10 @@ aside {
   &:only-child {
     margin-bottom: 0;
     font-size: 120%;
+
+    input {
+      margin-bottom: 0 !important;
+    }
   }
 
   .semantic-classes({
@@ -51,7 +55,7 @@ aside {
     }
 
     > * { 
-      margin-left: @padding;
+      margin-left: @padding*.62;
       margin-bottom: 0;
 
       &:first-child {
@@ -61,7 +65,7 @@ aside {
 
     > p {
       margin-right: 0;
-      margin-left: @padding*2;
+      margin-left: @padding*1.24;
       margin-bottom: 0;
     }
 

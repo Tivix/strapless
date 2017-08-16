@@ -1,4 +1,5 @@
 form {
+  &:extend(p all); // grabs p's semantic class colors
 
   padding: 1em @padding;
   margin-bottom: 0;
@@ -19,8 +20,12 @@ form {
   aside {
     input[type="text"],
     textarea {
-      margin-bottom: 0;
+      margin-bottom: @padding/2;
     }
+
+    .on-tablet({
+      margin-bottom: 0;
+    });
   }
 
   input, label {

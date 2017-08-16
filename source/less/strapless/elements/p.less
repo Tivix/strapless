@@ -1,13 +1,8 @@
 p {
-
   .p-color(@color) {
     .set-a-color(@color);
-    .colorize(@a-color, @a-color, @color);
+    .colorize(@a-color, @a-color, @c-color);
   }
-
-  .semantic-classes({
-    padding: @padding 1em;
-  });
 
   .make-paragraphs-for(@colors) {
     // make paragraphs for a list of color variable names
@@ -27,4 +22,8 @@ p {
   }
 
   .make-paragraphs-for(@semantic-colors);
+
+  .semantic-classes({
+    padding: @padding 1em;
+  });
 }

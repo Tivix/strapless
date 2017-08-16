@@ -46,7 +46,7 @@
   }
 }
 
-.shade-text-against(@color: @background; @contrast-standard: 4.5) {
+.shade-text-against(@color; @contrast-standard: 4.5) {
   // adds black to color until contrast ratio is met
 
   @start: 50%;
@@ -71,7 +71,7 @@
 .invert-text-against(@color, @button: false) {
 
   // always results in white text
-  // darkens background to meet contrast ratio of at least 4.5
+  // darkens given background to meet contrast ratio of at least 4.5
 
   @iterations: 10;
 
@@ -106,6 +106,28 @@
         box-shadow: inset 0 1px 0 darken(@c-color, 2.5%);
       }
     } 
+  }
+}
+
+.color-text(@color, @background: @background) {
+
+  // darkens text against a background
+  // only works with lighter backgrounds
+
+  @iterations: 10;
+
+  .set-contrast-ratio(@color, @background);
+  .darken-text(@color, @contrast-ratio, 1);
+
+  .darken-text(@text-color, @contrast-ratio, @index) when (@contrast-ratio < 4.5)
+                                                  and (@index < @iterations) {
+    @new-text-color: darken(@text-color, 5% + @index);
+    .set-contrast-ratio(white, @new-text-color);
+    .darken-text(@new-text-color, @contrast-ratio, @index + 1);
+  }
+
+  .darken-text(@text-color, @contrast-ratio, @index) when (default()) {
+    color: @text-color;
   }
 }
 
@@ -196,7 +218,29 @@
   .set-tone(@color);
 }
 
-.colorize(@color;) {
+.set-average(@colors) {
+  // averages a list of colors
+  // sets result to @average
+
+  @iterations: length(@colors);
+
+  .find-average(extract(@colors, 1), 1);
+
+  .find-average(@color, @index) when (@index <= @iterations) {
+    @this-color: extract(@colors, @index);
+    @last-color: @color;
+    @weight: 100% * (1/@index);
+    @new-average: mix(@this-color, @last-color, @weight);
+
+    .find-average(@new-average, @index + 1);
+  }
+
+  .find-average(@color, @index) when (default()) {
+    @average: @color;
+  }
+}
+
+.colorize(@color) {
   // sets a background color and makes sure text works with it
   background-color: @color;
   .contrast-text-against(@color);
@@ -205,21 +249,17 @@
 .colorize(@color-l, @color-m, @color-d) {
   // when given three arguments, colorizes in light, medium, dark
 
-  .set-bg() when (@scheme-type = dark) {
-    @bg: @color-d;
+  & when (@scheme-type = light) {
+    .colorize(@color-l);
   }
 
-  .set-bg() when (@scheme-type = light) {
-    .set-a-color(@color);
-    @bg: @color-l;
+  & when (@scheme-type = medium) {
+    .colorize(@color-m);
   }
 
-  .set-bg() when (default()) {
-    @bg: @color-m;
+  & when (@scheme-type = dark) {
+    .colorize(@color-d);
   }
-
-  .set-bg;
-  .colorize(@bg);
 }
 
 .set-a-color(@color, @compare: @color, @scheme: @scheme-type) {
@@ -265,17 +305,17 @@
   .set-closer-farther(@compare; @b-candidate-1; @b-candidate-2);
   @b-base: @farther;
 
-  @iterations: 10;
+  @iterations: 8;
 
   .adjust-b(@b, @index) when (luma(@b) < luma(@color))
                          and (@index <= @iterations) {
-    @new-b: lighten(@b, 2%);
+    @new-b: lighten(@b, 3%);
     .adjust-b(@new-b, @index + 1);
   }
 
   .adjust-b(@b, @index) when (luma(@b) > luma(@color))
                          and (@index <= @iterations) {
-    @new-b: darken(@b, 1.75%);
+    @new-b: darken(@b, 2%);
     .adjust-b(@new-b, @index + 1);
   }
 
@@ -290,27 +330,23 @@
 
   // a darker version of the color
   
-  @luma: luma(@base-color);
-
   .settings() when (@scheme = dark) {
     @contrast-standard: 1.3;
     @initial-darken: 4%;
     @iterations: 8;
   }
 
-  .settings() when (@luma < 10%) {
+  .settings() when (luma(@base-color) < 10%) {
     @contrast-standard: 1.15;
     @initial-darken: 2%;
     @iterations: 6; 
   }
 
   .settings() when (default()) {
-    @contrast-standard: 1.4;
+    @contrast-standard: 1.35;
     @initial-darken: 8%;
     @iterations: 10;
   }
-
-  .settings();
 
   .set-c(@c, @contrast-ratio, @index) when (@index <= @iterations)  
                                        and (@contrast-ratio < @contrast-standard) {
@@ -323,30 +359,12 @@
     @c-color: @c;
   }
 
-  .set-closer-farther(@compare; spin(@color, @analog/2); spin(@color, -@analog/2));
-  .set-c(darken(@closer, @initial-darken), 1, 1);
-}
+  @initial-c: darken(@color, @initial-darken);
 
-.set-average(@colors) {
-  // averages a list of colors
-  // sets result to @average
-
-  @iterations: length(@colors);
-
-  .find-average(extract(@colors, 1), 1);
-
-  .find-average(@color, @index) when (@index <= @iterations) {
-    @this-color: extract(@colors, @index);
-    @last-color: @color;
-    @weight: 100% * (1/@index);
-    @new-average: mix(@this-color, @last-color, @weight);
-
-    .find-average(@new-average, @index + 1);
-  }
-
-  .find-average(@color, @index) when (default()) {
-    @average: @color;
-  }
+  .settings();
+  .set-contrast-ratio(@color, @initial-c);
+  .set-closer-farther(@compare; spin(@initial-c, @analog/2); spin(@initial-c, -@analog/2));
+  .set-c(@initial-c, @contrast-ratio, 1);
 }
 
 .make-color-classes-for(@colors) {

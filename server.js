@@ -16,7 +16,7 @@ var app = express();
 // var html_dir = path.join(__dirname, 'views/');
 var demo_file_path = path.join(__dirname, 'source/less/index.less');
 var strapless_file_path = path.join(__dirname, 'source/less/strapless/strapless.less');
-var css_file_path = path.join(__dirname, 'source/less/strapless/strapless-css.less');
+var css_file_path = path.join(__dirname, 'source/less/strapless-css.less');
 
 // Create `ExpressHandlebars` instance with a default layout.
 var hbs = exphbs.create({
@@ -84,21 +84,21 @@ app.get('/', function (req, res) {
 app.get('/colors', function (req, res) {
     res.render('colors', {
         title: 'Colors',
-        static_css: true
+        static_css: false
     });
 });
 
 app.get('/patterns', function (req, res) {
     res.render('patterns', {
         title: 'Patterns',
-        static_css: true
+        static_css: false
     });
 });
 
 app.get('/elements', function (req, res) {
     res.render('elements', {
         title: 'Elements',
-        static_css: true
+        static_css: false
     });
 });
 

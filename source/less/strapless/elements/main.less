@@ -5,6 +5,8 @@ main {
   margin-bottom: 1em;
   text-align: center;
 
+  @inverted-support: false;
+
   p { text-align: left;}
 
   h1, h2 {
@@ -26,10 +28,12 @@ main {
     border-radius: @border-radius;
   }
 
+  .headline-elements({
+    margin-bottom: .62em;
+  });
+
   .button-elements({
     font-size: 110%;
-    .button-color(@base-color);
-
     &:only-child, &:only-of-type { font-size: 125%; margin-bottom: 1em;}
   });
 
@@ -65,10 +69,9 @@ main {
   .main-color(@color) {
     .set-tone(@color);
     .set-a-color(@color);
-    .set-c-color(@color);
-    .colorize(@a-color, @a-color, @c-color);
+    .colorize(@a-color);
 
-    &.inverted when (@tone = black) {
+    &.inverted when (@tone = black) and (@inverted-support = true) {
       .invert-text-against(@color);
     }
   }

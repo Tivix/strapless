@@ -27,11 +27,21 @@ nav {
                     (@mid-yellow-distance < 100),
                     (@lemon-distance < 50) {
     // orange and yellow lose theme cohesion when darkened
-    .colorize(@color);
+    // keep them as bg and shade text
+    background: @color;
+    .shade-text-against(@color);
+
+    li a:active {
+      .invert-text-against(@color; @button: true);
+    }
   }
 
   .nav-color() when (default()) {
     .invert-text-against(@color);
+
+    li a:active {
+      .invert-text-against(@color; @button: true);
+    }
   }
   
   .set-yellow-distance(@color);
@@ -40,13 +50,14 @@ nav {
   .set-mid-yellow-distance(@color);
   .nav-color();
   height: @height;
-  line-height: @height;
+  line-height: @height*10;
   font-size: 18px;
   max-height: @height;
   padding: 0;
   margin-bottom: @padding;
   & when (@sticky-nav = true) { border-radius: @border-radius;}
   z-index: 1000;
+  overflow: hidden;
 
   > section {
     padding: 0;
@@ -104,6 +115,10 @@ nav {
     line-height: @height;
     padding: 0 @padding;
     color: inherit;
+
+    > a {
+      padding: 0 !important;
+    }
   }
 
   a {
@@ -111,15 +126,8 @@ nav {
     float: left;
     text-decoration: none;
     color: inherit;
-  }
-
-  li > a {
     padding-left: @padding;
     padding-right: @padding;
-
-    &:hover {
-      background-color: rgba(255,255,255,.15);
-    }
   }
 
   & when (@sticky-nav = true) {
