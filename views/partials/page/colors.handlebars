@@ -1,0 +1,392 @@
+<section id="colors">
+    <h1>Colors</h1>
+    <h2>Color palettes</h2>
+    <p>Strapless starts with a base color: <span class="sl-current-color"></span></p>
+    <p>From that base color, it generates a theme with four main colors:</p>
+    <aside>
+        <div class="sl-single-color color1">@color1</div>
+        <div class="sl-single-color color2">@color2</div>
+        <div class="sl-single-color color3">@color3</div>
+        <div class="sl-single-color color4">@color4</div>
+    </aside>
+    <p>Each of those colors has subcolors, one of which is lighter (a), one of which is an alternate(b), and one of which is darker(c).</p>
+    <aside>
+        <div class="sl-single-color color1">@color1</div>
+        <div class="sl-single-color color1a">@color1a</div>
+        <div class="sl-single-color color1b">@color1b</div>
+        <div class="sl-single-color color1c">@color1c</div>
+    </aside>
+    <p>Strapless doesn't simply lighten or darken-- it picks nearby analogs and manipulates them to avoid the typical "washing out" feeling of normal lightening and darkening. It also uses contrast ratio as a threshold, leaving your schemes with an even, consistent vibe.</p>
+    <p><code>@color2</code> is typically a complement:</p>
+    <aside>
+        <div class="sl-single-color color2">@color2</div>
+        <div class="sl-single-color color2a">@color2a</div>
+        <div class="sl-single-color color2b">@color2b</div>
+        <div class="sl-single-color color2c">@color2c</div>
+    </aside>
+    <p><code>@color3</code> and <code>@code4</code> round out the color palette, their positions largely dependent on which color wheel you give Strapless (the CSS version is 'accented' by default).</p>
+    <aside>
+        <div class="sl-single-color color3">@color3</div>
+        <div class="sl-single-color color3a">@color3a</div>
+        <div class="sl-single-color color3b">@color3b</div>
+        <div class="sl-single-color color3c">@color3c</div>
+    </aside>
+    <aside>
+        <div class="sl-single-color color4">@color4</div>
+        <div class="sl-single-color color4a">@color4a</div>
+        <div class="sl-single-color color4b">@color4b</div>
+        <div class="sl-single-color color4c">@color4c</div>
+    </aside>
+
+    <h2>Color wheels</h2>
+    <p>Strapless color schemes are driven by color wheels. In all, 12 different color wheels are included. Here are each of the current base color's color schemes:</p>
+    <div class="palettes">
+        <div id="sl_accented" class="palette-preview">
+            <h3>Accented</h3>
+            <div class="sl-color-container sl-color1-colors">
+                <p class="sl-color1 main-color swatch"></p>
+                <p class="sl-color1a a-color swatch"></p>
+                <p class="sl-color1b b-color swatch"></p>
+                <p class="sl-color1c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color2-colors">
+                <p class="sl-color2 main-color 2-color swatch"></p>
+                <p class="sl-color2a a-color swatch"></p>
+                <p class="sl-color2b b-color swatch"></p>
+                <p class="sl-color2c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color3-colors">
+                <p class="sl-color3 main-color swatch"></p>
+                <p class="sl-color3a a-color swatch"></p>
+                <p class="sl-color3b b-color swatch"></p>
+                <p class="sl-color3c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color4-colors">
+                <p class="sl-color4 main-color swatch"></p>
+                <p class="sl-color4a a-color swatch"></p>
+                <p class="sl-color4b b-color swatch"></p>
+                <p class="sl-color4c c-color swatch"></p>
+            </div>
+        </div>
+        <div id="sl_square" class="palette-preview">
+            <h3>Square</h3>
+            <div class="sl-color-container sl-color1-colors">
+                <p class="sl-color1 main-color swatch"></p>
+                <p class="sl-color1a a-color swatch"></p>
+                <p class="sl-color1b b-color swatch"></p>
+                <p class="sl-color1c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color2-colors">
+                <p class="sl-color2 main-color 2-color swatch"></p>
+                <p class="sl-color2a a-color swatch"></p>
+                <p class="sl-color2b b-color swatch"></p>
+                <p class="sl-color2c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color3-colors">
+                <p class="sl-color3 main-color swatch"></p>
+                <p class="sl-color3a a-color swatch"></p>
+                <p class="sl-color3b b-color swatch"></p>
+                <p class="sl-color3c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color4-colors">
+                <p class="sl-color4 main-color swatch"></p>
+                <p class="sl-color4a a-color swatch"></p>
+                <p class="sl-color4b b-color swatch"></p>
+                <p class="sl-color4c c-color swatch"></p>
+            </div>
+        </div>
+        <div id="sl_complementary" class="palette-preview">
+            <h3>Complementary</h3>
+            <div class="sl-color-container sl-color1-colors">
+                <p class="sl-color1 main-color swatch"></p>
+                <p class="sl-color1a a-color swatch"></p>
+                <p class="sl-color1b b-color swatch"></p>
+                <p class="sl-color1c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color2-colors">
+                <p class="sl-color2 main-color 2-color swatch"></p>
+                <p class="sl-color2a a-color swatch"></p>
+                <p class="sl-color2b b-color swatch"></p>
+                <p class="sl-color2c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color3-colors">
+                <p class="sl-color3 main-color swatch"></p>
+                <p class="sl-color3a a-color swatch"></p>
+                <p class="sl-color3b b-color swatch"></p>
+                <p class="sl-color3c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color4-colors">
+                <p class="sl-color4 main-color swatch"></p>
+                <p class="sl-color4a a-color swatch"></p>
+                <p class="sl-color4b b-color swatch"></p>
+                <p class="sl-color4c c-color swatch"></p>
+            </div>
+        </div>
+        <div id="sl_complementary-b" class="palette-preview">
+            <h3>Complementary-b</h3>
+            <div class="sl-color-container sl-color1-colors">
+                <p class="sl-color1 main-color swatch"></p>
+                <p class="sl-color1a a-color swatch"></p>
+                <p class="sl-color1b b-color swatch"></p>
+                <p class="sl-color1c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color2-colors">
+                <p class="sl-color2 main-color 2-color swatch"></p>
+                <p class="sl-color2a a-color swatch"></p>
+                <p class="sl-color2b b-color swatch"></p>
+                <p class="sl-color2c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color3-colors">
+                <p class="sl-color3 main-color swatch"></p>
+                <p class="sl-color3a a-color swatch"></p>
+                <p class="sl-color3b b-color swatch"></p>
+                <p class="sl-color3c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color4-colors">
+                <p class="sl-color4 main-color swatch"></p>
+                <p class="sl-color4a a-color swatch"></p>
+                <p class="sl-color4b b-color swatch"></p>
+                <p class="sl-color4c c-color swatch"></p>
+            </div>
+        </div>
+        <div id="sl_triadic" class="palette-preview">
+            <h3>Triadic</h3>
+            <div class="sl-color-container sl-color1-colors">
+                <p class="sl-color1 main-color swatch"></p>
+                <p class="sl-color1a a-color swatch"></p>
+                <p class="sl-color1b b-color swatch"></p>
+                <p class="sl-color1c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color2-colors">
+                <p class="sl-color2 main-color 2-color swatch"></p>
+                <p class="sl-color2a a-color swatch"></p>
+                <p class="sl-color2b b-color swatch"></p>
+                <p class="sl-color2c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color3-colors">
+                <p class="sl-color3 main-color swatch"></p>
+                <p class="sl-color3a a-color swatch"></p>
+                <p class="sl-color3b b-color swatch"></p>
+                <p class="sl-color3c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color4-colors">
+                <p class="sl-color4 main-color swatch"></p>
+                <p class="sl-color4a a-color swatch"></p>
+                <p class="sl-color4b b-color swatch"></p>
+                <p class="sl-color4c c-color swatch"></p>
+            </div>
+        </div>
+        <div id="sl_triadic-b" class="palette-preview">
+            <h3>Triadic-b</h3>
+            <div class="sl-color-container sl-color1-colors">
+                <p class="sl-color1 main-color swatch"></p>
+                <p class="sl-color1a a-color swatch"></p>
+                <p class="sl-color1b b-color swatch"></p>
+                <p class="sl-color1c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color2-colors">
+                <p class="sl-color2 main-color 2-color swatch"></p>
+                <p class="sl-color2a a-color swatch"></p>
+                <p class="sl-color2b b-color swatch"></p>
+                <p class="sl-color2c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color3-colors">
+                <p class="sl-color3 main-color swatch"></p>
+                <p class="sl-color3a a-color swatch"></p>
+                <p class="sl-color3b b-color swatch"></p>
+                <p class="sl-color3c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color4-colors">
+                <p class="sl-color4 main-color swatch"></p>
+                <p class="sl-color4a a-color swatch"></p>
+                <p class="sl-color4b b-color swatch"></p>
+                <p class="sl-color4c c-color swatch"></p>
+            </div>
+        </div>
+        <div id="sl_tetradic" class="palette-preview">
+            <h3>Tetradic</h3>
+            <div class="sl-color-container sl-color1-colors">
+                <p class="sl-color1 main-color swatch"></p>
+                <p class="sl-color1a a-color swatch"></p>
+                <p class="sl-color1b b-color swatch"></p>
+                <p class="sl-color1c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color2-colors">
+                <p class="sl-color2 main-color 2-color swatch"></p>
+                <p class="sl-color2a a-color swatch"></p>
+                <p class="sl-color2b b-color swatch"></p>
+                <p class="sl-color2c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color3-colors">
+                <p class="sl-color3 main-color swatch"></p>
+                <p class="sl-color3a a-color swatch"></p>
+                <p class="sl-color3b b-color swatch"></p>
+                <p class="sl-color3c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color4-colors">
+                <p class="sl-color4 main-color swatch"></p>
+                <p class="sl-color4a a-color swatch"></p>
+                <p class="sl-color4b b-color swatch"></p>
+                <p class="sl-color4c c-color swatch"></p>
+            </div>
+        </div>
+        <div id="sl_tetradic-b" class="palette-preview">
+            <h3>Tetradic-b</h3>
+            <div class="sl-color-container sl-color1-colors">
+                <p class="sl-color1 main-color swatch"></p>
+                <p class="sl-color1a a-color swatch"></p>
+                <p class="sl-color1b b-color swatch"></p>
+                <p class="sl-color1c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color2-colors">
+                <p class="sl-color2 main-color 2-color swatch"></p>
+                <p class="sl-color2a a-color swatch"></p>
+                <p class="sl-color2b b-color swatch"></p>
+                <p class="sl-color2c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color3-colors">
+                <p class="sl-color3 main-color swatch"></p>
+                <p class="sl-color3a a-color swatch"></p>
+                <p class="sl-color3b b-color swatch"></p>
+                <p class="sl-color3c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color4-colors">
+                <p class="sl-color4 main-color swatch"></p>
+                <p class="sl-color4a a-color swatch"></p>
+                <p class="sl-color4b b-color swatch"></p>
+                <p class="sl-color4c c-color swatch"></p>
+            </div>
+        </div>
+        <div id="sl_monochromatic" class="palette-preview">
+            <h3>Monochromatic</h3>
+            <div class="sl-color-container sl-color1-colors">
+                <p class="sl-color1 main-color swatch"></p>
+                <p class="sl-color1a a-color swatch"></p>
+                <p class="sl-color1b b-color swatch"></p>
+                <p class="sl-color1c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color2-colors">
+                <p class="sl-color2 main-color 2-color swatch"></p>
+                <p class="sl-color2a a-color swatch"></p>
+                <p class="sl-color2b b-color swatch"></p>
+                <p class="sl-color2c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color3-colors">
+                <p class="sl-color3 main-color swatch"></p>
+                <p class="sl-color3a a-color swatch"></p>
+                <p class="sl-color3b b-color swatch"></p>
+                <p class="sl-color3c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color4-colors">
+                <p class="sl-color4 main-color swatch"></p>
+                <p class="sl-color4a a-color swatch"></p>
+                <p class="sl-color4b b-color swatch"></p>
+                <p class="sl-color4c c-color swatch"></p>
+            </div>
+        </div>
+        <div id="sl_monochromatic-b" class="palette-preview">
+            <h3>Monochromatic-b</h3>
+            <div class="sl-color-container sl-color1-colors">
+                <p class="sl-color1 main-color swatch"></p>
+                <p class="sl-color1a a-color swatch"></p>
+                <p class="sl-color1b b-color swatch"></p>
+                <p class="sl-color1c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color2-colors">
+                <p class="sl-color2 main-color 2-color swatch"></p>
+                <p class="sl-color2a a-color swatch"></p>
+                <p class="sl-color2b b-color swatch"></p>
+                <p class="sl-color2c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color3-colors">
+                <p class="sl-color3 main-color swatch"></p>
+                <p class="sl-color3a a-color swatch"></p>
+                <p class="sl-color3b b-color swatch"></p>
+                <p class="sl-color3c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color4-colors">
+                <p class="sl-color4 main-color swatch"></p>
+                <p class="sl-color4a a-color swatch"></p>
+                <p class="sl-color4b b-color swatch"></p>
+                <p class="sl-color4c c-color swatch"></p>
+            </div>
+        </div>
+        <div id="sl_ebb" class="palette-preview">
+            <h3>Ebb</h3>
+            <div class="sl-color-container sl-color1-colors">
+                <p class="sl-color1 main-color swatch"></p>
+                <p class="sl-color1a a-color swatch"></p>
+                <p class="sl-color1b b-color swatch"></p>
+                <p class="sl-color1c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color2-colors">
+                <p class="sl-color2 main-color 2-color swatch"></p>
+                <p class="sl-color2a a-color swatch"></p>
+                <p class="sl-color2b b-color swatch"></p>
+                <p class="sl-color2c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color3-colors">
+                <p class="sl-color3 main-color swatch"></p>
+                <p class="sl-color3a a-color swatch"></p>
+                <p class="sl-color3b b-color swatch"></p>
+                <p class="sl-color3c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color4-colors">
+                <p class="sl-color4 main-color swatch"></p>
+                <p class="sl-color4a a-color swatch"></p>
+                <p class="sl-color4b b-color swatch"></p>
+                <p class="sl-color4c c-color swatch"></p>
+            </div>
+        </div>
+        <div id="sl_flow" class="palette-preview">
+            <h3>Flow</h3>
+            <div class="sl-color-container sl-color1-colors">
+                <p class="sl-color1 main-color swatch"></p>
+                <p class="sl-color1a a-color swatch"></p>
+                <p class="sl-color1b b-color swatch"></p>
+                <p class="sl-color1c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color2-colors">
+                <p class="sl-color2 main-color 2-color swatch"></p>
+                <p class="sl-color2a a-color swatch"></p>
+                <p class="sl-color2b b-color swatch"></p>
+                <p class="sl-color2c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color3-colors">
+                <p class="sl-color3 main-color swatch"></p>
+                <p class="sl-color3a a-color swatch"></p>
+                <p class="sl-color3b b-color swatch"></p>
+                <p class="sl-color3c c-color swatch"></p>
+            </div>
+            <div class="sl-color-container sl-color4-colors">
+                <p class="sl-color4 main-color swatch"></p>
+                <p class="sl-color4a a-color swatch"></p>
+                <p class="sl-color4b b-color swatch"></p>
+                <p class="sl-color4c c-color swatch"></p>
+            </div>
+        </div>
+    </div>
+
+    <h2>Semantic colors</h2>
+
+    <p>From the base color, Strapless figures out six semantic colors/classes:</p>
+    <aside id="semantic_colors">
+        <p class="sl-single-color sl-color-action">@action</p>
+        <p class="sl-single-color sl-color-reaction">@reaction</p>
+        <p class="sl-single-color sl-color-info">@info</p>
+        <p class="sl-single-color sl-color-warning">@warning</p>
+        <p class="sl-single-color sl-color-success">@success</p>
+        <p class="sl-single-color sl-color-failure">@failure</p>
+    </aside>
+    <p>And a full suite of grays:</p>
+    <aside id="grays">
+        <p class="sl-single-color sl-gray sl-color-gray-lighter">@gray-lighter</p>
+        <p class="sl-single-color sl-gray sl-color-gray-light">@gray-light</p>
+        <p class="sl-single-color sl-gray sl-color-gray">@gray</p>
+        <p class="sl-single-color sl-gray sl-color-gray-dark">@gray-dark</p>
+        <p class="sl-single-color sl-gray sl-color-gray-darker">@gray-darker</p>
+    </aside>
+    <p>All of these colors adjust to the color scheme while still retaining their semantic meaning.</p>
+
+    <p>The CSS version only supports the basic accented color scheme. The CSS version also includes named color classes for all the main colors and subcolors (This works as a convenient way to document Strapless's colors-- color classes aren't recommended to be used in the same way as semantic classes).</p>
+</section>

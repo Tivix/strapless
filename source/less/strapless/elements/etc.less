@@ -1,0 +1,85 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+p, form, article, ul, dl, li, aside {
+  margin: 0 auto 1em auto;
+
+  .on-large-phone({
+    max-width: @text-measure;
+  });
+}
+
+ul {
+  margin: 0 auto 2em;
+}
+
+ul, ol {
+  padding-left: 2ch;
+}
+
+dt { 
+  font-weight: bold;
+  font-size: 90%;
+}
+
+dd {
+  margin-bottom: @padding;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+strong {
+  font-weight: bold;
+}
+
+fieldset,img { border: 0; }
+
+caption, figcaption {
+  text-align: left;
+  vertical-align: top;
+  font-weight: normal;
+}
+
+abbr, acronym {
+  border-bottom: .1em dotted;
+  cursor: help;
+}
+
+code, pre {
+  .invert-text-against(average(@gray-darker, #333));
+  font-family: monospace;
+  font-size: 85%;
+  vertical-align: middle;
+  padding: @padding 1em;
+  border-radius: @border-radius;
+  overflow: auto;
+}
+
+code {
+  padding: .16em .5em;
+  border-radius: @border-radius/2;
+}
+
+pre {
+  margin-bottom: 1em;
+  max-width: 78ch;
+}
+
+mark, ::selection {
+  .colorize(@color2c);
+}
+
+hr {
+  @background: @gray;
+  background: @background;
+  border-color: transparent;
+  height: @border-radius;
+  margin-bottom: 1em;
+  max-width: @text-measure;
+
+  section > &, body > & { border-radius: @border-radius;}
+}
