@@ -7,6 +7,10 @@ main {
 
   @inverted-support: false;
 
+  > * {
+    margin-bottom: @padding;
+  }
+
   p { text-align: left;}
 
   h1, h2 {
@@ -34,7 +38,7 @@ main {
 
   .button-elements({
     font-size: 110%;
-    &:only-child, &:only-of-type { font-size: 125%; margin-bottom: 1em;}
+    &:only-child { font-size: 125%; margin-bottom: 1em;}
   });
 
   .modal-breakpoint(@rules) {

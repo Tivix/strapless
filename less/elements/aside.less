@@ -1,14 +1,11 @@
 aside {
   margin-bottom: @padding;
   border-radius: @border-radius;
+  text-align: left;
 
   > form {
     padding: 0;
     margin-bottom: 1em;
-  }
-
-  > button {
-    width: 100%;
   }
 
   > * { 
@@ -28,7 +25,7 @@ aside {
 
   &:only-child {
     margin-bottom: 0;
-    font-size: 120%;
+    // font-size: 120%;
 
     input {
       margin-bottom: 0 !important;
@@ -37,6 +34,10 @@ aside {
 
   .semantic-classes({
     padding: @padding 1em;
+  });
+
+  .button-elements({
+    width: 100%;
   });
 
   .on-large-phone({
@@ -49,10 +50,10 @@ aside {
     -webkit-justify-content: center;
     justify-content: center;
 
-    > button {
+    .button-elements({
       width: auto;
       margin-bottom: 0;
-    }
+    });
 
     > * { 
       margin-left: @padding*.62;
@@ -91,8 +92,8 @@ aside {
     .colorize(@light-bg);
   }
 
-  .make-paragraphs-for(@colors) {
-    // make paragraphs for a list of color variable names
+  .make-asides-for(@colors) {
+    // make asides for a list of color variable names
 
     @length: length(@colors);
 
@@ -108,5 +109,5 @@ aside {
     }
   }
 
-  .make-paragraphs-for(@semantic-colors);
+  .make-asides-for(@semantic-colors);
 }
