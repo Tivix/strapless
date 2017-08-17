@@ -8,10 +8,6 @@ aside {
     margin-bottom: 1em;
   }
 
-  > button {
-    width: 100%;
-  }
-
   > * { 
     margin-bottom: @padding*.62;
   }
@@ -40,6 +36,10 @@ aside {
     padding: @padding 1em;
   });
 
+  .button-elements({
+    width: 100%;
+  });
+
   .on-large-phone({
     display: -webkit-flex;
     display: flex;
@@ -50,10 +50,10 @@ aside {
     -webkit-justify-content: center;
     justify-content: center;
 
-    > button {
+    .button-elements({
       width: auto;
       margin-bottom: 0;
-    }
+    });
 
     > * { 
       margin-left: @padding*.62;

@@ -81,27 +81,6 @@ app.get('/', function (req, res) {
     });
 });
 
-app.get('/colors', function (req, res) {
-    res.render('colors', {
-        title: 'Colors',
-        static_css: false
-    });
-});
-
-app.get('/patterns', function (req, res) {
-    res.render('patterns', {
-        title: 'Patterns',
-        static_css: false
-    });
-});
-
-app.get('/elements', function (req, res) {
-    res.render('elements', {
-        title: 'Elements',
-        static_css: false
-    });
-});
-
 var generateStyles = function(baseColor, filepath) {
     return new Promise(function(resolve, reject) {
         var options = {
