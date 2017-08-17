@@ -90,7 +90,6 @@ pre {
 }
 
 #demo_form {
-  //position: fixed;
   bottom: @padding;
   right: @padding;
   max-width: auto;
@@ -109,14 +108,17 @@ pre {
   }
 
   > input { 
-    width: 82px;
+    width: 120px;
+    height: 32px;
+    padding: .2em .8em;
   }
 
   button {
     min-height: 32px;
   }
 
-  .on-tablet({
+  .on-desktop({
+    position: fixed;
     font-size: 12px;
     width: 200px;
     border-radius: @border-radius;
