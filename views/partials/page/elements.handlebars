@@ -1,0 +1,428 @@
+<section id="elements">
+    <h1>Elements</h1>
+    <p>All of Strapless's components happen to be HTML elements too. There are no classes to remember, just different ways to put together HTML tags. Here are some examples.</p>
+</section>
+
+<section id="main_element">
+    <h1>&lt;main&gt;</h1>
+    <p>The <em>main</em> element should give a high-level description of the page and a quick follow-up action.</p>
+    <main class="success" id="main_success_example">
+        <h2>The <em>main</em> element</h2>
+        <p>This is the lead paragraph.</p>
+        <p>A longer, more descriptive line can follow. Please write 
+    punchy copy and refrain from punching people.</p>
+        <aside>
+            <button class="reaction">Button #1</button>
+            <button>Button #2</button>
+        </aside>
+    </main>
+    <pre>&lt;main class="success"&gt;
+    &lt;h2&gt;The &lt;em&gt;main&lt;/em&gt; element&lt;/h2&gt;
+    &lt;p&gt;This is the lead paragraph.&lt;/p&gt;
+    &lt;p&gt;A longer, more descriptive line can follow. Please write 
+    punchy copy and refrain from punching people.&lt;/p&gt;
+    &lt;aside&gt;
+        &lt;button class="reaction"&gt;Button #1&lt;/button&gt;
+        &lt;button&gt;Button #2&lt;/button&gt;
+    &lt;/aside&gt;
+&lt;/main&gt;</pre>
+    <br>
+    <main class="action" id="main_action_example">
+        <h1>The quick brown fox jumps <br>over the lazy dog.</h1>
+        <button>Chase the fox away</button>
+    </main>
+    <pre>&lt;main class="action"&gt;
+    &lt;h1&gt;The quick brown fox jumps &lt;br&gt;over the lazy dog.&lt;/h1&gt;
+    &lt;button&gt;Chase the fox away&lt;/button&gt;
+&lt;/main&gt;</pre>
+</section>
+
+<section id="section">
+    <h1>&lt;section&gt;</h1>
+    <p>Use of the <code>&lt;section&gt;</code> element (seen throughout this page) is encouraged. Sections have default CSS for spacing out your content that's aimed at getting it looking good on the first pass.</p>
+</section>
+<section class="reaction">
+    <h2>Section title</h2>
+    <p>Sections support semantic classes. This one is using <code>reaction</code>.</p>
+    <pre>&lt;section class="reaction"&gt;
+    &lt;h2&gt;Section title&lt;/h2&gt;
+    &lt;p&gt;Sections support semantic classes. 
+    This one is using &lt;code&gt;reaction&lt;/code&gt;.&lt;/p&gt;
+&lt;/section&gt;</pre>
+</section>
+
+<section id="paragraph">
+    <h1>&lt;p&gt;</h1>
+    <p>Paragraphs (like this one!) are by default limited to 55 characters width (or whatever <code>@text-measure</code> is set to). They have an aggressive, but not too aggressive, line height of 1.62 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
+    <p class="info">I'm informing you of something.</p>
+    <pre>&lt;p class="info"&gt;I'm informing you of something.&lt;/p&gt;</pre>
+    <br>
+    <p class="failure">I've made a huge mistake.</p>
+    <pre>&lt;p class="failure"&gt;I've made a huge mistake.&lt;/p&gt;</pre>
+    <br>
+    <p>Of course, without a class they just look like normal paragraphs.</p>
+    <pre>&lt;p&gt;Of course, without a class they just look like normal paragraphs.&lt;/p&gt;</pre>
+    <br>
+</section>
+
+<section id="span">
+    <h1>&lt;span&gt;</h1>
+    <p>Spans with semantic classes will <span class="success">appear bolder</span> and take the color of the semantic class. Careful, though... sometimes action, reaction or info can end up <span class="failure">looking like links</span>.</p>
+    <pre>&lt;span class="success"&gt;appear bolder&lt;/span&gt;</pre>
+    <pre>&lt;span class="failure"&gt;looking like links&lt;/span&gt;</pre>
+</section>
+
+<section id="aside">
+    <h1>&lt;aside&gt;</h1>
+    <p>Asides center everything inside them using flexbox. On mobile, they stack up their contents. Asides are an easy way to present multiple pieces of content side by side.</p>
+    <aside>This is an aside.</aside>
+    <pre>&lt;aside&gt;This is an aside.&lt;/aside&gt;</pre>
+    <br>
+    <p>It's useful for buttons:</p>
+    <aside>
+        <button>I'm centered!</button>
+        <button class="failure">Me too</button>
+    </aside>
+    <pre>&lt;aside&gt;
+    &lt;button&gt;I'm centered!&lt;/button&gt;
+    &lt;button class="failure"&gt;Me too&lt;/button&gt;
+&lt;/aside&gt;</pre>
+    <br>
+    <p>Asides support semantic classes, which makes them good for notification messages:</p>
+    <aside class="failure">
+        <p>You just deleted the <strong>entire site</strong>.</p>
+        <button>Okay</button>
+    </aside>
+    <pre>&lt;aside class="failure"&gt;
+    &lt;p&gt;You just deleted the &lt;strong&gt;entire site&lt;/strong&gt;.&lt;/p&gt;
+    &lt;button&gt;Okay&lt;/button&gt;
+&lt;/aside&gt;</pre>
+    <br>
+    <aside class="success">
+        <p>You've updated your profile.</p>
+    </aside>
+    <pre>&lt;aside class="success"&gt;
+    &lt;p&gt;You've updated your profile.&lt;/p&gt;
+&lt;/aside&gt;</pre>
+    <br>
+    <aside>
+        <h6>Join our newsletter</h6>
+        <form>
+            <aside>
+                <input type="text" name="firstname">
+                <button onclick="return false" class="reaction">Submit</button>
+            </aside>
+        </form>
+    </aside>
+    <pre>&lt;aside&gt;
+    &lt;h6&gt;Join our newsletter&lt;/h6&gt;
+    &lt;form&gt;
+        &lt;aside&gt;
+            &lt;input type="text" name="firstname"&gt;
+            &lt;button class="reaction"&gt;Submit&lt;/button&gt;
+        &lt;/aside&gt;
+    &lt;/form&gt;
+&lt;/aside&gt;</pre>
+    <br>
+    <aside>
+        <p>You're down to <span class="warning">596</span> credits.</p>
+    </aside>
+    <pre>&lt;aside&gt;
+    &lt;p&gt;You're down to &lt;span class="warning"&gt;596&lt;/span&gt; credits.&lt;/p&gt;
+&lt;/aside&gt;</pre>
+    <br>
+    <p>Nesting more than one aside inside another will <em>rapidly</em> accelerate the entropic heat death of the universe. Use a full grid solution to avoid prematurely warping the fabric of reality.</p>
+</section>
+
+<section id="button">
+    <h1>&lt;button&gt;</h1>
+    <p>Buttons are just <code>button</code> elements. There's no button class.</p>
+    <p><button>Example button</button></p>
+    <pre>&lt;button&gt;Example button&lt;/button&gt;</pre>
+    <br>
+    <p>Buttons can take a semantic class.</p>
+    <p><button class="info">Example button</button></p>
+    <pre>&lt;button class="info"&gt;Example button&lt;/button&gt;</pre>
+    <br>
+    <p>There are six semantic buttons by default, shown here:</p>
+    <aside>
+        <button type="button" class="action">Action</button>
+        <button type="button" class="reaction">Reaction</button>
+    </aside>
+    <aside>
+        <button type="button" class="success">Success</button>
+        <button type="button" class="failure">Failure</button>
+    </aside>
+    <aside>
+        <button type="button" class="info">Info</button>
+        <button type="button" class="warning">Warning</button>
+    </aside>
+    <p>Semantic colors respond to the color scheme too, so <code>@success</code> will always be the <em>right</em> green (along with its corresponding button). They don't have any other classes to worry about, until you add them, but they do respond well to font size changes:</p>
+    <aside>
+        <button type="button" class="info" style="font-size:22px;">22 pixels big</button>
+        <button type="button" class="failure" style="font-size:1.5em;">1.5em of failure</button>
+    </aside>
+    <aside>
+        <button type="button" class="action" style="font-size:12px;">12px action button</button>
+        <button type="button" class="warning" style="font-size:7px;">Warning, this is too small</button>
+    </aside>
+    <p>Buttons always have tinted (white) text. Sometimes they have darker background colors than the rest of the theme.</p>
+    <aside class="success">
+        <p>Buttons will inherit colors from color class parents, so you don't need redundant classes.</p>
+        <button>Got it!</button>
+    </aside>
+    <pre>&lt;aside class="success"&gt;
+    &lt;p&gt;Buttons will inherit colors from color class parents, so you 
+    don't need redundant classes.&lt;/p&gt;
+    &lt;button&gt;Got it!&lt;/button&gt;
+&lt;/aside&gt;</pre>
+</section>
+
+<section id="nav">
+    <h1>&lt;nav&gt;</h1>
+    <!-- <nav class="reaction">
+        <section>
+            <h1><a href="/">Title here</a></h1>
+
+            <ul>
+                <li><a href="/">Link 1</a></li>
+                <li><a href="/">Link 2</a></li>
+            </ul>
+        </section>
+    </nav> -->
+    <p>Navbars are simple HTML and CSS, not fully functional components with javascript. Strapless plays well with others, so use the navbar you want, and then use Strapless to style it.</p>
+    <p>All of the more complicated elements that take colors as arguments are located in <code>mixins.less</code>. To take 'em out, just remove them where they're used in <code>elements.less</code>.</p>
+    <p>If you place a <code>nav</code> element at the very beginning or very end of <code>body</code>, it will stick to the top and stretch across the page (seen above).</p>
+    <pre>&lt;nav id="strapless_nav"&gt;
+    &lt;section&gt;
+        &lt;h1&gt;&lt;a href="/"&gt;Strapless&lt;/a&gt;&lt;/h1&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#colors"&gt;Colors&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#patterns"&gt;Patterns&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#elements"&gt;Elements&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/section&gt;
+&lt;/nav&gt;</pre>
+</section>
+
+<section id="footer">
+    <h1>&lt;footer&gt;</h1>
+    <p>Footers work a lot like asides, except they tend to align elements inside to the right.</p>
+    <footer>
+        <button>Submit</button>
+    </footer>
+    <pre>&lt;footer&gt;
+    &lt;button&gt;Submit&lt;/button&gt;
+&lt;/footer&gt;</pre>
+    <br>
+    <p>Footers support multiple buttons and semantic classes:</p>
+    <footer class="failure">
+        <button class="warning">File a bug report</button>
+        <button>Accept</button>
+    </footer>
+    <pre>&lt;footer class="failure"&gt;
+    &lt;button class="warning"&gt;File a bug report&lt;/button&gt;
+    &lt;button&gt;Accept&lt;/button&gt;
+&lt;/footer&gt;</pre>
+</section>
+
+<section id="table">
+    <h1>&lt;table&gt;</h1>
+    <aside>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First</th>
+                        <th>Last</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Raya</td>
+                        <td>Langley</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Hop</td>
+                        <td>Tillman</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Buffy</td>
+                        <td>Rojas</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Emerson</td>
+                        <td>Pratt</td>
+                    </tr>
+                </tbody>
+            </table>
+            default
+        </div>
+        <div>
+            <table class="info">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First</th>
+                        <th>Last</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Raya</td>
+                        <td>Langley</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Hop</td>
+                        <td>Tillman</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Buffy</td>
+                        <td>Rojas</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Emerson</td>
+                        <td>Pratt</td>
+                    </tr>
+                </tbody>
+            </table>
+            table.info
+        </div>
+    </aside>
+    <aside>
+        <div>
+            <table class="success">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First</th>
+                        <th>Last</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Raya</td>
+                        <td>Langley</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Hop</td>
+                        <td>Tillman</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Buffy</td>
+                        <td>Rojas</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Emerson</td>
+                        <td>Pratt</td>
+                    </tr>
+                </tbody>
+            </table>
+            table.success
+        </div>
+    </aside>
+    <p>Tables, like buttons, by default support all the semantic color classes.</p>
+</section>
+
+<section id="headline">
+    <h1>&lt;h1&gt;</h1>
+    <p>Headlines are centered by default.</p>
+
+    <h1>This is headline text. (h1)</h1>
+    <h2>This is headline text. (h2)</h2>
+    <h3>This is headline text. (h3)</h3>
+    <h4>This is headline text. (h4)</h4>
+    <h5>This is headline text. (h5)</h5>
+    <h6>This is headline text. (h6)</h6>
+    <p>H5 and H6 are all-caps by default, because otherwise they're super boring.</p>
+</section>
+
+<section id="form">
+    <h1>&lt;form&gt;</h1>
+
+    <form>
+        <h3>Enter your information</h3>
+        <label>First name:</label>
+        <input type="text" name="firstname">
+        <label>Last name:</label>
+        <input type="text" name="lastname">
+        <label>Textarea:</label>
+        <textarea rows="4">Placeholder text</textarea>
+        <footer class="action">
+            <button onclick="return false" class="reaction">Submit</button>
+            <button onclick="return false">Cancel</button>
+        </footer>
+    </form>
+
+    <pre>&lt;form&gt;
+    &lt;h3&gt;Enter your information&lt;/h3&gt;
+    &lt;label&gt;First name:&lt;/label&gt;
+    &lt;input type="text" name="firstname"&gt;
+    &lt;label&gt;Last name:&lt;/label&gt;
+    &lt;input type="text" name="lastname"&gt;
+    &lt;label&gt;Textarea:&lt;/label&gt;
+    &lt;textarea rows="4"&gt;Placeholder text&lt;/textarea&gt;
+    &lt;footer class="action"&gt;
+        &lt;button class="reaction"&gt;Submit&lt;/button&gt;
+        &lt;button &gt;Cancel&lt;/button&gt;
+    &lt;/footer&gt;
+&lt;/form&gt;</pre>
+
+    <p>Strapless aims to make simple form markup look good by default. There's no extra markup or JS conventions to worry about. Strapless forms also work well with semantic classes, like this <code>success</code> form here:</p>
+
+    <form class="success">
+        <label>Your favorite color:</label>
+        <input type="text" name="fav_color"><br>
+        <button class="success" onclick="return false">Submit</button>
+    </form>
+</section>
+
+<section id="blockquotes">
+    <h1>&lt;blockquote&gt;</h1>
+    <blockquote>
+        You may delay, but time will not.
+        <cite>Benjamin Franklin</cite>
+    </blockquote>
+    <pre>&lt;blockquote&gt;
+    You may delay, but time will not.
+    &lt;cite&gt;Benjamin Franklin&lt;/cite&gt;
+&lt;/blockquote&gt;</pre>
+    <br>
+    <p>They alternate switching sides by default, no classes needed.</p>
+    <blockquote>
+        Blushing is the color of virtue.
+        <cite>Diogenes</cite>
+    </blockquote>
+    <p>They don't support semantic classes.</p>
+</section>
+
+<section id="elements_etc">
+    <h1>&lt;etc&gt;</h1>
+    <p>Pre-formatted text:</p>
+    <p>
+        <pre>This is pre-formatted text</pre>
+    </p>
+    <br>
+    <p>Horizontal rule:</p>
+    <hr>
+    <pre>&lt;hr&gt;</pre>
+    <br>
+    <hr class="info">
+    <pre>&lt;hr class="info"&gt;</pre>
+    <br>
+    <p>Paragraphs may also contain <abbr title="abbreviations, to the layperson">abbreves</abbr> and <acronym title="Aribitrarily Invented Acronyms For Display Purposes">AIAFDPS</acronym>.</p>
+    <p>Sometimes you just need an <code>an inline code snippet</code>.</p>
+</section>

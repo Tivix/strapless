@@ -1,0 +1,267 @@
+.make-palette(@base-color, @base-color-wheel);
+
+.make-palette(@color; @wheel) {
+  // make all variables for a color palette
+  .load-color-wheels();
+  .set-scheme-type(@color);
+  .make-main-colors(@color; @wheel);
+  .make-subcolors(@color1; @color2; @color3; @color4; @scheme-type);
+  .make-grays(@color; @scheme-type);
+  .make-action-colors(@color, @color1, @color1b);
+  .make-reaction-colors(@action, @color2, @color3);
+}
+
+.make-palette(@color: @base-color; @wheel: @base-color-wheel) when (saturation(@color) < 1.5%) {
+  // for grays, set up working color2, 3 and 4 and then reinforce gray color1
+  @standin-base: spin(#ABD0F7, 180);
+  .make-palette(average(@color, @standin-base); @wheel); // @color is always gray so this desaturates
+  @color1: @color;
+  .set-a-color(@color1);
+  .set-b-color(@color1);
+  .set-c-color(@color1);
+  @color1a: greyscale(@a-color);
+  @color1b: greyscale(@b-color);
+  @color1c: greyscale(@c-color);
+}
+
+.load-color-wheels() {
+  // color wheel color positions
+
+  @complement: 180deg;
+  @triadic-pair: 120deg;
+  @accent: 45deg;
+  @analog: 15deg;
+
+  // color wheels
+
+  @accented:        @complement,
+                    @accent,
+                    -@accent;
+
+  @complementary:   @complement,
+                    @analog,
+                    @complement + @analog;
+
+  @complementary-b: @complement,
+                    -@analog,
+                    @complement - @analog;
+
+  @triadic:         -@triadic-pair,
+                    @triadic-pair,
+                    @analog;
+
+  @triadic-b:       -@triadic-pair,
+                    @triadic-pair,
+                    -@analog;
+
+  @tetradic:        @complement,
+                    @accent,
+                    @complement + @accent;
+
+  @tetradic-b:      @complement,
+                    -@accent,
+                    @complement - @accent;
+
+  @square:          @complement,
+                    -@complement/2,
+                    @complement/2;
+
+  @ebb:             @complement + @analog,
+                    @analog,
+                    @accent;
+
+  @flow:            @complement - @analog,
+                    -@analog,
+                    -@accent;
+
+  @monochromatic:   @accent/2,
+                    @analog/2,
+                    -@analog/2;
+
+  @monochromatic-b: -@accent/2,
+                    @analog/2,
+                    -@analog/2;
+}
+
+.set-scheme-type(@color) {
+  // set @scheme-type to light, medium or dark
+
+  .set-contrast-ratio-black() {
+    .set-contrast-ratio(@color, black);
+    @contrast-ratio-black: @contrast-ratio;
+  }
+
+  .set-contrast-ratio-white() {
+    .set-contrast-ratio(@color, white);
+    @contrast-ratio-white: @contrast-ratio;
+  }
+
+  .set-contrast-ratio-black();
+  .set-contrast-ratio-white();
+
+  .set-scheme-type() when (@contrast-ratio-black > 7) {
+    @scheme-type: light;
+  }
+
+  .set-scheme-type() when (@contrast-ratio-white > 7) {
+    @scheme-type: dark;
+  }
+
+  .set-scheme-type() when (default()) {
+    @scheme-type: medium;
+  }
+  .set-scheme-type();
+}
+
+.make-main-colors(@color; @wheel) {
+  // makes the four main colors
+
+  @wheel-var: @@wheel;
+  @color1: @color;
+  @color2: spin(@color, extract(@wheel-var, 1));
+  @color3: spin(@color, extract(@wheel-var, 2));
+  @color4: spin(@color, extract(@wheel-var, 3));
+}
+
+.make-subcolors(@c1; @c2; @c3; @c4; @scheme-type) {
+  
+  .make-color1a() { 
+    .set-a-color(@c1);
+    @color1a: @a-color;
+  }.make-color1a();
+
+  .make-color1b() { 
+    .set-b-color(@c1);
+    @color1b: @b-color;
+  }.make-color1b();
+
+  .make-color1c() { 
+    .set-c-color(@c1);
+    @color1c: @c-color;
+  }.make-color1c();
+
+  .make-color2a() { 
+    .set-a-color(@c2; @color1a);
+    @color2a: @a-color;
+  }.make-color2a();
+
+  .make-color2b() { 
+    .set-b-color(@c2; @color1);
+    @color2b: @b-color;
+  }.make-color2b();
+
+  .make-color2c() { 
+    .set-c-color(@c2; @color1c);
+    @color2c: @c-color;
+  }.make-color2c();
+
+  .make-color3a() { 
+    .set-a-color(@c3);
+    @color3a: @a-color;
+  }.make-color3a();
+
+  .make-color3b() { 
+    .set-b-color(@c3);
+    @color3b: @b-color;
+  }.make-color3b();
+
+  .make-color3c() { 
+    .set-c-color(@c3);
+    @color3c: @c-color;
+  }.make-color3c();
+
+  .make-color4a() { 
+    .set-a-color(@c4; @color3a);
+    @color4a: @a-color;
+  }.make-color4a();
+
+  .make-color4b() { 
+    .set-b-color(@c4, @color3);
+    @color4b: @b-color;
+  }.make-color4b();
+
+  .make-color4c() { 
+    .set-c-color(@c4; @color3c);
+    @color4c: @c-color;
+  }.make-color4c();
+}
+
+.make-action-colors(@base: @base-color, @c1, @c2) {
+
+  @success-base: #51ad51;
+  @info-base: #43a3e6;
+
+  @success: average(@success-base, hsl(hue(@success-base), saturation(@base), lightness(@base)));
+  @info:    average(@info-base, hsl(hue(@info-base), saturation(@base), lightness(@base)));
+
+  @success-info-midpoint: average(@info, @success);
+
+  .set-closer-farther(@success-info-midpoint, @c1, @c2);
+    @action-base: @closer;
+
+  @action-sat: (saturation(@info) + saturation(@success))/2;
+  @action-lit: (lightness(@info) + lightness(@success))/2;
+
+  @action: average(@action-base, hsl(hue(@action-base), @action-sat, @action-lit));
+}
+
+.make-reaction-colors(@base: @base-color, @r1, @r2) {
+
+  @failure-base: #e11d1d;
+  @warning-base: #ff6b23;
+
+  @failure:   average(@failure-base, hsl(hue(@failure-base), saturation(@base), lightness(@base)));
+  @warning:   average(@warning-base, hsl(hue(@warning-base), saturation(@base), lightness(@base)*1.2));
+
+  @success-info-midpoint: average(@info, @success);
+
+  .set-closer-farther(@success-info-midpoint, @r1, @r2);
+    @reaction-base: @farther;
+  
+  @reaction-sat: (saturation(@warning) + saturation(@failure))/2;
+  @reaction-lit: (lightness(@warning) + lightness(@failure))*.9/2;
+
+  @reaction: average(@reaction-base, hsl(hue(@reaction-base), @reaction-sat, @reaction-lit));
+}
+
+.make-grays(@color, @scheme-type) {
+  @gray-base: mix(desaturate(@color, 80%), #515151, 75%);
+  @gray-step: 10%;
+
+  @gray-bases:  @gray-lightest-base,
+                @gray-lighter-base,
+                @gray-light-base,
+                @gray-base,
+                @gray-dark-base,
+                @gray-darker-base,
+                @gray-darkest-base,
+                darken(@gray-darkest-base, 3%); // placeholder for overflow
+
+  @gray-light-base:             lighten(@gray-base; @gray-step);
+  @gray-lighter-base:           lighten(@gray-base; @gray-step*2);
+  @gray-lightest-base:          lighten(@gray-base; @gray-step*3);
+
+  @gray-dark-base:              darken(@gray-base; @gray-step);
+  @gray-darker-base:            darken(@gray-base; @gray-step*2);
+  @gray-darkest-base:           darken(@gray-base; @gray-step*3);
+
+  .set-gray-shift() when (@scheme-type = light) {
+    @gray-shift: 3;
+  }
+
+  .set-gray-shift() when (default()) {
+    @gray-shift: 2;
+  }
+
+  .set-gray-shift() when (@scheme-type = dark) {
+    @gray-shift: 1;
+  }
+
+  .set-gray-shift();
+
+  @gray-lighter:      extract(@gray-bases; 0 + @gray-shift);
+  @gray-light:        extract(@gray-bases; 1 + @gray-shift);
+  @gray:              extract(@gray-bases; 2 + @gray-shift);
+  @gray-dark:         extract(@gray-bases; 3 + @gray-shift);
+  @gray-darker:       extract(@gray-bases; 4 + @gray-shift);
+}

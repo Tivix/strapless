@@ -1,0 +1,32 @@
+span, a {
+
+  .span-color(@color) {
+    background: transparent;
+    .color-text(@color);
+  }
+
+  .make-spans-for(@colors) {
+    // make spans for a list of color variable names
+
+    @length: length(@colors);
+
+    .make-span();
+
+    .make-span(@index:1) when (@index <= @length) {
+      @color-name: extract(@colors, @index);
+      @color: @@color-name;
+
+      &.@{color-name} { .span-color(@color);}
+
+      .make-span(@index + 1);
+    }
+  }
+
+  .make-spans-for(@semantic-colors);
+}
+
+span {
+  .semantic-classes({
+    font-weight: bold;
+  });
+}

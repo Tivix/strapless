@@ -1,0 +1,40 @@
+form {
+  &:extend(p all); // grabs p's semantic class colors
+
+  padding: 1em @padding;
+  margin-bottom: 0;
+
+  p {
+    padding: 0;
+  }
+
+  input[type="text"],
+  textarea {
+    width: 100%;
+    min-width: 18ch;
+    padding: 1ch;
+    margin-bottom: 1em;
+    border: 1px solid @gray-darker;
+  }
+
+  aside {
+    input[type="text"],
+    textarea {
+      margin-bottom: @padding/2;
+    }
+
+    .on-tablet({
+      margin-bottom: 0;
+    });
+  }
+
+  input, label {
+    & + & {
+      margin-top: @padding;
+    };
+  }
+
+  .headline-elements({
+    &:first-child { margin-top: 0;}
+  });
+}

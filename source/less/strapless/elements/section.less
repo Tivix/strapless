@@ -1,0 +1,57 @@
+section {
+  width: 100%;
+  margin: 0 auto;
+  padding: @padding;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  > * {
+    margin: 0 auto;
+    max-width: @content-max-width;
+
+    &:only-child {
+      padding-top: 1em;
+      padding-bottom: 1em;
+      margin-bottom: 0;
+    }
+  }
+
+  > aside {
+    margin-bottom: 1em;
+  }
+
+  > * + * {
+    margin-top: @padding;
+  }
+
+  .make-section-colors-for(@colors) {
+    // make section colors for a list of color variable names
+    // sections will use variable names as class names
+
+    @iterations: length(@colors);
+
+    .make-section-color(1);
+
+    .make-section-color(@index) when (@index <= @iterations) {
+
+      @color-name: extract(@colors, @index);
+      @this-color: @@color-name;
+
+      &.@{color-name} {
+        .section-color(@this-color);
+      }
+
+      .make-section-color(@index + 1);
+    }
+  }
+
+  .section-color(@color) {
+    @light-bg: average(@color, @gray-lightest-base);
+    @dark-bg: average(@color, @gray-darkest-base);
+    .colorize(@light-bg, @light-bg, @dark-bg);
+  }
+
+  .make-section-colors-for(@semantic-colors);
+}

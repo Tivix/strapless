@@ -1,0 +1,42 @@
+.button-elements(@rules) {
+  button, 
+  input[type="button"],
+  input[type="submit"] { @rules();}
+}
+
+.button-elements({
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  min-height: 32px;
+  padding: .6em @padding;
+  touch-action: manipulation;
+  cursor: pointer; 
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: @border-radius;
+  outline: none;
+  white-space: nowrap;
+  .invert-text-against(@base-color, @button: true);
+  .make-buttons-for(@semantic-colors);
+  .no-user-select();
+});
+
+.make-buttons-for(@colors) {
+  // make buttons for a list of color variable names
+  // buttons will use variable names as class names
+
+  @length: length(@colors);
+
+  .make-button();
+
+  .make-button(@index:1) when (@index <= @length) {
+    @color-name: extract(@colors, @index);
+    @color: @@color-name;
+    
+    .@{color-name} & { .invert-text-against(@color, @button: true);}
+    &.@{color-name} { .invert-text-against(@color, @button: true) !important;}
+
+    .make-button(@index + 1);
+  }
+}

@@ -18,8 +18,9 @@ src/
 strapless/strapless/settings/local.py.backup
 strapless/ansible
 ansible/run_bidder
-
 private_key
 strapless/private_key
-config.codekit
 node_modules
+config.codekit
+Dockerfile
+strapless-app-deployment.yml
