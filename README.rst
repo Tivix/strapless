@@ -70,19 +70,3 @@ The elements folder contains Less for HTML elements. Each file is named for its 
 
 `utilities.less`
 CSS class utilities.
-
-Dev setup (Strapless demo on express)
-=========
-
-Node/Express version
----------
-
-From the home directory:
-
-- ``npm install``
-- ``node server.js``
-- Visit localhost:8000 in your browser
-
-On load, the page will use the static, compiled index.css file in ``public/static/css``. 
-
-On-the-fly scheme changes, either from the colorpicker form or by using a hex value in the url (e.g., ``localhost:8000/CADFE6``), will use the index.less file in ``source/less``. 

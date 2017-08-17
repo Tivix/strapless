@@ -1,26 +1,390 @@
-// mixins
-
-.contrast-text-against(@bg-color: @background) {
+.contrast-text-against(@color) when (default()) {
   // automatically sets contrastful text color given a background color
 
-  // decides tinting or shading
-  @tone-color: contrast(@bg-color, white, black);
+  // find how much we could tint by finding color/white contrast ratio
+  .set-contrast-ratio(@color, white);
 
-  .set-text-color(@bg-color);
-
-  .set-text-color(@bg-color) when (@tone-color = black) {
-    #sl-tools.shade-text(@bg-color);
+  .tint-or-shade(@color) when (@contrast-ratio > 4.5) {
+    // if tinted/inverted/white text can meet AA-level contrast, then do that
+    .tint-text-against(@color);
   }
 
-  .set-text-color(@bg-color) when (@tone-color = white) {
-    #sl-tools.tint-text(@bg-color);
+  .tint-or-shade(@color) when (default()) {
+    // otherwise, shade the text
+    .shade-text-against(@color);
+  }
+
+  .tint-or-shade(@color);
+}
+
+.contrast-text-against(@color, @contrast-standard: 7) when (@color = white) {
+  // the objectively correct text color against white
+  // arrived at by monks after years of meditation and seclusion
+
+  color: #595959;
+}
+
+.tint-text-against(@color; @contrast-standard: 9) {
+  // adds white to color until contrast ratio is met
+
+  @start: 55%;
+  @iterations: 10;
+  @interval: unit((100% - @start)/@iterations);
+  @tint: tint(@color, @start + @index*@interval);
+  @index: 0;
+
+  .tint-text(1, 1);
+
+  .tint-text(@contrast-ratio, @index) when (@contrast-ratio < @contrast-standard) 
+                                        and (@index < @iterations) {
+    .set-contrast-ratio(@color, @tint);
+    .tint-text(@contrast-ratio; @index + 1);
+  }
+
+  .tint-text(@contrast-ratio, @index) when (default()) {
+    color: @tint;
+  }
+}
+
+.shade-text-against(@color; @contrast-standard: 4.5) {
+  // adds black to color until contrast ratio is met
+
+  @start: 50%;
+  @iterations: 12;
+  @interval: unit((100% - @start)/@iterations);
+  @shade: shade(@color, @start + @index*@interval);
+  @index: 0;
+
+  .shade-text(1, 1);
+
+  .shade-text(@contrast-ratio, @index) when (@contrast-ratio < @contrast-standard) 
+                                        and (@index < @iterations) {
+    .set-contrast-ratio(@color, @shade);
+    .shade-text(@contrast-ratio; @index + 1);
+  }
+
+  .shade-text(@contrast-ratio, @index) when (default()) {
+    color: @shade;
+  }
+}
+
+.invert-text-against(@color, @button: false) {
+
+  // always results in white text
+  // darkens given background to meet contrast ratio of at least 4.5
+
+  @iterations: 10;
+
+  .set-contrast-ratio(@color, white);
+  .darken-bg(@color, @contrast-ratio, 1);
+
+  .darken-bg(@bg-color, @contrast-ratio, @index) when (@contrast-ratio < 4.5)
+                                                  and (@index < @iterations) {
+    @new-bg-color: darken(@bg-color, 5% + @index);
+    .set-contrast-ratio(white, @new-bg-color);
+    .darken-bg(@new-bg-color, @contrast-ratio, @index + 1);
+  }
+
+  .darken-bg(@bg-color, @contrast-ratio, @index) when (default()) {
+    background-color: @bg-color;
+    color: white;
+
+    // button used just for button shadows
+    & when (@button = true) {
+      .set-c-color(@bg-color);
+
+      &:active {
+        background-color: @c-color;
+      }
+      &:active when (@scheme-type = light) {
+        box-shadow: inset 0 1px 0 darken(@c-color, 7.5%);
+      }
+      &:active when (@scheme-type = medium) {
+        box-shadow: inset 0 1px 0 darken(@c-color, 5%);
+      }
+      &:active when (@scheme-type = dark) {
+        box-shadow: inset 0 1px 0 darken(@c-color, 2.5%);
+      }
+    } 
+  }
+}
+
+.color-text(@color, @background: @background) {
+
+  // darkens text against a background
+  // only works with lighter backgrounds
+
+  @iterations: 10;
+
+  .set-contrast-ratio(@color, @background);
+  .darken-text(@color, @contrast-ratio, 1);
+
+  .darken-text(@text-color, @contrast-ratio, @index) when (@contrast-ratio < 4.5)
+                                                  and (@index < @iterations) {
+    @new-text-color: darken(@text-color, 5% + @index);
+    .set-contrast-ratio(white, @new-text-color);
+    .darken-text(@new-text-color, @contrast-ratio, @index + 1);
+  }
+
+  .darken-text(@text-color, @contrast-ratio, @index) when (default()) {
+    color: @text-color;
+  }
+}
+
+.set-contrast-ratio(@a, @b) {
+  // sets variable @contrast-ratio to contrast ratio between two colors
+
+  @l1: unit(luma(@a))/100;
+  @l2: unit(luma(@b))/100;
+  @contrast-ratio: round((@l1 + .05)/(@l2 + .05),2);
+}
+
+.set-contrast-ratio(@a, @b) when (luma(@b) > luma(@a)) {
+  @l1: unit(luma(@b))/100;
+  @l2: unit(luma(@a))/100;
+  @contrast-ratio: round((@l1 + .05)/(@l2 + .05),2);
+}
+
+.set-contrast-ratio(@a, @b) when (luma(@b) = luma(@a)) {
+  @contrast-ratio: 1;
+}
+
+.set-distance(@a, @b) {
+  // sets variable @distance to distance between two colors
+
+  @r-values-a-b: 2*(red(@b) - red(@a))*(red(@b) - red(@a));
+  @g-values-a-b: 4*(green(@b) - green(@a))*(green(@b) - green(@a));
+  @b-values-a-b: 3*(blue(@b) - blue(@a))*(blue(@b) - blue(@a));
+
+  @distance: sqrt(@r-values-a-b + @g-values-a-b + @b-values-a-b);
+}
+
+.set-closer-farther(@compare, @c1, @c2) {
+  // compares c1 and c2 to a given color, assigns a @farther and @closer
+  // based on distance in RGB space
+
+  .set-distance-m-c1() {
+    .set-distance(@compare, @c1);
+    @distance-m-c1: @distance;
+  }
+
+  .set-distance-m-c2() {
+    .set-distance(@compare, @c2);
+    @distance-m-c2: @distance;
+  }
+
+  .resolve() when (@distance-m-c2 > @distance-m-c1) {
+    @farther: @c2;
+    @closer: @c1;
+  }
+
+  .resolve() when (default()) {
+    @farther: @c1;
+    @closer: @c2;
+  }
+
+  .set-distance-m-c1();
+  .set-distance-m-c2();
+
+  .resolve();
+}
+
+.set-farther-closer(@compare, @c1, @c2) { .set-closer-farther(@compare, @c1, @c2);}
+
+.set-tone(@color) {
+  // sets variable @tone to white or black, depending on which is better for text contrast
+
+  .set-contrast-ratio-black() {
+    .set-contrast-ratio(@color, black);
+    @contrast-ratio-black: @contrast-ratio;
+  }
+
+  .set-contrast-ratio-white() {
+    .set-contrast-ratio(@color, white);
+    @contrast-ratio-white: @contrast-ratio;
+  }
+
+  .set-tone(@color) when (@contrast-ratio-black > @contrast-ratio-white) {
+    @tone: black;
+  }
+
+  .set-tone(@color) when (default()) {
+    @tone: white;
+  }
+
+  .set-contrast-ratio-black();
+  .set-contrast-ratio-white();
+
+  .set-tone(@color);
+}
+
+.set-average(@colors) {
+  // averages a list of colors
+  // sets result to @average
+
+  @iterations: length(@colors);
+
+  .find-average(extract(@colors, 1), 1);
+
+  .find-average(@color, @index) when (@index <= @iterations) {
+    @this-color: extract(@colors, @index);
+    @last-color: @color;
+    @weight: 100% * (1/@index);
+    @new-average: mix(@this-color, @last-color, @weight);
+
+    .find-average(@new-average, @index + 1);
+  }
+
+  .find-average(@color, @index) when (default()) {
+    @average: @color;
   }
 }
 
 .colorize(@color) {
-  // set a background color and make sure text works with it
+  // sets a background color and makes sure text works with it
   background-color: @color;
   .contrast-text-against(@color);
+}
+
+.colorize(@color-l, @color-m, @color-d) {
+  // when given three arguments, colorizes in light, medium, dark
+
+  & when (@scheme-type = light) {
+    .colorize(@color-l);
+  }
+
+  & when (@scheme-type = medium) {
+    .colorize(@color-m);
+  }
+
+  & when (@scheme-type = dark) {
+    .colorize(@color-d);
+  }
+}
+
+.set-a-color(@color, @compare: @color, @scheme: @scheme-type) {
+
+  // a lighter version of the color
+  
+  .settings() when (@scheme = light) {
+    @contrast-standard: 1.15;
+    @initial-lighten: 4%;
+    @iterations: 6;
+  }
+
+  .settings() when (default()) {
+    @contrast-standard: 1.4;
+    @initial-lighten: 8%;
+    @iterations: 10;
+  }
+
+  .settings();
+
+  .set-a(@a, @contrast-ratio, @index) when (@index <= @iterations)  
+                                       and (@contrast-ratio < @contrast-standard)
+                                       and (luma(@a) < 90%) {
+    @new-a: lighten(@a, 3.5%);
+    .set-contrast-ratio(@color, @new-a);
+    .set-a(@new-a, @contrast-ratio, @index + 1);
+  }                                            
+
+  .set-a(@a, @contrast-ratio, @index) when (default()) {
+    @a-color: @a;
+  }
+
+  .set-closer-farther(@compare; spin(@color, @analog/2); spin(@color, -@analog/2));
+  .set-a(lighten(@closer, @initial-lighten), 1, 1);
+}
+
+.set-b-color(@color, @compare: @color) {
+
+  // a similar luma alternate
+
+  @b-candidate-1: spin(@color, @accent);
+  @b-candidate-2: spin(@color, -@accent);
+  .set-closer-farther(@compare; @b-candidate-1; @b-candidate-2);
+  @b-base: @farther;
+
+  @iterations: 8;
+
+  .adjust-b(@b, @index) when (luma(@b) < luma(@color))
+                         and (@index <= @iterations) {
+    @new-b: lighten(@b, 3%);
+    .adjust-b(@new-b, @index + 1);
+  }
+
+  .adjust-b(@b, @index) when (luma(@b) > luma(@color))
+                         and (@index <= @iterations) {
+    @new-b: darken(@b, 2%);
+    .adjust-b(@new-b, @index + 1);
+  }
+
+  .adjust-b(@b, @index) when (default()) {
+    @b-color: @b;
+  }
+
+  .adjust-b(@b-base, 1);
+}
+
+.set-c-color(@color, @compare: @color, @scheme: @scheme-type) {
+
+  // a darker version of the color
+  
+  .settings() when (@scheme = dark) {
+    @contrast-standard: 1.3;
+    @initial-darken: 4%;
+    @iterations: 8;
+  }
+
+  .settings() when (luma(@base-color) < 10%) {
+    @contrast-standard: 1.15;
+    @initial-darken: 2%;
+    @iterations: 6; 
+  }
+
+  .settings() when (default()) {
+    @contrast-standard: 1.35;
+    @initial-darken: 8%;
+    @iterations: 10;
+  }
+
+  .set-c(@c, @contrast-ratio, @index) when (@index <= @iterations)  
+                                       and (@contrast-ratio < @contrast-standard) {
+    @new-c: darken(@c, 2.5%);
+    .set-contrast-ratio(@color, @new-c);
+    .set-c(@new-c, @contrast-ratio, @index + 1);
+  }
+
+  .set-c(@c, @contrast-ratio, @index) when (default()) {
+    @c-color: @c;
+  }
+
+  @initial-c: darken(@color, @initial-darken);
+
+  .settings();
+  .set-contrast-ratio(@color, @initial-c);
+  .set-closer-farther(@compare; spin(@initial-c, @analog/2); spin(@initial-c, -@analog/2));
+  .set-c(@initial-c, @contrast-ratio, 1);
+}
+
+.make-color-classes-for(@colors) {
+  // takes a list of variable names, creates color(ize) classes for them
+  // names must have corresponding variables
+
+  @iterations: length(@colors);
+
+  .make-color-class(1);
+
+  .make-color-class(@index) when (@index <= @iterations) {
+    @color-name: extract(@colors, @index);
+    @this-color: @@color-name;
+
+    .@{color-name} {
+      .colorize(@this-color);
+    }
+
+    .make-color-class(@index + 1);
+  }
 }
 
 .no-user-select() {
@@ -38,248 +402,5 @@
   }
   &:after {
     clear: both;
-  }
-}
-
-// element color mixins
-
-.sl-body(@color) when (default()) {
-  .colorize(@background);
-}
-
-.sl-body(@color) when (luma(@color) > 88%), 
-                      (saturation(@color) > 80%),
-                      (saturation(@color) = 0) {
-  .colorize(white);
-}
-
-.sl-body(@color) when (luma(@color) < 15%) {
-  .colorize(@gray-darker);
-}
-
-.sl-main(@color: @color1c;) {
-  .colorize(@color);
-
-  & when (luma(@color) < 20%) {
-    @color: average(@gray-darker, @color1c);
-    .colorize(@color);
-  }
-}
-
-.sl-form(@color) {
-
-  .colorize(@color);
-
-  input,
-  textarea {
-    @input-bg-color: mix(@gray-lightest-base, white, 20%);
-    .colorize(@input-bg-color);
-    color: #333;
-    border: 1px solid darken(@color, 10%);
-  }
-}
-
-.sl-code(@code-color) {
-  background: mix(@code-color, #333, 10%);
-  color: mix(@code-color, white, 10%);
-}
-
-.sl-button(@color: @gray, @tone: @semantic-tone) {
-  background-color: @color;
-  border-color: darken(@color, 5%);
-
-  &:active {
-    background-color: darken(@color, 3%);
-  }
-}
-
-.sl-button(@color: @gray, @tone: @semantic-tone) when (@tone = black) {
-  #sl-tools.shade-text(@color);
-}
-
-.sl-button(@color: @gray, @tone: @semantic-tone) when (@tone = white) {
-  #sl-tools.tint-text(@color);
-}
-
-.make-sl-buttons-for(@colors) {
-  // make buttons for a list of color variable names
-  // buttons will use variable names as class names
-
-  @length: length(@colors);
-
-  .make-sl-button();
-
-  .make-sl-button(@index:1) when (@index <= @length) {
-    @color-name: extract(@colors, @index);
-    @color: @@color-name;
-
-    .buttons({
-      &.@{color-name} { .sl-button(@color);}
-    });
-    // button.@{color-name} {
-    //   // &:extend(.sl-button-base all);
-    //   .sl-button(@color);
-    // }
-
-    .make-sl-button(@index + 1);
-  }
-}
-
-.sl-nav(@color) {
-
-  @height: @navbar-height;
-
-  background-color:@color;
-  .contrast-text-against(@color);
-
-  height: @height;
-  line-height: @height;
-  max-height: @height;
-  padding: 0;
-  border-radius: @border-radius;
-  z-index: 1000;
-
-  > section {
-    padding: 0;
-    max-width: @content-max-width;
-  }
-
-  > section > * { // pseudo reset
-    display: none;
-    float:left;
-    position: relative;
-    border: none;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    height: @height;
-    vertical-align: middle;
-    overflow: hidden;
-
-    .on-tablet({
-      display: block;
-    });
-
-    &:first-child {
-      display: block;
-      margin-right: @padding * 2;
-
-      .on-large-phone({
-        margin-right: @height;
-      });
-    }
-
-    &:last-child {
-      display: block;
-      float: right;
-      line-height: @height - 6;
-    }
-  }
-
-  ul {
-    height: @height;
-  }
-
-  li {
-    float:left;
-    height: @height;
-    line-height: @height;
-    list-style: none;
-  }
-
-  h1 {
-    display: block;
-    float: left;
-    font-size: 26px;
-    line-height: @height;
-    padding: 0 @padding;
-    color: inherit;
-  }
-
-  a {
-    display: block;
-    float: left;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  li > a {
-    padding-left: @padding;
-    padding-right: @padding;
-
-    &:hover {
-      background-color: rgba(255,255,255,.15);
-    }
-  }
-
-  body > &:first-child, body > &:last-child {
-    // go sticky if at end or beginning of body
-    position: fixed; top:0; left: 0;
-    width: 100%;
-    border-radius: 0;
-  }
-}
-
-.sl-table(@table-color: @color1;) {
-
-  .make-palette(@table-color; ebb);
-    @header: @color1;
-    @row-a: @color1a;
-    @row-b: darken(@row-a, 1.5%);
-
-  & > thead > tr > th {
-    background-color: @header;
-    .contrast-text-against(@header);
-  }
-
-  & > tbody > tr > td {
-    .contrast-text-against(@row-a);
-  }
-
-  & > tbody > tr {
-    background-color: @row-a;
-  }
-
-  & > tbody > tr:nth-of-type(odd) {
-    background-color: @row-b;
-  }
-}
-
-.make-sl-tables-for(@colors) {
-  // make table colors for a list of color variable names
-  // tables will use variable names as class names
-
-  @iterations: length(@colors);
-
-  .make-sl-table(1);
-
-  .make-sl-table(@index) when (@index <= @iterations) {
-
-    @color-name: extract(@colors, @index);
-    @this-color: @@color-name;
-
-    table.@{color-name} {
-      .sl-table(@this-color);
-    }
-
-    .make-sl-table(@index + 1);
-  }
-}
-
-.make-color-classes-for(@colors) {
-  @iterations: length(@colors);
-
-  .make-color-class(1);
-
-  .make-color-class(@index) when (@index <= @iterations) {
-    @color-name: extract(@colors, @index);
-    @this-color: @@color-name;
-
-    .@{color-name} {
-      .colorize(@this-color);
-    }
-
-    .make-color-class(@index + 1);
   }
 }

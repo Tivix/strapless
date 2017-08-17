@@ -1,6 +1,3 @@
-// reusable targets
-// these don't work well used inside of each other
-
 .on-large-phone(@rules) {
  	@media screen and (min-width: @large-phone-break) { @rules();}
 }
@@ -15,17 +12,6 @@
 
 .in-print(@rules) {
 	@media print { @rules();}
-}
-
-.headlines(@rules) {
-	h1, h2, h3, h4, h5, h6 { @rules();}
-}
-
-.buttons(@rules) {
-	button, 
-	html input[type="button"],
-	input[type="reset"],
-	input[type="submit"] { @rules();}
 }
 
 .block-level-elements(@rules) {
@@ -51,6 +37,17 @@
 	abbr, acronym, cite, code, em, strong,
 	a, br, img, map, object, span, sub, sup,
 	button, input, label, select, textarea {
+		@rules();
+	}
+}
+
+.semantic-classes(@rules) {
+	&.action,
+	&.reaction,
+	&.info,
+	&.warning,
+	&.success,
+	&.failure {
 		@rules();
 	}
 }
