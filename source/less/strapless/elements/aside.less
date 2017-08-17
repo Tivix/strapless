@@ -1,6 +1,7 @@
 aside {
   margin-bottom: @padding;
   border-radius: @border-radius;
+  text-align: center;
 
   > form {
     padding: 0;
@@ -91,8 +92,8 @@ aside {
     .colorize(@light-bg);
   }
 
-  .make-paragraphs-for(@colors) {
-    // make paragraphs for a list of color variable names
+  .make-asides-for(@colors) {
+    // make asides for a list of color variable names
 
     @length: length(@colors);
 
@@ -108,5 +109,5 @@ aside {
     }
   }
 
-  .make-paragraphs-for(@semantic-colors);
+  .make-asides-for(@semantic-colors);
 }

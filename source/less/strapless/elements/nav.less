@@ -106,6 +106,18 @@ nav {
     height: @height;
     line-height: @height;
     list-style: none;
+
+    a {
+      display: block;
+      float: left;
+      color: inherit;
+      padding-left: @padding;
+      padding-right: @padding;
+    }
+  }
+
+  a { 
+    text-decoration: none;
   }
 
   h1 {
@@ -113,21 +125,8 @@ nav {
     float: left;
     font-size: 26px;
     line-height: @height;
-    padding: 0 @padding;
+    padding: 0;
     color: inherit;
-
-    > a {
-      padding: 0 !important;
-    }
-  }
-
-  a {
-    display: block;
-    float: left;
-    text-decoration: none;
-    color: inherit;
-    padding-left: @padding;
-    padding-right: @padding;
   }
 
   & when (@sticky-nav = true) {
