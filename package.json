@@ -1,6 +1,6 @@
 {
   "name": "strapless",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A color-changing CSS boilerplate and powerful LessCSS library for colors and patterns",
   "main": "server.js",
   "scripts": {
