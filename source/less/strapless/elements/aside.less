@@ -38,6 +38,11 @@ aside {
 
   .button-elements({
     width: 100%;
+
+    .on-large-phone({
+      width: auto;
+      margin-bottom: 0;
+    });
   });
 
   .on-large-phone({
@@ -49,11 +54,6 @@ aside {
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
-
-    .button-elements({
-      width: auto;
-      margin-bottom: 0;
-    });
 
     > * { 
       margin-left: @padding*.62;

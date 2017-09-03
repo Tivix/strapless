@@ -7,7 +7,7 @@
   .make-main-colors(@color; @wheel);
   .make-subcolors(@color1; @color2; @color3; @color4; @scheme-type);
   .make-grays(@color; @scheme-type);
-  .make-action-colors(@color, @color1, @color1b);
+  .make-action-colors(@color, @color1, @color1);
   .make-reaction-colors(@action, @color2, @color3);
 }
 
@@ -19,9 +19,9 @@
   .set-a-color(@color1);
   .set-b-color(@color1);
   .set-c-color(@color1);
-  @color1a: greyscale(@a-color);
-  @color1b: greyscale(@b-color);
-  @color1c: greyscale(@c-color);
+  @color1a: desaturate(@a-color, (100 - saturation(@color)));
+  @color1b: desaturate(@b-color, (100 - saturation(@color)));
+  @color1c: desaturate(@c-color, (100 - saturation(@color)));
 }
 
 .load-color-wheels() {
@@ -213,10 +213,10 @@
   @failure:   average(@failure-base, hsl(hue(@failure-base), saturation(@base), lightness(@base)));
   @warning:   average(@warning-base, hsl(hue(@warning-base), saturation(@base), lightness(@base)*1.2));
 
-  @success-info-midpoint: average(@info, @success);
+  @failure-warning-midpoint: average(@failure, @warning);
 
-  .set-closer-farther(@success-info-midpoint, @r1, @r2);
-    @reaction-base: @farther;
+  .set-closer-farther(@failure-warning-midpoint, @r1, @r2);
+    @reaction-base: @closer;
   
   @reaction-sat: (saturation(@warning) + saturation(@failure))/2;
   @reaction-lit: (lightness(@warning) + lightness(@failure))*.9/2;

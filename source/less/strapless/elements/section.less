@@ -48,9 +48,11 @@ section {
   }
 
   .section-color(@color) {
-    @light-bg: average(@color, @gray-lightest-base);
-    @dark-bg: average(@color, @gray-darkest-base);
-    .colorize(@light-bg, @light-bg, @dark-bg);
+    .colorize(
+      multiply(@color, @background),
+      @color,
+      multiply(@color, @background)
+    );
   }
 
   .make-section-colors-for(@semantic-colors);
