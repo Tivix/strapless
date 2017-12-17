@@ -18,6 +18,9 @@ src/
 strapless/strapless/settings/local.py.backup
 strapless/ansible
 ansible/run_bidder
+source/less/config.codekit3
+*.css.map
+*.css
 
 private_key
 strapless/private_key
