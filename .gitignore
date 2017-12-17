@@ -21,6 +21,7 @@ ansible/run_bidder
 source/less/config.codekit3
 *.css.map
 *.css
+config.codekit3
 
 private_key
 strapless/private_key
