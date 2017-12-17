@@ -48,11 +48,7 @@ section {
   }
 
   .section-color(@color) {
-    .colorize(
-      multiply(@color, @background),
-      @color,
-      multiply(@color, @background)
-    );
+    .colorize(@color);
   }
 
   .make-section-colors-for(@semantic-colors);
