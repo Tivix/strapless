@@ -6,25 +6,29 @@
 @import "sl-pattern";
 @import "strapless/strapless";
 
+.sl-single-color {
+  padding: @padding;
+}
+
 // demo-wheels doesn't contain any -b wheeels
 
 @demo-wheels:  @color-wheels;
 
-#feature, 
-#feature > *, 
-#strapless_nav, 
-#strapless_main, 
-#strapless_footer, 
+#feature,
+#feature > *,
+#strapless_nav,
+#strapless_main,
+#strapless_footer,
 #main_success_example,
 #main_action_example,
-#demo_form, 
+#demo_form,
 #philosophy,
-#loading_overlay, 
+#loading_overlay,
 #section_example,
 #semantic_colors > p,
-#grays > p { 
+#grays > p {
   @ease: ~'ease-out';
-  transition: color 2s @ease; transition: background 2s @ease; 
+  transition: color 2s @ease; transition: background 2s @ease;
 }
 
 pre {
@@ -107,7 +111,7 @@ pre {
     max-width: auto;
   }
 
-  > input { 
+  > input {
     width: 120px;
     height: 32px;
     padding: .2em .8em;
@@ -165,7 +169,7 @@ pre {
   width: @size;
   height: @size;
   text-indent: -9999px;
-  white-space: nowrap;  
+  white-space: nowrap;
   background-color: @color1;
   // border: 2px solid @color1c;
   // vertical-align: middle;

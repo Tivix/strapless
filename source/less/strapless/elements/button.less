@@ -1,6 +1,6 @@
 .button-elements(@rules) {
-  button, 
-  .button, 
+  button,
+  .button,
   input[type="button"],
   input[type="submit"] { @rules();}
 }
@@ -10,9 +10,9 @@
   text-align: center;
   vertical-align: middle;
   min-height: 32px;
-  padding: .6em @padding;
+  padding: .7em 1.62ch;
   touch-action: manipulation;
-  cursor: pointer; 
+  cursor: pointer;
   background-image: none;
   // border: 1px solid transparent;
   border: none;
@@ -20,7 +20,6 @@
   outline: none;
   white-space: nowrap;
   text-decoration: none;
-  line-height: 1.15;
   .invert-text-against(@base-color, @button: true);
   .make-buttons-for(@semantic-colors);
   .no-user-select();
@@ -37,10 +36,22 @@
   .make-button(@index:1) when (@index <= @length) {
     @color-name: extract(@colors, @index);
     @color: @@color-name;
-    
-    .@{color-name} & { .invert-text-against(@color, @button: true);}
-    &.@{color-name} { .invert-text-against(@color, @button: true) !important;}
+
+    .@{color-name} & { .button-color(@color);}
+    &.@{color-name} { .button-color(@color)!important;}
 
     .make-button(@index + 1);
   }
+}
+
+.button-color(@color) when (@color = @warning) {
+  .set-lumafix(@color; @ideal-warning);
+  .contrast-text-against(@lumafix);
+  //.invert-text-against(@lumafix; @button: true;);
+  &:active { .colorize(darken(@lumafix, 15%));}
+}
+
+.button-color(@color) when (default()) {
+  .set-lumafix(@color; @gray);
+  .invert-text-against(@lumafix; @button: true;);
 }

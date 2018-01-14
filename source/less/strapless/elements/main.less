@@ -1,14 +1,12 @@
 main {
-  padding: @padding;
-  max-width: (670 + @content-max-width)/2;
-  margin: 0 auto;
-  margin-bottom: 1em;
+  padding: 1em @padding;
+  max-width: @content-max-width;
+  margin: 0 auto 2em auto;
   text-align: center;
-
-  @inverted-support: false;
+  border-radius: @border-radius;
 
   > * {
-    margin-bottom: @padding;
+    margin-bottom: 1em;
   }
 
   p { text-align: left;}
@@ -32,21 +30,9 @@ main {
     border-radius: @border-radius;
   }
 
-  .headline-elements({
-    margin-bottom: .62em;
-  });
-
   .button-elements({
     font-size: 110%;
     &:only-child { font-size: 125%; margin-bottom: 1em;}
-  });
-
-  .modal-breakpoint(@rules) {
-    @media screen and (min-width: @content-max-width) { @rules();}
-  }
-
-  .modal-breakpoint({
-    border-radius: @border-radius;
   });
 
   .make-main-colors-for(@colors) {
@@ -70,17 +56,20 @@ main {
     }
   }
 
-  .main-color(@color) {
-    .set-tone(@color);
-    .set-a-color(@color);
-    .colorize(@a-color);
-
-    &.inverted when (@tone = black) and (@inverted-support = true) {
-      .invert-text-against(@color);
-    }
+  .main-color(@color) when (@color = @warning) {
+    .set-lumafix(@color, @ideal-warning, .75);
+    .colorize(@lumafix);
   }
 
-  .main-color(@base-color);
+  .main-color(@color) when (@color = @failure) {
+    .set-lumafix(@color, @ideal-failure, .5);
+    .colorize(@lumafix);
+  }
+
+  .main-color(@color) when (default()) {
+    .set-lumafix(@color, @background, .5);
+    .colorize(@lumafix);
+  }
 
   .make-main-colors-for(@semantic-colors);
 }

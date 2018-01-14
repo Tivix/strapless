@@ -1,5 +1,7 @@
 aside {
-  margin-bottom: @padding;
+  padding: 1em 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
   border-radius: @border-radius;
   text-align: left;
 
@@ -8,7 +10,7 @@ aside {
     margin-bottom: 1em;
   }
 
-  > * { 
+  > * {
     margin-bottom: @padding*.62;
   }
 
@@ -33,7 +35,7 @@ aside {
   }
 
   .semantic-classes({
-    padding: @padding 1em;
+    padding: 1em @padding;
   });
 
   .button-elements({
@@ -55,7 +57,7 @@ aside {
     -webkit-justify-content: center;
     justify-content: center;
 
-    > * { 
+    > * {
       margin-left: @padding*.62;
       margin-bottom: 0;
 

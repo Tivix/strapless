@@ -43,7 +43,7 @@ nav {
       .invert-text-against(@color; @button: true);
     }
   }
-  
+
   .set-yellow-distance(@color);
   .set-lemon-distance(@color);
   .set-orange-distance(@color);
@@ -51,7 +51,6 @@ nav {
   .nav-color();
   height: @height;
   line-height: @height*10;
-  font-size: 18px;
   max-height: @height;
   padding: 0;
   margin-bottom: @padding;
@@ -114,7 +113,7 @@ nav {
     }
   }
 
-  a { 
+  a {
     text-decoration: none;
     padding-left: @padding;
     padding-right: @padding;
@@ -123,7 +122,7 @@ nav {
   h1 {
     display: block;
     float: left;
-    font-size: 26px;
+    font-size: @font-size + 8;
     line-height: @height;
     padding: 0;
     color: inherit;

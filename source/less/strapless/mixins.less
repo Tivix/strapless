@@ -1,3 +1,14 @@
+// dev mixin
+
+.compare-colors(@first-color, @second-color) {
+  #comparison {
+    .color1 { .colorize(@first-color) !important;}
+    .color2 { .colorize(@second-color) !important;}
+  }
+}
+
+
+
 .contrast-text-against(@color) when (default()) {
   // automatically sets contrastful text color given a background color
 
@@ -5,7 +16,6 @@
   .set-contrast-ratio(@color, white);
 
   .tint-or-shade(@color) when (@contrast-ratio > 4.5) {
-    // if tinted/inverted/white text can meet AA-level contrast, then do that
     .tint-text-against(@color);
   }
 
@@ -183,7 +193,7 @@
     @a-color: @a;
   }
 
-  .set-closer-farther(@compare; spin(@color, @analog/2); spin(@color, -@analog/2));
+  .set-closer-farther(@compare; spin(@color, @analog); spin(@color, -@analog));
   .set-a(lighten(@closer, @initial-lighten), 1, 1);
 }
 
@@ -254,7 +264,7 @@
 
   .settings();
   .set-contrast-ratio(@color, @initial-c);
-  .set-closer-farther(@compare; spin(@initial-c, @analog/2); spin(@initial-c, -@analog/2));
+  .set-closer-farther(@compare; spin(@initial-c, @analog); spin(@initial-c, -@analog));
   .set-c(@initial-c, @contrast-ratio, 1);
 }
 
@@ -385,6 +395,29 @@
   .find-average(@color, @index) when (default()) {
     @average: @color;
   }
+}
+
+.set-lumafix(@color; @compare: @background; @luma-multiplier: .5;) {
+  // sets @lumafix to a version of @color with luma similar to @compare
+
+  @color-luma: luma(@color);
+  @compare-luma: luma(@compare);
+
+  @luma-difference: abs(@color-luma - @compare-luma);
+
+  .adjust-luma(@color, @index) when (luma(@color) < luma(@compare)) {
+    @lumafix: lighten(@color, @luma-difference*@luma-multiplier);
+  }
+
+  .adjust-luma(@color, @index) when (luma(@color) > luma(@compare)) {
+    @lumafix: darken(@color, @luma-difference*@luma-multiplier);
+  }
+
+  .adjust-luma(@color, @index) when (default()) {
+    @lumafix: @color;
+  }
+
+  .adjust-luma(@color, 1);
 }
 
 .no-user-select() {
