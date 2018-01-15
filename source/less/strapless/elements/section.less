@@ -1,9 +1,12 @@
-.compare-colors(white, black);
-
 section {
   width: 100%;
-  margin: 0 auto;
-  padding: 2em @padding;
+  margin: 1em auto;
+  padding: 1em @padding;
+
+  & + & {
+    // sections stack
+    margin: 0 auto;
+  }
 
   &:first-child {
     margin-top: 0;
@@ -11,7 +14,7 @@ section {
 
   > * {
     margin: 0 auto;
-    max-width: @content-max-width;
+    max-width: @max-width;
 
     &:only-child {
       padding-top: 1em;
@@ -52,16 +55,42 @@ section {
   .section-color(@color) when (@color = @warning) {
     .set-lumafix(@color, @ideal-warning, .75);
     .colorize(@lumafix);
+
+    .set-contrast-ratio(@lumafix; white;);
+
+    & when (@contrast-ratio > 3) {
+      & > h1, & > h2, & > h3 { .tint-text-against(@lumafix; 4.5;);}
+    }
   }
 
   .section-color(@color) when (@color = @failure) {
     .set-lumafix(@color, @ideal-failure, .5);
     .colorize(@lumafix);
+
+    .set-contrast-ratio(@lumafix; white;);
+
+    & when (@contrast-ratio > 3) {
+      & > h1, & > h2, & > h3 { .tint-text-against(@lumafix; 4.5;);}
+    }
   }
 
   .section-color(@color) when (default()) {
-    .set-lumafix(@color, @background, .75);
-    .colorize(@lumafix);
+
+    .set-lumafix(@color, @background, .65);
+    .finalize-color();
+
+    .finalize-color() when (luma(@lumafix) > 78%) {
+      .set-a-color(@color);
+      background-color: @a-color;
+      .contrast-text-against(@a-color; 7;);
+      & > h1, & > h2, & > h3 { .color-text(@color; @a-color; 3;);}
+    }
+
+    .finalize-color() when (default()) {
+      background-color: @lumafix;
+      .contrast-text-against(@lumafix; 3);
+      & > h1, & > h2, & > h3 { .contrast-text-against(@lumafix; 3;);}
+    }
   }
 
   .make-section-colors-for(@semantic-colors);

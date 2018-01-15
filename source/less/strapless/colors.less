@@ -4,7 +4,10 @@
   // make all variables for a color palette
   .load-color-wheels();
   .set-scheme-type(@color);
-  .make-main-colors(@color; @wheel);
+  .make-color1(@color; @wheel);
+  .make-color2(@color; @wheel);
+  .make-color3(@color; @wheel);
+  .make-color4(@color; @wheel);
   .make-subcolors(@color1; @color2; @color3; @color4; @scheme-type);
   .make-grays(@color; @scheme-type);
   .make-action-colors(@color, @color1, @color1);
@@ -113,14 +116,33 @@
   .set-scheme-type();
 }
 
-.make-main-colors(@color; @wheel) {
-  // makes the four main colors
+.make-color1(@color; @wheel) {
 
   @wheel-var: @@wheel;
   @color1: @color;
-  @color2: spin(@color, extract(@wheel-var, 1));
+  .set-lumafix(spin(@color, extract(@wheel-var, 1)); @color1; .75;);
+  @color2: @lumafix;
+  // @color2: spin(@color, extract(@wheel-var, 1));
   @color3: spin(@color, extract(@wheel-var, 2));
   @color4: spin(@color, extract(@wheel-var, 3));
+}
+
+.make-color2(@color; @wheel) {
+  @wheel-var: @@wheel;
+  .set-lumafix(spin(@color, extract(@wheel-var, 1)); @color1; .75;);
+  @color2: @lumafix;
+}
+
+.make-color3(@color; @wheel) {
+  @wheel-var: @@wheel;
+  .set-lumafix(spin(@color, extract(@wheel-var, 2)); @color1; .75;);
+  @color3: @lumafix;
+}
+
+.make-color4(@color; @wheel) {
+  @wheel-var: @@wheel;
+  .set-lumafix(spin(@color, extract(@wheel-var, 3)); @color1; .75;);
+  @color4: @lumafix;
 }
 
 .make-subcolors(@c1; @c2; @c3; @c4; @scheme-type) {

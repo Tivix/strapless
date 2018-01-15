@@ -7,21 +7,19 @@
   }
 }
 
-
-
-.contrast-text-against(@color) when (default()) {
+.contrast-text-against(@color; @contrast-standard: 4.5) when (default()) {
   // automatically sets contrastful text color given a background color
 
   // find how much we could tint by finding color/white contrast ratio
   .set-contrast-ratio(@color, white);
 
-  .tint-or-shade(@color) when (@contrast-ratio > 4.5) {
-    .tint-text-against(@color);
+  .tint-or-shade(@color) when (@contrast-ratio > @contrast-standard) {
+    .tint-text-against(@color; @contrast-standard;);
   }
 
   .tint-or-shade(@color) when (default()) {
     // otherwise, shade the text
-    .shade-text-against(@color);
+    .shade-text-against(@color; @contrast-standard;);
   }
 
   .tint-or-shade(@color);
@@ -33,9 +31,8 @@
 
   color: #494949;
 }
-
 .tint-text-against(@color; @contrast-standard: 9) {
-  // adds white to color until contrast ratio is met
+  // adds white to background color until contrast ratio is met
 
   @start: 55%;
   @iterations: 10;
@@ -56,8 +53,8 @@
   }
 }
 
-.shade-text-against(@color; @contrast-standard: 4.5) {
-  // adds black to color until contrast ratio is met
+.shade-text-against(@color; @contrast-standard: 7) {
+  // adds black to background color until contrast ratio is met
 
   @start: 50%;
   @iterations: 12;
@@ -78,10 +75,10 @@
   }
 }
 
-.invert-text-against(@color, @button: false) {
+.invert-text-against(@color, @contrast-standard: 4.5) {
 
   // always results in white text
-  // darkens given background to meet contrast ratio of at least 4.5
+  // darkens given background to meet contrast standard
 
   @iterations: 10;
 
@@ -98,41 +95,23 @@
   .darken-bg(@bg-color, @contrast-ratio, @index) when (default()) {
     background-color: @bg-color;
     color: white;
-
-    // button used just for button shadows
-    & when (@button = true) {
-      .set-c-color(@bg-color);
-
-      &:active {
-        background-color: @c-color;
-      }
-      &:active when (@scheme-type = light) {
-        box-shadow: inset 0 1px 0 darken(@c-color, 7.5%);
-      }
-      &:active when (@scheme-type = medium) {
-        box-shadow: inset 0 1px 0 darken(@c-color, 5%);
-      }
-      &:active when (@scheme-type = dark) {
-        box-shadow: inset 0 1px 0 darken(@c-color, 2.5%);
-      }
-    }
   }
 }
 
-.color-text(@color, @background-color: @background) {
+.color-text(@color; @text-background: @background; @contrast-standard: 4.5) {
 
   // darkens text against a background
   // only works with lighter backgrounds
 
-  @iterations: 10;
+  @iterations: 15;
 
-  .set-contrast-ratio(@color, @background-color);
+  .set-contrast-ratio(@color, @text-background);
   .darken-text(@color, @contrast-ratio, 1);
 
-  .darken-text(@text-color, @contrast-ratio, @index) when (@contrast-ratio < 4.5)
+  .darken-text(@text-color, @contrast-ratio, @index) when (@contrast-ratio < @contrast-standard)
                                                   and (@index < @iterations) {
-    @new-text-color: darken(@text-color, 5% + @index);
-    .set-contrast-ratio(white, @new-text-color);
+    @new-text-color: darken(@text-color, 5%);
+    .set-contrast-ratio(@text-background, @new-text-color);
     .darken-text(@new-text-color, @contrast-ratio, @index + 1);
   }
 
@@ -193,7 +172,7 @@
     @a-color: @a;
   }
 
-  .set-closer-farther(@compare; spin(@color, @analog); spin(@color, -@analog));
+  .set-closer-farther(@compare; spin(@color, @analog/2); spin(@color, -@analog/2));
   .set-a(lighten(@closer, @initial-lighten), 1, 1);
 }
 
@@ -204,7 +183,7 @@
   @b-candidate-1: spin(@color, @accent);
   @b-candidate-2: spin(@color, -@accent);
   .set-closer-farther(@compare; @b-candidate-1; @b-candidate-2);
-  @b-base: @farther;
+  @b-base: @closer;
 
   @iterations: 8;
 
@@ -231,13 +210,14 @@
 
   // a darker version of the color
 
+
   .settings() when (@scheme = dark) {
     @contrast-standard: 1.3;
     @initial-darken: 4%;
     @iterations: 8;
   }
 
-  .settings() when (luma(@base-color) < 10%) {
+  .settings() when (luma(@base-color) < 10%), (@scheme = light) {
     @contrast-standard: 1.15;
     @initial-darken: 2%;
     @iterations: 6;
@@ -264,7 +244,7 @@
 
   .settings();
   .set-contrast-ratio(@color, @initial-c);
-  .set-closer-farther(@compare; spin(@initial-c, @analog); spin(@initial-c, -@analog));
+  .set-closer-farther(@compare; spin(@initial-c, @analog/2); spin(@initial-c, -@analog/2));
   .set-c(@initial-c, @contrast-ratio, 1);
 }
 

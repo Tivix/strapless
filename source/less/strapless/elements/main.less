@@ -1,6 +1,6 @@
 main {
   padding: 1em @padding;
-  max-width: @content-max-width;
+  max-width: @max-width - (@padding*12);
   margin: 0 auto 2em auto;
   text-align: center;
   border-radius: @border-radius;
@@ -13,12 +13,6 @@ main {
 
   h1, h2 {
     text-align: center;
-
-    & + p {
-      text-align: center;
-      font-size: 125%;
-      margin-bottom: 1em;
-    }
   }
 
   img {
@@ -59,16 +53,44 @@ main {
   .main-color(@color) when (@color = @warning) {
     .set-lumafix(@color, @ideal-warning, .75);
     .colorize(@lumafix);
+
+    .set-contrast-ratio(@lumafix; white;);
+
+    & when (@contrast-ratio > 3) {
+      & > h1, & > h2, & > h3 { .tint-text-against(@lumafix; 4.5;);}
+    }
   }
 
   .main-color(@color) when (@color = @failure) {
     .set-lumafix(@color, @ideal-failure, .5);
     .colorize(@lumafix);
+
+    .set-contrast-ratio(@lumafix; white;);
+
+    & when (@contrast-ratio > 3) {
+      & > h1, & > h2, & > h3 { .tint-text-against(@lumafix; 4.5;);}
+    }
   }
 
   .main-color(@color) when (default()) {
+
     .set-lumafix(@color, @background, .5);
-    .colorize(@lumafix);
+    .finalize-color(@lumafix);
+
+    .finalize-color(@color-to-fix) when (luma(@color-to-fix) > 98%) {
+      .set-a-color(@color);
+      background-color: @a-color;
+      .contrast-text-against(@a-color);
+      & > h1, & > h2, & > h3 { .color-text(@color; @a-color; 3;) !important;}
+    }
+
+    .finalize-color(@color-to-fix) when (default()) {
+      @color: @color-to-fix;
+      background-color: @color;
+      // border: 5px solid red;
+      .contrast-text-against(@color);
+      & > h1, & > h2, & > h3 { .contrast-text-against(@color; 3;);}
+    }
   }
 
   .make-main-colors-for(@semantic-colors);

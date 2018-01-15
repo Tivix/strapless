@@ -20,7 +20,7 @@
   outline: none;
   white-space: nowrap;
   text-decoration: none;
-  .invert-text-against(@base-color, @button: true);
+  .button-color(@base-color);
   .make-buttons-for(@semantic-colors);
   .no-user-select();
 });
@@ -37,8 +37,7 @@
     @color-name: extract(@colors, @index);
     @color: @@color-name;
 
-    .@{color-name} & { .button-color(@color);}
-    &.@{color-name} { .button-color(@color)!important;}
+    &.@{color-name} { .button-color(@color);}
 
     .make-button(@index + 1);
   }
@@ -47,11 +46,11 @@
 .button-color(@color) when (@color = @warning) {
   .set-lumafix(@color; @ideal-warning);
   .contrast-text-against(@lumafix);
-  //.invert-text-against(@lumafix; @button: true;);
-  &:active { .colorize(darken(@lumafix, 15%));}
+  &:active { background: darken(@lumafix, 5%);}
 }
 
 .button-color(@color) when (default()) {
   .set-lumafix(@color; @gray);
-  .invert-text-against(@lumafix; @button: true;);
+  .invert-text-against(@lumafix);
+  &:active { background: darken(@lumafix, 5%);}
 }

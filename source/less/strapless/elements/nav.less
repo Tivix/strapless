@@ -32,7 +32,7 @@ nav {
     .shade-text-against(@color);
 
     li a:active {
-      .invert-text-against(@color; @button: true);
+      .invert-text-against(@color);
     }
   }
 
@@ -40,7 +40,7 @@ nav {
     .invert-text-against(@color);
 
     li a:active {
-      .invert-text-against(@color; @button: true);
+      .invert-text-against(@color);
     }
   }
 
@@ -60,7 +60,7 @@ nav {
 
   > section {
     padding: 0;
-    max-width: @content-max-width;
+    max-width: @max-width;
   }
 
   > section > * { // pseudo reset

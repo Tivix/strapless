@@ -6,8 +6,9 @@
   margin-top: 1em;
   margin-bottom: 1em;
   text-align: center;
-  line-height: @line-height;
+  line-height: @line-height*.75;
   font-weight: bold;
+  .contrast-text-against(@background; 3;);
 
   &:only-child {
     margin-top: 0;
