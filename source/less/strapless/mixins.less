@@ -13,26 +13,40 @@
   // find how much we could tint by finding color/white contrast ratio
   .set-contrast-ratio(@color, white);
 
-  .tint-or-shade(@color) when (@contrast-ratio > 4.5) {
+  // use 4.5 c/r as a middle contrast wedge to determine if we can tint:
+
+  .tint-or-shade(@color) when (@contrast-ratio > 4.5) and (@contrast-standard <= 7) {
+    // tinting usually needs at least 7
     .tint-text-against(@color; 7;);
   }
 
+  .tint-or-shade(@color) when (@contrast-ratio > 4.5) and (@contrast-standard > 7) {
+    // if the standard is above 7, we'll use that
+    .tint-text-against(@color; @contrast-standard;);
+  }
+
   .tint-or-shade(@color) when (default()) {
-    // otherwise, shade the text
+    // if tinting can't work, then shade
     .shade-text-against(@color; @contrast-standard;);
   }
 
   .tint-or-shade(@color);
 }
 
-.contrast-text-against(@color, @contrast-standard: 9) when (@color = white) {
+.contrast-text-against(@color, @contrast-standard: 9) when (@color = white) and (@contrast-standard >= 4.5) {
   // the objectively correct text color against white
   // arrived at by monks after years of meditation and seclusion
 
+  // a contrast ratio of 9, not too harsh, not fading away
+  // not angry like #333, or non-committal like #606060
+  // with the subtlest of references to san francisco
+
   color: #494949;
 }
-.tint-text-against(@color; @contrast-standard: 9) {
-  // adds white to background color until contrast ratio is met
+
+.tint-text-against(@color; @contrast-standard: 7) {
+  // adds white to background color until contrast standard is met
+  // uses that as text color
 
   @start: 55%;
   @iterations: 10;
@@ -54,7 +68,8 @@
 }
 
 .shade-text-against(@color; @contrast-standard: 7) {
-  // adds black to background color until contrast ratio is met
+  // adds black to background color until contrast standard is met
+  // uses that as text color
 
   @start: 50%;
   @iterations: 12;
@@ -126,25 +141,10 @@
   .contrast-text-against(@color);
 }
 
-.colorize(@color-l, @color-m, @color-d) {
-  // when given three arguments, colorizes in light, medium, dark
-
-  & when (@scheme-type = light) {
-    .colorize(@color-l);
-  }
-
-  & when (@scheme-type = medium) {
-    .colorize(@color-m);
-  }
-
-  & when (@scheme-type = dark) {
-    .colorize(@color-d);
-  }
-}
-
 .set-a-color(@color, @compare: @color, @scheme: @scheme-type) {
 
   // a lighter version of the color
+  // @color1a, @color3a etc are examples of a-colors
 
   .settings() when (@scheme = light) {
     @contrast-standard: 1.15;
@@ -158,21 +158,27 @@
     @iterations: 10;
   }
 
-  .settings();
-
   .set-a(@a, @contrast-ratio, @index) when (@index <= @iterations)
                                        and (@contrast-ratio < @contrast-standard)
                                        and (luma(@a) < 90%) {
+    // loop through this until @contrast-standard is met
     @new-a: lighten(@a, 3.5%);
     .set-contrast-ratio(@color, @new-a);
     .set-a(@new-a, @contrast-ratio, @index + 1);
   }
 
   .set-a(@a, @contrast-ratio, @index) when (default()) {
+    // set @a-color when conditions are finally met (or iterations run out)
     @a-color: @a;
   }
 
+  // load settings
+  .settings();
+
+  // grab a couple near analogs and figure out which is closer
   .set-closer-farther(@compare; spin(@color, @analog/2); spin(@color, -@analog/2));
+
+  // use the closer color as base for a-color
   .set-a(lighten(@closer, @initial-lighten), 1, 1);
 }
 
@@ -180,36 +186,24 @@
 
   // a similar luma alternate
 
+  @iterations: 8;
+
+  // grab accents in both directions to use as candidates
   @b-candidate-1: spin(@color, @accent);
   @b-candidate-2: spin(@color, -@accent);
+
+  // set b-base
   .set-closer-farther(@compare; @b-candidate-1; @b-candidate-2);
   @b-base: @closer;
 
-  @iterations: 8;
-
-  .adjust-b(@b, @index) when (luma(@b) < luma(@color))
-                         and (@index <= @iterations) {
-    @new-b: lighten(@b, 3%);
-    .adjust-b(@new-b, @index + 1);
-  }
-
-  .adjust-b(@b, @index) when (luma(@b) > luma(@color))
-                         and (@index <= @iterations) {
-    @new-b: darken(@b, 2%);
-    .adjust-b(@new-b, @index + 1);
-  }
-
-  .adjust-b(@b, @index) when (default()) {
-    @b-color: @b;
-  }
-
-  .adjust-b(@b-base, 1);
+  // adjust b's luma to match
+  .set-lumafix(@b-base; @color;);
+  @b-color: @lumafix;
 }
 
 .set-c-color(@color, @compare: @color, @scheme: @scheme-type) {
 
   // a darker version of the color
-
 
   .settings() when (@scheme = dark) {
     @contrast-standard: 1.3;

@@ -526,13 +526,13 @@ section.action > h3 {
   color: #366360;
 }
 section.reaction {
-  background-color: #b9c6fc;
-  color: #272935;
+  background-color: #fcb7b3;
+  color: #342625;
 }
 section.reaction > h1,
 section.reaction > h2,
 section.reaction > h3 {
-  color: #1a60f6;
+  color: #cd0916;
 }
 section.info {
   background-color: #bee0f8;
@@ -617,13 +617,13 @@ main.action > h3 {
   color: #356360;
 }
 main.reaction {
-  background-color: #d3e1fd;
-  color: #4f545f;
+  background-color: #fdd7da;
+  color: #5f5152;
 }
 main.reaction > h1,
 main.reaction > h2,
 main.reaction > h3 {
-  color: #585e69;
+  color: #6a5a5b;
 }
 main.info {
   background-color: #abd7f6;
@@ -708,14 +708,14 @@ button.reaction,
 .button.reaction,
 input[type="button"].reaction,
 input[type="submit"].reaction {
-  background-color: #296af6;
+  background-color: #c50815;
   color: white;
 }
 button.reaction:active,
 .button.reaction:active,
 input[type="button"].reaction:active,
 input[type="submit"].reaction:active {
-  background: #5085f8;
+  background: #f85560;
 }
 button.info,
 .button.info,
@@ -836,8 +836,8 @@ p.action {
   color: #2f5956;
 }
 p.reaction {
-  background-color: #94b5fb;
-  color: #313c54;
+  background-color: #fa8e95;
+  color: #532f32;
 }
 p.info {
   background-color: #6ab8ef;
@@ -871,7 +871,7 @@ a.action {
 span.reaction,
 a.reaction {
   background: transparent;
-  color: #0a51ec;
+  color: #b50813;
 }
 span.info,
 a.info {
@@ -1064,8 +1064,8 @@ footer.action {
 }
 aside.reaction,
 footer.reaction {
-  background-color: #94b5fb;
-  color: #313c54;
+  background-color: #fa8e95;
+  color: #532f32;
 }
 aside.info,
 footer.info {
@@ -1140,17 +1140,17 @@ table.action tr:nth-of-type(odd) {
   background-color: #6febe3;
 }
 table.reaction th {
-  background-color: #2e6df6;
+  background-color: #e60a18;
   color: white;
 }
 table.reaction td {
-  color: #303b53;
+  color: #532e30;
 }
 table.reaction tr {
-  background-color: #8caffa;
+  background-color: #fa858d;
 }
 table.reaction tr:nth-of-type(odd) {
-  background-color: #90b2fa;
+  background-color: #fa8a91;
 }
 table.info th {
   background-color: #126eae;
@@ -1387,8 +1387,8 @@ body > hr {
   color: #2f5956;
 }
 .reaction {
-  background-color: #94b5fb;
-  color: #313c54;
+  background-color: #fa8e95;
+  color: #532f32;
 }
 .info {
   background-color: #6ab8ef;
@@ -1423,51 +1423,51 @@ body > hr {
   color: #175c57;
 }
 .color2 {
-  background-color: #fffefe;
-  color: #6a6a6a;
+  background-color: #feebed;
+  color: #5f5859;
 }
 .color2a {
   background-color: #ffffff;
-  color: #494949;
+  color: #6a6a6a;
 }
 .color2b {
-  background-color: #ffffff;
-  color: #494949;
+  background-color: #fceece;
+  color: #5f594d;
 }
 .color2c {
-  background-color: #fee8e9;
-  color: #5f5758;
+  background-color: #fdd6d8;
+  color: #5f5051;
 }
 .color3 {
-  background-color: #f8faff;
-  color: #67686a;
+  background-color: #e7eefe;
+  color: #56595f;
 }
 .color3a {
-  background-color: #ffffff;
-  color: #494949;
+  background-color: #fafcff;
+  color: #68696a;
 }
 .color3b {
-  background-color: #f5f5f5;
-  color: #666666;
+  background-color: #eee2fd;
+  color: #59555f;
 }
 .color3c {
-  background-color: #e2ebfd;
-  color: #55585f;
+  background-color: #d1dffd;
+  color: #4e535f;
 }
 .color4 {
-  background-color: #9bfaac;
-  color: #3a5e41;
+  background-color: #99f9ab;
+  color: #395e40;
 }
 .color4a {
-  background-color: #e1fdea;
-  color: #5e6a61;
+  background-color: #dffde9;
+  color: #5d6a61;
 }
 .color4b {
-  background-color: #7ef8f0;
+  background-color: #7cf8f0;
   color: #2f5d5a;
 }
 .color4c {
-  background-color: #49f568;
+  background-color: #47f567;
   color: #1b5c27;
 }
 .gray-darker {

@@ -54,12 +54,13 @@ section {
 
   .section-color(@color) when (@color = @warning) {
     .set-lumafix(@color, @ideal-warning, .75);
-    .colorize(@lumafix);
+    background-color: @lumafix;
+    
 
     .set-contrast-ratio(@lumafix; white;);
 
     & when (@contrast-ratio > 3) {
-      & > h1, & > h2, & > h3 { .tint-text-against(@lumafix; 4.5;);}
+      & > h1, & > h2, & > h3 { .tint-text-against(@lumafix; 7;);}
     }
   }
 

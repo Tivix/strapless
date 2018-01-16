@@ -54,16 +54,9 @@ code, pre {
   font-family: monospace;
   font-size: 85%;
   vertical-align: middle;
-  padding: 1em @padding;
+  padding: .5em @padding;
   border-radius: @border-radius;
   overflow: auto;
-}
-
-code {
-  padding: .16em .5em;
-  border-radius: @border-radius/2;
-  margin-top: 1em;
-  margin-bottom: 2em;
 }
 
 pre {
@@ -72,11 +65,11 @@ pre {
 }
 
 mark, ::selection {
-  .colorize(@color1b);
+  .colorize(@color3b);
 }
 
 hr {
-  @background: @gray;
+  @background: @action;
   background: @background;
   border-color: transparent;
   height: 1px;

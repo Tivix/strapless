@@ -49,14 +49,20 @@ nav {
   .set-orange-distance(@color);
   .set-mid-yellow-distance(@color);
   .nav-color();
+
   height: @height;
-  line-height: @height*10;
   max-height: @height;
   padding: 0;
-  margin-bottom: @padding;
+  margin-bottom: 1em;
   & when (@sticky-nav = true) { border-radius: @border-radius;}
-  z-index: 1000;
+  z-index: 10;
   overflow: hidden;
+
+  & when (@sticky-nav = true) {
+    position: fixed; top: 0; left: 0;
+    width: 100%;
+    border-radius: 0;
+  }
 
   > section {
     padding: 0;
@@ -126,12 +132,6 @@ nav {
     line-height: @height;
     padding: 0;
     color: inherit;
-  }
-
-  & when (@sticky-nav = true) {
-    position: fixed; top: 0; left: 0;
-    width: 100%;
-    border-radius: 0;
   }
 
   .no-user-select();
