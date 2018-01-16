@@ -86,12 +86,7 @@ aside {
   });
 
   .aside-color(@color) {
-    .set-a-color(@color);
-    .set-c-color(@color);
-
-    @light-bg: mix(@color, @background, 50%);
-
-    .colorize(@light-bg);
+    .colorize(@color);
   }
 
   .make-asides-for(@colors) {

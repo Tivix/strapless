@@ -1,7 +1,6 @@
 p {
   .p-color(@color) {
-    .set-a-color(@color);
-    .colorize(@a-color, @a-color, @c-color);
+    .colorize(@color);
   }
 
   .make-paragraphs-for(@colors) {
@@ -24,6 +23,6 @@ p {
   .make-paragraphs-for(@semantic-colors);
 
   .semantic-classes({
-    padding: @padding 1em;
+    padding: .5em @padding;
   });
 }

@@ -117,31 +117,25 @@
 }
 
 .make-color1(@color; @wheel) {
-
-  @wheel-var: @@wheel;
   @color1: @color;
-  .set-lumafix(spin(@color, extract(@wheel-var, 1)); @color1; .75;);
-  @color2: @lumafix;
-  // @color2: spin(@color, extract(@wheel-var, 1));
-  @color3: spin(@color, extract(@wheel-var, 2));
-  @color4: spin(@color, extract(@wheel-var, 3));
 }
 
 .make-color2(@color; @wheel) {
   @wheel-var: @@wheel;
-  .set-lumafix(spin(@color, extract(@wheel-var, 1)); @color1; .75;);
+  .set-lumafix(spin(@color, extract(@wheel-var, 1)); @color1; .6;);
   @color2: @lumafix;
 }
 
 .make-color3(@color; @wheel) {
   @wheel-var: @@wheel;
-  .set-lumafix(spin(@color, extract(@wheel-var, 2)); @color1; .75;);
+  .set-lumafix(spin(@color, extract(@wheel-var, 2)); @color1; .6;);
   @color3: @lumafix;
+  // @color3: spin(@color, extract(@wheel-var, 2));
 }
 
 .make-color4(@color; @wheel) {
   @wheel-var: @@wheel;
-  .set-lumafix(spin(@color, extract(@wheel-var, 3)); @color1; .75;);
+  .set-lumafix(spin(@color, extract(@wheel-var, 3)); @color1; .6;);
   @color4: @lumafix;
 }
 

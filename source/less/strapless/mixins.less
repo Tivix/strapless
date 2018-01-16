@@ -13,8 +13,8 @@
   // find how much we could tint by finding color/white contrast ratio
   .set-contrast-ratio(@color, white);
 
-  .tint-or-shade(@color) when (@contrast-ratio > @contrast-standard) {
-    .tint-text-against(@color; @contrast-standard;);
+  .tint-or-shade(@color) when (@contrast-ratio > 4.5) {
+    .tint-text-against(@color; 7;);
   }
 
   .tint-or-shade(@color) when (default()) {
@@ -153,7 +153,7 @@
   }
 
   .settings() when (default()) {
-    @contrast-standard: 1.4;
+    @contrast-standard: 1.35;
     @initial-lighten: 8%;
     @iterations: 10;
   }
