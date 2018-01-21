@@ -1,97 +1,90 @@
 main {
-  padding: 1em @padding;
-  max-width: @max-width*.7;
-  margin: 0 auto 2em auto;
-  text-align: center;
-  border-radius: @border-radius;
+  @padding-offset: @padding*2;
+  padding: @padding;
+  // margin: 0 auto 1em auto;
 
-  > * {
-    margin-bottom: 1em;
+  > section {
+    max-width: @max-width;
   }
 
-  p { text-align: left;}
-
-  h1, h2 {
-    text-align: center;
+  footer {
+    margin-top: 2em;
   }
 
-  img {
-    margin: 0 auto;
-    max-width: 100%;
-  }
-
-  section > & {
-    border-radius: @border-radius;
-  }
-
-  .button-elements({
-    font-size: 110%;
-    &:only-child { font-size: 125%; margin-bottom: 1em;}
+  .headline-elements({
+    text-align: left;
   });
 
-  .make-main-colors-for(@colors) {
-    // make main colors for a list of color variable names
-    // mains will use variable names as class names
-
-    @iterations: length(@colors);
-
-    .make-main-color(1);
-
-    .make-main-color(@index) when (@index <= @iterations) {
-
-      @color-name: extract(@colors, @index);
-      @this-color: @@color-name;
-
-      &.@{color-name} {
-        .main-color(@this-color);
-      }
-
-      .make-main-color(@index + 1);
-    }
-  }
-
-  .main-color(@color) when (@color = @warning) {
-    .set-lumafix(@color, @ideal-warning, .75);
-    .colorize(@lumafix);
-
-    .set-contrast-ratio(@lumafix; white;);
-
-    & when (@contrast-ratio > 3) {
-      & > h1, & > h2, & > h3 { .tint-text-against(@lumafix; 4.5;);}
-    }
-  }
-
-  .main-color(@color) when (@color = @failure) {
-    .set-lumafix(@color, @ideal-failure, .5);
-    .colorize(@lumafix);
-
-    .set-contrast-ratio(@lumafix; white;);
-
-    & when (@contrast-ratio > 3) {
-      & > h1, & > h2, & > h3 { .tint-text-against(@lumafix; 4.5;);}
-    }
-  }
-
-  .main-color(@color) when (default()) {
-
-    .set-lumafix(@color, @background, .5);
-    .finalize-color(@lumafix);
-
-    .finalize-color(@color-to-fix) when (luma(@color-to-fix) > 98%) {
-      .set-a-color(@color);
-      background-color: @a-color;
-      .contrast-text-against(@a-color);
-      & > h1, & > h2, & > h3 { .color-text(@color; @a-color; 3;) !important;}
-    }
-
-    .finalize-color(@color-to-fix) when (default()) {
-      @color: @color-to-fix;
-      background-color: @color;
-      // border: 5px solid red;
-      .contrast-text-against(@color);
-      & > h1, & > h2, & > h3 { .contrast-text-against(@color; 3;);}
-    }
-  }
+  .on-tablet({
+    font-size: 130%;
+  });
 
   .make-main-colors-for(@semantic-colors);
+}
+
+.make-main-colors-for(@colors) {
+  // make main colors for a list of color variable names
+  // mains will use variable names as class names
+
+  @iterations: length(@colors);
+
+  .make-main-color(1);
+
+  .make-main-color(@index) when (@index <= @iterations) {
+
+    @color-name: extract(@colors, @index);
+    @this-color: @@color-name;
+
+    &.@{color-name} {
+      .main-color(@this-color);
+    }
+
+    .make-main-color(@index + 1);
+  }
+}
+
+.main-color(@color) when (@color = @warning) {
+  .set-lumafix(@color, @ideal-warning, .75);
+  .contrast-text-against(@lumafix);
+  .blueprint(@lumafix);
+
+  .set-contrast-ratio(@lumafix; white;);
+  & when (@contrast-ratio > 3) {
+    h1, h2, h3 { .tint-text-against(@lumafix; 3;);}
+  }
+}
+
+.main-color(@color) when (@color = @failure) {
+  .set-lumafix(@color, @ideal-failure, .5);
+  .contrast-text-against(@lumafix);
+  .blueprint(@lumafix);
+
+  .set-contrast-ratio(@lumafix; white;);
+  & when (@contrast-ratio > 3) {
+    h1, h2, h3 { .tint-text-against(@lumafix; 3;);}
+  }
+}
+
+.main-color(@color) when (default()) {
+
+  .set-lumafix(@color, @background, .5);
+  .finalize-color(@lumafix);
+
+  .finalize-color(@color-to-fix) when (luma(@color-to-fix) > 98%) {
+    @color: @color-to-fix;
+    .set-a-color(@color);
+    .blueprint(@color);
+    .contrast-text-against(@color);
+    h1, h2, h3 {
+      .color-text(@color; @color; 3;);
+    }
+  }
+
+  .finalize-color(@color-to-fix) when (default()) {
+    @color: @color-to-fix;
+    .set-c-color(@color);
+    @bleh: average(@gray-darker, @color);
+    .blueprint(@bleh);
+    .contrast-text-against(@bleh);
+  }
 }

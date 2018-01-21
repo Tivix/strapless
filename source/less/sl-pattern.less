@@ -84,34 +84,6 @@
         }
     }
 }
-#strapless_patterns_noise {
-    &:before {
-        content: 'Noise';
-    }
-    .pattern {
-        &:nth-child(1){
-            .noise(@color3);
-            .contrast-text-against(@color3);
-            &:before {
-                content: '.noise (@color3)';
-            }
-        }
-        &:nth-child(2){
-            .noise(@color3a);
-            .contrast-text-against(@color3a);
-            &:before {
-                content: '.noise (@color3a)';
-            }
-        }
-        &:nth-child(3){
-            .noise(@color4);
-            .contrast-text-against(@color4);
-            &:before {
-                content: '.noise (@color4)';
-            }
-        }
-    }
-}
 #strapless_patterns_blueprint {
     &:before {
         content: 'Blueprint';
@@ -311,25 +283,27 @@
 
 .pattern-preview {
     .clearfix();
-    padding-top: @padding;
-    margin-bottom: 2em;
+    max-width: @max-width*1.6;
+    margin: 0 auto;
 
     &:before {
         display: none;
         margin-bottom: @padding;
     }
 
+    &:last-of-type {
+      margin-bottom: 1.6em;
+    }
+
     > .pattern {
         @size: 150px;
         @width: @size;
-        @height: @size;
-        @margin: @padding;
+        @height: @size*.6;
+        @margin: 0;
 
         width: 100%;
         min-height: 120px;
         padding: @padding;
-        margin-bottom: @padding;
-        border-radius: @border-radius;
         position: relative;
         display: flex;
         align-items: center;
@@ -337,25 +311,16 @@
         text-align: center;
 
         .on-tablet({
-            
+
             float: left;
             min-width: @size/2;
             width: 32%;
             height: @height;
-            margin-bottom: @margin;
-            
-            
-            &:nth-child(2) {
-                margin-left: 2%;
-                margin-right: 2%;
-            }
-            &:last-child {
-                margin-right: 0;
-            }
+
             &:before {
-                text-align:center;
-                padding: 6px;
-                font-size: 18px;
+                text-align: center;
+                padding: .5em;
+                font-size: 14px;
                 line-height: 16px;
                 width:100%;
             }

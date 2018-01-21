@@ -1,6 +1,5 @@
 footer {
-  &:extend(aside all);
-  margin-bottom: 0 !important;
+  .margin-bottom();
 
   body > & {
     padding-top: 1em;
@@ -8,18 +7,89 @@ footer {
     width: auto;
     max-width: 100%;
     border-radius: 0;
+    margin-bottom: 0 !important;
   }
 
-  aside { max-width: @max-width;}
+  > form {
+    padding: 0;
+    margin-bottom: 1em;
+  }
+
+  > * {
+    margin-bottom: @padding*.6;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 
   .semantic-classes({
     padding: 1em @padding;
   });
 
-  .on-large-phone({
-    -webkit-align-items: flex-end;
-    align-items: flex-end;
-    -webkit-justify-content: flex-end;
-    justify-content: flex-end;
+  .button-elements({
+    width: 100%;
+
+    .on-large-phone({
+      width: auto;
+      margin-bottom: 0;
+    });
   });
+
+  .on-large-phone({
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+
+    > * {
+      margin-left: @padding*.62;
+      margin-bottom: 0;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    > p {
+      margin-right: 0;
+      margin-left: @padding*1.24;
+      margin-bottom: 0;
+    }
+
+    > form {
+      margin-bottom: 0;
+    }
+
+    > p + * {
+      margin-left: @padding*2;
+    }
+  });
+
+  .footer-color(@color) {
+    .colorize(@color);
+  }
+
+  .make-footers-for(@colors) {
+    // make footers for a list of color variable names
+
+    @length: length(@colors);
+
+    .make-footer();
+
+    .make-footer(@index:1) when (@index <= @length) {
+      @color-name: extract(@colors, @index);
+      @color: @@color-name;
+
+      &.@{color-name} { .footer-color(@color);}
+
+      .make-footer(@index + 1);
+    }
+  }
+
+  .make-footers-for(@semantic-colors);
 }

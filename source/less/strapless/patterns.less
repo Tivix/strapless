@@ -2,31 +2,31 @@
     .set-tone(@base);
 
     .colors() when (@tone = white) {
-        .set-a-color(@base);
+        .set-b-color(@base);
         @bg-base: @base;
-        @bg2-base: mix(@bg-base, @a-color, 85%);
-        @stroke-base: mix(greyscale(@a-color, 75%), @bg-base, 30%);
+        @bg2-base: @b-color;
+        @stroke-base: mix(greyscale(@b-color, 75%), @bg-base, 30%);
     }
 
     .colors() when (default()) {
-        .set-c-color(@base);
+        .set-b-color(@base);
         @bg-base: @base;
-        @bg2-base: mix(@bg-base, @c-color, 85%);
-        @stroke-base: mix(@bg-base, @c-color, 85%);
+        @bg2-base: @b-color;
+        @stroke-base: mix(@bg-base, @b-color, 85%);
     }
-    
+
     .colors();
 
     @bg-red: round(red(@bg-base));
     @bg-green: round(green(@bg-base));
     @bg-blue: round(blue(@bg-base));
     @bg: ~"rgb(@{bg-red},@{bg-green},@{bg-blue})";
-    
+
     @bg2-red: round(red(@bg2-base));
     @bg2-green: round(green(@bg2-base));
     @bg2-blue: round(blue(@bg2-base));
     @bg2: ~"rgb(@{bg2-red},@{bg2-green},@{bg2-blue})";
-    
+
     @stroke-red: round(red(@stroke-base));
     @stroke-green: round(green(@stroke-base));
     @stroke-blue: round(blue(@stroke-base));
@@ -54,14 +54,14 @@
         @bg-base: @base;
         @stroke-base: mix(@base, @c-color, 75%);
     }
-    
+
     .colors();
 
     @bg-red: round(red(@bg-base));
     @bg-green: round(green(@bg-base));
     @bg-blue: round(blue(@bg-base));
     @bg: ~"rgb(@{bg-red},@{bg-green},@{bg-blue})";
-    
+
     @stroke-red: round(red(@stroke-base));
     @stroke-green: round(green(@stroke-base));
     @stroke-blue: round(blue(@stroke-base));
@@ -88,9 +88,9 @@
         @stroke-base: mix(@c-color, @base, 45%);
         @stroke-inner-base: mix(@stroke-base, @bg-base, 75%);
     }
-    
+
     .colors();
-    
+
     @width: 80px;
     @grid-width: @width;
     @grid-spacer: @grid-width/4;
@@ -114,7 +114,7 @@
     @pattern-blueprint:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{grid-width}' height='@{grid-width}'%3E %3Crect width='@{grid-width}' height='@{grid-width}' fill='@{bg}'/%3E %3Cg fill='@{stroke-inner}'%3E %3Crect width='@{grid-width}' height='1' y='@{grid-spacer-2}'/%3E %3Crect width='@{grid-width}' height='1' y='@{grid-spacer-3}'/%3E %3Crect width='@{grid-width}' height='1' y='@{grid-spacer-4}'/%3E %3Crect width='1' height='@{grid-width}' x='@{grid-spacer-2}'/%3E %3Crect width='1' height='@{grid-width}' x='0'/%3E %3Crect width='1' height='@{grid-width}' x='@{grid-spacer-4}'/%3E %3C/g%3E %3Crect width='@{grid-width}' height='1' y='0' fill='none' stroke-width='1' stroke='@{stroke}'/%3E %3Crect width='1' height='@{grid-width}' x='@{offset}' fill='none' stroke-width='1' stroke='@{stroke}'/%3E %3C/svg%3E";
     background-image: url("data:image/svg+xml,@{pattern-blueprint}");
     background-size: (@scale * @width), (@scale * @height);
-    background-position: center center;
+    background-position: center bottom;
 }
 
 .checkerboard(@base: @color1; @scale: 1;) {
@@ -131,14 +131,14 @@
         @highlight-base: @base;
         @shadow-base: mix(@c-color, @base, 15%);
     }
-    
+
     .colors();
 
     @highlight-red: round(red(@highlight-base));
     @highlight-green: round(green(@highlight-base));
     @highlight-blue: round(blue(@highlight-base));
     @highlight: ~"rgb(@{highlight-red},@{highlight-green},@{highlight-blue})";
-    
+
     @shadow-red: round(red(@shadow-base));
     @shadow-green: round(green(@shadow-base));
     @shadow-blue: round(blue(@shadow-base));
@@ -166,14 +166,14 @@
         @bg-base: @base;
         @stroke-base: mix(@c-color, @base, 15%);
     }
-    
+
     .colors();
 
     @bg-red: round(red(@bg-base));
     @bg-green: round(green(@bg-base));
     @bg-blue: round(blue(@bg-base));
     @bg: ~"rgb(@{bg-red},@{bg-green},@{bg-blue})";
-    
+
     @stroke-red: round(red(@stroke-base));
     @stroke-green: round(green(@stroke-base));
     @stroke-blue: round(blue(@stroke-base));
@@ -201,14 +201,14 @@
         @bg-base: @base;
         @stroke-base: mix(@c-color, @bg-base, 25%);
     }
-    
+
     .colors();
 
     @bg-red: round(red(@bg-base));
     @bg-green: round(green(@bg-base));
     @bg-blue: round(blue(@bg-base));
     @bg: ~"rgb(@{bg-red},@{bg-green},@{bg-blue})";
-    
+
     @stroke-red: round(red(@stroke-base));
     @stroke-green: round(green(@stroke-base));
     @stroke-blue: round(blue(@stroke-base));
@@ -233,14 +233,14 @@
         @fg-base: @c-color;
         @bg-base: @base;
     }
-    
+
     .colors();
 
     @fg-red: round(red(@fg-base));
     @fg-green: round(green(@fg-base));
     @fg-blue: round(blue(@fg-base));
     @fg: ~"rgb(@{fg-red},@{fg-green},@{fg-blue})";
-    
+
     @bg-red: round(red(@bg-base));
     @bg-green: round(green(@bg-base));
     @bg-blue: round(blue(@bg-base));
@@ -270,19 +270,19 @@
         @stroke1-base: @base; // same as bg, otherwise looks like cubes
         @stroke2-base: mix(@c-color, @base, 25%);
     }
-    
+
     .colors();
 
     @bg-red: round(red(@bg-base));
     @bg-green: round(green(@bg-base));
     @bg-blue: round(blue(@bg-base));
     @bg: ~"rgb(@{bg-red},@{bg-green},@{bg-blue})";
-    
+
     @stroke1-red: round(red(@stroke1-base));
     @stroke1-green: round(green(@stroke1-base));
     @stroke1-blue: round(blue(@stroke1-base));
     @stroke1: ~"rgb(@{stroke1-red},@{stroke1-green},@{stroke1-blue})";
-    
+
     @stroke2-red: round(red(@stroke2-base));
     @stroke2-green: round(green(@stroke2-base));
     @stroke2-blue: round(blue(@stroke2-base));
@@ -294,16 +294,6 @@
     background-image: url("data:image/svg+xml,@{pattern-honeycomb}");
     background-size: (@scale * @width), (@scale * @height);
     background-position: center -@width/4;
-}
-
-.noise(@base: @base-color; @scale: 1;) {
-    @bg-base: @base;
-    @bg-red: round(red(@bg-base));
-    @bg-green: round(green(@bg-base));
-    @bg-blue: round(blue(@bg-base));
-    @bg: ~"rgb(@{bg-red},@{bg-green},@{bg-blue})";
-    @pattern-noise:~"%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='500' height='500'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='10' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='500' height='500' fill='@{bg}'/%3E%3Crect width='500' height='500' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E";
-    background-image: url("data:image/svg+xml,@{pattern-noise}");
 }
 
 .pegboard(@base: @base-color; @scale: 1;) {
@@ -322,19 +312,19 @@
         @shadow-base: mix(@base, @c-color, 66%);
         @highlight-base: lighten(@base, 5%);
     }
-    
+
     .colors();
 
     @board-red: round(red(@board-base));
     @board-green: round(green(@board-base));
     @board-blue: round(blue(@board-base));
     @board: ~"rgb(@{board-red},@{board-green},@{board-blue})";
-    
+
     @shadow-red: round(red(@shadow-base));
     @shadow-green: round(green(@shadow-base));
     @shadow-blue: round(blue(@shadow-base));
     @shadow: ~"rgb(@{shadow-red},@{shadow-green},@{shadow-blue})";
-    
+
     @highlight-red: round(red(@highlight-base));
     @highlight-green: round(green(@highlight-base));
     @highlight-blue: round(blue(@highlight-base));
@@ -361,14 +351,14 @@
         @bg-base: @base;
         @fg-base: average(@base, @c-color);
     }
-    
+
     .colors();
 
     @bg-red: round(red(@bg-base));
     @bg-green: round(green(@bg-base));
     @bg-blue: round(blue(@bg-base));
     @bg: ~"rgb(@{bg-red},@{bg-green},@{bg-blue})";
-    
+
     @fg-red: round(red(@fg-base));
     @fg-green: round(green(@fg-base));
     @fg-blue: round(blue(@fg-base));

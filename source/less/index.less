@@ -10,6 +10,11 @@
   padding: @padding;
 }
 
+#feature {
+    .contrast-text-against(@color1c);
+    .blueprint(@color1c);
+}
+
 // demo-wheels doesn't contain any -b wheeels
 
 @demo-wheels:  @color-wheels;
@@ -161,6 +166,9 @@ pre {
     margin: 0;
   }
 }
+
+#patterns { max-width: @max-width*1.6;}
+#patterns h4 { display: none;}
 
 .sl-current-color {
   @size: 18px;

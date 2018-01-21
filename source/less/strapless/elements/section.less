@@ -1,34 +1,11 @@
 section {
   width: 100%;
-  margin: 1em auto;
-  padding: 1em @padding;
-
-  & + & {
-    // sections stack
-    margin: 0 auto;
-  }
-
-  &:first-child {
-    margin-top: 0;
-  }
+  margin: 0 auto;
+  padding: 1em @padding 1.6em @padding;
 
   > * {
     margin: 0 auto;
     max-width: @max-width;
-
-    &:only-child {
-      padding-top: 1em;
-      padding-bottom: 1em;
-      margin-bottom: 0;
-    }
-  }
-
-  > aside {
-    margin-bottom: 1em;
-  }
-
-  > * + * {
-    margin-top: 1em;
   }
 
   .make-section-colors-for(@colors) {
@@ -55,43 +32,31 @@ section {
   .section-color(@color) when (@color = @warning) {
     .set-lumafix(@color, @ideal-warning, .75);
     background-color: @lumafix;
-    
 
     .set-contrast-ratio(@lumafix; white;);
 
     & when (@contrast-ratio > 3) {
-      & > h1, & > h2, & > h3 { .tint-text-against(@lumafix; 7;);}
+      & h1, & h2, & h3 { .tint-text-against(@lumafix; 7;);}
     }
   }
 
   .section-color(@color) when (@color = @failure) {
-    .set-lumafix(@color, @ideal-failure, .5);
-    .colorize(@lumafix);
+    .set-lumafix(@color, @ideal-warning, .65);
+    background-color: @lumafix;
 
     .set-contrast-ratio(@lumafix; white;);
 
     & when (@contrast-ratio > 3) {
-      & > h1, & > h2, & > h3 { .tint-text-against(@lumafix; 4.5;);}
+      & h1, & h2, & h3 { .tint-text-against(@lumafix; 7;);}
     }
   }
 
   .section-color(@color) when (default()) {
 
-    .set-lumafix(@color, @background, .65);
-    .finalize-color();
-
-    .finalize-color() when (luma(@lumafix) > 78%) {
-      .set-a-color(@color);
-      background-color: @a-color;
-      .contrast-text-against(@a-color; 7;);
-      & > h1, & > h2, & > h3 { .color-text(@color; @a-color; 3;);}
-    }
-
-    .finalize-color() when (default()) {
-      background-color: @lumafix;
-      .contrast-text-against(@lumafix; 3);
-      & > h1, & > h2, & > h3 { .contrast-text-against(@lumafix; 3;);}
-    }
+    .set-lumafix(@color, @background, .5);
+    background-color: @lumafix;
+    .contrast-text-against(@lumafix);
+    & > h1, & > h2, & > h3 { .contrast-text-against(@lumafix; 4.5;);}
   }
 
   .make-section-colors-for(@semantic-colors);

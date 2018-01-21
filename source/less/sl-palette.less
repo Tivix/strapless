@@ -48,7 +48,7 @@
 
 .sl-swatch-base, .swatch {
   @size: 32px;
-  @margin: 4px;
+  @margin: 0;
 
   display: none; // palettes are divs with a bunch of divs inside, this hides unused ones
 
@@ -59,32 +59,30 @@
   min-width: @size;
   width: @size;
   height: @size;
-  border: 1px solid transparent;
 
-  margin-bottom: 2px;
-  margin-right: 2px;
+  margin: @margin;
+  // margin-bottom: 2px;
+  // margin-right: 2px;
 
   text-align: right;
   line-height: @size - 3px;
 
   display: block;
 
-  border-radius: @border-radius/2;
-
   position: relative;
-
-  // &:nth-child(4n + 1) { border-radius: 50%;}
 
   &:before {
     display: none;
   }
 }
 
-.palettes {
+#palettes {
   .clearfix();
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 1em;
   padding-left: @padding*3;
-  max-width: 944px;
+  max-width: @max-width * 1.6;
 }
 
 .sl-color-container {
@@ -99,7 +97,7 @@
   //width: 56*4px + 40px;
 
   h3 {
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
   }
 

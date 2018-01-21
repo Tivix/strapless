@@ -2,9 +2,10 @@ blockquote {
   @border: .5em solid @color1a;
 
   padding-left: 1em;
-  margin-bottom: 1em;
+
   border-left: @border;
-  max-width: @text-measure;
+  .margin-bottom();
+  .max-width();
 
   &:nth-of-type(even) {
     // alternates left and right layout

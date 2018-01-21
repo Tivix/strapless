@@ -2,20 +2,21 @@
   box-sizing: border-box;
 }
 
-p, form, article, ul, dl, li, aside {
-  margin: 0 auto 1em auto;
-
-  .on-large-phone({
-    max-width: @text-measure;
-  });
+ul {
+  &:extend(p all);
+  .max-width();
+  list-style-position: inside;
 }
 
-ul {
-  margin: 0 auto 2em;
+li {
+  padding-left: @padding;
+  &:last-child {
+    margin-bottom: .4em;
+  }
 }
 
 ul, ol {
-  padding-left: 2ch;
+  padding-left: 1em;
 }
 
 dt {
@@ -24,7 +25,7 @@ dt {
 }
 
 dd {
-  margin-bottom: 1em;
+  .margin-bottom();
 }
 
 a {
@@ -50,17 +51,19 @@ abbr, acronym {
 }
 
 code, pre {
-  .invert-text-against(average(@gray-darkest-base, #494949));
+  .invert-text-against(@gray-darker);
   font-family: monospace;
-  font-size: 85%;
-  vertical-align: middle;
-  padding: .5em @padding;
-  border-radius: @border-radius;
+  font-size: 80%;
+  // vertical-align: middle;
+  padding: .2em @padding .3em @padding;
+  border-radius: @border-radius/2;
   overflow: auto;
+  position: relative;
+  top: -.1em;
 }
 
 pre {
-  margin-bottom: 1em;
+  .margin-bottom();
   max-width: 78ch;
 }
 
@@ -73,8 +76,8 @@ hr {
   background: @background;
   border-color: transparent;
   height: 1px;
-  margin-bottom: 1em;
-  max-width: @text-measure;
+  .margin-bottom();
+  .max-width();
 
   section > &, body > & { border-radius: @border-radius;}
 }

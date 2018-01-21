@@ -1,5 +1,5 @@
 nav {
-  @color: @color1c;
+  @color: average(@gray-darker, @color1c);
   @height: @nav-height;
 
   .set-yellow-distance(@color) {
@@ -59,6 +59,7 @@ nav {
   overflow: hidden;
 
   & when (@sticky-nav = true) {
+    margin-bottom: 0;
     position: fixed; top: 0; left: 0;
     width: 100%;
     border-radius: 0;
@@ -66,7 +67,7 @@ nav {
 
   > section {
     padding: 0;
-    max-width: @max-width;
+    max-width: @max-width*1.6;
   }
 
   > section > * { // pseudo reset

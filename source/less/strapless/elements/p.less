@@ -1,28 +1,32 @@
 p {
-  .p-color(@color) {
-    .colorize(@color);
-  }
-
-  .make-paragraphs-for(@colors) {
-    // make paragraphs for a list of color variable names
-
-    @length: length(@colors);
-
-    .make-p();
-
-    .make-p(@index:1) when (@index <= @length) {
-      @color-name: extract(@colors, @index);
-      @color: @@color-name;
-
-      &.@{color-name} { .p-color(@color);}
-
-      .make-p(@index + 1);
-    }
-  }
-
-  .make-paragraphs-for(@semantic-colors);
+  .margin-bottom();
+  .max-width();
 
   .semantic-classes({
+    // this needs padding when it has a color background
     padding: .5em @padding;
   });
+
+  .make-paragraphs-for(@semantic-colors);
+}
+
+.p-color(@color) {
+  .colorize(@color);
+}
+
+.make-paragraphs-for(@colors) {
+  // make paragraphs for a list of color variable names
+
+  @length: length(@colors);
+
+  .make-p();
+
+  .make-p(@index:1) when (@index <= @length) {
+    @color-name: extract(@colors, @index);
+    @color: @@color-name;
+
+    &.@{color-name} { .p-color(@color);}
+
+    .make-p(@index + 1);
+  }
 }

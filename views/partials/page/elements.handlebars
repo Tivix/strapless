@@ -15,16 +15,16 @@
 
 <section id="main_element">
     <h1>&lt;main&gt;</h1>
-    <p>The <em>main</em> element should give a high-level description of the page and a quick follow-up action.</p>
-    <main class="success" id="main_success_example">
+    <p>The <em>main</em> element works as a page's central element.</p>
+    <!-- <main class="success" id="main_success_example">
         <h2>The <em>main</em> element</h2>
         <p>This is the lead paragraph.</p>
         <p>A longer, more descriptive line can follow. Please write
     punchy copy and refrain from punching people.</p>
-        <aside>
+        <footer>
             <button class="reaction">Button #1</button>
             <button>Button #2</button>
-        </aside>
+        </footer>
     </main>
     <pre>&lt;main class="success"&gt;
     &lt;h2&gt;The &lt;em&gt;main&lt;/em&gt; element&lt;/h2&gt;
@@ -35,37 +35,44 @@
         &lt;button class="reaction"&gt;Button #1&lt;/button&gt;
         &lt;button&gt;Button #2&lt;/button&gt;
     &lt;/aside&gt;
-&lt;/main&gt;</pre>
-    <br>
-    <main class="action" id="main_action_example">
-        <h1>The quick brown fox jumps <br>over the lazy dog.</h1>
-        <button>Chase the fox away</button>
-    </main>
+&lt;/main&gt;</pre> -->
+</section>
+
+<main class="action" id="main_action_example">
+  <section>
+    <h1>The quick brown fox jumps over the lazy dog.</h1>
+    <footer><button>Chase the fox away</button></footer>
+  </section>
+</main>
+<section>
     <pre>&lt;main class="action"&gt;
-    &lt;h1&gt;The quick brown fox jumps &lt;br&gt;over the lazy dog.&lt;/h1&gt;
-    &lt;button&gt;Chase the fox away&lt;/button&gt;
+    &lt;section&gt;
+        &lt;h1&gt;The quick brown fox jumps &lt;br&gt;over the lazy dog.&lt;/h1&gt;
+        &lt;footer&gt;&lt;button&gt;Chase the fox away&lt;/button&gt;&lt;/footer&gt;
+    &lt;/section&gt;
 &lt;/main&gt;</pre>
-    <main class="reaction">
-        <h1>The quick brown fox jumps <br>over the lazy dog.</h1>
-        <button>Chase the fox away</button>
-    </main>
-    <main class="info">
-        <h1>The quick brown fox jumps <br>over the lazy dog.</h1>
-        <button>Chase the fox away</button>
-    </main>
-    <main class="warning">
-        <h1>The quick brown fox jumps <br>over the lazy dog.</h1>
-        <button>Chase the fox away</button>
-    </main>
-    <main class="success">
-        <h1>The quick brown fox jumps <br>over the lazy dog.</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam maximus velit eros, sed rutrum felis molestie non. In sit amet risus tortor.</p>
-        <p>In laoreet enim id ex faucibus vulputate. Donec nec nulla sapien. Curabitur diam risus, fringilla ornare egestas et, aliquam efficitur sem. Curabitur in efficitur tortor. Fusce blandit eget orci eu ullamcorper. Donec vel augue posuere, porta leo molestie, fringilla sapien. Nam vel neque facilisis, tristique mi tempus, sagittis orci. </p>
-    </main>
-    <main class="failure">
-        <h1>The quick brown fox jumps <br>over the lazy dog.</h1>
-        <button>Chase the fox away</button>
-    </main>
+</section>
+
+<main class="warning" id="main_warning_example">
+  <section>
+    <h1>That could be dangerous...</h1>
+    <p>A main element with the <code>warning</code> class can be used to warn against an action the user is about to take.</p>
+    <footer>
+      <button class="action">Let's do it!</button>
+      <button class="reaction">Nevermind...</button>
+    </footer>
+  </section>
+</main>
+<section>
+    <pre>&lt;main class="action"&gt;
+    &lt;section&gt;
+        &lt;h1&gt;The quick brown fox jumps &lt;br&gt;over the lazy dog.&lt;/h1&gt;
+        &lt;footer&gt;
+          &lt;button class="action"&gt;Let's do it!&lt;/button&gt;
+          &lt;button class="reaction"&gt;Nevermind...&lt;/button&gt;
+        &lt;/footer&gt;
+    &lt;/section&gt;
+&lt;/main&gt;</pre>
 </section>
 
 <section id="section">
@@ -73,7 +80,7 @@
     <p>Use of the <code>&lt;section&gt;</code> element (seen throughout this page) is encouraged. Sections have default CSS for spacing out your content that's aimed at getting it looking good on the first pass.</p>
 </section>
 <section class="action">
-    <h2>A section that invites the user to take an action</h2>
+    <h2>A section that invites the user to take an action. What if this headline got really long what would happen</h2>
     <p>Sections support semantic classes. This one is using <code>action</code>.</p>
     <pre>&lt;section class="action"&gt;
     &lt;h2&gt;Section title&lt;/h2&gt;
@@ -129,7 +136,7 @@
 
 <section id="paragraph">
     <h1>&lt;p&gt;</h1>
-    <p>Paragraphs (like this one!) are by default limited to 55 characters width (or whatever <code>@text-measure</code> is set to). They have an aggressive, but not too aggressive, line height of 1.62 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
+    <p>Paragraphs (like this one!) are by default limited to 55 characters width (or whatever <code>@max-width</code> is set to). They have an aggressive, but not too aggressive, line height of 1.75 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
     <p class="info">I'm informing you of something.</p>
     <pre>&lt;p class="info"&gt;I'm informing you of something.&lt;/p&gt;</pre>
     <br>
@@ -141,9 +148,32 @@
     <br>
 </section>
 
+<section id="ul">
+    <h1>&lt;ul&gt;</h1>
+    <p>Lists are kinda messed up because they aren't an example on this page. This is a list:</p>
+    <ul class="info">
+      <li>Apples</li>
+      <li>Bananas</li>
+      <li>Oranges</li>
+    </ul>
+    <p>Here's some text right after it because why not?</p>
+    <pre>&lt;ul&gt;
+    &lt;li&gt;Apples&lt;/li&gt;
+    &lt;li&gt;Bananas&lt;/li&gt;
+    &lt;li&gt;Oranges&lt;/li&gt;
+  &lt;/ul&gt;</pre>
+    <br>
+    <p class="failure">I've made a huge mistake.</p>
+    <pre>&lt;p class="failure"&gt;I've made a huge mistake.&lt;/p&gt;</pre>
+    <br>
+    <p>Of course, without a class they just look like normal paragraphs.</p>
+    <pre>&lt;p&gt;Of course, without a class they just look like normal paragraphs.&lt;/p&gt;</pre>
+    <br>
+</section>
+
 <section id="span">
     <h1>&lt;span&gt;</h1>
-    <p>Spans with semantic classes will <span class="success">appear bolder</span> and take the color of the semantic class. Careful, though... sometimes action, reaction or info can end up <span class="failure">looking like links</span>.</p>
+    <p>Spans with semantic classes will take the color of the semantic class. Careful, though... sometimes action, reaction or info can end up <span class="failure">looking like links</span>.</p>
     <pre>&lt;span class="success"&gt;appear bolder&lt;/span&gt;</pre>
     <pre>&lt;span class="failure"&gt;looking like links&lt;/span&gt;</pre>
 </section>

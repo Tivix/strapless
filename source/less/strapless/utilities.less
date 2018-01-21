@@ -2,11 +2,22 @@
 
 .hide, .hidden { display: none !important;}
 
-.clearfix { .clearfix();}
+.max-width {
+  max-width: @max-width * (2/3);
 
-.inline {
-  > * {
-    display: inline;
+  .on-tablet({
+    max-width: @max-width;
+  });
+}
+
+.margin-bottom { margin-bottom: 1em;}
+
+.clearfix {
+  clear: both;
+  &:after {
+    display: block;
+    clear: both;
+    content: "";
   }
 }
 

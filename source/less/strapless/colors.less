@@ -2,16 +2,14 @@
 
 .make-palette(@color; @wheel) {
   // make all variables for a color palette
-  .load-color-wheels();
   .set-scheme-type(@color);
-  .make-color1(@color; @wheel);
+  .make-color1(@color);
   .make-color2(@color; @wheel);
   .make-color3(@color; @wheel);
   .make-color4(@color; @wheel);
   .make-subcolors(@color1; @color2; @color3; @color4; @scheme-type);
   .make-grays(@color; @scheme-type);
-  .make-action-colors(@color, @color1, @color1);
-  .make-reaction-colors(@action, @color2, @color3);
+  .make-semantic-colors();
 }
 
 .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (saturation(@color) < 1.5%) {
@@ -25,65 +23,9 @@
   @color1a: desaturate(@a-color, (100 - saturation(@color)));
   @color1b: desaturate(@b-color, (100 - saturation(@color)));
   @color1c: desaturate(@c-color, (100 - saturation(@color)));
-}
-
-.load-color-wheels() {
-  // color wheel color positions
-
-  @complement: 180deg;
-  @triadic-pair: 120deg;
-  @accent: 45deg;
-  @analog: 15deg;
-
-  // color wheels
-
-  @accented:        @complement,
-                    @accent,
-                    -@accent;
-
-  @complementary:   @complement,
-                    @analog,
-                    @complement + @analog;
-
-  @complementary-b: @complement,
-                    -@analog,
-                    @complement - @analog;
-
-  @triadic:         -@triadic-pair,
-                    @triadic-pair,
-                    @analog;
-
-  @triadic-b:       -@triadic-pair,
-                    @triadic-pair,
-                    -@analog;
-
-  @tetradic:        @complement,
-                    @accent,
-                    @complement + @accent;
-
-  @tetradic-b:      @complement,
-                    -@accent,
-                    @complement - @accent;
-
-  @square:          @complement,
-                    -@complement/2,
-                    @complement/2;
-
-  @ebb:             @complement + @analog,
-                    @analog,
-                    @accent;
-
-  @flow:            @complement - @analog,
-                    -@analog,
-                    -@accent;
-
-  @monochromatic:   @accent/2,
-                    @analog/2,
-                    -@analog/2;
-
-  @monochromatic-b: -@accent/2,
-                    @analog/2,
-                    -@analog/2;
+  @warning: @warning-base;
+  @failure: @failure-base;
+  @info: @info-base;
 }
 
 .set-scheme-type(@color) {
@@ -116,26 +58,26 @@
   .set-scheme-type();
 }
 
-.make-color1(@color; @wheel) {
+.make-color1(@color) {
   @color1: @color;
 }
 
 .make-color2(@color; @wheel) {
   @wheel-var: @@wheel;
-  .set-lumafix(spin(@color, extract(@wheel-var, 1)); @color1; .5;);
+  .set-lumafix(spin(@color, extract(@wheel-var, 1)); @base-color; .65;);
   @color2: @lumafix;
 }
 
 .make-color3(@color; @wheel) {
   @wheel-var: @@wheel;
-  .set-lumafix(spin(@color, extract(@wheel-var, 2)); @color1; .5;);
+  .set-lumafix(spin(@color, extract(@wheel-var, 2)); @base-color; .65;);
   @color3: @lumafix;
   // @color3: spin(@color, extract(@wheel-var, 2));
 }
 
 .make-color4(@color; @wheel) {
   @wheel-var: @@wheel;
-  .set-lumafix(spin(@color, extract(@wheel-var, 3)); @color1; .5;);
+  .set-lumafix(spin(@color, extract(@wheel-var, 3)); @base-color; .65;);
   @color4: @lumafix;
 }
 
@@ -202,45 +144,71 @@
   }.make-color4c();
 }
 
-.make-action-colors(@base: @base-color, @c1, @c2) {
+.make-semantic-colors() {
 
   @success-base: #51ad51;
-  @info-base: #43a3e6;
+  @info-base: #55c7fc;
 
-  @success: average(@success-base, hsl(hue(@success-base), saturation(@base), lightness(@base)));
-  @info:    average(@info-base, hsl(hue(@info-base), saturation(@base), lightness(@base)));
+  @failure-base: @ideal-failure;
+  @warning-base: @ideal-warning;
 
-  @success-info-midpoint: average(@info, @success);
+  .set-action-midpoint() {
+    @action-midpoint-base: average(@success-base, @info-base);
+    .set-lumafix(@action-midpoint-base);
+    @action-midpoint: @lumafix;
+  }
 
-  .set-closer-farther(@success-info-midpoint, @c1, @c2);
-    @action-base: @closer;
+  .set-reaction-midpoint() {
+    @reaction-midpoint-base: average(@warning-base, @failure-base);
+    .set-lumafix(@reaction-midpoint-base);
+    @reaction-midpoint: @lumafix;
+  }
 
-  @action-sat: (saturation(@info) + saturation(@success))/2;
-  @action-lit: (lightness(@info) + lightness(@success))/2;
+  .set-action-midpoint();
+  .set-reaction-midpoint();
 
-  @action: average(@action-base, hsl(hue(@action-base), @action-sat, @action-lit));
+  .set-info() {
+    .set-lumafix(@info-base; @base-color; .9);
+    @info: @lumafix;
+  }
+
+  .set-warning() {
+    .set-lumafix(@warning-base; @base-color; .7);
+    @warning: @lumafix;
+  }
+
+  .set-success() {
+    .set-lumafix(@success-base; @base-color; .8);
+    @success: @lumafix;
+  }
+
+  .set-failure() {
+    .set-lumafix(@failure-base; @base-color; .6);
+    @failure: @lumafix;
+  }
+
+  .set-action() {
+    @action: @color1;
+  }
+
+  .set-reaction() {
+    @reaction: @color2b;
+  }
+
+  .set-action();
+  .set-reaction();
+  .set-info();
+  .set-warning();
+  .set-success();
+  .set-failure();
 }
 
-.make-reaction-colors(@base: @base-color, @r1, @r2) {
 
   @failure-base: #e11d1d;
   @failure-base: @ideal-failure;
   @warning-base: #ff6b23;
   @warning-base: @ideal-warning;
 
-  @failure:   average(@failure-base, hsl(hue(@failure-base), saturation(@base), lightness(@base)));
-  @warning:   average(@warning-base, hsl(hue(@warning-base), saturation(@base), lightness(@base)*1.2));
-
-  @failure-warning-midpoint: average(@failure, @warning);
-
-  .set-closer-farther(@failure-warning-midpoint, @r1, @r2);
-    @reaction-base: @closer;
-
-  @reaction-sat: (saturation(@warning) + saturation(@failure))/2;
-  @reaction-lit: (lightness(@warning) + lightness(@failure))*.9/2;
-
-  @reaction: average(@reaction-base, hsl(hue(@reaction-base), @reaction-sat, @reaction-lit));
-}
 
 .make-grays(@color, @scheme-type) {
   @gray-base: mix(desaturate(@color, 80%), #515151, 75%);
