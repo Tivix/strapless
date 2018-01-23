@@ -7,7 +7,6 @@
   </table>
 </section>
 
-
 <section id="elements">
     <h1>Elements</h1>
     <p>All of Strapless's components happen to be HTML elements too. There are no classes to remember, just different ways to put together HTML tags. Here are some examples.</p>
@@ -51,25 +50,28 @@
         &lt;footer&gt;&lt;button&gt;Chase the fox away&lt;/button&gt;&lt;/footer&gt;
     &lt;/section&gt;
 &lt;/main&gt;</pre>
+
+  <p>Using a semantic class with this element is a good way to set the tone for something like an error page:</p>
 </section>
 
-<main class="warning" id="main_warning_example">
+<main class="failure" id="main_failure_example">
   <section>
-    <h1>That could be dangerous...</h1>
-    <p>A main element with the <code>warning</code> class can be used to warn against an action the user is about to take.</p>
+    <h1>The database crashed!</h1>
+    <p>Sometimes you need a whole page to communicate the level of failure that just happened.</p>
     <footer>
-      <button class="action">Let's do it!</button>
-      <button class="reaction">Nevermind...</button>
+      <button class="warning">See error report</button>
+      <button>Go back a page</button>
     </footer>
   </section>
 </main>
 <section>
-    <pre>&lt;main class="action"&gt;
+    <pre>&lt;main class="failure"&gt;
     &lt;section&gt;
-        &lt;h1&gt;The quick brown fox jumps &lt;br&gt;over the lazy dog.&lt;/h1&gt;
+        &lt;h1&gt;The database crashed!&lt;/h1&gt;
+        &lt;p&gt;Sometimes you need a whole page to communicate the level of failure that just happened.&lt;/p&gt;
         &lt;footer&gt;
-          &lt;button class="action"&gt;Let's do it!&lt;/button&gt;
-          &lt;button class="reaction"&gt;Nevermind...&lt;/button&gt;
+          &lt;button class="warning"&gt;See error report&lt;/button&gt;
+          &lt;button&gt;Go back a page&lt;/button&gt;
         &lt;/footer&gt;
     &lt;/section&gt;
 &lt;/main&gt;</pre>
@@ -80,28 +82,27 @@
     <p>Use of the <code>&lt;section&gt;</code> element (seen throughout this page) is encouraged. Sections have default CSS for spacing out your content that's aimed at getting it looking good on the first pass.</p>
 </section>
 <section class="action">
-    <h2>A section that invites the user to take an action. What if this headline got really long what would happen</h2>
+    <h1>A section that invites the user to take an action.</h1>
     <p>Sections support semantic classes. This one is using <code>action</code>.</p>
     <pre>&lt;section class="action"&gt;
-    &lt;h2&gt;Section title&lt;/h2&gt;
+    &lt;h1&gt;A section that invites the user to take an action.&lt;/h1&gt;
     &lt;p&gt;Sections support semantic classes.
     This one is using &lt;code&gt;action&lt;/code&gt;.&lt;/p&gt;
 &lt;/section&gt;</pre>
 </section>
 <section class="reaction">
-    <h2>A reaction section headline</h2>
-    <p>Sections support semantic classes. This one is using <code>reaction</code>.</p>
+    <h1>A reaction section headline</h1>
+    <p>The <code>reaction</code> color is good for, well, reactions.</p>
     <pre>&lt;section class="reaction"&gt;
-    &lt;h2&gt;Section title&lt;/h2&gt;
-    &lt;p&gt;Sections support semantic classes.
-    This one is using &lt;code&gt;reaction&lt;/code&gt;.&lt;/p&gt;
+    &lt;h1&gt;A reaction section headline&lt;/h1&gt;
+    &lt;p&gt;The &lt;code&gt;reaction&lt;/code&gt; color is good for, well, reactions.&lt;/p&gt;
 &lt;/section&gt;</pre>
 </section>
 <section class="info">
-    <h2>This is informational</h2>
+    <h1>This is informational</h1>
     <p>Sections support semantic classes. This one is using <code>info</code>.</p>
     <pre>&lt;section class="info"&gt;
-    &lt;h2&gt;Section title&lt;/h2&gt;
+    &lt;h1&gt;Section title&lt;/h1&gt;
     &lt;p&gt;Sections support semantic classes.
     This one is using &lt;code&gt;info&lt;/code&gt;.&lt;/p&gt;
 &lt;/section&gt;</pre>
@@ -136,7 +137,7 @@
 
 <section id="paragraph">
     <h1>&lt;p&gt;</h1>
-    <p>Paragraphs (like this one!) are by default limited to 55 characters width (or whatever <code>@max-width</code> is set to). They have an aggressive, but not too aggressive, line height of 1.75 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
+    <p>Paragraphs (like this one!) are by default limited to 60ish characters width (<code>@max-width</code> determines this). They have an aggressive, but not too aggressive, line height of 1.65 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
     <p class="info">I'm informing you of something.</p>
     <pre>&lt;p class="info"&gt;I'm informing you of something.&lt;/p&gt;</pre>
     <br>
@@ -173,9 +174,9 @@
 
 <section id="span">
     <h1>&lt;span&gt;</h1>
-    <p>Spans with semantic classes will take the color of the semantic class. Careful, though... sometimes action, reaction or info can end up <span class="failure">looking like links</span>.</p>
-    <pre>&lt;span class="success"&gt;appear bolder&lt;/span&gt;</pre>
-    <pre>&lt;span class="failure"&gt;looking like links&lt;/span&gt;</pre>
+    <p>Spans with <span class="info">semantic classes</span> will take the color of the semantic class. They look like someone <span class="failure">took a highlighter to the page</span>.</p>
+    <pre>&lt;span class="info"&gt;semantic classes&lt;/span&gt;</pre>
+    <pre>&lt;span class="failure"&gt;took a highlighter to the page&lt;/span&gt;</pre>
 </section>
 
 <section id="aside">
@@ -297,8 +298,6 @@
         </section>
     </nav> -->
     <p>Navbars are simple HTML and CSS, not fully functional components with javascript. Strapless plays well with others, so use the navbar you want, and then use Strapless to style it.</p>
-    <p>All of the more complicated elements that take colors as arguments are located in <code>mixins.less</code>. To take 'em out, just remove them where they're used in <code>elements.less</code>.</p>
-    <p>If you place a <code>nav</code> element at the very beginning or very end of <code>body</code>, it will stick to the top and stretch across the page (seen above).</p>
     <pre>&lt;nav id="strapless_nav"&gt;
     &lt;section&gt;
         &lt;h1&gt;&lt;a href="/"&gt;Strapless&lt;/a&gt;&lt;/h1&gt;
@@ -445,7 +444,7 @@
 
 <section id="headline">
     <h1>&lt;h1&gt;</h1>
-    <p>Headlines are centered by default.</p>
+    <p>Bigger headlines are centered, smaller ones to the left.</p>
 
     <h1>This is headline text. (h1)</h1>
     <h2>This is headline text. (h2)</h2>
@@ -459,6 +458,7 @@
 <section id="form">
     <h1>&lt;form&gt;</h1>
 
+    <p>Strapless has simple form support:</p>
     <form>
         <h3>Enter your information</h3>
         <label>First name:</label>

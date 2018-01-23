@@ -29,11 +29,6 @@ footer {
 
   .button-elements({
     width: 100%;
-
-    .on-large-phone({
-      width: auto;
-      margin-bottom: 0;
-    });
   });
 
   .on-large-phone({
@@ -68,6 +63,11 @@ footer {
     > p + * {
       margin-left: @padding*2;
     }
+
+    .button-elements({
+      width: auto;
+      margin-bottom: 0;
+    });
   });
 
   .footer-color(@color) {

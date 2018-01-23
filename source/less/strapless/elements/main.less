@@ -1,10 +1,19 @@
 main {
   @padding-offset: @padding*2;
   padding: @padding;
+  min-height: 100vh;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
   // margin: 0 auto 1em auto;
 
-  > section {
-    max-width: @max-width;
+  * {
+    max-width: @max-width*1.3;
   }
 
   footer {
@@ -46,22 +55,22 @@ main {
 .main-color(@color) when (@color = @warning) {
   .set-lumafix(@color, @ideal-warning, .75);
   .contrast-text-against(@lumafix);
-  .blueprint(@lumafix);
+  .dots(@lumafix);
 
   .set-contrast-ratio(@lumafix; white;);
   & when (@contrast-ratio > 3) {
-    h1, h2, h3 { .tint-text-against(@lumafix; 3;);}
+    h1, h2, h3 { .tint-text-against(@lumafix; 4.5;);}
   }
 }
 
 .main-color(@color) when (@color = @failure) {
   .set-lumafix(@color, @ideal-failure, .5);
   .contrast-text-against(@lumafix);
-  .blueprint(@lumafix);
+  .dots(@lumafix);
 
   .set-contrast-ratio(@lumafix; white;);
   & when (@contrast-ratio > 3) {
-    h1, h2, h3 { .tint-text-against(@lumafix; 3;);}
+    h1, h2, h3 { .tint-text-against(@lumafix; 4.5;);}
   }
 }
 
@@ -73,7 +82,7 @@ main {
   .finalize-color(@color-to-fix) when (luma(@color-to-fix) > 98%) {
     @color: @color-to-fix;
     .set-a-color(@color);
-    .blueprint(@color);
+    .dots(@color);
     .contrast-text-against(@color);
     h1, h2, h3 {
       .color-text(@color; @color; 3;);
@@ -83,8 +92,7 @@ main {
   .finalize-color(@color-to-fix) when (default()) {
     @color: @color-to-fix;
     .set-c-color(@color);
-    @bleh: average(@gray-darker, @color);
-    .blueprint(@bleh);
-    .contrast-text-against(@bleh);
+    .dots(@c-color);
+    .contrast-text-against(@c-color);
   }
 }
