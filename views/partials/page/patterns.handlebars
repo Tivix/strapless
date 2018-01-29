@@ -1,71 +1,71 @@
 
 <section id="patterns">
     <h1>Patterns</h1>
-    <p>It's got patterns! For the Less version. (Limited CSS support coming soon.)</p>
-    <p>Patterns work like background images... Because they are.</p>
+    <p>Strapless comes with 11 color- and text-friendly pattern backgrounds.</p>
     <p>Using them is easy: They're mixins that use the pattern's name and take any color as an argument, like <code>.pegboard(@color1)</code> or <code>.blueprint(@info)</code>.</p>
-    <h3>Included patterns</h3>
     <h4>Blueprint</h4>
     <div id="strapless_patterns_blueprint" class="pattern-preview">
-        <div class="pattern"></div>
-        <div class="pattern"></div>
-        <div class="pattern"></div>
+        <div class="pattern blueprint-1">.blueprint (@color1);</div>
+        <div class="pattern blueprint-2">.blueprint (@color2c);</div>
+        <div class="pattern blueprint-3">.blueprint (@success);</div>
     </div>
     <h4>Crosshatch</h4>
     <div id="strapless_patterns_crosshatch" class="pattern-preview">
-        <div class="pattern"></div>
-        <div class="pattern"></div>
-        <div class="pattern"></div>
+      <div class="pattern crosshatch-1">.crosshatch (@color1);</div>
+      <div class="pattern crosshatch-2">.crosshatch (@color1a, 2);</div>
+      <div class="pattern crosshatch-3">.crosshatch (@color1b, 3);</div>
     </div>
     <h4>Bathmat</h4>
     <div id="strapless_patterns_bathmat" class="pattern-preview">
-        <div class="pattern"></div>
-        <div class="pattern"></div>
-        <div class="pattern"></div>
+      <div class="pattern bathmat-1">.bathmat (@color1, .75);</div>
+      <div class="pattern bathmat-2">.bathmat (@color1a);</div>
+      <div class="pattern bathmat-3">.bathmat (@color1b);</div>
     </div>
     <h4>Pegboard</h4>
     <div id="strapless_patterns_pegboard" class="pattern-preview">
-        <div class="pattern"></div>
-        <div class="pattern"></div>
-        <div class="pattern"></div>
+      <div class="pattern pegboard-1">.pegboard (@color2);</div>
+      <div class="pattern pegboard-2">.pegboard (@color3);</div>
+      <div class="pattern pegboard-3">.pegboard (@color4c);</div>
     </div>
     <h4>Argyle</h4>
     <div id="strapless_patterns_argyle" class="pattern-preview">
-        <div class="pattern"></div>
-        <div class="pattern"></div>
-        <div class="pattern"></div>
+      <div class="pattern argyle-1">.argyle (@color1a);</div>
+      <div class="pattern argyle-2">.argyle (@color3a);</div>
+      <div class="pattern argyle-3">.argyle (@color4b);</div>
     </div>
     <h4>Checkerboard</h4>
     <div id="strapless_patterns_checkerboard" class="pattern-preview">
-        <div class="pattern"></div>
-        <div class="pattern"></div>
-        <div class="pattern"></div>
+      <div class="pattern checkerboard-1">.checkerboard (@color1);</div>
+      <div class="pattern checkerboard-2">.checkerboard (@color1a);</div>
+      <div class="pattern checkerboard-3">.checkerboard (@color1b, .5);</div>
     </div>
     <h4>Dots</h4>
     <div id="strapless_patterns_dots" class="pattern-preview">
-        <div class="pattern"></div>
-        <div class="pattern"></div>
-        <div class="pattern"></div>
+      <div class="pattern dots-1">.dots (@color1);</div>
+      <div class="pattern dots-2">.dots (@color2);</div>
+      <div class="pattern dots-3">.dots (@color2a);</div>
     </div>
     <h4>Stripes</h4>
     <div id="strapless_patterns_stripes" class="pattern-preview">
-        <div class="pattern"></div>
-        <div class="pattern"></div>
-        <div class="pattern"></div>
+      <div class="pattern stripes-1">.stripes (@color3);</div>
+      <div class="pattern stripes-2">.stripes (@color3a);</div>
+      <div class="pattern stripes-3">.stripes (@color3b);</div>
     </div>
     <h4>Honeycomb</h4>
     <div id="strapless_patterns_honeycomb" class="pattern-preview">
-        <div class="pattern"></div>
-        <div class="pattern"></div>
-        <div class="pattern"></div>
+      <div class="pattern honeycomb-1">.honeycomb (@color4);</div>
+      <div class="pattern honeycomb-2">.honeycomb (@success);</div>
+      <div class="pattern honeycomb-3">.honeycomb (@failure);</div>
     </div>
     <h4>Chevrons</h4>
     <div id="strapless_patterns_chevrons" class="pattern-preview">
-        <div class="pattern"></div>
-        <div class="pattern"></div>
-        <div class="pattern"></div>
+      <div class="pattern chevrons-1">.chevrons (@color4);</div>
+      <div class="pattern chevrons-2">.chevrons (@info);</div>
+      <div class="pattern chevrons-3">.chevrons (@warning);</div>
     </div>
-    <p>Since they're mixins, patterns don't gum up your CSS file until you use them.</p>
+    <aside>
+      <p>Patterns add <span class="info">1-2kb</span> to your CSS output when you use a pattern mix-in.</p>
+    </aside>
     <p>Patterns accept an optional second argument, the scale of the texture, which defaults to 1.</p>
-    <p>Patterns are intended to give Strapless users a way to quickly add texture and depth to their sites.</p>
+    <p>Patterns work like background images, because they're encoded SVG files.</p>
 </section>

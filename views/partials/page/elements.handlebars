@@ -1,40 +1,11 @@
-<section>
-  <table id="comparison">
-    <tr>
-      <td><span class="sl-single-color color1">first color</span></td>
-      <td><span class="sl-single-color color2">second color</span></td>
-    </tr>
-  </table>
-</section>
-
 <section id="elements">
     <h1>Elements</h1>
-    <p>All of Strapless's components happen to be HTML elements too. There are no classes to remember, just different ways to put together HTML tags. Here are some examples.</p>
+    <p>All of Strapless's components happen to be HTML elements too. There are no classes to memorize (aside from semantic classes), just different ways to put together HTML tags. Here are some examples.</p>
 </section>
 
 <section id="main_element">
     <h1>&lt;main&gt;</h1>
-    <p>The <em>main</em> element works as a page's central element.</p>
-    <!-- <main class="success" id="main_success_example">
-        <h2>The <em>main</em> element</h2>
-        <p>This is the lead paragraph.</p>
-        <p>A longer, more descriptive line can follow. Please write
-    punchy copy and refrain from punching people.</p>
-        <footer>
-            <button class="reaction">Button #1</button>
-            <button>Button #2</button>
-        </footer>
-    </main>
-    <pre>&lt;main class="success"&gt;
-    &lt;h2&gt;The &lt;em&gt;main&lt;/em&gt; element&lt;/h2&gt;
-    &lt;p&gt;This is the lead paragraph.&lt;/p&gt;
-    &lt;p&gt;A longer, more descriptive line can follow. Please write
-    punchy copy and refrain from punching people.&lt;/p&gt;
-    &lt;aside&gt;
-        &lt;button class="reaction"&gt;Button #1&lt;/button&gt;
-        &lt;button&gt;Button #2&lt;/button&gt;
-    &lt;/aside&gt;
-&lt;/main&gt;</pre> -->
+    <p>The <em>main</em> element works as a page's central element. It uses a <code>section</code> inside to organize its content.</p>
 </section>
 
 <main class="action" id="main_action_example">
@@ -79,24 +50,19 @@
 
 <section id="section">
     <h1>&lt;section&gt;</h1>
-    <p>Use of the <code>&lt;section&gt;</code> element (seen throughout this page) is encouraged. Sections have default CSS for spacing out your content that's aimed at getting it looking good on the first pass.</p>
+    <p>Use of the <code>&lt;section&gt;</code> element (seen throughout this page) is encouraged.</p>
 </section>
 <section class="action">
-    <h1>A section that invites the user to take an action.</h1>
-    <p>Sections support semantic classes. This one is using <code>action</code>.</p>
-    <pre>&lt;section class="action"&gt;
-    &lt;h1&gt;A section that invites the user to take an action.&lt;/h1&gt;
-    &lt;p&gt;Sections support semantic classes.
-    This one is using &lt;code&gt;action&lt;/code&gt;.&lt;/p&gt;
-&lt;/section&gt;</pre>
+    <h1>Sections organize your&nbsp;content.</h1>
+    <ul>
+      <li>Sections center most content and leave enough room for asides.</li>
+      <li>Sections are great to put inside of grids (not included), or just as building blocks in layouts.</li>
+      <li>Sections support semantic classes (this one is using <code>action</code>).</li>
+    </ul>
 </section>
 <section class="reaction">
     <h1>A reaction section headline</h1>
     <p>The <code>reaction</code> color is good for, well, reactions.</p>
-    <pre>&lt;section class="reaction"&gt;
-    &lt;h1&gt;A reaction section headline&lt;/h1&gt;
-    &lt;p&gt;The &lt;code&gt;reaction&lt;/code&gt; color is good for, well, reactions.&lt;/p&gt;
-&lt;/section&gt;</pre>
 </section>
 <section class="info">
     <h1>This is informational</h1>
@@ -137,7 +103,7 @@
 
 <section id="paragraph">
     <h1>&lt;p&gt;</h1>
-    <p>Paragraphs (like this one!) are by default limited to 60ish characters width (<code>@max-width</code> determines this). They have an aggressive, but not too aggressive, line height of 1.65 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
+    <p>Paragraphs (like this one!) are by default limited to 60ish characters width (<code>@max-width</code> determines this). They have an aggressive, but not too aggressive, line height of 1.8 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
     <p class="info">I'm informing you of something.</p>
     <pre>&lt;p class="info"&gt;I'm informing you of something.&lt;/p&gt;</pre>
     <br>
@@ -151,24 +117,29 @@
 
 <section id="ul">
     <h1>&lt;ul&gt;</h1>
-    <p>Lists are kinda messed up because they aren't an example on this page. This is a list:</p>
-    <ul class="info">
+    <p>Lists are simple, bulleted and support semantic classes.</p>
+    <ul>
       <li>Apples</li>
       <li>Bananas</li>
       <li>Oranges</li>
     </ul>
-    <p>Here's some text right after it because why not?</p>
     <pre>&lt;ul&gt;
-    &lt;li&gt;Apples&lt;/li&gt;
-    &lt;li&gt;Bananas&lt;/li&gt;
-    &lt;li&gt;Oranges&lt;/li&gt;
-  &lt;/ul&gt;</pre>
+  &lt;li&gt;Apples&lt;/li&gt;
+  &lt;li&gt;Bananas&lt;/li&gt;
+  &lt;li&gt;Oranges&lt;/li&gt;
+&lt;/ul&gt;</pre>
     <br>
-    <p class="failure">I've made a huge mistake.</p>
-    <pre>&lt;p class="failure"&gt;I've made a huge mistake.&lt;/p&gt;</pre>
-    <br>
-    <p>Of course, without a class they just look like normal paragraphs.</p>
-    <pre>&lt;p&gt;Of course, without a class they just look like normal paragraphs.&lt;/p&gt;</pre>
+    <p>Here's a success list.</p>
+    <ul class="success">
+      <li>32 members updated</li>
+      <li>12 schedules rotated</li>
+      <li>All course requirements satisfied</li>
+    </ul>
+    <pre>&lt;ul class="success"&gt;
+  &lt;li&gt;32 members updated&lt;/li&gt;
+  &lt;li&gt;12 schedules rotated&lt;/li&gt;
+  &lt;li&gt;All course requirements satisfied&lt;/li&gt;
+&lt;/ul&gt;</pre>
     <br>
 </section>
 
@@ -181,19 +152,9 @@
 
 <section id="aside">
     <h1>&lt;aside&gt;</h1>
-    <p>Asides center everything inside them using flexbox. On mobile, they stack up their contents. Asides are an easy way to present multiple pieces of content side by side.</p>
+    <p>Asides pull and de-emphasize content from the main body of the text.</p>
     <aside>This is an aside.</aside>
     <pre>&lt;aside&gt;This is an aside.&lt;/aside&gt;</pre>
-    <br>
-    <p>It's useful for buttons:</p>
-    <aside>
-        <button>I'm centered!</button>
-        <button class="failure">Me too</button>
-    </aside>
-    <pre>&lt;aside&gt;
-    &lt;button&gt;I'm centered!&lt;/button&gt;
-    &lt;button class="failure"&gt;Me too&lt;/button&gt;
-&lt;/aside&gt;</pre>
     <br>
     <p>Asides support semantic classes, which makes them good for notification messages:</p>
     <aside class="failure">
@@ -212,38 +173,40 @@
     &lt;p&gt;You've updated your profile.&lt;/p&gt;
 &lt;/aside&gt;</pre>
     <br>
+    <p>The Less/CSS for aside can be found in <code>aside.less</code>.</p>
     <aside>
-        <h6>Join our newsletter</h6>
+        <h6>Sign up for volleyball</h6>
         <form>
-            <aside>
-                <input type="text" name="firstname">
-                <button onclick="return false" class="reaction">Submit</button>
-            </aside>
+            <input type="text" name="firstname">
+            <button onclick="return false" class="reaction">Submit</button>
         </form>
     </aside>
     <pre>&lt;aside&gt;
-    &lt;h6&gt;Join our newsletter&lt;/h6&gt;
+    &lt;h6&gt;Sign up for volleyball&lt;/h6&gt;
     &lt;form&gt;
-        &lt;aside&gt;
-            &lt;input type="text" name="firstname"&gt;
-            &lt;button class="reaction"&gt;Submit&lt;/button&gt;
-        &lt;/aside&gt;
+        &lt;input type="text" name="firstname"&gt;
+        &lt;button class="reaction"&gt;Submit&lt;/button&gt;
     &lt;/form&gt;
 &lt;/aside&gt;</pre>
     <br>
+    <p>Asides appear on the left or right, depending on even/oddness.</p>
     <aside>
         <p>You're down to <span class="warning">596</span> credits.</p>
     </aside>
     <pre>&lt;aside&gt;
-    &lt;p&gt;You're down to &lt;span class="warning"&gt;596&lt;/span&gt; credits.&lt;/p&gt;
+    &lt;p&gt;
+      You're down to
+      &lt;span class="warning"&gt;596&lt;/span&gt;
+      credits.
+    &lt;/p&gt;
 &lt;/aside&gt;</pre>
     <br>
-    <p>Nesting more than one aside inside another will <em>rapidly</em> accelerate the entropic heat death of the universe. Use a full grid solution to avoid prematurely warping the fabric of reality.</p>
+    <p>Asides only work inside of sections. Use them elsewhere at your own risk.</p>
 </section>
 
 <section id="button">
     <h1>&lt;button&gt;</h1>
-    <p>Buttons are just <code>button</code> elements. There's no button class.</p>
+    <p>Buttons are just <code>button</code> elements. You can also use the <code>button</code> class to make things that aren't buttons look like buttons.</p>
     <p><button>Example button</button></p>
     <pre>&lt;button&gt;Example button&lt;/button&gt;</pre>
     <br>
@@ -252,37 +215,28 @@
     <pre>&lt;button class="info"&gt;Example button&lt;/button&gt;</pre>
     <br>
     <p>There are six semantic buttons by default, shown here:</p>
-    <aside>
-        <button type="button" class="action">Action</button>
-        <button type="button" class="reaction">Reaction</button>
-    </aside>
-    <aside>
-        <button type="button" class="success">Success</button>
-        <button type="button" class="failure">Failure</button>
-    </aside>
-    <aside>
-        <button type="button" class="info">Info</button>
-        <button type="button" class="warning">Warning</button>
-    </aside>
+    <p>
+      <button type="button" class="action">Action</button>
+      <button type="button" class="reaction">Reaction</button>
+    </p>
+    <p>
+      <button type="button" class="success">Success</button>
+      <button type="button" class="failure">Failure</button>
+    </p>
+    <p>
+      <button type="button" class="info">Info</button>
+      <button type="button" class="warning">Warning</button>
+    </p>
     <p>Semantic colors respond to the color scheme too, so <code>@success</code> will always be the <em>right</em> green (along with its corresponding button). They don't have any other classes to worry about, until you add them, but they do respond well to font size changes:</p>
-    <aside>
+    <p>
         <button type="button" class="info" style="font-size:22px;">22 pixels big</button>
         <button type="button" class="failure" style="font-size:1.5em;">1.5em of failure</button>
-    </aside>
-    <aside>
+    </p>
+    <p>
         <button type="button" class="action" style="font-size:12px;">12px action button</button>
         <button type="button" class="warning" style="font-size:7px;">Warning, this is too small</button>
-    </aside>
-    <p>Buttons always have tinted (white) text. Sometimes they have darker background colors than the rest of the theme.</p>
-    <aside class="success">
-        <p>Buttons will inherit colors from color class parents, so you don't need redundant classes.</p>
-        <button>Got it!</button>
-    </aside>
-    <pre>&lt;aside class="success"&gt;
-    &lt;p&gt;Buttons will inherit colors from color class parents, so you
-    don't need redundant classes.&lt;/p&gt;
-    &lt;button&gt;Got it!&lt;/button&gt;
-&lt;/aside&gt;</pre>
+    </p>
+    <p>Buttons always have tinted (white) text.</p>
 </section>
 
 <section id="nav">
@@ -333,7 +287,7 @@
 
 <section id="table">
     <h1>&lt;table&gt;</h1>
-    <aside>
+    <p>
         <div>
             <table>
                 <thead>
@@ -402,8 +356,8 @@
             </table>
             table.info
         </div>
-    </aside>
-    <aside>
+    </p>
+    <p>
         <div>
             <table class="success">
                 <thead>
@@ -438,13 +392,13 @@
             </table>
             table.success
         </div>
-    </aside>
+    </p>
     <p>Tables, like buttons, by default support all the semantic color classes.</p>
 </section>
 
 <section id="headline">
     <h1>&lt;h1&gt;</h1>
-    <p>Bigger headlines are centered, smaller ones to the left.</p>
+    <p>Headline text scales with the page size, stopping when it's big enough.</p>
 
     <h1>This is headline text. (h1)</h1>
     <h2>This is headline text. (h2)</h2>
@@ -452,6 +406,7 @@
     <h4>This is headline text. (h4)</h4>
     <h5>This is headline text. (h5)</h5>
     <h6>This is headline text. (h6)</h6>
+    <p>The smaller headlines are left-aligned to group with body text.</p>
     <p>H5 and H6 are all-caps by default, because otherwise they're super boring.</p>
 </section>
 

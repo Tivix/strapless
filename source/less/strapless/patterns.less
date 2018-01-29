@@ -123,13 +123,13 @@
     .colors() when (@tone = white) {
         .set-a-color(@base);
         @highlight-base: @base;
-        @shadow-base: mix(@a-color, @base, 15%);
+        @shadow-base: mix(@a-color, @base, 25%);
     }
 
     .colors() when (default()) {
         .set-c-color(@base);
         @highlight-base: @base;
-        @shadow-base: mix(@c-color, @base, 15%);
+        @shadow-base: mix(@c-color, @base, 25%);
     }
 
     .colors();

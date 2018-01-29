@@ -1,5 +1,5 @@
 nav {
-  @color: @color1;
+  @color: @color1c;
   @height: @nav-height;
 
   .set-yellow-distance(@color) {
@@ -37,10 +37,10 @@ nav {
   }
 
   .nav-color() when (default()) {
-    .invert-text-against(@color);
+    .invert-text-against(@color; @contrast-standard: 3;);
 
     li a:active {
-      .invert-text-against(@color);
+      .invert-text-against(@color; @contrast-standard: 3; @button: true;);
     }
   }
 
@@ -54,7 +54,7 @@ nav {
   max-height: @height;
   padding: 0;
   margin-bottom: 1em;
-  & when (@sticky-nav = true) { border-radius: @border-radius;}
+  & when not (@sticky-nav = true) { .border-radius();}
   z-index: 10;
   overflow: hidden;
 
@@ -67,6 +67,8 @@ nav {
 
   > section {
     padding: 0;
+    padding-left: @padding;
+    padding-right: @padding;
     max-width: @max-width*1.6;
   }
 
@@ -117,13 +119,20 @@ nav {
       display: block;
       float: left;
       color: inherit;
+      padding-left: @padding;
+      padding-right: @padding;
+      margin-right: @padding;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 
   a {
     text-decoration: none;
-    padding-left: @padding;
-    padding-right: @padding;
+    //padding-left: @padding;
+    //padding-right: @padding;
   }
 
   h1 {

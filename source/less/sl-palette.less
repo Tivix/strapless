@@ -47,7 +47,7 @@
 }
 
 .sl-swatch-base, .swatch {
-  @size: 27px;
+  @size: 32px;
   @margin: 0;
 
   display: none; // palettes are divs with a bunch of divs inside, this hides unused ones
@@ -87,8 +87,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1em;
-  padding-left: @padding;
-  max-width: @max-width * 1.6;
+  // padding-left: @padding;
 }
 
 .sl-color-container {
@@ -96,7 +95,7 @@
 }
 
 .palette-preview {
-  float: left;
+  display: inline-block;
   margin-right: @padding;
   margin-bottom: @padding;
   position: relative;
@@ -139,20 +138,21 @@
 .sl-color4:after { content: "(4)";}
 
 .sl-single-color {
-  @width: 75px;
+  @width: 60px;
   @height: 40px;
-  font-size: 12px;
+
+  display: inline-block;
+  font-size: 11px;
   line-height: @height;
-  width: @width;
+  max-width: 25%;
   height: @height;
-  margin-left: 4px;
-  margin-right: 4px;
   padding: 0 6px;
+  margin: 0;
   text-align: center;
 }
 
 .sl-gray {
-  width: 95px;
+  // width: 95px;
 }
 
 .sl-color-action {

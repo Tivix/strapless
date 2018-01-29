@@ -2,21 +2,23 @@
   box-sizing: border-box;
 }
 
-ul {
+ul, ol {
   &:extend(p all);
   .max-width();
-  list-style-position: inside;
+  list-style-position: outside;
+  padding-left: @padding*3;
+
+  .semantic-classes({
+    padding: @padding;
+    padding-left: @padding*4;
+  });
 }
 
 li {
-  padding-left: @padding;
+  margin-bottom: .6em;
   &:last-child {
     margin-bottom: .4em;
   }
-}
-
-ul, ol {
-  padding-left: @padding;
 }
 
 dt {
@@ -53,17 +55,23 @@ abbr, acronym {
 code, pre {
   .invert-text-against(@gray-darker);
   font-family: monospace;
-  font-size: 80%;
   // vertical-align: middle;
-  padding: .2em @padding .3em @padding;
   border-radius: @border-radius/2;
-  overflow: auto;
+}
+
+code {
+  font-size: 85%;
+  padding: .25em @padding .25em @padding;
   position: relative;
   top: -.1em;
 }
 
 pre {
+  .max-width();
   .margin-bottom();
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  padding: @padding;
 }
 
 mark, ::selection {

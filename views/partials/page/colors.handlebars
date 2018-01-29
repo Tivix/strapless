@@ -2,45 +2,73 @@
     <h1>Colors</h1>
     <h2>Color palettes</h2>
     <p>Strapless starts with a base color: <span class="sl-current-color"></span></p>
-    <p>From that base color, it generates a theme with four main colors:</p>
+    <p>From that base color, it generates four scheme colors:</p>
+    <p>
+        <span class="sl-single-color color1">@color1</span>
+        <span class="sl-single-color color2">@color2</span>
+        <span class="sl-single-color color3">@color3</span>
+        <span class="sl-single-color color4">@color4</span>
+    </p>
+    <p>Each of those colors has subcolors, one of which is lighter (a), one of which is an alternate (b), and one of which is darker (c).</p>
+    <p>
+        <span class="sl-single-color color1">@color1</span>
+        <span class="sl-single-color color1a">@color1a</span>
+        <span class="sl-single-color color1b">@color1b</span>
+        <span class="sl-single-color color1c">@color1c</span>
+    </p>
     <aside>
-        <div class="sl-single-color color1">@color1</div>
-        <div class="sl-single-color color2">@color2</div>
-        <div class="sl-single-color color3">@color3</div>
-        <div class="sl-single-color color4">@color4</div>
+      <p>Strapless doesn't <em>just</em> lighten or darken. It picks nearby colors and tweaks them to avoid the "washed out" feel of lighten/darken operations.</p>
     </aside>
-    <p>Each of those colors has subcolors, one of which is lighter (a), one of which is an alternate(b), and one of which is darker(c).</p>
-    <aside>
-        <div class="sl-single-color color1">@color1</div>
-        <div class="sl-single-color color1a">@color1a</div>
-        <div class="sl-single-color color1b">@color1b</div>
-        <div class="sl-single-color color1c">@color1c</div>
-    </aside>
-    <p>Strapless doesn't simply lighten or darken-- it picks nearby analogs and manipulates them to avoid the typical "washing out" feeling of normal lightening and darkening. It also uses contrast ratio as a threshold, leaving your schemes with an even, consistent vibe.</p>
     <p><code>@color2</code> is typically a complement:</p>
+    <p>
+        <span class="sl-single-color color2">@color2</span>
+        <span class="sl-single-color color2a">@color2a</span>
+        <span class="sl-single-color color2b">@color2b</span>
+        <span class="sl-single-color color2c">@color2c</span>
+    </p>
+    <p><code>@color3</code> and <code>@color4</code> round out the color palette. Their positions depend on which color wheel you set in <code>settings.less</code>. The CSS version uses 'accented' by default.</p>
+    <p>
+        <span class="sl-single-color color3">@color3</span>
+        <span class="sl-single-color color3a">@color3a</span>
+        <span class="sl-single-color color3b">@color3b</span>
+        <span class="sl-single-color color3c">@color3c</span>
+    </p>
+    <p>
+        <span class="sl-single-color color4">@color4</span>
+        <span class="sl-single-color color4a">@color4a</span>
+        <span class="sl-single-color color4b">@color4b</span>
+        <span class="sl-single-color color4c">@color4c</span>
+    </p>
+
+    <h2>Semantic colors</h2>
     <aside>
-        <div class="sl-single-color color2">@color2</div>
-        <div class="sl-single-color color2a">@color2a</div>
-        <div class="sl-single-color color2b">@color2b</div>
-        <div class="sl-single-color color2c">@color2c</div>
+      <p>Semantic classes work with most elements as <strong>HTML classes</strong>. They also double as <strong>Less variables</strong>.</p>
     </aside>
-    <p><code>@color3</code> and <code>@code4</code> round out the color palette, their positions largely dependent on which color wheel you give Strapless (the CSS version is 'accented' by default).</p>
-    <aside>
-        <div class="sl-single-color color3">@color3</div>
-        <div class="sl-single-color color3a">@color3a</div>
-        <div class="sl-single-color color3b">@color3b</div>
-        <div class="sl-single-color color3c">@color3c</div>
-    </aside>
-    <aside>
-        <div class="sl-single-color color4">@color4</div>
-        <div class="sl-single-color color4a">@color4a</div>
-        <div class="sl-single-color color4b">@color4b</div>
-        <div class="sl-single-color color4c">@color4c</div>
-    </aside>
+    <p>From the base color, Strapless figures out six semantic colors/classes:</p>
+    <p id="semantic_colors">
+        <span class="sl-single-color sl-color-action">@action</span>
+        <span class="sl-single-color sl-color-reaction">@reaction</span>
+        <span class="sl-single-color sl-color-info">@info</span>
+        <span class="sl-single-color sl-color-warning">@warning</span>
+        <span class="sl-single-color sl-color-success">@success</span>
+        <span class="sl-single-color sl-color-failure">@failure</span>
+    </p>
+
+    <p>And some useful grays:</p>
+    <p id="grays">
+        <span class="sl-single-color sl-gray sl-color-gray-lighter">@gray-lighter</span>
+        <span class="sl-single-color sl-gray sl-color-gray-light">@gray-light</span>
+        <span class="sl-single-color sl-gray sl-color-gray">@gray</span>
+        <span class="sl-single-color sl-gray sl-color-gray-dark">@gray-dark</span>
+        <span class="sl-single-color sl-gray sl-color-gray-darker">@gray-darker</span>
+    </p>
+    <p>All of these colors adjust to the color scheme while still retaining their semantic meaning.</p>
 
     <h2>Color wheels</h2>
-    <p>Strapless color schemes are driven by color wheels. In all, 12 different color wheels are included. Here's each of them, 12 different wheel outputs for a single base color:</p>
-
+    <aside>
+      <p><strong>-b wheels</strong> follow the same structure but spin the other way on the color wheel.</p>
+    </aside>
+    <p>Strapless color schemes are driven by color wheels. In all, 12 different color wheels are included. Here's each of the wheel outputs from the single base color:</p>
     <div id="palettes">
         <div id="sl_accented" class="palette-preview">
             <h3>Accented</h3>
@@ -367,27 +395,4 @@
             </div>
         </div>
     </div>
-
-    <h2>Semantic colors</h2>
-
-    <p>From the base color, Strapless figures out six semantic colors/classes:</p>
-    <aside id="semantic_colors">
-        <p class="sl-single-color sl-color-action">@action</p>
-        <p class="sl-single-color sl-color-reaction">@reaction</p>
-        <p class="sl-single-color sl-color-info">@info</p>
-        <p class="sl-single-color sl-color-warning">@warning</p>
-        <p class="sl-single-color sl-color-success">@success</p>
-        <p class="sl-single-color sl-color-failure">@failure</p>
-    </aside>
-    <p>And a full suite of grays:</p>
-    <aside id="grays">
-        <p class="sl-single-color sl-gray sl-color-gray-lighter">@gray-lighter</p>
-        <p class="sl-single-color sl-gray sl-color-gray-light">@gray-light</p>
-        <p class="sl-single-color sl-gray sl-color-gray">@gray</p>
-        <p class="sl-single-color sl-gray sl-color-gray-dark">@gray-dark</p>
-        <p class="sl-single-color sl-gray sl-color-gray-darker">@gray-darker</p>
-    </aside>
-    <p>All of these colors adjust to the color scheme while still retaining their semantic meaning.</p>
-
-    <p>The CSS version only supports the basic accented color scheme. The CSS version also includes named color classes for all the main colors and subcolors (This works as a convenient way to document Strapless's colors-- color classes aren't recommended to be used in the same way as semantic classes).</p>
 </section>

@@ -1,7 +1,7 @@
 <main id="feature" class="action">
   <section>
     <h1>Ditch the frameworks. <br>Write markup with HTML.</h1>
-    <p>Strapless is a color-changing CSS&nbsp;boilerplate and LessCSS library for colors and patterns.</p>
+    <p>Strapless is a color-changing CSS&nbsp;boilerplate and LessCSS library for colors, contrast and patterns.</p>
     <p>It's a better starting point for styling your site.</p>
 
     <footer>
@@ -15,36 +15,46 @@
 <section id="why">
     <h1>Why Strapless?</h1>
     <p>Strapless isn't a CSS micro/mini/nano-framework. It's a CSS boilerplate. It makes your standard HTML look great.</p>
-    <p>This boilerplate aims to underprescribe, letting you work how you want to build your project from the ground up, instead of chiseling it out of a <em>we-know-better</em> block of marble.</p>
-    <p>Try it out now by changing this page's base color. Then, download that color's CSS file (or use the Less version!), which will make your plain, normal, everyday HTML look like this page. Then, use it to start building&mdash; from the ground up.</p>
+    <aside id="philosophy">
+        <h6>The Strapless philosophy</h6>
+        <ul>
+            <li>Everybody knows HTML, so use it.</li>
+            <li>Inheritance, standards and defaults rule.</li>
+            <li>No grid, no columns, no components.</li>
+            <li>Color, contrast, usability and accessibility all go hand-in-hand.</li>
+        </ul>
+    </aside>
+    <p>Strapless lets you build your project from the ground up, instead of chiseling it out of a <em>we-know-better</em> block of marble.</p>
+    <p>Try out a base color and download its CSS file. That makes your plain, normal, everyday HTML look like this page. Then, use it to start building&mdash; from the ground up.</p>
 </section>
 
 {{> page/demo}}
-
-<section id="philosophy" class="info">
-    <h1>Philosophy</h1>
-    <ul>
-        <li>Everybody knows HTML.</li>
-        <li>Semantics matter.</li>
-        <li>No grid, no columns, no components.</li>
-        <li>There are no ugly colors, only ugly color schemes.</li>
-    </ul>
-</section>
 
 <section>
     <h1>Install Strapless</h1>
     <p>Get Strapless through npm:</p>
     <p><pre>npm install strapless</pre></p>
 
-    <p>Or GitHub:</p>
+    <aside>
+      <p>Need a <strong>file to use</strong>, not <strong>something to install</strong>?</p>
+      <button type="button" class="failure" onclick="Strapless.downloadCSS();">Get the CSS version</button>
+    </aside>
+
+    <p>Or grab it off GitHub:</p>
     <p><pre>git clone git@github.com:Tivix/strapless.git</pre></p>
 
-    <p>Or just download it here, on this page! Click "Get CSS" to get the base Strapless CSS interpreted in the current preview color.</p>
+    <p>Strapless is designed to serve as a base for your project's Less or CSS. Download it once and start your project.</p>
+
+    <p>For the simplest, quickest start, just use it like an extra-thick normalize.css, adding your own styles after it.</p>
+
+    <p>Strapless is written in Less, which is super flexible and easy to use. The best way to use Strapless is to download it and adopt Strapless's Less files and architecture as the starting point for your own project's styles.</p>
 </section>
 
-{{> page/elements}}
 {{> page/colors}}
 {{> page/patterns}}
+{{> page/elements}}
+{{> page/mixins}}
+
 
 <section class="reaction">
     <aside>

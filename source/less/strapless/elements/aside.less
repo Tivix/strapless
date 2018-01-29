@@ -1,9 +1,54 @@
 aside {
-  @offset: 300px;
-  //margin-left: -50%;
-  width: ~"calc(@{max-width} - 50% - @{padding})";
-  //background: blue;
-  border: 1px dotted @gray;
-  .clearfix();
-  display: none;
+  @font-size: 14px;
+
+  padding: @padding;
+  font-size: @font-size;
+  max-width: @max-width*.61;
+  .border-radius();
+  .margin-bottom();
+
+  .headline-elements({
+    text-align: left;
+  });
+
+  @h1-base: 1.8;
+  @h2-base: 1.5;
+  @h3-base: 1.35;
+  @h4-base: 1.2;
+  @h5-base: 1.1;
+  @h6-base: 1;
+
+  h1 { font-size: ~"calc(@{font-size} + @{h1-base}vw)";}
+  h2 { font-size: ~"calc(@{font-size} + @{h2-base}vw)";}
+  h3 { font-size: ~"calc(@{font-size} + @{h3-base}vw)";}
+  h4 { font-size: ~"calc(@{font-size} + @{h4-base}vw)";}
+  h5 { font-size: ~"calc(@{font-size} + @{h5-base}vw)";}
+  h6 { font-size: ~"calc(@{font-size} + @{h6-base}vw)";}
+
+  .on-tablet({
+    // headlines stop growing at tablet breakpoint
+    h1 { font-size: @font-size + @tablet*@h1-base/100;}
+    h2 { font-size: @font-size + @tablet*@h2-base/100;}
+    h3 { font-size: @font-size + @tablet*@h3-base/100;}
+    h4 { font-size: @font-size + @tablet*@h4-base/100;}
+    h5 { font-size: @font-size + @tablet*@h5-base/100;}
+    h6 { font-size: @font-size + @tablet*@h6-base/100;}
+  });
+
+  .on-large-desktop({
+    @padding: 1em;
+    float: left;
+    font-size: 80%;
+    padding: @padding;
+    margin-right: 2em;
+    margin-left: 2em;
+    min-width: @max-width*.61;
+    width: ~"calc((100% - @{max-width})/2)";
+    //background: blue;
+    .clearfix();
+
+    &:nth-child(odd) {
+      float: right;
+    }
+  });
 }

@@ -1,19 +1,6 @@
 footer {
+  padding-top: 1em;
   .margin-bottom();
-
-  body > & {
-    padding-top: 1em;
-    margin-top: 4em;
-    width: auto;
-    max-width: 100%;
-    border-radius: 0;
-    margin-bottom: 0 !important;
-  }
-
-  > form {
-    padding: 0;
-    margin-bottom: 1em;
-  }
 
   > * {
     margin-bottom: @padding*.6;
@@ -24,7 +11,7 @@ footer {
   }
 
   .semantic-classes({
-    padding: 1em @padding;
+    padding: @padding;
   });
 
   .button-elements({
@@ -36,10 +23,10 @@ footer {
     display: flex;
     -webkit-flex-direction: row;
     flex-direction: row;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: center;
-    justify-content: center;
+    -webkit-align-items: left;
+    align-items: left;
+    -webkit-justify-content: left;
+    justify-content: left;
 
     > * {
       margin-left: @padding*.62;
@@ -50,46 +37,9 @@ footer {
       }
     }
 
-    > p {
-      margin-right: 0;
-      margin-left: @padding*1.24;
-      margin-bottom: 0;
-    }
-
-    > form {
-      margin-bottom: 0;
-    }
-
-    > p + * {
-      margin-left: @padding*2;
-    }
-
     .button-elements({
       width: auto;
       margin-bottom: 0;
     });
   });
-
-  .footer-color(@color) {
-    .colorize(@color);
-  }
-
-  .make-footers-for(@colors) {
-    // make footers for a list of color variable names
-
-    @length: length(@colors);
-
-    .make-footer();
-
-    .make-footer(@index:1) when (@index <= @length) {
-      @color-name: extract(@colors, @index);
-      @color: @@color-name;
-
-      &.@{color-name} { .footer-color(@color);}
-
-      .make-footer(@index + 1);
-    }
-  }
-
-  .make-footers-for(@semantic-colors);
 }

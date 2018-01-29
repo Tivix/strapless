@@ -1,3 +1,60 @@
+// color constants
+
+@complement: 180deg;
+@triadic-pair: 120deg;
+@accent: 45deg;
+@analog: 15deg;
+
+// color wheels
+
+@accented:        @complement,
+                  @accent,
+                  -@accent;
+
+@complementary:   @complement,
+                  @analog,
+                  @complement + @analog;
+
+@complementary-b: @complement,
+                  -@analog,
+                  @complement - @analog;
+
+@triadic:         -@triadic-pair,
+                  @triadic-pair,
+                  @analog;
+
+@triadic-b:       -@triadic-pair,
+                  @triadic-pair,
+                  -@analog;
+
+@tetradic:        @complement,
+                  @accent,
+                  @complement + @accent;
+
+@tetradic-b:      @complement,
+                  -@accent,
+                  @complement - @accent;
+
+@square:          @complement,
+                  -@complement/2,
+                  @complement/2;
+
+@ebb:             @complement + @analog,
+                  @analog,
+                  @accent;
+
+@flow:            @complement - @analog,
+                  -@analog,
+                  -@accent;
+
+@monochromatic:   @accent/2,
+                  @analog/2,
+                  -@analog/2;
+
+@monochromatic-b: -@accent/2,
+                  @analog/2,
+                  -@analog/2;
+
 .make-palette(@base-color, @base-color-wheel);
 
 .make-palette(@color; @wheel) {
@@ -62,22 +119,24 @@
   @color1: @color;
 }
 
+@base-luma-var: .6;
+
 .make-color2(@color; @wheel) {
   @wheel-var: @@wheel;
-  .set-lumafix(spin(@color, extract(@wheel-var, 1)); @base-color; .65;);
+  .set-lumafix(spin(@color, extract(@wheel-var, 1)); @base-color; @base-luma-var;);
   @color2: @lumafix;
 }
 
 .make-color3(@color; @wheel) {
   @wheel-var: @@wheel;
-  .set-lumafix(spin(@color, extract(@wheel-var, 2)); @base-color; .65;);
+  .set-lumafix(spin(@color, extract(@wheel-var, 2)); @base-color; @base-luma-var;);
   @color3: @lumafix;
   // @color3: spin(@color, extract(@wheel-var, 2));
 }
 
 .make-color4(@color; @wheel) {
   @wheel-var: @@wheel;
-  .set-lumafix(spin(@color, extract(@wheel-var, 3)); @base-color; .65;);
+  .set-lumafix(spin(@color, extract(@wheel-var, 3)); @base-color; @base-luma-var;);
   @color4: @lumafix;
 }
 
@@ -146,12 +205,6 @@
 
 .make-semantic-colors() {
 
-  @success-base: #51ad51;
-  @info-base: #55c7fc;
-
-  @failure-base: @ideal-failure;
-  @warning-base: @ideal-warning;
-
   .set-action-midpoint() {
     @action-midpoint-base: average(@success-base, @info-base);
     .set-lumafix(@action-midpoint-base);
@@ -168,7 +221,7 @@
   .set-reaction-midpoint();
 
   .set-info() {
-    .set-lumafix(@info-base; @base-color; .9);
+    .set-lumafix(@info-base; @base-color; 1);
     @info: @lumafix;
   }
 
@@ -188,11 +241,13 @@
   }
 
   .set-action() {
-    @action: @color1;
+    .set-closer-farther(@action-midpoint, @color1a, @color1c);
+    @action: @closer;
   }
 
   .set-reaction() {
-    @reaction: @color2b;
+    .set-closer-farther(@reaction-midpoint, @color2a, @color2c);
+    @reaction: @closer;
   }
 
   .set-action();
@@ -203,16 +258,9 @@
   .set-failure();
 }
 
-
-  @failure-base: #e11d1d;
-  @failure-base: @ideal-failure;
-  @warning-base: #ff6b23;
-  @warning-base: @ideal-warning;
-
-
 .make-grays(@color, @scheme-type) {
   @gray-base: mix(desaturate(@color, 80%), #515151, 75%);
-  @gray-step: 15%;
+  @gray-step: 12.5%;
 
   @gray-bases:  @gray-lightest-base,
                 @gray-lighter-base,
@@ -225,11 +273,11 @@
 
   @gray-light-base:             lighten(@gray-base; @gray-step);
   @gray-lighter-base:           lighten(@gray-base; @gray-step*2);
-  @gray-lightest-base:          lighten(@gray-base; @gray-step*3);
+  @gray-lightest-base:          lighten(@gray-base; @gray-step*4);
 
   @gray-dark-base:              darken(@gray-base; @gray-step);
   @gray-darker-base:            darken(@gray-base; @gray-step*2);
-  @gray-darkest-base:           darken(@gray-base; @gray-step*3);
+  @gray-darkest-base:           darken(@gray-base; @gray-step*4);
 
   .set-gray-shift() when (@scheme-type = light) {
     @gray-shift: 3;

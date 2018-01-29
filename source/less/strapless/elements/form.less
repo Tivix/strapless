@@ -1,39 +1,15 @@
 form {
-  // &:extend(p all); // grabs p's semantic class colors
-
-  padding: 1em @padding;
-  margin-bottom: 0;
+  margin: 0 auto;
+  padding: 0;
+  .margin-bottom();
   .max-width();
-
-  p {
-    padding: 0;
-  }
 
   input[type="text"],
   textarea {
     width: 100%;
-    min-width: 18ch;
     padding: .5em;
     margin-bottom: 1em;
-    border: 1px solid @gray-darker;
-  }
-
-  footer {
-    .semantic-classes({
-      padding-left: 0;
-      padding-right: 0;
-    });
-  }
-
-  aside {
-    input[type="text"],
-    textarea {
-      margin-bottom: .5em;
-    }
-
-    .on-tablet({
-      margin-bottom: 0;
-    });
+    border: none;
   }
 
   input, label {
@@ -42,7 +18,7 @@ form {
     };
   }
 
-  .headline-elements({
-    &:first-child { margin-top: 0;}
+  .semantic-classes({
+    padding: 1em @padding;
   });
 }

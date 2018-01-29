@@ -1,12 +1,3 @@
-// dev mixin
-
-.compare-colors(@first-color, @second-color) {
-  #comparison {
-    .color1 { .colorize(@first-color) !important;}
-    .color2 { .colorize(@second-color) !important;}
-  }
-}
-
 .contrast-text-against(@color; @contrast-standard: 4.5) when (default()) {
   // automatically sets contrastful text color given a background color
 
@@ -46,7 +37,7 @@
 
 .tint-text-against(@color; @contrast-standard: 7) {
   // adds white to background color until contrast standard is met
-  // uses that as text color
+  // uses result as text color
 
   @start: 55%;
   @iterations: 10;
@@ -90,10 +81,10 @@
   }
 }
 
-.invert-text-against(@color, @contrast-standard: 4.5) {
+.invert-text-against(@color; @contrast-standard: 4.5; @button: false;) {
 
   // always results in white text
-  // darkens given background to meet contrast standard
+  // darkens given background when needed to meet contrast standard
 
   @iterations: 10;
 
@@ -110,6 +101,13 @@
   .darken-bg(@bg-color, @contrast-ratio, @index) when (default()) {
     background-color: @bg-color;
     color: white;
+
+    & when (@button = true) {
+      &:active {
+        background-color: darken(@bg-color, 5%);
+        color: mix(@bg-color, white, 5%);
+      }
+    }
   }
 }
 
@@ -141,19 +139,19 @@
   .contrast-text-against(@color);
 }
 
-.set-a-color(@color, @compare: @color, @scheme: @scheme-type) {
+.set-a-color(@color, @compare: @color) {
 
   // a lighter version of the color
   // @color1a, @color3a etc are examples of a-colors
 
   @iterations: 10;
 
-  .settings() when (@scheme = light) {
+  .settings() when (@scheme-type = light) {
     @contrast-standard: 1.1;
     @initial-lighten: 2.5%;
   }
 
-  .settings() when (@scheme = dark) {
+  .settings() when (@scheme-type = dark) {
     @contrast-standard: 1.1;
     @initial-lighten: 2.5%;
   }
@@ -210,8 +208,18 @@
 
   // a darker version of the color
 
+  .settings() when (@scheme = light) {
+    @contrast-standard: 1.1;
+    @initial-darken: 2.5%;
+  }
+
+  .settings() when (@scheme = dark) {
+    @contrast-standard: 1.1;
+    @initial-darken: 2.5%;
+  }
+
   .settings() when (default()) {
-    @contrast-standard: 1.2;
+    @contrast-standard: 1.25;
     @initial-darken: 5%;
   }
 
@@ -363,8 +371,10 @@
   }
 }
 
-.set-lumafix(@color; @compare: @background; @luma-multiplier: .5;) {
+.set-lumafix(@color; @compare: @base-color; @luma-multiplier: .6;) {
   // sets @lumafix to a version of @color with luma similar to @compare
+
+  // it's not perfect, use @luma-multilplier to adjust results
 
   @color-luma: luma(@color);
   @compare-luma: luma(@compare);
@@ -393,14 +403,22 @@
   -ms-user-select: none;
 }
 
+.hide() {
+  &:extend(.hide);
+}
+
 .clearfix() {
   &:extend(.clearfix all);
 }
 
 .max-width() {
-  &:extend(.max-width all);
+  &:extend(.max-width);
 }
 
 .margin-bottom() {
-  &:extend(.margin-bottom all);
+  &:extend(.margin-bottom);
+}
+
+.border-radius() {
+  &:extend(.border-radius);
 }

@@ -1,93 +1,90 @@
 table {
-
-  .table-color(@color) {
-
-    .set-c-color(@color);
-
-    @row-a: mix(@color, @c-color, 80%);
-    @row-b: mix(@color, @c-color, 60%);
-
-    & th {
-      .invert-text-against(@color);
-    }
-
-    & td {
-      .contrast-text-against(@row-a);
-    }
-
-    & tr {
-      background-color: @row-b;
-
-      &:nth-of-type(odd) {
-        background-color: @row-a;
-      }
-    }
-  }
-
-  .make-table-colors-for(@colors) {
-    // make table colors for a list of color variable names
-    // tables will use variable names as class names
-
-    @iterations: length(@colors);
-
-    .make-table-color(1);
-
-    .make-table-color(@index) when (@index <= @iterations) {
-
-      @color-name: extract(@colors, @index);
-      @this-color: @@color-name;
-
-      &.@{color-name} {
-        .table-color(@this-color);
-      }
-
-      .make-table-color(@index + 1);
-    }
-  }
-
-  border-radius: @border-radius;
+  .border-radius();
   max-width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-
-  // .table-color(@base-color);
-  .make-table-colors-for(@semantic-colors);
-
   .table-color(@background);
+  .make-table-colors-for(@semantic-colors);
+}
 
-  th, td {
-    text-align: left;
-    vertical-align: top;
-    padding: .62*@padding;
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: .62*@padding;
+}
+
+thead th {
+  vertical-align: bottom;
+}
+
+tr:first-child > th:first-child {
+  border-top-left-radius: @border-radius;
+}
+
+tr:first-child > th:last-child {
+  border-top-right-radius: @border-radius;
+}
+
+tr:last-child > td:first-child {
+  border-bottom-left-radius: @border-radius;
+}
+
+tr:last-child > td:last-child {
+  border-bottom-right-radius: @border-radius;
+}
+
+tr > td,
+tr > th {
+  &:first-child {
+    padding-left: @padding;
+  }
+  &:last-child {
+    padding-right: @padding;
+  }
+}
+
+.table-color(@color) {
+
+  .set-a-color(@color);
+  .set-c-color(@color);
+
+  @row-a: @a-color;
+  @row-b: @color;
+
+  & th {
+    .invert-text-against(@c-color);
   }
 
-  thead th {
-    vertical-align: bottom;
+  & td {
+    .contrast-text-against(@row-a);
   }
 
-  tr:first-child > th:first-child {
-    border-top-left-radius: @border-radius;
-  }
+  & tr {
+    .colorize(@row-b);
 
-  tr:first-child > th:last-child {
-    border-top-right-radius: @border-radius;
-  }
-
-  tr:last-child > td:first-child {
-    border-bottom-left-radius: @border-radius;
-  }
-
-  tr:last-child > td:last-child {
-    border-bottom-right-radius: @border-radius;
-  }
-
-  tr > td,
-  tr > th {
-    &:first-child {
-      padding-left: @padding;
+    &:nth-of-type(odd) {
+      .colorize(@row-a);
     }
-    &:last-child {
-      padding-right: @padding;
+  }
+}
+
+.make-table-colors-for(@colors) {
+  // make table colors for a list of color variable names
+  // tables will use variable names as class names
+
+  @iterations: length(@colors);
+
+  .make-table-color(1);
+
+  .make-table-color(@index) when (@index <= @iterations) {
+
+    @color-name: extract(@colors, @index);
+    @this-color: @@color-name;
+
+    &.@{color-name} {
+      .table-color(@this-color);
     }
+
+    .make-table-color(@index + 1);
   }
 }

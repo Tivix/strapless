@@ -6,10 +6,6 @@
 @import "sl-pattern";
 @import "strapless/strapless";
 
-.sl-single-color {
-  padding: @padding;
-}
-
 // demo-wheels doesn't contain any -b wheeels
 
 @demo-wheels:  @color-wheels;
@@ -29,10 +25,6 @@
 #grays > p {
   @ease: ~'ease-out';
   transition: color 2s @ease; transition: background 2s @ease;
-}
-
-pre {
-  max-width: 78ch;
 }
 
 .make-color-classes-for(@all-colors);
@@ -162,21 +154,22 @@ pre {
   }
 }
 
-#patterns { max-width: @max-width*1.6;}
 #patterns h4 { display: none;}
 
 .sl-current-color {
-  @size: 18px;
+  @size: 16px;
 
   display: inline-block;
   width: @size;
   height: @size;
   text-indent: -9999px;
   white-space: nowrap;
-  background-color: @color1;
-  // border: 2px solid @color1c;
-  // vertical-align: middle;
+  background-color: @base-color;
+  border: 2px solid @color1c;
+  vertical-align: middle;
+  margin-top: -3px;
   margin-bottom: 0;
+  margin-left: 2px;
   border-radius: @border-radius/4;
 }
 
