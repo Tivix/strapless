@@ -1,6 +1,6 @@
 <section id="elements">
     <h1>Elements</h1>
-    <p>All of Strapless's components happen to be HTML elements too. There are no classes to memorize (aside from semantic classes), just different ways to put together HTML tags. Here are some examples.</p>
+    <p>Strapless doesn't ship with any components or have any javascript. It does however include wide support for native HTML elements.</p>
 </section>
 
 <section id="main_element">
@@ -52,58 +52,19 @@
     <h1>&lt;section&gt;</h1>
     <p>Use of the <code>&lt;section&gt;</code> element (seen throughout this page) is encouraged.</p>
 </section>
-<section class="action">
-    <h1>Sections organize your&nbsp;content.</h1>
-    <ul>
-      <li>Sections center most content and leave enough room for asides.</li>
-      <li>Sections are great to put inside of grids (not included), or just as building blocks in layouts.</li>
-      <li>Sections support semantic classes (this one is using <code>action</code>).</li>
-    </ul>
-</section>
-<section class="reaction">
-    <h1>A reaction section headline</h1>
-    <p>The <code>reaction</code> color is good for, well, reactions.</p>
-</section>
 <section class="info">
-    <h1>This is informational</h1>
-    <p>Sections support semantic classes. This one is using <code>info</code>.</p>
-    <pre>&lt;section class="info"&gt;
-    &lt;h1&gt;Section title&lt;/h1&gt;
-    &lt;p&gt;Sections support semantic classes.
-    This one is using &lt;code&gt;info&lt;/code&gt;.&lt;/p&gt;
-&lt;/section&gt;</pre>
-</section>
-<section class="warning">
-    <h2>Before you do that...</h2>
-    <p>Sections support semantic classes. This one is using <code>warning</code>.</p>
-    <pre>&lt;section class="warning"&gt;
-    &lt;h2&gt;Section title&lt;/h2&gt;
-    &lt;p&gt;Sections support semantic classes.
-    This one is using &lt;code&gt;warning&lt;/code&gt;.&lt;/p&gt;
-&lt;/section&gt;</pre>
-</section>
-<section class="success">
-    <h2>That went well!</h2>
-    <p>Sections support semantic classes. This one is using <code>success</code>.</p>
-    <pre>&lt;section class="success"&gt;
-    &lt;h2&gt;Section title&lt;/h2&gt;
-    &lt;p&gt;Sections support semantic classes.
-    This one is using &lt;code&gt;success&lt;/code&gt;.&lt;/p&gt;
-&lt;/section&gt;</pre>
-</section>
-<section class="failure">
-    <h2>Oh no! Something broke.</h2>
-    <p>Sections support semantic classes. This one is using <code>failure</code>.</p>
-    <pre>&lt;section class="failure"&gt;
-    &lt;h2&gt;Section title&lt;/h2&gt;
-    &lt;p&gt;Sections support semantic classes.
-    This one is using &lt;code&gt;failure&lt;/code&gt;.&lt;/p&gt;
-&lt;/section&gt;</pre>
+    <h3>Sections organize content.</h3>
+    <aside><strong>Asides</strong> work inside sections!</aside>
+    <ul>
+      <li>Sections control the width of most content and leave enough room for asides.</li>
+      <li>Sections are great to put inside of grids (not included), or just as basic building blocks in layouts.</li>
+      <li>Sections support semantic classes (this one is using <code>info</code>).</li>
+    </ul>
 </section>
 
 <section id="paragraph">
     <h1>&lt;p&gt;</h1>
-    <p>Paragraphs (like this one!) are by default limited to 60ish characters width (<code>@max-width</code> determines this). They have an aggressive, but not too aggressive, line height of 1.8 (also a variable!). Like buttons and tables, paragraphs support all the semantic classes.</p>
+    <p>Paragraphs (like this one) are by default limited to 60ish characters width (<code>@max-width</code> determines this). Like buttons and tables, paragraphs support all the semantic classes.</p>
     <p class="info">I'm informing you of something.</p>
     <pre>&lt;p class="info"&gt;I'm informing you of something.&lt;/p&gt;</pre>
     <br>
@@ -118,6 +79,14 @@
 <section id="ul">
     <h1>&lt;ul&gt;</h1>
     <p>Lists are simple, bulleted and support semantic classes.</p>
+    <aside>
+      <p>A success list:</p>
+      <ul class="success">
+        <li>32 members updated</li>
+        <li>12 schedules rotated</li>
+        <li>All course requirements satisfied</li>
+      </ul>
+    </aside>
     <ul>
       <li>Apples</li>
       <li>Bananas</li>
@@ -127,18 +96,6 @@
   &lt;li&gt;Apples&lt;/li&gt;
   &lt;li&gt;Bananas&lt;/li&gt;
   &lt;li&gt;Oranges&lt;/li&gt;
-&lt;/ul&gt;</pre>
-    <br>
-    <p>Here's a success list.</p>
-    <ul class="success">
-      <li>32 members updated</li>
-      <li>12 schedules rotated</li>
-      <li>All course requirements satisfied</li>
-    </ul>
-    <pre>&lt;ul class="success"&gt;
-  &lt;li&gt;32 members updated&lt;/li&gt;
-  &lt;li&gt;12 schedules rotated&lt;/li&gt;
-  &lt;li&gt;All course requirements satisfied&lt;/li&gt;
 &lt;/ul&gt;</pre>
     <br>
 </section>
@@ -167,10 +124,10 @@
 &lt;/aside&gt;</pre>
     <br>
     <aside class="success">
-        <p>You've updated your profile.</p>
+        You've updated your profile.
     </aside>
     <pre>&lt;aside class="success"&gt;
-    &lt;p&gt;You've updated your profile.&lt;/p&gt;
+    You've updated your profile.
 &lt;/aside&gt;</pre>
     <br>
     <p>The Less/CSS for aside can be found in <code>aside.less</code>.</p>
@@ -189,7 +146,6 @@
     &lt;/form&gt;
 &lt;/aside&gt;</pre>
     <br>
-    <p>Asides appear on the left or right, depending on even/oddness.</p>
     <aside>
         <p>You're down to <span class="warning">596</span> credits.</p>
     </aside>
@@ -266,7 +222,7 @@
 
 <section id="footer">
     <h1>&lt;footer&gt;</h1>
-    <p>Footers work a lot like asides, except they tend to align elements inside to the right.</p>
+    <p>Footers give a bit of padding and work well with buttons.</p>
     <footer>
         <button>Submit</button>
     </footer>
@@ -322,40 +278,6 @@
             </table>
             default
         </div>
-        <div>
-            <table class="info">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>First</th>
-                        <th>Last</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Raya</td>
-                        <td>Langley</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Hop</td>
-                        <td>Tillman</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Buffy</td>
-                        <td>Rojas</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Emerson</td>
-                        <td>Pratt</td>
-                    </tr>
-                </tbody>
-            </table>
-            table.info
-        </div>
     </p>
     <p>
         <div>
@@ -399,15 +321,16 @@
 <section id="headline">
     <h1>&lt;h1&gt;</h1>
     <p>Headline text scales with the page size, stopping when it's big enough.</p>
-
     <h1>This is headline text. (h1)</h1>
     <h2>This is headline text. (h2)</h2>
+    <aside>
+      <p>Headlines can be targeted with the <code>.headline-elements({})</code> ruleset mixin.</p>
+    </aside>
     <h3>This is headline text. (h3)</h3>
     <h4>This is headline text. (h4)</h4>
     <h5>This is headline text. (h5)</h5>
     <h6>This is headline text. (h6)</h6>
-    <p>The smaller headlines are left-aligned to group with body text.</p>
-    <p>H5 and H6 are all-caps by default, because otherwise they're super boring.</p>
+    <p>Headlines scale proportionally with the page, up until they get big enough and stop.</p>
 </section>
 
 <section id="form">
@@ -421,7 +344,7 @@
         <label>Last name:</label>
         <input type="text" name="lastname">
         <label>Textarea:</label>
-        <textarea rows="4">Placeholder text</textarea>
+        <textarea rows="4">Text inside textarea</textarea>
         <footer class="action">
             <button onclick="return false" class="reaction">Submit</button>
             <button onclick="return false">Cancel</button>
@@ -441,14 +364,6 @@
         &lt;button &gt;Cancel&lt;/button&gt;
     &lt;/footer&gt;
 &lt;/form&gt;</pre>
-
-    <p>Strapless aims to make simple form markup look good by default. There's no extra markup or JS conventions to worry about. Strapless forms also work well with semantic classes, like this <code>success</code> form here:</p>
-
-    <form class="success">
-        <label>Your favorite color:</label>
-        <input type="text" name="fav_color"><br>
-        <button class="success" onclick="return false">Submit</button>
-    </form>
 </section>
 
 <section id="blockquotes">

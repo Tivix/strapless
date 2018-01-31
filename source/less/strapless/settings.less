@@ -1,26 +1,31 @@
 // settings
 
-@base-color: darken(#90f9f2, 15%);
+@base-color: #39BBC0;
 @base-color-wheel: accented;
 
-@background: @base-color;
-@max-width: 28rem;
-@padding: .5em;
-@border-radius: .4em;
+@background: @color1;
 
-@line-height: 1.7;
+@padding: .5rem;
+@border-radius: .4em;
+@max-width: 28rem;
+@line-height: 1.8;
 @font-size: 16px;
 
 @nav-height: 44px;
 @sticky-nav: true;
 
-@large-phone:   480px;
-@tablet:        720px;
-@desktop:       960px;
-@large-desktop: 1200px;
+@max-width: 28rem;
+@page-width: @column-width + @aside-width + @gutter;
+@gutter: 2rem;
+@column-width: @max-width;
+@aside-width: 16rem;
 
-@success-base: #51ad51;
-@info-base:    #55c7fc;
+@large-phone:   (unit(@aside-width) * @font-size);
+@tablet:        (unit(@column-width) * @font-size);
+@desktop:       (unit(@page-width) * @font-size);
+
+@success-base: #51AD51;
+@info-base:    #55C7FC;
 @failure-base: #DB1017;
 @warning-base: #FC6621;
 

@@ -402,7 +402,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 body > main {
-  padding-top: calc(44px + 0.5em);
+  padding-top: calc(44px + 0.6rem);
 }
 nav {
   background-color: #078178;
@@ -435,9 +435,14 @@ nav li a:active:active {
 nav > section,
 nav > article {
   padding: 0;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  max-width: 44.8rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+}
+@media screen and (min-width: 752px) {
+  nav > section,
+  nav > article {
+    max-width: 47rem;
+  }
 }
 nav > section > *,
 nav > article > * {
@@ -453,7 +458,7 @@ nav > article > * {
   vertical-align: middle;
   overflow: hidden;
 }
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 448px) {
   nav > section > *,
   nav > article > * {
     display: block;
@@ -462,9 +467,9 @@ nav > article > * {
 nav > section > *:first-child,
 nav > article > *:first-child {
   display: block;
-  margin-right: 1em;
+  margin-right: 1.2rem;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 272px) {
   nav > section > *:first-child,
   nav > article > *:first-child {
     margin-right: 44px;
@@ -489,9 +494,9 @@ nav li a {
   display: block;
   float: left;
   color: inherit;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  margin-right: 0.5em;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  margin-right: 0.6rem;
 }
 nav li a:last-child {
   margin-right: 0;
@@ -511,32 +516,32 @@ section,
 article {
   width: 100%;
   margin: 0 auto;
-  padding: 1em 0.5em 1.6em 0.5em;
+  padding: 1em 0.6rem 1.6em 0.6rem;
 }
 section > *,
 article > * {
-  margin: 0 auto;
   max-width: 28rem;
 }
 section section,
 article article {
+  width: auto;
   padding-left: 0;
   padding-right: 0;
 }
 section.action,
 article.action {
-  background-color: #94f3f9;
-  color: #385b5d;
+  background-color: #90f3f9;
+  color: #365b5d;
 }
 section.reaction,
 article.reaction {
-  background-color: #fdd9dc;
-  color: #5f5252;
+  background-color: #fddfe1;
+  color: #5f5454;
 }
 section.info,
 article.info {
-  background-color: #b6e7fe;
-  color: #44575f;
+  background-color: #b2e6fe;
+  color: #43565f;
 }
 section.warning,
 article.warning {
@@ -545,8 +550,8 @@ article.warning {
 }
 section.success,
 article.success {
-  background-color: #c6e4c6;
-  color: #4a564a;
+  background-color: #c7e5c7;
+  color: #4b564b;
 }
 section.failure,
 article.failure {
@@ -561,18 +566,25 @@ article.failure h2,
 article.failure h3 {
   color: #ffffff;
 }
+@media screen and (min-width: 752px) {
+  section > *,
+  article > * {
+    margin-left: calc((100% - 47rem)/2);
+  }
+}
 main {
-  padding: 1em 0.5em;
+  padding: 1em 0.6rem;
   margin-bottom: 1em;
   min-height: 100vh;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
-  -webkit-align-items: center;
-  align-items: center;
+  -webkit-align-items: left;
+  align-items: left;
   -webkit-justify-content: center;
   justify-content: center;
+  padding-top: calc(44px + 0.6rem);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(12,230,216)'/%3E %3Crect width='1' height='1' fill='rgb(12,218,204)'/%3E %3C/svg%3E");
   background-size: 5px, 5px;
   background-position: top left;
@@ -582,34 +594,30 @@ main * {
   max-width: none;
 }
 main > * {
-  max-width: 36.4rem;
-  margin-left: auto;
+  max-width: 47rem;
 }
-main h1,
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
-  text-align: left;
+main > p,
+main > ul,
+main > ol {
+  max-width: 28rem;
 }
 main.action {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(97,238,246)'/%3E %3Crect width='1' height='1' fill='rgb(27,230,243)'/%3E %3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(84,236,246)'/%3E %3Crect width='1' height='1' fill='rgb(13,220,233)'/%3E %3C/svg%3E");
   background-size: 5px, 5px;
   background-position: top left;
-  color: #25595c;
+  color: #1f595c;
 }
 main.reaction {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(252,196,199)'/%3E %3Crect width='1' height='1' fill='rgb(251,174,179)'/%3E %3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(252,201,205)'/%3E %3Crect width='1' height='1' fill='rgb(251,180,184)'/%3E %3C/svg%3E");
   background-size: 5px, 5px;
   background-position: top left;
-  color: #5e494b;
+  color: #5f4c4d;
 }
 main.info {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(149,220,253)'/%3E %3Crect width='1' height='1' fill='rgb(116,209,253)'/%3E %3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(145,219,253)'/%3E %3Crect width='1' height='1' fill='rgb(113,208,252)'/%3E %3C/svg%3E");
   background-size: 5px, 5px;
   background-position: top left;
-  color: #38535f;
+  color: #37525f;
 }
 main.warning {
   color: #3f1b0a;
@@ -618,7 +626,7 @@ main.warning {
   background-position: top left;
 }
 main.success {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(176,218,176)'/%3E %3Crect width='1' height='1' fill='rgb(160,211,160)'/%3E %3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E %3Crect width='5' height='5' fill='rgb(177,218,177)'/%3E %3Crect width='1' height='1' fill='rgb(161,211,161)'/%3E %3C/svg%3E");
   background-size: 5px, 5px;
   background-position: top left;
   color: #425242;
@@ -633,6 +641,11 @@ main.failure h1,
 main.failure h2,
 main.failure h3 {
   color: #ffffff;
+}
+@media screen and (min-width: 752px) {
+  main > *:not(aside) {
+    margin-left: calc((100% - 47rem)/2);
+  }
 }
 button,
 .button,
@@ -759,7 +772,6 @@ h5,
 h6 {
   margin-top: .8em;
   margin-bottom: .8em;
-  text-align: center;
   line-height: 1.36;
   font-weight: normal;
 }
@@ -819,24 +831,24 @@ h5 {
 h6 {
   font-size: calc(16px + 1vw);
 }
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 752px) {
   h1 {
-    font-size: 39.04px;
+    font-size: 34.048px;
   }
   h2 {
-    font-size: 35.2px;
+    font-size: 31.04px;
   }
   h3 {
-    font-size: 32.32px;
+    font-size: 28.784px;
   }
   h4 {
-    font-size: 29.44px;
+    font-size: 26.528px;
   }
   h5 {
-    font-size: 27.52px;
+    font-size: 25.024px;
   }
   h6 {
-    font-size: 25.6px;
+    font-size: 23.52px;
   }
 }
 h1 + h1,
@@ -889,7 +901,7 @@ ol.info,
 ol.warning,
 ol.success,
 ol.failure {
-  padding: 0 0.5em;
+  padding: 0 0.6rem;
   border-radius: 0.2em;
 }
 span.action,
@@ -898,7 +910,7 @@ span.info,
 span.warning,
 span.success,
 span.failure {
-  padding: 0.2em 0.25em 0.3em 0.25em;
+  padding: 0.2em 0.3rem 0.3em 0.3rem;
 }
 span.action {
   background-color: #75f0f8;
@@ -925,7 +937,6 @@ span.failure {
   color: #522f30;
 }
 form {
-  margin: 0 auto;
   padding: 0;
   margin-bottom: 1em;
   max-width: 28rem;
@@ -949,14 +960,18 @@ form.info,
 form.warning,
 form.success,
 form.failure {
-  padding: 1em 0.5em;
+  padding: 1em 0.6rem;
 }
 aside {
-  padding: 0.5em;
+  color: #1b5c58;
+  padding: 0.6rem;
   font-size: 14px;
-  max-width: 17.08rem;
+  max-width: 16.8rem;
   border-radius: 0.4em;
   margin-bottom: 1em;
+}
+aside > * {
+  max-width: 100%;
 }
 aside h1,
 aside h2,
@@ -984,35 +999,34 @@ aside h5 {
 aside h6 {
   font-size: calc(14px + 1vw);
 }
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 448px) {
   aside h1 {
-    font-size: 26.96px;
+    font-size: 21.056px;
   }
   aside h2 {
-    font-size: 24.8px;
+    font-size: 19.88px;
   }
   aside h3 {
-    font-size: 23.72px;
+    font-size: 19.292px;
   }
   aside h4 {
-    font-size: 22.64px;
+    font-size: 18.704px;
   }
   aside h5 {
-    font-size: 21.92px;
+    font-size: 18.312px;
   }
   aside h6 {
-    font-size: 21.2px;
+    font-size: 17.92px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 752px) {
   aside {
-    float: left;
-    font-size: 80%;
+    float: right;
+    font-size: 87.5%;
     padding: 1em;
-    margin-right: 2em;
-    margin-left: 2em;
-    min-width: 17.08rem;
-    width: calc((100% - 28rem)/2);
+    margin-right: calc((100% - 47rem)/2);
+    margin-left: 1em;
+    width: calc(47rem - 28rem - 2rem);
     clear: both;
   }
   aside:after {
@@ -1020,16 +1034,13 @@ aside h6 {
     clear: both;
     content: "";
   }
-  aside:nth-child(odd) {
-    float: right;
-  }
 }
 footer {
   padding-top: 1em;
   margin-bottom: 1em;
 }
 footer > * {
-  margin-bottom: 0.3em;
+  margin-bottom: 0.36rem;
 }
 footer > *:last-child {
   margin-bottom: 0;
@@ -1040,7 +1051,7 @@ footer.info,
 footer.warning,
 footer.success,
 footer.failure {
-  padding: 0.5em;
+  padding: 0.6rem;
 }
 footer button,
 footer .button,
@@ -1048,7 +1059,7 @@ footer input[type="button"],
 footer input[type="submit"] {
   width: 100%;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 272px) {
   footer {
     display: -webkit-flex;
     display: flex;
@@ -1060,7 +1071,7 @@ footer input[type="submit"] {
     justify-content: left;
   }
   footer > * {
-    margin-left: 0.31em;
+    margin-left: 0.372rem;
     margin-bottom: 0;
   }
   footer > *:first-child {
@@ -1088,111 +1099,111 @@ table th {
   color: white;
 }
 table td {
-  color: #3f5c5e;
+  color: #245c59;
 }
 table tr {
   background-color: #47f5e9;
   color: #1b5c58;
 }
 table tr:nth-of-type(odd) {
-  background-color: #a8f6fa;
-  color: #3f5c5e;
+  background-color: #60f5ee;
+  color: #245c59;
 }
 table.action th {
   background-color: #055e63;
   color: white;
 }
 table.action td {
-  color: #596968;
+  color: #435d5e;
 }
 table.action tr {
   background-color: #a8f6fa;
   color: #3f5c5e;
 }
 table.action tr:nth-of-type(odd) {
-  background-color: #d6fdfa;
-  color: #596968;
+  background-color: #b4f7fa;
+  color: #435d5e;
 }
 table.reaction th {
   background-color: #cb0b18;
   color: white;
 }
 table.reaction td {
-  color: #5f5352;
+  color: #5e4a4b;
 }
 table.reaction tr {
   background-color: #fbbdc1;
   color: #5e4748;
 }
 table.reaction tr:nth-of-type(odd) {
-  background-color: #fddcda;
-  color: #5f5352;
+  background-color: #fcc5c7;
+  color: #5e4a4b;
 }
 table.info th {
   background-color: #036c9d;
   color: white;
 }
 table.info td {
-  color: #60686a;
+  color: #4e5a5f;
 }
 table.info tr {
   background-color: #c7edfe;
   color: #4b595f;
 }
 table.info tr:nth-of-type(odd) {
-  background-color: #e5faff;
-  color: #60686a;
+  background-color: #cff0fe;
+  color: #4e5a5f;
 }
 table.warning th {
   background-color: #ce4303;
   color: white;
 }
 table.warning td {
-  color: #5f5750;
+  color: #5f4f47;
 }
 table.warning tr {
   background-color: #fecdb6;
   color: #5f4d44;
 }
 table.warning tr:nth-of-type(odd) {
-  background-color: #fee7d4;
-  color: #5f5750;
+  background-color: #fed3be;
+  color: #5f4f47;
 }
 table.success th {
   background-color: #3d833d;
   color: white;
 }
 table.success td {
-  color: #515850;
+  color: #4b564a;
 }
 table.success tr {
   background-color: #c1e2c1;
   color: #485548;
 }
 table.success tr:nth-of-type(odd) {
-  background-color: #d8ecd6;
-  color: #515850;
+  background-color: #c7e4c6;
+  color: #4b564a;
 }
 table.failure th {
   background-color: #da1017;
   color: white;
 }
 table.failure td {
-  color: #5e4947;
+  color: #533939;
 }
 table.failure tr {
   background-color: #f8a2a5;
   color: #533637;
 }
 table.failure tr:nth-of-type(odd) {
-  background-color: #fac4be;
-  color: #5e4947;
+  background-color: #f9aaab;
+  color: #533939;
 }
 th,
 td {
   text-align: left;
   vertical-align: top;
-  padding: 0.31em;
+  padding: 0.372rem;
 }
 thead th {
   vertical-align: bottom;
@@ -1211,11 +1222,11 @@ tr:last-child > td:last-child {
 }
 tr > td:first-child,
 tr > th:first-child {
-  padding-left: 0.5em;
+  padding-left: 0.6rem;
 }
 tr > td:last-child,
 tr > th:last-child {
-  padding-right: 0.5em;
+  padding-right: 0.6rem;
 }
 blockquote {
   padding-left: 1em;
@@ -1247,7 +1258,7 @@ ul,
 ol {
   max-width: 28rem;
   list-style-position: outside;
-  padding-left: 1.5em;
+  padding-left: 1.8rem;
 }
 ul.action,
 ol.action,
@@ -1261,8 +1272,8 @@ ul.success,
 ol.success,
 ul.failure,
 ol.failure {
-  padding: 0.5em;
-  padding-left: 2em;
+  padding: 0.6rem;
+  padding-left: 2.4rem;
 }
 li {
   margin-bottom: .6em;
@@ -1301,14 +1312,14 @@ acronym {
 }
 code,
 pre {
-  background-color: #0b0c0c;
+  background-color: #29817b;
   color: white;
   font-family: monospace;
   border-radius: 0.2em;
 }
 code {
   font-size: 85%;
-  padding: 0.25em 0.5em 0.25em 0.5em;
+  padding: 0.25em 0.6rem 0.25em 0.6rem;
   position: relative;
   top: -0.1em;
 }
@@ -1317,7 +1328,7 @@ pre {
   margin-bottom: 1em;
   white-space: pre-wrap;
   overflow-wrap: break-word;
-  padding: 0.5em;
+  padding: 0.6rem;
 }
 mark,
 ::selection {

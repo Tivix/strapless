@@ -47,7 +47,7 @@
 }
 
 .sl-swatch-base, .swatch {
-  @size: 32px;
+  @size: 31px;
   @margin: 0;
 
   display: none; // palettes are divs with a bunch of divs inside, this hides unused ones
@@ -58,12 +58,12 @@
 
   min-width: @size*.8;
   width: @size*.8;
-  height: @size*.8;
+  height: @size*.8*.9;
 
   .on-desktop({
     min-width: @size;
     width: @size;
-    height: @size;
+    height: @size*.9;
   });
 
   margin: @margin;
@@ -84,8 +84,6 @@
 
 #palettes {
   .clearfix();
-  margin-left: auto;
-  margin-right: auto;
   margin-bottom: 1em;
   // padding-left: @padding;
 }

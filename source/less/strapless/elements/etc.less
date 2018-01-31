@@ -53,9 +53,8 @@ abbr, acronym {
 }
 
 code, pre {
-  .invert-text-against(@gray-darker);
+  .invert-text-against(mix(@gray-darker, @background, 40%));
   font-family: monospace;
-  // vertical-align: middle;
   border-radius: @border-radius/2;
 }
 

@@ -1,14 +1,22 @@
 aside {
   @font-size: 14px;
 
-  padding: @padding;
+  padding: @padding 0;
   font-size: @font-size;
-  max-width: @max-width*.61;
+  max-width: @max-width*.6;
   .border-radius();
   .margin-bottom();
 
+  > * {
+    max-width: 100%;
+  }
+
   .headline-elements({
     text-align: left;
+  });
+
+  .semantic-classes({
+    padding: @padding;
   });
 
   @h1-base: 1.8;
@@ -35,20 +43,15 @@ aside {
     h6 { font-size: @font-size + @tablet*@h6-base/100;}
   });
 
-  .on-large-desktop({
+  .on-desktop({
     @padding: 1em;
-    float: left;
-    font-size: 80%;
-    padding: @padding;
-    margin-right: 2em;
-    margin-left: 2em;
-    min-width: @max-width*.61;
-    width: ~"calc((100% - @{max-width})/2)";
-    //background: blue;
-    .clearfix();
 
-    &:nth-child(odd) {
-      float: right;
-    }
+    float: right;
+    font-size: 87.5%;
+    padding: @padding .5rem;
+    margin-right: ~"calc((100% - @{page-width})/2)";
+    margin-left: 0;
+    width: @aside-width;;
+    .clearfix();
   });
 }

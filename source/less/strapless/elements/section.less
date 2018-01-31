@@ -1,71 +1,78 @@
 section {
   width: 100%;
   margin: 0 auto;
-  padding: 1em @padding 1.6em @padding;
+  padding: 1em 1rem 1.6em 1rem;
 
   > * {
-    margin: 0 auto;
+    // margin: 0 auto;
     max-width: @max-width;
   }
 
   section {
+    width: auto;
     padding-left: 0;
     padding-right: 0;
   }
 
-  .make-section-colors-for(@colors) {
-    // make section colors for a list of color variable names
-    // sections will use variable names as class names
-
-    @iterations: length(@colors);
-
-    .make-section-color(1);
-
-    .make-section-color(@index) when (@index <= @iterations) {
-
-      @color-name: extract(@colors, @index);
-      @this-color: @@color-name;
-
-      &.@{color-name} {
-        .section-color(@this-color);
-      }
-
-      .make-section-color(@index + 1);
-    }
-  }
-
-  .section-color(@color) when (@color = @warning) {
-    .set-lumafix(@color, @warning-base, .75);
-    background-color: @lumafix;
-    .contrast-text-against(@lumafix);
-
-    .set-contrast-ratio(@lumafix; white;);
-
-    // preferentially tint for more urgency
-    & when (@contrast-ratio > 3) {
-      & h1, & h2, & h3 { .tint-text-against(@lumafix; 7;);}
-    }
-  }
-
-  .section-color(@color) when (@color = @failure) {
-    .set-lumafix(@color, @failure-base, .65);
-    background-color: @lumafix;
-    .contrast-text-against(@lumafix);
-
-    .set-contrast-ratio(@lumafix; white;);
-
-    // preferentially tint for more urgency
-    & when (@contrast-ratio > 3) {
-      & h1, & h2, & h3 { .tint-text-against(@lumafix; 7;);}
-    }
-  }
-
-  .section-color(@color) when (default()) {
-
-    .set-lumafix(@color, @background, .5);
-    background-color: @lumafix;
-    .contrast-text-against(@lumafix);
-  }
-
   .make-section-colors-for(@semantic-colors);
+
+  .on-desktop({
+    > * {
+        margin-left: ~"calc((100% - @{page-width})/2)";
+    }
+  });
+}
+
+.make-section-colors-for(@colors) {
+  // make section colors for a list of color variable names
+  // sections will use variable names as class names
+
+  @iterations: length(@colors);
+
+  .make-section-color(1);
+
+  .make-section-color(@index) when (@index <= @iterations) {
+
+    @color-name: extract(@colors, @index);
+    @this-color: @@color-name;
+
+    &.@{color-name} {
+      .section-color(@this-color);
+    }
+
+    .make-section-color(@index + 1);
+  }
+}
+
+.section-color(@color) when (@color = @warning) {
+  .set-lumafix(@color, @warning-base, .75);
+  background-color: @lumafix;
+  .contrast-text-against(@lumafix);
+
+  .set-contrast-ratio(@lumafix; white;);
+
+  // preferentially tint for more urgency
+  & when (@contrast-ratio > 3) {
+    & h1, & h2, & h3 { .tint-text-against(@lumafix; 7;);}
+  }
+}
+
+.section-color(@color) when (@color = @failure) {
+  .set-lumafix(@color, @failure-base, .65);
+  background-color: @lumafix;
+  .contrast-text-against(@lumafix);
+
+  .set-contrast-ratio(@lumafix; white;);
+
+  // preferentially tint for more urgency
+  & when (@contrast-ratio > 3) {
+    & h1, & h2, & h3 { .tint-text-against(@lumafix; 7;);}
+  }
+}
+
+.section-color(@color) when (default()) {
+
+  .set-lumafix(@color, @background, .6);
+  background-color: @lumafix;
+  .contrast-text-against(@lumafix);
 }

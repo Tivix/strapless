@@ -48,7 +48,7 @@ tr > th {
   .set-a-color(@color);
   .set-c-color(@color);
 
-  @row-a: @a-color;
+  @row-a: mix(@a-color, @color, 25%);
   @row-b: @color;
 
   & th {

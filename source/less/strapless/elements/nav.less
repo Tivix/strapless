@@ -69,7 +69,10 @@ nav {
     padding: 0;
     padding-left: @padding;
     padding-right: @padding;
-    max-width: @max-width*1.6;
+    
+    .on-desktop({
+      max-width: @page-width;
+    });
   }
 
   > section > * { // pseudo reset
@@ -131,8 +134,6 @@ nav {
 
   a {
     text-decoration: none;
-    //padding-left: @padding;
-    //padding-right: @padding;
   }
 
   h1 {

@@ -91,7 +91,7 @@
 
     .colors();
 
-    @width: 80px;
+    @width: 128px;
     @grid-width: @width;
     @grid-spacer: @grid-width/4;
     @grid-spacer-2: @grid-width/4 * 1;
@@ -114,7 +114,7 @@
     @pattern-blueprint:~"%3Csvg xmlns='http://www.w3.org/2000/svg' width='@{grid-width}' height='@{grid-width}'%3E %3Crect width='@{grid-width}' height='@{grid-width}' fill='@{bg}'/%3E %3Cg fill='@{stroke-inner}'%3E %3Crect width='@{grid-width}' height='1' y='@{grid-spacer-2}'/%3E %3Crect width='@{grid-width}' height='1' y='@{grid-spacer-3}'/%3E %3Crect width='@{grid-width}' height='1' y='@{grid-spacer-4}'/%3E %3Crect width='1' height='@{grid-width}' x='@{grid-spacer-2}'/%3E %3Crect width='1' height='@{grid-width}' x='0'/%3E %3Crect width='1' height='@{grid-width}' x='@{grid-spacer-4}'/%3E %3C/g%3E %3Crect width='@{grid-width}' height='1' y='0' fill='none' stroke-width='1' stroke='@{stroke}'/%3E %3Crect width='1' height='@{grid-width}' x='@{offset}' fill='none' stroke-width='1' stroke='@{stroke}'/%3E %3C/svg%3E";
     background-image: url("data:image/svg+xml,@{pattern-blueprint}");
     background-size: (@scale * @width), (@scale * @height);
-    background-position: center center;
+    background-position: top center;
 }
 
 .checkerboard(@base: @color1; @scale: 1;) {
@@ -301,16 +301,16 @@
 
     .colors() when (@tone = white) {
         .set-a-color(@base);
-        @board-base: @base;
-        @shadow-base: darken(@base, 6%);
+        @board-base: average(@base, @a-color);
+        @shadow-base: @base;
         @highlight-base: @a-color;
     }
 
     .colors() when (default()) {
         .set-c-color(@base);
-        @board-base: @base;
-        @shadow-base: mix(@base, @c-color, 66%);
-        @highlight-base: lighten(@base, 5%);
+        @board-base: average(@base, @c-color);
+        @shadow-base: @c-color;
+        @highlight-base: @base;
     }
 
     .colors();
