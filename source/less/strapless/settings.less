@@ -3,25 +3,24 @@
 @base-color: #39BBC0;
 @base-color-wheel: accented;
 
-@background: @color1;
+@background: @base-color;
 
-@padding: .5rem;
+@padding: .5em;
 @border-radius: .4em;
-@max-width: 28rem;
 @line-height: 1.8;
-@font-size: 16px;
+@font-size: 16px; // in px
 
-@nav-height: 44px;
+@nav-height: 2.5rem;
 @sticky-nav: true;
 
 @max-width: 28rem;
-@page-width: @column-width + @aside-width + @gutter;
+@page-width: @column-width + @aside-width + @gutter*2;
 @gutter: 2rem;
 @column-width: @max-width;
 @aside-width: 16rem;
 
-@large-phone:   (unit(@aside-width) * @font-size);
-@tablet:        (unit(@column-width) * @font-size);
+@large-phone:   (unit(@aside-width + @gutter) * @font-size);
+@tablet:        (unit(@column-width + @gutter) * @font-size);
 @desktop:       (unit(@page-width) * @font-size);
 
 @success-base: #51AD51;

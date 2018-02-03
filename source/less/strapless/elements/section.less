@@ -3,6 +3,14 @@ section {
   margin: 0 auto;
   padding: 1em 1rem 1.6em 1rem;
 
+  .on-tablet({
+    padding: 1em ~"calc((100% - @{column-width})/2)";
+  });
+
+  .on-desktop({
+    padding: 1em ~"calc((100% - @{page-width} + @{gutter})/2)";
+  });
+
   > * {
     // margin: 0 auto;
     max-width: @max-width;
@@ -15,12 +23,6 @@ section {
   }
 
   .make-section-colors-for(@semantic-colors);
-
-  .on-desktop({
-    > * {
-        margin-left: ~"calc((100% - @{page-width})/2)";
-    }
-  });
 }
 
 .make-section-colors-for(@colors) {

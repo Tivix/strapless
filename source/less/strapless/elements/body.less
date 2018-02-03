@@ -1,8 +1,10 @@
 body {
+  @max-width-unitless: unit(@max-width);
+
   background-color: @background;
   .contrast-text-against(@background);
   font-size: @font-size;
-  // font-weight: 300;
+  font-size: ~"calc((100vw - @{gutter})/@{max-width-unitless})";
   line-height: @line-height;
   margin-bottom: 0;
   overflow-x: hidden;
@@ -16,6 +18,10 @@ body {
                 Cantarell,
                 "Helvetica Neue",
                 sans-serif;
+
+  .on-tablet({
+    font-size: @font-size;
+  });
 
   & when (@sticky-nav = true) {
     > main { padding-top: ~"calc(@{nav-height} + @{padding})";}

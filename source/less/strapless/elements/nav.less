@@ -2,54 +2,6 @@ nav {
   @color: @color1c;
   @height: @nav-height;
 
-  .set-yellow-distance(@color) {
-    .set-distance(@color, yellow);
-    @yellow-distance: @distance;
-  }
-
-  .set-orange-distance(@color) {
-    .set-distance(@color, orange);
-    @orange-distance: @distance;
-  }
-
-  .set-lemon-distance(@color) {
-    .set-distance(@color, LemonChiffon);
-    @lemon-distance: @distance;
-  }
-
-  .set-mid-yellow-distance(@color) {
-    .set-distance(@color, #E6EB6A);
-    @mid-yellow-distance: @distance;
-  }
-
-  .nav-color() when (@orange-distance < 150),
-                    (@yellow-distance < 100),
-                    (@mid-yellow-distance < 100),
-                    (@lemon-distance < 50) {
-    // orange and yellow lose theme cohesion when darkened
-    // keep them as bg and shade text
-    background: @color;
-    .shade-text-against(@color);
-
-    li a:active {
-      .invert-text-against(@color);
-    }
-  }
-
-  .nav-color() when (default()) {
-    .invert-text-against(@color; @contrast-standard: 3;);
-
-    li a:active {
-      .invert-text-against(@color; @contrast-standard: 3; @button: true;);
-    }
-  }
-
-  .set-yellow-distance(@color);
-  .set-lemon-distance(@color);
-  .set-orange-distance(@color);
-  .set-mid-yellow-distance(@color);
-  .nav-color();
-
   height: @height;
   max-height: @height;
   padding: 0;
@@ -66,13 +18,8 @@ nav {
   }
 
   > section {
-    padding: 0;
-    padding-left: @padding;
-    padding-right: @padding;
-    
-    .on-desktop({
-      max-width: @page-width;
-    });
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   > section > * { // pseudo reset
@@ -145,5 +92,53 @@ nav {
     color: inherit;
   }
 
+  .set-yellow-distance(@color);
+  .set-lemon-distance(@color);
+  .set-orange-distance(@color);
+  .set-mid-yellow-distance(@color);
+  .nav-color();
+
   .no-user-select();
+}
+
+.set-yellow-distance(@color) {
+  .set-distance(@color, yellow);
+  @yellow-distance: @distance;
+}
+
+.set-orange-distance(@color) {
+  .set-distance(@color, orange);
+  @orange-distance: @distance;
+}
+
+.set-lemon-distance(@color) {
+  .set-distance(@color, LemonChiffon);
+  @lemon-distance: @distance;
+}
+
+.set-mid-yellow-distance(@color) {
+  .set-distance(@color, #E6EB6A);
+  @mid-yellow-distance: @distance;
+}
+
+.nav-color() when (@orange-distance < 150),
+                  (@yellow-distance < 100),
+                  (@mid-yellow-distance < 100),
+                  (@lemon-distance < 50) {
+  // orange and yellow lose theme cohesion when darkened
+  // keep them as bg and shade text
+  background: @color;
+  .shade-text-against(@color);
+
+  li a:active {
+    .invert-text-against(@color);
+  }
+}
+
+.nav-color() when (default()) {
+  .invert-text-against(@color; @contrast-standard: 3;);
+
+  li a:active {
+    .invert-text-against(@color; @contrast-standard: 3; @button: true;);
+  }
 }

@@ -1,5 +1,6 @@
 main {
-  padding: 1em @padding;
+  &:extend(section all);
+  // padding: 1em @padding;
   .margin-bottom();
   min-height: 100vh;
   display: -webkit-flex;
@@ -10,10 +11,6 @@ main {
   align-items: left;
   -webkit-justify-content: center;
   justify-content: center;
-
-  & when (@sticky-nav = true) {
-    padding-top: ~"calc(@{nav-height} + @{padding})";
-  }
 
   * {
     max-width: none;
@@ -31,12 +28,6 @@ main {
   .main-color(@background);
 
   .make-main-colors-for(@semantic-colors);
-
-  .on-desktop({
-    > *:not(aside) {
-        margin-left: ~"calc((100% - @{page-width})/2)";
-    }
-  });
 }
 
 .make-main-colors-for(@colors) {

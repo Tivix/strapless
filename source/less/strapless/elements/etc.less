@@ -2,6 +2,8 @@
   box-sizing: border-box;
 }
 
+html { background: average(@gray-darker, @color1c);}
+
 ul, ol {
   &:extend(p all);
   .max-width();
@@ -82,8 +84,8 @@ hr {
   background: @background;
   border-color: transparent;
   height: 1px;
+  max-width: none;
   .margin-bottom();
-  .max-width();
 
   section > &, body > & { border-radius: @border-radius;}
 }

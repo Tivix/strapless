@@ -16,7 +16,7 @@ aside {
   });
 
   .semantic-classes({
-    padding: @padding;
+  //  padding: @padding;
   });
 
   @h1-base: 1.8;
@@ -45,11 +45,12 @@ aside {
 
   .on-desktop({
     @padding: 1em;
+    @page-width-and-gutter: @page-width + @gutter/2;
 
     float: right;
     font-size: 87.5%;
     padding: @padding .5rem;
-    margin-right: ~"calc((100% - @{page-width})/2)";
+    // padding-left: ~"calc(100% - @{page-width})";
     margin-left: 0;
     width: @aside-width;;
     .clearfix();
