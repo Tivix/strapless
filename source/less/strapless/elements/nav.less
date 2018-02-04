@@ -2,10 +2,12 @@ nav {
   @color: @color1c;
   @height: @nav-height;
 
+  &:extend(section all);
+
   height: @height;
   max-height: @height;
-  padding: 0;
-  margin-bottom: 1em;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   & when not (@sticky-nav = true) { .border-radius();}
   z-index: 10;
   overflow: hidden;
@@ -17,45 +19,8 @@ nav {
     border-radius: 0;
   }
 
-  > section {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  > section > * { // pseudo reset
-    display: none;
-    float:left;
-    position: relative;
-    border: none;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    height: @height;
-    vertical-align: middle;
-    overflow: hidden;
-
-    .on-tablet({
-      display: block;
-    });
-
-    &:first-child {
-      display: block;
-      margin-right: @padding * 2;
-
-      .on-large-phone({
-        margin-right: @height;
-      });
-    }
-
-    &:last-child {
-      display: block;
-      float: right;
-      line-height: @height - 6;
-    }
-  }
-
   ul {
+    float: right;
     height: @height;
   }
 
@@ -86,7 +51,8 @@ nav {
   h1 {
     display: block;
     float: left;
-    font-size: @font-size + 8;
+    margin-top: 0;
+    font-size: @font-size*1.5;
     line-height: @height;
     padding: 0;
     color: inherit;

@@ -422,3 +422,13 @@
 .border-radius() {
   &:extend(.border-radius);
 }
+
+.padding() {
+  &:extend(.padding);
+}
+
+.semantic-padding() {
+  .semantic-classes({
+    &:extend(.padding);
+  });
+}

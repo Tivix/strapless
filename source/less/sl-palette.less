@@ -46,8 +46,10 @@
   color: contrast(@color, black, white);
 }
 
+@sl-color-size: 31px;
+
 .sl-swatch-base, .swatch {
-  @size: 31px;
+  @size: @sl-color-size;
   @margin: 0;
 
   display: none; // palettes are divs with a bunch of divs inside, this hides unused ones
@@ -57,13 +59,14 @@
   font-size: 10px;
 
   min-width: @size*.8;
-  width: @size*.8;
-  height: @size*.8*.9;
+  //width: @size*.8;
+  width: 25%;
+  height: 25px;
 
   .on-desktop({
     min-width: @size;
-    width: @size;
-    height: @size*.9;
+    //width: @size;
+    height: 25px;
   });
 
   margin: @margin;
@@ -82,6 +85,17 @@
   }
 }
 
+.sl-color-container, .palette-preview h3 {
+  width: 100%;
+  max-width: 100%;
+  line-height: 20px;
+  margin-bottom: 0;
+
+  .on-desktop({
+    max-width: 100%;
+  });
+}
+
 #palettes {
   .clearfix();
   margin-bottom: 1em;
@@ -94,7 +108,7 @@
 
 .palette-preview {
   display: inline-block;
-  margin-right: @padding;
+  // margin-right: @padding;
   margin-bottom: @padding;
   position: relative;
   //width: 56*4px + 40px;
@@ -110,6 +124,10 @@
     width: 100%;
     margin-bottom: 12px;
   }
+
+  .on-large-phone({
+      width: 32%;
+  });
 }
 
 .main-color, .a-color, .b-color, .c-color {

@@ -1,6 +1,5 @@
 main {
   &:extend(section all);
-  // padding: 1em @padding;
   .margin-bottom();
   min-height: 100vh;
   display: -webkit-flex;
@@ -14,6 +13,10 @@ main {
 
   * {
     max-width: none;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   > * {
@@ -25,7 +28,7 @@ main {
     max-width: @column-width;
   }
 
-  .main-color(@background);
+  .main-color(@base-color);
 
   .make-main-colors-for(@semantic-colors);
 }
@@ -54,7 +57,7 @@ main {
 .main-color(@color) when (@color = @warning) {
   .set-lumafix(@color, @warning-base, .75);
   .contrast-text-against(@lumafix);
-  .blueprint(@lumafix);
+  .dots(@lumafix);
 
   .set-contrast-ratio(@lumafix; white;);
   & when (@contrast-ratio > 3) {
@@ -65,7 +68,7 @@ main {
 .main-color(@color) when (@color = @failure) {
   .set-lumafix(@color, @failure-base, .5);
   .contrast-text-against(@lumafix);
-  .blueprint(@lumafix);
+  .dots(@lumafix);
 
   .set-contrast-ratio(@lumafix; white;);
   & when (@contrast-ratio > 3) {
@@ -74,8 +77,7 @@ main {
 }
 
 .main-color(@color) when (default()) {
-  .set-lumafix(@color, @background, .6);
-  .set-c-color(@lumafix);
-  .blueprint(@c-color); // dots pattern background
+  .set-c-color(@color);
+  .dots(@c-color); // dots pattern background
   .contrast-text-against(@c-color);
 }

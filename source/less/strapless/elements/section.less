@@ -1,18 +1,19 @@
 section {
   width: 100%;
   margin: 0 auto;
-  padding: 1em 1rem 1.6em 1rem;
+  padding: @margin 1rem;
 
   .on-tablet({
-    padding: 1em ~"calc((100% - @{column-width})/2)";
+    padding: @margin ~"calc((100% - @{column-width} - @{margin} - @{margin})/2 + @{margin})";
   });
 
   .on-desktop({
-    padding: 1em ~"calc((100% - @{page-width} + @{gutter})/2)";
+    padding: @margin ~"calc((100% - @{page-width})/2 + @{margin})";
   });
 
+  padding-bottom: 1.6*@margin;
+
   > * {
-    // margin: 0 auto;
     max-width: @max-width;
   }
 

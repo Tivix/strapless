@@ -1,28 +1,34 @@
 // settings
 
+// basics
 @base-color: #39BBC0;
 @base-color-wheel: accented;
 
+// css attribute defaults
 @background: @base-color;
-
 @padding: .5em;
+@margin: 1rem;
+@max-width: 28rem;
 @border-radius: .4em;
 @line-height: 1.8;
 @font-size: 16px; // in px
 
-@nav-height: 2.5rem;
+// nav settings
+@nav-height: 2.8rem;
 @sticky-nav: true;
 
-@max-width: 28rem;
-@page-width: @column-width + @aside-width + @gutter*2;
-@gutter: 2rem;
+// layout settings
+@page-width: @margin + @column-width + @gutter + @aside-width + @margin;
+@gutter: @margin*2;
 @column-width: @max-width;
-@aside-width: 16rem;
+@aside-width: floor(@column-width*.6);
 
-@large-phone:   (unit(@aside-width + @gutter) * @font-size);
-@tablet:        (unit(@column-width + @gutter) * @font-size);
+// breakpoints (used in targets.less)
+@large-phone:   (unit(@aside-width + @margin*2) * @font-size);
+@tablet:        (unit(@column-width + @margin*2) * @font-size);
 @desktop:       (unit(@page-width) * @font-size);
 
+// semantic color bases
 @success-base: #51AD51;
 @info-base:    #55C7FC;
 @failure-base: #DB1017;

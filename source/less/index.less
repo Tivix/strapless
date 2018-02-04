@@ -48,9 +48,10 @@
 
   width: 150px;
 
+  .set-tone(@action);
+
   .letter {
 
-    .set-tone(@action);
     .fill();
 
     .fill() when (@tone = black) {
@@ -65,6 +66,12 @@
   .accent {
 
     .fill();
+
+    .set-distance(@success, @action);
+
+    .fill() when (@distance < 40) {
+      fill: @tone;
+    }
 
     .fill() when (default()) {
       fill: @success;
@@ -112,8 +119,10 @@
   button {
     min-height: 32px;
   }
+  display: none;
 
   .on-desktop({
+    display: block;
     position: fixed;
     font-size: 12px;
     width: 200px;

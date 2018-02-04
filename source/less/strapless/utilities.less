@@ -5,7 +5,7 @@
 
 .max-width { max-width: @max-width;}
 
-.margin-bottom { margin-bottom: 1em;}
+.margin-bottom { margin-bottom: @margin;}
 
 .border-radius { border-radius: @border-radius;}
 
@@ -16,6 +16,10 @@
     clear: both;
     content: "";
   }
+}
+
+.padding {
+  padding: @padding;
 }
 
 .make-color-classes-for(@semantic-colors);
