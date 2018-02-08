@@ -2,6 +2,7 @@ main {
   &:extend(section all);
   .margin-bottom();
   min-height: 100vh;
+
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
@@ -10,6 +11,8 @@ main {
   align-items: left;
   -webkit-justify-content: center;
   justify-content: center;
+
+  font-size: 112.5%;
 
   * {
     max-width: none;
@@ -24,9 +27,22 @@ main {
     //margin-left: auto;
   }
 
-  > p {
-    max-width: @column-width;
-  }
+  h1 { font-size: ~"calc(@{font-size} + @{h1-base}vw)";}
+  h2 { font-size: ~"calc(@{font-size} + @{h2-base}vw)";}
+  h3 { font-size: ~"calc(@{font-size} + @{h3-base}vw)";}
+  h4 { font-size: ~"calc(@{font-size} + @{h4-base}vw)";}
+  h5 { font-size: ~"calc(@{font-size} + @{h5-base}vw)";}
+  h6 { font-size: ~"calc(@{font-size} + @{h6-base}vw)";}
+
+  .on-large-desktop({
+    // headlines stop growing at large-desktop breakpoint
+    h1 { font-size: @font-size + @large-desktop*@h1-base/100;}
+    h2 { font-size: @font-size + @large-desktop*@h2-base/100;}
+    h3 { font-size: @font-size + @large-desktop*@h3-base/100;}
+    h4 { font-size: @font-size + @large-desktop*@h4-base/100;}
+    h5 { font-size: @font-size + @large-desktop*@h5-base/100;}
+    h6 { font-size: @font-size + @large-desktop*@h6-base/100;}
+  });
 
   .main-color(@base-color);
 

@@ -10,6 +10,10 @@
 	@media screen and (min-width: @desktop) { @rules();}
 }
 
+.on-large-desktop(@rules) {
+	@media screen and (min-width: @large-desktop) { @rules();}
+}
+
 .in-print(@rules) {
 	@media print { @rules();}
 }

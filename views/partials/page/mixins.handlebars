@@ -1,6 +1,21 @@
 <section id="less">
-  <h1>LessCSS</h1>
-  <p>Strapless uses Less, a CSS pre-processor.</p>
+  <h1>Less mix-ins</h1>
+  <p>Strapless uses Less, a CSS pre-processor. It comes with a whole bunch of Less mix-ins for managing colors and contrast.</p>
 
-  
+  <h3>Text contrast</h3>
+  <p>Almost every element uses the main contrast plug-in:</p>
+  <p><code>.contrast-text-against(@color)</code></p>
+  <p>This contrasts the text color against the given background color. This mixin determines whether to lighten or darken to meet contrast standards, then meets them by lightening or darkening enough. Since it has the option of both, this mixin can support AA-level contrast for any given background color.</p>
+  <p><code>.colorize(@color)</code></p>
+  <p>This does the same thing, except it also sets the bacground color to <code>@color</code>, a useful pattern for just quickly turning something into some other color.</p>
+  <p><code>.shade-text-against(@color)</code></p>
+  <p>This works like .contrast-text-against, except it always darkens the background color to produce the text color. Sometimes this can't meet AA-level contrast standards. Using it on black, for example, wouldn't give your text color anywhere to go.</p>
+  <p><code>.tint-text-against(@color)</code></p>
+  <p>Just like shading, but works by lightening the background color to produce contrastful text color.</p>
+  <p><code>.invert-text-against(@color)</code></p>
+  <p>This <em>always</em> results in white text. If the text isn't contrastful enough, then it will darken the background color to meet text contrast standards. This is the only text contrast mixin that changes the background color.</p>
+
+  <h3>Meeting contrast standards</h3>
+  <p>Strapless is designed to meet AA-level contrast standards out of the box with any base color. As long as you use a contrast mix-in, it'll <em>just work</em>.</p>
+
 </section>

@@ -1,30 +1,39 @@
-.contrast-text-against(@color; @contrast-standard: 4.5) when (default()) {
-  // automatically sets contrastful text color given a background color
+.contrast-text-against(@color: @background; @contrast-standard: 4.5) {
+  // adds tone to background color until contrast standard is met
+  // uses result as text color
 
-  // find how much we could tint by finding color/white contrast ratio
-  .set-contrast-ratio(@color, white);
+  @start: 50%;
+  @iterations: 10;
+  @contrast: mix(@tone, @color, @start + @index*5);
+  @index: 0;
 
-  // use 4.5 c/r as a middle contrast wedge to determine if we can tint:
+  .set-tone(@color);
+  .contrast-text(1, 1);
 
-  .tint-or-shade(@color) when (@contrast-ratio > 4.5) and (@contrast-standard <= 7) {
-    // tinting usually needs at least 7
-    .tint-text-against(@color; 7;);
+  .contrast-text(@contrast-ratio, @index)
+       when (@contrast-ratio < 7)
+       and (@tone = white)
+       and (@index < @iterations) {
+    .set-contrast-ratio(@color, @contrast);
+    .contrast-text(@contrast-ratio; @index + 1);
   }
 
-  .tint-or-shade(@color) when (@contrast-ratio > 4.5) and (@contrast-standard > 7) {
-    // if the standard is above 7, we'll use that
-    .tint-text-against(@color; @contrast-standard;);
+  .contrast-text(@contrast-ratio, @index)
+       when (@contrast-ratio < @contrast-standard)
+       and (@tone = black)
+       and (@index < @iterations) {
+    .set-contrast-ratio(@color, @contrast);
+    .contrast-text(@contrast-ratio; @index + 1);
   }
 
-  .tint-or-shade(@color) when (default()) {
-    // if tinting can't work, then shade
-    .shade-text-against(@color; @contrast-standard;);
+  .contrast-text(@contrast-ratio, @index) when (default()) {
+    color: @contrast;
   }
-
-  .tint-or-shade(@color);
 }
 
-.contrast-text-against(@color, @contrast-standard: 9) when (@color = white) and (@contrast-standard >= 4.5) {
+.contrast-text-against(@color: @background, @contrast-standard: 9)
+                 when (@color = white)
+                  and (@contrast-standard >= 4.5) {
   // the objectively correct text color against white
   // arrived at by monks after years of meditation and seclusion
 
@@ -39,6 +48,8 @@
   // adds white to background color until contrast standard is met
   // uses result as text color
 
+  // contrast ratio of 7 highly recommended, even for AA-level themes
+
   @start: 55%;
   @iterations: 10;
   @interval: unit((100% - @start)/@iterations);
@@ -47,8 +58,9 @@
 
   .tint-text(1, 1);
 
-  .tint-text(@contrast-ratio, @index) when (@contrast-ratio < @contrast-standard)
-                                        and (@index < @iterations) {
+  .tint-text(@contrast-ratio, @index)
+       when (@contrast-ratio < @contrast-standard)
+        and (@index < @iterations) {
     .set-contrast-ratio(@color, @tint);
     .tint-text(@contrast-ratio; @index + 1);
   }
@@ -70,8 +82,9 @@
 
   .shade-text(1, 1);
 
-  .shade-text(@contrast-ratio, @index) when (@contrast-ratio < @contrast-standard)
-                                        and (@index < @iterations) {
+  .shade-text(@contrast-ratio, @index)
+        when (@contrast-ratio < @contrast-standard)
+         and (@index < @iterations) {
     .set-contrast-ratio(@color, @shade);
     .shade-text(@contrast-ratio; @index + 1);
   }
@@ -91,8 +104,9 @@
   .set-contrast-ratio(@color, white);
   .darken-bg(@color, @contrast-ratio, 1);
 
-  .darken-bg(@bg-color, @contrast-ratio, @index) when (@contrast-ratio < 4.5)
-                                                  and (@index < @iterations) {
+  .darken-bg(@bg-color, @contrast-ratio, @index)
+       when (@contrast-ratio < 4.5)
+        and (@index < @iterations) {
     @new-bg-color: darken(@bg-color, 5% + @index);
     .set-contrast-ratio(white, @new-bg-color);
     .darken-bg(@new-bg-color, @contrast-ratio, @index + 1);
@@ -103,6 +117,7 @@
     color: white;
 
     & when (@button = true) {
+      // button option lets us handle active state here when we know the color
       &:active {
         background-color: darken(@bg-color, 5%);
         color: mix(@bg-color, white, 5%);
@@ -114,15 +129,17 @@
 .color-text(@color; @text-background: @background; @contrast-standard: 4.5) {
 
   // darkens text against a background
-  // only works with lighter backgrounds
+  // like tint- or shade-, only works with lighter backgrounds
+  // not guaranteed to meet @contrast-standard
 
   @iterations: 15;
 
   .set-contrast-ratio(@color, @text-background);
   .darken-text(@color, @contrast-ratio, 1);
 
-  .darken-text(@text-color, @contrast-ratio, @index) when (@contrast-ratio < @contrast-standard)
-                                                  and (@index < @iterations) {
+  .darken-text(@text-color, @contrast-ratio, @index)
+         when (@contrast-ratio < @contrast-standard)
+          and (@index < @iterations) {
     @new-text-color: darken(@text-color, 5%);
     .set-contrast-ratio(@text-background, @new-text-color);
     .darken-text(@new-text-color, @contrast-ratio, @index + 1);
@@ -282,6 +299,10 @@
 
 .set-distance(@a, @b) {
   // sets variable @distance to distance between two colors
+  // distance is RGB space units
+
+  // RGB space model isn't perfectly cubic, but instead
+  // adjusted for human perception
 
   @r-values-a-b: 2*(red(@b) - red(@a))*(red(@b) - red(@a));
   @g-values-a-b: 4*(green(@b) - green(@a))*(green(@b) - green(@a));
@@ -292,7 +313,7 @@
 
 .set-closer-farther(@compare, @c1, @c2) {
   // compares c1 and c2 to a given color, assigns a @farther and @closer
-  // based on distance in RGB space
+  // distance is RGB space units
 
   .set-distance-m-c1() {
     .set-distance(@compare, @c1);
@@ -320,7 +341,10 @@
   .resolve();
 }
 
-.set-farther-closer(@compare, @c1, @c2) { .set-closer-farther(@compare, @c1, @c2);}
+.set-farther-closer(@compare, @c1, @c2) {
+  // just another closer-farther
+  .set-closer-farther(@compare, @c1, @c2);
+}
 
 .set-tone(@color) {
   // sets variable @tone to white or black, depending on which is better for text contrast

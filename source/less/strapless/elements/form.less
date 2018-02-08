@@ -9,6 +9,10 @@ form {
     padding: .5em;
     margin-bottom: 1em;
     border: none;
+
+    & when (luma(@base-color) > 98%) {
+      border-bottom: 1px solid @gray;
+    }
   }
 
   input, label {
