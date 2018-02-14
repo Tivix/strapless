@@ -27,6 +27,17 @@ main {
     //margin-left: auto;
   }
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @h1-base: 2.5;
+  @h2-base: 1.75;
+  @h3-base: 1.25;
+  @h4-base: 1;
+  @h5-base: .75;
+  @h6-base: .25;
+
   h1 { font-size: ~"calc(@{font-size} + @{h1-base}vw)";}
   h2 { font-size: ~"calc(@{font-size} + @{h2-base}vw)";}
   h3 { font-size: ~"calc(@{font-size} + @{h3-base}vw)";}

@@ -1,10 +1,13 @@
+// body { border: 5px solid red;}
+
 section {
   width: 100%;
   margin: 0 auto;
-  padding: @margin 1rem;
+  padding: @margin @margin/2;
+  .clearfix();
 
   .on-tablet({
-    padding: @margin ~"calc((100% - @{column-width} - @{margin} - @{margin})/2 + @{margin})";
+    padding: @margin ~"calc((100% - @{column-width})/2)";
   });
 
   .on-desktop({

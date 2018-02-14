@@ -3,15 +3,16 @@
 // basics
 @base-color: #39BBC0;
 @base-color-wheel: accented;
+@base-font-size: 16px; // in px
 
 // css attribute defaults
-@background: @base-color;
 @padding: .5em;
 @margin: 1rem;
-@max-width: 28rem;
-@border-radius: .4em;
+@max-width: 28rem; // text measure of about 60 characters
 @line-height: 1.8;
-@font-size: 16px; // in px
+@border-radius: .4em;
+@background: @base-color;
+@font-size: @base-font-size;
 
 // nav settings
 @nav-height: 2.8rem;
@@ -24,10 +25,10 @@
 @aside-width: floor(@column-width*.6);
 
 // breakpoints (used in targets.less)
-@large-phone:   (unit(@aside-width + @margin*2) * @font-size);
-@tablet:        (unit(@column-width + @margin*2) * @font-size);
+@large-phone:   (unit(@aside-width + @margin/2) * @font-size);
+@tablet:        (unit(@column-width + @margin) * @font-size);
 @desktop:       (unit(@page-width) * @font-size);
-@large-desktop: (unit(@page-width + @column-width + @gutter) * @font-size);
+@large-desktop: (unit(@page-width + @aside-width + @gutter) * @font-size);
 
 // semantic color bases
 @success-base: #51AD51;

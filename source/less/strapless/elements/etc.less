@@ -2,7 +2,9 @@
   box-sizing: border-box;
 }
 
-html { background: average(@gray-darker, @color1c);}
+html {
+  background: average(@gray-darker, @color1c);
+}
 
 ul, ol {
   &:extend(p all);
@@ -11,10 +13,10 @@ ul, ol {
   margin: 0;
   padding: 0;
 
-  padding-left: @padding*3;
+  padding-left: 1.2em;
 
   .semantic-classes({
-    padding-left: @padding*4;
+    padding-left: 2.4em;
   });
 }
 
@@ -82,13 +84,9 @@ mark, ::selection {
 }
 
 hr {
-  @background: @action;
-  margin: 0;
-  background: @background;
+  margin: @margin 0;
+  background: @action;
   border-color: transparent;
   height: 1px;
-  max-width: 100%;
-  .margin-bottom();
-
-  section > &, body > & { border-radius: @border-radius;}
+  .max-width();
 }

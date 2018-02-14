@@ -4,6 +4,7 @@
 
   <h3>Text contrast</h3>
   <p>Almost every element uses the main contrast plug-in:</p>
+  <h5>Contrast text against</h5>
   <p><code>.contrast-text-against(@color)</code></p>
   <p>This contrasts the text color against the given background color. This mixin determines whether to lighten or darken to meet contrast standards, then meets them by lightening or darkening enough. Since it has the option of both, this mixin can support AA-level contrast for any given background color.</p>
   <p><code>.colorize(@color)</code></p>
@@ -18,4 +19,6 @@
   <h3>Meeting contrast standards</h3>
   <p>Strapless is designed to meet AA-level contrast standards out of the box with any base color. As long as you use a contrast mix-in, it'll <em>just work</em>.</p>
 
+  <h3>Strong tinting</h3>
+  <p>The WCAG standard for contrast doesn't treat tinted and shaded text differently. Strapless mix-in defaults do, however, generally aiming for AAA-level standards any time light text is needed. Use your own contrast standards by passing <code>@contrast-standard</code> to a contrast mix-in.</p>
 </section>

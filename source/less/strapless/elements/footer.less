@@ -1,41 +1,17 @@
 footer {
-  padding-top: 1em;
-  .margin-bottom();
-
-  > * {
-    margin-bottom: @padding*.6;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
+  padding-top: @padding;
+  width: 100%;
   .semantic-padding();
 
   .button-elements({
     width: 100%;
-  });
+    margin-bottom: @padding;
 
-  .on-large-phone({
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    -webkit-align-items: left;
-    align-items: left;
-    -webkit-justify-content: left;
-    justify-content: left;
-
-    > * {
-      margin-left: @padding*.62;
+    &:last-child {
       margin-bottom: 0;
-
-      &:first-child {
-        margin-left: 0;
-      }
     }
 
-    .button-elements({
+    .on-tablet({
       width: auto;
       margin-bottom: 0;
     });

@@ -6,18 +6,21 @@ form {
   input[type="text"],
   textarea {
     width: 100%;
-    padding: .5em;
-    margin-bottom: 1em;
+    padding: @padding;
+    .margin-bottom();
     border: none;
+    line-height: @line-height;
 
-    & when (luma(@base-color) > 98%) {
-      border-bottom: 1px solid @gray;
+    & when (luma(@background) > 98%) {
+      border-bottom: 1px solid @gray-light;
     }
   }
 
   input, label {
+    margin-bottom: @padding/2;
+
     & + & {
-      margin-top: 1em;
+      margin-top: @margin;
     };
   }
 }

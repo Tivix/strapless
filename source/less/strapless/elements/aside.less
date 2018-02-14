@@ -5,9 +5,10 @@ aside {
   @h4-base: 1.2;
   @h5-base: 1.1;
   @h6-base: 1;
-  @unitless-aside-width: unit(@aside-width);
+  @aside-width-adjust: unit(@aside-width/@column-width);
 
   width: @aside-width;
+  width: ~"calc((100vw - @{margin})*(@{aside-width-adjust}))";
   font-size: 87.5%;
   margin: 0 auto @margin auto;
   padding-bottom: @padding;
@@ -23,7 +24,7 @@ aside {
   h6 { font-size: ~"calc(@{font-size} + @{h6-base}vw)";}
 
   .on-tablet({
-
+    width: @aside-width;
     // headlines stop growing at tablet breakpoint
     h1 { font-size: @font-size + @tablet*@h1-base/100;}
     h2 { font-size: @font-size + @tablet*@h2-base/100;}
