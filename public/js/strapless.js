@@ -1,7 +1,7 @@
 var Strapless = (function() {
 
-    var server_ip = 'http://104.199.126.237';
-    // var server_ip = 'http://127.0.0.1';
+    // var server_ip = 'http://104.199.126.237';
+    var server_ip = 'http://127.0.0.1:8000';
 
     function _generateFavicon() {
         var canvas = document.createElement('canvas');
@@ -36,10 +36,19 @@ var Strapless = (function() {
         }
     }
 
-    function _getLessFile(baseColor) {
+    function _getLessFile(baseColor, whiteBg) {
+        console.log(whiteBg);
+        if (whiteBg === true) {
+          var css_url = '/democss-white/';
+        } else {
+          var css_url = '/democss/';
+        }
         return new Promise(function(resolve, reject) {
+
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', server_ip + '/democss/' + baseColor);
+
+
+            xhr.open('GET', server_ip + css_url + baseColor);
             xhr.onload = function() {
                 if (this.status >= 200 && this.status < 300) {
                     var response = {
@@ -86,7 +95,11 @@ var Strapless = (function() {
     function _getCSSFile() {
         var baseColor = document.getElementById('seed_color').value;
         var validHex = /^(?:[0-9a-f]{3}){1,2}$/i.test(baseColor);
-        if (validHex) {
+        var whiteCheckbox = document.getElementById('white_background');
+        
+        if (validHex && whiteCheckbox.checked) {
+            location.href='/css-version-white-bg/' + baseColor;
+        } else if (validHex) {
             location.href='/css-version/' + baseColor;
         } else {
             window.alert('Invalid hex color value entered.');
@@ -106,12 +119,17 @@ var Strapless = (function() {
     function _updateScheme() {
         var baseColor = document.getElementById('seed_color').value;
         var styleBlock = document.getElementById('style_block');
+        var whiteCheckbox = document.getElementById('white_background');
+
+        console.log('updateScheme:');
+        console.log(whiteCheckbox.checked);
         var validHex = /^(?:[0-9a-f]{3}){1,2}$/i.test(baseColor);
         if (validHex) {
+          console.log(whiteCheckbox.checked);
             var overlay = document.getElementById('loading_overlay');
             setOverlayColor(overlay, baseColor);
             overlay.style.display = 'block';
-            _getLessFile(baseColor)
+            _getLessFile(baseColor, whiteCheckbox.checked)
                 .then(function(response) {
                     deleteStyleSheets();
                     var css = response.styles,

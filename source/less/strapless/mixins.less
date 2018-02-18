@@ -12,16 +12,16 @@
 
   .contrast-text(@contrast-ratio, @index)
        when (@contrast-ratio < 7)
-       and (@tone = white)
-       and (@index < @iterations) {
+        and (@tone = white)
+        and (@index < @iterations) {
     .set-contrast-ratio(@color, @contrast);
     .contrast-text(@contrast-ratio; @index + 1);
   }
 
   .contrast-text(@contrast-ratio, @index)
        when (@contrast-ratio < @contrast-standard)
-       and (@tone = black)
-       and (@index < @iterations) {
+        and (@tone = black)
+        and (@index < @iterations) {
     .set-contrast-ratio(@color, @contrast);
     .contrast-text(@contrast-ratio; @index + 1);
   }
@@ -154,6 +154,11 @@
   // sets a background color and makes sure text works with it
   background-color: @color;
   .contrast-text-against(@color);
+
+  // &:after {
+  //   @content: round(luma(@color), 2);
+  //   content: " @{content}";
+  // }
 }
 
 .set-a-color(@color, @compare: @color) {
@@ -269,11 +274,22 @@
 
   .make-color-class(@index) when (@index <= @iterations) {
     @color-name: extract(@colors, @index);
-    @this-color: @@color-name;
 
-    .@{color-name} {
-      .colorize(@this-color);
+    .color-name(@color) when (iscolor(@color)) {
+      .@{color-name} {
+        .colorize(@color-name);
+      }
     }
+
+    .color-name(@color) when not (iscolor(@color)) {
+      @this-color: @@color-name;
+
+      .@{color-name} {
+        .colorize(@this-color);
+      }
+    }
+
+    .color-name(@color-name);
 
     .make-color-class(@index + 1);
   }
@@ -398,26 +414,36 @@
 .set-lumafix(@color; @compare: @base-color; @luma-multiplier: .6;) {
   // sets @lumafix to a version of @color with luma similar to @compare
 
-  // it's not perfect, use @luma-multilplier to adjust results
+  @iterations: 12;
 
-  @color-luma: luma(@color);
-  @compare-luma: luma(@compare);
-
-  @luma-difference: abs(@color-luma - @compare-luma);
-
-  .adjust-luma(@color, @index) when (luma(@color) < luma(@compare)) {
-    @lumafix: lighten(@color, @luma-difference*@luma-multiplier);
+  .settings() when (luma(@color) > luma(@compare)) {
+    @tone: black;
   }
 
-  .adjust-luma(@color, @index) when (luma(@color) > luma(@compare)) {
-    @lumafix: darken(@color, @luma-difference*@luma-multiplier);
+  .settings() when (luma(@compare) >= luma(@color)) {
+    @tone: white;
   }
 
-  .adjust-luma(@color, @index) when (default()) {
-    @lumafix: @color;
+  .lumafix(@color-to-fix, @compare, @index) when (@index <= @iterations)
+                                      and (luma(@color-to-fix) < luma(@compare))
+                                      and (@tone = white) {
+    @new-color: lighten(@color-to-fix, 2%);
+    .lumafix(@new-color, @compare, @index + 1);
   }
 
-  .adjust-luma(@color, 1);
+  .lumafix(@color-to-fix, @compare, @index) when (@index <= @iterations)
+                                      and (luma(@color-to-fix) > luma(@compare))
+                                      and (@tone = black) {
+    @new-color: darken(@color-to-fix, 2%);
+    .lumafix(@new-color, @compare, @index + 1);
+  }
+
+  .lumafix(@color-to-fix, @compare, @index) when (default()) {
+    @lumafix: @color-to-fix;
+  }
+
+  .settings();
+  .lumafix(@color, @compare, 1);
 }
 
 .no-user-select() {

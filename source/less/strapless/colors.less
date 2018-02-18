@@ -71,15 +71,16 @@
 
 .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (saturation(@color) < 1.5%) {
   // for grays, set up working color2, 3 and 4 and then reinforce gray color1
-  @standin-base: spin(#ABD0F7, 180);
-  .make-palette(average(@color, @standin-base); @wheel); // @color is always gray so this desaturates
-  @color1: @color;
-  .set-a-color(@color1);
-  .set-b-color(@color1);
-  .set-c-color(@color1);
-  @color1a: desaturate(@a-color, (100 - saturation(@color)));
-  @color1b: desaturate(@b-color, (100 - saturation(@color)));
-  @color1c: desaturate(@c-color, (100 - saturation(@color)));
+  @standin-base: #D76224;
+  .set-lumafix(@standin-base);
+  .make-palette(@lumafix; @wheel);
+  @color1: @base-color;
+  .set-a-color(@base-color);
+  .set-b-color(@base-color);
+  .set-c-color(@base-color);
+  @color1a: desaturate(@a-color, 100% - saturation(@color));
+  @color1b: desaturate(@b-color, 100% - saturation(@color));
+  @color1c: desaturate(@c-color, 100% - saturation(@color));
   @warning: @warning-base;
   @failure: @failure-base;
   @info: @info-base;
@@ -119,24 +120,18 @@
   @color1: @color;
 }
 
-@base-luma-var: .6;
-
 .make-color2(@color; @wheel) {
-  @wheel-var: @@wheel;
-  .set-lumafix(spin(@color, extract(@wheel-var, 1)); @base-color; @base-luma-var;);
+  .set-lumafix(spin(@color, extract(@wheel, 1)););
   @color2: @lumafix;
 }
 
 .make-color3(@color; @wheel) {
-  @wheel-var: @@wheel;
-  .set-lumafix(spin(@color, extract(@wheel-var, 2)); @base-color; @base-luma-var;);
+  .set-lumafix(spin(@color, extract(@wheel, 2)););
   @color3: @lumafix;
-  // @color3: spin(@color, extract(@wheel-var, 2));
 }
 
 .make-color4(@color; @wheel) {
-  @wheel-var: @@wheel;
-  .set-lumafix(spin(@color, extract(@wheel-var, 3)); @base-color; @base-luma-var;);
+  .set-lumafix(spin(@color, extract(@wheel, 3)););
   @color4: @lumafix;
 }
 

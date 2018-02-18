@@ -6,10 +6,7 @@
 @import "sl-pattern";
 @import "strapless/strapless";
 
-// demo-wheels doesn't contain any -b wheeels
-
-@demo-wheels:  @color-wheels;
-
+body,
 #feature,
 #feature > *,
 #strapless_nav,
@@ -46,7 +43,7 @@
 .logo {
   // Tivix logo
 
-  // width: 150px;
+  max-width: 60%;
 
   .set-tone(@action);
 
@@ -93,39 +90,19 @@
 }
 
 #demo_form {
-  bottom: @padding;
-  right: @padding;
+  position: relative;
+  padding: @padding;
   max-width: auto;
-  z-index: 1000;
-
-  label {
-    max-width: 120px;
-  }
-
-  > * {
-    display: block;
-    float: left;
-    margin-top: 6px;
-    margin-right: 8px;
-    max-width: auto;
-  }
-
-  > input {
-    width: 120px;
-    height: 32px;
-    padding: .2em .8em;
-  }
-
-  button {
-    min-height: 32px;
-  }
-  display: none;
+  z-index: 9;
+  .colorize(@background);
 
   .on-desktop({
     display: block;
     position: fixed;
-    font-size: 12px;
-    width: 200px;
+    bottom: @padding;
+    right: @padding;
+    font-size: 87.5%;
+    width: @aside-width * .8;
     border-radius: @border-radius;
   });
 }
@@ -133,6 +110,8 @@
 #seed_color {
   border: 1px solid darken(@color1, 12%);
   max-width: 237px;
+  padding: @padding;
+  line-height: @line-height;
 }
 
 #loading_overlay {

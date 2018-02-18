@@ -1,4 +1,4 @@
-.make-palettes-for(@base-color; @demo-wheels);
+.make-palettes-for(@base-color; @color-wheels);
 
 .make-palettes-for(@color; @wheels) {
   // iterate through @wheels
@@ -8,11 +8,11 @@
 
   .make-palette(@index: 1) when (@index <= @iterations) {
     // grab our scheme name out of @wheels
-    @scheme: extract(@wheels, @index);
+    @scheme-base: extract(@wheels, @index);
+    @scheme: @@scheme-base;
 
     // each palette has a corresponding id
-    #sl_@{scheme} {
-      // &:before { content: "@{scheme}";}
+    #sl_@{scheme-base} {
       .make-swatches-for(@color; @all-colors; @scheme);
     }
     // make the next palette

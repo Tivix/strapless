@@ -22,28 +22,28 @@ nav {
     .border-radius();
   }
 
-  ul {
+  > ul {
     float: right;
     line-height: @height;
     padding-left: 0;
     margin-bottom: 0;
 
+    > li {
+      float:left;
+      list-style: none;
+      margin: 0;
+
+      a {
+        display: block;
+        color: inherit;
+        padding-left: @padding;
+        padding-right: @padding;
+      }
+    }
+
     .on-desktop({
       min-width: @aside-width;
     });
-  }
-
-  li {
-    float:left;
-    list-style: none;
-    margin: 0;
-
-    a {
-      display: block;
-      color: inherit;
-      padding-left: @padding;
-      padding-right: @padding;
-    }
   }
 
   a {

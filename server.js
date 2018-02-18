@@ -12,11 +12,12 @@ var express = require('express'),
 
 var app = express();
 
-
 // var html_dir = path.join(__dirname, 'views/');
 var demo_file_path = path.join(__dirname, 'source/less/index.less');
+var demo_w_file_path = path.join(__dirname, 'source/less/index-w.less');
 var strapless_file_path = path.join(__dirname, 'source/less/strapless/strapless.less');
 var css_file_path = path.join(__dirname, 'source/less/strapless-css.less');
+var css_w_file_path = path.join(__dirname, 'source/less/strapless-css-w.less');
 
 // Create `ExpressHandlebars` instance with a default layout.
 var hbs = exphbs.create({
@@ -142,8 +143,24 @@ app.get('/democss/:baseColor', function(req, res) {
     })
 });
 
+app.get('/democss-white/:baseColor', function(req, res) {
+    generateStyles(req.params.baseColor, demo_w_file_path).then(function(css){
+        res.header("Content-Disposition", "attachment;filename=DEMO_W_CSS_#" + req.params.baseColor + ".css");
+        res.header("Content-type", "text/css");
+        res.send(css);
+    })
+});
+
 app.get('/css-version/:baseColor', function(req, res) {
     generateStyles(req.params.baseColor, css_file_path).then(function(css){
+        res.header("Content-Disposition", "attachment;filename=Strapless_#" + req.params.baseColor + ".css");
+        res.header("Content-type", "text/css");
+        res.send(css);
+    })
+});
+
+app.get('/css-version-white-bg/:baseColor', function(req, res) {
+    generateStyles(req.params.baseColor, css_w_file_path).then(function(css){
         res.header("Content-Disposition", "attachment;filename=Strapless_#" + req.params.baseColor + ".css");
         res.header("Content-type", "text/css");
         res.send(css);

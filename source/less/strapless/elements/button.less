@@ -5,7 +5,7 @@
   vertical-align: middle;
   min-height: 32px;
   line-height: @line-height;
-  padding: 0.4em .8rem;
+  padding: 0.4em .8em;
   touch-action: manipulation;
   cursor: pointer;
   background-image: none;
@@ -14,7 +14,7 @@
   outline: none;
   white-space: nowrap;
   text-decoration: none;
-  .button-color(@base-color);
+  .button-color(@color1c);
   .make-buttons-for(@semantic-colors);
   .no-user-select();
 });
@@ -44,11 +44,6 @@
 
     .make-button(@index + 1);
   }
-}
-
-.button-color(@color) when (@color = @warning) {
-  .set-lumafix(@color; @warning-base; .8;);
-  .invert-text-against(@lumafix; @contrast-standard: 3; @button: true;);
 }
 
 .button-color(@color) when (default()) {
