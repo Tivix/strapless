@@ -18,6 +18,8 @@
   <p><code>.invert-text-against(@color);</code></p>
   <p><em>Always</em> results in white text. If the text isn't contrastful enough, then it will darken the background color to meet text contrast standards. This is the only text contrast mixin that changes the background color.</p>
   <br>
+
+  <h3>Color utility mix-ins</h3>
   <p><code>.set-contrast-ratio(@a, @b);</code></p>
   <p>Sets the Less variable <code>@contrast-ratio</code> to the contrast ratio between the two arguments, which both need to be colors. The argument positions don't really matter.</p>
   <br>
@@ -34,4 +36,22 @@
 
   <h3>Strong tinting</h3>
   <p>The WCAG standard for contrast doesn't treat tinted and shaded text differently. Strapless mix-in defaults do, however, generally aiming for AAA-level standards any time light text is needed. Use your own contrast standards by passing <code>@contrast-standard</code> to a contrast mix-in.</p>
+
+  <h3>Targets</h3>
+  <p>The <code>targets.less</code> file contains some ruleset mixins, including responsiveness mixins and mixins for targeting certain types of elements, such as block-level.</p>
+
+  <h3>Utility classes</h3>
+  <aside>
+    <ul>
+      <li>.hide</li>
+      <li>.clearfix</li>
+      <li>.max-width</li>
+      <li>.margin-bottom</li>
+      <li>.border-radius</li>
+      <li>.padding</li>
+    </ul>
+  </aside>
+  <p>In violation of our philosophy on having as few classes as possible, Strapless also offers some guilty pleasure utility classes.</p>
+  <p>Strapless reuses the same names for everything. So there's a <code>@padding</code> Less variable, a <code>.padding</code> CSS class, and a <code>.padding()</code> Less mix-in. The class sets the padding to <code>@padding</code> and the Less mixin extends the class.</p>
+  <p>And they all work like that. Think of <code>padding: @padding;</code>, <code>.padding();</code> and <code>class="padding"</code> all shortcut ways of saying the same thing.</p>
 </section>

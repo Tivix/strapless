@@ -46,13 +46,13 @@
     .colors() when (@tone = white) {
         .set-a-color(@base);
         @bg-base: @base;
-        @stroke-base: mix(@base, @a-color, 75%);
+        @stroke-base: mix(@base, @a-color, 50%);
     }
 
     .colors() when (default()) {
         .set-c-color(@base);
         @bg-base: @base;
-        @stroke-base: mix(@base, @c-color, 75%);
+        @stroke-base: mix(@base, @c-color, 50%);
     }
 
     .colors();

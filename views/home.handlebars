@@ -13,19 +13,20 @@
 </main>
 
 <section id="why">
-    <aside id="philosophy">
-        <h6>The Strapless philosophy</h6>
-        <ul>
-            <li>Use simple, semantic HTML with very few classes.</li>
-            <li>Let inheritance, standards and defaults work for you.</li>
-            <li>Solve color, contrast, and a11y at the beginning, not the end.</li>
-        </ul>
-    </aside>
-    <h1>Why Strapless?</h1>
-    <p>Strapless isn't a CSS micro/mini/nano-framework. It's a CSS boilerplate. It makes your standard HTML look great, like this page.</p>
-    <p>Strapless lets you build your project from the ground up, instead of chiseling it out of a <em>we-know-better</em> block of marble.</p>
-    <p>Learning Strapless is easy: <strong>1)</strong> Know HTML. <strong>2)</strong> Use <em>main</em>, <em>section</em> and <em>aside</em> (inside sections) elements to lay out your content. <strong>3)</strong> Use the <code>action</code>, <code>reaction</code>, <code>info</code>, <code>warning</code>, <code>success</code> and <code>failure</code> classes to endow HTML elements with their corresponding semantic looks.</p>
-    <p>Follow these easy steps and you're ready to get started.</p>
+  <aside id="philosophy">
+      <h6>The Strapless philosophy</h6>
+      <ul>
+          <li>Use simple, semantic HTML with very few classes.</li>
+          <li>Let inheritance, standards and defaults work for you.</li>
+          <li>Solve color, contrast, and a11y at the beginning, not the end.</li>
+          <li>Always pick complex CSS over complex HTML.</li>
+      </ul>
+  </aside>
+  <h1>Why Strapless?</h1>
+
+  <p>Strapless isn't a CSS micro/mini/nano-framework. It's a CSS boilerplate. It makes your standard HTML look great, like this page.</p>
+  <p>Learning Strapless is easy: <strong>1)</strong> Know HTML. <strong>2)</strong> Use <em>main</em>, <em>section</em> and <em>aside</em> (inside sections) elements to lay out your content. <strong>3)</strong> Use the <code>action</code>, <code>reaction</code>, <code>info</code>, <code>warning</code>, <code>success</code> and <code>failure</code> classes to endow HTML elements with their corresponding semantic looks.</p>
+
 </section>
 
 
@@ -65,6 +66,17 @@
     </ul>
 </section>
 
+<section>
+  <h1>Do more with <em>just</em> HTML.</h1>
+  <p>There aren't many conventions to remember, HTML-wise. Strapless lets you build your project from the ground up, instead of chiseling it out of a <em>we-know-better</em> block of marble. We keep HTML elements as simplified building blocks and dump the stylization complexity where it belongs &mdash; in the CSS.</p>
+  <aside>
+    <p>Can't decide on the Less or CSS version? Don't worry! It's easy to go from the CSS version to the Less version.</p>
+  </aside>
+  <p>Of course, the <a href="http://github.com/Tivix/strapless" target="_blank">Less version</a> also mirrors that philosophy, so it has <em>bunches</em> of conventions and mix-ins to learn, use and master.</p>
+  <p>In other words: Strapless is either a simple CSS boilerplate or a bells-and-whistles architectural scaffold for your Less project.</p>
+
+</section>
+
 {{> page/colors}}
 {{> page/patterns}}
 {{> page/elements}}
@@ -72,11 +84,10 @@
 
 
 <section class="reaction">
-    <aside>
-        <h6>Download it now</h6>
-        <button class="failure">Download</button>
-        <button>Github</button>
-    </aside>
+        <footer>
+          <button class="failure">Download current CSS</button>
+          <button>View Github page</button>
+        </footer>
 </section>
 
 <section id="thanks">
