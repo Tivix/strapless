@@ -1,4 +1,4 @@
-.contrast-text-against(@color: @background; @contrast-standard: 4.5; @mode: auto;) {
+.contrast-text-against(@color: @background; @contrast-standard: 7; @mode: auto;) {
   // adds tone to background color until contrast standard is met
   // uses result as text color
 
@@ -36,7 +36,7 @@
 
 .contrast-text-against(@color: @background, @contrast-standard: 9)
                  when (@color = white)
-                  and (@contrast-standard >= 4.5) {
+                  and (@contrast-standard >= 7) {
   // the objectively correct text color against white
   // arrived at by monks after years of meditation and seclusion
 
@@ -47,7 +47,7 @@
   color: #494949;
 }
 
-.invert-text-against(@color; @contrast-standard: 4.5; @button: false;) {
+.invert-text-against(@color; @contrast-standard: 7; @button: false;) {
 
   // always results in white text
   // darkens given background when needed to meet contrast standard
@@ -79,7 +79,7 @@
   }
 }
 
-.color-text(@color; @text-background: @background; @contrast-standard: 4.5) {
+.color-text(@color; @text-background: @background; @contrast-standard: 7) {
 
   // darkens text against a background
   // like tint- or shade-, only works with lighter backgrounds
