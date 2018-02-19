@@ -1,7 +1,7 @@
 var Strapless = (function() {
 
-    // var server_ip = 'http://104.199.126.237';
-    var server_ip = 'http://127.0.0.1:8000';
+    var server_ip = 'http://104.199.126.237';
+    // var server_ip = 'http://127.0.0.1:8000';
 
     function _generateFavicon() {
         var canvas = document.createElement('canvas');
@@ -96,7 +96,7 @@ var Strapless = (function() {
         var baseColor = document.getElementById('seed_color').value;
         var validHex = /^(?:[0-9a-f]{3}){1,2}$/i.test(baseColor);
         var whiteCheckbox = document.getElementById('white_background');
-        
+
         if (validHex && whiteCheckbox.checked) {
             location.href='/css-version-white-bg/' + baseColor;
         } else if (validHex) {
