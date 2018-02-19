@@ -50,35 +50,22 @@ section {
   }
 }
 
-.section-color(@color) when (@color = @warning) {
-  .set-lumafix(@color, @warning-base, .75);
+.section-color(@color) {
+  .set-lumafix(@color, @background);
   background-color: @lumafix;
   .contrast-text-against(@lumafix);
+}
 
-  .set-contrast-ratio(@lumafix; white;);
-
+.section-color(@color) when (@color = @warning) {
   // preferentially tint for more urgency
   & when (@contrast-ratio > 3) {
-    & h1, & h2, & h3 { .tint-text-against(@lumafix; 7;);}
+    h1, h2, h3 { .contrast-text-against(@color; 3; @mode: tint;);}
   }
 }
 
 .section-color(@color) when (@color = @failure) {
-  .set-lumafix(@color, @failure-base, .65);
-  background-color: @lumafix;
-  .contrast-text-against(@lumafix);
-
-  .set-contrast-ratio(@lumafix; white;);
-
   // preferentially tint for more urgency
   & when (@contrast-ratio > 3) {
-    & h1, & h2, & h3 { .tint-text-against(@lumafix; 7;);}
+    h1, h2, h3 { .contrast-text-against(@color; 3; @mode: tint;);}
   }
-}
-
-.section-color(@color) when (default()) {
-
-  .set-lumafix(@color, @background, .6);
-  background-color: @lumafix;
-  .contrast-text-against(@lumafix);
 }

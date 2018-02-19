@@ -6,14 +6,11 @@
   <p><code>.contrast-text-against(@color);</code></p>
   <p>Contrasts the text color against the given background color. This mixin determines whether to lighten or darken to meet contrast standards, then meets them by lightening or darkening enough. Since it has the option of both, this mixin can support AA-level contrast for any given background color.</p>
   <br>
+  <aside>
+    <p>Strapless is designed to meet AA-level contrast standards out of the box with any base color. As long as you use a contrast mix-in, it'll <em>just work</em>.</p>
+  </aside>
   <p><code>.colorize(@color);</code></p>
   <p>Does the same thing, except it also sets the bacground color to <code>@color</code>, a useful pattern for just quickly turning something into some other color.</p>
-  <br>
-  <p><code>.shade-text-against(@color);</code></p>
-  <p>Works like .contrast-text-against, except it always darkens the background color to produce the text color. Sometimes this can't meet AA-level contrast standards. Using it on black, for example, wouldn't give your text color anywhere to go.</p>
-  <br>
-  <p><code>.tint-text-against(@color);</code></p>
-  <p>Just like shading, but works by lightening the background color to produce contrastful text color.</p>
   <br>
   <p><code>.invert-text-against(@color);</code></p>
   <p><em>Always</em> results in white text. If the text isn't contrastful enough, then it will darken the background color to meet text contrast standards. This is the only text contrast mixin that changes the background color.</p>
@@ -29,13 +26,18 @@
   <p><code>.set-average(@colors);</code></p>
   <p>Sets <code>@average</code> to the average color of a list of colors. This works like Less's <code>average()</code>, but its argument <code>@colors</code> can be a list with any number of colors.</p>
 
+  <h3>Relative color design</h3>
+  <p>Properly used, the tools in Strapless allow you to practice <strong>relative color design</strong>, where the colors in your project are defined by their positional relationships to each other and rooted to a base (or "brand") color.</p>
+  <p>Relative color design allows you to drastically change the look of your project depending on <code>@base-color</code>. This design principle flows well with the following:</p>
 
-
-  <h3>Meeting contrast standards</h3>
-  <p>Strapless is designed to meet AA-level contrast standards out of the box with any base color. As long as you use a contrast mix-in, it'll <em>just work</em>.</p>
-
-  <h3>Strong tinting</h3>
-  <p>The WCAG standard for contrast doesn't treat tinted and shaded text differently. Strapless mix-in defaults do, however, generally aiming for AAA-level standards any time light text is needed. Use your own contrast standards by passing <code>@contrast-standard</code> to a contrast mix-in.</p>
+  <ul>
+    <li><p><strong>Readability modes</strong></p>
+    <p>Implementing night-time/dark mode? It's as simple as tweaking a variable.</p></li>
+    <li><p><strong>Rebranding</strong></p>
+    <p>Changing a red logo to a green logo used to mean changing tons of red things into green things too. With Strapless you can just change the underlying palette.</p></li>
+    <li><p><strong>Theming</strong></p>
+    <p>Need to make the same thing lots of different colors (or <em>any</em> user-chosen color)? Strapless ensures contrastful, readable results no matter the color input.</p></li>
+  </ul>
 
   <h3>Targets</h3>
   <p>The <code>targets.less</code> file contains some ruleset mixins, including responsiveness mixins and mixins for targeting certain types of elements, such as block-level.</p>
@@ -49,9 +51,14 @@
       <li>.margin-bottom</li>
       <li>.border-radius</li>
       <li>.padding</li>
+      <li><em>every color name</em> (.color1, .color3b, .gray-lighter, etc)</li>
     </ul>
   </aside>
   <p>In violation of our philosophy on having as few classes as possible, Strapless also offers some guilty pleasure utility classes.</p>
-  <p>Strapless reuses the same names for everything. So there's a <code>@padding</code> Less variable, a <code>.padding</code> CSS class, and a <code>.padding()</code> Less mix-in. The class sets the padding to <code>@padding</code> and the Less mixin extends the class.</p>
-  <p>And they all work like that. Think of <code>padding: @padding;</code>, <code>.padding();</code> and <code>class="padding"</code> all shortcut ways of saying the same thing.</p>
+  <p>Strapless reuses the same names for everything. So there's a <code>@padding</code> Less variable, a <code>.padding</code> CSS class, and a <code>.padding()</code> Less mix-in. The class sets an element's padding to the variable and the Less mixin extends the class.</p>
+  <p>And they all work like that. Think of <code>padding: @padding;</code>, <code>.padding();</code> and <code>class="padding"</code> all shortcut ways of saying the same thing, all appropriate in different situations.</p>
+  <p>Is the class <code>padding</code> semantically appropriate? Probably not. It doesn't say anything. But... sometimes you just need to add some padding! Or a margin-bottom, etc etc.</p>
+  <p>And so it's the same with colors too. In the same way you can give a span a <span class="success">success</span> class, you can also give it a <span class="color2b padding">color2b</span> or <span class="gray-dark padding">gray-dark</span> class.</p>
+  <p>Using Strapless's intentionally meaningless palette position names as HTML classes is not semantic and definitely not a best practice. It's like using the class name <code>teal</code> except worse because teal actually says something, in comparison.</p>
+  <p>But sometimes you <em>need</em> to make something <span class="color3a padding">color3a</a>.</p>
 </section>

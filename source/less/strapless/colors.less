@@ -116,6 +116,110 @@
   .set-scheme-type();
 }
 
+
+.set-a-color(@color, @compare: @color) {
+
+  // a lighter version of the color
+  // @color1a, @color3a etc are examples of a-colors
+
+  @iterations: 10;
+
+  .settings() when (@scheme-type = light) {
+    @contrast-standard: 1.1;
+    @initial-lighten: 1%;
+  }
+
+  .settings() when (@scheme-type = dark) {
+    @contrast-standard: 1.1;
+    @initial-lighten: 2.5%;
+  }
+
+  .settings() when (default()) {
+    @contrast-standard: 1.25;
+    @initial-lighten: 5%;
+  }
+
+  .set-a(@a, @contrast-ratio, @index) when (@index <= @iterations)
+                                       and (@contrast-ratio < @contrast-standard)
+                                       and (luma(@a) < 90%) {
+    // loop through this until @contrast-standard is met
+    @new-a: lighten(@a, 3.5%);
+    .set-contrast-ratio(@color, @new-a);
+    .set-a(@new-a, @contrast-ratio, @index + 1);
+  }
+
+  .set-a(@a, @contrast-ratio, @index) when (default()) {
+    // set @a-color when conditions are finally met (or iterations run out)
+    @a-color: @a;
+  }
+
+  // load settings
+  .settings();
+
+  // grab a couple near analogs and figure out which is closer
+  .set-closer-farther(@compare; spin(@color, @analog/2); spin(@color, -@analog/2));
+
+  // use the closer color as base for a-color
+  .set-a(lighten(@closer, @initial-lighten), 1, 1);
+}
+
+.set-b-color(@color; @compare: @base-color; @nearness: @analog;) {
+
+  // a similar luma alternate
+
+  // grab both nearby analogs
+  @b1: spin(@color, @nearness);
+  @b2: spin(@color, -@nearness);
+
+  // use whichever is closer to the original
+  .set-closer-farther(@color; @b1; @b2;);
+  @b-base: @closer;
+
+  // adjust b's luma to match
+  .set-lumafix(@b-base; @color;);
+  @b-color: @lumafix;
+}
+
+.set-c-color(@color, @compare: @color, @scheme: @scheme-type) {
+
+  @iterations: 10;
+
+  // a darker version of the color
+
+  .settings() when (@scheme = light) {
+    @contrast-standard: 1.1;
+    @initial-darken: 1%;
+  }
+
+  .settings() when (@scheme = dark) {
+    @contrast-standard: 1.1;
+    @initial-darken: 2.5%;
+  }
+
+  .settings() when (default()) {
+    @contrast-standard: 1.25;
+    @initial-darken: 5%;
+  }
+
+  .set-c(@c, @contrast-ratio, @index) when (@index <= @iterations)
+                                       and (@contrast-ratio < @contrast-standard) {
+    @new-c: darken(@c, 2%);
+    .set-contrast-ratio(@color, @new-c);
+    .set-c(@new-c, @contrast-ratio, @index + 1);
+  }
+
+  .set-c(@c, @contrast-ratio, @index) when (default()) {
+    @c-color: @c;
+  }
+
+  @initial-c: darken(@color, @initial-darken);
+
+  .settings();
+  .set-contrast-ratio(@color, @initial-c);
+  .set-closer-farther(@compare; spin(@initial-c, @analog/2); spin(@initial-c, -@analog/2));
+  .set-c(@initial-c, @contrast-ratio, 1);
+}
+
 .make-color1(@color) {
   @color1: @color;
 }
@@ -153,23 +257,26 @@
   }.make-color1c();
 
   .make-color2a() {
-    .set-a-color(@c2; @color1a);
-    @color2a: @a-color;
+    .set-a-color(@c2);
+    .set-lumafix(@a-color; @color1a;);
+    @color2a: @lumafix;
   }.make-color2a();
 
   .make-color2b() {
-    .set-b-color(@c2; @color1);
+    .set-b-color(@c2);
     @color2b: @b-color;
   }.make-color2b();
 
   .make-color2c() {
-    .set-c-color(@c2; @color1c);
-    @color2c: @c-color;
+    .set-c-color(@c2);
+    .set-lumafix(@c-color; @color1c;);
+    @color2c: @lumafix;
   }.make-color2c();
 
   .make-color3a() {
     .set-a-color(@c3);
-    @color3a: @a-color;
+    .set-lumafix(@a-color; @color1a;);
+    @color3a: @lumafix;
   }.make-color3a();
 
   .make-color3b() {
@@ -179,22 +286,25 @@
 
   .make-color3c() {
     .set-c-color(@c3);
-    @color3c: @c-color;
+    .set-lumafix(@c-color; @color1c;);
+    @color3c: @lumafix;
   }.make-color3c();
 
   .make-color4a() {
-    .set-a-color(@c4; @color3a);
-    @color4a: @a-color;
+    .set-a-color(@c4);
+    .set-lumafix(@a-color; @color1a;);
+    @color4a: @lumafix;
   }.make-color4a();
 
   .make-color4b() {
-    .set-b-color(@c4, @color3);
+    .set-b-color(@c4);
     @color4b: @b-color;
   }.make-color4b();
 
   .make-color4c() {
-    .set-c-color(@c4; @color3c);
-    @color4c: @c-color;
+    .set-c-color(@c4);
+    .set-lumafix(@c-color; @color1c;);
+    @color4c: @lumafix;
   }.make-color4c();
 }
 
@@ -216,41 +326,45 @@
   .set-reaction-midpoint();
 
   .set-info() {
-    .set-lumafix(@info-base; @base-color; 1);
-    @info: @lumafix;
+    .set-lumafix(@info-base; @base-color;);
+    @info: mix(@lumafix, @info-base, 75%);
   }
 
   .set-warning() {
-    .set-lumafix(@warning-base; @base-color; .7);
-    @warning: @lumafix;
+    .set-lumafix(@warning-base; @base-color;);
+    @warning: mix(@lumafix, @warning-base, 35%);
   }
 
   .set-success() {
-    .set-lumafix(@success-base; @base-color; .8);
-    @success: @lumafix;
+    .set-lumafix(@success-base; @base-color;);
+    @success: mix(@lumafix, @success-base, 50%);
   }
 
   .set-failure() {
-    .set-lumafix(@failure-base; @base-color; .6);
-    @failure: @lumafix;
+    .set-lumafix(@failure-base; @base-color;);
+    @failure: mix(@lumafix, @failure-base, 20%);
   }
 
   .set-action() {
     .set-closer-farther(@action-midpoint, @color1b, @color3);
-    @action: @closer;
+    .set-average(@info, @warning, @failure, @success;);
+    .set-lumafix(@closer, @average);
+    @action: @lumafix;
   }
 
   .set-reaction() {
-    .set-closer-farther(@reaction-midpoint, @color2, @color2b);
-    @reaction: @closer;
+    .set-closer-farther(@reaction-midpoint, @color2, @color4);
+    .set-average(@info, @warning, @failure, @success;);
+    .set-lumafix(@closer, @average);
+    @reaction: @lumafix;
   }
 
-  .set-action();
-  .set-reaction();
   .set-info();
   .set-warning();
   .set-success();
   .set-failure();
+  .set-action();
+  .set-reaction();
 }
 
 .make-grays(@color, @scheme-type) {

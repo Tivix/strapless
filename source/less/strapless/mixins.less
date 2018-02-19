@@ -1,4 +1,4 @@
-.contrast-text-against(@color: @background; @contrast-standard: 4.5) {
+.contrast-text-against(@color: @background; @contrast-standard: 4.5; @mode: auto;) {
   // adds tone to background color until contrast standard is met
   // uses result as text color
 
@@ -7,26 +7,29 @@
   @contrast: mix(@tone, @color, @start + @index*5);
   @index: 0;
 
-  .set-tone(@color);
-  .contrast-text(1, 1);
+  .tone(@color);
+  .contrast-text(1, @tone, 1);
 
-  .contrast-text(@contrast-ratio, @index)
-       when (@contrast-ratio < 7)
-        and (@tone = white)
-        and (@index < @iterations) {
-    .set-contrast-ratio(@color, @contrast);
-    .contrast-text(@contrast-ratio; @index + 1);
+  .tone(@color) when (@mode = tint) {
+    @tone: white;
   }
 
-  .contrast-text(@contrast-ratio, @index)
+  .tone(@color) when (@mode = shade) {
+    @tone: white;
+  }
+
+  .tone(@color) when (default()) {
+    .set-tone(@color);
+  }
+
+  .contrast-text(@contrast-ratio, @tone, @index)
        when (@contrast-ratio < @contrast-standard)
-        and (@tone = black)
         and (@index < @iterations) {
     .set-contrast-ratio(@color, @contrast);
-    .contrast-text(@contrast-ratio; @index + 1);
+    .contrast-text(@contrast-ratio; @tone; @index + 1);
   }
 
-  .contrast-text(@contrast-ratio, @index) when (default()) {
+  .contrast-text(@contrast-ratio, @tone, @index) when (default()) {
     color: @contrast;
   }
 }
@@ -37,61 +40,11 @@
   // the objectively correct text color against white
   // arrived at by monks after years of meditation and seclusion
 
-  // a contrast ratio of 9, not too harsh, not fading away
+  // a contrast ratio of 9, not too harsh, not faded away
   // not angry like #333, or non-committal like #606060
   // with the subtlest of references to san francisco
 
   color: #494949;
-}
-
-.tint-text-against(@color; @contrast-standard: 7) {
-  // adds white to background color until contrast standard is met
-  // uses result as text color
-
-  // contrast ratio of 7 highly recommended, even for AA-level themes
-
-  @start: 55%;
-  @iterations: 10;
-  @interval: unit((100% - @start)/@iterations);
-  @tint: tint(@color, @start + @index*@interval);
-  @index: 0;
-
-  .tint-text(1, 1);
-
-  .tint-text(@contrast-ratio, @index)
-       when (@contrast-ratio < @contrast-standard)
-        and (@index < @iterations) {
-    .set-contrast-ratio(@color, @tint);
-    .tint-text(@contrast-ratio; @index + 1);
-  }
-
-  .tint-text(@contrast-ratio, @index) when (default()) {
-    color: @tint;
-  }
-}
-
-.shade-text-against(@color; @contrast-standard: 7) {
-  // adds black to background color until contrast standard is met
-  // uses that as text color
-
-  @start: 50%;
-  @iterations: 12;
-  @interval: unit((100% - @start)/@iterations);
-  @shade: shade(@color, @start + @index*@interval);
-  @index: 0;
-
-  .shade-text(1, 1);
-
-  .shade-text(@contrast-ratio, @index)
-        when (@contrast-ratio < @contrast-standard)
-         and (@index < @iterations) {
-    .set-contrast-ratio(@color, @shade);
-    .shade-text(@contrast-ratio; @index + 1);
-  }
-
-  .shade-text(@contrast-ratio, @index) when (default()) {
-    color: @shade;
-  }
 }
 
 .invert-text-against(@color; @contrast-standard: 4.5; @button: false;) {
@@ -154,114 +107,6 @@
   // sets a background color and makes sure text works with it
   background-color: @color;
   .contrast-text-against(@color);
-
-  // &:after {
-  //   @content: round(luma(@color), 2);
-  //   content: " @{content}";
-  // }
-}
-
-.set-a-color(@color, @compare: @color) {
-
-  // a lighter version of the color
-  // @color1a, @color3a etc are examples of a-colors
-
-  @iterations: 10;
-
-  .settings() when (@scheme-type = light) {
-    @contrast-standard: 1.1;
-    @initial-lighten: 2.5%;
-  }
-
-  .settings() when (@scheme-type = dark) {
-    @contrast-standard: 1.1;
-    @initial-lighten: 2.5%;
-  }
-
-  .settings() when (default()) {
-    @contrast-standard: 1.25;
-    @initial-lighten: 5%;
-  }
-
-  .set-a(@a, @contrast-ratio, @index) when (@index <= @iterations)
-                                       and (@contrast-ratio < @contrast-standard)
-                                       and (luma(@a) < 90%) {
-    // loop through this until @contrast-standard is met
-    @new-a: lighten(@a, 3.5%);
-    .set-contrast-ratio(@color, @new-a);
-    .set-a(@new-a, @contrast-ratio, @index + 1);
-  }
-
-  .set-a(@a, @contrast-ratio, @index) when (default()) {
-    // set @a-color when conditions are finally met (or iterations run out)
-    @a-color: @a;
-  }
-
-  // load settings
-  .settings();
-
-  // grab a couple near analogs and figure out which is closer
-  .set-closer-farther(@compare; spin(@color, @analog/2); spin(@color, -@analog/2));
-
-  // use the closer color as base for a-color
-  .set-a(lighten(@closer, @initial-lighten), 1, 1);
-}
-
-.set-b-color(@color; @compare: @base-color; @nearness: @analog;) {
-
-  // a similar luma alternate
-
-  // grab both nearby analogs
-  @b1: spin(@color, @nearness);
-  @b2: spin(@color, -@nearness);
-
-  // use whichever is closer to the original
-  .set-closer-farther(@color; @b1; @b2;);
-  @b-base: @closer;
-
-  // adjust b's luma to match
-  .set-lumafix(@b-base; @color;);
-  @b-color: @lumafix;
-}
-
-.set-c-color(@color, @compare: @color, @scheme: @scheme-type) {
-
-  @iterations: 10;
-
-  // a darker version of the color
-
-  .settings() when (@scheme = light) {
-    @contrast-standard: 1.1;
-    @initial-darken: 2.5%;
-  }
-
-  .settings() when (@scheme = dark) {
-    @contrast-standard: 1.1;
-    @initial-darken: 2.5%;
-  }
-
-  .settings() when (default()) {
-    @contrast-standard: 1.25;
-    @initial-darken: 5%;
-  }
-
-  .set-c(@c, @contrast-ratio, @index) when (@index <= @iterations)
-                                       and (@contrast-ratio < @contrast-standard) {
-    @new-c: darken(@c, 2%);
-    .set-contrast-ratio(@color, @new-c);
-    .set-c(@new-c, @contrast-ratio, @index + 1);
-  }
-
-  .set-c(@c, @contrast-ratio, @index) when (default()) {
-    @c-color: @c;
-  }
-
-  @initial-c: darken(@color, @initial-darken);
-
-  .settings();
-  .set-contrast-ratio(@color, @initial-c);
-  .set-closer-farther(@compare; spin(@initial-c, @analog/2); spin(@initial-c, -@analog/2));
-  .set-c(@initial-c, @contrast-ratio, 1);
 }
 
 .make-color-classes-for(@colors) {
@@ -411,7 +256,7 @@
   }
 }
 
-.set-lumafix(@color; @compare: @base-color; @luma-multiplier: .6;) {
+.set-lumafix(@color; @compare: @base-color;) {
   // sets @lumafix to a version of @color with luma similar to @compare
 
   @iterations: 12;
@@ -427,7 +272,7 @@
   .lumafix(@color-to-fix, @compare, @index) when (@index <= @iterations)
                                       and (luma(@color-to-fix) < luma(@compare))
                                       and (@tone = white) {
-    @new-color: lighten(@color-to-fix, 2%);
+    @new-color: lighten(@color-to-fix, .5%*@index);
     .lumafix(@new-color, @compare, @index + 1);
   }
 

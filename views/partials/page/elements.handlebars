@@ -47,12 +47,24 @@
 
 <section class="info">
     <h3>Sections organize content.</h3>
-    <aside><strong>Asides</strong> work inside sections!</aside>
+    <aside>
+      <p><strong>Asides</strong> work inside sections!</p>
+      <p>So do grids! (grid not included)</p>
+    </aside>
     <ul>
       <li>Sections control the width of most content and leave enough room for asides.</li>
       <li>Put any grid-dy (CSS grids or otherwise) stuff inside of sections.</li>
       <li>Sections support semantic classes (this one is using <code>info</code>).</li>
     </ul>
+</section>
+
+<section id="section_outline_example" class="success">
+  <div class="outline">
+    <h3>Sections have space</h3>
+    <p>This <code>success</code> section has an internal outlined div to show how much space is available.</p>
+    <p>Text measure rules are mostly enforced by <code>@max-width</code>, which is wider than a typical column in a 2-column or more grid system.</p>
+    <p>In other words, Strapless mostly plays nice with grids but might run into issues in layouts where the larger of two columns is more than ~60% the width of the content.</p>
+  </div>
 </section>
 
 <section id="paragraph">
@@ -64,8 +76,8 @@
     <p class="failure">I've made a huge mistake.</p>
     <pre>&lt;p class="failure"&gt;I've made a huge mistake.&lt;/p&gt;</pre>
     <br>
-    <p>Of course, without a class they just look like normal paragraphs.</p>
-    <pre>&lt;p&gt;Of course, without a class they just look like normal paragraphs.&lt;/p&gt;</pre>
+    <p>Without a class they just look like normal paragraphs.</p>
+    <pre>&lt;p&gt;Without a class they just look like normal paragraphs.&lt;/p&gt;</pre>
     <br>
 </section>
 
@@ -131,13 +143,13 @@
 
 <section id="button">
     <h1>&lt;button&gt;</h1>
-    <p>Buttons are just <code>button</code> elements. You can also use the <code>button</code> class to make things that aren't buttons look like buttons.</p>
+    <p>Buttons are just <code>button</code> elements.</p>
     <p><button>Example button</button></p>
     <pre>&lt;button&gt;Example button&lt;/button&gt;</pre>
     <br>
-    <p>Buttons can take a semantic class.</p>
-    <p><button class="info">Example button</button></p>
-    <pre>&lt;button class="info"&gt;Example button&lt;/button&gt;</pre>
+    <p>Buttons can take a semantic class. You can also use the <code>button</code> class to make things that aren't buttons look like buttons.</p>
+    <p><a class="info button">A link</a></p>
+    <pre>&lt;a class="info button"&gt;A link&lt;/a&gt;</pre>
     <br>
     <p>There are six semantic buttons by default, shown here:</p>
     <p>
@@ -341,11 +353,10 @@
 &lt;/blockquote&gt;</pre>
     <br>
     <p>They alternate switching sides by default.</p>
-    <blockquote>
+    <blockquote class="reaction">
         Blushing is the color of virtue.
         <cite>Diogenes</cite>
     </blockquote>
-    <p>They don't support semantic classes.</p>
 </section>
 
 <section id="elements_etc">

@@ -1,19 +1,26 @@
 blockquote {
-  @border: .5em solid @color1a;
 
   padding-left: 1em;
   margin: 0;
 
-  border-left: @border;
+  border-color: @color1a;
+  border-style: solid;
+  border-width: 0;
+  border-left-width: .5em;
   .margin-bottom();
   .max-width();
+
+  .semantic-classes({
+    background: inherit;
+    color: inherit;
+  });
 
   &:nth-of-type(even) {
     // alternates left and right layout
 
     text-align: right;
-    border-left: none;
-    border-right: @border;
+    border-left-width: 0;
+    border-right-width: .5em;
     padding-left: 0;
     padding-right: 1em;
   }
@@ -26,4 +33,32 @@ blockquote {
       padding-right: 5px;
     }
   }
+
+  .make-blockquote-colors-for(@semantic-colors);
+}
+
+
+.make-blockquote-colors-for(@colors) {
+  // make blockquote colors for a list of color variable names
+  // blockquotes will use variable names as class names
+
+  @iterations: length(@colors);
+
+  .make-blockquote-color(1);
+
+  .make-blockquote-color(@index) when (@index <= @iterations) {
+
+    @color-name: extract(@colors, @index);
+    @this-color: @@color-name;
+
+    &.@{color-name} {
+      .blockquote-color(@this-color);
+    }
+
+    .make-blockquote-color(@index + 1);
+  }
+}
+
+.blockquote-color(@color) when (default()) {
+  border-color: @color;
 }

@@ -24,22 +24,6 @@ body,
   transition: color 2s @ease; transition: background 2s @ease;
 }
 
-.make-color-classes-for(@all-colors);
-
-// body { @color: @action; .blueprint(@color, 1); .contrast-text-against(@color);}
-
-.less-var-test {
-  display: none;
-  position: fixed;
-  bottom: @padding;
-  left: @padding;
-  font-size: 14px;
-  font-family: monospace;
-  &:extend(code);
-
-  // &:before { content: "@{less-var-test}";}
-}
-
 .logo {
   // Tivix logo
 
@@ -169,4 +153,14 @@ body,
       -ms-transform: rotate(@degrees);
        -o-transform: rotate(@degrees);
           transform: rotate(@degrees);
+}
+
+#section_outline_example .outline {
+  .set-tone(@success);
+  border: 2px dashed mix(@success, @tone, 80%);
+  max-width: none;
+
+  > * {
+    max-width: @max-width;
+  }
 }

@@ -80,30 +80,20 @@ main {
   }
 }
 
-.main-color(@color) when (@color = @warning) {
-  .set-lumafix(@color, @warning-base, .75);
-  .contrast-text-against(@lumafix);
-  .dots(@lumafix);
+.main-color(@color) {
+  .set-c-color(@color);
+  .dots(@c-color); // dots pattern background
+  .contrast-text-against(@c-color);
+}
 
-  .set-contrast-ratio(@lumafix; white;);
+.main-color(@color) when (@color = @warning) {
   & when (@contrast-ratio > 3) {
-    h1, h2, h3 { .tint-text-against(@lumafix; 4.5;);}
+    h1, h2, h3 { .contrast-text-against(@color; 3; @mode: tint;);}
   }
 }
 
 .main-color(@color) when (@color = @failure) {
-  .set-lumafix(@color, @failure-base, .5);
-  .contrast-text-against(@lumafix);
-  .dots(@lumafix);
-
-  .set-contrast-ratio(@lumafix; white;);
   & when (@contrast-ratio > 3) {
-    h1, h2, h3 { .tint-text-against(@lumafix; 4.5;);}
+    h1, h2, h3 { .contrast-text-against(@color; 3; @mode: tint;);}
   }
-}
-
-.main-color(@color) when (default()) {
-  .set-c-color(@color);
-  .dots(@c-color); // dots pattern background
-  .contrast-text-against(@c-color);
 }

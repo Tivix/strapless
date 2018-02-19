@@ -158,13 +158,13 @@
     .colors() when (@tone = white) {
         .set-a-color(@base);
         @bg-base: @base;
-        @stroke-base: mix(@a-color, @base, 15%);
+        @stroke-base: mix(@a-color, @base, 35%);
     }
 
     .colors() when (default()) {
         .set-c-color(@base);
         @bg-base: @base;
-        @stroke-base: mix(@c-color, @base, 15%);
+        @stroke-base: mix(@c-color, @base, 35%);
     }
 
     .colors();
@@ -261,14 +261,14 @@
         .set-a-color(@base);
         @bg-base: @base;
         @stroke1-base: @base; // same as bg, otherwise looks like cubes
-        @stroke2-base: mix(@a-color, @base, 25%);
+        @stroke2-base: mix(@a-color, @base, 50%);
     }
 
     .colors() when (default()) {
         .set-c-color(@base);
         @bg-base: @base;
         @stroke1-base: @base; // same as bg, otherwise looks like cubes
-        @stroke2-base: mix(@c-color, @base, 25%);
+        @stroke2-base: mix(@c-color, @base, 50%);
     }
 
     .colors();
