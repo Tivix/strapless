@@ -1,40 +1,26 @@
 form {
-  &:extend(p all); // grabs p's semantic class colors
-
-  padding: 1em @padding;
-  margin-bottom: 0;
-
-  p {
-    padding: 0;
-  }
+  padding: 0;
+  .margin-bottom();
+  .max-width();
 
   input[type="text"],
   textarea {
     width: 100%;
-    min-width: 18ch;
-    padding: 1ch;
-    margin-bottom: 1em;
-    border: 1px solid @gray-darker;
-  }
+    padding: @padding;
+    .margin-bottom();
+    border: none;
+    line-height: @line-height;
 
-  aside {
-    input[type="text"],
-    textarea {
-      margin-bottom: @padding/2;
+    & when (luma(@background) > 98%) {
+      border-bottom: 1px solid @gray-light;
     }
-
-    .on-tablet({
-      margin-bottom: 0;
-    });
   }
 
   input, label {
+    margin-bottom: @padding/2;
+
     & + & {
-      margin-top: @padding;
+      margin-top: @margin;
     };
   }
-
-  .headline-elements({
-    &:first-child { margin-top: 0;}
-  });
 }

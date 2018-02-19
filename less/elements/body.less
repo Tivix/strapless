@@ -1,11 +1,16 @@
 body {
-  .colorize(@background);
-  font-size: 18px;
-  .on-tablet({ font-size: 20px});
+  @max-width-unitless: unit(@max-width);
+
+  background-color: @background;
+  .contrast-text-against(@background);
+  font-size: @font-size;
+  font-size: ~"calc((100vw - @{margin})/@{max-width-unitless})";
   line-height: @line-height;
   margin-bottom: 0;
   overflow-x: hidden;
-  font-family: -apple-system,
+  max-width: 100vw;
+  -webkit-overflow-scrolling: touch;
+  font-family:  -apple-system,
                 BlinkMacSystemFont,
                 "Segoe UI",
                 Roboto,
@@ -13,14 +18,13 @@ body {
                 Ubuntu,
                 Cantarell,
                 "Helvetica Neue",
-                Arial,
                 sans-serif;
 
-  & when (@sticky-nav = true) {
-    padding-top: @nav-height + @padding;
-  }
+  .on-tablet({
+    font-size: @font-size;
+  });
 
-  > * {
-    margin: 0 auto;
+  & when (@sticky-nav = true) {
+    > main:first-child { padding-top: ~"calc(@{nav-height} + @{padding})";}
   }
 }

@@ -1,25 +1,19 @@
 footer {
-  &:extend(aside all);
-  margin-bottom: 0 !important;
+  width: 100%;
+  padding: @padding 0;
+  .semantic-padding();
 
-  body > & {
-    padding-top: @padding;
-    margin-top: @padding*4;
-    width: auto;
-    max-width: 100%;
-    border-radius: 0;
-  }
+  .button-elements({
+    width: 100%;
+    margin-bottom: @padding;
 
-  aside { max-width: @content-max-width;}
+    &:last-child {
+      margin-bottom: 0;
+    }
 
-  .semantic-classes({
-    padding: @padding;
-  });
-
-  .on-large-phone({
-    -webkit-align-items: flex-end;
-    align-items: flex-end;
-    -webkit-justify-content: flex-end;
-    justify-content: flex-end;
+    .on-tablet({
+      width: auto;
+      margin-bottom: 0;
+    });
   });
 }

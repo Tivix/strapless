@@ -4,30 +4,38 @@
 
 .headline-elements({
   margin-top: 1em;
-  margin-bottom: 1em;
-  text-align: center;
-  line-height: @line-height;
-  font-weight: bold;
-
-  &:only-child {
-    margin-top: 0;
-  }
+  margin-bottom: .6em;
+  line-height: @line-height*.75;
+  font-weight: normal;
 });
 
-h1 { font-size: 2.5em;}
-h2 { font-size: 2.2em;}
-h3 { font-size: 1.9em;}
-h4 { font-size: 1.7em;}
-h5 { font-size: 1.3em;}
-h6 { font-size: 1.1em;}
+@h1-base: 2.8;
+@h2-base: 2.2;
+@h3-base: 1.8;
+@h4-base: 1.4;
+@h5-base: 1.2;
+@h6-base: 1;
 
-h1, h2, h3, h4 {
-  & + & {
-    margin-top: 0;
-  }
-}
+// some fallbacks
+h1 { font-size: @h1-base * 1em;}
+h2 { font-size: @h2-base * 1em;}
+h3 { font-size: @h3-base * 1em;}
+h4 { font-size: @h4-base * 1em;}
+h5 { font-size: @h5-base * 1em;}
+h6 { font-size: @h6-base * 1em;}
 
-h5, h6 {
-  margin-top: .5em;
-  text-transform: uppercase;
-}
+h1 { font-size: ~"calc(@{font-size} + @{h1-base}vw)";}
+h2 { font-size: ~"calc(@{font-size} + @{h2-base}vw)";}
+h3 { font-size: ~"calc(@{font-size} + @{h3-base}vw)";}
+h4 { font-size: ~"calc(@{font-size} + @{h4-base}vw)";}
+h5 { font-size: ~"calc(@{font-size} + @{h5-base}vw)";}
+h6 { font-size: ~"calc(@{font-size} + @{h6-base}vw)";}
+
+.on-desktop({
+  h1 { font-size: @font-size + @desktop*@h1-base/100;}
+  h2 { font-size: @font-size + @desktop*@h2-base/100;}
+  h3 { font-size: @font-size + @desktop*@h3-base/100;}
+  h4 { font-size: @font-size + @desktop*@h4-base/100;}
+  h5 { font-size: @font-size + @desktop*@h5-base/100;}
+  h6 { font-size: @font-size + @desktop*@h6-base/100;}
+});

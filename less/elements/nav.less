@@ -1,139 +1,112 @@
 nav {
-  @color: @base-color;
+  @color: @color1a;
   @height: @nav-height;
 
-  .set-yellow-distance(@color) {
-    .set-distance(@color, yellow);
-    @yellow-distance: @distance;
-  }
+  &:extend(section all);
 
-  .set-orange-distance(@color) {
-    .set-distance(@color, orange);
-    @orange-distance: @distance;
-  }
-
-  .set-lemon-distance(@color) {
-    .set-distance(@color, LemonChiffon);
-    @lemon-distance: @distance;
-  }
-
-  .set-mid-yellow-distance(@color) {
-    .set-distance(@color, #E6EB6A);
-    @mid-yellow-distance: @distance;
-  }
-
-  .nav-color() when (@orange-distance < 150),
-                    (@yellow-distance < 100),
-                    (@mid-yellow-distance < 100),
-                    (@lemon-distance < 50) {
-    // orange and yellow lose theme cohesion when darkened
-    // keep them as bg and shade text
-    background: @color;
-    .shade-text-against(@color);
-
-    li a:active {
-      .invert-text-against(@color; @button: true);
-    }
-  }
-
-  .nav-color() when (default()) {
-    .invert-text-against(@color);
-
-    li a:active {
-      .invert-text-against(@color; @button: true);
-    }
-  }
-  
-  .set-yellow-distance(@color);
-  .set-lemon-distance(@color);
-  .set-orange-distance(@color);
-  .set-mid-yellow-distance(@color);
-  .nav-color();
   height: @height;
-  line-height: @height*10;
-  font-size: 18px;
   max-height: @height;
-  padding: 0;
-  margin-bottom: @padding;
-  & when (@sticky-nav = true) { border-radius: @border-radius;}
-  z-index: 1000;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   overflow: hidden;
-
-  > section {
-    padding: 0;
-    max-width: @content-max-width;
-  }
-
-  > section > * { // pseudo reset
-    display: none;
-    float:left;
-    position: relative;
-    border: none;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    height: @height;
-    vertical-align: middle;
-    overflow: hidden;
-
-    .on-tablet({
-      display: block;
-    });
-
-    &:first-child {
-      display: block;
-      margin-right: @padding * 2;
-
-      .on-large-phone({
-        margin-right: @height;
-      });
-    }
-
-    &:last-child {
-      display: block;
-      float: right;
-      line-height: @height - 6;
-    }
-  }
-
-  ul {
-    height: @height;
-  }
-
-  li {
-    float:left;
-    height: @height;
-    line-height: @height;
-    list-style: none;
-
-    a {
-      display: block;
-      float: left;
-      color: inherit;
-    }
-  }
-
-  a { 
-    text-decoration: none;
-    padding-left: @padding;
-    padding-right: @padding;
-  }
-
-  h1 {
-    display: block;
-    float: left;
-    font-size: 26px;
-    line-height: @height;
-    padding: 0;
-    color: inherit;
-  }
+  z-index: 10;
 
   & when (@sticky-nav = true) {
+    margin-bottom: 0;
     position: fixed; top: 0; left: 0;
     width: 100%;
     border-radius: 0;
   }
 
+  & when not (@sticky-nav = true) {
+    .border-radius();
+  }
+
+  > ul {
+    float: right;
+    line-height: @height;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    > li {
+      float:left;
+      list-style: none;
+      margin: 0;
+
+      a {
+        display: block;
+        color: inherit;
+        padding-left: @padding;
+        padding-right: @padding;
+      }
+    }
+
+    .on-desktop({
+      min-width: @aside-width;
+    });
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  h1 {
+    display: block;
+    float: left;
+    margin-top: 0;
+    font-size: floor(@font-size*1.6);
+    line-height: @height;
+    padding: 0;
+    color: inherit;
+  }
+
+  .set-yellow-distance(@color);
+  .set-lemon-distance(@color);
+  .set-orange-distance(@color);
+  .set-mid-yellow-distance(@color);
+  .nav-color();
+
   .no-user-select();
+}
+
+.set-yellow-distance(@color) {
+  .set-distance(@color, yellow);
+  @yellow-distance: @distance;
+}
+
+.set-orange-distance(@color) {
+  .set-distance(@color, orange);
+  @orange-distance: @distance;
+}
+
+.set-lemon-distance(@color) {
+  .set-distance(@color, LemonChiffon);
+  @lemon-distance: @distance;
+}
+
+.set-mid-yellow-distance(@color) {
+  .set-distance(@color, #E6EB6A);
+  @mid-yellow-distance: @distance;
+}
+
+.nav-color() when (@orange-distance < 175),
+                  (@yellow-distance < 100),
+                  (@mid-yellow-distance < 100),
+                  (@lemon-distance < 50) {
+  // orange and yellow lose theme cohesion when darkened
+  // keep them as bg and shade text
+  background: @color;
+  .contrast-text-against(@color);
+
+  li a:active {
+    .colorize(darken(@color, 5%));
+  }
+}
+
+.nav-color() when (default()) {
+  .invert-text-against(@color; @contrast-standard: 3;);
+
+  li a:active {
+    .invert-text-against(@color; @contrast-standard: 3; @button: true;);
+  }
 }

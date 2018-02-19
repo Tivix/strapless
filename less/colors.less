@@ -1,86 +1,89 @@
+// color constants
+
+@complement: 180deg;
+@triadic-pair: 120deg;
+@accent: 45deg;
+@analog: 15deg;
+
+// color wheels
+
+@accented:        @complement,
+                  @accent,
+                  -@accent;
+
+@complementary:   @complement,
+                  @analog,
+                  @complement + @analog;
+
+@complementary-b: @complement,
+                  -@analog,
+                  @complement - @analog;
+
+@triadic:         -@triadic-pair,
+                  @triadic-pair,
+                  @analog;
+
+@triadic-b:       -@triadic-pair,
+                  @triadic-pair,
+                  -@analog;
+
+@tetradic:        @complement,
+                  @accent,
+                  @complement + @accent;
+
+@tetradic-b:      @complement,
+                  -@accent,
+                  @complement - @accent;
+
+@square:          @complement,
+                  -@complement/2,
+                  @complement/2;
+
+@ebb:             @complement + @analog,
+                  @analog,
+                  @accent;
+
+@flow:            @complement - @analog,
+                  -@analog,
+                  -@accent;
+
+@monochromatic:   @accent/2,
+                  @analog/2,
+                  -@analog/2;
+
+@monochromatic-b: -@accent/2,
+                  @analog/2,
+                  -@analog/2;
+
 .make-palette(@base-color, @base-color-wheel);
 
 .make-palette(@color; @wheel) {
   // make all variables for a color palette
-  .load-color-wheels();
   .set-scheme-type(@color);
-  .make-main-colors(@color; @wheel);
+  .make-color1(@color);
+  .make-color2(@color; @wheel);
+  .make-color3(@color; @wheel);
+  .make-color4(@color; @wheel);
   .make-subcolors(@color1; @color2; @color3; @color4; @scheme-type);
   .make-grays(@color; @scheme-type);
-  .make-action-colors(@color, @color1, @color1b);
-  .make-reaction-colors(@action, @color2, @color3);
+  .make-semantic-colors();
 }
 
 .make-palette(@color: @base-color; @wheel: @base-color-wheel) when (saturation(@color) < 1.5%) {
   // for grays, set up working color2, 3 and 4 and then reinforce gray color1
-  @standin-base: spin(#ABD0F7, 180);
-  .make-palette(average(@color, @standin-base); @wheel); // @color is always gray so this desaturates
-  @color1: @color;
-  .set-a-color(@color1);
-  .set-b-color(@color1);
-  .set-c-color(@color1);
-  @color1a: greyscale(@a-color);
-  @color1b: greyscale(@b-color);
-  @color1c: greyscale(@c-color);
-}
-
-.load-color-wheels() {
-  // color wheel color positions
-
-  @complement: 180deg;
-  @triadic-pair: 120deg;
-  @accent: 45deg;
-  @analog: 15deg;
-
-  // color wheels
-
-  @accented:        @complement,
-                    @accent,
-                    -@accent;
-
-  @complementary:   @complement,
-                    @analog,
-                    @complement + @analog;
-
-  @complementary-b: @complement,
-                    -@analog,
-                    @complement - @analog;
-
-  @triadic:         -@triadic-pair,
-                    @triadic-pair,
-                    @analog;
-
-  @triadic-b:       -@triadic-pair,
-                    @triadic-pair,
-                    -@analog;
-
-  @tetradic:        @complement,
-                    @accent,
-                    @complement + @accent;
-
-  @tetradic-b:      @complement,
-                    -@accent,
-                    @complement - @accent;
-
-  @square:          @complement,
-                    -@complement/2,
-                    @complement/2;
-
-  @ebb:             @complement + @analog,
-                    @analog,
-                    @accent;
-
-  @flow:            @complement - @analog,
-                    -@analog,
-                    -@accent;
-
-  @monochromatic:   @accent/2,
-                    @analog/2,
-                    -@analog/2;
-
-  @monochromatic-b: -@accent/2,
-                    @analog/2,
-                    -@analog/2;
+  @standin-base: #D76224;
+  .set-lumafix(@standin-base);
+  .make-palette(@lumafix; @wheel);
+  @color1: @base-color;
+  .set-a-color(@base-color);
+  .set-b-color(@base-color);
+  .set-c-color(@base-color);
+  @color1a: desaturate(@a-color, 100% - saturation(@color));
+  @color1b: desaturate(@b-color, 100% - saturation(@color));
+  @color1c: desaturate(@c-color, 100% - saturation(@color));
+  @warning: @warning-base;
+  @failure: @failure-base;
+  @info: @info-base;
 }
 
 .set-scheme-type(@color) {
@@ -113,120 +116,260 @@
   .set-scheme-type();
 }
 
-.make-main-colors(@color; @wheel) {
-  // makes the four main colors
 
-  @wheel-var: @@wheel;
+.set-a-color(@color, @compare: @color) {
+
+  // a lighter version of the color
+  // @color1a, @color3a etc are examples of a-colors
+
+  @iterations: 10;
+
+  .settings() when (@scheme-type = light) {
+    @contrast-standard: 1.1;
+    @initial-lighten: 1%;
+  }
+
+  .settings() when (@scheme-type = dark) {
+    @contrast-standard: 1.1;
+    @initial-lighten: 2.5%;
+  }
+
+  .settings() when (default()) {
+    @contrast-standard: 1.25;
+    @initial-lighten: 5%;
+  }
+
+  .set-a(@a, @contrast-ratio, @index) when (@index <= @iterations)
+                                       and (@contrast-ratio < @contrast-standard)
+                                       and (luma(@a) < 90%) {
+    // loop through this until @contrast-standard is met
+    @new-a: lighten(@a, 3.5%);
+    .set-contrast-ratio(@color, @new-a);
+    .set-a(@new-a, @contrast-ratio, @index + 1);
+  }
+
+  .set-a(@a, @contrast-ratio, @index) when (default()) {
+    // set @a-color when conditions are finally met (or iterations run out)
+    @a-color: @a;
+  }
+
+  // load settings
+  .settings();
+
+  // grab a couple near analogs and figure out which is closer
+  .set-closer-farther(@compare; spin(@color, @analog/2); spin(@color, -@analog/2));
+
+  // use the closer color as base for a-color
+  .set-a(lighten(@closer, @initial-lighten), 1, 1);
+}
+
+.set-b-color(@color; @compare: @base-color; @nearness: @analog;) {
+
+  // a similar luma alternate
+
+  // grab both nearby analogs
+  @b1: spin(@color, @nearness);
+  @b2: spin(@color, -@nearness);
+
+  // use whichever is closer to the original
+  .set-closer-farther(@color; @b1; @b2;);
+  @b-base: @closer;
+
+  // adjust b's luma to match
+  .set-lumafix(@b-base; @color;);
+  @b-color: @lumafix;
+}
+
+.set-c-color(@color, @compare: @color, @scheme: @scheme-type) {
+
+  @iterations: 10;
+
+  // a darker version of the color
+
+  .settings() when (@scheme = light) {
+    @contrast-standard: 1.1;
+    @initial-darken: 1%;
+  }
+
+  .settings() when (@scheme = dark) {
+    @contrast-standard: 1.1;
+    @initial-darken: 2.5%;
+  }
+
+  .settings() when (default()) {
+    @contrast-standard: 1.25;
+    @initial-darken: 5%;
+  }
+
+  .set-c(@c, @contrast-ratio, @index) when (@index <= @iterations)
+                                       and (@contrast-ratio < @contrast-standard) {
+    @new-c: darken(@c, 2%);
+    .set-contrast-ratio(@color, @new-c);
+    .set-c(@new-c, @contrast-ratio, @index + 1);
+  }
+
+  .set-c(@c, @contrast-ratio, @index) when (default()) {
+    @c-color: @c;
+  }
+
+  @initial-c: darken(@color, @initial-darken);
+
+  .settings();
+  .set-contrast-ratio(@color, @initial-c);
+  .set-closer-farther(@compare; spin(@initial-c, @analog/2); spin(@initial-c, -@analog/2));
+  .set-c(@initial-c, @contrast-ratio, 1);
+}
+
+.make-color1(@color) {
   @color1: @color;
-  @color2: spin(@color, extract(@wheel-var, 1));
-  @color3: spin(@color, extract(@wheel-var, 2));
-  @color4: spin(@color, extract(@wheel-var, 3));
+}
+
+.make-color2(@color; @wheel) {
+  .set-lumafix(spin(@color, extract(@wheel, 1)););
+  @color2: @lumafix;
+}
+
+.make-color3(@color; @wheel) {
+  .set-lumafix(spin(@color, extract(@wheel, 2)););
+  @color3: @lumafix;
+}
+
+.make-color4(@color; @wheel) {
+  .set-lumafix(spin(@color, extract(@wheel, 3)););
+  @color4: @lumafix;
 }
 
 .make-subcolors(@c1; @c2; @c3; @c4; @scheme-type) {
-  
-  .make-color1a() { 
+
+  .make-color1a() {
     .set-a-color(@c1);
     @color1a: @a-color;
   }.make-color1a();
 
-  .make-color1b() { 
+  .make-color1b() {
     .set-b-color(@c1);
     @color1b: @b-color;
   }.make-color1b();
 
-  .make-color1c() { 
+  .make-color1c() {
     .set-c-color(@c1);
     @color1c: @c-color;
   }.make-color1c();
 
-  .make-color2a() { 
-    .set-a-color(@c2; @color1a);
-    @color2a: @a-color;
+  .make-color2a() {
+    .set-a-color(@c2);
+    .set-lumafix(@a-color; @color1a;);
+    @color2a: @lumafix;
   }.make-color2a();
 
-  .make-color2b() { 
-    .set-b-color(@c2; @color1);
+  .make-color2b() {
+    .set-b-color(@c2);
     @color2b: @b-color;
   }.make-color2b();
 
-  .make-color2c() { 
-    .set-c-color(@c2; @color1c);
-    @color2c: @c-color;
+  .make-color2c() {
+    .set-c-color(@c2);
+    .set-lumafix(@c-color; @color1c;);
+    @color2c: @lumafix;
   }.make-color2c();
 
-  .make-color3a() { 
+  .make-color3a() {
     .set-a-color(@c3);
-    @color3a: @a-color;
+    .set-lumafix(@a-color; @color1a;);
+    @color3a: @lumafix;
   }.make-color3a();
 
-  .make-color3b() { 
+  .make-color3b() {
     .set-b-color(@c3);
     @color3b: @b-color;
   }.make-color3b();
 
-  .make-color3c() { 
+  .make-color3c() {
     .set-c-color(@c3);
-    @color3c: @c-color;
+    .set-lumafix(@c-color; @color1c;);
+    @color3c: @lumafix;
   }.make-color3c();
 
-  .make-color4a() { 
-    .set-a-color(@c4; @color3a);
-    @color4a: @a-color;
+  .make-color4a() {
+    .set-a-color(@c4);
+    .set-lumafix(@a-color; @color1a;);
+    @color4a: @lumafix;
   }.make-color4a();
 
-  .make-color4b() { 
-    .set-b-color(@c4, @color3);
+  .make-color4b() {
+    .set-b-color(@c4);
     @color4b: @b-color;
   }.make-color4b();
 
-  .make-color4c() { 
-    .set-c-color(@c4; @color3c);
-    @color4c: @c-color;
+  .make-color4c() {
+    .set-c-color(@c4);
+    .set-lumafix(@c-color; @color1c;);
+    @color4c: @lumafix;
   }.make-color4c();
 }
 
-.make-action-colors(@base: @base-color, @c1, @c2) {
+.make-semantic-colors() {
 
-  @success-base: #51ad51;
-  @info-base: #43a3e6;
+  .set-action-midpoint() {
+    @action-midpoint-base: average(@success-base, @info-base);
+    .set-lumafix(@action-midpoint-base);
+    @action-midpoint: @lumafix;
+  }
 
-  @success: average(@success-base, hsl(hue(@success-base), saturation(@base), lightness(@base)));
-  @info:    average(@info-base, hsl(hue(@info-base), saturation(@base), lightness(@base)));
+  .set-reaction-midpoint() {
+    @reaction-midpoint-base: average(@warning-base, @failure-base);
+    .set-lumafix(@reaction-midpoint-base);
+    @reaction-midpoint: @lumafix;
+  }
 
-  @success-info-midpoint: average(@info, @success);
+  .set-action-midpoint();
+  .set-reaction-midpoint();
 
-  .set-closer-farther(@success-info-midpoint, @c1, @c2);
-    @action-base: @closer;
+  .set-info() {
+    .set-lumafix(@info-base; @base-color;);
+    @info: mix(@lumafix, @info-base, 75%);
+  }
 
-  @action-sat: (saturation(@info) + saturation(@success))/2;
-  @action-lit: (lightness(@info) + lightness(@success))/2;
+  .set-warning() {
+    .set-lumafix(@warning-base; @base-color;);
+    @warning: mix(@lumafix, @warning-base, 35%);
+  }
 
-  @action: average(@action-base, hsl(hue(@action-base), @action-sat, @action-lit));
-}
+  .set-success() {
+    .set-lumafix(@success-base; @base-color;);
+    @success: mix(@lumafix, @success-base, 50%);
+  }
 
-.make-reaction-colors(@base: @base-color, @r1, @r2) {
+  .set-failure() {
+    .set-lumafix(@failure-base; @base-color;);
+    @failure: mix(@lumafix, @failure-base, 20%);
+  }
 
-  @failure-base: #e11d1d;
-  @warning-base: #ff6b23;
+  .set-action() {
+    .set-closer-farther(@action-midpoint, @color1b, @color3);
+    .set-average(@info, @warning, @failure, @success;);
+    .set-lumafix(@closer, @average);
+    @action: @lumafix;
+  }
 
-  @failure:   average(@failure-base, hsl(hue(@failure-base), saturation(@base), lightness(@base)));
-  @warning:   average(@warning-base, hsl(hue(@warning-base), saturation(@base), lightness(@base)*1.2));
+  .set-reaction() {
+    .set-closer-farther(@reaction-midpoint, @color2, @color4);
+    .set-average(@info, @warning, @failure, @success;);
+    .set-lumafix(@closer, @average);
+    @reaction: @lumafix;
+  }
 
-  @success-info-midpoint: average(@info, @success);
-
-  .set-closer-farther(@success-info-midpoint, @r1, @r2);
-    @reaction-base: @farther;
-  
-  @reaction-sat: (saturation(@warning) + saturation(@failure))/2;
-  @reaction-lit: (lightness(@warning) + lightness(@failure))*.9/2;
-
-  @reaction: average(@reaction-base, hsl(hue(@reaction-base), @reaction-sat, @reaction-lit));
+  .set-info();
+  .set-warning();
+  .set-success();
+  .set-failure();
+  .set-action();
+  .set-reaction();
 }
 
 .make-grays(@color, @scheme-type) {
   @gray-base: mix(desaturate(@color, 80%), #515151, 75%);
-  @gray-step: 10%;
+  @gray-step: 12.5%;
 
   @gray-bases:  @gray-lightest-base,
                 @gray-lighter-base,
@@ -239,11 +382,11 @@
 
   @gray-light-base:             lighten(@gray-base; @gray-step);
   @gray-lighter-base:           lighten(@gray-base; @gray-step*2);
-  @gray-lightest-base:          lighten(@gray-base; @gray-step*3);
+  @gray-lightest-base:          lighten(@gray-base; @gray-step*4);
 
   @gray-dark-base:              darken(@gray-base; @gray-step);
   @gray-darker-base:            darken(@gray-base; @gray-step*2);
-  @gray-darkest-base:           darken(@gray-base; @gray-step*3);
+  @gray-darkest-base:           darken(@gray-base; @gray-step*4);
 
   .set-gray-shift() when (@scheme-type = light) {
     @gray-shift: 3;

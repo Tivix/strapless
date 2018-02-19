@@ -1,29 +1,30 @@
-.button-elements(@rules) {
-  button, 
-  .button, 
-  input[type="button"],
-  input[type="submit"] { @rules();}
-}
-
 .button-elements({
   display: inline-block;
+  font-size: 112.5%;
   text-align: center;
   vertical-align: middle;
   min-height: 32px;
-  padding: .6em @padding;
+  line-height: @line-height;
+  padding: 0.4em .8em;
   touch-action: manipulation;
-  cursor: pointer; 
+  cursor: pointer;
   background-image: none;
-  border: 1px solid transparent;
-  border-radius: @border-radius;
+  border: none;
+  .border-radius();
   outline: none;
   white-space: nowrap;
   text-decoration: none;
-  line-height: 1.15;
-  .invert-text-against(@base-color, @button: true);
+  .button-color(@color1c);
   .make-buttons-for(@semantic-colors);
   .no-user-select();
 });
+
+.button-elements(@rules) {
+  button,
+  .button,
+  input[type="button"],
+  input[type="submit"] { @rules();}
+}
 
 .make-buttons-for(@colors) {
   // make buttons for a list of color variable names
@@ -36,10 +37,16 @@
   .make-button(@index:1) when (@index <= @length) {
     @color-name: extract(@colors, @index);
     @color: @@color-name;
-    
-    .@{color-name} & { .invert-text-against(@color, @button: true);}
-    &.@{color-name} { .invert-text-against(@color, @button: true) !important;}
+
+    .set-c-color(@color);
+
+    &.@{color-name} { .button-color(@color);}
 
     .make-button(@index + 1);
   }
+}
+
+.button-color(@color) when (default()) {
+  .set-lumafix(@color);
+  .invert-text-against(@lumafix; @contrast-standard: 3; @button: true;);
 }

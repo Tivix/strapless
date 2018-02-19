@@ -1,32 +1,39 @@
-span, a {
+span {
 
-  .span-color(@color) {
-    background: transparent;
-    .color-text(@color);
+  &.padding {
+    padding: .18em @padding/2 .22em @padding/2;
   }
 
-  .make-spans-for(@colors) {
-    // make spans for a list of color variable names
-
-    @length: length(@colors);
-
-    .make-span();
-
-    .make-span(@index:1) when (@index <= @length) {
-      @color-name: extract(@colors, @index);
-      @color: @@color-name;
-
-      &.@{color-name} { .span-color(@color);}
-
-      .make-span(@index + 1);
-    }
-  }
+  .semantic-classes({
+    padding: .18em @padding/2 .22em @padding/2;
+  });
 
   .make-spans-for(@semantic-colors);
 }
 
-span {
-  .semantic-classes({
-    font-weight: bold;
-  });
+.span-color(@color) when (@scheme-type = light) {
+  .set-c-color(@color);
+  .colorize(@c-color);
+}
+
+.span-color(@color) when (@scheme-type = dark) {
+  .set-a-color(@color);
+  .colorize(@a-color);
+}
+
+.make-spans-for(@colors) when (@scheme-type = dark), (@scheme-type = light) {
+  // make spans for a list of color variable names
+
+  @length: length(@colors);
+
+  .make-span();
+
+  .make-span(@index:1) when (@index <= @length) {
+    @color-name: extract(@colors, @index);
+    @color: @@color-name;
+
+    &.@{color-name} { .span-color(@color);}
+
+    .make-span(@index + 1);
+  }
 }

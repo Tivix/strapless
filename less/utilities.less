@@ -1,7 +1,27 @@
-// utilities
+// utility classes
+// these have corresponding mixins
 
 .hide, .hidden { display: none !important;}
 
-.clearfix { .clearfix();}
+.max-width { max-width: @max-width;}
+
+.margin-bottom { margin-bottom: @margin;}
+
+.border-radius { border-radius: @border-radius;}
+
+.clearfix {
+  clear: both;
+  &:after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+.padding {
+  padding: @padding;
+}
 
 .make-color-classes-for(@semantic-colors);
+.make-color-classes-for(@all-colors);
+.make-color-classes-for(@grays);

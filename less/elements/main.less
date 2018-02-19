@@ -1,86 +1,99 @@
 main {
-  padding: @padding;
-  max-width: (670 + @content-max-width)/2;
-  margin: 0 auto;
-  margin-bottom: 1em;
-  text-align: center;
+  &:extend(section all);
+  .margin-bottom();
+  min-height: 100vh;
 
-  @inverted-support: false;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: left;
+  align-items: left;
+  -webkit-justify-content: center;
+  justify-content: center;
+
+  font-size: 112.5%;
+
+  * {
+    max-width: none;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 
   > * {
-    margin-bottom: @padding;
+    max-width: @page-width;
   }
 
-  p { text-align: left;}
-
-  h1, h2 {
-    text-align: center; 
-
-    & + p {
-      text-align: center;
-      font-size: 125%;
-      margin-bottom: 1em;
-    }
+  &:last-child {
+    margin-bottom: 0;
   }
 
-  img {
-    margin: 0 auto;
-    max-width: 100%;
-  }
+  @h1-base: 2.5;
+  @h2-base: 1.75;
+  @h3-base: 1.25;
+  @h4-base: 1;
+  @h5-base: .75;
+  @h6-base: .25;
 
-  section > & {
-    border-radius: @border-radius;
-  }
+  h1 { font-size: ~"calc(@{font-size} + @{h1-base}vw)";}
+  h2 { font-size: ~"calc(@{font-size} + @{h2-base}vw)";}
+  h3 { font-size: ~"calc(@{font-size} + @{h3-base}vw)";}
+  h4 { font-size: ~"calc(@{font-size} + @{h4-base}vw)";}
+  h5 { font-size: ~"calc(@{font-size} + @{h5-base}vw)";}
+  h6 { font-size: ~"calc(@{font-size} + @{h6-base}vw)";}
 
-  .headline-elements({
-    margin-bottom: .62em;
+  .on-large-desktop({
+    // headlines stop growing at large-desktop breakpoint
+    h1 { font-size: @font-size + @large-desktop*@h1-base/100;}
+    h2 { font-size: @font-size + @large-desktop*@h2-base/100;}
+    h3 { font-size: @font-size + @large-desktop*@h3-base/100;}
+    h4 { font-size: @font-size + @large-desktop*@h4-base/100;}
+    h5 { font-size: @font-size + @large-desktop*@h5-base/100;}
+    h6 { font-size: @font-size + @large-desktop*@h6-base/100;}
   });
-
-  .button-elements({
-    font-size: 110%;
-    &:only-child { font-size: 125%; margin-bottom: 1em;}
-  });
-
-  .modal-breakpoint(@rules) {
-    @media screen and (min-width: @content-max-width) { @rules();}
-  }
-
-  .modal-breakpoint({
-    border-radius: @border-radius;
-  });
-
-  .make-main-colors-for(@colors) {
-    // make main colors for a list of color variable names
-    // mains will use variable names as class names
-
-    @iterations: length(@colors);
-
-    .make-main-color(1);
-
-    .make-main-color(@index) when (@index <= @iterations) {
-
-      @color-name: extract(@colors, @index);
-      @this-color: @@color-name;
-
-      &.@{color-name} {
-        .main-color(@this-color);
-      }
-
-      .make-main-color(@index + 1);
-    }
-  }
-
-  .main-color(@color) {
-    .set-tone(@color);
-    .set-a-color(@color);
-    .colorize(@a-color);
-
-    &.inverted when (@tone = black) and (@inverted-support = true) {
-      .invert-text-against(@color);
-    }
-  }
 
   .main-color(@base-color);
 
   .make-main-colors-for(@semantic-colors);
+}
+
+.make-main-colors-for(@colors) {
+  // make main colors for a list of color variable names
+  // mains will use variable names as class names
+
+  @iterations: length(@colors);
+
+  .make-main-color(1);
+
+  .make-main-color(@index) when (@index <= @iterations) {
+
+    @color-name: extract(@colors, @index);
+    @this-color: @@color-name;
+
+    &.@{color-name} {
+      .main-color(@this-color);
+    }
+
+    .make-main-color(@index + 1);
+  }
+}
+
+.main-color(@color) {
+  .set-c-color(@color);
+  .dots(@c-color); // dots pattern background
+  .contrast-text-against(@c-color);
+}
+
+.main-color(@color) when (@color = @warning) {
+  & when (@contrast-ratio > 3) {
+    h1, h2, h3 { .contrast-text-against(@color; 3; @mode: tint;);}
+  }
+}
+
+.main-color(@color) when (@color = @failure) {
+  & when (@contrast-ratio > 3) {
+    h1, h2, h3 { .contrast-text-against(@color; 3; @mode: tint;);}
+  }
 }
